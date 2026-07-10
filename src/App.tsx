@@ -20,6 +20,12 @@ import BlogPage from "./components/blog/BlogPage";
 import BlogPostDetail from "./components/blog/BlogPostDetail";
 import NewsPage from "./components/news/NewsPage";
 import CookiePolicyPage from "./components/legal/CookiePolicyPage";
+import PlatformPage from "./components/platform/PlatformPage";
+import ProductsPage from "./components/products/ProductsPage";
+import DocsPage from "./components/docs/DocsPage";
+import PricingPage from "./components/pricing/PricingPage";
+import CareersPage from "./components/careers/CareersPage";
+import SecurityPage from "./components/security/SecurityPage";
 import './App.css';
 
 const App: React.FC = () => {
@@ -366,6 +372,14 @@ const App: React.FC = () => {
               <Route path="/news" element={<NewsPage />} />
               <Route path="/cookies" element={<CookiePolicyPage />} />
               <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+              <Route path="/platform" element={<PlatformPage />} />
+              <Route path="/products" element={<ProductsPage />} />
+              <Route path="/developers" element={<DevelopersPage />} />
+              <Route path="/docs" element={<DocsPage />} />
+              <Route path="/documentation" element={<DocsPage />} />
+              <Route path="/pricing" element={<PricingPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/security" element={<SecurityPage />} />
             </Routes>
           </AnimatePresence>
         </main>
