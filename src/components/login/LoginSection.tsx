@@ -9,6 +9,9 @@ const LoginSection: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [showGoogleModal, setShowGoogleModal] = useState<boolean>(false);
+  const [isGoogleConnecting, setIsGoogleConnecting] = useState<boolean>(false);
+  const [googleEmail, setGoogleEmail] = useState<string>("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -86,7 +89,9 @@ const LoginSection: React.FC = () => {
                   <span className="text-2xl">✨</span>
                   <h3 className="text-sm font-bold text-gray-900 dark:text-white">Authentication Successful</h3>
                   <p className="text-xs text-gray-500 dark:text-gray-400">
-                    Welcome back! Redirecting you to your workspace dashboard...
+                    {email.includes("gmail.com") || email.includes("google") 
+                      ? `Successfully authenticated and connected Google Mail user: ${email}`
+                      : "Welcome back! Redirecting you to your workspace dashboard..."}
                   </p>
                   <Link
                     to="/"
@@ -178,6 +183,7 @@ const LoginSection: React.FC = () => {
                 </button>
                 <button
                   type="button"
+                  onClick={() => setShowGoogleModal(true)}
                   className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
                 >
                   <span>Google</span>
@@ -212,6 +218,125 @@ const LoginSection: React.FC = () => {
           )}
         </div>
       </motion.div>
+
+      {/* Google Sign In Modal */}
+      <AnimatePresence>
+        {showGoogleModal && (
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-sm">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.95 }}
+              className="bg-white dark:bg-[#161617] w-full max-w-sm rounded-3xl p-6 border border-gray-150 dark:border-white/[0.06] shadow-2xl space-y-6"
+            >
+              {/* Google Brand Logo Mock */}
+              <div className="flex flex-col items-center text-center space-y-2">
+                <div className="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-850 flex items-center justify-center border border-gray-100 dark:border-gray-800">
+                  <svg className="w-5 h-5" viewBox="0 0 24 24">
+                    <path
+                      fill="#EA4335"
+                      d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.54 14.98 1 12 1 7.35 1 3.39 3.67 1.52 7.57l3.8 2.95C6.23 7.37 8.87 5.04 12 5.04z"
+                    />
+                    <path
+                      fill="#4285F4"
+                      d="M23.49 12.27c0-.81-.07-1.59-.2-2.36H12v4.47h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.73-4.92 3.73-8.56z"
+                    />
+                    <path
+                      fill="#FBBC05"
+                      d="M5.32 14.48c-.23-.69-.36-1.43-.36-2.2s.13-1.51.36-2.2l-3.8-2.95C.57 8.92 0 10.4 0 12s.57 3.08 1.52 4.87l3.8-2.87c-.23-.69-.36-1.43-.36-2.2z"
+                    />
+                    <path
+                      fill="#34A853"
+                      d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.12.75-2.55 1.19-4.26 1.19-3.13 0-5.77-2.33-6.68-5.48l-3.8 2.95C3.39 20.33 7.35 23 12 23z"
+                    />
+                  </svg>
+                </div>
+                <h3 className="text-base font-bold text-gray-900 dark:text-white">Sign in with Google</h3>
+                <p className="text-xs text-gray-500 dark:text-gray-400">to continue to Amthromax</p>
+              </div>
+
+              {isGoogleConnecting ? (
+                <div className="flex flex-col items-center justify-center py-6 space-y-4">
+                  <span className="inline-block w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400">Connecting to Google Mail...</p>
+                </div>
+              ) : (
+                <div className="space-y-3">
+                  {/* Account List */}
+                  {[
+                    "kishorekanth@gmail.com",
+                    "admin@amthromax.com"
+                  ].map((emailOpt, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      onClick={() => {
+                        setIsGoogleConnecting(true);
+                        setTimeout(() => {
+                          setIsGoogleConnecting(false);
+                          setShowGoogleModal(false);
+                          setEmail(emailOpt);
+                          setPassword("••••••••••••");
+                          setIsSuccess(true);
+                        }, 1200);
+                      }}
+                      className="w-full p-3 rounded-xl border border-gray-150 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-all text-left flex items-center justify-between group"
+                    >
+                      <div className="flex items-center space-x-3">
+                        <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 font-bold text-xs flex items-center justify-center">
+                          {emailOpt[0].toUpperCase()}
+                        </div>
+                        <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{emailOpt}</span>
+                      </div>
+                      <span className="text-[10px] text-gray-400 group-hover:text-gray-600 transition-colors">Select</span>
+                    </button>
+                  ))}
+
+                  {/* Manual input option */}
+                  <div className="pt-2 border-t border-gray-100 dark:border-gray-800">
+                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Use another account</label>
+                    <div className="flex gap-2">
+                      <input
+                        type="email"
+                        placeholder="username@gmail.com"
+                        value={googleEmail}
+                        onChange={(e) => setGoogleEmail(e.target.value)}
+                        className="flex-1 px-3 py-2 text-xs rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none"
+                      />
+                      <button
+                        type="button"
+                        onClick={() => {
+                          if (!googleEmail) return;
+                          setIsGoogleConnecting(true);
+                          setTimeout(() => {
+                            setIsGoogleConnecting(false);
+                            setShowGoogleModal(false);
+                            setEmail(googleEmail);
+                            setPassword("••••••••••••");
+                            setIsSuccess(true);
+                          }, 1200);
+                        }}
+                        className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-xl text-xs font-bold"
+                      >
+                        Sign In
+                      </button>
+                    </div>
+                  </div>
+
+                  {/* Close button */}
+                  <button
+                    type="button"
+                    onClick={() => setShowGoogleModal(false)}
+                    className="w-full text-center text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 pt-2 transition-colors"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
