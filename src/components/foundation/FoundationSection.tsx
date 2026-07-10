@@ -147,7 +147,7 @@ const FoundationSection: React.FC = () => {
           >
             <div className="rounded-3xl overflow-hidden aspect-[16/10] bg-gray-50 dark:bg-gray-900 shadow-md">
               <img
-                src="/life_sciences.png"
+                src="/images/7cf36cb9b2a640777012b49b3830c1be.jpg"
                 alt="Life Sciences Research"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
@@ -171,7 +171,7 @@ const FoundationSection: React.FC = () => {
           >
             <div className="rounded-3xl overflow-hidden aspect-[16/10] bg-gray-50 dark:bg-gray-900 shadow-md">
               <img
-                src="/ai_resilience.png"
+                src="/images/39e3c8d5547442fe59e6053b3c08d000.jpg"
                 alt="AI Resilience and Ethics Collaboration"
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               />
