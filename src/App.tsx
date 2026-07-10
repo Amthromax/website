@@ -108,41 +108,56 @@ const App: React.FC = () => {
               } />
               <Route path="/about" element={
                 <div>
-                  <div className="py-12">
-                    <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                      <h1 className="text-3xl font-bold text-center mb-8 text-gray-900 dark:text-gray-50">About Amthromax</h1>
-                      <p className="text-lg text-gray-600 dark:text-gray-400 text-center max-w-2xl mx-auto mb-8">We are a premier technology solutions provider dedicated to delivering innovative and reliable services to businesses worldwide.</p>
+                  <div className="py-20 bg-white min-h-[85vh] transition-colors duration-300">
+                    <div className="max-w-6xl mx-auto px-6 space-y-16">
+                      {/* Header */}
+                      <div className="text-center max-w-3xl mx-auto space-y-6">
+                        <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full">Company Profile</span>
+                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900">About Amthromax</h1>
+                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
+                          Amthromax is a software and artificial intelligence company building intelligent products, scalable platforms, and enterprise solutions. We help businesses innovate, automate workflows, and accelerate growth through cutting-edge technology.
+                        </p>
+                      </div>
+
+                      {/* Vision & Mission Cards */}
                       <div className="grid md:grid-cols-2 gap-8">
-                        <div className="space-y-6">
-                          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-50">Our Mission</h2>
-                          <p className="text-gray-600 dark:text-gray-400">To empower businesses through cutting-edge technology solutions that drive growth, efficiency, and innovation.</p>
-                          <h2 className="text-2xl font-semibold text-gray-900 dark:text-gray-50 mt-8">Our Vision</h2>
-                          <p className="text-gray-600 dark:text-gray-400">To be the global leader in technology solutions, known for our unwavering commitment to excellence and customer satisfaction.</p>
+                        <div className="p-8 bg-gray-50 border border-gray-150 rounded-3xl space-y-4">
+                          <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
+                          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                            To empower organizations worldwide by designing and deploying high-performance software systems and cutting-edge cognitive models. We aim to remove operational complexity and build architectures ready for the demands of tomorrow.
+                          </p>
                         </div>
-                        <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                          <h2 className="text-xl font-semibold text-gray-900 dark:text-gray-50 mb-4">Why Choose Us?</h2>
-                          <ul className="space-y-4 text-gray-600 dark:text-gray-400">
-                            <li className="flex items-start">
-                              <span className="flex-shrink-0 flex h-5 w-5 items-center justify-center bg-blue-600 text-white rounded-full">1</span>
-                              <span className="ml-3">Expert Team of Certified Professionals</span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="flex-shrink-0 flex h-5 w-5 items-center justify-center bg-blue-600 text-white rounded-full">2</span>
-                              <span className="ml-3">Cutting-Edge Technology Solutions</span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="flex-shrink-0 flex h-5 w-5 items-center justify-center bg-blue-600 text-white rounded-full">3</span>
-                              <span className="ml-3">Proven Track Record of Success</span>
-                            </li>
-                            <li className="flex items-start">
-                              <span className="flex-shrink-0 flex h-5 w-5 items-center justify-center bg-blue-600 text-white rounded-full">4</span>
-                              <span className="ml-3">Dedicated 24/7 Support</span>
-                            </li>
-                          </ul>
+                        <div className="p-8 bg-gray-50 border border-gray-150 rounded-3xl space-y-4">
+                          <h2 className="text-2xl font-bold text-gray-900">Our Vision</h2>
+                          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                            To serve as a cornerstone of modern industrial and computational scale—delivering zero-latency integration layers, state-of-the-art automation tools, and secure cloud pipelines that redefine software capability.
+                          </p>
+                        </div>
+                      </div>
+
+                      {/* Pillars Grid */}
+                      <div className="space-y-8">
+                        <div className="text-center space-y-2">
+                          <h3 className="text-3xl font-extrabold text-gray-900">Our Core Pillars</h3>
+                          <p className="text-gray-500 text-sm">The engineering foundations behind every system we build.</p>
+                        </div>
+                        <div className="grid sm:grid-cols-3 gap-6">
+                          {[
+                            { title: "Intelligent Systems", desc: "Constructing advanced AI models, fine-tuned transformer pipelines, and custom neural agents built to optimize business operations." },
+                            { title: "Enterprise Scaling", desc: "Developing cloud infrastructure, microservices architectures, and federated databases that handle massive throughput effortlessly." },
+                            { title: "Zero-Trust Security", desc: "Establishing strict network isolation, cryptographically secured edge nodes, and comprehensive real-time threat response systems." }
+                          ].map((pillar, i) => (
+                            <div key={i} className="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm space-y-3">
+                              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">0{i+1}</span>
+                              <h4 className="text-lg font-bold text-gray-900">{pillar.title}</h4>
+                              <p className="text-gray-500 text-xs leading-relaxed">{pillar.desc}</p>
+                            </div>
+                          ))}
                         </div>
                       </div>
                     </div>
                   </div>
+                  <Footer />
                 </div>
               } />
               <Route path="/services" element={
