@@ -15,6 +15,7 @@ import CookieConsent from "./components/layout/CookieConsent";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import SolutionsPage from "./components/solutions/SolutionsPage";
 import { EnterprisesPage, SmallBusinessesPage, DevelopersPage } from "./components/solutions/WhyPages";
+import SEO from "./components/layout/SEO";
 import './App.css';
 
 const App: React.FC = () => {
@@ -129,6 +130,7 @@ const App: React.FC = () => {
             <Routes location={location}>
               <Route path="/" element={
                 <div>
+                  <SEO title="Amthromax | AI Agents & Intelligent Automation" description="Build AI agents, enterprise automation, workflows and intelligent software with Amthromax." />
                   <HeroSection />
                   <FeaturesSection />
                   
@@ -158,6 +160,7 @@ const App: React.FC = () => {
               } />
               <Route path="/about" element={
                 <div>
+                  <SEO title="About Amthromax" description="Learn about Amthromax, our mission, vision and AI technologies." />
                   <div className="py-20 bg-white min-h-[85vh] transition-colors duration-300">
                     <div className="max-w-6xl mx-auto px-6 space-y-16">
                       {/* Header */}
@@ -212,6 +215,7 @@ const App: React.FC = () => {
               } />
               <Route path="/services" element={
                 <div>
+                  <SEO title="AI Development Services | Amthromax" description="Custom AI agents, workflow automation, enterprise AI software and intelligent systems." />
                   <div className="py-12">
                     <FeaturesSection />
                   </div>
@@ -234,6 +238,7 @@ const App: React.FC = () => {
               } />
               <Route path="/contact" element={
                 <div>
+                  <SEO title="Contact Amthromax" description="Get in touch with Amthromax for AI development and automation solutions." />
                   <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
                     <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
                       <div className="md:col-span-5 space-y-6">
