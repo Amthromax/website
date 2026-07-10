@@ -13,6 +13,7 @@ import ResearchDetailPage from "./components/research/ResearchDetailPage";
 import CookieConsent from "./components/layout/CookieConsent";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import SolutionsPage from "./components/solutions/SolutionsPage";
+import { EnterprisesPage, SmallBusinessesPage, DevelopersPage } from "./components/solutions/WhyPages";
 import './App.css';
 
 const App: React.FC = () => {
@@ -40,9 +41,9 @@ const App: React.FC = () => {
                   href="/about"
                   items={[
                     { label: "Explore Why Amthromax", isHeader: true, href: "" },
-                    { label: "For Enterprises", href: "/about" },
-                    { label: "For Small Businesses", href: "/about" },
-                    { label: "For Developers ↗", href: "/services" }
+                    { label: "For Enterprises", href: "/why/enterprises" },
+                    { label: "For Small Businesses", href: "/why/small-businesses" },
+                    { label: "For Developers ↗", href: "/why/developers" }
                   ]}
                 />
                 <NavDropdown
@@ -298,6 +299,9 @@ const App: React.FC = () => {
                 </div>
               } />
               <Route path="/solutions" element={<SolutionsPage />} />
+              <Route path="/why/enterprises" element={<EnterprisesPage />} />
+              <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
+              <Route path="/why/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginSection />} />
             </Routes>
           </AnimatePresence>
