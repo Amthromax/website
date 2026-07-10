@@ -16,6 +16,10 @@ import ScrollToTop from "./components/layout/ScrollToTop";
 import SolutionsPage from "./components/solutions/SolutionsPage";
 import { EnterprisesPage, SmallBusinessesPage, DevelopersPage } from "./components/solutions/WhyPages";
 import SEO from "./components/layout/SEO";
+import BlogPage from "./components/blog/BlogPage";
+import BlogPostDetail from "./components/blog/BlogPostDetail";
+import NewsPage from "./components/news/NewsPage";
+import CookiePolicyPage from "./components/legal/CookiePolicyPage";
 import './App.css';
 
 const App: React.FC = () => {
@@ -130,7 +134,7 @@ const App: React.FC = () => {
             <Routes location={location}>
               <Route path="/" element={
                 <div>
-                  <SEO title="Amthromax | AI Agents & Intelligent Automation" description="Build AI agents, enterprise automation, workflows and intelligent software with Amthromax." />
+                  <SEO title="Amthromax | AI Software Company for Enterprise AI & Intelligent Automation" description="Amthromax is an AI software company building enterprise AI platforms, autonomous agents, workflow automation, APIs, and developer tools for modern businesses." />
                   <HeroSection />
                   <FeaturesSection />
                   
@@ -357,6 +361,11 @@ const App: React.FC = () => {
               <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
               <Route path="/why/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginSection />} />
+              <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/:postId" element={<BlogPostDetail />} />
+              <Route path="/news" element={<NewsPage />} />
+              <Route path="/cookies" element={<CookiePolicyPage />} />
+              <Route path="/cookie-policy" element={<CookiePolicyPage />} />
             </Routes>
           </AnimatePresence>
         </main>
