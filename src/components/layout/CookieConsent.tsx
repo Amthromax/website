@@ -50,10 +50,7 @@ const CookieConsent: React.FC = () => {
         >
           <div className="flex flex-col gap-4">
             {/* Header info */}
-            <div className="flex items-start gap-3">
-              <div className="w-10 h-10 rounded-xl bg-gray-100 dark:bg-gray-800/80 flex items-center justify-center flex-shrink-0 text-xl">
-                🍪
-              </div>
+            <div className="flex items-start">
               <div className="space-y-1">
                 <h4 className="text-sm font-semibold text-gray-900 dark:text-white">
                   We use cookies
@@ -68,7 +65,7 @@ const CookieConsent: React.FC = () => {
             <div className="flex items-center justify-end gap-3 pt-2">
               <button
                 onClick={handleDecline}
-                className="text-xs font-semibold text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white px-3 py-2 rounded-lg transition-colors duration-200"
+                className="text-xs font-semibold text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800 px-4 py-2.5 rounded-xl transition-all duration-200"
               >
                 Decline
               </button>
