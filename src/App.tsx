@@ -13,12 +13,10 @@ import ResearchDetailPage from "./components/research/ResearchDetailPage";
 import CookieConsent from "./components/layout/CookieConsent";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import SolutionsPage from "./components/solutions/SolutionsPage";
-import { useTheme } from "./context/ThemeContext";
 import './App.css';
 
 const App: React.FC = () => {
   const location = useLocation();
-  const { isDark, toggle } = useTheme();
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50 transition-colors duration-300 antialiased">
       <ScrollToTop />

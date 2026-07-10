@@ -1,6 +1,5 @@
 import React from "react";
 import { useParams, Link } from "react-router-dom";
-import { motion } from "framer-motion";
 import Footer from "../footer/Footer";
 
 interface ServiceDetail {
