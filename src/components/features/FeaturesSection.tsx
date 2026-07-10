@@ -118,7 +118,7 @@ const FeaturesSection: React.FC = () => {
                         </span>
                       ))}
                     </div>
-                    <span className="text-xs font-bold text-white/80 group-hover:text-white flex items-center gap-1 transition-colors bg-white/10 hover:bg-white/25 border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm">
+                    <span className="text-xs font-bold text-white/80 group-hover:text-white flex items-center gap-1 transition-colors bg-white/10 hover:bg-white/25 border border-white/20 px-3 py-1.5 rounded-full backdrop-blur-sm whitespace-nowrap flex-shrink-0">
                       Learn More 
                       <span className="transform group-hover:translate-x-0.5 transition-transform duration-300">→</span>
                     </span>
