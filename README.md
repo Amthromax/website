@@ -1,52 +1,32 @@
-# Amthromax Website
+# React + TypeScript + Vite
 
-A modern, responsive website for Amthromax built with HTML, CSS, and JavaScript.
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
 
-## Pages
+Currently, two official plugins are available:
 
-- Home (`index.html`)
-- About (`about.html`)
-- Services (`services.html`)
-- Contact (`contact.html`)
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-## File Structure
+## React Compiler
 
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
 ```
-Amthromax Website/
-├── index.html
-├── about.html
-├── services.html
-├── contact.html
-├── assets/
-│   ├── css/
-│   │   └── style.css
-│   └── js/
-│       └── main.js
-```
 
-## Features
-
-- Responsive design that works on mobile, tablet, and desktop
-- Modern UI with gradients and subtle animations
-- Contact form with client-side validation
-- Active navigation highlighting
-- Smooth scrolling for anchor links
-
-## Customization
-
-- Update the content in each HTML file to match your specific information
-- Modify colors and styles in `assets/css/style.css`
-- Add your logo and images in an `assets/images/` folder (create if needed)
-- Extend functionality in `assets/js/main.js`
-
-## Browser Support
-
-This website works in all modern browsers (Chrome, Firefox, Safari, Edge) and is compatible with IE11+ (with potential polyfills for some modern features).
-
-## Deployment
-
-Simply upload the entire directory to any static web hosting service (Netlify, Vercel, GitHub Pages, etc.) or your own web server.
-
-## License
-
-This project is open source and available under the MIT License.
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
