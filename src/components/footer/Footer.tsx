@@ -255,8 +255,7 @@ const Footer: React.FC = () => {
               </div>
 
               {/* Copyright (center) */}
-              <div className="flex items-center space-x-1.5 text-gray-500 dark:text-gray-400 text-xs font-normal">
-                <img src="/images/logo.png" alt="Amthromax Logo" className="h-3.5 w-3.5 object-contain dark:invert opacity-70" />
+              <div className="flex items-center text-gray-500 dark:text-gray-400 text-xs font-normal">
                 <span>
                   Amthromax © 2015–{new Date().getFullYear()}
                 </span>

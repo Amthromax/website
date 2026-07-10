@@ -26,8 +26,7 @@ const App: React.FC = () => {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Left Logo */}
-              <div className="flex-shrink-0 flex items-center space-x-2">
-                <img src="/images/logo.png" alt="Amthromax Logo" className="h-7 w-7 object-contain dark:invert" />
+              <div className="flex-shrink-0 flex items-center">
                 <Link to="/" className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-50 tracking-tighter hover:opacity-90 transition-all">
                   Amthromax
                 </Link>
