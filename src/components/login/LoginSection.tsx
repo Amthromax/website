@@ -19,6 +19,8 @@ const LoginSection: React.FC = () => {
 
     setIsLoading(true);
     setTimeout(() => {
+      localStorage.setItem("amthromax-user", email);
+      window.dispatchEvent(new Event("auth-change"));
       setIsLoading(false);
       setIsSuccess(true);
     }, 1500);
@@ -273,6 +275,8 @@ const LoginSection: React.FC = () => {
                       onClick={() => {
                         setIsGoogleConnecting(true);
                         setTimeout(() => {
+                          localStorage.setItem("amthromax-user", emailOpt);
+                          window.dispatchEvent(new Event("auth-change"));
                           setIsGoogleConnecting(false);
                           setShowGoogleModal(false);
                           setEmail(emailOpt);
@@ -309,6 +313,8 @@ const LoginSection: React.FC = () => {
                           if (!googleEmail) return;
                           setIsGoogleConnecting(true);
                           setTimeout(() => {
+                            localStorage.setItem("amthromax-user", googleEmail);
+                            window.dispatchEvent(new Event("auth-change"));
                             setIsGoogleConnecting(false);
                             setShowGoogleModal(false);
                             setEmail(googleEmail);
