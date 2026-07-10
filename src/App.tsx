@@ -41,7 +41,6 @@ const App: React.FC = () => {
                   items={[
                     { label: "Explore Why Amthromax", isHeader: true, href: "" },
                     { label: "For Enterprises", href: "/about" },
-                    { label: "For Startups", href: "/about" },
                     { label: "For Small Businesses", href: "/about" },
                     { label: "For Developers ↗", href: "/services" }
                   ]}
