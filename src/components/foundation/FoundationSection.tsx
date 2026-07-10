@@ -241,9 +241,8 @@ const FoundationSection: React.FC = () => {
               className="flex items-center gap-6 p-4 rounded-3xl border border-gray-100 dark:border-white/[0.04] bg-white dark:bg-gray-900 hover:shadow-md transition-all duration-300 group"
             >
               {/* Abstract Gradient Preview Container */}
-              <div className={`w-28 h-28 rounded-2xl bg-gradient-to-tr ${item.gradient} flex-shrink-0 relative overflow-hidden flex items-center justify-center text-xl`}>
+              <div className={`w-28 h-28 rounded-2xl bg-gradient-to-tr ${item.gradient} flex-shrink-0 relative overflow-hidden flex items-center justify-center`}>
                 <div className="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-[1px] group-hover:scale-110 transition-transform duration-500" />
-                🌱
               </div>
               
               <div className="space-y-1.5">
