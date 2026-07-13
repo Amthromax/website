@@ -1,6 +1,6 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
-import { blogPosts } from "./blogData";
+import { blogPosts, type BlogPost } from "./blogData";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
 
@@ -8,7 +8,19 @@ const BlogPostDetail: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
   const navigate = useNavigate();
 
-  const post = blogPosts.find((p) => p.id === postId);
+  const [posts] = useState<BlogPost[]>(() => {
+    const stored = localStorage.getItem("amthromax_blog_posts");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (err) {
+        return blogPosts;
+      }
+    }
+    return blogPosts;
+  });
+
+  const post = posts.find((p) => p.id === postId);
 
   useEffect(() => {
     // Scroll to top on route change
@@ -34,7 +46,7 @@ const BlogPostDetail: React.FC = () => {
   }
 
   // Get 2 recommended posts excluding current one
-  const recommendations = blogPosts.filter((p) => p.id !== post.id).slice(0, 2);
+  const recommendations = posts.filter((p) => p.id !== post.id).slice(0, 2);
 
   return (
     <div>

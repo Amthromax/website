@@ -1,22 +1,34 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
-import { blogPosts } from "./blogData";
+import { blogPosts, type BlogPost } from "./blogData";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
 
 const BlogPage: React.FC = () => {
+  const [posts] = useState<BlogPost[]>(() => {
+    const stored = localStorage.getItem("amthromax_blog_posts");
+    if (stored) {
+      try {
+        return JSON.parse(stored);
+      } catch (err) {
+        return blogPosts;
+      }
+    }
+    return blogPosts;
+  });
+
   const [selectedCategory, setSelectedCategory] = useState("All");
 
-  const categories = ["All", ...Array.from(new Set(blogPosts.map((p) => p.category)))];
+  const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
   const filteredPosts =
     selectedCategory === "All"
-      ? blogPosts
-      : blogPosts.filter((p) => p.category === selectedCategory);
+      ? posts
+      : posts.filter((p) => p.category === selectedCategory);
 
   // The first post will be highlighted as featured when "All" is selected
-  const featuredPost = blogPosts[0];
+  const featuredPost = posts[0];
   const gridPosts = selectedCategory === "All" ? filteredPosts.slice(1) : filteredPosts;
 
   const containerVariants = {
@@ -56,6 +68,14 @@ const BlogPage: React.FC = () => {
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               In-depth articles, design patterns, and engineering insights into the future of autonomous systems and enterprise automation.
             </p>
+            <div className="flex justify-center gap-4 pt-2">
+              <Link
+                to="/blog/publish"
+                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-all shadow-md hover:shadow-lg active:scale-97 flex items-center gap-2 cursor-pointer"
+              >
+                <span>+</span> Write Article
+              </Link>
+            </div>
           </div>
 
           {/* Categories Tab Bar */}

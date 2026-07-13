@@ -18,6 +18,7 @@ import { EnterprisesPage, SmallBusinessesPage, DevelopersPage } from "./componen
 import SEO from "./components/layout/SEO";
 import BlogPage from "./components/blog/BlogPage";
 import BlogPostDetail from "./components/blog/BlogPostDetail";
+import PublishPage from "./components/blog/PublishPage";
 import NewsPage from "./components/news/NewsPage";
 import CookiePolicyPage from "./components/legal/CookiePolicyPage";
 import PlatformPage from "./components/platform/PlatformPage";
@@ -368,6 +369,7 @@ const App: React.FC = () => {
               <Route path="/why/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginSection />} />
               <Route path="/blog" element={<BlogPage />} />
+              <Route path="/blog/publish" element={<PublishPage />} />
               <Route path="/blog/:postId" element={<BlogPostDetail />} />
               <Route path="/news" element={<NewsPage />} />
               <Route path="/cookies" element={<CookiePolicyPage />} />

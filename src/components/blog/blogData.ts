@@ -25,6 +25,29 @@ export interface NewsItem {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "introducing-amthromax-company-profile",
+    title: "Amthromax: Accelerating Digital Transformation with Autonomous AI Systems",
+    excerpt: "An in-depth look at our mission, core capabilities, and modular tech stack designed to deliver zero-latency enterprise automation and next-generation cognitive agents.",
+    category: "Company",
+    date: "July 13, 2026",
+    readTime: "5 min read",
+    author: {
+      name: "Kishore Kanth",
+      role: "Founder, Amthromax",
+      avatar: "K"
+    },
+    image: "/images/desktop_setup.png",
+    content: [
+      "AMTHROMAX is officially entering the enterprise AI landscape, specializing in autonomous cognitive agents, workflow automation platforms, and highly integrated custom software. Founded in 2026 by Kishore Kanth and headquartered in Mumbai, India, the company is built with a clear vision: to make state-of-the-art artificial intelligence accessible, practical, and highly performant for organizations of all sizes—ranging from agile startups to global scale operations. Driven by a founder-led mission, AMTHROMAX focuses on removing operational friction, delivering practical, real-world solutions rather than theoretical consulting.",
+      "Our comprehensive suite of services covers autonomous task-oriented AI Agents, end-to-end Workflow Automation Platforms, AI Voice Agents for customer interaction, and specialized AI Trading Analytics Platforms. By combining Robotic Process Automation (RPA) with cognitive models, we build systems that handle complex operations such as intelligent document processing, form validation, and multi-step business logic. These products integrate seamlessly with a client's existing software ecosystem through API integration services, reducing manual efforts in repetitive, high-stakes operational tasks.",
+      "Technically, AMTHROMAX is engineered for maximum flexibility and performance. Our solutions are powered by a modern developer stack spanning Python, JavaScript/Node.js, Java, and Go, using frameworks like FastAPI, Express.js, TensorFlow, PyTorch, and LangChain. For data management and retrieval, we leverage PostgreSQL, MongoDB, Redis, and Elasticsearch. To facilitate low-latency scaling and robust deployment, our engineering teams construct cloud-native infrastructures on AWS, Google Cloud, and Microsoft Azure, automated through Docker, Kubernetes, and continuous integration (CI/CD) pipelines.",
+      "A key pillar of our design philosophy is LLM agnosticism. Our systems integrate with multiple large language models—including proprietary APIs like OpenAI GPT and Anthropic Claude, as well as state-of-the-art open-source models like LLaMA and Mistral. This safeguards our clients from vendor lock-in, enabling them to route queries dynamically to the most cost-effective and highest-performing model for their specific task. The entire system is built on an API-first architecture, ensuring compatibility with legacy enterprise stacks like Salesforce, SAP, and Oracle.",
+      "Security remains a core priority in every system we engineer. All cognitive workflows run under strict zero-trust security paradigms, featuring sandboxed micro-virtual machines that isolate execution layers from the core network. This prevents common exploits like prompt injection or data exfiltration. Furthermore, our systems are built from the ground up to be compliant with global data security standards, including GDPR, CCPA, and ISO 27001 certifications. All logs, actions, and decisions are audited in real time to ensure corporate accountability.",
+      "AMTHROMAX serves a diverse array of target markets and sectors. In Financial Services and BFSI, our tools automate compliance and trading analytics; in Retail and E-commerce, we power support automation, demand forecasting, and inventory tracking; in Manufacturing and Logistics, we deliver supply chain optimization and predictive maintenance. We also support Healthcare providers with appointment scheduling and administrative task automation, leveling the playing field for startups and SMEs while scaling to the complex needs of massive enterprises.",
+      "We offer multiple engagement paths to accommodate different business requirements, including SaaS Products, Managed Services, Staff Augmentation, Consulting, and Training. Whether embedding dedicated AI engineers into existing teams or providing training to help organizations manage solutions independently, our delivery model guarantees faster time-to-value, with most solutions going live within 2 to 8 weeks. Operating with a lean, flat organizational culture, we ensure our clients have direct access to decision-makers and technical leads at every stage of the journey."
+    ]
+  },
+  {
     id: "future-of-ai-agents",
     title: "The Future of AI Agents: How Businesses Will Automate Everything",
     excerpt: "The paradigm is shifting from static chat interfaces to active, autonomous agents that can plan, execute, and collaborate to automate complex business workflows.",
