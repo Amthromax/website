@@ -18,6 +18,12 @@ const BlogPage: React.FC = () => {
     return blogPosts;
   });
 
+  const [isAdmin] = useState(() => {
+    const user = localStorage.getItem("amthromax-user");
+    const session = localStorage.getItem("amthromax_admin_session");
+    return user === "admin@amthromax.com" || user === "kishorekanth@gmail.com" || session === "active";
+  });
+
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
@@ -68,14 +74,16 @@ const BlogPage: React.FC = () => {
             <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
               In-depth articles, design patterns, and engineering insights into the future of autonomous systems and enterprise automation.
             </p>
-            <div className="flex justify-center gap-4 pt-2">
-              <Link
-                to="/blog/publish"
-                className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-all shadow-md hover:shadow-lg active:scale-97 flex items-center gap-2 cursor-pointer"
-              >
-                <span>+</span> Write Article
-              </Link>
-            </div>
+            {isAdmin && (
+              <div className="flex justify-center gap-4 pt-2">
+                <Link
+                  to="/blog/publish"
+                  className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold transition-all shadow-md hover:shadow-lg active:scale-97 flex items-center gap-2 cursor-pointer"
+                >
+                  <span>+</span> Write Article
+                </Link>
+              </div>
+            )}
           </div>
 
           {/* Categories Tab Bar */}

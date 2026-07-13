@@ -16,6 +16,15 @@ const PublishPage: React.FC = () => {
   const navigate = useNavigate();
   const fileInputRef = useRef<HTMLInputElement>(null);
 
+  // Admin Verification States
+  const [isAdmin, setIsAdmin] = useState(() => {
+    const user = localStorage.getItem("amthromax-user");
+    const session = localStorage.getItem("amthromax_admin_session");
+    return user === "admin@amthromax.com" || user === "kishorekanth@gmail.com" || session === "active";
+  });
+  const [passwordInput, setPasswordInput] = useState("");
+  const [passwordError, setPasswordError] = useState("");
+
   // Form states
   const [title, setTitle] = useState("AI Agents: The Future of Automation");
   const [excerpt, setExcerpt] = useState("How autonomous cognitive entities are reshaping standard industrial workflows.");
@@ -154,6 +163,69 @@ const PublishPage: React.FC = () => {
     // Redirect to blog index
     navigate("/blog");
   };
+
+  const handleVerifyPassword = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (passwordInput === "Amthromax@2026") {
+      localStorage.setItem("amthromax_admin_session", "active");
+      setIsAdmin(true);
+      setPasswordError("");
+    } else {
+      setPasswordError("Invalid administrative password.");
+    }
+  };
+
+  if (!isAdmin) {
+    return (
+      <div className="bg-gray-50 dark:bg-gray-950 min-h-screen flex items-center justify-center p-6 font-sans transition-colors duration-300">
+        <SEO
+          title="Admin Verification | Amthromax"
+          description="Secure gate to verify administrative access to Amthromax publishing utilities."
+        />
+        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-[32px] p-8 md:p-10 shadow-2xl border border-gray-105 dark:border-gray-800 space-y-6 text-center animate-fade-in">
+          <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center border border-blue-100 dark:border-blue-900/30 text-xl font-bold">
+            🔒
+          </div>
+          <div className="space-y-2">
+            <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Admin Verification</h1>
+            <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
+              Please enter the master password to access the publishing dashboard.
+            </p>
+          </div>
+
+          <form onSubmit={handleVerifyPassword} className="space-y-4">
+            <div className="space-y-1.5 text-left">
+              <label className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider">Master Password</label>
+              <input
+                type="password"
+                required
+                value={passwordInput}
+                onChange={(e) => setPasswordInput(e.target.value)}
+                placeholder="••••••••"
+                className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-sans"
+              />
+              {passwordError && (
+                <p className="text-[10px] text-red-500 font-semibold mt-1">
+                  {passwordError}
+                </p>
+              )}
+            </div>
+
+            <button
+              type="submit"
+              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg active:scale-97 cursor-pointer"
+            >
+              Verify and Access
+            </button>
+          </form>
+
+          <Link to="/blog" className="block text-xs font-bold text-gray-400 hover:text-gray-600 dark:hover:text-gray-300 transition-colors">
+            ← Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="bg-white dark:bg-gray-950 min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans">
