@@ -43,8 +43,8 @@ const NewsPage: React.FC = () => {
   return (
     <div>
       <SEO
-        title="Amthromax Newsroom | Company Updates & Product Roadmap"
-        description="Stay up to date with the latest press releases, product launches, roadmaps, and company announcements from Amthromax."
+        title="Amthromax News"
+        description="Latest company announcements, AI research, product launches, and technology updates from Amthromax."
       />
 
       <div className="py-20 bg-white dark:bg-gray-950 transition-colors duration-300 min-h-[85vh] font-sans">

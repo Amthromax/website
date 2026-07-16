@@ -57,8 +57,8 @@ const BlogPage: React.FC = () => {
   return (
     <div>
       <SEO
-        title="Amthromax Blog | AI Agents & Enterprise Tech Insights"
-        description="Read technical deep-dives, industry analyses, and insights into artificial intelligence agents, automation, and cloud security by Amthromax."
+        title="Amthromax Blog"
+        description="Insights on artificial intelligence, automation, enterprise software, AI agents, LLMs, and future technologies."
       />
 
       <div className="py-20 bg-white dark:bg-gray-950 transition-colors duration-300 min-h-[85vh] font-sans">

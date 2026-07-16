@@ -90,6 +90,8 @@ const App: React.FC = () => {
                 />
                 <Link to="/research" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Research</Link>
                 <Link to="/foundation" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Foundation</Link>
+                <Link to="/blog" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Blog</Link>
+                <Link to="/news" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">News</Link>
               </div>
               
               {/* Log In/Sign Up buttons or User Avatar on the right */}
