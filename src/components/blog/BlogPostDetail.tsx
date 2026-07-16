@@ -7,6 +7,7 @@ import Footer from "../footer/Footer";
 const BlogPostDetail: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
   const navigate = useNavigate();
+  const [toastMessage, setToastMessage] = useState<string | null>(null);
 
   const [posts] = useState<BlogPost[]>(() => {
     const stored = localStorage.getItem("amthromax_blog_posts");
@@ -27,6 +28,13 @@ const BlogPostDetail: React.FC = () => {
     window.scrollTo(0, 0);
   }, [postId]);
 
+  const showToast = (msg: string) => {
+    setToastMessage(msg);
+    setTimeout(() => {
+      setToastMessage(null);
+    }, 2500);
+  };
+
   if (!post) {
     return (
       <div className="py-32 text-center bg-white dark:bg-gray-950 min-h-[90vh] font-sans">
@@ -44,6 +52,51 @@ const BlogPostDetail: React.FC = () => {
       </div>
     );
   }
+
+  const shareUrl = window.location.href;
+  const shareTitle = post.title;
+
+  const handleShareX = () => {
+    window.open(`https://x.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareTitle)}`, "_blank");
+  };
+
+  const handleShareLinkedIn = () => {
+    window.open(`https://www.linkedin.com/sharing/share-offsite/?url=${encodeURIComponent(shareUrl)}`, "_blank");
+  };
+
+  const handleShareGmail = () => {
+    window.open(`https://mail.google.com/mail/?view=cm&fs=1&tf=1&su=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareUrl)}`, "_blank");
+  };
+
+  const handleShareInstagram = () => {
+    navigator.clipboard.writeText(shareUrl).then(() => {
+      showToast("Link copied! Share it on Instagram.");
+    }).catch(() => {
+      showToast("Failed to copy link.");
+    });
+  };
+
+  const handleNativeShare = () => {
+    if (navigator.share) {
+      navigator.share({
+        title: shareTitle,
+        text: post.excerpt,
+        url: shareUrl
+      }).then(() => {
+        showToast("Shared successfully!");
+      }).catch((err) => {
+        if (err.name !== "AbortError") {
+          showToast("Failed to share.");
+        }
+      });
+    } else {
+      navigator.clipboard.writeText(shareUrl).then(() => {
+        showToast("Link copied to clipboard!");
+      }).catch(() => {
+        showToast("Failed to copy link.");
+      });
+    }
+  };
 
   // Get 2 recommended posts excluding current one
   const recommendations = posts.filter((p) => p.id !== post.id).slice(0, 2);
@@ -79,17 +132,87 @@ const BlogPostDetail: React.FC = () => {
           </div>
 
           {/* Author Block */}
-          <div className="flex items-center space-x-4 py-6 border-y border-gray-100 dark:border-gray-900">
-            <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm">
-              {post.author.avatar}
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-gray-100 dark:border-gray-900">
+            <div className="flex items-center space-x-4">
+              <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm">
+                {post.author.avatar}
+              </div>
+              <div>
+                <h4 className="text-sm font-bold text-gray-900 dark:text-white">{post.author.name}</h4>
+                <p className="text-xs text-gray-400 dark:text-gray-500">{post.author.role}</p>
+              </div>
             </div>
-            <div>
-              <h4 className="text-sm font-bold text-gray-900 dark:text-white">{post.author.name}</h4>
-              <p className="text-xs text-gray-400 dark:text-gray-500">{post.author.role}</p>
-            </div>
-            <div className="ml-auto text-right">
-              <p className="text-xs text-gray-400 dark:text-gray-500">Published</p>
-              <p className="text-xs font-bold text-gray-800 dark:text-gray-200">{post.date}</p>
+            
+            {/* Share and Date Block */}
+            <div className="flex flex-wrap items-center gap-6 sm:ml-auto">
+              <div className="flex items-center gap-2">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mr-1">Share</span>
+                
+                {/* LinkedIn */}
+                <button
+                  onClick={handleShareLinkedIn}
+                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] dark:text-gray-400 dark:hover:text-[#0077b5] dark:hover:border-[#0077b5] flex items-center justify-center hover:bg-blue-50/10 transition-all select-none cursor-pointer"
+                  title="Share to LinkedIn"
+                >
+                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                  </svg>
+                </button>
+
+                {/* X */}
+                <button
+                  onClick={handleShareX}
+                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-black hover:border-black dark:text-gray-400 dark:hover:text-white dark:hover:border-white flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-900 transition-all select-none cursor-pointer"
+                  title="Share to X"
+                >
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                  </svg>
+                </button>
+
+                {/* Instagram */}
+                <button
+                  onClick={handleShareInstagram}
+                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#e1306c] hover:border-[#e1306c] dark:text-gray-400 dark:hover:text-[#e1306c] dark:hover:border-[#e1306c] flex items-center justify-center hover:bg-pink-50/10 transition-all select-none cursor-pointer"
+                  title="Copy link for Instagram"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                  </svg>
+                </button>
+
+                {/* Gmail */}
+                <button
+                  onClick={handleShareGmail}
+                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#ea4335] hover:border-[#ea4335] dark:text-gray-450 dark:hover:text-[#ea4335] dark:hover:border-[#ea4335] flex items-center justify-center hover:bg-red-50/10 transition-all select-none cursor-pointer"
+                  title="Share via Email"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                    <polyline points="22,6 12,13 2,6"></polyline>
+                  </svg>
+                </button>
+
+                {/* Share/Notes */}
+                <button
+                  onClick={handleNativeShare}
+                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-blue-600 hover:border-blue-600 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:border-blue-400 flex items-center justify-center hover:bg-blue-50/10 transition-all select-none cursor-pointer"
+                  title="Share / Save to Notes"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
+                    <polyline points="16 6 12 2 8 6"></polyline>
+                    <line x1="12" y1="2" x2="12" y2="15"></line>
+                  </svg>
+                </button>
+              </div>
+
+              <div className="text-left sm:text-right border-t sm:border-t-0 sm:border-l border-gray-100 dark:border-gray-900 pt-3 sm:pt-0 sm:pl-6">
+                <p className="text-xs text-gray-400 dark:text-gray-500">Published</p>
+                <p className="text-xs font-bold text-gray-800 dark:text-gray-200">{post.date}</p>
+              </div>
             </div>
           </div>
 
@@ -148,6 +271,12 @@ const BlogPostDetail: React.FC = () => {
           )}
         </div>
       </article>
+
+      {/* Toast Notification */}
+      <div className={`fixed bottom-6 right-6 z-50 bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-5 py-3 rounded-full text-xs font-bold shadow-lg flex items-center gap-2 transition-all duration-300 transform ${toastMessage ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95 pointer-events-none"}`}>
+        <span>{toastMessage}</span>
+      </div>
+
       <Footer />
     </div>
   );
