@@ -10,7 +10,10 @@ const BlogPage: React.FC = () => {
     const stored = localStorage.getItem("amthromax_blog_posts");
     if (stored) {
       try {
-        return JSON.parse(stored);
+        const parsed = JSON.parse(stored) as BlogPost[];
+        const staticIds = new Set(blogPosts.map((p) => p.id));
+        const customPosts = parsed.filter((p) => !staticIds.has(p.id));
+        return [...customPosts, ...blogPosts];
       } catch (err) {
         return blogPosts;
       }

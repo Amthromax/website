@@ -516,10 +516,84 @@ const PublishPage: React.FC = () => {
                   />
                 </div>
 
-                <div className="space-y-4 text-gray-700 dark:text-gray-300 text-sm md:text-base leading-relaxed">
-                  {getParagraphs().map((paragraph, index) => (
-                    <p key={index}>{paragraph}</p>
-                  ))}
+                <div className="space-y-4 text-gray-750 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+                  {getParagraphs().map((paragraph, index) => {
+                    // Image parsing
+                    if (paragraph.startsWith("![") && paragraph.endsWith(")")) {
+                      const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
+                      if (match) {
+                        return (
+                          <div key={index} className="my-6 rounded-2xl overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-sm bg-gray-50 dark:bg-gray-900">
+                            <img src={match[2]} alt={match[1]} className="w-full object-cover" />
+                          </div>
+                        );
+                      }
+                    }
+                    // Headers
+                    if (paragraph.startsWith("## ")) {
+                      return (
+                        <h2 key={index} className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-gray-900 dark:text-white">
+                          {paragraph.replace("## ", "")}
+                        </h2>
+                      );
+                    }
+                    if (paragraph.startsWith("### ")) {
+                      return (
+                        <h3 key={index} className="text-lg md:text-xl font-bold mt-5 mb-2 text-gray-900 dark:text-white">
+                          {paragraph.replace("### ", "")}
+                        </h3>
+                      );
+                    }
+                    // Blockquote
+                    if (paragraph.startsWith("> ")) {
+                      let text = paragraph.replace("> ", "");
+                      return (
+                        <blockquote key={index} className="border-l-4 border-blue-500 pl-4 py-1.5 my-6 italic text-sm text-gray-500 dark:text-gray-400 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-xl pr-3">
+                          {text}
+                        </blockquote>
+                      );
+                    }
+                    // Bullet lists
+                    if (paragraph.startsWith("• ")) {
+                      const cleanText = paragraph.replace("• ", "");
+                      const parts = cleanText.split("**");
+                      return (
+                        <div key={index} className="flex items-start space-x-2 pl-3 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                          <span className="text-blue-500 mt-1 shrink-0">•</span>
+                          <span>
+                            {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
+                          </span>
+                        </div>
+                      );
+                    }
+                    // Numbered lists
+                    if (/^\d+\.\s/.test(paragraph)) {
+                      const match = paragraph.match(/^(\d+)\.\s(.*)/);
+                      if (match) {
+                        const num = match[1];
+                        const text = match[2];
+                        const parts = text.split("**");
+                        return (
+                          <div key={index} className="flex items-start space-x-2 pl-1 text-xs md:text-sm text-gray-700 dark:text-gray-300">
+                            <span className="font-bold text-blue-600 dark:text-blue-400 shrink-0">{num}.</span>
+                            <span>
+                              {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
+                            </span>
+                          </div>
+                        );
+                      }
+                    }
+                    // Normal bold check
+                    if (paragraph.includes("**")) {
+                      const parts = paragraph.split("**");
+                      return (
+                        <p key={index}>
+                          {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
+                        </p>
+                      );
+                    }
+                    return <p key={index}>{paragraph}</p>;
+                  })}
                   {getParagraphs().length === 0 && (
                     <p className="text-gray-400 italic">No content written yet...</p>
                   )}
