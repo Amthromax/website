@@ -120,7 +120,7 @@ const BlogPage: React.FC = () => {
                 <img
                   src={featuredPost.image}
                   alt={featuredPost.title}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-101"
+                  className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-101"
                 />
                 <div className="absolute top-6 left-6 bg-black/75 text-white backdrop-blur-md px-3.5 py-1.5 rounded-full text-[10px] font-bold tracking-wider uppercase">
                   Featured
@@ -179,7 +179,7 @@ const BlogPage: React.FC = () => {
                     <img
                       src={post.image}
                       alt={post.title}
-                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-102"
+                      className="w-full h-full object-cover object-top transition-transform duration-500 group-hover:scale-102"
                     />
                     <div className="absolute top-4 left-4 bg-black/60 text-white backdrop-blur-md px-3 py-1 rounded-full text-[9px] font-bold tracking-wider uppercase">
                       {post.category}

@@ -221,7 +221,7 @@ const BlogPostDetail: React.FC = () => {
 
           {/* Featured Image */}
           <div className="aspect-[21/9] w-full overflow-hidden rounded-[32px] border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900">
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover" />
+            <img src={post.image} alt={post.title} className="w-full h-full object-cover object-top" />
           </div>
 
           {/* Article Body */}
