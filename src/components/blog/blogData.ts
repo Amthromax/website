@@ -12,6 +12,7 @@ export interface BlogPost {
     avatar: string;
   };
   image: string;
+  featured?: boolean;
 }
 
 export interface NewsItem {
@@ -31,6 +32,7 @@ export const blogPosts: BlogPost[] = [
     category: "Company",
     date: "July 20, 2026",
     readTime: "4 min read",
+    featured: true,
     author: {
       name: "Kishore Kanth",
       role: "Founder, Amthromax",

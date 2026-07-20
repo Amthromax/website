@@ -36,9 +36,11 @@ const BlogPage: React.FC = () => {
       ? posts
       : posts.filter((p) => p.category === selectedCategory);
 
-  // The first post will be highlighted as featured when "All" is selected
-  const featuredPost = posts[0];
-  const gridPosts = selectedCategory === "All" ? filteredPosts.slice(1) : filteredPosts;
+  // Highlight the designated featured post (or first post) when "All" is selected
+  const featuredPost = posts.find((p) => p.featured) || posts.find((p) => p.id === "building-the-next-era-of-ai") || posts[0];
+  const gridPosts = selectedCategory === "All"
+    ? filteredPosts.filter((p) => p.id !== featuredPost?.id)
+    : filteredPosts;
 
   const containerVariants = {
     hidden: { opacity: 0 },
