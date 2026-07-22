@@ -1,66 +1,133 @@
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 
 const HeroSection: React.FC = () => {
-  const { ref, inView } = useInView({
-    triggerOnce: true,
-    threshold: 0.2,
+  const containerRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start start", "end start"],
   });
+
+  const { ref: inViewRef, inView } = useInView({
+    triggerOnce: true,
+    threshold: 0.1,
+  });
+
+  // Parallax effects
+  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
+  const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+
+  const titleText = "Innovating Tomorrow's Technology Today";
+  const words = titleText.split(" ");
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: (i = 1) => ({
+      opacity: 1,
+      transition: { staggerChildren: 0.12, delayChildren: 0.04 * i },
+    }),
+  };
+
+  const childVariants = {
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+    hidden: {
+      opacity: 0,
+      y: 40,
+      transition: {
+        type: "spring",
+        damping: 12,
+        stiffness: 100,
+      },
+    },
+  };
 
   return (
     <section
-      ref={ref}
-      className="relative min-h-[80vh] flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20 px-6 overflow-hidden"
+      ref={containerRef}
+      className="relative min-h-[90vh] flex flex-col items-center justify-center bg-gradient-to-b from-gray-50 to-gray-100 dark:from-gray-950 dark:to-gray-900 py-24 px-6 overflow-hidden perspective-1000"
     >
-      {/* Animated background elements */}
+      {/* Animated background elements with parallax */}
       <motion.div
-        className="absolute inset-0 -z-10 opacity-10"
-        initial={{ scale: 0.5, rotate: 0 }}
-        animate={inView ? { scale: 1, rotate: 0 } : { scale: 0.5, rotate: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 30 }}
+        style={{ y: yBg, scale: scaleImage }}
+        className="absolute inset-0 -z-10 opacity-20"
       >
-        <div className="w-full h-full bg-gradient-to-r from-blue-500 via-purple-500 to-pink-500 opacity-20 mask radial-gradient-circle at-center,white 70%,transparent 71%"></div>
+        <div className="w-full h-full bg-gradient-to-tr from-blue-500/40 via-purple-500/20 to-pink-500/40 blur-3xl mix-blend-multiply dark:mix-blend-screen"></div>
       </motion.div>
 
       <motion.div
-        initial={{ y: 40, opacity: 0 }}
-        animate={inView ? { y: 0, opacity: 1 } : { y: 40, opacity: 0 }}
-        transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
-        className="text-center max-w-4xl space-y-8"
+        ref={inViewRef}
+        style={{ y: yText, opacity: opacityText }}
+        variants={containerVariants}
+        initial="hidden"
+        animate={inView ? "visible" : "hidden"}
+        className="text-center max-w-5xl space-y-10 z-10"
       >
-        <h1
-          className="text-5xl md:text-7xl lg:text-8xl font-black text-gray-900 dark:text-gray-50 tracking-tighter mb-4"
-          style={{ lineHeight: 1 }}
+        <motion.h1
+          className="text-6xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 tracking-tighter flex flex-wrap justify-center gap-x-[0.25em]"
+          style={{ lineHeight: 1.05 }}
         >
-          Innovating Tomorrow's Technology Today
-        </h1>
-        <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          {words.map((word, index) => (
+            <motion.span
+              variants={childVariants}
+              key={index}
+              className="inline-block"
+            >
+              {word}
+            </motion.span>
+          ))}
+        </motion.h1>
+
+        <motion.p 
+          variants={childVariants}
+          className="text-xl md:text-2xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto font-medium"
+        >
           We deliver tailored technology solutions that drive business growth and efficiency through innovative software development, cloud solutions, and AI-powered insights.
-        </p>
-        <Link to="/solutions" className="inline-block">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-8 py-4 bg-black text-white font-bold rounded-lg hover:bg-gray-900 transition-all duration-300 transform hover:-translate-y-1 shadow-lg text-base"
-          >
-            Explore Our Solutions
-          </motion.button>
-        </Link>
+        </motion.p>
+        
+        <motion.div variants={childVariants} className="pt-4">
+          <Link to="/solutions" className="inline-block">
+            <motion.button
+              whileHover={{ scale: 1.05, boxShadow: "0 20px 40px -10px rgba(0,0,0,0.3)" }}
+              whileTap={{ scale: 0.95 }}
+              className="px-10 py-5 bg-black dark:bg-white text-white dark:text-black font-bold rounded-full hover:bg-gray-900 dark:hover:bg-gray-100 transition-all duration-300 shadow-xl text-lg relative overflow-hidden group"
+            >
+              <span className="relative z-10">Explore Our Solutions</span>
+              <div className="absolute inset-0 bg-white/20 dark:bg-black/10 transform -skew-x-12 -translate-x-full group-hover:animate-[shine_1s_ease-in-out]"></div>
+            </motion.button>
+          </Link>
+        </motion.div>
       </motion.div>
 
-      {/* Decorative elements */}
+      {/* Decorative interactive elements */}
       <motion.div
-        className="absolute top-1/4 left-1/4 -z-10 w-32 h-32 bg-blue-500/10 rounded-full blur-3xl"
-        initial={{ rotate: 0 }}
-        animate={inView ? { rotate: 10 } : { rotate: 0 }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, duration: 3 }}
+        className="absolute top-[15%] left-[10%] -z-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"
+        animate={{
+          x: [0, 50, 0],
+          y: [0, -50, 0],
+          scale: [1, 1.2, 1],
+        }}
+        transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute bottom-1/4 right-1/4 -z-10 w-32 h-32 bg-purple-500/10 rounded-full blur-3xl"
-        initial={{ rotate: 0 }}
-        animate={inView ? { rotate: -10 } : { rotate: 0 }}
-        transition={{ type: "spring", stiffness: 200, damping: 20, duration: 3 }}
+        className="absolute bottom-[10%] right-[10%] -z-10 w-80 h-80 bg-purple-500/20 rounded-full blur-[100px]"
+        animate={{
+          x: [0, -60, 0],
+          y: [0, 40, 0],
+          scale: [1, 1.1, 1],
+        }}
+        transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
       />
     </section>
   );

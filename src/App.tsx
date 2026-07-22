@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, Link, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import HeroSection from "./components/hero/HeroSection";
 import FeaturesSection from "./components/features/FeaturesSection";
 import ResearchSection from "./components/research/ResearchSection";
@@ -47,12 +47,32 @@ const App: React.FC = () => {
     };
   }, []);
 
+  const { scrollY } = useScroll();
+  const [hidden, setHidden] = useState(false);
+
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    const previous = scrollY.getPrevious() ?? 0;
+    if (latest > previous && latest > 150) {
+      setHidden(true);
+    } else {
+      setHidden(false);
+    }
+  });
+
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50 transition-colors duration-300 antialiased">
       <ScrollToTop />
 
         {/* Navigation */}
-        <nav className="bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
+        <motion.nav 
+          variants={{
+            visible: { y: 0 },
+            hidden: { y: "-100%" },
+          }}
+          animate={hidden ? "hidden" : "visible"}
+          transition={{ duration: 0.35, ease: "easeInOut" }}
+          className="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 shadow-sm"
+        >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Left Logo */}
@@ -105,7 +125,7 @@ const App: React.FC = () => {
                       {user[0].toUpperCase()}
                     </button>
                     {/* Hover Dropdown menu */}
-                    <div className="absolute right-0 mt-0 pt-2 w-48 bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.06] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                    <div className="absolute right-0 mt-0 pt-2 w-48 bg-white/90 dark:bg-[#161617]/90 backdrop-blur-lg border border-gray-150 dark:border-white/[0.06] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <div className="p-3 border-b border-gray-100 dark:border-gray-850">
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Signed in as</p>
                         <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 truncate">{user}</p>
@@ -137,7 +157,7 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
-        </nav>
+        </motion.nav>
         <main>
           <AnimatePresence>
             <Routes location={location}>
