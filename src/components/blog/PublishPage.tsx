@@ -529,6 +529,103 @@ const PublishPage: React.FC = () => {
                         );
                       }
                     }
+
+                    // Custom Helleious Comparison Table Integration
+                    if (paragraph === "[HELLEIOUS_COMPARISON_TABLE]") {
+                      const HELLEIOUS_TABLE_DATA = [
+                        { cap: "Workflow/scenario builder", helleious: "✓", n8n: "✓", zapier: "✓", make: "✓" },
+                        { cap: "Wide third-party app integrations", helleious: "Growing library", n8n: "✓", zapier: "✓", make: "✓" },
+                        { cap: "Newsroom-native triggers (assignment → publish)", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Fact-check handoff steps", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Syndication rules built in", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Reader-relationship triggers (churn, engagement)", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Role-based permissions by desk/team", helleious: "✓", n8n: "Limited", zapier: "Limited", make: "Limited" },
+                        { cap: "Multi-desk / multi-brand support", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Editorial audit trail on automated steps", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "AI-assisted document and research analysis", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "CMS-native publishing integration", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Automated rights/compliance checks before syndication", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Real-time correction propagation across syndicated copies", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Built-in multilingual translation workflows", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Subscriber save/win-back triggers", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Built for general business workflows", helleious: "Not the focus", n8n: "✓", zapier: "✓", make: "✓" }
+                      ];
+
+                      const renderValue = (val: string) => {
+                        if (val === "✓") {
+                          return (
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-green-50 dark:bg-green-950/20 text-green-600 dark:text-green-400 border border-green-150 dark:border-green-900/30 font-bold text-[10px] select-none">
+                              ✓
+                            </span>
+                          );
+                        }
+                        if (val === "✗") {
+                          return (
+                            <span className="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-50 dark:bg-red-950/20 text-red-650 dark:text-red-400 border border-red-150 dark:border-red-900/30 font-bold text-[10px] select-none">
+                              ✗
+                            </span>
+                          );
+                        }
+                        if (val === "Growing library") {
+                          return (
+                            <span className="inline-block px-1.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 border border-blue-150 dark:border-blue-900/30 text-[9px] font-bold whitespace-nowrap">
+                              Growing library
+                            </span>
+                          );
+                        }
+                        if (val === "Limited") {
+                          return (
+                            <span className="inline-block px-1.5 py-0.5 rounded-full bg-amber-50 dark:bg-amber-950/25 text-amber-600 dark:text-amber-400 border border-amber-150 dark:border-amber-900/30 text-[9px] font-bold whitespace-nowrap">
+                              Limited
+                            </span>
+                          );
+                        }
+                        if (val === "Not the focus") {
+                          return (
+                            <span className="inline-block px-1.5 py-0.5 rounded-full bg-gray-55/60 dark:bg-gray-900 text-gray-500 dark:text-gray-400 border border-gray-150/70 dark:border-gray-800 text-[9px] font-medium whitespace-nowrap">
+                              Not the focus
+                            </span>
+                          );
+                        }
+                        return val;
+                      };
+
+                      return (
+                        <div key={index} className="my-6 overflow-hidden rounded-xl border border-gray-150 dark:border-white/[0.04] bg-white dark:bg-[#161617] shadow-md">
+                          <div className="overflow-x-auto">
+                            <table className="w-full text-left border-collapse text-[11px] md:text-xs">
+                              <thead>
+                                <tr className="bg-gray-50 dark:bg-gray-900/80 border-b border-gray-150 dark:border-white/[0.04]">
+                                  <th className="p-3 font-extrabold text-gray-900 dark:text-white">Capability</th>
+                                  <th className="p-3 font-extrabold text-gray-900 dark:text-white text-center bg-blue-50/20 dark:bg-blue-900/10">
+                                    Helleious.ai<br/>
+                                    <span className="text-[8px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">(planned)</span>
+                                  </th>
+                                  <th className="p-3 font-extrabold text-gray-950 dark:text-white text-center">n8n</th>
+                                  <th className="p-3 font-extrabold text-gray-950 dark:text-white text-center">Zapier</th>
+                                  <th className="p-3 font-extrabold text-gray-950 dark:text-white text-center">Make</th>
+                                </tr>
+                              </thead>
+                              <tbody className="divide-y divide-gray-100 dark:divide-white/[0.02]">
+                                {HELLEIOUS_TABLE_DATA.map((row, idx) => (
+                                  <tr key={idx} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/10 transition-colors">
+                                    <td className="p-3 font-semibold text-gray-900 dark:text-gray-200 leading-tight">{row.cap}</td>
+                                    <td className="p-3 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.helleious)}</td>
+                                    <td className="p-4 text-center">{renderValue(row.n8n)}</td>
+                                    <td className="p-4 text-center">{renderValue(row.zapier)}</td>
+                                    <td className="p-4 text-center">{renderValue(row.make)}</td>
+                                  </tr>
+                                ))}
+                              </tbody>
+                            </table>
+                          </div>
+                          <div className="p-3 bg-gray-50 dark:bg-gray-900/50 border-t border-gray-150 dark:border-white/[0.04] text-[9px] text-gray-400 dark:text-gray-500 italic">
+                            Table reflects planned capabilities for Helleious.ai, compared with n8n, Zapier, and Make. Not based on third-party benchmark testing.
+                          </div>
+                        </div>
+                      );
+                    }
+
                     // Headers
                     if (paragraph.startsWith("## ")) {
                       return (

@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
@@ -24,7 +24,7 @@ const HeroSection: React.FC = () => {
   const titleText = "Innovating Tomorrow's Technology Today";
   const words = titleText.split(" ");
 
-  const containerVariants = {
+  const containerVariants: Variants = {
     hidden: { opacity: 0 },
     visible: (i = 1) => ({
       opacity: 1,
@@ -32,7 +32,7 @@ const HeroSection: React.FC = () => {
     }),
   };
 
-  const childVariants = {
+  const childVariants: Variants = {
     visible: {
       opacity: 1,
       y: 0,

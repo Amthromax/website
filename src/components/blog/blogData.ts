@@ -26,6 +26,62 @@ export interface NewsItem {
 
 export const blogPosts: BlogPost[] = [
   {
+    id: "how-news-organizations-use-ai",
+    title: "How News Organizations Are Using AI to Advance Their Vital Missions",
+    excerpt: "At AmthroMax, we believe journalism's mission has never mattered more. Here's a look at how newsrooms are putting AI to work today, and where we're taking it next.",
+    category: "Company Blog",
+    date: "July 25, 2026",
+    readTime: "7 min read",
+    author: {
+      name: "Amthromax Press",
+      role: "Editorial & Press Office",
+      avatar: "A"
+    },
+    image: "/images/newsroom-ai-cover.png",
+    content: [
+      "At AmthroMax, we believe journalism's mission has never mattered more: original reporting that holds power accountable, trusted information that helps people make sense of their world, and relationships between newsrooms and the communities they serve. Our technology exists to support that mission — not replace it.",
+      "Here's how newsrooms are putting AI to work today, and where we're taking it next.",
+      "## 1. Deepening Original Reporting",
+      "Investigative and beat reporters are drowning in source material — court filings, financial disclosures, leaked datasets, hours of public meeting footage. AI can't do the reporting for them, but it can do the first pass:",
+      "• Surfacing patterns across thousands of pages of documents in minutes instead of weeks",
+      "• Transcribing and indexing interviews and public hearings so reporters can search by topic",
+      "• Flagging anomalies in public records that deserve a second look",
+      "![Investigating datasets and documents with AI-assisted workflow](/images/newsroom-data-analysis.png)",
+      "The result isn't AI-generated journalism — it's AI-assisted time, given back to reporters so they can spend it verifying, interviewing, and writing.",
+      "## 2. Making Trusted Content More Useful and Accessible",
+      "A great story that never reaches its reader hasn't done its job. Newsrooms are using AI to:",
+      "• Auto-generate accurate summaries, translations, and alt-text so stories reach non-native speakers and readers using assistive technology",
+      "• Repurpose a single investigation into a newsletter blurb, a social clip, and an audio briefing — without diluting accuracy",
+      "• Personalize story recommendations based on genuine reader interest, not just clickbait signals",
+      "The throughline: the same rigorously reported story, in more forms, reaching more people who need it.",
+      "## 3. Building Stronger Reader, Subscriber, and Advertiser Relationships",
+      "Sustainable journalism depends on sustainable business models. AI is helping newsrooms:",
+      "• Predict and reduce subscriber churn by spotting disengagement early",
+      "• Route the right ad inventory to the right audience without compromising editorial trust",
+      "• Give community and engagement teams a real-time pulse on what readers are asking for",
+      "![Subscriber growth and retention dashboard metrics](/images/newsroom-relationship-analytics.png)",
+      "## What's Next: Bringing Automation to the Newsroom Stack",
+      "Most newsrooms today stitch these capabilities together with general-purpose automation tools — platforms built for marketing teams and software companies, then bent into shape for editorial workflows.",
+      "We think news organizations deserve better than a bent-into-shape tool. That's why we're building Helleious.ai: an AI automation platform designed specifically around newsroom workflows — assignment-to-publish pipelines, fact-check handoffs, syndication rules, and reader-relationship triggers — rather than generic if-this-then-that logic.",
+      "## How Helleious.ai Compares",
+      "The chart below lays out where a newsroom-native automation platform differs from general-purpose automation tools like n8n, Zapier, and Make. This reflects planned/target capabilities for Helleious.ai as we build toward launch — not third-party benchmark results.",
+      "### Built for scale: enterprise newsrooms",
+      "Helleious.ai is being designed with larger, multi-desk newsrooms in mind — the kind of organizations running dozens of workflows across investigative, breaking news, and business teams at once. Planned enterprise-oriented capabilities include:",
+      "• Role-based permissions so editors, reporters, and engineering teams each see only the workflows relevant to them",
+      "• Multi-desk and multi-brand support for publishers running several mastheads from one back end",
+      "• Audit trails on every automated step, so corrections and fact-check handoffs stay fully traceable",
+      "• Expanding library of AI-assisted activities — from document analysis to reader-engagement triggers — that newsrooms can combine into their own workflows as the platform matures",
+      "We'll share more detail on specific features, integrations, and pricing tiers as we get closer to launch.",
+      "### Launch timeline",
+      "Helleious.ai is targeting a June 2027 launch. Between now and then, we'll be working with a small group of newsroom partners to shape the platform around real editorial and business workflows before opening it up more broadly.",
+      "[HELLEIOUS_COMPARISON_TABLE]",
+      "## Our Commitment",
+      "AI in the newsroom only earns its place if it strengthens accuracy, transparency, and trust — never substitutes for them. Every capability described above is built to keep a human editor, reporter, or community manager in the loop and in control.",
+      "That's the mission. The technology is just how we get there.",
+      "Interested in what Helleious.ai could do for your newsroom? Contact us to join the early access list."
+    ]
+  },
+  {
     id: "kishore-kanth-founder-profile",
     title: "Kishore Kanth: The Founder Behind AMTHROMAX's Next AI Future",
     excerpt: "How one engineer's frustration with \"AI that talks but doesn't finish\" became the founding idea of AMTHROMAX.",
@@ -330,6 +386,21 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const newsItems: NewsItem[] = [
+  {
+    id: "how-news-organizations-use-ai",
+    title: "How News Organizations Are Using AI to Advance Their Vital Missions",
+    category: "Announcement",
+    date: "July 25, 2026",
+    summary: "At AmthroMax, we believe journalism's mission has never mattered more. We explore how newsrooms deploy AI to deepen reporting, distribute stories, and introduce our upcoming newsroom automation platform Helleious.ai.",
+    content: [
+      "AMTHROMAX Editorial & Press Office has published a new analysis: 'How News Organizations Are Using AI to Advance Their Vital Missions'.",
+      "1. Deepening Original Reporting: Giving investigative and beat reporters critical time back by surfacing patterns, transcribing interviews, and indexing files.",
+      "2. Accessible Content & Distribution: Utilizing AI to auto-generate summaries, translate text dynamically, repurpose investigations, and personalize recommendations.",
+      "3. Sustainable Business Models: Helping newsrooms predict and reduce subscriber churn, route ad inventory responsibly, and monitor audience engagement.",
+      "4. What's Next: Introducing Helleious.ai, our upcoming newsroom-native automation platform launching in June 2027.",
+      "Read the full article and explore the Helleious.ai capability comparison chart on the Amthromax Blog."
+    ]
+  },
   {
     id: "kishore-kanth-founder-profile",
     title: "Kishore Kanth: The Founder Behind AMTHROMAX's Next AI Future",
