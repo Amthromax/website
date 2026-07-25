@@ -1,33 +1,112 @@
-import React from "react";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import Footer from "../footer/Footer";
 import SEO from "../layout/SEO";
 
+interface RouteHistoryItem {
+  id: number;
+  query: string;
+  model: string;
+  cacheStatus: "HIT" | "MISS";
+  latency: number;
+  tokens: number;
+}
+
 const PlatformPage: React.FC = () => {
+  // Playground state
+  const [useCache, setUseCache] = useState<boolean>(true);
+  const [activeModel, setActiveModel] = useState<string>("Thalon-Nano");
+  const [isRunning, setIsRunning] = useState<boolean>(false);
+  const [currentStep, setCurrentStep] = useState<string>("");
+  const [history, setHistory] = useState<RouteHistoryItem[]>([
+    { id: 1, query: "Summarize Q3 balance sheets", model: "Lattice-Reasoner", cacheStatus: "MISS", latency: 2150, tokens: 4800 },
+    { id: 2, query: "Extract user credentials from raw log", model: "Clio-3.5-Large", cacheStatus: "MISS", latency: 1480, tokens: 1200 },
+    { id: 3, query: "Summarize Q3 balance sheets", model: "Lattice-Reasoner", cacheStatus: "HIT", latency: 14, tokens: 4800 }
+  ]);
+
+  const [simulatedQuery, setSimulatedQuery] = useState<string>("Fetch total user API requests by desk");
+
+  const runSimulation = () => {
+    if (isRunning) return;
+    setIsRunning(true);
+    setCurrentStep("Analyzing query intent...");
+
+    const steps = [
+      { text: "Resolving semantic embedding vector...", delay: 400 },
+      { text: useCache ? "Searching semantic cache database..." : "Bypassing cache database...", delay: 800 },
+      useCache 
+        ? { text: "Matching cached nodes found (similarity > 0.94)...", delay: 1100 }
+        : { text: `Connecting to upstream API [${activeModel}]...`, delay: 1300 },
+      useCache 
+        ? { text: "Encapsulating response schema...", delay: 1400 }
+        : { text: "Receiving tokens from model endpoint...", delay: 1900 },
+      { text: "Done!", delay: useCache ? 1600 : 2300 }
+    ];
+
+    steps.forEach((step, idx) => {
+      setTimeout(() => {
+        setCurrentStep(step.text);
+        if (idx === steps.length - 1) {
+          const latencyVal = useCache ? Math.floor(Math.random() * 8) + 8 : Math.floor(Math.random() * 600) + 1200;
+          const tokenCount = activeModel === "Thalon-Nano" ? 800 : activeModel === "Clio-3.5-Large" ? 1800 : 5400;
+          
+          setHistory((prev) => [
+            {
+              id: Date.now(),
+              query: simulatedQuery,
+              model: useCache ? "Cache Edge Node" : activeModel,
+              cacheStatus: useCache ? "HIT" : "MISS",
+              latency: latencyVal,
+              tokens: tokenCount
+            },
+            ...prev
+          ]);
+          setIsRunning(false);
+          setCurrentStep("");
+        }
+      }, step.delay);
+    });
+  };
+
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Platform | The Agentic Execution Layer" 
         description="Explore the architecture behind Amthromax: low-latency orchestration, semantic caching, and federated databases designed for agentic workflows." 
       />
 
       {/* Hero Header */}
-      <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0" />
+      <section className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,102,204,0.15),transparent_60%)] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-widest text-blue-400 font-semibold bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+          <motion.span 
+            initial={{ opacity: 0, y: 15 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-xs uppercase tracking-widest text-blue-400 font-bold bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full backdrop-blur-md"
+          >
             AMTHROMAX CORE PLATFORM
-          </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight">
+          </motion.span>
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-4xl md:text-6xl font-black tracking-tighter leading-tight"
+          >
             The Agent Execution Engine
-          </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 25 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed"
+          >
             A single, highly optimized orchestration layer engineered for real-time model dispatch, semantic caching, and secure tool execution.
-          </p>
+          </motion.p>
         </div>
-      </div>
+      </section>
 
       {/* Platform Architecture Sections */}
-      <div className="max-w-6xl mx-auto px-6 py-20 space-y-24">
+      <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-24">
+        
         {/* Core Pillars Grid */}
         <div className="grid md:grid-cols-3 gap-8">
           {[
@@ -47,12 +126,192 @@ const PlatformPage: React.FC = () => {
               desc: "Automatically isolates all dynamic tools (SQL queries, bash scripts, API calls) in ephemeral, read-only virtual micro-containers that self-destruct upon task completion."
             }
           ].map((item, idx) => (
-            <div key={idx} className="p-8 bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-3xl space-y-4 hover:shadow-md transition-all duration-300">
-              <span className="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest">{item.num} / Engine</span>
+            <motion.div 
+              key={idx}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ delay: idx * 0.15 }}
+              className="p-8 bg-white dark:bg-[#161617] border border-gray-200/50 dark:border-white/[0.04] rounded-3xl space-y-4 hover:shadow-md transition-all duration-300 group"
+            >
+              <span className="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
-            </div>
+            </motion.div>
           ))}
+        </div>
+
+        {/* Interactive Orchestrator Playground */}
+        <div className="space-y-6">
+          <div className="space-y-2 text-center max-w-2xl mx-auto">
+            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Orchestrator Performance Playground</h2>
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
+              Toggle the Semantic Cache option and trigger model queries to observe the execution pipeline's latency and token conservation.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
+            {/* Control Panel (left) */}
+            <div className="lg:col-span-5 bg-white dark:bg-[#161617] rounded-3xl p-6 border border-gray-200/50 dark:border-white/[0.04] shadow-sm flex flex-col justify-between space-y-6">
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wide">Test Prompt Query</label>
+                  <input 
+                    type="text"
+                    disabled={isRunning}
+                    value={simulatedQuery}
+                    onChange={(e) => setSimulatedQuery(e.target.value)}
+                    className="w-full px-4 py-3 bg-gray-55 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-semibold text-gray-900 dark:text-white"
+                    placeholder="Enter query..."
+                  />
+                </div>
+
+                <div className="space-y-1">
+                  <label className="text-xs font-bold text-gray-400 uppercase tracking-wide">Fallback Model Routing</label>
+                  <div className="grid grid-cols-3 gap-2">
+                    {[
+                      { id: "Thalon-Nano", label: "Nano (8B)" },
+                      { id: "Clio-3.5-Large", label: "Large (70B)" },
+                      { id: "Lattice-Reasoner", label: "Reasoner" }
+                    ].map((model) => (
+                      <button
+                        key={model.id}
+                        type="button"
+                        disabled={isRunning}
+                        onClick={() => setActiveModel(model.id)}
+                        className={`py-2 px-1 text-center font-bold text-[10px] rounded-lg border transition-all ${
+                          activeModel === model.id 
+                            ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white" 
+                            : "bg-gray-55 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 border-gray-200 dark:border-gray-800 text-gray-600 dark:text-gray-300"
+                        }`}
+                      >
+                        {model.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="pt-2">
+                  <label className="flex items-center justify-between p-3 rounded-2xl border border-gray-200 dark:border-gray-800 bg-gray-55 dark:bg-gray-900 cursor-pointer select-none">
+                    <div className="space-y-0.5">
+                      <span className="text-xs font-bold text-gray-900 dark:text-white">Semantic Cache Layer</span>
+                      <p className="text-[10px] text-gray-400 leading-none">Avoid upstream calls for matched intents</p>
+                    </div>
+                    <button
+                      type="button"
+                      disabled={isRunning}
+                      onClick={() => setUseCache(!useCache)}
+                      className={`w-11 h-6 rounded-full relative p-0.5 transition-colors duration-200 ${useCache ? "bg-emerald-500" : "bg-gray-300 dark:bg-gray-700"}`}
+                    >
+                      <span className={`w-5 h-5 bg-white rounded-full block transition-transform duration-200 ${useCache ? "translate-x-5" : "translate-x-0"}`} />
+                    </button>
+                  </label>
+                </div>
+              </div>
+
+              <button
+                type="button"
+                onClick={runSimulation}
+                disabled={isRunning}
+                className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold rounded-2xl text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
+              >
+                {isRunning ? (
+                  <>
+                    <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                      <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                      <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
+                    </svg>
+                    Executing Dispatch...
+                  </>
+                ) : (
+                  "Execute Dispatch Chain"
+                )}
+              </button>
+            </div>
+
+            {/* Performance Visualizer (right) */}
+            <div className="lg:col-span-7 bg-[#0b0b0c] text-zinc-300 rounded-3xl overflow-hidden border border-zinc-800 shadow-xl font-mono text-xs flex flex-col min-h-[360px]">
+              {/* Telemetry Header */}
+              <div className="bg-[#161617] px-4 py-3 border-b border-zinc-850 flex items-center justify-between">
+                <div className="flex items-center space-x-2">
+                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" />
+                  <span className="text-[10px] text-zinc-400 font-bold">real-time-core-orchestrator</span>
+                </div>
+                <span className={`text-[9px] px-2 py-0.5 rounded font-black ${useCache ? "bg-emerald-500/10 text-emerald-450 border border-emerald-500/20" : "bg-blue-500/10 text-blue-400 border border-blue-500/20"}`}>
+                  CACHE_{useCache ? "OPTIMIZED" : "BYPASSED"}
+                </span>
+              </div>
+
+              {/* Sandbox Display */}
+              <div className="flex-1 p-5 flex flex-col justify-between space-y-4">
+                <div className="space-y-3">
+                  <div className="flex justify-between items-center text-[10px] text-zinc-550 border-b border-zinc-850 pb-2">
+                    <span>EXECUTION FLOW LOG</span>
+                    <span className="animate-pulse text-emerald-400 font-bold">● ONLINE</span>
+                  </div>
+
+                  {/* Execution Progress */}
+                  <div className="min-h-[50px] flex items-center">
+                    <AnimatePresence mode="wait">
+                      {isRunning ? (
+                        <motion.div 
+                          key={currentStep}
+                          initial={{ opacity: 0, x: -10 }}
+                          animate={{ opacity: 1, x: 0 }}
+                          exit={{ opacity: 0, x: 10 }}
+                          className="text-white font-semibold flex items-center gap-3 text-xs"
+                        >
+                          <span className="w-2 h-2 bg-blue-500 rounded-full animate-ping" />
+                          <span>{currentStep}</span>
+                        </motion.div>
+                      ) : (
+                        <span className="text-zinc-550 text-xs italic">System idle. Trigger a query simulation to see execution logs...</span>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                </div>
+
+                {/* History Analytics Table */}
+                <div className="space-y-2">
+                  <span className="text-[10px] text-zinc-550 block font-bold">RECENT ROUTE SESSIONS</span>
+                  <div className="overflow-x-auto">
+                    <table className="w-full text-[10px] text-left border-collapse">
+                      <thead>
+                        <tr className="border-b border-zinc-850 text-zinc-500 pb-1">
+                          <th className="py-1">Query</th>
+                          <th className="py-1">Endpoint</th>
+                          <th className="py-1 text-center">Cache</th>
+                          <th className="py-1 text-right">Latency</th>
+                        </tr>
+                      </thead>
+                      <tbody className="divide-y divide-zinc-900">
+                        {history.slice(0, 3).map((item) => (
+                          <tr key={item.id} className="text-zinc-300">
+                            <td className="py-1.5 max-w-[150px] truncate text-[11px] font-semibold">{item.query}</td>
+                            <td className="py-1.5 text-zinc-400">{item.model}</td>
+                            <td className="py-1.5 text-center">
+                              <span className={`px-1.5 py-0.5 rounded font-black ${
+                                item.cacheStatus === "HIT" 
+                                  ? "bg-green-500/10 text-green-450 border border-green-500/20" 
+                                  : "bg-amber-500/10 text-amber-500 border border-amber-500/20"
+                              }`}>
+                                {item.cacheStatus}
+                              </span>
+                            </td>
+                            <td className={`py-1.5 text-right font-bold ${
+                              item.latency < 50 ? "text-green-450" : "text-zinc-300"
+                            }`}>
+                              {item.latency}ms
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Feature Detail Showcase */}
@@ -79,7 +338,7 @@ const PlatformPage: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-150 dark:border-white/[0.04] aspect-[4/3] relative">
+          <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-150 dark:border-white/[0.04] aspect-[4/3] relative shadow-md">
             <img 
               src="/images/man_at_desk.jpg" 
               alt="Engineering Platform Metrics" 
@@ -87,6 +346,7 @@ const PlatformPage: React.FC = () => {
             />
           </div>
         </div>
+
       </div>
 
       <Footer />
