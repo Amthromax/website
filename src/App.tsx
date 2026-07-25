@@ -198,7 +198,7 @@ const App: React.FC = () => {
                     <div className="max-w-6xl mx-auto px-6 space-y-16">
                       {/* Header */}
                       <div className="text-center max-w-3xl mx-auto space-y-6">
-                        <span className="text-xs font-bold uppercase tracking-wider text-blue-600 bg-blue-50 px-3 py-1.5 rounded-full">Company Profile</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-blue-650 dark:text-blue-400">Company Profile</span>
                         <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900">About Amthromax</h1>
                         <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
                           Amthromax is a software and artificial intelligence company building intelligent products, scalable platforms, and enterprise solutions. We help businesses innovate, automate workflows, and accelerate growth through cutting-edge technology.
@@ -275,7 +275,7 @@ const App: React.FC = () => {
                   <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
                     <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
                       <div className="md:col-span-5 space-y-6">
-                        <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full">Get in touch</span>
+                        <span className="text-xs font-bold uppercase tracking-wider text-blue-650 dark:text-blue-400">Get in touch</span>
                         <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">Contact Our Team</h1>
                         <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
                           Have questions about our enterprise offerings, modern custom software design, or research projects? Reach out and we will be in touch.

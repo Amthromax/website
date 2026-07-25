@@ -7,7 +7,7 @@ const PageHeader: React.FC<{ category: string; title: string; subtitle: string }
     <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
       <div className="absolute inset-0 bg-gradient-to-b from-slate-900/65 via-zinc-950/40 to-black z-0" />
       <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-        <span className="text-xs uppercase tracking-widest text-blue-400 font-semibold bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full backdrop-blur-md">
+        <span className="text-xs uppercase tracking-widest text-blue-400 font-bold">
           {category}
         </span>
         <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight">

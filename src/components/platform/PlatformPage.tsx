@@ -83,7 +83,7 @@ const PlatformPage: React.FC = () => {
           <motion.span 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs uppercase tracking-widest text-blue-400 font-bold bg-blue-500/10 border border-blue-500/20 px-4 py-1.5 rounded-full backdrop-blur-md"
+            className="text-xs uppercase tracking-widest text-blue-400 font-bold"
           >
             AMTHROMAX CORE PLATFORM
           </motion.span>

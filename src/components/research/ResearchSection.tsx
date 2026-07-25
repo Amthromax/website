@@ -95,7 +95,7 @@ const ResearchSection: React.FC = () => {
             initial={{ opacity: 0, y: 10 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.5 }}
-            className="text-xs font-semibold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full"
+            className="text-xs font-bold uppercase tracking-wider text-blue-650 dark:text-blue-400"
           >
             Scientific Division
           </motion.span>

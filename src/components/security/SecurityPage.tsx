@@ -176,7 +176,7 @@ const SecurityPage: React.FC = () => {
       <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex items-center justify-center bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900 transition-colors duration-300">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold bg-blue-50 dark:bg-blue-900/30 border border-blue-100 dark:border-blue-800/40 px-4 py-1.5 rounded-full backdrop-blur-md">
+          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold">
             <svg className="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
