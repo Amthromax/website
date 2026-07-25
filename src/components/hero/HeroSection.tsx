@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform, type Variants } from "framer-motion";
+import { motion, useScroll, useTransform, useSpring, type Variants } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
@@ -10,16 +10,23 @@ const HeroSection: React.FC = () => {
     offset: ["start start", "end start"],
   });
 
+  // Create a spring-damped version of scroll progress for ultra-smooth parallax
+  const smoothProgress = useSpring(scrollYProgress, {
+    stiffness: 80,
+    damping: 26,
+    restDelta: 0.001
+  });
+
   const { ref: inViewRef, inView } = useInView({
     triggerOnce: true,
     threshold: 0.1,
   });
 
-  // Parallax effects
-  const yBg = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const yText = useTransform(scrollYProgress, [0, 1], ["0%", "150%"]);
-  const opacityText = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scaleImage = useTransform(scrollYProgress, [0, 1], [1, 1.2]);
+  // Parallax effects using the smoothed progress
+  const yBg = useTransform(smoothProgress, [0, 1], ["0%", "50%"]);
+  const yText = useTransform(smoothProgress, [0, 1], ["0%", "150%"]);
+  const opacityText = useTransform(smoothProgress, [0, 0.8], [1, 0]);
+  const scaleImage = useTransform(smoothProgress, [0, 1], [1, 1.2]);
 
   const titleText = "Innovating Tomorrow's Technology Today";
   const words = titleText.split(" ");
@@ -61,7 +68,7 @@ const HeroSection: React.FC = () => {
       {/* Animated background elements with parallax */}
       <motion.div
         style={{ y: yBg, scale: scaleImage }}
-        className="absolute inset-0 -z-10 opacity-20"
+        className="absolute inset-0 -z-10 opacity-20 will-change-transform transform-gpu"
       >
         <div className="w-full h-full bg-gradient-to-tr from-blue-500/40 via-purple-500/20 to-pink-500/40 blur-3xl mix-blend-multiply dark:mix-blend-screen"></div>
       </motion.div>
@@ -72,7 +79,7 @@ const HeroSection: React.FC = () => {
         variants={containerVariants}
         initial="hidden"
         animate={inView ? "visible" : "hidden"}
-        className="text-center max-w-5xl space-y-10 z-10"
+        className="text-center max-w-5xl space-y-10 z-10 will-change-transform transform-gpu"
       >
         <motion.h1
           className="text-6xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 tracking-tighter flex flex-wrap justify-center gap-x-[0.25em]"
@@ -112,7 +119,7 @@ const HeroSection: React.FC = () => {
 
       {/* Decorative interactive elements */}
       <motion.div
-        className="absolute top-[15%] left-[10%] -z-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px]"
+        className="absolute top-[15%] left-[10%] -z-10 w-64 h-64 bg-blue-500/20 rounded-full blur-[80px] will-change-transform transform-gpu"
         animate={{
           x: [0, 50, 0],
           y: [0, -50, 0],
@@ -121,7 +128,7 @@ const HeroSection: React.FC = () => {
         transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
       />
       <motion.div
-        className="absolute bottom-[10%] right-[10%] -z-10 w-80 h-80 bg-purple-500/20 rounded-full blur-[100px]"
+        className="absolute bottom-[10%] right-[10%] -z-10 w-80 h-80 bg-purple-500/20 rounded-full blur-[100px] will-change-transform transform-gpu"
         animate={{
           x: [0, -60, 0],
           y: [0, 40, 0],

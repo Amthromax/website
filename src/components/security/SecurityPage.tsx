@@ -43,7 +43,7 @@ const SecurityPage: React.FC = () => {
   // Auto scroll console to bottom
   useEffect(() => {
     if (consoleEndRef.current) {
-      consoleEndRef.current.scrollIntoView({ behavior: "smooth" });
+      consoleEndRef.current.scrollIntoView({ block: "nearest", behavior: "auto" });
     }
   }, [logs]);
 
