@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
+import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts, type BlogPost } from "./blogData";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
@@ -8,6 +9,17 @@ const BlogPostDetail: React.FC = () => {
   const { postId } = useParams<{ postId: string }>();
   const navigate = useNavigate();
   const [toastMessage, setToastMessage] = useState<string | null>(null);
+  const [lightboxImg, setLightboxImg] = useState<string | null>(null);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setLightboxImg(null);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
 
   const [posts] = useState<BlogPost[]>(() => {
     const stored = localStorage.getItem("amthromax_blog_posts");
@@ -220,8 +232,15 @@ const BlogPostDetail: React.FC = () => {
           </div>
 
           {/* Featured Image */}
-          <div className="aspect-[21/9] w-full overflow-hidden rounded-[32px] border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900">
-            <img src={post.image} alt={post.title} className="w-full h-full object-cover object-top" />
+          <div 
+            onClick={() => setLightboxImg(post.image)}
+            className="aspect-[21/9] w-full overflow-hidden rounded-[32px] border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900 cursor-zoom-in group/heroimg"
+          >
+            <img 
+              src={post.image} 
+              alt={post.title} 
+              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/heroimg:scale-[1.03]" 
+            />
           </div>
 
           {/* Article Body */}
@@ -232,8 +251,16 @@ const BlogPostDetail: React.FC = () => {
                 const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
                 if (match) {
                   return (
-                    <div key={index} className="my-8 rounded-[24px] overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900">
-                      <img src={match[2]} alt={match[1]} className="w-full object-cover" />
+                    <div 
+                      key={index} 
+                      onClick={() => setLightboxImg(match[2])}
+                      className="my-8 rounded-[24px] overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-55 dark:bg-gray-900 cursor-zoom-in group/inlineimg"
+                    >
+                      <img 
+                        src={match[2]} 
+                        alt={match[1]} 
+                        className="w-full object-cover transition-transform duration-500 group-hover/inlineimg:scale-[1.02]" 
+                      />
                     </div>
                   );
                 }
@@ -452,6 +479,35 @@ const BlogPostDetail: React.FC = () => {
       <div className={`fixed bottom-6 right-6 z-50 bg-gray-900 text-white dark:bg-white dark:text-gray-900 px-5 py-3 rounded-full text-xs font-bold shadow-lg flex items-center gap-2 transition-all duration-300 transform ${toastMessage ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-3 scale-95 pointer-events-none"}`}>
         <span>{toastMessage}</span>
       </div>
+
+      {/* Lightbox Zoom Modal Overlay */}
+      <AnimatePresence>
+        {lightboxImg && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setLightboxImg(null)}
+            className="fixed inset-0 z-[100] bg-black/92 backdrop-blur-md flex items-center justify-center p-4 sm:p-8 cursor-zoom-out select-none"
+          >
+            <button
+              type="button"
+              onClick={() => setLightboxImg(null)}
+              className="absolute top-6 right-6 text-white/70 hover:text-white text-3xl font-light focus:outline-none transition-colors cursor-pointer"
+            >
+              ✕
+            </button>
+            <motion.img
+              initial={{ scale: 0.95 }}
+              animate={{ scale: 1 }}
+              exit={{ scale: 0.95 }}
+              src={lightboxImg}
+              alt="Zoomed View"
+              className="max-w-full max-h-[88vh] object-contain rounded-2xl shadow-2xl"
+            />
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       <Footer />
     </div>
