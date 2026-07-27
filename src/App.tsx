@@ -31,23 +31,26 @@ import PricingPage from "./components/pricing/PricingPage";
 import CareersPage from "./components/careers/CareersPage";
 import SecurityPage from "./components/security/SecurityPage";
 import TeamPage from "./components/about/TeamPage";
+import { supabase } from "./lib/supabase";
 import './App.css';
 
 const App: React.FC = () => {
   const location = useLocation();
-  const [user, setUser] = useState<string | null>(() => {
-    return localStorage.getItem("amthromax-user");
-  });
+  const [user, setUser] = useState<string | null>(null);
 
   useEffect(() => {
-    const checkAuth = () => {
-      setUser(localStorage.getItem("amthromax-user"));
-    };
-    window.addEventListener("auth-change", checkAuth);
-    window.addEventListener("storage", checkAuth);
+    // Check active session on initial load
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setUser(session?.user?.email || null);
+    });
+
+    // Listen for authentication state changes (login, logout, token refresh)
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+      setUser(session?.user?.email || null);
+    });
+
     return () => {
-      window.removeEventListener("auth-change", checkAuth);
-      window.removeEventListener("storage", checkAuth);
+      subscription.unsubscribe();
     };
   }, []);
 
@@ -144,9 +147,9 @@ const App: React.FC = () => {
                       <div className="p-2">
                         <button
                           type="button"
-                          onClick={() => {
-                            localStorage.removeItem("amthromax-user");
-                            window.dispatchEvent(new Event("auth-change"));
+                          onClick={async () => {
+                            await supabase.auth.signOut();
+                            // Supabase listener handles the rest
                           }}
                           className="w-full text-left px-3 py-2 text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-all"
                         >

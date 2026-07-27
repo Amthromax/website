@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { supabase } from "../../lib/supabase";
 
 const LoginSection: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(true);
@@ -9,21 +10,59 @@ const LoginSection: React.FC = () => {
   const [password, setPassword] = useState<string>("");
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
+  const [authError, setAuthError] = useState<string | null>(null);
   const [showGoogleModal, setShowGoogleModal] = useState<boolean>(false);
   const [isGoogleConnecting, setIsGoogleConnecting] = useState<boolean>(false);
   const [googleEmail, setGoogleEmail] = useState<string>("");
+  const navigate = useNavigate();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email || !password) return;
 
     setIsLoading(true);
-    setTimeout(() => {
-      localStorage.setItem("amthromax-user", email);
+    setAuthError(null);
+
+    let authData;
+    let authError;
+
+    if (isSignUp) {
+      const { data, error } = await supabase.auth.signUp({
+        email,
+        password,
+      });
+      authData = data;
+      authError = error;
+    } else {
+      const { data, error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      authData = data;
+      authError = error;
+    }
+
+    if (authError) {
+      setAuthError(authError.message);
+      setIsLoading(false);
+    } else {
+      localStorage.setItem("amthromax-user", authData.user?.email || email);
       window.dispatchEvent(new Event("auth-change"));
       setIsLoading(false);
       setIsSuccess(true);
-    }, 1500);
+      setTimeout(() => navigate('/'), 2000);
+    }
+  };
+
+  const signInWithProvider = async (provider: 'google' | 'github' | 'apple') => {
+    try {
+      const { data, error } = await supabase.auth.signInWithOAuth({
+        provider,
+      });
+      if (error) setAuthError(error.message);
+    } catch (e: any) {
+      setAuthError(e.message);
+    }
   };
 
   return (
@@ -146,6 +185,12 @@ const LoginSection: React.FC = () => {
                     </div>
                   </div>
 
+                  {authError && (
+                    <div className="p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-900 rounded-xl text-red-600 dark:text-red-400 text-xs font-medium">
+                      {authError}
+                    </div>
+                  )}
+
                   {/* Submit Button (B&W) */}
                   <button
                     type="submit"
@@ -179,19 +224,21 @@ const LoginSection: React.FC = () => {
               <div className="grid grid-cols-3 gap-3">
                 <button
                   type="button"
+                  onClick={() => signInWithProvider('github')}
                   className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
                 >
                   <span>GitHub</span>
                 </button>
                 <button
                   type="button"
-                  onClick={() => setShowGoogleModal(true)}
+                  onClick={() => signInWithProvider('google')}
                   className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
                 >
                   <span>Google</span>
                 </button>
                 <button
                   type="button"
+                  onClick={() => signInWithProvider('apple')}
                   className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
                 >
                   <span>Apple</span>
