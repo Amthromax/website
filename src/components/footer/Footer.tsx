@@ -26,8 +26,8 @@ const Footer: React.FC = () => {
       title: "Research",
       items: [
         { name: "Research Index", href: "/research" },
-        { name: "Research Overview", href: "/research" },
-        { name: "Tech Publications", href: "/research" },
+        { name: "Research Overview", href: "/research/overview" },
+        { name: "Tech Publications", href: "/research/publications" },
         { name: "Security & Safety", href: "", isHeader: true },
         { name: "Security Standards", href: "/security" },
         { name: "System Safety", href: "/security" },
@@ -141,13 +141,15 @@ const Footer: React.FC = () => {
                 Amthromax makes it effortless to uncover insights and share them with your team.
               </p>
               <div className="pt-2">
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-white hover:bg-gray-150 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm"
-                >
-                  Get Started
-                </motion.button>
+                <Link to="/login">
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white hover:bg-gray-150 text-black font-semibold px-6 py-3 rounded-full transition-all duration-300 shadow-md hover:shadow-lg text-sm"
+                  >
+                    Get Started
+                  </motion.button>
+                </Link>
               </div>
             </div>
           </motion.div>

@@ -182,3 +182,20 @@
     border-right-color: var(--border);
   }
 }
+
+/* Logo scrolling collapse animation */
+.logo-collapse {
+  display: inline-block;
+  max-width: 150px;
+  opacity: 1;
+  transition: max-width 0.5s cubic-bezier(0.25, 1, 0.5, 1), opacity 0.3s ease, margin 0.5s cubic-bezier(0.25, 1, 0.5, 1);
+  vertical-align: bottom;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.logo-collapse.collapsed {
+  max-width: 0;
+  opacity: 0;
+  margin-right: 0;
+}

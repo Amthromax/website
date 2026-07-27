@@ -132,7 +132,7 @@ export const blogPosts: BlogPost[] = [
       role: "Founder, Amthromax",
       avatar: "K"
     },
-    image: "/images/next-ai-future-roadmap-cover.png",
+    image: "/images/glass_blue_butterfly.jpg",
     content: [
       "AI software in 2026 is no longer judged by which company has the biggest model. It's judged by which company can turn a model into a system that a business can actually depend on — one that acts, coordinates, and finishes work rather than simply generating text. This article does three things: it maps the current landscape of the world's biggest AI software companies, draws out the patterns that separate leaders from laggards, and uses that analysis to make a concrete decision about what AMTHROMAX should build next. It closes with an original architecture — the AMTHROMAX Cognition Mesh — a theoretical framework for how AMTHROMAX can structure its products to compete at the top of the industry.",
       "## 1. The Landscape: Who Actually Leads AI Software in 2026",

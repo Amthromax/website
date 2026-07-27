@@ -68,6 +68,71 @@ const researchPapersDetails: Record<string, ResearchPaperDetail> = {
     date: "November 2025",
     readTime: "15 min read",
     tags: ["Post-Quantum", "Web Security", "API Design"]
+  },
+  "transformer-networks-automation": {
+    id: "transformer-networks-automation",
+    category: "Artificial Intelligence",
+    title: "Transformer-based Task Chains for Autonomous Agent Coordination",
+    tagline: "Orchestrating multi-agent systems via lightweight DAGs and local LLM task routing.",
+    abstract: "This research examines how low-latency fine-tuned LLM networks can orchestrate multi-step business process automation pipelines using custom DAG execution graphs, reducing process errors by 30%.",
+    introduction: "Standard LLM agent behaviors are often unreliable when configured for sequential business application tasks. To ensure transactional predictability, we propose task chain execution models governed by directed acyclic graphs (DAGs).",
+    methodology: "We implement dynamic node orchestration where each agent receives structured JSON instructions and reports results verified by local schema checkers. Errors trigger branch recovery scripts backtracked automatically by the transformer director.",
+    results: "Deploying this architecture in customer onboarding configurations reduced error rates in data processing by 30% while maintaining sub-second processing latency.",
+    date: "August 2025",
+    readTime: "14 min read",
+    tags: ["LLMs", "Agent Coordination", "Automation"]
+  },
+  "federated-edge-learning": {
+    id: "federated-edge-learning",
+    category: "Artificial Intelligence",
+    title: "Federated Learning on Heterogeneous Edge Nodes with Adaptive Compression",
+    tagline: "Optimized distributed weight updates for restricted bandwidth networks.",
+    abstract: "We present a decentralized training framework for heterogeneous edge nodes featuring network-adaptive model weight compression, reducing public-egress payload sizes by 64% while maintaining model parity.",
+    introduction: "Training AI models at the enterprise edge requires shipping large weight tensors, causing network bottlenecks. Traditional algorithms like Federated Averaging do not account for variable edge network bandwidth.",
+    methodology: "We introduce a quantization-aware federated learning scheme that dynamically changes weight bit-depths based on edge network latency, sending compressed gradient matrices to central aggregation nodes.",
+    results: "Our experiments showed a 64% reduction in public-egress data payloads without degrading final model validation accuracy (retaining 98.7% classification parity).",
+    date: "May 2026",
+    readTime: "11 min read",
+    tags: ["Federated Learning", "Edge Compute", "Model Compression"]
+  },
+  "l7-ebpf-microsegmentation": {
+    id: "l7-ebpf-microsegmentation",
+    category: "Cybersecurity",
+    title: "Zero-Trust Microsegmentation at Layer 7 using eBPF Filters",
+    tagline: "Eliminating latency overhead for container-to-container authorization.",
+    abstract: "An investigation into implementing zero-trust pod network microsegmentation using eBPF kernel hooks at the Layer 7 layer, completely bypassing iptables overhead.",
+    introduction: "Microservice security requires fine-grained verification of every transaction at the API layer. However, executing authorization logic via standard iptables routing or user-space sidecar proxies incurs severe latencies.",
+    methodology: "We developed an in-kernel security agent that hooks directly into the Linux TC and socket layer using eBPF, parsing runtime protocol metadata and enforcing access rules instantly without context switching.",
+    results: "Our eBPF firewall achieved microsegmentation at 1.2 microseconds per handshake, saving up to 92% of CPU time typically spent in user-space proxy routing.",
+    date: "March 2026",
+    readTime: "13 min read",
+    tags: ["eBPF", "Kubernetes Security", "Zero Trust"]
+  },
+  "state-sync-crdt": {
+    id: "state-sync-crdt",
+    category: "Cloud Architecture",
+    title: "State Synchronization in Geographically Distributed Event Sourcing Architectures",
+    tagline: "Achieving eventual consistency in distributed systems with ultra-low latency.",
+    abstract: "An-evaluation of conflict-free replicated data types (CRDTs) to sync event-sourced audit channels across multiple cloud regions under high packet loss conditions.",
+    introduction: "Ensuring database consistency across global regions is challenging during network partitions. Traditional consensus algorithms (like Raft or Paxos) block incoming write operations during splits, resulting in downtime.",
+    methodology: "We deployed delta-state CRDTs over peer-to-peer event lines to enable regional read/write availability, using customized hybrid logical clocks to order operations without a centralized lock controller.",
+    results: "In simulated packet loss environments (up to 15%), the database achieved active-active recovery within 200ms, with zero transaction loss and total eventual consistency.",
+    date: "February 2026",
+    readTime: "9 min read",
+    tags: ["CRDTs", "Event Sourcing", "Multi-Region"]
+  },
+  "pq-signature-consensus": {
+    id: "pq-signature-consensus",
+    category: "Quantum Security",
+    title: "Post-Quantum Signature Verification for Distributed Ledger Consensus",
+    tagline: "Hardening decentralized consensus algorithms against future quantum capabilities.",
+    abstract: "Deploying Dilithium signature schemes in high-speed consensus configurations, discussing optimization techniques for proof sizing and low-latency signature unpacking.",
+    introduction: "Current cryptographically secured ledgers rely on prime-factorization or elliptic curve signatures, which are vulnerable to Shor's algorithm. Deploying lattice-based post-quantum signature schemes is critical for future validity.",
+    methodology: "We integrated Dilithium-5 algorithms inside a validator cluster using concurrent assembly optimizations to accelerate public-key extraction and vector matrix multiplication.",
+    results: "Our implementation verified post-quantum block signatures in under 0.8ms, proving that secure high-throughput consensus is feasible on existing server hardware.",
+    date: "October 2025",
+    readTime: "16 min read",
+    tags: ["Quantum Proofs", "Consensus Protocols", "Web3 Security"]
   }
 };
 

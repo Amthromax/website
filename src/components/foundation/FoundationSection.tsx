@@ -1,11 +1,13 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
+import { Link } from "react-router-dom";
 
 interface ResourceItem {
   title: string;
   date: string;
-  gradient: string;
+  image: string;
+  slug: string;
 }
 
 const FoundationSection: React.FC = () => {
@@ -17,32 +19,38 @@ const FoundationSection: React.FC = () => {
     {
       title: "Committing to communities: The 2026 People-First AI Fund",
       date: "Jun 15, 2026",
-      gradient: "from-blue-400/30 to-indigo-500/30 dark:from-blue-600/20 dark:to-indigo-800/20",
+      image: "/images/glass_blue_butterfly.jpg",
+      slug: "committing-to-communities-2026",
     },
     {
       title: "Update on the People-First AI Fund",
       date: "Jun 4, 2026",
-      gradient: "from-emerald-400/30 to-teal-500/30 dark:from-emerald-600/20 dark:to-teal-800/20",
+      image: "/images/glass_green_flower.png",
+      slug: "update-on-people-first-ai-fund",
     },
     {
       title: "Resilience in the age of AI",
       date: "Jun 1, 2026",
-      gradient: "from-purple-400/30 to-pink-500/30 dark:from-purple-600/20 dark:to-pink-800/20",
+      image: "/images/glass_blue_shell.jpg",
+      slug: "resilience-in-the-age-of-ai",
     },
     {
       title: "Economic Futures in the Age of AI",
       date: "May 27, 2026",
-      gradient: "from-cyan-400/30 to-blue-500/30 dark:from-cyan-600/20 dark:to-blue-800/20",
+      image: "/images/glass_pink_flower.png",
+      slug: "economic-futures-in-the-age-of-ai",
     },
     {
       title: "AI for Alzheimer's",
       date: "Apr 8, 2026",
-      gradient: "from-amber-400/30 to-orange-500/30 dark:from-amber-600/20 dark:to-orange-800/20",
+      image: "/images/glass_yellow_flower.png",
+      slug: "ai-for-alzheimers",
     },
     {
       title: "Update on the Amthromax Foundation",
       date: "Mar 24, 2026",
-      gradient: "from-rose-400/30 to-pink-500/30 dark:from-rose-600/20 dark:to-pink-800/20",
+      image: "/images/glass_blue_concentric.jpg",
+      slug: "update-on-amthromax-foundation",
     },
   ];
 
@@ -116,8 +124,8 @@ const FoundationSection: React.FC = () => {
             className="rounded-3xl overflow-hidden shadow-xl aspect-[4/3] bg-gray-50 dark:bg-gray-900 relative group"
           >
             <img
-              src="/foundation_hero.png"
-              alt="Serene branch by the sea representing peace and humanity"
+              src="/images/foundation_hero_new.jpg"
+              alt="Golden sunrays breaking through dark clouds, representing hope and deep tech potential"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </motion.div>
@@ -154,10 +162,10 @@ const FoundationSection: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                AI in Medicine and Life Sciences
+                AI in Finance and Economics
               </h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Using AI to accelerate breakthroughs so everyone can benefit from better diagnostics, treatments, and cures.
+                Deploying machine learning models to simulate economic cycles, track sovereign resource flows, and design equitable trade mechanisms.
               </p>
             </div>
           </motion.div>
@@ -230,30 +238,46 @@ const FoundationSection: React.FC = () => {
           </h2>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {resources.map((item, index) => (
-            <motion.div
+            <Link
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: index * 0.05 }}
-              className="flex items-center gap-6 p-4 rounded-3xl border border-gray-100 dark:border-white/[0.04] bg-white dark:bg-gray-900 hover:shadow-md transition-all duration-300 group"
+              to={`/foundation/${item.slug}`}
+              className="block group"
             >
-              {/* Abstract Gradient Preview Container */}
-              <div className={`w-28 h-28 rounded-2xl bg-gradient-to-tr ${item.gradient} flex-shrink-0 relative overflow-hidden flex items-center justify-center`}>
-                <div className="absolute inset-0 bg-white/10 dark:bg-black/10 backdrop-blur-[1px] group-hover:scale-110 transition-transform duration-500" />
-              </div>
-              
-              <div className="space-y-1.5">
-                <span className="text-[11px] font-semibold text-gray-400 uppercase tracking-wider">
-                  {item.date}
-                </span>
-                <h4 className="text-sm font-bold text-gray-800 dark:text-gray-200 group-hover:text-black dark:group-hover:text-white transition-colors duration-250 leading-snug">
-                  {item.title}
-                </h4>
-              </div>
-            </motion.div>
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.05 }}
+                className="flex flex-col space-y-4 p-5 rounded-3xl border border-gray-150 dark:border-white/[0.04] bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full"
+              >
+                {/* Image Container */}
+                <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-gray-50 dark:bg-gray-950/40 relative">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                  />
+                </div>
+                
+                <div className="space-y-3 flex-grow flex flex-col justify-between">
+                  <div className="space-y-1">
+                    <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider block">
+                      {item.date}
+                    </span>
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-snug">
+                      {item.title}
+                    </h4>
+                  </div>
+                  
+                  <div className="pt-4 flex items-center justify-between text-xs font-bold text-blue-650 dark:text-blue-450 border-t border-gray-100 dark:border-white/[0.04]">
+                    <span>Read Article</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+                  </div>
+                </div>
+              </motion.div>
+            </Link>
           ))}
         </div>
       </section>

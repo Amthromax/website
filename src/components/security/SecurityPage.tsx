@@ -173,21 +173,85 @@ const SecurityPage: React.FC = () => {
       />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex items-center justify-center bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-900 transition-colors duration-300">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.06),transparent_50%)] pointer-events-none" />
+      <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex flex-col items-center justify-center bg-[#050505] text-white border-b border-gray-900 transition-colors duration-300">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.1),transparent_50%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-blue-600 dark:text-blue-400 font-bold">
-            <svg className="w-3.5 h-3.5 animate-pulse" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-            </svg>
-            Zero-Trust System Integrity
+          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#3b82f6] font-bold">
+            AMTHROMAX ENTERPRISE
           </span>
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight bg-clip-text text-transparent bg-gradient-to-r from-gray-900 via-gray-700 to-black dark:from-white dark:via-gray-200 dark:to-gray-400">
-            Trust & Compliance Systems
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-white">
+            Industrial Scale. Certified Security.
           </h1>
-          <p className="text-base md:text-xl text-gray-500 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed font-medium">
-            Discover how we protect proprietary log outputs, active agent runtimes, and local enterprise network interfaces.
+          <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
+            Unify your systems with high-throughput automation engines, zero-trust cloud network frameworks, and dedicated support pipelines.
           </p>
+        </div>
+      </section>
+
+      {/* Stats Section */}
+      <section className="bg-white dark:bg-gray-950 pt-16 pb-8 transition-colors duration-300">
+        <div className="max-w-6xl mx-auto px-6 relative z-20">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {[
+              { label: "UPTIME GUARANTEE", value: "99.99%" },
+              { label: "REQUEST LATENCY", value: "<15ms" },
+              { label: "DATA ENCRYPTION", value: "AES-256" },
+              { label: "COMPLIANCE STANDARD", value: "SOC2 Type II" }
+            ].map((stat, i) => (
+              <div key={i} className="bg-white dark:bg-[#161617] rounded-xl border border-gray-100 dark:border-white/[0.04] p-8 text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-md transition-shadow">
+                <div className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">{stat.label}</div>
+                <div className="text-3xl font-extrabold text-gray-900 dark:text-white">{stat.value}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Amthromax Enterprise Pillars */}
+      <section className="bg-white dark:bg-gray-950 py-12 md:py-16 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 border-b border-gray-100 dark:border-gray-800 pb-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+          <div className="space-y-4">
+            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">01 / INTEGRITY</div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Zero-Trust Network Models</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              Enforce granular access logs, identity federation (SAML/OIDC), and hardware-isolated key storage across every agent deployment. Prevent credential hijacking at the edge.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">02 / VELOCITY</div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Automated Pipeline Scaling</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              Distribute analytical requests dynamically through load-balanced Kubernetes clusters. Experience automatic compute scaling during periods of extreme workflow traffic.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">03 / CONTINUITY</div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Dedicated SLA Commitments</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              Access around-the-clock enterprise engineers via direct Slack channels and priority ticketing, backed by contractually enforced support response times.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">04 / COMPLIANCE</div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Global Data Residency</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              Choose geographically isolated deployments that adhere strictly to local regulations, ensuring GDPR, HIPAA, and CCPA compliance effortlessly.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">05 / RESILIENCE</div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Self-Healing Infrastructure</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              Automated failure detection instantly reroutes workloads to operational nodes without downtime, recovering corrupted states using ephemeral snapshots.
+            </p>
+          </div>
+          <div className="space-y-4">
+            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">06 / COMPUTE</div>
+            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Edge Inference Engines</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+              Deploy lightweight inference engines directly to your edge devices, eliminating network latency and reducing cloud compute expenditures for real-time AI.
+            </p>
+          </div>
         </div>
       </section>
 

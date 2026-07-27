@@ -5,12 +5,15 @@ import HeroSection from "./components/hero/HeroSection";
 import FeaturesSection from "./components/features/FeaturesSection";
 import ResearchSection from "./components/research/ResearchSection";
 import FoundationSection from "./components/foundation/FoundationSection";
+import FoundationDetailPage from "./components/foundation/FoundationDetailPage";
 import Footer from "./components/footer/Footer";
 import UpcomingProjectsSection from "./components/projects/UpcomingProjectsSection";
 import LoginSection from "./components/login/LoginSection";
 import NavDropdown from "./components/layout/NavDropdown";
 import ServiceDetailPage from "./components/services/ServiceDetailPage";
 import ResearchDetailPage from "./components/research/ResearchDetailPage";
+import ResearchOverviewPage from "./components/research/ResearchOverviewPage";
+import PublicationsPage from "./components/research/PublicationsPage";
 import CookieConsent from "./components/layout/CookieConsent";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import SolutionsPage from "./components/solutions/SolutionsPage";
@@ -27,6 +30,7 @@ import DocsPage from "./components/docs/DocsPage";
 import PricingPage from "./components/pricing/PricingPage";
 import CareersPage from "./components/careers/CareersPage";
 import SecurityPage from "./components/security/SecurityPage";
+import TeamPage from "./components/about/TeamPage";
 import './App.css';
 
 const App: React.FC = () => {
@@ -49,8 +53,10 @@ const App: React.FC = () => {
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
+    setIsScrolled(latest > 50);
     const previous = scrollY.getPrevious() ?? 0;
     if (latest > previous && latest > 150) {
       setHidden(true);
@@ -77,8 +83,12 @@ const App: React.FC = () => {
             <div className="flex justify-between items-center h-16">
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-50 tracking-tighter hover:opacity-90 transition-all">
-                  Amthromax
+                <Link to="/" className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-50 tracking-tighter hover:opacity-95 transition-all flex items-center select-none">
+                  <span>A</span>
+                  <span className={`logo-collapse ${isScrolled ? "collapsed" : ""}`}>
+                    mthroma
+                  </span>
+                  <span>x</span>
                 </Link>
               </div>
 
@@ -90,6 +100,7 @@ const App: React.FC = () => {
                   href="/about"
                   items={[
                     { label: "Explore Why Amthromax", isHeader: true, href: "" },
+                    { label: "Our Team", href: "/team" },
                     { label: "For Enterprises", href: "/why/enterprises" },
                     { label: "For Small Businesses", href: "/why/small-businesses" },
                     { label: "For Developers ↗", href: "/why/developers" }
@@ -110,8 +121,8 @@ const App: React.FC = () => {
                 />
                 <Link to="/research" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Research</Link>
                 <Link to="/foundation" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Foundation</Link>
+                <Link to="/security" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Security</Link>
                 <Link to="/blog" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Blog</Link>
-                <Link to="/news" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">News</Link>
               </div>
               
               {/* Log In/Sign Up buttons or User Avatar on the right */}
@@ -258,10 +269,14 @@ const App: React.FC = () => {
               <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
               <Route path="/research" element={
                 <div>
+                  <SEO title="Research & Development | Amthromax" description="Explore our peer-reviewed whitepapers, predictive system auto-scaling algorithms, and zero-trust cryptography solutions." />
                   <ResearchSection />
                   <Footer />
                 </div>
               } />
+              <Route path="/research/overview" element={<ResearchOverviewPage />} />
+              <Route path="/research/publications" element={<PublicationsPage />} />
+              <Route path="/publications" element={<PublicationsPage />} />
               <Route path="/research/:paperId" element={<ResearchDetailPage />} />
               <Route path="/foundation" element={
                 <div>
@@ -269,6 +284,7 @@ const App: React.FC = () => {
                   <Footer />
                 </div>
               } />
+              <Route path="/foundation/:articleId" element={<FoundationDetailPage />} />
               <Route path="/contact" element={
                 <div>
                   <SEO title="Contact Amthromax" description="Get in touch with Amthromax for AI development and automation solutions." />
@@ -385,6 +401,7 @@ const App: React.FC = () => {
                   <Footer />
                 </div>
               } />
+              <Route path="/team" element={<TeamPage />} />
               <Route path="/solutions" element={<SolutionsPage />} />
               <Route path="/why/enterprises" element={<EnterprisesPage />} />
               <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
