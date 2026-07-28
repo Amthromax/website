@@ -53,17 +53,29 @@ try {
 
 const App: React.FC = () => {
   const location = useLocation();
-  const [user, setUser] = useState<string | null>(null);
+  const [user, setUser] = useState<any | null>(null);
 
   useEffect(() => {
     // Check active session on initial load
     supabase.auth.getSession().then(({ data: { session } }) => {
-      setUser(session?.user?.email || null);
+      const activeUser = session?.user || null;
+      setUser(activeUser);
+      if (activeUser?.email) {
+        localStorage.setItem("amthromax-user", activeUser.email);
+      } else {
+        localStorage.removeItem("amthromax-user");
+      }
     });
 
     // Listen for authentication state changes (login, logout, token refresh)
     const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
-      setUser(session?.user?.email || null);
+      const activeUser = session?.user || null;
+      setUser(activeUser);
+      if (activeUser?.email) {
+        localStorage.setItem("amthromax-user", activeUser.email);
+      } else {
+        localStorage.removeItem("amthromax-user");
+      }
     });
 
     return () => {
@@ -144,22 +156,35 @@ const App: React.FC = () => {
                 <Link to="/security" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Security</Link>
                 <Link to="/blog" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Blog</Link>
               </div>
-              
-              {/* Log In/Sign Up buttons or User Avatar on the right */}
+                           {/* Log In/Sign Up buttons or User Avatar on the right */}
               <div className="flex items-center justify-end space-x-4">
                 {user ? (
                   <div className="relative group">
                     <button
                       type="button"
-                      className="w-10 h-10 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-sm flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
+                      className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
                     >
-                      {user[0].toUpperCase()}
+                      {user.user_metadata?.avatar_url ? (
+                        <img 
+                          src={user.user_metadata.avatar_url} 
+                          alt="Profile" 
+                          className="w-full h-full object-cover"
+                          referrerPolicy="no-referrer"
+                        />
+                      ) : (
+                        <span className="w-full h-full font-black text-xs bg-black text-white dark:bg-white dark:text-black flex items-center justify-center">
+                          {(user.user_metadata?.full_name || user.email || "?")[0].toUpperCase()}
+                        </span>
+                      )}
                     </button>
                     {/* Hover Dropdown menu */}
                     <div className="absolute right-0 mt-0 pt-2 w-48 bg-white/90 dark:bg-[#161617]/90 backdrop-blur-lg border border-gray-150 dark:border-white/[0.06] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <div className="p-3 border-b border-gray-100 dark:border-gray-850">
+                        {user.user_metadata?.full_name && (
+                          <p className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate mb-1">{user.user_metadata.full_name}</p>
+                        )}
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Signed in as</p>
-                        <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 truncate">{user}</p>
+                        <p className="text-xs font-medium text-gray-500 dark:text-gray-400 truncate">{user.email}</p>
                       </div>
                       <div className="p-2">
                         <button
