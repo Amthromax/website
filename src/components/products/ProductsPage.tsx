@@ -182,12 +182,15 @@ const ProductsPage: React.FC = () => {
               <img 
                 src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="morfix 0.1" 
+                alt="MORFIX 0.1" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">1. Instant Customer Sync (morfix 0.1)</h3>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+            <div className="p-8 md:p-10 space-y-3">
+              <div className="space-y-1">
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">MORFIX 0.1</h3>
+                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">1. Instant Customer Sync</h4>
+              </div>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
                 Automatically capture incoming emails, intelligently categorize support requests, and push prioritized contact data directly to your local tracking CRM dashboards without a single keystroke of manual copy-pasting.
               </p>
             </div>
@@ -199,12 +202,15 @@ const ProductsPage: React.FC = () => {
               <img 
                 src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="intox 0.2" 
+                alt="INTOX 0.2" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">2. Low Operational Overhead (intox 0.2)</h3>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+            <div className="p-8 md:p-10 space-y-3">
+              <div className="space-y-1">
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">INTOX 0.2</h3>
+                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">2. Low Operational Overhead</h4>
+              </div>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
                 Our lightweight code designs run inside autonomous micro-instances on the edge network, ensuring that you only pay for exactly the compute cycles you use, eliminating expensive flat hosting rates and server maintenance constraints.
               </p>
             </div>
@@ -216,12 +222,15 @@ const ProductsPage: React.FC = () => {
               <img 
                 src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="cotises 0.5 max" 
+                alt="COTISES 0.5 MAX" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">3. Automated Marketing Triggers (cotises 0.5 max)</h3>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+            <div className="p-8 md:p-10 space-y-3">
+              <div className="space-y-1">
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">COTISES 0.5 MAX</h3>
+                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">3. Automated Marketing Triggers</h4>
+              </div>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
                 Set up dynamic event triggers that launch highly personalized outreach campaigns based on user behavior inside your website. Nurture leads continuously without requiring dedicated marketing bandwidth to expand your customer base.
               </p>
             </div>
@@ -233,12 +242,15 @@ const ProductsPage: React.FC = () => {
               <img 
                 src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="verkox 0.4 instant" 
+                alt="VERKOX 0.4 INSTANT" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">4. Smart Logistics & Tracking (verkox 0.4 instant)</h3>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+            <div className="p-8 md:p-10 space-y-3">
+              <div className="space-y-1">
+                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">VERKOX 0.4 INSTANT</h3>
+                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">4. Smart Logistics & Tracking</h4>
+              </div>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
                 Maintain complete oversight of your small business supply chain. Agents parse receipts, forecast inventory needs, and automatically flag accounting anomalies by correlating data across your spreadsheet tools in real-time.
               </p>
             </div>

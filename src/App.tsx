@@ -76,10 +76,10 @@ const searchItems: SearchItem[] = [
   { type: "Company", title: "Cookie Consent Policies", url: "/cookies" },
   { type: "Resources", title: "Technical Engineering Blog Posts", url: "/blog" },
   { type: "Resources", title: "Newsroom and Press Releases", url: "/news" },
-  { type: "Model", title: "morfix 0.1 Model & Intelligent Sync", url: "/blog" },
-  { type: "Model", title: "intox 0.2 Model & Low Overhead Run", url: "/blog" },
-  { type: "Model", title: "cotises 0.5 max Model & Advanced Routing", url: "/blog" },
-  { type: "Model", title: "verkox 0.4 instant Model & Edge Sandbox", url: "/blog" },
+  { type: "Model", title: "MORFIX 0.1 Model & Intelligent Sync", url: "/blog" },
+  { type: "Model", title: "INTOX 0.2 Model & Low Overhead Run", url: "/blog" },
+  { type: "Model", title: "COTISES 0.5 max Model & Advanced Routing", url: "/blog" },
+  { type: "Model", title: "VERKOX 0.4 instant Model & Edge Sandbox", url: "/blog" },
 ];
 
 const App: React.FC = () => {
@@ -339,10 +339,10 @@ const App: React.FC = () => {
                       <div className="space-y-6">
                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Latest Advancements</span>
                         <div className="space-y-3">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">morfix 0.1</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">intox 0.2</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">cotises 0.5 max</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">verkox 0.4 instant</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">MORFIX 0.1</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">INTOX 0.2</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">COTISES 0.5 MAX</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">VERKOX 0.4 INSTANT</Link>
                         </div>
                       </div>
                     </>
