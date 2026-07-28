@@ -68,10 +68,8 @@ const App: React.FC = () => {
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useMotionValueEvent(scrollY, "change", (latest) => {
-    setIsScrolled(latest > 50);
     const previous = scrollY.getPrevious() ?? 0;
     if (latest > previous && latest > 150) {
       setHidden(true);
@@ -92,94 +90,130 @@ const App: React.FC = () => {
           }}
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="sticky top-0 z-50 bg-white/70 dark:bg-gray-900/70 backdrop-blur-md border-b border-gray-200/50 dark:border-gray-800/50 shadow-sm"
+          className="sticky top-0 z-50 bg-white/90 dark:bg-[#0c0c0d]/90 backdrop-blur-md border-b border-gray-150 dark:border-white/[0.04] shadow-sm transition-colors duration-300"
         >
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-between items-center h-16">
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="text-2xl md:text-3xl font-black text-gray-900 dark:text-gray-50 tracking-tighter hover:opacity-95 transition-all flex items-center select-none">
-                  <span>A</span>
-                  <span className={`logo-collapse ${isScrolled ? "collapsed" : ""}`}>
-                    mthroma
-                  </span>
-                  <span>x</span>
+                <Link to="/" className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:opacity-95 transition-all select-none font-sans">
+                  Amthromax
                 </Link>
               </div>
-
+ 
               {/* Center Navigation Links */}
-              <div className="hidden md:flex items-center justify-center space-x-6 flex-1">
-                <Link to="/" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Home</Link>
+              <div className="hidden md:flex items-center justify-center space-x-6 flex-1 px-8">
+                <Link to="/research" className="text-gray-650 hover:text-gray-900 dark:text-white/70 dark:hover:text-white transition-colors duration-200 text-xs font-semibold">
+                  Research
+                </Link>
+                
                 <NavDropdown
-                  label="Why Amthromax"
+                  label="Products"
+                  href="/products"
+                  items={[
+                    { label: "Our offerings", isHeader: true, href: "" },
+                    { label: "Platform Core", href: "/platform" },
+                    { label: "Custom Software", href: "/services/custom-software" },
+                    { label: "AI Agent Networks", href: "/services/artificial-intelligence" },
+                    { label: "Pricing Plans", href: "/pricing" }
+                  ]}
+                />
+
+                <NavDropdown
+                  label="Business"
                   href="/about"
                   items={[
-                    { label: "Explore Why Amthromax", isHeader: true, href: "" },
-                    { label: "Our Team", href: "/team" },
+                    { label: "Case Studies & Solutions", isHeader: true, href: "" },
                     { label: "For Enterprises", href: "/why/enterprises" },
                     { label: "For Small Businesses", href: "/why/small-businesses" },
-                    { label: "For Developers ↗", href: "/why/developers" }
+                    { label: "Overview", href: "/about" }
                   ]}
                 />
+
                 <NavDropdown
-                  label="Services"
-                  href="/services"
+                  label="Developers"
+                  href="/why/developers"
                   items={[
-                    { label: "Our Competencies", isHeader: true, href: "" },
-                    { label: "Custom Software", href: "/services/custom-software" },
-                    { label: "Cloud Solutions", href: "/services/cloud-solutions" },
-                    { label: "Artificial Intelligence", href: "/services/artificial-intelligence" },
-                    { label: "Cybersecurity", href: "/services/cybersecurity" },
-                    { label: "Data Analytics", href: "/services/data-analytics" },
-                    { label: "Mobile Apps", href: "/services/mobile-apps" }
+                    { label: "Platform Tools", isHeader: true, href: "" },
+                    { label: "Developer Hub", href: "/why/developers" },
+                    { label: "API Documentation", href: "/docs" }
                   ]}
                 />
-                <Link to="/research" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Research</Link>
-                <Link to="/foundation" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Foundation</Link>
-                <Link to="/security" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Security</Link>
-                <Link to="/blog" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Blog</Link>
+
+                <NavDropdown
+                  label="Company"
+                  href="/about"
+                  items={[
+                    { label: "About Amthromax", isHeader: true, href: "" },
+                    { label: "Our Team", href: "/team" },
+                    { label: "Careers", href: "/careers" },
+                    { label: "Blog", href: "/blog" }
+                  ]}
+                />
+
+                <Link to="/foundation" className="text-gray-650 hover:text-gray-900 dark:text-white/70 dark:hover:text-white transition-colors duration-200 text-xs font-semibold">
+                  Foundation
+                </Link>
+
+                <button 
+                  type="button" 
+                  className="text-gray-500 hover:text-gray-900 dark:text-white/60 dark:hover:text-white transition-colors p-1.5 focus:outline-none flex items-center justify-center"
+                  aria-label="Search"
+                >
+                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                  </svg>
+                </button>
               </div>
-              {/* Log In/Sign Up buttons or User Avatar on the right */}
-              <div className="flex items-center justify-end space-x-4">
+
+              {/* Log In / Try Amthromax on the right */}
+              <div className="flex items-center justify-end space-x-3">
                 {authLoading ? (
-                  <span className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+                  <span className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
                 ) : user ? (
-                  <div className="relative group">
+                  <div className="relative group py-2">
                     <button
                       type="button"
-                      className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
+                      className="bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 select-none px-4 py-2 text-xs font-semibold text-gray-800 dark:text-white rounded-full flex items-center gap-2 focus:outline-none transition-all"
                     >
                       {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
                         <img 
                           src={user.user_metadata.avatar_url || user.user_metadata.picture} 
                           alt="Profile" 
-                          className="w-full h-full object-cover"
+                          className="w-4 h-4 rounded-full object-cover shrink-0"
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <span className="w-full h-full font-black text-xs bg-black text-white dark:bg-white dark:text-black flex items-center justify-center">
+                        <span className="w-4 h-4 bg-black text-white dark:bg-white dark:text-black rounded-full text-[9px] font-black flex items-center justify-center shrink-0">
                           {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
                         </span>
                       )}
+                      <span className="truncate max-w-[85px]">
+                        {user.user_metadata?.full_name || user.user_metadata?.name || "Account"}
+                      </span>
+                      <span className="text-[9px] text-gray-500 dark:text-white/50 transition-transform duration-200 group-hover:rotate-180">
+                        ▼
+                      </span>
                     </button>
-                    {/* Hover Dropdown menu */}
-                    <div className="absolute right-0 mt-0 pt-2 w-48 bg-white/90 dark:bg-[#161617]/90 backdrop-blur-lg border border-gray-150 dark:border-white/[0.06] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="p-3 border-b border-gray-100 dark:border-gray-850">
-                        {user.user_metadata?.full_name || user.user_metadata?.name ? (
-                          <p className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate mb-1">
-                            {user.user_metadata.full_name || user.user_metadata.name}
-                          </p>
-                        ) : null}
-                        <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Signed in as</p>
-                        <p className="text-xs font-medium text-gray-500 dark:text-gray-400 truncate">{user.email}</p>
-                      </div>
-                      <div className="p-2">
+                    {/* Hover Dropdown */}
+                    <div className="absolute right-0 top-[38px] pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div className="bg-white dark:bg-[#121213] border border-gray-200 dark:border-white/[0.08] rounded-2xl p-4 shadow-2xl flex flex-col space-y-3">
+                        <div className="pb-2 border-b border-gray-100 dark:border-white/[0.06]">
+                          <p className="text-[9px] font-bold text-gray-400 dark:text-white/40 uppercase tracking-wider mb-0.5">Signed in as</p>
+                          <p className="text-xs text-gray-600 dark:text-white/70 truncate font-semibold">{user.email}</p>
+                        </div>
+                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
+                          Amthromax AI
+                        </Link>
+                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
+                          API Platform
+                        </Link>
                         <button
                           type="button"
                           onClick={async () => {
                             await supabase.auth.signOut();
                           }}
-                          className="w-full text-left px-3 py-2 text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-all"
+                          className="w-full text-left text-red-600 hover:text-red-500 transition-colors text-xs font-semibold block"
                         >
                           Sign Out
                         </button>
@@ -187,15 +221,39 @@ const App: React.FC = () => {
                     </div>
                   </div>
                 ) : (
-                  <>
-                    <Link to="/login" className="text-sm font-bold text-gray-800 hover:text-black dark:text-gray-200 dark:hover:text-white transition-colors">
-                      Log in
-                    </Link>
-                    <Link to="/login" className="px-5 py-2.5 bg-black text-white dark:bg-white dark:text-black rounded-full text-sm font-bold hover:bg-gray-900 dark:hover:bg-gray-100 transition-all shadow-md">
-                      Sign up
-                    </Link>
-                  </>
+                  <div className="relative group py-2">
+                    <button
+                      type="button"
+                      className="bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 select-none px-4 py-2 text-xs font-semibold text-gray-800 dark:text-white rounded-full flex items-center gap-1.5 focus:outline-none transition-all"
+                    >
+                      <span>Log in</span>
+                      <span className="text-[9px] text-gray-500 dark:text-white/50 transition-transform duration-200 group-hover:rotate-180">
+                        ▼
+                      </span>
+                    </button>
+                    {/* Hover Dropdown */}
+                    <div className="absolute right-0 top-[38px] pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div className="bg-white dark:bg-[#121213] border border-gray-200 dark:border-white/[0.08] rounded-2xl p-4 shadow-2xl flex flex-col space-y-3.5">
+                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
+                          Amthromax AI
+                        </Link>
+                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
+                          API Platform
+                        </Link>
+                        <Link to="/why/developers" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
+                          Developers Hub
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
                 )}
+                <Link 
+                  to="/login" 
+                  className="px-4 py-2 bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 rounded-full text-xs font-bold transition-all shadow-sm flex items-center gap-1"
+                >
+                  <span>Try Amthromax</span>
+                  <span className="text-[10px] font-sans">↗</span>
+                </Link>
               </div>
             </div>
           </div>
