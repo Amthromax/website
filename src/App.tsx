@@ -52,6 +52,32 @@ try {
   console.warn("localStorage cleanup failed", e);
 }
 
+interface SearchItem {
+  type: string;
+  title: string;
+  url: string;
+}
+
+const searchItems: SearchItem[] = [
+  { type: "Service", title: "Custom Software Development", url: "/services/custom-software" },
+  { type: "Service", title: "Enterprise Cloud Solutions", url: "/services/cloud-solutions" },
+  { type: "Service", title: "Artificial Intelligence Systems", url: "/services/artificial-intelligence" },
+  { type: "Service", title: "Cybersecurity Architectures", url: "/services/cybersecurity" },
+  { type: "Service", title: "Advanced Data Analytics", url: "/services/data-analytics" },
+  { type: "Service", title: "Mobile Application Design", url: "/services/mobile-apps" },
+  { type: "Research", title: "Research and Development Index", url: "/research" },
+  { type: "Research", title: "Predictive Scaling Whitepapers", url: "/research/overview" },
+  { type: "Research", title: "Technical Publications Database", url: "/research/publications" },
+  { type: "Research", title: "System Safety & Zero Trust Operations", url: "/security" },
+  { type: "Company", title: "Why Amthromax & Enterprise Scale Solutions", url: "/about" },
+  { type: "Company", title: "Career Opportunities & Open Roles", url: "/careers" },
+  { type: "Company", title: "Our Engineering Team", url: "/team" },
+  { type: "Company", title: "Foundation & Social Impact Projects", url: "/foundation" },
+  { type: "Company", title: "Cookie Consent Policies", url: "/cookies" },
+  { type: "Resources", title: "Technical Engineering Blog Posts", url: "/blog" },
+  { type: "Resources", title: "Newsroom and Press Releases", url: "/news" },
+];
+
 const App: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -70,6 +96,42 @@ const App: React.FC = () => {
       setActiveMenu(null);
     }, 150);
   };
+
+  const [isSearchOpen, setIsSearchOpen] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+  const [placeholderIndex, setPlaceholderIndex] = useState(0);
+
+  const placeholders = [
+    "Ask about careers",
+    "Ask about custom software",
+    "Ask about research whitepapers",
+    "Ask about artificial intelligence",
+    "Ask about cloud solutions",
+    "Ask about cybersecurity"
+  ];
+
+  useEffect(() => {
+    if (!isSearchOpen) return;
+    const interval = setInterval(() => {
+      setPlaceholderIndex((prev) => (prev + 1) % placeholders.length);
+    }, 4500);
+    return () => clearInterval(interval);
+  }, [isSearchOpen]);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setIsSearchOpen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, []);
+
+  useEffect(() => {
+    setIsSearchOpen(false);
+    setSearchQuery("");
+  }, [location.pathname]);
 
   useEffect(() => {
     // Automatically redirect back to homepage if user is authenticated and tries to access /login
@@ -158,10 +220,24 @@ const App: React.FC = () => {
                   Foundation
                 </Link>
 
-                <button type="button" className="text-white/60 hover:text-white ml-2 transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                  </svg>
+                <button 
+                  type="button" 
+                  onClick={() => {
+                    setIsSearchOpen(!isSearchOpen);
+                    setActiveMenu(null);
+                  }}
+                  className="text-white/60 hover:text-white ml-2 transition-colors duration-200 select-none focus:outline-none flex items-center justify-center"
+                  aria-label="Toggle search overlay"
+                >
+                  {isSearchOpen ? (
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  )}
                 </button>
               </div>
 
@@ -337,6 +413,88 @@ const App: React.FC = () => {
                         </div>
                       </div>
                     </>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Unified Local Search Overlay */}
+          <AnimatePresence>
+            {isSearchOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.2 }}
+                className="fixed inset-0 top-16 bg-[#000000] z-40 flex flex-col items-center pt-24 px-6 md:px-12 overflow-y-auto"
+              >
+                <div className="max-w-2xl w-full space-y-8 pb-20">
+                  {/* Search Input Box */}
+                  <div className="relative border-b border-white/20 pb-2 flex items-center">
+                    <input
+                      type="text"
+                      autoFocus
+                      value={searchQuery}
+                      onChange={(e) => setSearchQuery(e.target.value)}
+                      placeholder={placeholders[placeholderIndex]}
+                      className="w-full text-2xl md:text-3xl font-medium text-white bg-transparent outline-none border-none placeholder-white/25 pr-12 pb-1"
+                    />
+                    <button
+                      type="button"
+                      className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${
+                        searchQuery.trim() ? "bg-white text-black hover:bg-white/95" : "bg-white/10 text-white/40 cursor-default"
+                      }`}
+                    >
+                      <svg className="w-4 h-4 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
+                      </svg>
+                    </button>
+                  </div>
+
+                  {/* Reactive Search Results List */}
+                  {searchQuery.trim().length > 0 ? (
+                    <div className="space-y-3 max-h-[50vh] overflow-y-auto pr-1">
+                      {searchItems.filter(item =>
+                        item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                        item.type.toLowerCase().includes(searchQuery.toLowerCase())
+                      ).length > 0 ? (
+                        searchItems.filter(item =>
+                          item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+                          item.type.toLowerCase().includes(searchQuery.toLowerCase())
+                        ).map((item, index) => (
+                          <Link 
+                            key={index} 
+                            to={item.url}
+                            className="block p-4 rounded-2xl bg-white/[0.03] border border-white/[0.04] hover:bg-white/[0.06] hover:border-white/[0.08] transition-all flex justify-between items-center group"
+                          >
+                            <span className="text-white/95 group-hover:text-white font-medium text-base truncate">{item.title}</span>
+                            <span className="flex-shrink-0 px-2.5 py-0.5 rounded-full text-[9px] font-bold tracking-wider uppercase bg-white/10 text-white/60 group-hover:text-white/90 transition-colors">{item.type}</span>
+                          </Link>
+                        ))
+                      ) : (
+                        <div className="py-6 text-center text-white/30 text-sm">
+                          No matching results found for "{searchQuery}"
+                        </div>
+                      )}
+                    </div>
+                  ) : (
+                    /* Suggestions or placeholder help text */
+                    <div className="space-y-4 pt-4">
+                      <span className="text-[10px] font-bold text-white/35 uppercase tracking-widest block">Suggested Queries</span>
+                      <div className="flex flex-wrap gap-2.5">
+                        {["Careers", "Artificial Intelligence", "Cloud Solutions", "Research", "Team"].map((sugg, i) => (
+                          <button
+                            key={i}
+                            type="button"
+                            onClick={() => setSearchQuery(sugg)}
+                            className="px-4 py-2 rounded-full border border-white/10 hover:border-white/20 bg-white/[0.02] hover:bg-white/[0.05] text-white/70 hover:text-white text-xs font-semibold transition-all select-none"
+                          >
+                            {sugg}
+                          </button>
+                        ))}
+                      </div>
+                    </div>
                   )}
                 </div>
               </motion.div>
