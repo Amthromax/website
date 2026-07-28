@@ -56,7 +56,7 @@ const LoginSection: React.FC = () => {
 
   const signInWithProvider = async (provider: 'google' | 'github' | 'apple') => {
     try {
-      const { data, error } = await supabase.auth.signInWithOAuth({
+      const { error } = await supabase.auth.signInWithOAuth({
         provider,
       });
       if (error) setAuthError(error.message);
