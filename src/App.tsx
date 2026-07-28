@@ -34,6 +34,23 @@ import TeamPage from "./components/about/TeamPage";
 import { supabase } from "./lib/supabase";
 import './App.css';
 
+// Clean up testing post from localStorage
+try {
+  if (typeof window !== "undefined" && window.localStorage) {
+    const stored = localStorage.getItem("amthromax_blog_posts");
+    if (stored) {
+      let parsed = JSON.parse(stored) as any[];
+      const originalLength = parsed.length;
+      parsed = parsed.filter((p) => p.id !== "testing-the-autonomous-agent-runtime");
+      if (parsed.length !== originalLength) {
+        localStorage.setItem("amthromax_blog_posts", JSON.stringify(parsed));
+      }
+    }
+  }
+} catch (e) {
+  console.warn("localStorage cleanup failed", e);
+}
+
 const App: React.FC = () => {
   const location = useLocation();
   const [user, setUser] = useState<string | null>(null);
