@@ -31,7 +31,7 @@ import PricingPage from "./components/pricing/PricingPage";
 import CareersPage from "./components/careers/CareersPage";
 import SecurityPage from "./components/security/SecurityPage";
 import TeamPage from "./components/about/TeamPage";
-import { supabase } from "./lib/supabase";
+import { supabase, supabaseUrl } from "./lib/supabase";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -57,7 +57,7 @@ const App: React.FC = () => {
   const [user, setUser] = useState<any | null>(null);
 
   useEffect(() => {
-    console.log("Supabase Auth listener initialized");
+    console.log("Supabase Auth listener initialized. Client URL:", supabaseUrl);
     
     // Automatically strip the hash from the URL so it doesn't get re-evaluated on page reload
     if (window.location.hash && (window.location.hash.includes('access_token=') || window.location.hash.includes('error='))) {
