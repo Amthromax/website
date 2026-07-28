@@ -503,6 +503,20 @@ const App: React.FC = () => {
               </motion.div>
             )}
           </AnimatePresence>
+
+          {/* Dropdown Backdrop Blur Overlay */}
+          <AnimatePresence>
+            {activeMenu && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.15 }}
+                onClick={() => setActiveMenu(null)}
+                className="fixed inset-0 top-16 bg-[#000000]/40 backdrop-blur-[8px] z-30 cursor-pointer"
+              />
+            )}
+          </AnimatePresence>
         </motion.nav>
         <main>
           <AnimatePresence>
