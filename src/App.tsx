@@ -76,6 +76,10 @@ const searchItems: SearchItem[] = [
   { type: "Company", title: "Cookie Consent Policies", url: "/cookies" },
   { type: "Resources", title: "Technical Engineering Blog Posts", url: "/blog" },
   { type: "Resources", title: "Newsroom and Press Releases", url: "/news" },
+  { type: "Model", title: "morfix Model & Intelligent Sync", url: "/blog" },
+  { type: "Model", title: "intox Model & Low Overhead Run", url: "/blog" },
+  { type: "Model", title: "cotises Model & Advanced Routing", url: "/blog" },
+  { type: "Model", title: "verkox Model & Edge Sandbox", url: "/blog" },
 ];
 
 const App: React.FC = () => {
@@ -335,11 +339,10 @@ const App: React.FC = () => {
                       <div className="space-y-6">
                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Latest Advancements</span>
                         <div className="space-y-3">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.6</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.5</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.4</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.3 Instant</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.3-Codex</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">morfix</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">intox</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">cotises</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">verkox</Link>
                         </div>
                       </div>
                     </>
