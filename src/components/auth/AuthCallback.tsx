@@ -1,81 +1,57 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 
 export default function AuthCallback() {
   const navigate = useNavigate();
-  const hasProcessed = useRef(false);
-
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    // Prevent React StrictMode from running the exchange twice.
-    if (hasProcessed.current) return;
-    hasProcessed.current = true;
+    let completed = false;
 
-    const completeLogin = async () => {
-      try {
-        const searchParams = new URLSearchParams(
-          window.location.search
-        );
-
-        const code = searchParams.get("code");
-        const oauthError = searchParams.get("error");
-        const oauthErrorDescription =
-          searchParams.get("error_description");
-
-        if (oauthError) {
-          throw new Error(
-            oauthErrorDescription ||
-              "Google authentication was cancelled."
-          );
-        }
-
-        if (!code) {
-          throw new Error(
-             "Google did not return an authentication code."
-          );
-        }
-
-        const { data, error } =
-          await supabase.auth.exchangeCodeForSession(code);
-
-        if (error) {
-          console.error("Code exchange error:", error);
-          throw error;
-        }
-
-        if (!data.session || !data.user) {
-          throw new Error(
-            "Supabase did not create an authentication session."
-          );
-        }
-
-        // Remove the one-time OAuth code from browser history.
-        window.history.replaceState(
-          {},
-          document.title,
-          "/auth/callback"
-        );
-
-        navigate("/", {
-          replace: true,
-          state: {
-            authenticationSuccess: true,
-          },
-        });
-      } catch (error) {
-        console.error("Authentication callback failed:", error);
-
-        setErrorMessage(
-          error instanceof Error
-            ? error.message
-            : "Google login could not be completed."
-        );
-      }
+    const navigateToHome = () => {
+      if (completed) return;
+      completed = true;
+      navigate("/", {
+        replace: true,
+        state: { authenticationSuccess: true }
+      });
     };
 
-    completeLogin();
+    // 1. Immediately check current session
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        navigateToHome();
+      }
+    });
+
+    // 2. Subscribe to auth state changes to detect transition to signed-in automatically
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      console.log("AuthCallback observed event:", event);
+      if (session) {
+        navigateToHome();
+      }
+    });
+
+    // 3. Poll for the session to load for up to 8 seconds
+    const startTime = Date.now();
+    const intervalId = setInterval(async () => {
+      const { data: { session } } = await supabase.auth.getSession();
+      if (session) {
+        clearInterval(intervalId);
+        navigateToHome();
+      } else if (Date.now() - startTime > 8000) {
+        clearInterval(intervalId);
+        if (!completed) {
+          setErrorMessage("Authentication session could not be established within 8 seconds.");
+        }
+      }
+    }, 500);
+
+    return () => {
+      clearInterval(intervalId);
+      subscription.unsubscribe();
+    };
   }, [navigate]);
 
   if (errorMessage) {

@@ -67,7 +67,7 @@ const LoginSection: React.FC = () => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo: "https://amthromax.com/auth/callback",
         },
       });
       if (error) setAuthError(error.message);
