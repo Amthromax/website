@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Routes, Route, Link, useLocation } from "react-router-dom";
+import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import HeroSection from "./components/hero/HeroSection";
 import FeaturesSection from "./components/features/FeaturesSection";
@@ -53,6 +53,7 @@ try {
 
 const App: React.FC = () => {
   const location = useLocation();
+  const navigate = useNavigate();
   const [user, setUser] = useState<any | null>(null);
 
   useEffect(() => {
@@ -62,6 +63,9 @@ const App: React.FC = () => {
       setUser(activeUser);
       if (activeUser?.email) {
         localStorage.setItem("amthromax-user", activeUser.email);
+        if (location.pathname === '/login') {
+          navigate('/', { replace: true });
+        }
       } else {
         localStorage.removeItem("amthromax-user");
       }
@@ -73,6 +77,9 @@ const App: React.FC = () => {
       setUser(activeUser);
       if (activeUser?.email) {
         localStorage.setItem("amthromax-user", activeUser.email);
+        if (location.pathname === '/login') {
+          navigate('/', { replace: true });
+        }
       } else {
         localStorage.removeItem("amthromax-user");
       }
@@ -81,7 +88,7 @@ const App: React.FC = () => {
     return () => {
       subscription.unsubscribe();
     };
-  }, []);
+  }, [location.pathname, navigate]);
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
