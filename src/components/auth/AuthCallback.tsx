@@ -1,57 +1,54 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 
 export default function AuthCallback() {
   const navigate = useNavigate();
+  const handled = useRef(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   useEffect(() => {
-    let completed = false;
+    if (handled.current) return;
+    handled.current = true;
 
-    const navigateToHome = () => {
-      if (completed) return;
-      completed = true;
-      navigate("/", {
-        replace: true,
-        state: { authenticationSuccess: true }
-      });
+    const finishLogin = async () => {
+      const code = new URLSearchParams(window.location.search).get("code");
+
+      if (!code) {
+        setErrorMessage("OAuth code was not returned.");
+        return;
+      }
+
+      const { data, error } =
+        await supabase.auth.exchangeCodeForSession(code);
+
+      if (error) {
+        console.error("Supabase PKCE exchange failed:", {
+          message: error.message,
+          status: error.status,
+          name: error.name,
+        });
+
+        setErrorMessage(error.message);
+        return;
+      }
+
+      if (!data.session) {
+        setErrorMessage("Supabase did not return a session.");
+        return;
+      }
+
+      // Remove the one-time OAuth code from browser history.
+      window.history.replaceState(
+        {},
+        document.title,
+        "/auth/callback"
+      );
+
+      navigate("/", { replace: true });
     };
 
-    // 1. Immediately check current session
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        navigateToHome();
-      }
-    });
-
-    // 2. Subscribe to auth state changes to detect transition to signed-in automatically
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      console.log("AuthCallback observed event:", event);
-      if (session) {
-        navigateToHome();
-      }
-    });
-
-    // 3. Poll for the session to load for up to 8 seconds
-    const startTime = Date.now();
-    const intervalId = setInterval(async () => {
-      const { data: { session } } = await supabase.auth.getSession();
-      if (session) {
-        clearInterval(intervalId);
-        navigateToHome();
-      } else if (Date.now() - startTime > 8000) {
-        clearInterval(intervalId);
-        if (!completed) {
-          setErrorMessage("Authentication session could not be established within 8 seconds.");
-        }
-      }
-    }, 500);
-
-    return () => {
-      clearInterval(intervalId);
-      subscription.unsubscribe();
-    };
+    finishLogin();
   }, [navigate]);
 
   if (errorMessage) {
