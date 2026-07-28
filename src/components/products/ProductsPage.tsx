@@ -161,8 +161,105 @@ const ProductsPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Core AI Models Section */}
+      <div className="max-w-6xl mx-auto px-6 pt-24 pb-8 space-y-12">
+        <div className="max-w-3xl space-y-4 text-center md:text-left">
+          <span className="text-xs uppercase tracking-widest text-blue-650 dark:text-blue-400 font-bold">
+            COGNITIVE POWER
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight text-gray-900 dark:text-white">
+            Core AI Models & Systems
+          </h2>
+          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 font-medium">
+            Our state-of-the-art model registry is designed for heavy analytical inferences, low-latency synchronizations, and secure sandboxed computation.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
+          {/* Card 1 */}
+          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img 
+                src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                alt="morfix 0.1" 
+              />
+            </div>
+            <div className="p-8 md:p-10 space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">1. Instant Customer Sync (morfix 0.1)</h3>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+                Automatically capture incoming emails, intelligently categorize support requests, and push prioritized contact data directly to your local tracking CRM dashboards without a single keystroke of manual copy-pasting.
+              </p>
+            </div>
+          </div>
+          
+          {/* Card 2 */}
+          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img 
+                src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                alt="intox 0.2" 
+              />
+            </div>
+            <div className="p-8 md:p-10 space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">2. Low Operational Overhead (intox 0.2)</h3>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+                Our lightweight code designs run inside autonomous micro-instances on the edge network, ensuring that you only pay for exactly the compute cycles you use, eliminating expensive flat hosting rates and server maintenance constraints.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3 */}
+          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img 
+                src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                alt="cotises 0.5 max" 
+              />
+            </div>
+            <div className="p-8 md:p-10 space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">3. Automated Marketing Triggers (cotises 0.5 max)</h3>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+                Set up dynamic event triggers that launch highly personalized outreach campaigns based on user behavior inside your website. Nurture leads continuously without requiring dedicated marketing bandwidth to expand your customer base.
+              </p>
+            </div>
+          </div>
+
+          {/* Card 4 */}
+          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+              <img 
+                src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" 
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
+                alt="verkox 0.4 instant" 
+              />
+            </div>
+            <div className="p-8 md:p-10 space-y-4">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">4. Smart Logistics & Tracking (verkox 0.4 instant)</h3>
+              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium">
+                Maintain complete oversight of your small business supply chain. Agents parse receipts, forecast inventory needs, and automatically flag accounting anomalies by correlating data across your spreadsheet tools in real-time.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
       {/* Product List Grid */}
-      <div className="max-w-6xl mx-auto px-6 py-20">
+      <div className="max-w-6xl mx-auto px-6 py-20 border-t border-gray-150 dark:border-white/[0.04] space-y-12">
+        <div className="max-w-3xl space-y-4 text-center md:text-left">
+          <span className="text-xs uppercase tracking-widest text-blue-650 dark:text-blue-400 font-bold">
+            CAPABILITIES & TOOLS
+          </span>
+          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight text-gray-900 dark:text-white">
+            Enterprise Solutions Portfolio
+          </h2>
+          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 font-medium">
+            Browse our core APIs, platform suites, and custom automation infrastructure deployed at scale.
+          </p>
+        </div>
+        
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {products.map((prod) => (
             <div 
