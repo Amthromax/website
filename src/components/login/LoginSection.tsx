@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
+import { useAuth } from "../../context/AuthContext";
 
 const LoginSection: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(true);
@@ -14,25 +15,14 @@ const LoginSection: React.FC = () => {
   const [showGoogleModal, setShowGoogleModal] = useState<boolean>(false);
   const [isGoogleConnecting, setIsGoogleConnecting] = useState<boolean>(false);
   const [googleEmail, setGoogleEmail] = useState<string>("");
+  const { user, authLoading } = useAuth();
   const navigate = useNavigate();
-  
+
   useEffect(() => {
-    supabase.auth.getSession().then(({ data: { session } }) => {
-      if (session) {
-        navigate('/');
-      }
-    });
-
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
-        navigate('/');
-      }
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [navigate]);
+    if (!authLoading && user) {
+      navigate('/', { replace: true });
+    }
+  }, [user, authLoading, navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -77,7 +67,7 @@ const LoginSection: React.FC = () => {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
         options: {
-          redirectTo: `${window.location.origin}/login`,
+          redirectTo: `${window.location.origin}/auth/callback`,
         },
       });
       if (error) setAuthError(error.message);

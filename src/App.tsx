@@ -31,7 +31,9 @@ import PricingPage from "./components/pricing/PricingPage";
 import CareersPage from "./components/careers/CareersPage";
 import SecurityPage from "./components/security/SecurityPage";
 import TeamPage from "./components/about/TeamPage";
-import { supabase, supabaseUrl } from "./lib/supabase";
+import { supabase } from "./lib/supabase";
+import { useAuth } from "./context/AuthContext";
+import AuthCallback from "./components/auth/AuthCallback";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -54,56 +56,15 @@ try {
 const App: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const [user, setUser] = useState<any | null>(null);
+  const { user, authLoading } = useAuth();
 
   useEffect(() => {
-    console.log("Supabase Auth listener initialized. Client URL:", supabaseUrl);
-    
-    // Automatically strip the hash from the URL so it doesn't get re-evaluated on page reload
-    if (window.location.hash && (window.location.hash.includes('access_token=') || window.location.hash.includes('error='))) {
-      console.log("Staged token hash detected, clearing from address bar for security");
-      window.history.replaceState(null, "", window.location.pathname);
+    // Automatically redirect back to homepage if user is authenticated and tries to access /login
+    if (!authLoading && user && location.pathname === '/login') {
+      console.log("Redirecting logged-in user from login page to homepage");
+      navigate('/', { replace: true });
     }
-    
-    // Check active session on initial load
-    supabase.auth.getSession().then(({ data: { session }, error }) => {
-      if (error) {
-        console.error("Supabase getSession error:", error);
-      }
-      const activeUser = session?.user || null;
-      console.log("Supabase getSession resolved user:", activeUser);
-      setUser(activeUser);
-      if (activeUser?.email) {
-        localStorage.setItem("amthromax-user", activeUser.email);
-        if (location.pathname === '/login') {
-          console.log("Redirecting user from login to homepage");
-          navigate('/', { replace: true });
-        }
-      } else {
-        localStorage.removeItem("amthromax-user");
-      }
-    });
-
-    // Listen for authentication state changes (login, logout, token refresh)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      const activeUser = session?.user || null;
-      console.log(`Supabase authStateChanged event [${event}] resolved user:`, activeUser);
-      setUser(activeUser);
-      if (activeUser?.email) {
-        localStorage.setItem("amthromax-user", activeUser.email);
-        if (location.pathname === '/login') {
-          console.log(`Redirecting user from login to homepage due to auth event: ${event}`);
-          navigate('/', { replace: true });
-        }
-      } else {
-        localStorage.removeItem("amthromax-user");
-      }
-    });
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [location.pathname, navigate]);
+  }, [user, authLoading, location.pathname, navigate]);
 
   const { scrollY } = useScroll();
   const [hidden, setHidden] = useState(false);
@@ -178,33 +139,37 @@ const App: React.FC = () => {
                 <Link to="/security" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Security</Link>
                 <Link to="/blog" className="text-gray-600 hover:text-gray-900 dark:text-gray-400 dark:hover:text-gray-100 transition-colors duration-200 text-sm font-medium">Blog</Link>
               </div>
-                           {/* Log In/Sign Up buttons or User Avatar on the right */}
+              {/* Log In/Sign Up buttons or User Avatar on the right */}
               <div className="flex items-center justify-end space-x-4">
-                {user ? (
+                {authLoading ? (
+                  <span className="w-5 h-5 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+                ) : user ? (
                   <div className="relative group">
                     <button
                       type="button"
                       className="w-10 h-10 rounded-full overflow-hidden flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
                     >
-                      {user.user_metadata?.avatar_url ? (
+                      {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
                         <img 
-                          src={user.user_metadata.avatar_url} 
+                          src={user.user_metadata.avatar_url || user.user_metadata.picture} 
                           alt="Profile" 
                           className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
                         />
                       ) : (
                         <span className="w-full h-full font-black text-xs bg-black text-white dark:bg-white dark:text-black flex items-center justify-center">
-                          {(user.user_metadata?.full_name || user.email || "?")[0].toUpperCase()}
+                          {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
                         </span>
                       )}
                     </button>
                     {/* Hover Dropdown menu */}
                     <div className="absolute right-0 mt-0 pt-2 w-48 bg-white/90 dark:bg-[#161617]/90 backdrop-blur-lg border border-gray-150 dark:border-white/[0.06] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
                       <div className="p-3 border-b border-gray-100 dark:border-gray-850">
-                        {user.user_metadata?.full_name && (
-                          <p className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate mb-1">{user.user_metadata.full_name}</p>
-                        )}
+                        {user.user_metadata?.full_name || user.user_metadata?.name ? (
+                          <p className="text-xs font-bold text-gray-800 dark:text-gray-200 truncate mb-1">
+                            {user.user_metadata.full_name || user.user_metadata.name}
+                          </p>
+                        ) : null}
                         <p className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">Signed in as</p>
                         <p className="text-xs font-medium text-gray-500 dark:text-gray-400 truncate">{user.email}</p>
                       </div>
@@ -213,7 +178,6 @@ const App: React.FC = () => {
                           type="button"
                           onClick={async () => {
                             await supabase.auth.signOut();
-                            // Supabase listener handles the rest
                           }}
                           className="w-full text-left px-3 py-2 text-xs font-bold text-red-600 hover:bg-red-50 dark:hover:bg-red-950/20 rounded-xl transition-all"
                         >
@@ -474,6 +438,7 @@ const App: React.FC = () => {
               <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
               <Route path="/why/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginSection />} />
+              <Route path="/auth/callback" element={<AuthCallback />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/publish" element={<PublishPage />} />
               <Route path="/blog/:postId" element={<BlogPostDetail />} />
