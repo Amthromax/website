@@ -58,6 +58,9 @@ const LoginSection: React.FC = () => {
     try {
       const { error } = await supabase.auth.signInWithOAuth({
         provider,
+        options: {
+          redirectTo: `${window.location.origin}/login`,
+        },
       });
       if (error) setAuthError(error.message);
     } catch (e: any) {
