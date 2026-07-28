@@ -32,6 +32,7 @@ export const blogPosts: BlogPost[] = [
     category: "Company Blog",
     date: "July 25, 2026",
     readTime: "7 min read",
+    featured: true,
     author: {
       name: "Amthromax Press",
       role: "Editorial & Press Office",
@@ -88,7 +89,6 @@ export const blogPosts: BlogPost[] = [
     category: "Leadership",
     date: "July 20, 2026",
     readTime: "6 min read",
-    featured: true,
     author: {
       name: "Amthromax Press",
       role: "Editorial & Press Office",
@@ -126,7 +126,6 @@ export const blogPosts: BlogPost[] = [
     category: "Research",
     date: "July 20, 2026",
     readTime: "10 min read",
-    featured: true,
     author: {
       name: "Kishore Kanth",
       role: "Founder, Amthromax",
@@ -184,7 +183,6 @@ export const blogPosts: BlogPost[] = [
     category: "Company",
     date: "July 20, 2026",
     readTime: "4 min read",
-    featured: true,
     author: {
       name: "Kishore Kanth",
       role: "Founder, Amthromax",
