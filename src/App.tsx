@@ -57,13 +57,20 @@ const App: React.FC = () => {
   const [user, setUser] = useState<any | null>(null);
 
   useEffect(() => {
+    console.log("Supabase Auth listener initialized");
+    
     // Check active session on initial load
-    supabase.auth.getSession().then(({ data: { session } }) => {
+    supabase.auth.getSession().then(({ data: { session }, error }) => {
+      if (error) {
+        console.error("Supabase getSession error:", error);
+      }
       const activeUser = session?.user || null;
+      console.log("Supabase getSession resolved user:", activeUser);
       setUser(activeUser);
       if (activeUser?.email) {
         localStorage.setItem("amthromax-user", activeUser.email);
         if (location.pathname === '/login') {
+          console.log("Redirecting user from login to homepage");
           navigate('/', { replace: true });
         }
       } else {
@@ -72,12 +79,14 @@ const App: React.FC = () => {
     });
 
     // Listen for authentication state changes (login, logout, token refresh)
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((_event, session) => {
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
       const activeUser = session?.user || null;
+      console.log(`Supabase authStateChanged event [${event}] resolved user:`, activeUser);
       setUser(activeUser);
       if (activeUser?.email) {
         localStorage.setItem("amthromax-user", activeUser.email);
         if (location.pathname === '/login') {
+          console.log(`Redirecting user from login to homepage due to auth event: ${event}`);
           navigate('/', { replace: true });
         }
       } else {
