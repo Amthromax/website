@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Routes, Route, Link, useLocation, useNavigate } from "react-router-dom";
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from "framer-motion";
 import HeroSection from "./components/hero/HeroSection";
@@ -9,7 +9,6 @@ import FoundationDetailPage from "./components/foundation/FoundationDetailPage";
 import Footer from "./components/footer/Footer";
 import UpcomingProjectsSection from "./components/projects/UpcomingProjectsSection";
 import LoginSection from "./components/login/LoginSection";
-import NavDropdown from "./components/layout/NavDropdown";
 import ServiceDetailPage from "./components/services/ServiceDetailPage";
 import ResearchDetailPage from "./components/research/ResearchDetailPage";
 import ResearchOverviewPage from "./components/research/ResearchOverviewPage";
@@ -58,6 +57,20 @@ const App: React.FC = () => {
   const navigate = useNavigate();
   const { user, authLoading } = useAuth();
 
+  const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | null>(null);
+  const timeoutRef = useRef<number | null>(null);
+
+  const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company') => {
+    if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+    setActiveMenu(menu);
+  };
+
+  const handleMouseLeave = () => {
+    timeoutRef.current = window.setTimeout(() => {
+      setActiveMenu(null);
+    }, 150);
+  };
+
   useEffect(() => {
     // Automatically redirect back to homepage if user is authenticated and tries to access /login
     if (!authLoading && user && location.pathname === '/login') {
@@ -90,130 +103,109 @@ const App: React.FC = () => {
           }}
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="sticky top-0 z-50 bg-white/90 dark:bg-[#0c0c0d]/90 backdrop-blur-md border-b border-gray-150 dark:border-white/[0.04] shadow-sm transition-colors duration-300"
+          className="sticky top-0 z-50 bg-[#000000] border-b border-white/[0.08] text-white"
+          onMouseLeave={handleMouseLeave}
         >
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-7xl mx-auto px-6">
             <div className="flex justify-between items-center h-16">
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="text-xl font-bold tracking-tight text-gray-900 dark:text-white hover:opacity-95 transition-all select-none font-sans">
+                <Link to="/" className="text-xl md:text-2xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none">
                   Amthromax
                 </Link>
               </div>
- 
+
               {/* Center Navigation Links */}
-              <div className="hidden md:flex items-center justify-center space-x-6 flex-1 px-8">
-                <Link to="/research" className="text-gray-650 hover:text-gray-900 dark:text-white/70 dark:hover:text-white transition-colors duration-200 text-xs font-semibold">
+              <div className="hidden lg:flex items-center justify-center space-x-6 flex-1">
+                <button
+                  type="button"
+                  onMouseEnter={() => handleMouseEnter('research')}
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                >
                   Research
+                </button>
+                <button
+                  type="button"
+                  onMouseEnter={() => handleMouseEnter('products')}
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                >
+                  Products
+                </button>
+                <button
+                  type="button"
+                  onMouseEnter={() => handleMouseEnter('business')}
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                >
+                  Business
+                </button>
+                <Link
+                  to="/developers"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                >
+                  Developers
                 </Link>
-                
-                <NavDropdown
-                  label="Products"
-                  href="/products"
-                  items={[
-                    { label: "Our offerings", isHeader: true, href: "" },
-                    { label: "Platform Core", href: "/platform" },
-                    { label: "Custom Software", href: "/services/custom-software" },
-                    { label: "AI Agent Networks", href: "/services/artificial-intelligence" },
-                    { label: "Pricing Plans", href: "/pricing" }
-                  ]}
-                />
-
-                <NavDropdown
-                  label="Business"
-                  href="/about"
-                  items={[
-                    { label: "Case Studies & Solutions", isHeader: true, href: "" },
-                    { label: "For Enterprises", href: "/why/enterprises" },
-                    { label: "For Small Businesses", href: "/why/small-businesses" },
-                    { label: "Overview", href: "/about" }
-                  ]}
-                />
-
-                <NavDropdown
-                  label="Developers"
-                  href="/why/developers"
-                  items={[
-                    { label: "Platform Tools", isHeader: true, href: "" },
-                    { label: "Developer Hub", href: "/why/developers" },
-                    { label: "API Documentation", href: "/docs" }
-                  ]}
-                />
-
-                <NavDropdown
-                  label="Company"
-                  href="/about"
-                  items={[
-                    { label: "About Amthromax", isHeader: true, href: "" },
-                    { label: "Our Team", href: "/team" },
-                    { label: "Careers", href: "/careers" },
-                    { label: "Blog", href: "/blog" }
-                  ]}
-                />
-
-                <Link to="/foundation" className="text-gray-650 hover:text-gray-900 dark:text-white/70 dark:hover:text-white transition-colors duration-200 text-xs font-semibold">
+                <button
+                  type="button"
+                  onMouseEnter={() => handleMouseEnter('company')}
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                >
+                  Company
+                </button>
+                <Link
+                  to="/foundation"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                >
                   Foundation
                 </Link>
 
-                <button 
-                  type="button" 
-                  className="text-gray-500 hover:text-gray-900 dark:text-white/60 dark:hover:text-white transition-colors p-1.5 focus:outline-none flex items-center justify-center"
-                  aria-label="Search"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                <button type="button" className="text-white/60 hover:text-white ml-2 transition-colors">
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                   </svg>
                 </button>
               </div>
 
-              {/* Log In / Try Amthromax on the right */}
-              <div className="flex items-center justify-end space-x-3">
+              {/* Log In/Sign Up buttons or User Avatar on the right */}
+              <div className="flex items-center justify-end space-x-4">
                 {authLoading ? (
-                  <span className="w-4 h-4 border-2 border-gray-400 border-t-transparent rounded-full animate-spin" />
+                  <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                 ) : user ? (
-                  <div className="relative group py-2">
+                  <div className="relative group">
                     <button
                       type="button"
-                      className="bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 select-none px-4 py-2 text-xs font-semibold text-gray-800 dark:text-white rounded-full flex items-center gap-2 focus:outline-none transition-all"
+                      className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
                     >
                       {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
                         <img 
                           src={user.user_metadata.avatar_url || user.user_metadata.picture} 
                           alt="Profile" 
-                          className="w-4 h-4 rounded-full object-cover shrink-0"
+                          className="w-full h-full object-cover"
                           referrerPolicy="no-referrer"
                         />
                       ) : (
-                        <span className="w-4 h-4 bg-black text-white dark:bg-white dark:text-black rounded-full text-[9px] font-black flex items-center justify-center shrink-0">
+                        <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
                           {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
                         </span>
                       )}
-                      <span className="truncate max-w-[85px]">
-                        {user.user_metadata?.full_name || user.user_metadata?.name || "Account"}
-                      </span>
-                      <span className="text-[9px] text-gray-500 dark:text-white/50 transition-transform duration-200 group-hover:rotate-180">
-                        ▼
-                      </span>
                     </button>
-                    {/* Hover Dropdown */}
-                    <div className="absolute right-0 top-[38px] pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="bg-white dark:bg-[#121213] border border-gray-200 dark:border-white/[0.08] rounded-2xl p-4 shadow-2xl flex flex-col space-y-3">
-                        <div className="pb-2 border-b border-gray-100 dark:border-white/[0.06]">
-                          <p className="text-[9px] font-bold text-gray-400 dark:text-white/40 uppercase tracking-wider mb-0.5">Signed in as</p>
-                          <p className="text-xs text-gray-600 dark:text-white/70 truncate font-semibold">{user.email}</p>
-                        </div>
-                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
-                          Amthromax AI
-                        </Link>
-                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
-                          API Platform
-                        </Link>
+                    {/* Hover Dropdown menu */}
+                    <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                      <div className="p-3 border-b border-white/[0.08]">
+                        {user.user_metadata?.full_name || user.user_metadata?.name ? (
+                          <p className="text-xs font-bold text-white truncate mb-1">
+                            {user.user_metadata.full_name || user.user_metadata.name}
+                          </p>
+                        ) : null}
+                        <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
+                        <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
+                      </div>
+                      <div className="p-2">
                         <button
                           type="button"
                           onClick={async () => {
                             await supabase.auth.signOut();
                           }}
-                          className="w-full text-left text-red-600 hover:text-red-500 transition-colors text-xs font-semibold block"
+                          className="w-full text-left px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-950/20 rounded-xl transition-all"
                         >
                           Sign Out
                         </button>
@@ -221,42 +213,135 @@ const App: React.FC = () => {
                     </div>
                   </div>
                 ) : (
-                  <div className="relative group py-2">
-                    <button
-                      type="button"
-                      className="bg-black/5 hover:bg-black/10 dark:bg-white/10 dark:hover:bg-white/20 select-none px-4 py-2 text-xs font-semibold text-gray-800 dark:text-white rounded-full flex items-center gap-1.5 focus:outline-none transition-all"
-                    >
+                  <>
+                    <Link to="/login" className="px-4 py-2 bg-white/10 hover:bg-white/15 text-white rounded-full text-xs font-semibold transition-all select-none border border-white/5 flex items-center gap-1">
                       <span>Log in</span>
-                      <span className="text-[9px] text-gray-500 dark:text-white/50 transition-transform duration-200 group-hover:rotate-180">
-                        ▼
-                      </span>
-                    </button>
-                    {/* Hover Dropdown */}
-                    <div className="absolute right-0 top-[38px] pt-2 w-48 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="bg-white dark:bg-[#121213] border border-gray-200 dark:border-white/[0.08] rounded-2xl p-4 shadow-2xl flex flex-col space-y-3.5">
-                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
-                          Amthromax AI
-                        </Link>
-                        <Link to="/login" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
-                          API Platform
-                        </Link>
-                        <Link to="/why/developers" className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors text-xs font-semibold block">
-                          Developers Hub
-                        </Link>
-                      </div>
-                    </div>
-                  </div>
+                      <span className="text-[8px] opacity-60">▼</span>
+                    </Link>
+                    <Link to="/login" className="px-5 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:opacity-90 transition-all shadow-md flex items-center gap-0.5">
+                      <span>Try Amthromax</span>
+                      <span className="text-xs">↗</span>
+                    </Link>
+                  </>
                 )}
-                <Link 
-                  to="/login" 
-                  className="px-4 py-2 bg-black text-white hover:bg-black/90 dark:bg-white dark:text-black dark:hover:bg-white/90 rounded-full text-xs font-bold transition-all shadow-sm flex items-center gap-1"
-                >
-                  <span>Try Amthromax</span>
-                  <span className="text-[10px] font-sans">↗</span>
-                </Link>
               </div>
             </div>
           </div>
+
+          {/* Unified MegaDropdown */}
+          <AnimatePresence>
+            {activeMenu && (
+              <motion.div
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.18, ease: "easeOut" }}
+                className="absolute top-16 left-0 right-0 bg-[#0b0b0c] border-b border-white/[0.08] text-white z-45 py-12 px-6 sm:px-12 md:px-24"
+                onMouseEnter={() => {
+                  if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
+                }}
+                onMouseLeave={handleMouseLeave}
+              >
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                  {activeMenu === 'research' && (
+                    <>
+                      {/* Left Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Research</span>
+                        <div className="space-y-4">
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Research Index</Link>
+                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Research Overview</Link>
+                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Research Residency</Link>
+                          <Link to="/security" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Safety</Link>
+                        </div>
+                      </div>
+                      {/* Right Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Latest Advancements</span>
+                        <div className="space-y-3">
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.6</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.5</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.4</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.3 Instant</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">GPT-5.3-Codex</Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {activeMenu === 'products' && (
+                    <>
+                      {/* Left Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Products</span>
+                        <div className="space-y-4">
+                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Product Index</Link>
+                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Platform Core</Link>
+                          <Link to="/services" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Features Index</Link>
+                        </div>
+                      </div>
+                      {/* Right Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Developer Hub</span>
+                        <div className="space-y-3">
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Documentation</Link>
+                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Pricing Plans</Link>
+                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Developer Tools</Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {activeMenu === 'business' && (
+                    <>
+                      {/* Left Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Solutions</span>
+                        <div className="space-y-4">
+                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Our Charter</Link>
+                          <Link to="/why/enterprises" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Enterprises</Link>
+                          <Link to="/why/small-businesses" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Small Businesses</Link>
+                        </div>
+                      </div>
+                      {/* Right Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Services Offered</span>
+                        <div className="space-y-3">
+                          <Link to="/services/custom-software" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Custom Software</Link>
+                          <Link to="/services/cloud-solutions" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Cloud Solutions</Link>
+                          <Link to="/services/artificial-intelligence" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">AI Systems</Link>
+                          <Link to="/services/cybersecurity" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Cybersecurity</Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {activeMenu === 'company' && (
+                    <>
+                      {/* Left Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Corporate</span>
+                        <div className="space-y-4">
+                          <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">About Us</Link>
+                          <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Careers</Link>
+                          <Link to="/team" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Team</Link>
+                        </div>
+                      </div>
+                      {/* Right Column */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Resources</span>
+                        <div className="space-y-3">
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Blog</Link>
+                          <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Newsroom</Link>
+                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Foundation</Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.nav>
         <main>
           <AnimatePresence>
