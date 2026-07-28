@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
@@ -15,6 +15,24 @@ const LoginSection: React.FC = () => {
   const [isGoogleConnecting, setIsGoogleConnecting] = useState<boolean>(false);
   const [googleEmail, setGoogleEmail] = useState<string>("");
   const navigate = useNavigate();
+  
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      if (session) {
+        navigate('/');
+      }
+    });
+
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session && (event === 'SIGNED_IN' || event === 'TOKEN_REFRESHED')) {
+        navigate('/');
+      }
+    });
+
+    return () => {
+      subscription.unsubscribe();
+    };
+  }, [navigate]);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
