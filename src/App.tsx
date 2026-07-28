@@ -59,6 +59,12 @@ const App: React.FC = () => {
   useEffect(() => {
     console.log("Supabase Auth listener initialized");
     
+    // Automatically strip the hash from the URL so it doesn't get re-evaluated on page reload
+    if (window.location.hash && (window.location.hash.includes('access_token=') || window.location.hash.includes('error='))) {
+      console.log("Staged token hash detected, clearing from address bar for security");
+      window.history.replaceState(null, "", window.location.pathname);
+    }
+    
     // Check active session on initial load
     supabase.auth.getSession().then(({ data: { session }, error }) => {
       if (error) {
