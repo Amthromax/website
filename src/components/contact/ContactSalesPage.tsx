@@ -1,12 +1,53 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
 
+const INQUIRY_OPTIONS = [
+  { 
+    value: "500+ Seats Enterprise Licensing", 
+    label: "Enterprise deployment (500+ seats)", 
+    desc: "For teams requiring 500+ seats, custom SSO, RBAC & dedicated SLA agreements" 
+  },
+  { 
+    value: "HIPAA / BAA & Governance", 
+    label: "HIPAA / BAA & Governance", 
+    desc: "For healthcare, finance & strictly regulated compliance data workloads" 
+  },
+  { 
+    value: "Dedicated Private Cloud GPU Cluster", 
+    label: "Dedicated Private Cloud GPU Cluster", 
+    desc: "Single-tenant isolated AI infrastructure with guaranteed high-throughput compute" 
+  },
+  { 
+    value: "Custom Fine-Tuned Model Weights", 
+    label: "Custom Fine-Tuned Model Weights (Morfix / Cotises)", 
+    desc: "Proprietary model training on enterprise datasets with zero-data retention" 
+  },
+  { 
+    value: "Other Complex Deployment", 
+    label: "Other Complex Deal Requirement", 
+    desc: "Custom contracts, custom hardware integrations or partner reseller requests" 
+  }
+];
+
 export const ContactSalesPage: React.FC = () => {
   // Form State for Complex Needs section
   const [inquiryType, setInquiryType] = useState("");
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -257,23 +298,91 @@ export const ContactSalesPage: React.FC = () => {
           <div className="lg:col-span-8">
             <div className="p-8 md:p-10 rounded-3xl bg-[#131315] border border-white/[0.08] space-y-6">
               
-              <div className="space-y-2">
+              {/* Custom Premium Selector Box */}
+              <div className="space-y-2 relative" ref={dropdownRef}>
                 <label className="text-xs font-bold text-gray-300">
                   What can we help you with? <span className="text-rose-400">*</span>
                 </label>
                 
-                <select 
-                  value={inquiryType}
-                  onChange={(e) => setInquiryType(e.target.value)}
-                  className="w-full px-4 py-3.5 bg-[#1c1c1f] border border-white/15 rounded-xl text-sm text-white focus:outline-none focus:border-white/40 transition-colors cursor-pointer"
+                {/* Custom Box Trigger Button */}
+                <button
+                  type="button"
+                  onClick={() => setIsDropdownOpen(!isDropdownOpen)}
+                  className="w-full px-5 py-4 bg-[#18181b] hover:bg-[#1f1f23] border border-white/15 focus:border-white/40 rounded-2xl text-sm text-white flex items-center justify-between transition-all duration-200 cursor-pointer shadow-inner group"
                 >
-                  <option value="">Please select</option>
-                  <option value="500+ Seats Enterprise Licensing">Enterprise deployment (500+ seats)</option>
-                  <option value="HIPAA / BAA & Compliance">HIPAA / BAA & Governance</option>
-                  <option value="Dedicated Private Cloud GPU Cluster">Dedicated Private Cloud GPU Cluster</option>
-                  <option value="Custom Fine-Tuned Model Weights">Custom Fine-Tuned Model Weights (Morfix / Cotises)</option>
-                  <option value="Other Complex Deployment">Other Complex Deal Requirement</option>
-                </select>
+                  <div className="flex items-center space-x-3 truncate">
+                    <span className={inquiryType ? "text-white font-semibold truncate" : "text-gray-400 truncate"}>
+                      {inquiryType 
+                        ? INQUIRY_OPTIONS.find(o => o.value === inquiryType)?.label || inquiryType 
+                        : "Please select an enterprise requirement..."}
+                    </span>
+                  </div>
+
+                  <div className="flex items-center space-x-2 pl-2">
+                    {inquiryType && (
+                      <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20 font-medium">
+                        Selected
+                      </span>
+                    )}
+                    <svg 
+                      className={`w-4 h-4 text-gray-400 transition-transform duration-200 group-hover:text-white ${isDropdownOpen ? "rotate-180 text-white" : ""}`} 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </div>
+                </button>
+
+                {/* Custom Premium Floating Popover Menu */}
+                <AnimatePresence>
+                  {isDropdownOpen && (
+                    <motion.div
+                      initial={{ opacity: 0, y: -6, scale: 0.99 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: -6, scale: 0.99 }}
+                      transition={{ duration: 0.15, ease: "easeOut" }}
+                      className="absolute top-full left-0 right-0 mt-2 z-50 p-2 bg-[#161618] border border-white/20 rounded-2xl shadow-2xl backdrop-blur-2xl space-y-1 overflow-hidden max-h-[360px] overflow-y-auto"
+                    >
+                      {INQUIRY_OPTIONS.map((opt) => {
+                        const isSelected = inquiryType === opt.value;
+                        return (
+                          <button
+                            key={opt.value}
+                            type="button"
+                            onClick={() => {
+                              setInquiryType(opt.value);
+                              setIsDropdownOpen(false);
+                            }}
+                            className={`w-full text-left px-4 py-3.5 rounded-xl transition-all flex items-start justify-between group cursor-pointer ${
+                              isSelected 
+                                ? "bg-white/10 text-white border border-white/20" 
+                                : "hover:bg-white/[0.07] text-gray-300 hover:text-white border border-transparent"
+                            }`}
+                          >
+                            <div className="space-y-1 pr-3">
+                              <div className="text-sm font-semibold flex items-center gap-2">
+                                <span>{opt.label}</span>
+                              </div>
+                              <div className="text-xs text-gray-400 leading-normal font-normal">
+                                {opt.desc}
+                              </div>
+                            </div>
+
+                            {isSelected ? (
+                              <div className="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">
+                                ✓
+                              </div>
+                            ) : (
+                              <div className="w-5 h-5 rounded-full border border-white/20 group-hover:border-white/50 shrink-0 mt-0.5 transition-colors" />
+                            )}
+                          </button>
+                        );
+                      })}
+                    </motion.div>
+                  )}
+                </AnimatePresence>
               </div>
 
               {/* Dynamic Form fields when dropdown option selected */}
