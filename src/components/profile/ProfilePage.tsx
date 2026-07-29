@@ -14,11 +14,6 @@ export const ProfilePage: React.FC = () => {
   const [isUpdating, setIsUpdating] = useState(false);
   const [updateMessage, setUpdateMessage] = useState<{ type: "success" | "error"; text: string } | null>(null);
 
-  // Developer state
-  const [apiKey, setApiKey] = useState("amx_live_7c4d29f8a3b5e612f00a4d8c7e9");
-  const [isKeyVisible, setIsKeyVisible] = useState(false);
-  const [copiedKey, setCopiedKey] = useState(false);
-
   // Sync state with user profile metadata
   useEffect(() => {
     if (!authLoading && !user) {
@@ -65,23 +60,6 @@ export const ProfilePage: React.FC = () => {
     }
   };
 
-  const handleRotateKey = () => {
-    const chars = "abcdef0123456789";
-    let newKey = "amx_live_";
-    for (let i = 0; i < 27; i++) {
-      newKey += chars.charAt(Math.floor(Math.random() * chars.length));
-    }
-    setApiKey(newKey);
-    setUpdateMessage({ type: "success", text: "API key rotated successfully!" });
-    setTimeout(() => setUpdateMessage(null), 3000);
-  };
-
-  const handleCopyKey = () => {
-    navigator.clipboard.writeText(apiKey);
-    setCopiedKey(true);
-    setTimeout(() => setCopiedKey(false), 2000);
-  };
-
   if (authLoading || !user) {
     return (
       <div className="min-h-screen bg-[#050505] flex items-center justify-center">
@@ -94,8 +72,8 @@ export const ProfilePage: React.FC = () => {
   const provider = user.app_metadata?.provider || "email";
 
   return (
-    <div className="bg-[#050505] min-h-screen text-white pt-24 font-sans selection:bg-white/10 select-none">
-      <SEO title="User Profile | Amthromax" description="Manage your Amthromax subscription, developer APIs, and security parameters." />
+    <div className="bg-[#050505] min-h-screen text-white pt-24 font-sans selection:bg-white/10 select-none pb-24">
+      <SEO title="User Profile | Amthromax" description="Manage your Amthromax subscription and security parameters." />
       
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
         {/* Header Title Section */}
@@ -234,44 +212,59 @@ export const ProfilePage: React.FC = () => {
           </div>
         </div>
 
-        {/* Developer APIs Showcase (Premium Feature) */}
+        {/* Workspace Inference Resource Panel */}
         <div className="p-8 rounded-3xl bg-[#0d0d0e]/60 border border-white/[0.06] space-y-6">
-          <div className="space-y-2 border-b border-white/[0.06] pb-4 flex justify-between items-end">
-            <div>
-              <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block mb-0.5">Developer Keys</span>
-              <h3 className="text-lg font-bold text-white">Amthromax Live APIs</h3>
-            </div>
-            <button
-              onClick={handleRotateKey}
-              className="text-xs font-bold text-white hover:text-white/80 transition-colors uppercase tracking-wider"
-            >
-              Rotate Key
-            </button>
+          <div className="space-y-1 border-b border-white/[0.06] pb-4">
+            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Resource Space</span>
+            <h3 className="text-lg font-bold text-white">Workspace Compute & Endpoints</h3>
           </div>
 
-          <p className="text-sm text-white/50 leading-relaxed max-w-2xl">
-            Use this live token to query the Amthromax models (MORFIX, INTOX, COTISES, VERKOX) from terminal pipelines or local integration codeboxes. Keep this token private.
-          </p>
-
-          <div className="flex items-center space-x-3 bg-white/[0.02] border border-white/10 p-3 rounded-2xl">
-            <span className="text-white/35 font-bold font-mono text-xs pl-2">TOKEN</span>
-            <div className="flex-1 font-mono text-xs text-white/90 overflow-hidden truncate">
-              {isKeyVisible ? apiKey : "●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●●"}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {/* Tokens Consumption Progress */}
+            <div className="space-y-3 bg-white/[0.01] border border-white/5 p-5 rounded-2xl">
+              <div className="flex justify-between items-center text-xs">
+                <span className="text-white/60 font-semibold">Monthly Inference Volume</span>
+                <span className="font-mono text-white/90">1.46B / 10.0B tokens</span>
+              </div>
+              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
+                <div className="h-full bg-white rounded-full w-[14.6%]" />
+              </div>
+              <p className="text-[10px] text-white/40">Renews on August 29, 2026. Limit resets automatically.</p>
             </div>
-            
-            <div className="flex space-x-2 flex-shrink-0 pr-1">
-              <button 
-                onClick={() => setIsKeyVisible(!isKeyVisible)}
-                className="px-3 py-1.5 bg-white/5 border border-white/10 rounded-lg text-[10px] font-bold uppercase hover:bg-white/10 transition-colors cursor-pointer select-none"
-              >
-                {isKeyVisible ? "Hide" : "Show"}
-              </button>
-              <button 
-                onClick={handleCopyKey}
-                className="px-3 py-1.5 bg-white text-black border border-transparent rounded-lg text-[10px] font-bold uppercase hover:opacity-90 transition-all cursor-pointer select-none min-w-[70px] text-center"
-              >
-                {copiedKey ? "Copied" : "Copy"}
-              </button>
+
+            {/* Sandbox details */}
+            <div className="space-y-3 bg-white/[0.01] border border-white/5 p-5 rounded-2xl flex flex-col justify-between">
+              <div className="flex justify-between items-start">
+                <div>
+                  <span className="text-[9px] uppercase tracking-wide text-white/40 font-bold">Runtime Engine</span>
+                  <p className="text-sm font-semibold text-white/90 mt-0.5">amx-agent-production-v3</p>
+                </div>
+                <span className="inline-flex px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 text-[9px] uppercase tracking-wider font-bold text-emerald-400 rounded-md">
+                  Active
+                </span>
+              </div>
+              <p className="text-[10px] text-white/40">Located in AWS cluster node us-east-1.</p>
+            </div>
+          </div>
+
+          {/* Model endpoints grid */}
+          <div className="space-y-3 pt-2">
+            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Available Models</span>
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+              {[
+                { name: "MORFIX 0.1", status: "Active" },
+                { name: "INTOX 0.2", status: "Active" },
+                { name: "COTISES 0.5 MAX", status: "Active" },
+                { name: "VERKOX 0.4 INSTANT", status: "Active" }
+              ].map((model, idx) => (
+                <div key={idx} className="p-3 bg-white/[0.02] border border-white/[0.05] rounded-xl flex items-center justify-between">
+                  <span className="text-[11px] font-bold text-white/90 font-mono">{model.name}</span>
+                  <div className="flex items-center space-x-2">
+                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
+                    <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-wide">{model.status}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
