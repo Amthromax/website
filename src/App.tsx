@@ -857,58 +857,8 @@ const App: React.FC = () => {
                 </div>
               } />
               <Route path="/foundation/:articleId" element={<FoundationDetailPage />} />
-              <Route path="/contact" element={
-                <div>
-                  <SEO title="Contact Amthromax" description="Get in touch with Amthromax for AI development and automation solutions." />
-                  <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
-                    <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-12 gap-12 items-center">
-                      <div className="md:col-span-5 space-y-6">
-                        <span className="text-xs font-bold uppercase tracking-wider text-blue-650 dark:text-blue-400">Get in touch</span>
-                        <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">Contact Our Team</h1>
-                        <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
-                          Have questions about our enterprise offerings, modern custom software design, or research projects? Reach out and we will be in touch.
-                        </p>
-                        <div className="pt-4 space-y-4 text-sm text-gray-600 dark:text-gray-300">
-                          <div className="flex items-center gap-3">
-                            <span className="text-lg">✉</span>
-                            <span>info@amthromax.com</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <span className="text-lg">📞</span>
-                            <span>+1 (555) 123-4567</span>
-                          </div>
-                          <div className="flex items-center gap-3">
-                            <span className="text-lg">📍</span>
-                            <span>123 Innovation Drive, Tech City</span>
-                          </div>
-                        </div>
-                      </div>
-                      <div className="md:col-span-7">
-                        <div className="bg-gray-50 dark:bg-[#161617] rounded-3xl p-8 border border-gray-150 dark:border-white/[0.04] shadow-sm">
-                          <form onSubmit={(e) => { e.preventDefault(); alert('Thank you for contacting us! We will get back to you shortly.'); }} className="space-y-5">
-                            <div className="space-y-1.5">
-                              <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">Full Name</label>
-                              <input required type="text" className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white" placeholder="John Doe" />
-                            </div>
-                            <div className="space-y-1.5">
-                              <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">Work Email</label>
-                              <input required type="email" className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white" placeholder="john@company.com" />
-                            </div>
-                            <div className="space-y-1.5">
-                              <label className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wide">Message</label>
-                              <textarea required rows={4} className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all text-gray-900 dark:text-white" placeholder="Tell us about your project details..."></textarea>
-                            </div>
-                            <button type="submit" className="w-full py-3.5 bg-black dark:bg-white text-white dark:text-black font-semibold rounded-xl text-sm hover:opacity-90 transition-all duration-300">
-                              Submit Message
-                            </button>
-                          </form>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <Footer />
-                </div>
-              } />
+              <Route path="/contact" element={<ContactSalesPage />} />
+              <Route path="/contact-sales" element={<ContactSalesPage />} />
               <Route path="/privacy" element={
                 <div>
                   <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
@@ -995,8 +945,6 @@ const App: React.FC = () => {
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/security" element={<SecurityPage />} />
-              <Route path="/contact" element={<ContactSalesPage />} />
-              <Route path="/contact-sales" element={<ContactSalesPage />} />
             </Routes>
           </AnimatePresence>
         </main>
