@@ -121,7 +121,7 @@ export const ContactSalesPage: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-5xl md:text-7xl font-serif text-white tracking-tight font-normal"
+          className="text-5xl md:text-7xl font-sans text-white tracking-tight font-extrabold"
         >
           Contact sales
         </motion.h1>
@@ -142,7 +142,7 @@ export const ContactSalesPage: React.FC = () => {
           
           {/* Left Text (4 Columns) */}
           <div className="lg:col-span-4 space-y-3">
-            <h2 className="text-3xl md:text-4xl font-serif text-white font-normal">
+            <h2 className="text-3xl md:text-5xl font-sans text-white font-bold tracking-tight">
               For quick results
             </h2>
             <p className="text-gray-400 text-sm md:text-base leading-relaxed">
@@ -163,7 +163,7 @@ export const ContactSalesPage: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-serif text-white font-normal">Get the Enterprise plan</h3>
+                  <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Get the Enterprise plan</h3>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Buy or upgrade to Enterprise yourself. Check out in minutes with a credit card.
                   </p>
@@ -193,7 +193,7 @@ export const ContactSalesPage: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-serif text-white font-normal">Chat with buying agent</h3>
+                  <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Chat with buying agent</h3>
                   <p className="text-xs text-gray-400 leading-relaxed">
                     Ask any questions you have, get a personalized quote, and check out today. Our buying agent can escalate to the sales team when needed.
                   </p>
@@ -240,7 +240,7 @@ export const ContactSalesPage: React.FC = () => {
           
           {/* Left Text (4 Columns) */}
           <div className="lg:col-span-4 space-y-3">
-            <h2 className="text-3xl md:text-4xl font-serif text-white font-normal">
+            <h2 className="text-3xl md:text-5xl font-sans text-white font-bold tracking-tight">
               For complex needs
             </h2>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -395,7 +395,7 @@ export const ContactSalesPage: React.FC = () => {
 
       {/* SECTION 3: Transform Banner */}
       <section className="max-w-7xl mx-auto px-6 py-28 text-center space-y-8">
-        <h2 className="text-4xl md:text-6xl font-serif text-white font-normal tracking-tight max-w-4xl mx-auto leading-tight">
+        <h2 className="text-4xl md:text-6xl font-sans text-white font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
           Transform how your organization operates with Amthromax
         </h2>
         
