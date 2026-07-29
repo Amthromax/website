@@ -454,6 +454,16 @@ const App: React.FC = () => {
                   >
                     Company
                   </Link>
+                  <a 
+                    href="/contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                  >
+                    <span>Contact Sales</span>
+                    <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                  </a>
                   <Link 
                     to="/foundation"
                     onClick={() => setIsMobileMenuOpen(false)}
@@ -615,6 +625,7 @@ const App: React.FC = () => {
                           <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">About Us</Link>
                           <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Careers</Link>
                           <Link to="/team" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Team</Link>
+                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors flex items-center gap-2"><span>Contact Sales</span><span className="text-xl font-normal opacity-70">↗</span></a>
                         </div>
                       </div>
                       {/* Right Column */}
@@ -624,6 +635,7 @@ const App: React.FC = () => {
                           <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Blog</Link>
                           <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Newsroom</Link>
                           <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Foundation</Link>
+                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors flex items-center gap-1"><span>Contact Sales</span><span className="text-[10px] opacity-70">↗</span></a>
                         </div>
                       </div>
                     </>
