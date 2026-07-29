@@ -125,8 +125,9 @@ export const ProfilePage: React.FC = () => {
               <p className="text-xs text-white/50 truncate max-w-[220px]">{user.email}</p>
             </div>
 
-            <div className="inline-flex px-3 py-1 bg-white/5 border border-white/15 rounded-full text-[10px] font-bold uppercase tracking-wider text-white/80">
-              Developer Tier
+            <div className="inline-flex items-center space-x-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-wider text-white/85">
+              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+              <span>Enterprise Member</span>
             </div>
           </div>
 
