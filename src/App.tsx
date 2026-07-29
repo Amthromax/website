@@ -34,6 +34,7 @@ import TeamPage from "./components/about/TeamPage";
 import { supabase } from "./lib/supabase";
 import { useAuth } from "./context/AuthContext";
 import AuthCallback from "./components/auth/AuthCallback";
+import ProfilePage from "./components/profile/ProfilePage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -115,6 +116,7 @@ const App: React.FC = () => {
   }, []);
 
   const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | null>(null);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const timeoutRef = useRef<number | null>(null);
 
   const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company') => {
@@ -127,6 +129,17 @@ const App: React.FC = () => {
       setActiveMenu(null);
     }, 150);
   };
+
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMobileMenuOpen]);
 
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -161,6 +174,7 @@ const App: React.FC = () => {
 
   useEffect(() => {
     setIsSearchOpen(false);
+    setIsMobileMenuOpen(false);
     setSearchQuery("");
   }, [location.pathname]);
 
@@ -177,6 +191,10 @@ const App: React.FC = () => {
 
   useMotionValueEvent(scrollY, "change", (latest) => {
     const previous = scrollY.getPrevious() ?? 0;
+    if (isMobileMenuOpen) {
+      setHidden(false);
+      return;
+    }
     if (latest > previous && latest > 150) {
       setHidden(true);
     } else {
@@ -208,7 +226,7 @@ const App: React.FC = () => {
                 </Link>
               </div>
 
-              {/* Center Navigation Links */}
+              {/* Center Navigation Links (Desktop only) */}
               <div className="hidden lg:flex items-center justify-center space-x-6 flex-1">
                 <button
                   type="button"
@@ -272,68 +290,232 @@ const App: React.FC = () => {
                 </button>
               </div>
 
-              {/* Log In/Sign Up buttons or User Avatar on the right */}
+              {/* Action Buttons & Menu Toggles (Right) */}
               <div className="flex items-center justify-end space-x-4">
-                {authLoading ? (
-                  <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                ) : user ? (
-                  <div className="relative group">
-                    <button
-                      type="button"
-                      className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
-                    >
-                      {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
-                        <img 
-                          src={user.user_metadata.avatar_url || user.user_metadata.picture} 
-                          alt="Profile" 
-                          className="w-full h-full object-cover"
-                          referrerPolicy="no-referrer"
-                        />
-                      ) : (
-                        <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
-                          {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
-                        </span>
-                      )}
-                    </button>
-                    {/* Hover Dropdown menu */}
-                    <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                      <div className="p-3 border-b border-white/[0.08]">
-                        {user.user_metadata?.full_name || user.user_metadata?.name ? (
-                          <p className="text-xs font-bold text-white truncate mb-1">
-                            {user.user_metadata.full_name || user.user_metadata.name}
-                          </p>
-                        ) : null}
-                        <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
-                        <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
+                {/* Desktop Log In / Profile (Desktop only) */}
+                <div className="hidden lg:flex items-center space-x-4">
+                  {authLoading ? (
+                    <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  ) : user ? (
+                    <div className="relative group">
+                      <button
+                        type="button"
+                        className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
+                      >
+                        {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
+                          <img 
+                            src={user.user_metadata.avatar_url || user.user_metadata.picture} 
+                            alt="Profile" 
+                            className="w-full h-full object-cover"
+                            referrerPolicy="no-referrer"
+                          />
+                        ) : (
+                          <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
+                            {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
+                          </span>
+                        )}
+                      </button>
+                      {/* Hover Dropdown menu */}
+                      <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                        <div className="p-3 border-b border-white/[0.08]">
+                          {user.user_metadata?.full_name || user.user_metadata?.name ? (
+                            <p className="text-xs font-bold text-white truncate mb-1">
+                              {user.user_metadata.full_name || user.user_metadata.name}
+                            </p>
+                          ) : null}
+                          <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
+                          <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
+                        </div>
+                        <div className="p-2 space-y-1">
+                          <Link
+                            to="/profile"
+                            className="block text-left px-3 py-2 text-xs font-bold text-white hover:bg-white/5 rounded-xl transition-all"
+                          >
+                            Settings
+                          </Link>
+                          <button
+                            type="button"
+                            onClick={async () => {
+                              await supabase.auth.signOut();
+                            }}
+                            className="w-full text-left px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-950/20 rounded-xl transition-all cursor-pointer"
+                          >
+                            Sign Out
+                          </button>
+                        </div>
                       </div>
-                      <div className="p-2">
+                    </div>
+                  ) : (
+                    <>
+                      <Link to="/login" className="px-4 py-2 bg-white/10 hover:bg-white/15 text-white rounded-full text-xs font-semibold transition-all select-none border border-white/5 flex items-center gap-1">
+                        <span>Log in</span>
+                        <span className="text-[8px] opacity-60">▼</span>
+                      </Link>
+                      <Link to="/login" className="px-5 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:opacity-90 transition-all shadow-md flex items-center gap-0.5">
+                        <span>Try Amthromax</span>
+                        <span className="text-xs">↗</span>
+                      </Link>
+                    </>
+                  )}
+                </div>
+
+                {/* Mobile Search & Hamburger Toggle (Mobile only) */}
+                <div className="lg:hidden flex items-center space-x-2">
+                  <button 
+                    type="button" 
+                    onClick={() => {
+                      setIsSearchOpen(!isSearchOpen);
+                      setIsMobileMenuOpen(false);
+                    }}
+                    className="text-white/80 hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
+                    aria-label="Toggle search overlay"
+                  >
+                    {isSearchOpen ? (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    ) : (
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                      </svg>
+                    )}
+                  </button>
+
+                  <button
+                    type="button"
+                    onClick={() => {
+                      setIsMobileMenuOpen(!isMobileMenuOpen);
+                      setIsSearchOpen(false);
+                    }}
+                    className="text-white/80 hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
+                    aria-label="Toggle mobile menu"
+                  >
+                    {isMobileMenuOpen ? (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    ) : (
+                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                      </svg>
+                    )}
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mobile Navigation Drawer */}
+          <AnimatePresence>
+            {isMobileMenuOpen && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.25, ease: "easeInOut" }}
+                className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-[#000000] text-white z-40 overflow-y-auto flex flex-col justify-between px-8 py-10 select-none"
+              >
+                {/* Navigation Links List */}
+                <div className="flex flex-col space-y-7 pt-4">
+                  <Link 
+                    to="/research" 
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+                  >
+                    Research
+                  </Link>
+                  <Link 
+                    to="/products"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+                  >
+                    Products
+                  </Link>
+                  <Link 
+                    to="/solutions"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+                  >
+                    Business
+                  </Link>
+                  <Link 
+                    to="/developers"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+                  >
+                    Developers
+                  </Link>
+                  <Link 
+                    to="/about"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+                  >
+                    Company
+                  </Link>
+                  <Link 
+                    to="/foundation"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                  >
+                    <span>Foundation</span>
+                    <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                  </Link>
+                </div>
+
+                {/* Footer Action Buttons inside Mobile Menu Drawer */}
+                <div className="w-full">
+                  <div className="border-t border-white/[0.08] my-6 w-full" />
+                  
+                  <div className="flex flex-col space-y-5 pt-2">
+                    {authLoading ? (
+                      <div className="flex justify-start py-2">
+                        <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                      </div>
+                    ) : user ? (
+                      <>
+                        <Link 
+                          to="/profile"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                        >
+                          <span>Dashboard</span>
+                          <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                        </Link>
                         <button
                           type="button"
                           onClick={async () => {
                             await supabase.auth.signOut();
+                            setIsMobileMenuOpen(false);
                           }}
-                          className="w-full text-left px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-950/20 rounded-xl transition-all"
+                          className="block text-left text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity w-full cursor-pointer"
                         >
                           Sign Out
                         </button>
-                      </div>
-                    </div>
+                      </>
+                    ) : (
+                      <>
+                        <Link 
+                          to="/login" 
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                        >
+                          <span>Try Amthromax</span>
+                          <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                        </Link>
+                        <Link 
+                          to="/login"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity"
+                        >
+                          Login
+                        </Link>
+                      </>
+                    )}
                   </div>
-                ) : (
-                  <>
-                    <Link to="/login" className="px-4 py-2 bg-white/10 hover:bg-white/15 text-white rounded-full text-xs font-semibold transition-all select-none border border-white/5 flex items-center gap-1">
-                      <span>Log in</span>
-                      <span className="text-[8px] opacity-60">▼</span>
-                    </Link>
-                    <Link to="/login" className="px-5 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:opacity-90 transition-all shadow-md flex items-center gap-0.5">
-                      <span>Try Amthromax</span>
-                      <span className="text-xs">↗</span>
-                    </Link>
-                  </>
-                )}
-              </div>
-            </div>
-          </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           {/* Unified MegaDropdown */}
           <AnimatePresence>
@@ -784,6 +966,7 @@ const App: React.FC = () => {
               <Route path="/why/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginSection />} />
               <Route path="/auth/callback" element={<AuthCallback />} />
+              <Route path="/profile" element={<ProfilePage />} />
               <Route path="/blog" element={<BlogPage />} />
               <Route path="/blog/publish" element={<PublishPage />} />
               <Route path="/blog/:postId" element={<BlogPostDetail />} />

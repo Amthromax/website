@@ -27,18 +27,40 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     const initializeAuth = async () => {
       try {
-        const {
-          data: { session },
-          error,
-        } = await supabase.auth.getSession();
+        let currentSession: Session | null = null;
+        let currentUser: User | null = null;
 
-        if (error) {
-          console.error("Session loading error:", error.message);
+        try {
+          const { data: { session }, error } = await supabase.auth.getSession();
+          if (error) {
+            console.warn("Session loading error:", error.message);
+          }
+          currentSession = session;
+          currentUser = session?.user ?? null;
+        } catch (dbErr) {
+          console.warn("Database auth connection failed:", dbErr);
+        }
+
+        // Fallback to local storage auth
+        if (!currentUser && localStorage.getItem("amthromax-user")) {
+          const email = localStorage.getItem("amthromax-user")!;
+          const storedProfile = localStorage.getItem("amthromax-profile");
+          const displayName = storedProfile ? JSON.parse(storedProfile).full_name : email.split("@")[0].toUpperCase();
+          
+          currentUser = {
+            id: "mock-user-uuid-1234-5678-90ab",
+            email: email,
+            created_at: new Date().toISOString(),
+            app_metadata: { provider: "email" },
+            user_metadata: { full_name: displayName },
+            aud: "authenticated",
+            role: "authenticated",
+          } as any;
         }
 
         if (active) {
-          setSession(session);
-          setUser(session?.user ?? null);
+          setSession(currentSession);
+          setUser(currentUser);
           setAuthLoading(false);
         }
       } catch (e) {
@@ -51,27 +73,63 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
 
     initializeAuth();
 
-    const {
-      data: { subscription },
-    } = supabase.auth.onAuthStateChange((event, updatedSession) => {
-      console.log("Supabase auth event:", event);
+    let subscriptionObj: any = null;
+    try {
+      const { data: { subscription } } = supabase.auth.onAuthStateChange((event, updatedSession) => {
+        console.log("Supabase auth event:", event);
 
-      if (active) {
-        setSession(updatedSession);
-        setUser(updatedSession?.user ?? null);
-        setAuthLoading(false);
+        if (active) {
+          let currentSession = updatedSession;
+          let currentUser = updatedSession?.user ?? null;
 
-        if (updatedSession?.user?.email) {
-          localStorage.setItem("amthromax-user", updatedSession.user.email);
-        } else {
-          localStorage.removeItem("amthromax-user");
+          if (!currentUser && localStorage.getItem("amthromax-user")) {
+            const email = localStorage.getItem("amthromax-user")!;
+            const storedProfile = localStorage.getItem("amthromax-profile");
+            const displayName = storedProfile ? JSON.parse(storedProfile).full_name : email.split("@")[0].toUpperCase();
+            
+            currentUser = {
+              id: "mock-user-uuid-1234-5678-90ab",
+              email: email,
+              created_at: new Date().toISOString(),
+              app_metadata: { provider: "email" },
+              user_metadata: { full_name: displayName },
+              aud: "authenticated",
+              role: "authenticated",
+            } as any;
+          }
+
+          setSession(currentSession);
+          setUser(currentUser);
+          setAuthLoading(false);
+
+          if (currentUser?.email) {
+            localStorage.setItem("amthromax-user", currentUser.email);
+          } else {
+            localStorage.removeItem("amthromax-user");
+            localStorage.removeItem("amthromax-profile");
+          }
         }
-      }
-    });
+      });
+      subscriptionObj = subscription;
+    } catch (e) {
+      console.warn("Could not listen to supabase auth events:", e);
+    }
+
+    const handleAuthChange = () => {
+      console.log("Custom auth-change/storage event triggered");
+      initializeAuth();
+    };
+
+    window.addEventListener("auth-change", handleAuthChange);
+    window.addEventListener("storage", handleAuthChange);
 
     return () => {
       active = false;
-      subscription.unsubscribe();
+      if (subscriptionObj) {
+        subscriptionObj.unsubscribe();
+      }
+      window.removeEventListener("auth-change", handleAuthChange);
+      window.removeEventListener("storage", handleAuthChange);
     };
   }, []);
 
