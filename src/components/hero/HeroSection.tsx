@@ -28,8 +28,7 @@ const HeroSection: React.FC = () => {
   const opacityText = useTransform(smoothProgress, [0, 0.8], [1, 0]);
   const scaleImage = useTransform(smoothProgress, [0, 1], [1, 1.2]);
 
-  const titleText = "Innovating Tomorrow's Technology Today";
-  const words = titleText.split(" ");
+
 
   const containerVariants: Variants = {
     hidden: { opacity: 0 },
@@ -82,18 +81,23 @@ const HeroSection: React.FC = () => {
         className="text-center max-w-5xl space-y-10 z-10 will-change-transform transform-gpu"
       >
         <motion.h1
-          className="text-6xl md:text-8xl lg:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-gray-900 to-gray-600 dark:from-white dark:to-gray-400 tracking-tighter flex flex-wrap justify-center gap-x-[0.25em]"
-          style={{ lineHeight: 1.05 }}
+          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-[1.05] space-y-1 sm:space-y-2 text-center"
         >
-          {words.map((word, index) => (
-            <motion.span
-              variants={childVariants}
-              key={index}
-              className="inline-block"
-            >
-              {word}
-            </motion.span>
-          ))}
+          <motion.div variants={childVariants} className="block">
+            Innovating
+          </motion.div>
+          <motion.div variants={childVariants} className="block">
+            Tomorrow's
+          </motion.div>
+          <motion.div variants={childVariants} className="hidden sm:block">
+            Technology Today
+          </motion.div>
+          <motion.div variants={childVariants} className="block sm:hidden">
+            Technology
+          </motion.div>
+          <motion.div variants={childVariants} className="block sm:hidden">
+            Today
+          </motion.div>
         </motion.h1>
 
         <motion.p 
