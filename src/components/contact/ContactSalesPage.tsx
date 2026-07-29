@@ -157,10 +157,12 @@ export const ContactSalesPage: React.FC = () => {
               {/* Card 1: Get the Enterprise plan */}
               <div className="p-8 rounded-3xl bg-[#131315] border border-white/[0.08] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  {/* Building Icon */}
-                  <div className="w-12 h-12 text-white/80">
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5m0 0v-5a2 2 0 012-2h2a2 2 0 012 2v5m-4 0h4" />
+                  {/* Arch Doorway Icon */}
+                  <div className="w-12 h-12 text-white/90 flex items-center justify-start">
+                    <svg className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 20V8a7 7 0 0114 0v12" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 20v-5a2 2 0 014 0v5" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18" />
                     </svg>
                   </div>
                   <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Get the Enterprise plan</h3>
@@ -187,10 +189,13 @@ export const ContactSalesPage: React.FC = () => {
               {/* Card 2: Chat with buying agent */}
               <div className="p-8 rounded-3xl bg-[#131315] border border-white/[0.08] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  {/* Chat Icon */}
-                  <div className="w-12 h-12 text-white/80">
-                    <svg className="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                  {/* Speech Bubble with 3 Dots Icon */}
+                  <div className="w-12 h-12 text-white/90 flex items-center justify-start">
+                    <svg className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.5c0 4.695-4.03 8.5-9 8.5a9.86 9.86 0 01-4.255-.949L3 20.5l1.395-3.72C3.512 15.442 3 13.524 3 11.5 3 6.805 7.03 3 12 3s9 3.805 9 8.5z" />
+                      <circle cx="8.5" cy="11.5" r="0.75" fill="currentColor" stroke="none" />
+                      <circle cx="12" cy="11.5" r="0.75" fill="currentColor" stroke="none" />
+                      <circle cx="15.5" cy="11.5" r="0.75" fill="currentColor" stroke="none" />
                     </svg>
                   </div>
                   <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Chat with buying agent</h3>
