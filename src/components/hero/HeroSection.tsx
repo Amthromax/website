@@ -81,7 +81,7 @@ const HeroSection: React.FC = () => {
         className="text-center max-w-5xl space-y-10 z-10 will-change-transform transform-gpu"
       >
         <motion.h1
-          className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-[1.05] space-y-1 sm:space-y-2 text-center"
+          className="text-4xl sm:text-7xl md:text-8xl lg:text-9xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-[1.05] space-y-1 sm:space-y-2 text-center"
         >
           <motion.div variants={childVariants} className="block">
             Innovating
@@ -89,14 +89,8 @@ const HeroSection: React.FC = () => {
           <motion.div variants={childVariants} className="block">
             Tomorrow's
           </motion.div>
-          <motion.div variants={childVariants} className="hidden sm:block">
+          <motion.div variants={childVariants} className="block whitespace-nowrap">
             Technology Today
-          </motion.div>
-          <motion.div variants={childVariants} className="block sm:hidden">
-            Technology
-          </motion.div>
-          <motion.div variants={childVariants} className="block sm:hidden">
-            Today
           </motion.div>
         </motion.h1>
 
