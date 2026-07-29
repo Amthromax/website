@@ -187,16 +187,31 @@ const PricingPage: React.FC = () => {
               </div>
 
               <div className="pt-6">
-                <Link
-                  to={plan.link}
-                  className={`w-full block text-center py-3.5 rounded-full text-xs font-bold transition-all shadow-sm hover:shadow-md ${
-                    plan.highlighted
-                      ? "bg-white hover:bg-gray-150 text-black"
-                      : "bg-black hover:bg-gray-900 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
-                  }`}
-                >
-                  {plan.cta}
-                </Link>
+                {plan.link === "/contact" ? (
+                  <a
+                    href="/contact"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`w-full block text-center py-3.5 rounded-full text-xs font-bold transition-all shadow-sm hover:shadow-md ${
+                      plan.highlighted
+                        ? "bg-white hover:bg-gray-150 text-black"
+                        : "bg-black hover:bg-gray-900 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
+                    }`}
+                  >
+                    {plan.cta} ↗
+                  </a>
+                ) : (
+                  <Link
+                    to={plan.link}
+                    className={`w-full block text-center py-3.5 rounded-full text-xs font-bold transition-all shadow-sm hover:shadow-md ${
+                      plan.highlighted
+                        ? "bg-white hover:bg-gray-150 text-black"
+                        : "bg-black hover:bg-gray-900 text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
+                    }`}
+                  >
+                    {plan.cta}
+                  </Link>
+                )}
               </div>
             </motion.div>
           ))}

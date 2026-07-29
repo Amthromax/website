@@ -35,6 +35,7 @@ import { supabase } from "./lib/supabase";
 import { useAuth } from "./context/AuthContext";
 import AuthCallback from "./components/auth/AuthCallback";
 import ProfilePage from "./components/profile/ProfilePage";
+import ContactSalesPage from "./components/contact/ContactSalesPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -82,6 +83,7 @@ const searchItems: SearchItem[] = [
   { type: "Model", title: "INTOX 0.2 Model & Low Overhead Run", url: "/blog" },
   { type: "Model", title: "COTISES 0.5 max Model & Advanced Routing", url: "/blog" },
   { type: "Model", title: "VERKOX 0.4 instant Model & Edge Sandbox", url: "/blog" },
+  { type: "Company", title: "Contact Enterprise Sales & Engineering Team", url: "/contact" },
 ];
 
 const App: React.FC = () => {
@@ -981,6 +983,8 @@ const App: React.FC = () => {
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/security" element={<SecurityPage />} />
+              <Route path="/contact" element={<ContactSalesPage />} />
+              <Route path="/contact-sales" element={<ContactSalesPage />} />
             </Routes>
           </AnimatePresence>
         </main>
