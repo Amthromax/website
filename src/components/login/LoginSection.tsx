@@ -182,7 +182,7 @@ const LoginSection: React.FC = () => {
                       required
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder="farazhaidet786@gmail.com"
+                      placeholder="you@example.com"
                       className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-850 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white transition-all"
                     />
                   </div>

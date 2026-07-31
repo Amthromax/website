@@ -67,7 +67,7 @@ const BlogPage: React.FC = () => {
       />
 
       <div className="py-20 bg-white dark:bg-gray-950 transition-colors duration-300 min-h-[85vh] font-sans">
-        <div className="max-w-7xl mx-auto px-6 space-y-16">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-16 space-y-16">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-6">
             <span className="text-xs font-bold uppercase tracking-wider text-blue-650 dark:text-blue-400">
@@ -165,7 +165,7 @@ const BlogPage: React.FC = () => {
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
           >
             {gridPosts.map((post) => (
               <motion.article

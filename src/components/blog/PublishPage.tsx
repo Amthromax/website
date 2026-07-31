@@ -531,24 +531,24 @@ const PublishPage: React.FC = () => {
                     }
 
                     // Custom Helleious Comparison Table Integration
-                    if (paragraph === "[HELLEIOUS_COMPARISON_TABLE]") {
-                      const HELLEIOUS_TABLE_DATA = [
-                        { cap: "Workflow/scenario builder", helleious: "✓", n8n: "✓", zapier: "✓", make: "✓" },
-                        { cap: "Wide third-party app integrations", helleious: "Growing library", n8n: "✓", zapier: "✓", make: "✓" },
-                        { cap: "Newsroom-native triggers (assignment → publish)", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Fact-check handoff steps", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Syndication rules built in", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Reader-relationship triggers (churn, engagement)", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Role-based permissions by desk/team", helleious: "✓", n8n: "Limited", zapier: "Limited", make: "Limited" },
-                        { cap: "Multi-desk / multi-brand support", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Editorial audit trail on automated steps", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "AI-assisted document and research analysis", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "CMS-native publishing integration", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Automated rights/compliance checks before syndication", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Real-time correction propagation across syndicated copies", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Built-in multilingual translation workflows", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Subscriber save/win-back triggers", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                        { cap: "Built for general business workflows", helleious: "Not the focus", n8n: "✓", zapier: "✓", make: "✓" }
+                    if (paragraph === "[Helleious_COMPARISON_TABLE]") {
+                      const Helleious_TABLE_DATA = [
+                        { cap: "Workflow/scenario builder", Helleious: "✓", n8n: "✓", zapier: "✓", make: "✓" },
+                        { cap: "Wide third-party app integrations", Helleious: "Growing library", n8n: "✓", zapier: "✓", make: "✓" },
+                        { cap: "Newsroom-native triggers (assignment → publish)", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Fact-check handoff steps", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Syndication rules built in", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Reader-relationship triggers (churn, engagement)", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Role-based permissions by desk/team", Helleious: "✓", n8n: "Limited", zapier: "Limited", make: "Limited" },
+                        { cap: "Multi-desk / multi-brand support", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Editorial audit trail on automated steps", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "AI-assisted document and research analysis", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "CMS-native publishing integration", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Automated rights/compliance checks before syndication", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Real-time correction propagation across syndicated copies", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Built-in multilingual translation workflows", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Subscriber save/win-back triggers", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                        { cap: "Built for general business workflows", Helleious: "Not the focus", n8n: "✓", zapier: "✓", make: "✓" }
                       ];
 
                       const renderValue = (val: string) => {
@@ -607,10 +607,10 @@ const PublishPage: React.FC = () => {
                                 </tr>
                               </thead>
                               <tbody className="divide-y divide-gray-100 dark:divide-white/[0.02]">
-                                {HELLEIOUS_TABLE_DATA.map((row, idx) => (
+                                {Helleious_TABLE_DATA.map((row, idx) => (
                                   <tr key={idx} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/10 transition-colors">
                                     <td className="p-3 font-semibold text-gray-900 dark:text-gray-200 leading-tight">{row.cap}</td>
-                                    <td className="p-3 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.helleious)}</td>
+                                    <td className="p-3 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.Helleious)}</td>
                                     <td className="p-4 text-center">{renderValue(row.n8n)}</td>
                                     <td className="p-4 text-center">{renderValue(row.zapier)}</td>
                                     <td className="p-4 text-center">{renderValue(row.make)}</td>

@@ -121,7 +121,7 @@ const BlogPostDetail: React.FC = () => {
       <SEO title={`${post.title} | Amthromax Blog`} description={post.excerpt} />
 
       <article className="py-16 md:py-24 bg-white dark:bg-gray-950 transition-colors duration-300 min-h-[85vh] font-sans">
-        <div className="max-w-4xl mx-auto px-6 space-y-10">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-20 space-y-10">
           {/* Back Navigation */}
           <Link
             to="/blog"
@@ -234,17 +234,19 @@ const BlogPostDetail: React.FC = () => {
           {/* Featured Image */}
           <div 
             onClick={() => setLightboxImg(post.image)}
-            className="aspect-[21/9] w-full overflow-hidden rounded-[32px] border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900 cursor-zoom-in group/heroimg"
+            className="aspect-[21/7] w-full overflow-hidden rounded-[32px] border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900 cursor-zoom-in group/heroimg"
           >
             <img 
               src={post.image} 
               alt={post.title} 
-              className="w-full h-full object-cover object-top transition-transform duration-500 group-hover/heroimg:scale-[1.03]" 
+              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover/heroimg:scale-[1.03]" 
             />
           </div>
 
-          {/* Article Body */}
-          <div className="space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed pt-4">
+          {/* Article Body + Sidebar Two-Column Layout */}
+          <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 pt-4">
+          {/* Main Article Content */}
+          <div className="flex-1 min-w-0 space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
             {post.content.map((paragraph, index) => {
               // Image parsing
               if (paragraph.startsWith("![") && paragraph.endsWith(")")) {
@@ -267,24 +269,24 @@ const BlogPostDetail: React.FC = () => {
               }
               
               // Custom Helleious Comparison Table Integration
-              if (paragraph === "[HELLEIOUS_COMPARISON_TABLE]") {
-                const HELLEIOUS_TABLE_DATA = [
-                  { cap: "Workflow/scenario builder", helleious: "✓", n8n: "✓", zapier: "✓", make: "✓" },
-                  { cap: "Wide third-party app integrations", helleious: "Growing library", n8n: "✓", zapier: "✓", make: "✓" },
-                  { cap: "Newsroom-native triggers (assignment → publish)", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Fact-check handoff steps", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Syndication rules built in", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Reader-relationship triggers (churn, engagement)", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Role-based permissions by desk/team", helleious: "✓", n8n: "Limited", zapier: "Limited", make: "Limited" },
-                  { cap: "Multi-desk / multi-brand support", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Editorial audit trail on automated steps", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "AI-assisted document and research analysis", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "CMS-native publishing integration", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Automated rights/compliance checks before syndication", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Real-time correction propagation across syndicated copies", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Built-in multilingual translation workflows", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Subscriber save/win-back triggers", helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
-                  { cap: "Built for general business workflows", helleious: "Not the focus", n8n: "✓", zapier: "✓", make: "✓" }
+              if (paragraph === "[Helleious_COMPARISON_TABLE]") {
+                const Helleious_TABLE_DATA = [
+                  { cap: "Workflow/scenario builder", Helleious: "✓", n8n: "✓", zapier: "✓", make: "✓" },
+                  { cap: "Wide third-party app integrations", Helleious: "Growing library", n8n: "✓", zapier: "✓", make: "✓" },
+                  { cap: "Newsroom-native triggers (assignment → publish)", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Fact-check handoff steps", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Syndication rules built in", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Reader-relationship triggers (churn, engagement)", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Role-based permissions by desk/team", Helleious: "✓", n8n: "Limited", zapier: "Limited", make: "Limited" },
+                  { cap: "Multi-desk / multi-brand support", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Editorial audit trail on automated steps", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "AI-assisted document and research analysis", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "CMS-native publishing integration", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Automated rights/compliance checks before syndication", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Real-time correction propagation across syndicated copies", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Built-in multilingual translation workflows", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Subscriber save/win-back triggers", Helleious: "✓", n8n: "✗", zapier: "✗", make: "✗" },
+                  { cap: "Built for general business workflows", Helleious: "Not the focus", n8n: "✓", zapier: "✓", make: "✓" }
                 ];
 
                 const renderValue = (val: string) => {
@@ -343,10 +345,10 @@ const BlogPostDetail: React.FC = () => {
                           </tr>
                         </thead>
                         <tbody className="divide-y divide-gray-100 dark:divide-white/[0.02]">
-                          {HELLEIOUS_TABLE_DATA.map((row, idx) => (
+                          {Helleious_TABLE_DATA.map((row, idx) => (
                             <tr key={idx} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/10 transition-colors">
                               <td className="p-4 font-semibold text-gray-900 dark:text-gray-200 leading-snug">{row.cap}</td>
-                              <td className="p-4 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.helleious)}</td>
+                              <td className="p-4 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.Helleious)}</td>
                               <td className="p-4 text-center">{renderValue(row.n8n)}</td>
                               <td className="p-4 text-center">{renderValue(row.zapier)}</td>
                               <td className="p-4 text-center">{renderValue(row.make)}</td>
@@ -387,10 +389,46 @@ const BlogPostDetail: React.FC = () => {
                   </blockquote>
                 );
               }
-              // Bullet lists
+              // Multi-line paragraphs: split on \n and render each line separately
+              if (paragraph.includes("\n")) {
+                const lines = paragraph.split("\n");
+                return (
+                  <div key={index} className="space-y-2">
+                    {lines.map((line, li) => {
+                      if (line.startsWith("• ")) {
+                        const cleanLine = line.slice(2);
+                        const parts = cleanLine.split("**");
+                        return (
+                          <div key={li} className="flex items-start space-x-2 pl-4 text-sm md:text-base text-gray-700 dark:text-gray-300">
+                            <span className="text-blue-500 mt-1.5 shrink-0">•</span>
+                            <span>{parts.map((p, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{p}</strong> : p)}</span>
+                          </div>
+                        );
+                      }
+                      if (/^\d+\.\s/.test(line)) {
+                        const m = line.match(/^(\d+)\.\s(.*)/);
+                        if (m) {
+                          const parts = m[2].split("**");
+                          return (
+                            <div key={li} className="flex items-start space-x-3 pl-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
+                              <span className="font-bold text-blue-600 dark:text-blue-400 mt-0.5 shrink-0">{m[1]}.</span>
+                              <span>{parts.map((p, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{p}</strong> : p)}</span>
+                            </div>
+                          );
+                        }
+                      }
+                      if (line.includes("**")) {
+                        const parts = line.split("**");
+                        return <p key={li}>{parts.map((p, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{p}</strong> : p)}</p>;
+                      }
+                      return line.trim() ? <p key={li}>{line}</p> : null;
+                    })}
+                  </div>
+                );
+              }
+              // Single-line bullet
               if (paragraph.startsWith("• ")) {
-                // parse bold items inside bullets, e.g. **text**
-                const cleanText = paragraph.replace("• ", "");
+                const cleanText = paragraph.slice(2);
                 const parts = cleanText.split("**");
                 return (
                   <div key={index} className="flex items-start space-x-2 pl-4 text-sm md:text-base text-gray-700 dark:text-gray-300">
@@ -401,16 +439,14 @@ const BlogPostDetail: React.FC = () => {
                   </div>
                 );
               }
-              // Numbered lists or ordered items
+              // Single-line numbered item
               if (/^\d+\.\s/.test(paragraph)) {
                 const match = paragraph.match(/^(\d+)\.\s(.*)/);
                 if (match) {
-                  const num = match[1];
-                  const text = match[2];
-                  const parts = text.split("**");
+                  const parts = match[2].split("**");
                   return (
                     <div key={index} className="flex items-start space-x-3 pl-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-                      <span className="font-bold text-blue-600 dark:text-blue-400 mt-0.5 shrink-0">{num}.</span>
+                      <span className="font-bold text-blue-600 dark:text-blue-400 mt-0.5 shrink-0">{match[1]}.</span>
                       <span>
                         {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
                       </span>
@@ -418,7 +454,7 @@ const BlogPostDetail: React.FC = () => {
                   );
                 }
               }
-              // Normal paragraph with basic **bolding** check
+              // Normal paragraph with **bolding**
               if (paragraph.includes("**")) {
                 const parts = paragraph.split("**");
                 return (
@@ -429,7 +465,6 @@ const BlogPostDetail: React.FC = () => {
               }
               return <p key={index}>{paragraph}</p>;
             })}
-          </div>
 
           {/* Bottom Call to Action */}
           <div className="mt-16 p-8 md:p-10 rounded-[32px] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-100/50 dark:border-blue-900/10 flex flex-col md:flex-row items-center justify-between gap-6">
@@ -472,7 +507,61 @@ const BlogPostDetail: React.FC = () => {
               </div>
             </div>
           )}
-        </div>
+          </div>{/* end main article */}
+
+          {/* Sticky Right Sidebar */}
+          <aside className="hidden xl:block w-80 shrink-0">
+            <div className="sticky top-28 space-y-6">
+              {/* Author Card */}
+              <div className="p-6 rounded-[20px] bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] space-y-4">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Written by</p>
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center shadow-sm">
+                    {post.author.avatar}
+                  </div>
+                  <div>
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-white">{post.author.name}</h4>
+                    <p className="text-xs text-gray-400 dark:text-gray-500">{post.author.role}</p>
+                  </div>
+                </div>
+                <div className="pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between text-xs">
+                  <span className="text-gray-400">Published</span>
+                  <span className="font-bold text-gray-800 dark:text-gray-200">{post.date}</span>
+                </div>
+                <div className="flex justify-between text-xs">
+                  <span className="text-gray-400">Read time</span>
+                  <span className="font-bold text-gray-800 dark:text-gray-200">{post.readTime}</span>
+                </div>
+              </div>
+
+              {/* Share Card */}
+              <div className="p-6 rounded-[20px] bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] space-y-4">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Share this post</p>
+                <div className="flex flex-wrap gap-2">
+                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[72px] py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                    LinkedIn
+                  </button>
+                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[72px] py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    X
+                  </button>
+                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-blue-600 hover:border-blue-600 transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                    Copy Link
+                  </button>
+                </div>
+              </div>
+
+              {/* Category Tag */}
+              <div className="p-6 rounded-[20px] bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] space-y-3">
+                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Category</p>
+                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold">{post.category}</span>
+              </div>
+            </div>
+          </aside>
+          </div>{/* end two-column flex */}
+        </div>{/* end max-w container */}
       </article>
 
       {/* Toast Notification */}
