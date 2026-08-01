@@ -88,7 +88,7 @@ const SolutionsPage: React.FC = () => {
       </div>
 
       {/* Solutions Grid */}
-      <div ref={ref} className="max-w-6xl mx-auto px-6 py-20 space-y-24">
+      <div ref={ref} className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 py-20 space-y-24">
         {solutionsList.map((sol, index) => (
           <motion.div
             key={sol.id}
@@ -140,7 +140,7 @@ const SolutionsPage: React.FC = () => {
       </div>
 
       {/* CTA Footer card */}
-      <div className="max-w-6xl mx-auto px-6 pb-24">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 pb-24">
         <div className="bg-gray-50 dark:bg-[#161617] border border-gray-100 dark:border-white/[0.04] rounded-3xl p-12 text-center space-y-6">
           <h3 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
             Need a custom integration?

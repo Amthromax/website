@@ -57,7 +57,7 @@ const FoundationSection: React.FC = () => {
   return (
     <div className="w-full bg-white dark:bg-gray-950 transition-colors duration-300 font-sans">
       {/* 1. Hero Section */}
-      <section ref={heroRef} className="pt-20 pb-16 max-w-6xl mx-auto px-6 text-center space-y-6">
+      <section ref={heroRef} className="pt-20 pb-16 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 text-center space-y-6">
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={heroInView ? { opacity: 1, scale: 1 } : {}}
@@ -105,7 +105,7 @@ const FoundationSection: React.FC = () => {
       </section>
 
       {/* 2. Hard Problems & Hero Image */}
-      <section className="py-12 max-w-6xl mx-auto px-6 border-b border-gray-100 dark:border-gray-900">
+      <section className="py-12 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 border-b border-gray-100 dark:border-gray-900">
         <div className="grid md:grid-cols-2 gap-12 items-center">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
@@ -133,7 +133,7 @@ const FoundationSection: React.FC = () => {
       </section>
 
       {/* 3. Commitment Programs Section */}
-      <section ref={programsRef} className="py-20 max-w-6xl mx-auto px-6 space-y-12">
+      <section ref={programsRef} className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={programsInView ? { opacity: 1, y: 0 } : {}}
@@ -231,7 +231,7 @@ const FoundationSection: React.FC = () => {
       </section>
 
       {/* 5. Resources Grid Section */}
-      <section className="py-20 max-w-6xl mx-auto px-6 space-y-12">
+      <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12">
         <div className="space-y-4">
           <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
             Resources
