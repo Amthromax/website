@@ -72,7 +72,7 @@ export const ProfilePage: React.FC = () => {
   const provider = user.app_metadata?.provider || "email";
 
   return (
-    <div className="bg-[#050505] min-h-screen text-white pt-24 font-sans selection:bg-white/10 select-none pb-24">
+    <div className="bg-black min-h-screen text-white pt-24 font-sans selection:bg-white/10 select-none pb-24">
       <SEO title="User Profile | Amthromax" description="Manage your Amthromax subscription and security parameters." />
       
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
@@ -89,7 +89,7 @@ export const ProfilePage: React.FC = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              className="p-4 rounded-2xl border border-white/15 bg-white/10 text-white text-sm font-bold flex items-center justify-between font-inter shadow-lg"
+              className="p-4 rounded-2xl border border-white/20 bg-black text-white text-sm font-bold flex items-center justify-between font-inter shadow-xl"
             >
               <span>{updateMessage.text}</span>
               <button onClick={() => setUpdateMessage(null)} className="opacity-70 hover:opacity-100 min-w-[20px] cursor-pointer">✕</button>
@@ -100,8 +100,8 @@ export const ProfilePage: React.FC = () => {
         {/* Profile Card Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Avatar Profile Box */}
-          <div className="md:col-span-1 p-8 rounded-3xl bg-[#0d0d0e] border border-white/10 flex flex-col items-center justify-center text-center space-y-4 shadow-xl">
-            <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center border-2 border-white/20 bg-white/5 relative shadow-inner">
+          <div className="md:col-span-1 p-8 rounded-3xl bg-black border border-white/15 flex flex-col items-center justify-center text-center space-y-4 shadow-2xl">
+            <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center border-2 border-white/20 bg-black relative shadow-inner">
               {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
                 <img 
                   src={user.user_metadata.avatar_url || user.user_metadata.picture} 
@@ -121,14 +121,14 @@ export const ProfilePage: React.FC = () => {
               <p className="text-xs text-gray-300 font-medium truncate max-w-[220px] font-inter">{user.email}</p>
             </div>
 
-            <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm font-inter">
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-black border border-white/20 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm font-inter">
               <span className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
               <span>Enterprise Member</span>
             </div>
           </div>
 
           {/* Account Settings Details Form */}
-          <div className="md:col-span-2 p-8 rounded-3xl bg-[#0d0d0e] border border-white/10 flex flex-col justify-between shadow-xl">
+          <div className="md:col-span-2 p-8 rounded-3xl bg-black border border-white/15 flex flex-col justify-between shadow-2xl">
             <div className="space-y-6">
               <div className="flex justify-between items-center border-b border-white/10 pb-4">
                 <span className="text-sm font-extrabold text-white font-inter">General Parameters</span>
@@ -150,7 +150,7 @@ export const ProfilePage: React.FC = () => {
                       type="text" 
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3 bg-white/5 border border-white/20 focus:border-blue-400 rounded-xl text-sm font-semibold focus:outline-none transition-all text-white placeholder-gray-500 font-inter" 
+                      className="w-full px-4 py-3 bg-black border border-white/20 focus:border-blue-400 rounded-xl text-sm font-semibold focus:outline-none transition-all text-white placeholder-gray-500 font-inter" 
                       placeholder="Your name"
                       required
                     />
@@ -171,7 +171,7 @@ export const ProfilePage: React.FC = () => {
                         setFullName(name);
                         setIsEditing(false);
                       }}
-                      className="px-5 py-2.5 bg-white/10 border border-white/15 text-xs font-bold text-white rounded-xl hover:bg-white/15 transition-all cursor-pointer font-inter"
+                      className="px-5 py-2.5 bg-black border border-white/20 text-xs font-bold text-white rounded-xl hover:bg-white/10 transition-all cursor-pointer font-inter"
                     >
                       Cancel
                     </button>
@@ -179,15 +179,15 @@ export const ProfilePage: React.FC = () => {
                 </form>
               ) : (
                 <div className="space-y-4 text-sm font-inter">
-                  <div className="flex justify-between py-2 border-b border-white/5 items-center">
+                  <div className="flex justify-between py-2 border-b border-white/10 items-center">
                     <span className="text-gray-300 font-semibold text-xs">User UUID</span>
-                    <span className="font-mono text-xs text-white font-bold tracking-tight bg-white/5 px-2.5 py-1 rounded-lg border border-white/10 select-all">{user.id}</span>
+                    <span className="font-mono text-xs text-white font-bold tracking-tight bg-black px-3 py-1 rounded-lg border border-white/20 select-all">{user.id}</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5 items-center">
+                  <div className="flex justify-between py-2 border-b border-white/10 items-center">
                     <span className="text-gray-300 font-semibold text-xs">Auth Method</span>
-                    <span className="text-white font-extrabold text-xs uppercase tracking-wider bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">{provider}</span>
+                    <span className="text-white font-extrabold text-xs uppercase tracking-wider bg-black px-3 py-1 rounded-lg border border-white/20">{provider}</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/5 items-center">
+                  <div className="flex justify-between py-2 border-b border-white/10 items-center">
                     <span className="text-gray-300 font-semibold text-xs">Joined Date</span>
                     <span className="text-white font-bold text-xs">{new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
@@ -201,7 +201,7 @@ export const ProfilePage: React.FC = () => {
                   await signOut();
                   navigate("/", { replace: true });
                 }}
-                className="px-5 py-2.5 bg-white/10 hover:bg-white/15 border border-white/20 text-white rounded-xl text-xs font-extrabold transition-all cursor-pointer shadow-md font-inter"
+                className="px-5 py-2.5 bg-black hover:bg-white/10 border border-white/20 text-white rounded-xl text-xs font-extrabold transition-all cursor-pointer shadow-md font-inter"
               >
                 Sign Out Account
               </button>
@@ -210,7 +210,7 @@ export const ProfilePage: React.FC = () => {
         </div>
 
         {/* Workspace Inference Resource Panel */}
-        <div className="p-8 rounded-3xl bg-[#0d0d0e] border border-white/10 space-y-6 shadow-xl">
+        <div className="p-8 rounded-3xl bg-black border border-white/15 space-y-6 shadow-2xl">
           <div className="space-y-1 border-b border-white/10 pb-4">
             <span className="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">Resource Space</span>
             <h3 className="text-xl font-extrabold text-white font-inter">Workspace Compute & Endpoints</h3>
@@ -218,25 +218,25 @@ export const ProfilePage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Tokens Consumption Progress */}
-            <div className="space-y-3.5 bg-white/5 border border-white/10 p-6 rounded-2xl">
+            <div className="space-y-3.5 bg-black border border-white/15 p-6 rounded-2xl shadow-inner">
               <div className="flex justify-between items-center">
                 <span className="text-gray-200 font-bold text-xs font-inter">Monthly Inference Volume</span>
-                <span className="font-number text-sm font-extrabold text-white tracking-tight bg-white/10 px-2.5 py-1 rounded-lg border border-white/10">1.46B / 10.0B tokens</span>
+                <span className="font-number text-sm font-extrabold text-white tracking-tight bg-black px-3 py-1 rounded-lg border border-white/20 shadow-sm">1.46B / 10.0B tokens</span>
               </div>
-              <div className="w-full h-2 bg-white/15 rounded-full overflow-hidden p-0.5 border border-white/10">
+              <div className="w-full h-2.5 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/15">
                 <div className="h-full bg-gradient-to-r from-blue-500 to-indigo-400 rounded-full w-[14.6%] shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
               </div>
               <p className="text-[11px] text-gray-300 font-medium font-inter">Renews on August 29, 2026. Limit resets automatically.</p>
             </div>
 
             {/* Sandbox details */}
-            <div className="space-y-3.5 bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-between">
+            <div className="space-y-3.5 bg-black border border-white/15 p-6 rounded-2xl flex flex-col justify-between shadow-inner">
               <div className="flex justify-between items-start">
                 <div>
                   <span className="text-[10px] uppercase tracking-wider text-gray-300 font-extrabold font-inter">Runtime Engine</span>
                   <p className="text-base font-extrabold text-white font-inter tracking-tight mt-0.5">amx-agent-production-v3</p>
                 </div>
-                <span className="inline-flex px-3 py-1 bg-white/10 border border-white/20 text-[10px] uppercase tracking-wider font-black text-white rounded-md shadow-sm font-inter">
+                <span className="inline-flex px-3 py-1 bg-black border border-white/20 text-[10px] uppercase tracking-wider font-black text-white rounded-md shadow-sm font-inter">
                   Active
                 </span>
               </div>
@@ -254,7 +254,7 @@ export const ProfilePage: React.FC = () => {
                 { name: "COTISES 0.5 MAX", status: "Active" },
                 { name: "VERKOX 0.4 INSTANT", status: "Active" }
               ].map((model, idx) => (
-                <div key={idx} className="p-4 bg-white/5 border border-white/10 hover:border-white/20 rounded-xl flex items-center justify-between transition-all shadow-sm">
+                <div key={idx} className="p-4 bg-black border border-white/15 hover:border-white/30 rounded-xl flex items-center justify-between transition-all shadow-md">
                   <span className="text-[12px] font-extrabold text-white font-number tracking-wide">{model.name}</span>
                   <div className="flex items-center space-x-2">
                     <span className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
