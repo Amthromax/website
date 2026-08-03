@@ -181,13 +181,13 @@ export const ProfilePage: React.FC = () => {
                   </div>
                 </form>
               ) : (
-                <div className="space-y-4 text-sm font-inter">
-                  <div className="flex justify-between py-2 border-b border-white/10 items-center">
-                    <span className="text-gray-300 font-semibold text-xs">User UUID</span>
+                <div className="space-y-4 font-inter">
+                  <div className="flex justify-between py-2.5 border-b border-white/10 items-center">
+                    <span className="text-white font-bold text-base md:text-lg">User UUID</span>
                     <span className="font-mono text-xs text-white font-bold tracking-tight bg-black px-3 py-1 rounded-lg border border-white/20 select-all">{user.id}</span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/10 items-center">
-                    <span className="text-gray-300 font-semibold text-xs">Auth Method</span>
+                  <div className="flex justify-between py-2.5 border-b border-white/10 items-center">
+                    <span className="text-white font-bold text-base md:text-lg">Auth Method</span>
                     <span className="text-white font-extrabold text-xs uppercase tracking-wider bg-black px-3 py-1 rounded-lg border border-white/20 flex items-center gap-2 shadow-sm">
                       {provider.includes("GOOGLE") && (
                         <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24">
@@ -200,9 +200,9 @@ export const ProfilePage: React.FC = () => {
                       <span>{provider}</span>
                     </span>
                   </div>
-                  <div className="flex justify-between py-2 border-b border-white/10 items-center">
-                    <span className="text-gray-300 font-semibold text-xs">Joined Date</span>
-                    <span className="text-white font-bold text-xs">{new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  <div className="flex justify-between py-2.5 border-b border-white/10 items-center">
+                    <span className="text-white font-bold text-base md:text-lg">Joined Date</span>
+                    <span className="text-white font-bold text-sm">{new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
                 </div>
               )}
