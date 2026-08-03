@@ -78,8 +78,8 @@ export const ProfilePage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
         {/* Header Title Section */}
         <div className="space-y-2">
-          <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Dashboard Suite</span>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">Security & Account Settings</h1>
+          <span className="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">Dashboard Suite</span>
+          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white font-inter">Security & Account Settings</h1>
         </div>
 
         {/* Global Alert Notices */}
@@ -89,10 +89,10 @@ export const ProfilePage: React.FC = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              className="p-4 rounded-2xl border border-white/10 bg-white/5 text-white text-sm font-semibold flex items-center justify-between"
+              className="p-4 rounded-2xl border border-white/15 bg-white/10 text-white text-sm font-bold flex items-center justify-between font-inter shadow-lg"
             >
               <span>{updateMessage.text}</span>
-              <button onClick={() => setUpdateMessage(null)} className="opacity-60 hover:opacity-100 min-w-[20px]">✕</button>
+              <button onClick={() => setUpdateMessage(null)} className="opacity-70 hover:opacity-100 min-w-[20px] cursor-pointer">✕</button>
             </motion.div>
           )}
         </AnimatePresence>
@@ -100,8 +100,8 @@ export const ProfilePage: React.FC = () => {
         {/* Profile Card Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Avatar Profile Box */}
-          <div className="md:col-span-1 p-8 rounded-3xl bg-[#0d0d0e]/60 border border-white/[0.06] flex flex-col items-center justify-center text-center space-y-4">
-            <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center border border-white/10 bg-white/5 relative">
+          <div className="md:col-span-1 p-8 rounded-3xl bg-[#0d0d0e] border border-white/10 flex flex-col items-center justify-center text-center space-y-4 shadow-xl">
+            <div className="w-24 h-24 rounded-full overflow-hidden flex items-center justify-center border-2 border-white/20 bg-white/5 relative shadow-inner">
               {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
                 <img 
                   src={user.user_metadata.avatar_url || user.user_metadata.picture} 
@@ -110,32 +110,32 @@ export const ProfilePage: React.FC = () => {
                   referrerPolicy="no-referrer"
                 />
               ) : (
-                <span className="text-3xl font-black text-white">{avatarChar}</span>
+                <span className="text-3xl font-black text-white font-inter">{avatarChar}</span>
               )}
             </div>
             
             <div className="space-y-1">
-              <h2 className="text-lg font-bold text-white truncate max-w-[220px]">
+              <h2 className="text-lg font-extrabold text-white truncate max-w-[220px] font-inter">
                 {fullName || "User Account"}
               </h2>
-              <p className="text-xs text-white/50 truncate max-w-[220px]">{user.email}</p>
+              <p className="text-xs text-gray-300 font-medium truncate max-w-[220px] font-inter">{user.email}</p>
             </div>
 
-            <div className="inline-flex items-center space-x-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-wider text-white/85">
-              <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 bg-white/10 border border-white/20 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm font-inter">
+              <span className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
               <span>Enterprise Member</span>
             </div>
           </div>
 
           {/* Account Settings Details Form */}
-          <div className="md:col-span-2 p-8 rounded-3xl bg-[#0d0d0e]/60 border border-white/[0.06] flex flex-col justify-between">
+          <div className="md:col-span-2 p-8 rounded-3xl bg-[#0d0d0e] border border-white/10 flex flex-col justify-between shadow-xl">
             <div className="space-y-6">
-              <div className="flex justify-between items-center border-b border-white/[0.06] pb-4">
-                <span className="text-sm font-bold text-white/90">General Parameters</span>
+              <div className="flex justify-between items-center border-b border-white/10 pb-4">
+                <span className="text-sm font-extrabold text-white font-inter">General Parameters</span>
                 {!isEditing && (
                   <button 
                     onClick={() => setIsEditing(true)}
-                    className="text-xs font-bold text-white hover:text-white/80 transition-colors"
+                    className="text-xs font-extrabold text-blue-400 hover:text-blue-300 transition-colors font-inter cursor-pointer"
                   >
                     Edit Details
                   </button>
@@ -143,14 +143,14 @@ export const ProfilePage: React.FC = () => {
               </div>
 
               {isEditing ? (
-                <form onSubmit={handleUpdateName} className="space-y-4">
+                <form onSubmit={handleUpdateName} className="space-y-4 font-inter">
                   <div className="space-y-2">
-                    <label className="text-[10px] font-bold text-white/40 uppercase tracking-wide">Full Name</label>
+                    <label className="text-[11px] font-extrabold text-gray-300 uppercase tracking-wide">Full Name</label>
                     <input 
                       type="text" 
                       value={fullName}
                       onChange={(e) => setFullName(e.target.value)}
-                      className="w-full px-4 py-3 bg-white/[0.02] border border-white/10 focus:border-white/30 rounded-xl text-sm focus:outline-none transition-all text-white" 
+                      className="w-full px-4 py-3 bg-white/5 border border-white/20 focus:border-blue-400 rounded-xl text-sm font-semibold focus:outline-none transition-all text-white placeholder-gray-500 font-inter" 
                       placeholder="Your name"
                       required
                     />
@@ -160,9 +160,9 @@ export const ProfilePage: React.FC = () => {
                     <button 
                       type="submit" 
                       disabled={isUpdating}
-                      className="px-4 py-2 bg-white text-black text-xs font-bold rounded-xl hover:opacity-90 disabled:opacity-50 transition-all cursor-pointer"
+                      className="px-5 py-2.5 bg-white text-black text-xs font-black rounded-xl hover:bg-gray-100 disabled:opacity-50 transition-all cursor-pointer shadow-md font-inter"
                     >
-                      {isUpdating ? "Saving..." : "Save"}
+                      {isUpdating ? "Saving..." : "Save Changes"}
                     </button>
                     <button 
                       type="button" 
@@ -171,25 +171,25 @@ export const ProfilePage: React.FC = () => {
                         setFullName(name);
                         setIsEditing(false);
                       }}
-                      className="px-4 py-2 bg-white/5 border border-white/10 text-xs font-bold rounded-xl hover:bg-white/10 transition-all cursor-pointer"
+                      className="px-5 py-2.5 bg-white/10 border border-white/15 text-xs font-bold text-white rounded-xl hover:bg-white/15 transition-all cursor-pointer font-inter"
                     >
                       Cancel
                     </button>
                   </div>
                 </form>
               ) : (
-                <div className="space-y-4 text-sm">
-                  <div className="flex justify-between py-1 border-b border-white/[0.02]">
-                    <span className="text-white/40 font-semibold">User UUID</span>
-                    <span className="font-mono text-xs text-white/60 truncate max-w-[240px] select-all">{user.id}</span>
+                <div className="space-y-4 text-sm font-inter">
+                  <div className="flex justify-between py-2 border-b border-white/5 items-center">
+                    <span className="text-gray-300 font-semibold text-xs">User UUID</span>
+                    <span className="font-mono text-xs text-white font-bold tracking-tight bg-white/5 px-2.5 py-1 rounded-lg border border-white/10 select-all">{user.id}</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b border-white/[0.02]">
-                    <span className="text-white/40 font-semibold">Auth Method</span>
-                    <span className="text-white/60 uppercase text-xs tracking-wider">{provider}</span>
+                  <div className="flex justify-between py-2 border-b border-white/5 items-center">
+                    <span className="text-gray-300 font-semibold text-xs">Auth Method</span>
+                    <span className="text-white font-extrabold text-xs uppercase tracking-wider bg-white/5 px-2.5 py-1 rounded-lg border border-white/10">{provider}</span>
                   </div>
-                  <div className="flex justify-between py-1 border-b border-white/[0.02]">
-                    <span className="text-white/40 font-semibold">Joined Date</span>
-                    <span className="text-white/60 text-xs">{new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
+                  <div className="flex justify-between py-2 border-b border-white/5 items-center">
+                    <span className="text-gray-300 font-semibold text-xs">Joined Date</span>
+                    <span className="text-white font-bold text-xs">{new Date(user.created_at).toLocaleDateString(undefined, { year: 'numeric', month: 'long', day: 'numeric' })}</span>
                   </div>
                 </div>
               )}
@@ -201,7 +201,7 @@ export const ProfilePage: React.FC = () => {
                   await signOut();
                   navigate("/", { replace: true });
                 }}
-                className="px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white/90 rounded-xl text-xs font-bold transition-all cursor-pointer"
+                className="px-5 py-2.5 bg-white/10 hover:bg-white/15 border border-white/20 text-white rounded-xl text-xs font-extrabold transition-all cursor-pointer shadow-md font-inter"
               >
                 Sign Out Account
               </button>
@@ -210,55 +210,55 @@ export const ProfilePage: React.FC = () => {
         </div>
 
         {/* Workspace Inference Resource Panel */}
-        <div className="p-8 rounded-3xl bg-[#0d0d0e]/60 border border-white/[0.06] space-y-6">
-          <div className="space-y-1 border-b border-white/[0.06] pb-4">
-            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Resource Space</span>
-            <h3 className="text-lg font-bold text-white">Workspace Compute & Endpoints</h3>
+        <div className="p-8 rounded-3xl bg-[#0d0d0e] border border-white/10 space-y-6 shadow-xl">
+          <div className="space-y-1 border-b border-white/10 pb-4">
+            <span className="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">Resource Space</span>
+            <h3 className="text-xl font-extrabold text-white font-inter">Workspace Compute & Endpoints</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
             {/* Tokens Consumption Progress */}
-            <div className="space-y-3 bg-white/[0.01] border border-white/5 p-5 rounded-2xl">
-              <div className="flex justify-between items-center text-xs">
-                <span className="text-white/60 font-semibold">Monthly Inference Volume</span>
-                <span className="font-mono text-white/90">1.46B / 10.0B tokens</span>
+            <div className="space-y-3.5 bg-white/5 border border-white/10 p-6 rounded-2xl">
+              <div className="flex justify-between items-center">
+                <span className="text-gray-200 font-bold text-xs font-inter">Monthly Inference Volume</span>
+                <span className="font-number text-sm font-extrabold text-white tracking-tight bg-white/10 px-2.5 py-1 rounded-lg border border-white/10">1.46B / 10.0B tokens</span>
               </div>
-              <div className="w-full h-1.5 bg-white/10 rounded-full overflow-hidden">
-                <div className="h-full bg-white rounded-full w-[14.6%]" />
+              <div className="w-full h-2 bg-white/15 rounded-full overflow-hidden p-0.5 border border-white/10">
+                <div className="h-full bg-gradient-to-r from-blue-500 to-indigo-400 rounded-full w-[14.6%] shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
               </div>
-              <p className="text-[10px] text-white/40">Renews on August 29, 2026. Limit resets automatically.</p>
+              <p className="text-[11px] text-gray-300 font-medium font-inter">Renews on August 29, 2026. Limit resets automatically.</p>
             </div>
 
             {/* Sandbox details */}
-            <div className="space-y-3 bg-white/[0.01] border border-white/5 p-5 rounded-2xl flex flex-col justify-between">
+            <div className="space-y-3.5 bg-white/5 border border-white/10 p-6 rounded-2xl flex flex-col justify-between">
               <div className="flex justify-between items-start">
                 <div>
-                  <span className="text-[9px] uppercase tracking-wide text-white/40 font-bold">Runtime Engine</span>
-                  <p className="text-sm font-semibold text-white/90 mt-0.5">amx-agent-production-v3</p>
+                  <span className="text-[10px] uppercase tracking-wider text-gray-300 font-extrabold font-inter">Runtime Engine</span>
+                  <p className="text-base font-extrabold text-white font-inter tracking-tight mt-0.5">amx-agent-production-v3</p>
                 </div>
-                <span className="inline-flex px-2 py-0.5 bg-white/5 border border-white/10 text-[9px] uppercase tracking-wider font-bold text-white/80 rounded-md">
+                <span className="inline-flex px-3 py-1 bg-white/10 border border-white/20 text-[10px] uppercase tracking-wider font-black text-white rounded-md shadow-sm font-inter">
                   Active
                 </span>
               </div>
-              <p className="text-[10px] text-white/40">Located in AWS cluster node us-east-1.</p>
+              <p className="text-[11px] text-gray-300 font-medium font-inter">Located in AWS cluster node us-east-1.</p>
             </div>
           </div>
 
           {/* Model endpoints grid */}
           <div className="space-y-3 pt-2">
-            <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Available Models</span>
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
+            <span className="text-[11px] font-extrabold text-gray-300 uppercase tracking-widest block font-inter mb-2">Available Models</span>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5">
               {[
                 { name: "MORFIX 0.1", status: "Active" },
                 { name: "INTOX 0.2", status: "Active" },
                 { name: "COTISES 0.5 MAX", status: "Active" },
                 { name: "VERKOX 0.4 INSTANT", status: "Active" }
               ].map((model, idx) => (
-                <div key={idx} className="p-3 bg-white/[0.02] border border-white/[0.05] rounded-xl flex items-center justify-between">
-                  <span className="text-[11px] font-bold text-white/90 font-mono">{model.name}</span>
+                <div key={idx} className="p-4 bg-white/5 border border-white/10 hover:border-white/20 rounded-xl flex items-center justify-between transition-all shadow-sm">
+                  <span className="text-[12px] font-extrabold text-white font-number tracking-wide">{model.name}</span>
                   <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 bg-white/50 rounded-full" />
-                    <span className="text-[9px] font-bold text-white/60 uppercase tracking-wide">{model.status}</span>
+                    <span className="w-2 h-2 bg-emerald-400 rounded-full shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                    <span className="text-[10px] font-black text-white uppercase tracking-wider font-inter">{model.status}</span>
                   </div>
                 </div>
               ))}
