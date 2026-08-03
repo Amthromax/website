@@ -23,6 +23,13 @@ dist-ssr
 *.sln
 *.sw?
 
-# Supabase secrets
-.env.local
-.env*.local
+# Supabase and Environment Secrets
+.env
+.env.*
+!.env.example
+*.env
+*.pem
+*.key
+*.cert
+*.p12
+*.crt

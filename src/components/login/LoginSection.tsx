@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link, useNavigate } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 import { useAuth } from "../../context/AuthContext";
+import { validateEmail, containsMaliciousPayload, sanitizeInput } from "../../lib/security";
 
 const LoginSection: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(true);
@@ -26,7 +27,18 @@ const LoginSection: React.FC = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!email || !password) return;
+    const sanitizedEmail = sanitizeInput(email.trim());
+    if (!sanitizedEmail || !password) return;
+
+    if (containsMaliciousPayload(sanitizedEmail) || containsMaliciousPayload(password)) {
+      setAuthError("Security Alert: Invalid characters or script payloads detected.");
+      return;
+    }
+
+    if (!validateEmail(sanitizedEmail)) {
+      setAuthError("Please enter a valid email address (e.g. user@example.com).");
+      return;
+    }
 
     setIsLoading(true);
     setAuthError(null);
