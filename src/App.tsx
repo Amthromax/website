@@ -342,7 +342,7 @@ const App: React.FC = () => {
                             onClick={async () => {
                               await signOut();
                             }}
-                            className="w-full text-left px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-950/20 rounded-xl transition-all cursor-pointer"
+                            className="w-full text-left px-3 py-2 text-xs font-bold text-white/80 hover:bg-white/10 hover:text-white rounded-xl transition-all cursor-pointer"
                           >
                             Sign Out
                           </button>

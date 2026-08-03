@@ -89,11 +89,7 @@ export const ProfilePage: React.FC = () => {
               initial={{ opacity: 0, y: -10 }}
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -15 }}
-              className={`p-4 rounded-2xl border text-sm font-semibold flex items-center justify-between ${
-                updateMessage.type === "success" 
-                  ? "bg-emerald-950/20 border-emerald-500/20 text-emerald-400" 
-                  : "bg-red-950/20 border-red-500/20 text-red-400"
-              }`}
+              className="p-4 rounded-2xl border border-white/10 bg-white/5 text-white text-sm font-semibold flex items-center justify-between"
             >
               <span>{updateMessage.text}</span>
               <button onClick={() => setUpdateMessage(null)} className="opacity-60 hover:opacity-100 min-w-[20px]">✕</button>
@@ -126,7 +122,7 @@ export const ProfilePage: React.FC = () => {
             </div>
 
             <div className="inline-flex items-center space-x-1.5 px-3 py-1 bg-white/5 border border-white/10 rounded-full text-[9px] font-bold uppercase tracking-wider text-white/85">
-              <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+              <span className="w-1.5 h-1.5 bg-white/60 rounded-full" />
               <span>Enterprise Member</span>
             </div>
           </div>
@@ -205,7 +201,7 @@ export const ProfilePage: React.FC = () => {
                   await signOut();
                   navigate("/", { replace: true });
                 }}
-                className="px-5 py-2.5 bg-red-950/20 hover:bg-red-950/30 border border-red-500/20 text-red-500 rounded-xl text-xs font-bold transition-all cursor-pointer"
+                className="px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/10 text-white/90 rounded-xl text-xs font-bold transition-all cursor-pointer"
               >
                 Sign Out Account
               </button>
@@ -240,7 +236,7 @@ export const ProfilePage: React.FC = () => {
                   <span className="text-[9px] uppercase tracking-wide text-white/40 font-bold">Runtime Engine</span>
                   <p className="text-sm font-semibold text-white/90 mt-0.5">amx-agent-production-v3</p>
                 </div>
-                <span className="inline-flex px-2 py-0.5 bg-emerald-500/10 border border-emerald-500/20 text-[9px] uppercase tracking-wider font-bold text-emerald-400 rounded-md">
+                <span className="inline-flex px-2 py-0.5 bg-white/5 border border-white/10 text-[9px] uppercase tracking-wider font-bold text-white/80 rounded-md">
                   Active
                 </span>
               </div>
@@ -261,8 +257,8 @@ export const ProfilePage: React.FC = () => {
                 <div key={idx} className="p-3 bg-white/[0.02] border border-white/[0.05] rounded-xl flex items-center justify-between">
                   <span className="text-[11px] font-bold text-white/90 font-mono">{model.name}</span>
                   <div className="flex items-center space-x-2">
-                    <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
-                    <span className="text-[9px] font-bold text-emerald-400 uppercase tracking-wide">{model.status}</span>
+                    <span className="w-1.5 h-1.5 bg-white/50 rounded-full" />
+                    <span className="text-[9px] font-bold text-white/60 uppercase tracking-wide">{model.status}</span>
                   </div>
                 </div>
               ))}
