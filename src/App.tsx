@@ -118,6 +118,9 @@ const App: React.FC = () => {
 
   const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [showComingSoonModal, setShowComingSoonModal] = useState(false);
+  const [waitlistEmail, setWaitlistEmail] = useState("");
+  const [isSubmittedWaitlist, setIsSubmittedWaitlist] = useState(false);
   const timeoutRef = useRef<number | null>(null);
 
   const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company') => {
@@ -352,10 +355,17 @@ const App: React.FC = () => {
                         <span>Log in</span>
                         <span className="text-[8px] opacity-60">▼</span>
                       </Link>
-                      <Link to="/login" className="px-5 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:opacity-90 transition-all shadow-md flex items-center gap-0.5">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setShowComingSoonModal(true);
+                          setIsSubmittedWaitlist(false);
+                        }}
+                        className="px-5 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:opacity-90 transition-all shadow-md flex items-center gap-0.5 cursor-pointer"
+                      >
                         <span>Try Amthromax</span>
                         <span className="text-xs">↗</span>
-                      </Link>
+                      </button>
                     </>
                   )}
                 </div>
@@ -505,14 +515,18 @@ const App: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        <Link 
-                          to="/login" 
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                        <button 
+                          type="button"
+                          onClick={() => {
+                            setIsMobileMenuOpen(false);
+                            setShowComingSoonModal(true);
+                            setIsSubmittedWaitlist(false);
+                          }}
+                          className="block text-left text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5 cursor-pointer"
                         >
                           <span>Try Amthromax</span>
                           <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
-                        </Link>
+                        </button>
                         <Link 
                           to="/login"
                           onClick={() => setIsMobileMenuOpen(false)}
@@ -948,6 +962,90 @@ const App: React.FC = () => {
           </AnimatePresence>
         </main>
         <CookieConsent />
+
+        {/* Coming Soon Modal */}
+        <AnimatePresence>
+          {showComingSoonModal && (
+            <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.92, y: 15 }}
+                animate={{ opacity: 1, scale: 1, y: 0 }}
+                exit={{ opacity: 0, scale: 0.92, y: 15 }}
+                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+                className="relative w-full max-w-md bg-[#161617] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden text-center"
+              >
+                {/* Glow backdrop decoration */}
+                <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+
+                {/* Close Button */}
+                <button
+                  type="button"
+                  onClick={() => setShowComingSoonModal(false)}
+                  className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+                >
+                  ✕
+                </button>
+
+                {/* Badge */}
+                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-bold tracking-wider uppercase mb-4">
+                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                  Coming Soon
+                </div>
+
+                {/* Title & Subtitle */}
+                <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
+                  Amthromax Console
+                </h3>
+                <p className="text-xs text-gray-400 leading-relaxed mb-6">
+                  Our next-generation enterprise AI orchestration platform is currently in private preview. Request priority access to be notified when public beta opens.
+                </p>
+
+                {/* Form or Success State */}
+                {isSubmittedWaitlist ? (
+                  <motion.div
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-emerald-400 text-xs font-semibold"
+                  >
+                    ✓ You're on the priority waitlist! We'll invite you as soon as early access opens.
+                  </motion.div>
+                ) : (
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      if (waitlistEmail.trim()) {
+                        setIsSubmittedWaitlist(true);
+                      }
+                    }}
+                    className="space-y-3 text-left"
+                  >
+                    <div>
+                      <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                        Work Email
+                      </label>
+                      <input
+                        type="email"
+                        placeholder="username@company.com"
+                        value={waitlistEmail}
+                        onChange={(e) => setWaitlistEmail(e.target.value)}
+                        required
+                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      />
+                    </div>
+                    <button
+                      type="submit"
+                      className="w-full py-3 bg-white text-black font-bold rounded-xl text-xs hover:bg-gray-100 transition-all shadow-lg cursor-pointer flex items-center justify-center gap-1"
+                    >
+                      <span>Request Early Access</span>
+                      <span>↗</span>
+                    </button>
+                  </form>
+                )}
+              </motion.div>
+            </div>
+          )}
+        </AnimatePresence>
       </div>
   );
 };
