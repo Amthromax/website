@@ -77,7 +77,25 @@ const LoginSection: React.FC = () => {
   const signInWithProvider = async (provider: 'google' | 'github' | 'apple') => {
     try {
       if (provider === 'google') {
-        setShowGoogleModal(true);
+        setIsLoading(true);
+        setAuthError(null);
+        try {
+          const { error } = await supabase.auth.signInWithOAuth({
+            provider: 'google',
+            options: {
+              redirectTo: `${window.location.origin}/auth/callback`,
+            },
+          });
+          if (error) {
+            console.warn("Supabase Google OAuth fallback to modal:", error.message);
+            setIsLoading(false);
+            setShowGoogleModal(true);
+          }
+        } catch (err: any) {
+          console.warn("Supabase Google OAuth exception, using fallback modal:", err);
+          setIsLoading(false);
+          setShowGoogleModal(true);
+        }
         return;
       }
 
@@ -353,14 +371,20 @@ const LoginSection: React.FC = () => {
                       onClick={() => {
                         setIsGoogleConnecting(true);
                         setTimeout(() => {
+                          const name = emailOpt.split("@")[0].toUpperCase();
                           localStorage.setItem("amthromax-user", emailOpt);
+                          localStorage.setItem("amthromax-profile", JSON.stringify({
+                            full_name: name
+                          }));
+                          window.dispatchEvent(new Event("storage"));
                           window.dispatchEvent(new Event("auth-change"));
                           setIsGoogleConnecting(false);
                           setShowGoogleModal(false);
                           setEmail(emailOpt);
                           setPassword("••••••••••••");
                           setIsSuccess(true);
-                        }, 1200);
+                          setTimeout(() => navigate('/'), 1200);
+                        }, 1000);
                       }}
                       className="w-full p-3 rounded-xl border border-gray-150 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-all text-left flex items-center justify-between group"
                     >
@@ -391,16 +415,22 @@ const LoginSection: React.FC = () => {
                           if (!googleEmail) return;
                           setIsGoogleConnecting(true);
                           setTimeout(() => {
+                            const name = googleEmail.split("@")[0].toUpperCase();
                             localStorage.setItem("amthromax-user", googleEmail);
+                            localStorage.setItem("amthromax-profile", JSON.stringify({
+                              full_name: name
+                            }));
+                            window.dispatchEvent(new Event("storage"));
                             window.dispatchEvent(new Event("auth-change"));
                             setIsGoogleConnecting(false);
                             setShowGoogleModal(false);
                             setEmail(googleEmail);
                             setPassword("••••••••••••");
                             setIsSuccess(true);
-                          }, 1200);
+                            setTimeout(() => navigate('/'), 1200);
+                          }, 1000);
                         }}
-                        className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-xl text-xs font-bold"
+                        className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-xl text-xs font-bold cursor-pointer"
                       >
                         Sign In
                       </button>
