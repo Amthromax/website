@@ -31,7 +31,6 @@ import PricingPage from "./components/pricing/PricingPage";
 import CareersPage from "./components/careers/CareersPage";
 import SecurityPage from "./components/security/SecurityPage";
 import TeamPage from "./components/about/TeamPage";
-import { supabase } from "./lib/supabase";
 import { useAuth } from "./context/AuthContext";
 import AuthCallback from "./components/auth/AuthCallback";
 import ProfilePage from "./components/profile/ProfilePage";
@@ -89,7 +88,7 @@ const searchItems: SearchItem[] = [
 const App: React.FC = () => {
   const location = useLocation();
   const navigate = useNavigate();
-  const { user, authLoading } = useAuth();
+  const { user, authLoading, signOut } = useAuth();
 
   // Initialize Lenis smooth scroll
   useEffect(() => {
@@ -338,7 +337,7 @@ const App: React.FC = () => {
                           <button
                             type="button"
                             onClick={async () => {
-                              await supabase.auth.signOut();
+                              await signOut();
                             }}
                             className="w-full text-left px-3 py-2 text-xs font-bold text-red-500 hover:bg-red-950/20 rounded-xl transition-all cursor-pointer"
                           >
@@ -496,7 +495,7 @@ const App: React.FC = () => {
                         <button
                           type="button"
                           onClick={async () => {
-                            await supabase.auth.signOut();
+                            await signOut();
                             setIsMobileMenuOpen(false);
                           }}
                           className="block text-left text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity w-full cursor-pointer"

@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../layout/SEO";
 
 export const ProfilePage: React.FC = () => {
-  const { user, authLoading } = useAuth();
+  const { user, authLoading, signOut } = useAuth();
   const navigate = useNavigate();
 
   const [fullName, setFullName] = useState("");
@@ -202,7 +202,7 @@ export const ProfilePage: React.FC = () => {
             <div className="pt-8 flex justify-end">
               <button
                 onClick={async () => {
-                  await supabase.auth.signOut();
+                  await signOut();
                   navigate("/", { replace: true });
                 }}
                 className="px-5 py-2.5 bg-red-950/20 hover:bg-red-950/30 border border-red-500/20 text-red-500 rounded-xl text-xs font-bold transition-all cursor-pointer"

@@ -13,6 +13,7 @@ interface AuthContextType {
   user: User | null;
   authLoading: boolean;
   isAuthenticated: boolean;
+  signOut: () => Promise<void>;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
@@ -21,6 +22,20 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const [session, setSession] = useState<Session | null>(null);
   const [user, setUser] = useState<User | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
+
+  const signOut = async () => {
+    localStorage.removeItem("amthromax-user");
+    localStorage.removeItem("amthromax-profile");
+    setSession(null);
+    setUser(null);
+    try {
+      await supabase.auth.signOut();
+    } catch (e) {
+      console.warn("Supabase sign out error:", e);
+    }
+    window.dispatchEvent(new Event("auth-change"));
+    window.dispatchEvent(new Event("storage"));
+  };
 
   useEffect(() => {
     let active = true;
@@ -79,6 +94,15 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         console.log("Supabase auth event:", event);
 
         if (active) {
+          if (event === "SIGNED_OUT") {
+            localStorage.removeItem("amthromax-user");
+            localStorage.removeItem("amthromax-profile");
+            setSession(null);
+            setUser(null);
+            setAuthLoading(false);
+            return;
+          }
+
           let currentSession = updatedSession;
           let currentUser = updatedSession?.user ?? null;
 
@@ -139,6 +163,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       user,
       authLoading,
       isAuthenticated: Boolean(user),
+      signOut,
     }),
     [session, user, authLoading]
   );
