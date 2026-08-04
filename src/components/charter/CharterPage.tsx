@@ -235,16 +235,6 @@ const CharterPage: React.FC = () => {
 
       {/* 1. Hero Section */}
       <section ref={heroRef} className="pt-28 pb-20 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 text-center space-y-8">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={heroInView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 text-xs font-bold uppercase tracking-widest text-gray-700 dark:text-gray-300"
-        >
-          <span>⚖️</span>
-          <span>Foundational Principles</span>
-        </motion.div>
-
         <motion.h1
           initial={{ opacity: 0, y: 25 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
