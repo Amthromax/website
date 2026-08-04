@@ -37,6 +37,7 @@ import ProfilePage from "./components/profile/ProfilePage";
 import ContactSalesPage from "./components/contact/ContactSalesPage";
 import OverviewPage from "./components/overview/OverviewPage";
 import PartnerNetworkPage from "./components/partners/PartnerNetworkPage";
+import CharterPage from "./components/charter/CharterPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -1058,6 +1059,8 @@ const App: React.FC = () => {
               <Route path="/platform/overview" element={<OverviewPage />} />
               <Route path="/partners" element={<PartnerNetworkPage />} />
               <Route path="/partner-network" element={<PartnerNetworkPage />} />
+              <Route path="/charter" element={<CharterPage />} />
+              <Route path="/our-charter" element={<CharterPage />} />
             </Routes>
           </AnimatePresence>
         </main>

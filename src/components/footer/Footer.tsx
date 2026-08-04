@@ -63,7 +63,7 @@ const Footer: React.FC = () => {
       title: "Company",
       items: [
         { name: "About Us", href: "/about" },
-        { name: "Our Charter", href: "/about" },
+        { name: "Our Charter", href: "/charter" },
         { name: "Careers", href: "/careers" },
         { name: "Newsroom", href: "/news" },
         { name: "Blog", href: "/blog" },
