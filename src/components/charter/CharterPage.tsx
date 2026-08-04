@@ -18,9 +18,11 @@ interface YearGrowth {
   year: string;
   label: string;
   inferences: string;
+  revenue: string;
+  profitMargin: string;
   regions: number;
   barHeight: number; // percentage for chart
-  status: "Past" | "Current (Now)" | "Coming Year" | "Projected";
+  status: "Past (Low Profit)" | "Current (Now)" | "Coming Year" | "Projected";
   highlight: boolean;
   milestone: string;
   growthRate: string;
@@ -34,7 +36,7 @@ const CharterPage: React.FC = () => {
   const { ref: governanceRef, inView: governanceInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
   const [activeStage, setActiveStage] = useState<number>(1);
-  const [selectedYear, setSelectedYear] = useState<number>(3); // Default to 2026 (Now)
+  const [selectedYear, setSelectedYear] = useState<number>(1); // Default to 2026 (Now) index 1
 
   const architectureStages: StageDetail[] = [
     {
@@ -89,70 +91,82 @@ const CharterPage: React.FC = () => {
 
   const growthData: YearGrowth[] = [
     {
-      year: "2023",
-      label: "Lab Inception",
-      inferences: "5M / day",
-      regions: 8,
-      barHeight: 20,
-      status: "Past",
-      highlight: false,
-      milestone: "First applied research models and prototype edge tunnels.",
-      growthRate: "Baseline"
-    },
-    {
-      year: "2024",
-      label: "Quantum Hardening",
-      inferences: "25M / day",
-      regions: 18,
-      barHeight: 40,
-      status: "Past",
-      highlight: false,
-      milestone: "CRYSTALS-Kyber post-quantum cryptography deployed across all regions.",
-      growthRate: "+400% YoY"
-    },
-    {
       year: "2025",
-      label: "Enterprise Scaling",
+      label: "Foundation & R&D Reinvestment",
       inferences: "60M / day",
+      revenue: "$18M",
+      profitMargin: "-12% (Low Profit / High R&D)",
       regions: 32,
-      barHeight: 65,
-      status: "Past",
+      barHeight: 20,
+      status: "Past (Low Profit)",
       highlight: false,
-      milestone: "Multi-agent coordination mesh launched for Fortune 500 partners.",
-      growthRate: "+140% YoY"
+      milestone: "Heavy early infrastructure investment & baseline multi-agent R&D; low initial net margin.",
+      growthRate: "Baseline Scale"
     },
     {
       year: "2026",
-      label: "Now (Current State)",
+      label: "Commercial Monetization (Now)",
       inferences: "100M+ / day",
+      revenue: "$85M",
+      profitMargin: "+14% Net Profit",
       regions: 40,
-      barHeight: 85,
+      barHeight: 40,
       status: "Current (Now)",
       highlight: true,
-      milestone: "Global operations across 40+ cloud regions with 99.999% SLA uptime.",
-      growthRate: "+66% YoY"
+      milestone: "Transition to net commercial profitability with 99.999% SLA across 40+ sovereign cloud regions.",
+      growthRate: "+372% Rev YoY"
     },
     {
       year: "2027",
-      label: "Coming Year",
+      label: "Coming Year (Enterprise Surge)",
       inferences: "350M+ / day",
+      revenue: "$320M",
+      profitMargin: "+28% Net Profit",
       regions: 65,
-      barHeight: 95,
+      barHeight: 60,
       status: "Coming Year",
       highlight: true,
-      milestone: "Next-gen autonomous cognitive mesh & sovereign AI infrastructure.",
-      growthRate: "+250% Projected"
+      milestone: "Expansion into 65+ global regions with next-gen autonomous cognitive mesh contracts.",
+      growthRate: "+276% Rev YoY"
     },
     {
       year: "2028",
-      label: "Future Horizon",
-      inferences: "1B+ / day",
+      label: "Autonomous Scale",
+      inferences: "800M+ / day",
+      revenue: "$950M",
+      profitMargin: "+35% Net Profit",
       regions: 100,
+      barHeight: 75,
+      status: "Projected",
+      highlight: false,
+      milestone: "Universal sovereign computational backbone for Fortune 500 enterprise networks.",
+      growthRate: "+196% Rev YoY"
+    },
+    {
+      year: "2029",
+      label: "Global Mesh Dominance",
+      inferences: "1.8B+ / day",
+      revenue: "$2.4B",
+      profitMargin: "+42% Net Profit",
+      regions: 150,
+      barHeight: 88,
+      status: "Projected",
+      highlight: false,
+      milestone: "Lattice-encrypted post-quantum cognitive mesh serving sovereign entities worldwide.",
+      growthRate: "+152% Rev YoY"
+    },
+    {
+      year: "2030",
+      label: "AGI Infrastructure Horizon",
+      inferences: "5B+ / day",
+      revenue: "$5.8B+",
+      profitMargin: "+48% Net Profit",
+      regions: 250,
       barHeight: 100,
       status: "Projected",
       highlight: false,
-      milestone: "Universal sovereign computational backbone for global enterprise AI.",
-      growthRate: "+185% Projected"
+      milestone: "Fully autonomous, highly profitable AGI & zero-trust infrastructure operating globally.",
+      growthRate: "+141% Rev YoY"
     }
   ];
 
@@ -477,11 +491,11 @@ const CharterPage: React.FC = () => {
           <div className="p-8 md:p-12 bg-gray-50 dark:bg-[#121318] border border-gray-200 dark:border-white/10 rounded-3xl space-y-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span className="text-xs font-extrabold uppercase tracking-widest text-gray-500 dark:text-gray-400">
-                Daily Inferences & Global Region Scale (2023–2028)
+                Daily Inferences, Revenue & Net Margin Scaling (2025–2030)
               </span>
               <div className="flex items-center gap-4 text-xs font-bold">
                 <span className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past / Baseline
+                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past / Low Profit
                 </span>
                 <span className="flex items-center gap-1.5 text-gray-900 dark:text-white font-black">
                   <span className="w-3 h-3 rounded-full bg-black dark:bg-white inline-block" /> Current (Now) & Coming Year
@@ -550,11 +564,11 @@ const CharterPage: React.FC = () => {
           </div>
 
           {/* Year Milestone Detail Card */}
-          <div className="p-8 md:p-10 bg-black text-white dark:bg-white dark:text-black rounded-3xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 max-w-2xl">
+          <div className="p-8 md:p-10 bg-black text-white dark:bg-white dark:text-black rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-xl">
               <div className="flex items-center gap-3">
                 <span className="px-3 py-1 bg-white/10 dark:bg-black/10 rounded-full text-xs font-black uppercase tracking-widest">
-                  {growthData[selectedYear].year} Target & Milestone
+                  {growthData[selectedYear].year} Target & Financial Trajectory
                 </span>
                 <span className="text-xs font-bold opacity-80">
                   Status: {growthData[selectedYear].status}
@@ -568,14 +582,18 @@ const CharterPage: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid grid-cols-2 gap-6 shrink-0 text-center md:text-right border-t md:border-t-0 md:border-l border-white/20 dark:border-black/20 pt-6 md:pt-0 md:pl-8">
+            <div className="grid grid-cols-3 gap-6 shrink-0 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-white/20 dark:border-black/20 pt-6 lg:pt-0 lg:pl-8 w-full lg:w-auto">
               <div>
-                <span className="text-xs uppercase font-bold opacity-70 block mb-1">Global Regions</span>
-                <span className="text-3xl font-black">{growthData[selectedYear].regions}+</span>
+                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Annual Revenue</span>
+                <span className="text-2xl md:text-3xl font-black">{growthData[selectedYear].revenue}</span>
               </div>
               <div>
-                <span className="text-xs uppercase font-bold opacity-70 block mb-1">Growth Metric</span>
-                <span className="text-3xl font-black">{growthData[selectedYear].growthRate}</span>
+                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Profit Trajectory</span>
+                <span className="text-2xl md:text-3xl font-black">{growthData[selectedYear].profitMargin}</span>
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Cloud Regions</span>
+                <span className="text-2xl md:text-3xl font-black">{growthData[selectedYear].regions}+</span>
               </div>
             </div>
           </div>
