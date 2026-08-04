@@ -506,15 +506,6 @@ const CharterPage: React.FC = () => {
                     onClick={() => setSelectedYear(idx)}
                     className="group flex flex-col items-center space-y-4 cursor-pointer"
                   >
-                    {/* Value Badge */}
-                    <span className={`text-xs font-black px-2.5 py-1 rounded-full transition-all ${
-                      isSelected
-                        ? "bg-black text-white dark:bg-white dark:text-black scale-110 shadow-lg"
-                        : "bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-gray-200"
-                    }`}>
-                      {g.inferences}
-                    </span>
-
                     {/* Vertical Bar */}
                     <div className="w-full max-w-[64px] bg-gray-200 dark:bg-white/5 rounded-2xl h-[200px] flex items-end p-1.5 relative overflow-hidden">
                       <motion.div
