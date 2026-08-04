@@ -908,9 +908,9 @@ const App: React.FC = () => {
                           <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium">
                             Our team operates across San Francisco, London, Tokyo, and Singapore, bringing together world-class engineers, cryptographers, and system architects. We prioritize privacy, sovereignty, and strict regional data residency requirements for every client environment.
                           </p>
-                          <div className="flex flex-wrap gap-3 pt-2">
+                          <div className="flex flex-wrap gap-x-6 gap-y-3 pt-2">
                             {["San Francisco, USA", "London, UK", "Tokyo, JP", "Singapore, SG"].map((loc, i) => (
-                              <span key={i} className="px-5 py-2.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-xs font-bold text-gray-800 dark:text-gray-200">
+                              <span key={i} className="text-sm font-bold text-gray-800 dark:text-gray-200 flex items-center gap-1.5">
                                 📍 {loc}
                               </span>
                             ))}
