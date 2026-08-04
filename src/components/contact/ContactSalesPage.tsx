@@ -412,7 +412,7 @@ export const ContactSalesPage: React.FC = () => {
                       <>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-300">First Name *</label>
+                            <label className="text-xs font-bold text-gray-200">First Name *</label>
                             <input 
                               type="text" 
                               name="firstName"
@@ -420,11 +420,11 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.firstName}
                               onChange={handleFormChange}
                               placeholder="First name"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-300">Last Name *</label>
+                            <label className="text-xs font-bold text-gray-200">Last Name *</label>
                             <input 
                               type="text" 
                               name="lastName"
@@ -432,14 +432,14 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.lastName}
                               onChange={handleFormChange}
                               placeholder="Last name"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-300">Work Email *</label>
+                            <label className="text-xs font-bold text-gray-200">Work Email *</label>
                             <input 
                               type="email" 
                               name="workEmail"
@@ -447,11 +447,11 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.workEmail}
                               onChange={handleFormChange}
                               placeholder="name@company.com"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-300">Company Name *</label>
+                            <label className="text-xs font-bold text-gray-200">Company Name *</label>
                             <input 
                               type="text" 
                               name="companyName"
@@ -459,20 +459,20 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.companyName}
                               onChange={handleFormChange}
                               placeholder="Organization name"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                         </div>
 
                         <div className="space-y-2">
-                          <label className="text-xs font-bold text-gray-300">Deployment Details / Message</label>
+                          <label className="text-xs font-bold text-gray-200">Deployment Details / Message</label>
                           <textarea 
                             name="message"
                             rows={3}
                             value={formData.message}
                             onChange={handleFormChange}
                             placeholder="Tell us about your target seat count, architecture requirements, or timeline..."
-                            className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/10 rounded-xl text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/30 transition-colors"
+                            className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                           />
                         </div>
 

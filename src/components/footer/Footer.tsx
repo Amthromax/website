@@ -49,10 +49,10 @@ const Footer: React.FC = () => {
     {
       title: "Business",
       items: [
-        { name: "Overview", href: "/about" },
-        { name: "Solutions", href: "/products" },
-        { name: "Resources", href: "/research" },
-        { name: "Partner Network", href: "/about" },
+        { name: "Overview", href: "/overview", isExternal: true },
+        { name: "Solutions", href: "/products", isExternal: true },
+        { name: "Resources", href: "/research", isExternal: true },
+        { name: "Partner Network", href: "/partners", isExternal: true },
         { name: "Contact Sales", href: "/contact", isExternal: true },
         { name: "Developers", href: "", isHeader: true },
         { name: "Developer Hub", href: "/developers" },

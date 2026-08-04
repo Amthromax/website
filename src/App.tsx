@@ -35,6 +35,8 @@ import { useAuth } from "./context/AuthContext";
 import AuthCallback from "./components/auth/AuthCallback";
 import ProfilePage from "./components/profile/ProfilePage";
 import ContactSalesPage from "./components/contact/ContactSalesPage";
+import OverviewPage from "./components/overview/OverviewPage";
+import PartnerNetworkPage from "./components/partners/PartnerNetworkPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -82,6 +84,7 @@ const searchItems: SearchItem[] = [
   { type: "Model", title: "INTOX 0.2 Model & Low Overhead Run", url: "/blog" },
   { type: "Model", title: "COTISES 0.5 max Model & Advanced Routing", url: "/blog" },
   { type: "Model", title: "VERKOX 0.4 instant Model & Edge Sandbox", url: "/blog" },
+  { type: "Platform", title: "System Architecture & Platform Overview", url: "/overview" },
   { type: "Company", title: "Contact Enterprise Sales & Engineering Team", url: "/contact" },
 ];
 
@@ -789,54 +792,146 @@ const App: React.FC = () => {
               } />
               <Route path="/about" element={
                 <div>
-                  <SEO title="About Amthromax" description="Learn about Amthromax, our mission, vision and AI technologies." />
-                  <div className="py-20 bg-white min-h-[85vh] transition-colors duration-300">
-                    <div className="max-w-6xl mx-auto px-6 space-y-16">
-                      {/* Header */}
-                      <div className="text-center max-w-3xl mx-auto space-y-6">
-                        <span className="text-xs font-bold uppercase tracking-wider text-blue-650 dark:text-blue-400">Company Profile</span>
-                        <h1 className="text-4xl md:text-5xl lg:text-6xl font-black tracking-tight text-gray-900">About Amthromax</h1>
-                        <p className="text-lg md:text-xl text-gray-600 leading-relaxed">
-                          Amthromax is a software and artificial intelligence company building intelligent products, scalable platforms, and enterprise solutions. We help businesses innovate, automate workflows, and accelerate growth through cutting-edge technology.
+                  <SEO title="About Amthromax | AI Software & Enterprise Systems Company" description="Learn about Amthromax, our mission, core pillars, engineering history, global infrastructure, and team." />
+                  <div className="py-20 md:py-28 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
+                    <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 space-y-24">
+                      {/* Header & Story Narrative */}
+                      <div className="text-center max-w-5xl mx-auto space-y-6">
+                        <span className="text-xs font-extrabold uppercase tracking-widest text-gray-700 dark:text-gray-300 bg-gray-100 dark:bg-white/5 px-4 py-1.5 rounded-full border border-gray-200 dark:border-white/10 inline-block">Company Profile & Overview</span>
+                        <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white">Engineering the Next Era of Computational Intelligence</h1>
+                        <p className="text-lg md:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-medium max-w-4xl mx-auto">
+                          Amthromax is an enterprise software and artificial intelligence company building intelligent products, autonomous platforms, and mission-critical cloud infrastructure. We bridge fundamental cognitive research with high-throughput industrial applications—helping global enterprises innovate rapidly and automate complex workflows safely.
                         </p>
                       </div>
 
+                      {/* Global Impact Stats Grid */}
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-4">
+                        {[
+                          { label: "Daily Autonomous Inferences", value: "100M+" },
+                          { label: "Enterprise Uptime SLA", value: "99.999%" },
+                          { label: "Global Region Deployments", value: "40+" },
+                          { label: "Organizations & Partners", value: "500+" }
+                        ].map((stat, idx) => (
+                          <div key={idx} className="py-6 text-center space-y-3">
+                            <span className="text-xs text-gray-500 dark:text-gray-400 font-bold uppercase tracking-wider block">{stat.label}</span>
+                            <h3 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight">{stat.value}</h3>
+                          </div>
+                        ))}
+                      </div>
+
                       {/* Vision & Mission Cards */}
-                      <div className="grid md:grid-cols-2 gap-8">
-                        <div className="p-8 bg-gray-50 border border-gray-150 rounded-3xl space-y-4">
-                          <h2 className="text-2xl font-bold text-gray-900">Our Mission</h2>
-                          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                            To empower organizations worldwide by designing and deploying high-performance software systems and cutting-edge cognitive models. We aim to remove operational complexity and build architectures ready for the demands of tomorrow.
+                      <div className="grid md:grid-cols-2 gap-10 lg:gap-16">
+                        <div className="space-y-4">
+                          <span className="text-3xl block">🎯</span>
+                          <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Our Mission</h2>
+                          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+                            To empower organizations worldwide by designing, training, and deploying resilient software systems and state-of-the-art cognitive models. We exist to remove operational friction, safeguard critical data, and build architectures equipped for tomorrow's computational demands.
                           </p>
                         </div>
-                        <div className="p-8 bg-gray-50 border border-gray-150 rounded-3xl space-y-4">
-                          <h2 className="text-2xl font-bold text-gray-900">Our Vision</h2>
-                          <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                            To serve as a cornerstone of modern industrial and computational scale—delivering zero-latency integration layers, state-of-the-art automation tools, and secure cloud pipelines that redefine software capability.
+                        <div className="space-y-4">
+                          <span className="text-3xl block">🌐</span>
+                          <h2 className="text-2xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Our Vision</h2>
+                          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+                            To serve as the global computational backbone for intelligent enterprise operations—delivering zero-latency integration layers, quantum-safe cryptographic tunnels, and autonomous agent frameworks that fundamentally redefine software potential.
                           </p>
                         </div>
                       </div>
 
-                      {/* Pillars Grid */}
-                      <div className="space-y-8">
-                        <div className="text-center space-y-2">
-                          <h3 className="text-3xl font-extrabold text-gray-900">Our Core Pillars</h3>
-                          <p className="text-gray-500 text-sm">The engineering foundations behind every system we build.</p>
+                      {/* Core Engineering Pillars */}
+                      <div className="space-y-12">
+                        <div className="text-center space-y-3 max-w-3xl mx-auto">
+                          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Our Engineering Pillars</h2>
+                          <p className="text-gray-500 dark:text-gray-400 text-base md:text-lg font-medium">The foundational principles behind every line of code and neural architecture we ship.</p>
                         </div>
-                        <div className="grid sm:grid-cols-3 gap-6">
+                        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
                           {[
-                            { title: "Intelligent Systems", desc: "Constructing advanced AI models, fine-tuned transformer pipelines, and custom neural agents built to optimize business operations." },
-                            { title: "Enterprise Scaling", desc: "Developing cloud infrastructure, microservices architectures, and federated databases that handle massive throughput effortlessly." },
-                            { title: "Zero-Trust Security", desc: "Establishing strict network isolation, cryptographically secured edge nodes, and comprehensive real-time threat response systems." }
+                            {
+                              num: "01",
+                              title: "Intelligent Systems",
+                              desc: "Constructing proprietary transformer models, custom neural networks, and specialized agents fine-tuned for high-precision industry workflows."
+                            },
+                            {
+                              num: "02",
+                              title: "Enterprise Scaling",
+                              desc: "Deploying serverless microservices, distributed ledger syncs, and auto-scaling Kubernetes clusters capable of handling extreme query spikes."
+                            },
+                            {
+                              num: "03",
+                              title: "Zero-Trust Security",
+                              desc: "Enforcing hardware key isolation, lattice-based post-quantum encryption tunnels, and continuous automated compliance auditing."
+                            },
+                            {
+                              num: "04",
+                              title: "Cognitive Autonomy",
+                              desc: "Building self-healing background pipelines, proactive observability tools, and multi-agent coordination frameworks that operate 24/7."
+                            }
                           ].map((pillar, i) => (
-                            <div key={i} className="p-6 bg-white border border-gray-100 rounded-2xl shadow-sm space-y-3">
-                              <span className="text-xs font-bold text-blue-600 uppercase tracking-widest">0{i+1}</span>
-                              <h4 className="text-lg font-bold text-gray-900">{pillar.title}</h4>
-                              <p className="text-gray-500 text-xs leading-relaxed">{pillar.desc}</p>
+                            <div key={i} className="py-6 space-y-4 flex flex-col justify-between">
+                              <div className="space-y-4">
+                                <span className="text-xs font-black text-gray-400 uppercase tracking-widest">{pillar.num} / FOUNDATION</span>
+                                <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">{pillar.title}</h3>
+                                <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">{pillar.desc}</p>
+                              </div>
                             </div>
                           ))}
                         </div>
                       </div>
+
+                      {/* Company History & Timeline Section */}
+                      <div className="space-y-12">
+                        <div className="max-w-4xl space-y-3">
+                          <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Our Journey</span>
+                          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Milestones & Growth</h2>
+                          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg font-medium">How Amthromax evolved from an advanced research initiative into an enterprise technology provider.</p>
+                        </div>
+                        <div className="grid md:grid-cols-4 gap-8 pt-2">
+                          {[
+                            { year: "2022", title: "Lab Inception", desc: "Founded as an applied AI research lab focused on low-latency autonomous agent communication protocols." },
+                            { year: "2023", title: "Model Breakthroughs", desc: "Unveiled MORFIX & INTOX model architectures; introduced custom fine-tuning pipelines for enterprise partners." },
+                            { year: "2024", title: "Quantum Security", desc: "Integrated CRYSTALS-Kyber post-quantum cryptography across our entire edge distribution network." },
+                            { year: "2025-2026", title: "Global Expansion", desc: "Scaled to 40+ global cloud regions, serving Fortune 500 enterprises with guaranteed 99.999% uptime." }
+                          ].map((item, idx) => (
+                            <div key={idx} className="space-y-3 border-l-2 border-gray-300 dark:border-gray-700 pl-5 py-1">
+                              <span className="text-sm font-black text-gray-900 dark:text-white tracking-wider">{item.year}</span>
+                              <h4 className="text-lg font-bold text-gray-900 dark:text-white">{item.title}</h4>
+                              <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">{item.desc}</p>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      {/* Global Operations & Culture */}
+                      <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-center">
+                        <div className="space-y-6">
+                          <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Global Operations</span>
+                          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Distributed Innovation, Local Compliance</h2>
+                          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+                            Our team operates across San Francisco, London, Tokyo, and Singapore, bringing together world-class engineers, cryptographers, and system architects. We prioritize privacy, sovereignty, and strict regional data residency requirements for every client environment.
+                          </p>
+                          <div className="flex flex-wrap gap-3 pt-2">
+                            {["San Francisco, USA", "London, UK", "Tokyo, JP", "Singapore, SG"].map((loc, i) => (
+                              <span key={i} className="px-5 py-2.5 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full text-xs font-bold text-gray-800 dark:text-gray-200">
+                                📍 {loc}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                        <div className="p-8 md:p-12 bg-black text-white rounded-[32px] border border-white/15 space-y-6 shadow-2xl">
+                          <h3 className="text-2xl md:text-3xl font-black tracking-tight text-white">Build the Future with Amthromax</h3>
+                          <p className="text-sm md:text-base text-gray-300 leading-relaxed font-medium">
+                            Whether you're an enterprise looking to transform operations or an engineer wanting to tackle complex computational challenges, we'd love to connect.
+                          </p>
+                          <div className="flex flex-wrap gap-4 pt-2">
+                            <Link to="/careers" className="px-6 py-3.5 bg-white text-black font-extrabold text-xs rounded-full hover:bg-gray-200 transition-all shadow-lg uppercase tracking-wider">
+                              View Open Roles ↗
+                            </Link>
+                            <a href="/contact" target="_blank" rel="noopener noreferrer" className="px-6 py-3.5 bg-zinc-900 border border-white/20 text-white font-extrabold text-xs rounded-full hover:bg-white/10 transition-all uppercase tracking-wider">
+                              Contact Sales ↗
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+
                     </div>
                   </div>
                   <Footer />
@@ -958,6 +1053,11 @@ const App: React.FC = () => {
               <Route path="/pricing" element={<PricingPage />} />
               <Route path="/careers" element={<CareersPage />} />
               <Route path="/security" element={<SecurityPage />} />
+              <Route path="/overview" element={<OverviewPage />} />
+              <Route path="/developers/overview" element={<OverviewPage />} />
+              <Route path="/platform/overview" element={<OverviewPage />} />
+              <Route path="/partners" element={<PartnerNetworkPage />} />
+              <Route path="/partner-network" element={<PartnerNetworkPage />} />
             </Routes>
           </AnimatePresence>
         </main>

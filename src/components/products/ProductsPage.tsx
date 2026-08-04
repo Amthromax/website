@@ -146,8 +146,32 @@ const ProductsPage: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
+      <div className="relative py-20 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center text-white bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0" />
+        
+        {/* Top Header Label Bar */}
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-6 w-full flex justify-between items-center text-xs text-gray-400 font-sans">
+          <a 
+            href="/overview" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-1 text-gray-300 hover:text-white font-semibold transition-colors cursor-pointer group"
+          >
+            <span>Overview</span>
+            <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+          </a>
+
+          <a 
+            href="/contact" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="flex items-center gap-1 text-gray-300 hover:text-white font-semibold transition-colors cursor-pointer group"
+          >
+            <span>Contact Sales</span>
+            <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
+          </a>
+        </div>
+
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
           <span className="text-xs uppercase tracking-widest text-blue-400 font-bold">
             PRODUCT PORTFOLIO
@@ -158,6 +182,27 @@ const ProductsPage: React.FC = () => {
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
             Scalable automation frameworks, zero-trust cloud pipelines, and cognitive models designed to run at industrial scale.
           </p>
+
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
+            <a
+              href="/contact"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3.5 bg-white text-black font-extrabold rounded-full text-xs hover:bg-gray-150 transition-all shadow-lg font-sans cursor-pointer flex items-center gap-2"
+            >
+              <span>Contact Sales</span>
+              <span className="text-sm font-bold leading-none">↗</span>
+            </a>
+            <a
+              href="/overview"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-7 py-3.5 bg-black border border-white/20 text-white font-bold rounded-full text-xs hover:bg-white/10 transition-all font-sans cursor-pointer flex items-center gap-2"
+            >
+              <span>System Overview</span>
+              <span className="text-sm font-bold leading-none">↗</span>
+            </a>
+          </div>
         </div>
       </div>
 

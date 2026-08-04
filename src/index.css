@@ -158,6 +158,13 @@
   .dark ::-webkit-scrollbar-thumb:hover {
     background: #525254;
   }
+
+  /* Enhanced high-contrast input placeholders for dark inputs */
+  input::placeholder,
+  textarea::placeholder {
+    color: #cbd5e1 !important; /* slate-300 high contrast */
+    opacity: 0.9 !important;
+  }
 }
 
 @keyframes shine {
