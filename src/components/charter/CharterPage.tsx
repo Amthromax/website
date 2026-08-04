@@ -1,14 +1,160 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import SEO from "../layout/SEO";
 
+interface StageDetail {
+  id: string;
+  stage: string;
+  name: string;
+  badge: string;
+  description: string;
+  techSpecs: string[];
+}
+
+interface YearGrowth {
+  year: string;
+  label: string;
+  inferences: string;
+  regions: number;
+  barHeight: number; // percentage for chart
+  status: "Past" | "Current (Now)" | "Coming Year" | "Projected";
+  highlight: boolean;
+  milestone: string;
+  growthRate: string;
+}
+
 const CharterPage: React.FC = () => {
   const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: commitmentsRef, inView: commitmentsInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: diagramRef, inView: diagramInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+  const { ref: growthRef, inView: growthInView } = useInView({ triggerOnce: true, threshold: 0.1 });
   const { ref: governanceRef, inView: governanceInView } = useInView({ triggerOnce: true, threshold: 0.1 });
+
+  const [activeStage, setActiveStage] = useState<number>(1);
+  const [selectedYear, setSelectedYear] = useState<number>(3); // Default to 2026 (Now)
+
+  const architectureStages: StageDetail[] = [
+    {
+      id: "stage-1",
+      stage: "Stage 01",
+      name: "Model Ingestion & Neural Layer",
+      badge: "Cognitive Processing",
+      description: "Proprietary transformer models process incoming high-throughput telemetry and autonomous agent requests.",
+      techSpecs: [
+        "Sub-10ms neural inferencing",
+        "Dynamic weight allocation",
+        "Multi-modal context windows (2M+ tokens)"
+      ]
+    },
+    {
+      id: "stage-2",
+      stage: "Stage 02",
+      name: "Alignment & Safety Guardrails",
+      badge: "Constitutional Veto",
+      description: "Real-time safety circuits inspect model intent, preventing prompt injection, data drift, or unauthorized actions.",
+      techSpecs: [
+        "Hardware-isolated veto board",
+        "Continuous constitutional evaluation",
+        "Zero-latency safety boundary checks"
+      ]
+    },
+    {
+      id: "stage-3",
+      stage: "Stage 03",
+      name: "Quantum Cryptographic Tunnel",
+      badge: "Zero-Trust Encryption",
+      description: "Data payloads are encrypted using lattice-based post-quantum cryptography before cross-region dispatch.",
+      techSpecs: [
+        "CRYSTALS-Kyber-1024 Key Exchange",
+        "Lattice-based signature verification",
+        "Hardware Security Module (HSM) isolation"
+      ]
+    },
+    {
+      id: "stage-4",
+      stage: "Stage 04",
+      name: "Edge Execution & Global Mesh",
+      badge: "99.999% SLA Uptime",
+      description: "Validated execution instructions deploy across 40+ sovereign cloud regions with strict regional data residency.",
+      techSpecs: [
+        "Multi-region auto-failover clusters",
+        "Sovereign data boundary compliance",
+        "Real-time distributed ledger audit trail"
+      ]
+    }
+  ];
+
+  const growthData: YearGrowth[] = [
+    {
+      year: "2023",
+      label: "Lab Inception",
+      inferences: "5M / day",
+      regions: 8,
+      barHeight: 20,
+      status: "Past",
+      highlight: false,
+      milestone: "First applied research models and prototype edge tunnels.",
+      growthRate: "Baseline"
+    },
+    {
+      year: "2024",
+      label: "Quantum Hardening",
+      inferences: "25M / day",
+      regions: 18,
+      barHeight: 40,
+      status: "Past",
+      highlight: false,
+      milestone: "CRYSTALS-Kyber post-quantum cryptography deployed across all regions.",
+      growthRate: "+400% YoY"
+    },
+    {
+      year: "2025",
+      label: "Enterprise Scaling",
+      inferences: "60M / day",
+      regions: 32,
+      barHeight: 65,
+      status: "Past",
+      highlight: false,
+      milestone: "Multi-agent coordination mesh launched for Fortune 500 partners.",
+      growthRate: "+140% YoY"
+    },
+    {
+      year: "2026",
+      label: "Now (Current State)",
+      inferences: "100M+ / day",
+      regions: 40,
+      barHeight: 85,
+      status: "Current (Now)",
+      highlight: true,
+      milestone: "Global operations across 40+ cloud regions with 99.999% SLA uptime.",
+      growthRate: "+66% YoY"
+    },
+    {
+      year: "2027",
+      label: "Coming Year",
+      inferences: "350M+ / day",
+      regions: 65,
+      barHeight: 95,
+      status: "Coming Year",
+      highlight: true,
+      milestone: "Next-gen autonomous cognitive mesh & sovereign AI infrastructure.",
+      growthRate: "+250% Projected"
+    },
+    {
+      year: "2028",
+      label: "Future Horizon",
+      inferences: "1B+ / day",
+      regions: 100,
+      barHeight: 100,
+      status: "Projected",
+      highlight: false,
+      milestone: "Universal sovereign computational backbone for global enterprise AI.",
+      growthRate: "+185% Projected"
+    }
+  ];
 
   const commitments = [
     {
@@ -201,7 +347,252 @@ const CharterPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 4. Governance & Safety Framework Section */}
+      {/* 4. Interactive Safety Architecture Diagram Section */}
+      <section ref={diagramRef} className="py-24 bg-gray-50 dark:bg-[#121318] border-y border-gray-200 dark:border-white/10">
+        <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 space-y-16">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={diagramInView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6 }}
+            className="space-y-4 max-w-3xl"
+          >
+            <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">System Architecture Flow</span>
+            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              Autonomous Safety Protocol Flow
+            </h2>
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium leading-relaxed">
+              An architectural pipeline showing how model requests traverse constitutional guardrails, lattice cryptography, and edge execution nodes.
+            </p>
+          </motion.div>
+
+          {/* Interactive Visual Node Diagram */}
+          <div className="space-y-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative">
+              {architectureStages.map((stg, idx) => {
+                const isActive = activeStage === idx + 1;
+                return (
+                  <motion.div
+                    key={stg.id}
+                    onClick={() => setActiveStage(idx + 1)}
+                    whileHover={{ y: -4 }}
+                    className={`p-6 md:p-8 rounded-3xl border transition-all cursor-pointer space-y-4 relative ${
+                      isActive
+                        ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-2xl scale-[1.02]"
+                        : "bg-white dark:bg-[#15161b] border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-white/30"
+                    }`}
+                  >
+                    <div className="flex items-center justify-between">
+                      <span className={`text-xs font-black uppercase tracking-widest ${
+                        isActive ? "text-gray-400 dark:text-gray-600" : "text-gray-400 dark:text-gray-500"
+                      }`}>
+                        {stg.stage}
+                      </span>
+                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                        isActive
+                          ? "bg-white/20 text-white dark:bg-black/10 dark:text-black"
+                          : "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400"
+                      }`}>
+                        {stg.badge}
+                      </span>
+                    </div>
+
+                    <h3 className="text-lg md:text-xl font-extrabold tracking-tight leading-snug">
+                      {stg.name}
+                    </h3>
+
+                    <p className={`text-xs md:text-sm font-medium leading-relaxed ${
+                      isActive ? "text-gray-300 dark:text-gray-700" : "text-gray-600 dark:text-gray-400"
+                    }`}>
+                      {stg.description}
+                    </p>
+
+                    {/* Step indicator arrow */}
+                    {idx < architectureStages.length - 1 && (
+                      <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
+                        <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 flex items-center justify-center text-xs font-bold shadow-md">
+                          →
+                        </div>
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
+            </div>
+
+            {/* Stage Spec Detail Panel */}
+            <div className="p-8 md:p-10 bg-white dark:bg-[#15161b] border border-gray-200 dark:border-white/10 rounded-3xl space-y-4">
+              <div className="flex flex-wrap items-center justify-between gap-4">
+                <div className="space-y-1">
+                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
+                    Active Architecture Stage
+                  </span>
+                  <h4 className="text-2xl font-black text-gray-900 dark:text-white">
+                    {architectureStages[activeStage - 1].name} — Detailed Specifications
+                  </h4>
+                </div>
+                <div className="flex gap-2">
+                  {architectureStages.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={() => setActiveStage(i + 1)}
+                      className={`w-8 h-8 rounded-full text-xs font-bold transition-all ${
+                        activeStage === i + 1
+                          ? "bg-black text-white dark:bg-white dark:text-black"
+                          : "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:bg-gray-200"
+                      }`}
+                    >
+                      0{i + 1}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-3 gap-6 pt-4 border-t border-gray-150 dark:border-white/10">
+                {architectureStages[activeStage - 1].techSpecs.map((spec, sIdx) => (
+                  <div key={sIdx} className="space-y-1.5 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/5">
+                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 block">
+                      Parameter 0{sIdx + 1}
+                    </span>
+                    <p className="text-sm font-bold text-gray-900 dark:text-white">
+                      {spec}
+                    </p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Growth & Projections Chart (Current State & Coming Years) */}
+      <section ref={growthRef} className="py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 space-y-16">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={growthInView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.6 }}
+          className="space-y-4 max-w-3xl"
+        >
+          <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Scale & Trajectory</span>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            Computational Growth: Now & Coming Years
+          </h2>
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium leading-relaxed">
+            Historical milestones, current daily throughput (2026 NOW), and upcoming multi-year infrastructure expansions.
+          </p>
+        </motion.div>
+
+        {/* Visual Growth Chart Container */}
+        <div className="space-y-12">
+          {/* Main Bar Visualizer */}
+          <div className="p-8 md:p-12 bg-gray-50 dark:bg-[#121318] border border-gray-200 dark:border-white/10 rounded-3xl space-y-10">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+                Daily Inferences & Global Region Scale (2023–2028)
+              </span>
+              <div className="flex items-center gap-4 text-xs font-bold">
+                <span className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
+                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past / Baseline
+                </span>
+                <span className="flex items-center gap-1.5 text-gray-900 dark:text-white font-black">
+                  <span className="w-3 h-3 rounded-full bg-black dark:bg-white inline-block" /> Current (Now) & Coming Year
+                </span>
+              </div>
+            </div>
+
+            {/* Chart Columns */}
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 items-end min-h-[300px] pt-8">
+              {growthData.map((g, idx) => {
+                const isSelected = selectedYear === idx;
+                return (
+                  <div
+                    key={g.year}
+                    onClick={() => setSelectedYear(idx)}
+                    className="group flex flex-col items-center space-y-4 cursor-pointer"
+                  >
+                    {/* Value Badge */}
+                    <span className={`text-xs font-black px-2.5 py-1 rounded-full transition-all ${
+                      isSelected
+                        ? "bg-black text-white dark:bg-white dark:text-black scale-110 shadow-lg"
+                        : "bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-gray-200"
+                    }`}>
+                      {g.inferences}
+                    </span>
+
+                    {/* Vertical Bar */}
+                    <div className="w-full max-w-[64px] bg-gray-200 dark:bg-white/5 rounded-2xl h-[200px] flex items-end p-1.5 relative overflow-hidden">
+                      <motion.div
+                        initial={{ height: 0 }}
+                        animate={{ height: `${g.barHeight}%` }}
+                        transition={{ duration: 0.8, delay: idx * 0.1 }}
+                        className={`w-full rounded-xl transition-colors ${
+                          g.status === "Current (Now)"
+                            ? "bg-gradient-to-t from-gray-900 to-black dark:from-gray-300 dark:to-white"
+                            : g.status === "Coming Year"
+                            ? "bg-gradient-to-t from-gray-700 to-gray-900 dark:from-gray-400 dark:to-gray-100"
+                            : isSelected
+                            ? "bg-black dark:bg-white"
+                            : "bg-gray-400 dark:bg-gray-600 group-hover:bg-gray-600 dark:group-hover:bg-gray-400"
+                        }`}
+                      />
+                    </div>
+
+                    {/* Year & Status Label */}
+                    <div className="text-center space-y-1">
+                      <span className={`text-base font-extrabold block ${
+                        isSelected ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-400"
+                      }`}>
+                        {g.year}
+                      </span>
+                      <span className={`text-[10px] font-bold uppercase tracking-wider block ${
+                        g.status === "Current (Now)"
+                          ? "text-black dark:text-white font-black"
+                          : g.status === "Coming Year"
+                          ? "text-gray-800 dark:text-gray-200 font-bold"
+                          : "text-gray-400 dark:text-gray-500"
+                      }`}>
+                        {g.status}
+                      </span>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Year Milestone Detail Card */}
+          <div className="p-8 md:p-10 bg-black text-white dark:bg-white dark:text-black rounded-3xl shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+            <div className="space-y-3 max-w-2xl">
+              <div className="flex items-center gap-3">
+                <span className="px-3 py-1 bg-white/10 dark:bg-black/10 rounded-full text-xs font-black uppercase tracking-widest">
+                  {growthData[selectedYear].year} Target & Milestone
+                </span>
+                <span className="text-xs font-bold opacity-80">
+                  Status: {growthData[selectedYear].status}
+                </span>
+              </div>
+              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+                {growthData[selectedYear].label}
+              </h3>
+              <p className="text-gray-300 dark:text-gray-700 text-base md:text-lg font-medium leading-relaxed">
+                {growthData[selectedYear].milestone}
+              </p>
+            </div>
+
+            <div className="grid grid-cols-2 gap-6 shrink-0 text-center md:text-right border-t md:border-t-0 md:border-l border-white/20 dark:border-black/20 pt-6 md:pt-0 md:pl-8">
+              <div>
+                <span className="text-xs uppercase font-bold opacity-70 block mb-1">Global Regions</span>
+                <span className="text-3xl font-black">{growthData[selectedYear].regions}+</span>
+              </div>
+              <div>
+                <span className="text-xs uppercase font-bold opacity-70 block mb-1">Growth Metric</span>
+                <span className="text-3xl font-black">{growthData[selectedYear].growthRate}</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 6. Governance & Safety Framework Section */}
       <section ref={governanceRef} className="py-24 bg-gray-50 dark:bg-[#121318] border-y border-gray-200 dark:border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 space-y-16">
           <motion.div
@@ -237,7 +628,7 @@ const CharterPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 5. Bottom Action CTA Section */}
+      {/* 7. Bottom Action CTA Section */}
       <section className="py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
         <div className="bg-black text-white rounded-[32px] p-8 md:p-14 border border-white/15 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
