@@ -18,11 +18,10 @@ interface YearGrowth {
   year: string;
   label: string;
   inferences: string;
-  revenue: string;
-  profitMargin: string;
+  targetScale: string;
   regions: number;
   barHeight: number; // percentage for chart
-  status: "Past (Low Profit)" | "Current (Now)" | "Coming Year" | "Projected";
+  status: "Past Baseline" | "Current (Now)" | "Coming Year" | "Projected Target";
   highlight: boolean;
   milestone: string;
   growthRate: string;
@@ -92,81 +91,75 @@ const CharterPage: React.FC = () => {
   const growthData: YearGrowth[] = [
     {
       year: "2025",
-      label: "Foundation & R&D Reinvestment",
+      label: "Foundation & Baseline R&D",
       inferences: "60M / day",
-      revenue: "$18M",
-      profitMargin: "-12% (Low Profit / High R&D)",
+      targetScale: "60M Daily Target",
       regions: 32,
       barHeight: 20,
-      status: "Past (Low Profit)",
+      status: "Past Baseline",
       highlight: false,
-      milestone: "Heavy early infrastructure investment & baseline multi-agent R&D; low initial net margin.",
+      milestone: "Baseline infrastructure deployment & multi-agent model evaluation across 32 cloud regions.",
       growthRate: "Baseline Scale"
     },
     {
       year: "2026",
-      label: "Commercial Monetization (Now)",
+      label: "Global Operations (Now)",
       inferences: "100M+ / day",
-      revenue: "$85M",
-      profitMargin: "+14% Net Profit",
+      targetScale: "100M+ Daily Target",
       regions: 40,
       barHeight: 40,
       status: "Current (Now)",
       highlight: true,
-      milestone: "Transition to net commercial profitability with 99.999% SLA across 40+ sovereign cloud regions.",
-      growthRate: "+372% Rev YoY"
+      milestone: "Commercial global deployment with 99.999% SLA uptime across 40+ sovereign cloud regions.",
+      growthRate: "+66% Target Growth"
     },
     {
       year: "2027",
-      label: "Coming Year (Enterprise Surge)",
+      label: "Coming Year (Scale Surge)",
       inferences: "350M+ / day",
-      revenue: "$320M",
-      profitMargin: "+28% Net Profit",
+      targetScale: "350M+ Daily Target",
       regions: 65,
       barHeight: 60,
       status: "Coming Year",
       highlight: true,
-      milestone: "Expansion into 65+ global regions with next-gen autonomous cognitive mesh contracts.",
-      growthRate: "+276% Rev YoY"
+      milestone: "Expansion into 65+ global regions with next-gen autonomous cognitive mesh architecture.",
+      growthRate: "+250% Target Surge"
     },
     {
       year: "2028",
-      label: "Autonomous Scale",
+      label: "Autonomous Enterprise Scale",
       inferences: "800M+ / day",
-      revenue: "$950M",
-      profitMargin: "+35% Net Profit",
+      targetScale: "800M+ Daily Target",
       regions: 100,
       barHeight: 75,
-      status: "Projected",
+      status: "Projected Target",
       highlight: false,
       milestone: "Universal sovereign computational backbone for Fortune 500 enterprise networks.",
-      growthRate: "+196% Rev YoY"
+      growthRate: "+128% Target Growth"
     },
     {
       year: "2029",
-      label: "Global Mesh Dominance",
+      label: "Global Mesh Horizon",
       inferences: "1.8B+ / day",
-      revenue: "$2.4B",
-      profitMargin: "+42% Net Profit",
+      targetScale: "1.8B+ Daily Target",
       regions: 150,
       barHeight: 88,
-      status: "Projected",
+      status: "Projected Target",
       highlight: false,
       milestone: "Lattice-encrypted post-quantum cognitive mesh serving sovereign entities worldwide.",
-      growthRate: "+152% Rev YoY"
+      growthRate: "+125% Target Scale"
     },
     {
       year: "2030",
-      label: "AGI Infrastructure Horizon",
+      label: "Universal AGI Infrastructure",
       inferences: "5B+ / day",
-      revenue: "$5.8B+",
-      profitMargin: "+48% Net Profit",
+      targetScale: "5B+ Daily Target",
       regions: 250,
       barHeight: 100,
-      status: "Projected",
+      status: "Projected Target",
       highlight: false,
-      milestone: "Fully autonomous, highly profitable AGI & zero-trust infrastructure operating globally.",
-      growthRate: "+141% Rev YoY"
+      milestone: "Fully autonomous, zero-trust AGI computational infrastructure operating globally.",
+      growthRate: "+177% Target Scale"
     }
   ];
 
@@ -491,11 +484,11 @@ const CharterPage: React.FC = () => {
           <div className="p-8 md:p-12 bg-gray-50 dark:bg-[#121318] border border-gray-200 dark:border-white/10 rounded-3xl space-y-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
               <span className="text-xs font-extrabold uppercase tracking-widest text-gray-500 dark:text-gray-400">
-                Daily Inferences, Revenue & Net Margin Scaling (2025–2030)
+                Daily Inferences & Computational Scale Targets (2025–2030)
               </span>
               <div className="flex items-center gap-4 text-xs font-bold">
                 <span className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past / Low Profit
+                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past Baseline
                 </span>
                 <span className="flex items-center gap-1.5 text-gray-900 dark:text-white font-black">
                   <span className="w-3 h-3 rounded-full bg-black dark:bg-white inline-block" /> Current (Now) & Coming Year
@@ -568,7 +561,7 @@ const CharterPage: React.FC = () => {
             <div className="space-y-3 max-w-xl">
               <div className="flex items-center gap-3">
                 <span className="px-3 py-1 bg-white/10 dark:bg-black/10 rounded-full text-xs font-black uppercase tracking-widest">
-                  {growthData[selectedYear].year} Target & Financial Trajectory
+                  {growthData[selectedYear].year} Operational Scale & Target
                 </span>
                 <span className="text-xs font-bold opacity-80">
                   Status: {growthData[selectedYear].status}
@@ -584,16 +577,16 @@ const CharterPage: React.FC = () => {
 
             <div className="grid grid-cols-3 gap-6 shrink-0 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-white/20 dark:border-black/20 pt-6 lg:pt-0 lg:pl-8 w-full lg:w-auto">
               <div>
-                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Annual Revenue</span>
-                <span className="text-2xl md:text-3xl font-black">{growthData[selectedYear].revenue}</span>
-              </div>
-              <div>
-                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Profit Trajectory</span>
-                <span className="text-2xl md:text-3xl font-black">{growthData[selectedYear].profitMargin}</span>
+                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Capacity</span>
+                <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].targetScale}</span>
               </div>
               <div>
                 <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Cloud Regions</span>
-                <span className="text-2xl md:text-3xl font-black">{growthData[selectedYear].regions}+</span>
+                <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].regions}+</span>
+              </div>
+              <div>
+                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Metric</span>
+                <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].growthRate}</span>
               </div>
             </div>
           </div>
