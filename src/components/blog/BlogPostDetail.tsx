@@ -116,9 +116,43 @@ const BlogPostDetail: React.FC = () => {
   // Get 2 recommended posts excluding current one
   const recommendations = posts.filter((p) => p.id !== post.id).slice(0, 2);
 
+  const articleSchema = {
+    "@type": "BlogPosting",
+    "@id": `https://amthromax.com/blog/${post.id}/#article`,
+    "headline": post.title,
+    "description": post.excerpt,
+    "image": post.image.startsWith("http") ? post.image : `https://amthromax.com${post.image}`,
+    "datePublished": post.date,
+    "dateModified": post.date,
+    "author": {
+      "@type": "Person",
+      "name": post.author.name,
+      "jobTitle": post.author.role
+    },
+    "publisher": {
+      "@id": "https://amthromax.com/#organization"
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://amthromax.com/blog/${post.id}`
+    }
+  };
+
   return (
     <div>
-      <SEO title={`${post.title} | Amthromax Blog`} description={post.excerpt} />
+      <SEO
+        title={`${post.title} | Amthromax Blog`}
+        description={post.excerpt}
+        image={post.image.startsWith("http") ? post.image : `https://amthromax.com${post.image}`}
+        type="article"
+        url={`https://amthromax.com/blog/${post.id}`}
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Blog", url: "/blog" },
+          { name: post.title, url: `/blog/${post.id}` }
+        ]}
+        schema={articleSchema}
+      />
 
       <article className="py-16 md:py-24 bg-white dark:bg-gray-950 transition-colors duration-300 min-h-[85vh] font-sans">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-20 space-y-10">

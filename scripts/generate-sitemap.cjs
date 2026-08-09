@@ -7,16 +7,26 @@ function generateSitemap() {
   // Core routes
   const routes = [
     { loc: 'https://amthromax.com/', changefreq: 'weekly', priority: '1.0' },
-    { loc: 'https://amthromax.com/about', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/about', changefreq: 'monthly', priority: '0.9' },
     { loc: 'https://amthromax.com/contact', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/products', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://amthromax.com/products/ai-platform', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/products/ai-agents', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/products/automation', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/products/developer-platform', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/products/enterprise-ai', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/developers', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://amthromax.com/docs', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://amthromax.com/docs/getting-started', changefreq: 'weekly', priority: '0.8' },
+    { loc: 'https://amthromax.com/docs/authentication', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/docs/api', changefreq: 'weekly', priority: '0.8' },
+    { loc: 'https://amthromax.com/docs/sdks', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/docs/guides', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/docs/changelog', changefreq: 'weekly', priority: '0.8' },
     { loc: 'https://amthromax.com/blog', changefreq: 'weekly', priority: '0.9' },
-    { loc: 'https://amthromax.com/news', changefreq: 'weekly', priority: '0.9' },
-    { loc: 'https://amthromax.com/services', changefreq: 'monthly', priority: '0.8' },
-    { loc: 'https://amthromax.com/research', changefreq: 'weekly', priority: '0.8' },
-    { loc: 'https://amthromax.com/foundation', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://amthromax.com/news', changefreq: 'weekly', priority: '0.8' },
     { loc: 'https://amthromax.com/platform', changefreq: 'monthly', priority: '0.8' },
-    { loc: 'https://amthromax.com/products', changefreq: 'monthly', priority: '0.8' },
-    { loc: 'https://amthromax.com/docs', changefreq: 'weekly', priority: '0.8' },
+    { loc: 'https://amthromax.com/solutions', changefreq: 'monthly', priority: '0.8' },
     { loc: 'https://amthromax.com/pricing', changefreq: 'monthly', priority: '0.8' },
     { loc: 'https://amthromax.com/careers', changefreq: 'monthly', priority: '0.7' },
     { loc: 'https://amthromax.com/security', changefreq: 'monthly', priority: '0.7' },
@@ -33,7 +43,6 @@ function generateSitemap() {
     const blogDataPath = path.join(__dirname, '../src/components/blog/blogData.ts');
     if (fs.existsSync(blogDataPath)) {
       const content = fs.readFileSync(blogDataPath, 'utf8');
-      // Extract the blogPosts block
       const blogPostsStartIndex = content.indexOf('export const blogPosts');
       const blogPostsEndIndex = content.indexOf('export const newsItems');
       if (blogPostsStartIndex !== -1 && blogPostsEndIndex !== -1) {

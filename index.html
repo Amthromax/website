@@ -3,11 +3,18 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/images/logo.png" />
+    <link rel="apple-touch-icon" href="/images/logo.png" />
+    <link rel="manifest" href="/manifest.json" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <title>Amthromax | AI Software Company for Enterprise AI & Intelligent Automation</title>
-    <meta name="description" content="Amthromax is an AI software company building enterprise AI platforms, autonomous agents, workflow automation, APIs, and developer tools for modern businesses." />
+    
+    <!-- Primary Page Metadata -->
+    <title>Amthromax — Enterprise AI Software &amp; Intelligent Technology</title>
+    <meta name="description" content="Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems." />
+    <meta name="keywords" content="Amthromax, AI software company, enterprise AI platform, intelligent agents, intelligent automation, developer infrastructure, AI APIs, enterprise software" />
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <link rel="canonical" href="https://amthromax.com/" />
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -15,50 +22,68 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Plus+Jakarta+Sans:ital,wght@0,300..800;1,300..800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Amthromax" />
+    <meta property="og:site_name" content="Amthromax" />
+    <meta property="og:title" content="Amthromax — Enterprise AI Software &amp; Intelligent Technology" />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://amthromax.com" />
-    <meta property="og:image" content="https://amthromax.com/og-image.png" />
-    <meta property="og:description" content="AI Software Company for Enterprise AI & Intelligent Automation" />
+    <meta property="og:image" content="https://amthromax.com/images/desktop_setup.png" />
+    <meta property="og:description" content="Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems." />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Amthromax" />
-    <meta name="twitter:image" content="/og-image.png" />
-    <meta name="twitter:description" content="AI Software Company for Enterprise AI & Intelligent Automation" />
+    <meta name="twitter:title" content="Amthromax — Enterprise AI Software &amp; Intelligent Technology" />
+    <meta name="twitter:image" content="https://amthromax.com/images/desktop_setup.png" />
+    <meta name="twitter:description" content="Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems." />
 
-    <!-- Google Analytics (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-XXXXXXXXXX');
-    </script>
-
-    <!-- Microsoft Clarity -->
-    <script type="text/javascript">
-      (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window,document,"clarity","script","your_clarity_project_id");
-    </script>
-
-    <!-- Bing Webmaster Tools Validation -->
-    <meta name="msvalidate.01" content="BING_VALIDATION_CODE_PLACEHOLDER" />
-
+    <!-- Structured Data Knowledge Graph -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Organization",
-      "name": "Amthromax",
-      "url": "https://amthromax.com",
-      "logo": "https://amthromax.com/logo.png",
-      "description": "AI software company building enterprise AI platforms, intelligent agents, workflow automation, and developer tools.",
-      "founder": "Kishore Kanth",
-      "industry": "AI Software Company",
-      "foundingDate": "2026"
+      "@graph": [
+        {
+          "@type": "Organization",
+          "@id": "https://amthromax.com/#organization",
+          "name": "Amthromax",
+          "legalName": "Amthromax Inc.",
+          "url": "https://amthromax.com",
+          "logo": {
+            "@type": "ImageObject",
+            "@id": "https://amthromax.com/#logo",
+            "url": "https://amthromax.com/images/logo.png",
+            "caption": "Amthromax"
+          },
+          "description": "Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.",
+          "email": "contact@amthromax.com",
+          "sameAs": [
+            "https://linkedin.com/company/amthromax",
+            "https://github.com/amthromax",
+            "https://x.com/amthromax"
+          ]
+        },
+        {
+          "@type": "WebSite",
+          "@id": "https://amthromax.com/#website",
+          "url": "https://amthromax.com",
+          "name": "Amthromax",
+          "description": "Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.",
+          "publisher": {
+            "@id": "https://amthromax.com/#organization"
+          }
+        },
+        {
+          "@type": "WebPage",
+          "@id": "https://amthromax.com/#webpage",
+          "url": "https://amthromax.com",
+          "name": "Amthromax — Enterprise AI Software & Intelligent Technology",
+          "description": "Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.",
+          "isPartOf": {
+            "@id": "https://amthromax.com/#website"
+          },
+          "about": {
+            "@id": "https://amthromax.com/#organization"
+          }
+        }
+      ]
     }
     </script>
   </head>
