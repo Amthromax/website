@@ -18,7 +18,7 @@ export interface BlogPost {
 export interface NewsItem {
   id: string;
   title: string;
-  category: "Release" | "Announcement" | "Roadmap" | "Partnership";
+  category: string;
   date: string;
   summary: string;
   content: string[];
@@ -441,6 +441,76 @@ export const blogPosts: BlogPost[] = [
 ];
 
 export const newsItems: NewsItem[] = [
+  {
+    id: "inbound-vs-outbound-marketing",
+    title: "Inbound vs Outbound Marketing: Which Strategy Wins?",
+    category: "SALES",
+    date: "August 2026",
+    summary: "Discover the key differences between inbound and outbound marketing strategies for 2026. Learn how to combine both approaches, overcome common challenges, and leverage AI-powered tools to maximize ROI and build lasting customer relationships.",
+    content: [
+      "Inbound and outbound marketing represent two complementary approaches to business growth.",
+      "Inbound marketing focuses on pulling qualified prospects toward your product using valuable content, SEO, and thought leadership.",
+      "Outbound marketing utilizes targeted outreach, cold emailing, and account-based sales motions to engage decision-makers directly.",
+      "In 2026, high-performing revenue teams use a hybrid model: AI-powered automated outreach for high-intent accounts paired with inbound educational funnels."
+    ]
+  },
+  {
+    id: "what-is-a-sales-funnel-2026",
+    title: "What Is a Sales Funnel? The Non-Linear Revenue Framework for 2026",
+    category: "SALES",
+    date: "August 2026",
+    summary: "A sales funnel maps the buyer journey from awareness to purchase. Modern B2B funnels are non-linear—70% of buyers research independently before sales contact.",
+    content: [
+      "Traditional linear sales funnels are no longer reflective of modern buyer behavior.",
+      "Today's buyers consult peer reviews, documentation, community channels, and AI search engines long before speaking to sales.",
+      "Building a non-linear revenue framework involves creating high-value self-serve touchpoints, transparent pricing, and instant demo access."
+    ]
+  },
+  {
+    id: "what-is-a-go-to-market-strategy",
+    title: "What Is a Go-to-Market Strategy? The 2026 GTM Playbook",
+    category: "SALES",
+    date: "August 2026",
+    summary: "A go-to-market strategy defines your ICP, value proposition, sales motion, and revenue model. Learn why 33% more B2B companies hit targets with a structured GTM.",
+    content: [
+      "A structured GTM strategy eliminates guesswork across product, marketing, and sales departments.",
+      "Key pillars include defining your Ideal Customer Profile (ICP), crafting positioning matrixes, selecting distribution channels, and configuring pricing tiers.",
+      "With AI-driven lead scoring and automated pipeline management, companies execute GTM playbooks with unmatched speed."
+    ]
+  },
+  {
+    id: "how-to-build-b2b-marketing-funnel",
+    title: "How to Build a B2B Marketing Funnel That Converts in 2026",
+    category: "SALES",
+    date: "August 2026",
+    summary: "Build hybrid B2B funnels that blend AI-powered automation with human touchpoints. Get 46% more meetings using behavioral scoring and review-driven social proof.",
+    content: [
+      "High-converting B2B marketing funnels combine multi-channel attribution with automated intent tracking.",
+      "By scoring user engagement in real time, sales reps get alerted the moment an enterprise prospect engages with technical documentation or pricing pages."
+    ]
+  },
+  {
+    id: "how-to-master-sales-objections",
+    title: "How to Master Sales Objections and Close More Deals",
+    category: "SALES",
+    date: "August 2026",
+    summary: "Master sales objection handling with our comprehensive guide covering the 20 most common sales objections and proven strategies to address them. Learn how to transform objections into opportunities for deeper customer relationships and higher close rates.",
+    content: [
+      "Objections are not rejections—they are requests for further clarity and risk reduction.",
+      "Common objections around pricing, timing, security, and competitor comparison can be reframed into strategic discussions on ROI and execution timelines."
+    ]
+  },
+  {
+    id: "ai-powered-sales-process",
+    title: "AI-Powered Sales Process: The 2026 Playbook for Hybrid Revenue Growth",
+    category: "SALES",
+    date: "August 2026",
+    summary: "AI-powered sales processes combine automation with human expertise for hybrid revenue growth. 100% of leaders now use AI, reducing research time while improving personalization at scale.",
+    content: [
+      "AI-driven sales acceleration enables small revenue teams to operate with enterprise capacity.",
+      "Automated account research, instant email drafting, and real-time CRM updates allow sales representatives to dedicate 80%+ of their working hours directly to customer conversations."
+    ]
+  },
   {
     id: "how-news-organizations-use-ai",
     title: "How News Organizations Are Using AI to Advance Their Vital Missions",

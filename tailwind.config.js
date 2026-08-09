@@ -30,8 +30,9 @@ export default {
         ring: 'hsl(var(--ring))',
       },
       fontFamily: {
-        // Apple uses SF Pro, but we'll use system fonts as fallback
-        'sans': ['SF Pro Display', 'SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+        'sans': ['Inter', 'Plus Jakarta Sans', 'SF Pro Display', 'SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
+        'serif': ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
+        'display': ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
       },
       boxShadow: {
         'apple-sm': '0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24)',

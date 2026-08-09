@@ -23,7 +23,10 @@ import BlogPage from "./components/blog/BlogPage";
 import BlogPostDetail from "./components/blog/BlogPostDetail";
 import PublishPage from "./components/blog/PublishPage";
 import NewsPage from "./components/news/NewsPage";
+import NewsDetailPage from "./components/news/NewsDetailPage";
 import CookiePolicyPage from "./components/legal/CookiePolicyPage";
+import PrivacyPolicyPage from "./components/legal/PrivacyPolicyPage";
+import TermsOfServicePage from "./components/legal/TermsOfServicePage";
 import PlatformPage from "./components/platform/PlatformPage";
 import ProductsPage from "./components/products/ProductsPage";
 import DocsPage from "./components/docs/DocsPage";
@@ -824,70 +827,10 @@ const App: React.FC = () => {
               <Route path="/foundation/:articleId" element={<FoundationDetailPage />} />
               <Route path="/contact" element={<ContactSalesPage />} />
               <Route path="/contact-sales" element={<ContactSalesPage />} />
-              <Route path="/privacy" element={
-                <div>
-                  <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
-                    <div className="max-w-3xl mx-auto px-6 space-y-8">
-                      <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Privacy Policy</h1>
-                      <p className="text-sm text-gray-400">Last updated: July 9, 2026</p>
-                      
-                      <section className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">1. Information We Collect</h2>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                          We collect information you provide directly to us, such as when you submit forms, contact us via email, or interact with our platform APIs.
-                        </p>
-                      </section>
-                      
-                      <section className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">2. Cookies Policy</h2>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                          We use cookies and similar tracking technologies to track the activity on our Service and hold certain information to enhance performance and analyze web traffic.
-                        </p>
-                      </section>
-                      
-                      <section className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">3. How We Protect Your Data</h2>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                          We implement industry-standard zero-trust protocols and encryption systems to prevent unauthorized access, disclosure, alteration, or destruction of your personal data.
-                        </p>
-                      </section>
-                    </div>
-                  </div>
-                  <Footer />
-                </div>
-              } />
-              <Route path="/terms" element={
-                <div>
-                  <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
-                    <div className="max-w-3xl mx-auto px-6 space-y-8">
-                      <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Terms of Use</h1>
-                      <p className="text-sm text-gray-400">Last updated: July 9, 2026</p>
-                      
-                      <section className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">1. Agreement to Terms</h2>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                          By accessing or using the Amthromax platforms, you agree to be bound by these Terms of Use and all applicable laws and regulations.
-                        </p>
-                      </section>
-                      
-                      <section className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">2. Proprietary Rights</h2>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                          All content, research papers, technologies, software scripts, and architectural design on our platform are the intellectual property of Amthromax.
-                        </p>
-                      </section>
-                      
-                      <section className="space-y-4">
-                        <h2 className="text-xl font-semibold text-gray-900 dark:text-white">3. Limitation of Liability</h2>
-                        <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed">
-                          Amthromax will not be liable for any direct, indirect, incidental, or consequential damages resulting from the use or inability to use our website services.
-                        </p>
-                      </section>
-                    </div>
-                  </div>
-                  <Footer />
-                </div>
-              } />
+              <Route path="/privacy" element={<PrivacyPolicyPage />} />
+              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+              <Route path="/terms" element={<TermsOfServicePage />} />
+              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
               <Route path="/team" element={<TeamPage />} />
               <Route path="/solutions" element={<SolutionsPage />} />
               <Route path="/why/enterprises" element={<EnterprisesPage />} />
@@ -900,6 +843,10 @@ const App: React.FC = () => {
               <Route path="/blog/publish" element={<PublishPage />} />
               <Route path="/blog/:postId" element={<BlogPostDetail />} />
               <Route path="/news" element={<NewsPage />} />
+              <Route path="/news/:articleId" element={<NewsDetailPage />} />
+              <Route path="/newsroom" element={<NewsPage />} />
+              <Route path="/insights" element={<NewsPage />} />
+              <Route path="/insights/:articleId" element={<NewsDetailPage />} />
               <Route path="/cookies" element={<CookiePolicyPage />} />
               <Route path="/cookie-policy" element={<CookiePolicyPage />} />
               <Route path="/platform" element={<PlatformPage />} />
