@@ -218,7 +218,7 @@ const ServiceDetailPage: React.FC = () => {
               {service.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-xs bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 px-4 py-2 rounded-xl text-gray-700 dark:text-gray-300 font-bold shadow-sm"
+                  className="text-xs text-gray-700 dark:text-gray-300 font-bold"
                 >
                   {t}
                 </span>

@@ -1,12 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { supabase } from "../../lib/supabase";
 import { useAuth } from "../../context/AuthContext";
 import { validateEmail, containsMaliciousPayload, sanitizeInput } from "../../lib/security";
 
 const LoginSection: React.FC = () => {
-  const [isSignUp, setIsSignUp] = useState<boolean>(true);
+  const location = useLocation();
+  const searchParams = new URLSearchParams(location.search);
+  const mode = searchParams.get("mode");
+
+  const [isSignUp, setIsSignUp] = useState<boolean>(
+    location.pathname === "/register" || mode === "register" || mode === "signup" || true
+  );
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -18,6 +24,14 @@ const LoginSection: React.FC = () => {
   const [googleEmail, setGoogleEmail] = useState<string>("");
   const { user, authLoading } = useAuth();
   const navigate = useNavigate();
+
+  useEffect(() => {
+    if (location.pathname === "/register" || mode === "register" || mode === "signup") {
+      setIsSignUp(true);
+    } else if (mode === "login" || mode === "signin") {
+      setIsSignUp(false);
+    }
+  }, [location.pathname, mode]);
 
   useEffect(() => {
     if (!authLoading && user) {

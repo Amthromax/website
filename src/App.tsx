@@ -43,6 +43,9 @@ import ContactSalesPage from "./components/contact/ContactSalesPage";
 import OverviewPage from "./components/overview/OverviewPage";
 import PartnerNetworkPage from "./components/partners/PartnerNetworkPage";
 import CharterPage from "./components/charter/CharterPage";
+import DemoModal from "./components/modals/DemoModal";
+import AnnouncementBanner from "./components/layout/AnnouncementBanner";
+import RegisterLandingPage from "./components/register/RegisterLandingPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -128,9 +131,23 @@ const App: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showComingSoonModal, setShowComingSoonModal] = useState(false);
+  const [showDemoModal, setShowDemoModal] = useState(false);
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [isSubmittedWaitlist, setIsSubmittedWaitlist] = useState(false);
   const timeoutRef = useRef<number | null>(null);
+
+  // Trigger demo popup modal 10 seconds after user enters the website
+  useEffect(() => {
+    const alreadyShown = sessionStorage.getItem("amthromax_demo_modal_shown");
+    if (alreadyShown) return;
+
+    const timer = setTimeout(() => {
+      setShowDemoModal(true);
+      sessionStorage.setItem("amthromax_demo_modal_shown", "true");
+    }, 10000);
+
+    return () => clearTimeout(timer);
+  }, []);
 
   const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company') => {
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
@@ -215,11 +232,15 @@ const App: React.FC = () => {
     }
   });
 
+  const isRegisterPage = location.pathname === "/register";
+
   return (
     <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50 transition-colors duration-300 antialiased">
       <ScrollToTop />
+      {!isRegisterPage && <AnnouncementBanner />}
 
-        {/* Navigation */}
+      {/* Navigation */}
+      {!isRegisterPage && (
         <motion.nav 
           variants={{
             visible: { y: 0 },
@@ -763,6 +784,7 @@ const App: React.FC = () => {
             )}
           </AnimatePresence>
         </motion.nav>
+      )}
         <main>
           <AnimatePresence>
             <Routes location={location}>
@@ -837,6 +859,8 @@ const App: React.FC = () => {
               <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
               <Route path="/why/developers" element={<DevelopersPage />} />
               <Route path="/login" element={<LoginSection />} />
+              <Route path="/register" element={<RegisterLandingPage />} />
+              <Route path="/gtm-2026" element={<RegisterLandingPage />} />
               <Route path="/auth/callback" element={<AuthCallback />} />
               <Route path="/profile" element={<ProfilePage />} />
               <Route path="/blog" element={<BlogPage />} />
@@ -954,6 +978,9 @@ const App: React.FC = () => {
             </div>
           )}
         </AnimatePresence>
+
+        {/* 10-second Lead Demo Modal */}
+        <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
       </div>
   );
 };

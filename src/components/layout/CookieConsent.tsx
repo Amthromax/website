@@ -36,16 +36,19 @@ const CookieConsent: React.FC = () => {
 
   const handleAccept = () => {
     localStorage.setItem("amthromax-cookie-consent", "accepted");
+    window.dispatchEvent(new Event("amthromax-consent-accepted"));
     setIsVisible(false);
   };
 
   const handleDecline = () => {
     localStorage.setItem("amthromax-cookie-consent", "declined");
+    window.dispatchEvent(new Event("amthromax-consent-accepted"));
     setIsVisible(false);
   };
 
   const handleSavePreferences = () => {
     localStorage.setItem("amthromax-cookie-consent", JSON.stringify(preferences));
+    window.dispatchEvent(new Event("amthromax-consent-accepted"));
     setShowPreferencesModal(false);
     setIsVisible(false);
   };

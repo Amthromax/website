@@ -100,9 +100,6 @@ const UpcomingProjectsSection: React.FC = () => {
       <div className="max-w-6xl mx-auto px-6 space-y-12">
         {/* Header Block */}
         <div className="space-y-4">
-          <span className="text-xs font-semibold text-gray-400 uppercase tracking-widest">
-            Pipeline & Innovation
-          </span>
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tighter text-gray-900 dark:text-white max-w-2xl leading-tight">
             Upcoming Software Projects
           </h2>

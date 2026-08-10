@@ -132,7 +132,7 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
               {feature.technology?.slice(0, 3).map((tech: string) => (
                 <span
                   key={tech}
-                  className="text-[10px] bg-white/10 border border-white/20 px-2.5 py-1 rounded-full text-white/90 font-semibold shadow-sm backdrop-blur-md hover:bg-white/20 transition-all duration-300"
+                  className="text-xs text-white/80 font-semibold tracking-wide"
                 >
                   {tech}
                 </span>
