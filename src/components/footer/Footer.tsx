@@ -77,20 +77,20 @@ const Footer: React.FC = () => {
   return (
     <footer
       ref={ref}
-      className="w-full bg-[#dcd9d2] dark:bg-[#121213] text-[#1a1815] dark:text-white pt-24 sm:pt-32 pb-24 sm:pb-32 transition-colors duration-300 font-sans border-t border-[#cecac1] dark:border-white/10 select-none"
+      className="w-full bg-[#dcd9d2] dark:bg-[#121213] text-[#1a1815] dark:text-white pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 transition-colors duration-300 font-sans border-t border-[#cecac1] dark:border-white/10 select-none"
     >
-      <div className="w-full px-8 sm:px-16 lg:px-24 xl:px-32">
+      <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-24 items-start"
         >
-          {/* Left Column: Massive 3D Asterisk Logo + Copyright + Legal Links */}
-          <div className="lg:col-span-4 space-y-10">
-            {/* Massive 3D Isometric 6-Pointed Asterisk Logo */}
+          {/* Left Column: 3D Asterisk Logo + Copyright + Legal Links */}
+          <div className="lg:col-span-4 space-y-6 sm:space-y-10">
+            {/* 3D Isometric 6-Pointed Asterisk Logo (Responsive across Mobile, Tablet, Laptop) */}
             <Link to="/" className="inline-block group">
-              <svg viewBox="0 0 240 240" fill="none" className="w-44 h-44 sm:w-56 sm:h-56 lg:w-64 lg:h-64 transition-transform duration-300 group-hover:scale-105">
+              <svg viewBox="0 0 240 240" fill="none" className="w-28 h-28 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-64 lg:h-64 transition-transform duration-300 group-hover:scale-105">
                 <g transform="translate(120, 120)">
                   {[0, 60, 120, 180, 240, 300].map((angle, i) => (
                     <g key={i} transform={`rotate(${angle})`}>
@@ -116,14 +116,14 @@ const Footer: React.FC = () => {
               </svg>
             </Link>
 
-            <div className="space-y-2">
-              <h3 className="text-xl sm:text-2xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
+            <div className="space-y-1">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
                 Amthromax © {new Date().getFullYear()}
               </h3>
             </div>
 
             {/* Vertical Legal Links */}
-            <div className="flex flex-col space-y-4 text-base sm:text-lg font-medium text-[#5c5850] dark:text-gray-400">
+            <div className="flex flex-col space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg font-medium text-[#5c5850] dark:text-gray-400">
               <Link to="/privacy" className="hover:text-black dark:hover:text-white transition-colors">
                 Privacy Policy
               </Link>
@@ -142,14 +142,14 @@ const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Right Columns: Massive Multi-Column Links Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-4 gap-12 lg:gap-16 pt-4">
+          {/* Right Columns: Multi-Column Links Grid (Mobile 2-col, Tablet 4-col, Laptop 4-col) */}
+          <div className="lg:col-span-8 grid grid-cols-2 sm:grid-cols-2 md:grid-cols-4 gap-8 sm:gap-10 lg:gap-16 pt-2 sm:pt-4">
             {footerColumns.map((column) => (
-              <div key={column.title} className="space-y-6">
-                <h4 className="font-extrabold text-sm sm:text-base uppercase tracking-widest text-[#1a1815] dark:text-white">
+              <div key={column.title} className="space-y-4 sm:space-y-6">
+                <h4 className="font-extrabold text-xs sm:text-sm lg:text-base uppercase tracking-wider lg:tracking-widest text-[#1a1815] dark:text-white">
                   {column.title}
                 </h4>
-                <ul className="space-y-4 text-base sm:text-lg font-medium text-[#5c5850] dark:text-gray-400">
+                <ul className="space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg font-medium text-[#5c5850] dark:text-gray-400">
                   {column.items.map((item, idx) => (
                     <li key={idx}>
                       {item.isExternal ? (
@@ -179,15 +179,15 @@ const Footer: React.FC = () => {
         </motion.div>
 
         {/* Bottom Bar: Social Links + Live System Status */}
-        <div className="mt-24 pt-12 border-t border-[#cecac1] dark:border-white/10 flex flex-col sm:flex-row items-center justify-between gap-8 text-base text-[#5c5850] dark:text-gray-400">
-          <div className="flex items-center space-x-10">
+        <div className="mt-16 sm:mt-24 pt-8 sm:pt-12 border-t border-[#cecac1] dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 text-sm sm:text-base text-[#5c5850] dark:text-gray-400">
+          <div className="flex flex-wrap items-center gap-6 sm:space-x-10">
             <a href="https://x.com/Amthromax" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">X</a>
             <a href="https://www.linkedin.com/company/amthromaxresearch/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">LinkedIn</a>
             <a href="https://github.com/Amthromax" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">GitHub</a>
             <a href="https://www.instagram.com/amthromax/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">Instagram</a>
           </div>
 
-          <div className="flex items-center gap-2.5 text-[#1a1815] dark:text-white font-bold text-base select-none">
+          <div className="flex items-center gap-2.5 text-[#1a1815] dark:text-white font-bold text-sm sm:text-base select-none">
             <span className="w-2.5 h-2.5 rounded-full bg-[#1a1815] dark:bg-white shrink-0" />
             <span>All Systems Operational</span>
           </div>
