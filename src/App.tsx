@@ -255,8 +255,13 @@ const App: React.FC = () => {
             <div className="flex justify-between items-center h-16">
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="text-xl md:text-2xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none">
-                  Amthromax
+                <Link to="/" className="flex items-center gap-2.5 text-xl md:text-2xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none group">
+                  <img
+                    src="/images/amthromax_asterisk_logo.png"
+                    alt="Amthromax 3D Logo"
+                    className="w-20 h-20 object-contain transition-transform duration-300 group-hover:rotate-12"
+                  />
+                  <span>Amthromax</span>
                 </Link>
               </div>
 
