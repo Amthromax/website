@@ -198,12 +198,10 @@ export const ContactSalesPage: React.FC = () => {
               {/* Card 1: Get the Enterprise plan */}
               <div className="p-8 rounded-3xl bg-[#131315] border border-white/[0.08] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  {/* Arch Doorway Icon */}
+                  {/* Modern Enterprise Building Icon */}
                   <div className="w-12 h-12 text-white/90 flex items-center justify-start">
-                    <svg className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 20V8a7 7 0 0114 0v12" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M10 20v-5a2 2 0 014 0v5" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M3 20h18" />
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
                     </svg>
                   </div>
                   <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Get the Enterprise plan</h3>
@@ -230,13 +228,10 @@ export const ContactSalesPage: React.FC = () => {
               {/* Card 2: Chat with buying agent */}
               <div className="p-8 rounded-3xl bg-[#131315] border border-white/[0.08] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
-                  {/* Speech Bubble with 3 Dots Icon */}
+                  {/* Modern AI Agent Sparkles Icon */}
                   <div className="w-12 h-12 text-white/90 flex items-center justify-start">
-                    <svg className="w-9 h-9" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 11.5c0 4.695-4.03 8.5-9 8.5a9.86 9.86 0 01-4.255-.949L3 20.5l1.395-3.72C3.512 15.442 3 13.524 3 11.5 3 6.805 7.03 3 12 3s9 3.805 9 8.5z" />
-                      <circle cx="8.5" cy="11.5" r="0.75" fill="currentColor" stroke="none" />
-                      <circle cx="12" cy="11.5" r="0.75" fill="currentColor" stroke="none" />
-                      <circle cx="15.5" cy="11.5" r="0.75" fill="currentColor" stroke="none" />
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                     </svg>
                   </div>
                   <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Chat with buying agent</h3>

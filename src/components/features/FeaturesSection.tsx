@@ -161,15 +161,27 @@ const FeaturesSection: React.FC = () => {
     <section
       className="py-32 bg-gray-50 dark:bg-gray-950 relative overflow-hidden"
     >
+      {/* Corner Text - Inter font in solid Black / White */}
+      <div className="absolute top-8 left-6 sm:left-10 md:left-14 z-20">
+        <span className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+          HELLEIOUS.AI
+        </span>
+      </div>
+
+      <div className="absolute top-8 right-6 sm:right-10 md:right-14 z-20">
+        <span className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+          CODEHOOMER.AI
+        </span>
+      </div>
+
       <div className="container mx-auto px-6 max-w-7xl relative z-10">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="text-center mb-20"
+          className="text-center mb-20 relative"
         >
-          <span className="text-blue-600 dark:text-blue-400 font-bold tracking-widest uppercase text-sm mb-4 block">Capabilities</span>
           <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tighter mb-6">
             Our Core Competencies
           </h2>

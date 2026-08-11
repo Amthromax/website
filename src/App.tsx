@@ -256,11 +256,6 @@ const App: React.FC = () => {
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
                 <Link to="/" className="flex items-center gap-2.5 text-xl md:text-2xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none group">
-                  <img
-                    src="/images/amthromax_asterisk_logo.png"
-                    alt="Amthromax 3D Logo"
-                    className="w-20 h-20 object-contain transition-transform duration-300 group-hover:rotate-12"
-                  />
                   <span>Amthromax</span>
                 </Link>
               </div>
@@ -386,7 +381,7 @@ const App: React.FC = () => {
                     </div>
                   ) : (
                     <>
-                      <Link to="/login" className="px-4 py-2 bg-white/10 hover:bg-white/15 text-white rounded-full text-xs font-semibold transition-all select-none border border-white/5 flex items-center gap-1">
+                      <Link to="/login" className="h-9 px-4 bg-white/10 hover:bg-white/15 text-white rounded-full text-xs font-semibold transition-all select-none border border-white/5 flex items-center justify-center gap-1.5">
                         <span>Log in</span>
                         <span className="text-[8px] opacity-60">▼</span>
                       </Link>
@@ -396,7 +391,7 @@ const App: React.FC = () => {
                           setShowComingSoonModal(true);
                           setIsSubmittedWaitlist(false);
                         }}
-                        className="px-5 py-2.5 bg-white text-black rounded-full text-xs font-bold hover:opacity-90 transition-all shadow-md flex items-center gap-0.5 cursor-pointer"
+                        className="h-9 px-4 bg-white text-black rounded-full text-xs font-semibold hover:opacity-90 transition-all shadow-md flex items-center justify-center gap-1 cursor-pointer"
                       >
                         <span>Try Amthromax</span>
                         <span className="text-xs">↗</span>

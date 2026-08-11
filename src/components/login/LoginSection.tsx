@@ -11,8 +11,9 @@ const LoginSection: React.FC = () => {
   const mode = searchParams.get("mode");
 
   const [isSignUp, setIsSignUp] = useState<boolean>(
-    location.pathname === "/register" || mode === "register" || mode === "signup" || true
+    location.pathname === "/register" || mode === "register" || mode === "signup"
   );
+  const [showPasswordStep, setShowPasswordStep] = useState<boolean>(false);
   const [showPassword, setShowPassword] = useState<boolean>(false);
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -39,18 +40,41 @@ const LoginSection: React.FC = () => {
     }
   }, [user, authLoading, navigate]);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleContinue = (e: React.FormEvent) => {
     e.preventDefault();
     const sanitizedEmail = sanitizeInput(email.trim());
-    if (!sanitizedEmail || !password) return;
+    if (!sanitizedEmail) {
+      setAuthError("Please enter your email address.");
+      return;
+    }
 
-    if (containsMaliciousPayload(sanitizedEmail) || containsMaliciousPayload(password)) {
-      setAuthError("Security Alert: Invalid characters or script payloads detected.");
+    if (containsMaliciousPayload(sanitizedEmail)) {
+      setAuthError("Security Alert: Invalid characters detected.");
       return;
     }
 
     if (!validateEmail(sanitizedEmail)) {
-      setAuthError("Please enter a valid email address (e.g. user@example.com).");
+      setAuthError("Please enter a valid email address.");
+      return;
+    }
+
+    setAuthError(null);
+    if (!showPasswordStep) {
+      setShowPasswordStep(true);
+    } else {
+      handleSubmit();
+    }
+  };
+
+  const handleSubmit = async () => {
+    const sanitizedEmail = sanitizeInput(email.trim());
+    if (!sanitizedEmail || !password) {
+      setAuthError("Please enter your password.");
+      return;
+    }
+
+    if (containsMaliciousPayload(password)) {
+      setAuthError("Security Alert: Invalid characters detected.");
       return;
     }
 
@@ -81,11 +105,9 @@ const LoginSection: React.FC = () => {
     }
 
     if (authErr && authErr.message !== "Invalid API key") {
-      // Real connection error
       setAuthError(authErr.message);
       setIsLoading(false);
     } else {
-      // User authenticated successfully or fell back to mock config
       const userEmail = authData?.user?.email || email;
       localStorage.setItem("amthromax-user", userEmail);
       localStorage.setItem("amthromax-profile", JSON.stringify({
@@ -96,11 +118,11 @@ const LoginSection: React.FC = () => {
       
       setIsLoading(false);
       setIsSuccess(true);
-      setTimeout(() => navigate('/'), 2000);
+      setTimeout(() => navigate('/'), 1800);
     }
   };
 
-  const signInWithProvider = async (provider: 'google' | 'github' | 'apple') => {
+  const signInWithProvider = async (provider: 'google' | 'github' | 'apple' | 'microsoft' | 'phone') => {
     try {
       if (provider === 'google') {
         setIsLoading(true);
@@ -113,23 +135,21 @@ const LoginSection: React.FC = () => {
             },
           });
           if (error) {
-            console.warn("Supabase Google OAuth fallback to modal:", error.message);
             setIsLoading(false);
             setShowGoogleModal(true);
           }
         } catch (err: any) {
-          console.warn("Supabase Google OAuth exception, using fallback modal:", err);
           setIsLoading(false);
           setShowGoogleModal(true);
         }
         return;
       }
 
-      // Mock other providers directly for developers
+      // Handle other mock authentication providers for developer convenience
       const mockEmail = `${provider}_user@amthromax.com`;
       localStorage.setItem("amthromax-user", mockEmail);
       localStorage.setItem("amthromax-profile", JSON.stringify({
-        full_name: `${provider.toUpperCase()} DEVELOPER`
+        full_name: `${provider.toUpperCase()} USER`
       }));
       window.dispatchEvent(new Event("storage"));
       window.dispatchEvent(new Event("auth-change"));
@@ -141,256 +161,237 @@ const LoginSection: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-950 flex items-center justify-center p-4 md:p-8 font-sans transition-colors duration-300">
-      {/* Container Card */}
-      <motion.div
-        initial={{ opacity: 0, y: 30 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5, ease: "easeOut" }}
-        className="w-full max-w-4xl bg-white dark:bg-gray-900 rounded-[32px] overflow-hidden shadow-2xl border border-gray-100 dark:border-gray-800 flex flex-col md:flex-row relative min-h-[550px]"
-      >
-        {/* Left Side: Gradient Banner */}
-        <div className="w-full md:w-[45%] bg-[#0f0f10] p-8 md:p-12 flex flex-col justify-between relative overflow-hidden text-white select-none">
-          {/* Decorative Blur Spheres (B&W / Monochrome Gradients) */}
-          <div className="absolute top-[-20%] left-[-20%] w-72 h-72 bg-white/[0.08] rounded-full mix-blend-screen filter blur-3xl opacity-60 animate-pulse pointer-events-none" />
-          <div className="absolute bottom-[-20%] right-[-20%] w-72 h-72 bg-white/[0.05] rounded-full mix-blend-screen filter blur-3xl opacity-40 pointer-events-none" />
+    <div className="min-h-screen bg-[#000000] text-white flex flex-col justify-between p-4 sm:p-8 font-sans selection:bg-white selection:text-black">
 
-          {/* Logo */}
-          <div className="relative z-10">
-            <span className="text-4xl font-light text-white/90 leading-none select-none">*</span>
+      {/* Main Login / Platform Section */}
+      <main className="flex-1 flex flex-col items-center justify-center py-10 px-4">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+          className="max-w-[440px] w-full mx-auto text-center space-y-8"
+        >
+          {/* Header Title & Subtitle */}
+          <div className="space-y-3">
+            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-white leading-tight">
+              Build on the <span className="bg-gradient-to-r from-white via-zinc-200 to-zinc-400 bg-clip-text text-transparent">Amthromax Platform</span>
+            </h1>
+            <p className="text-sm text-zinc-400 max-w-sm mx-auto leading-relaxed">
+              Sign up or login with an Amthromax account to access our models and build.
+            </p>
           </div>
 
-          {/* Heading */}
-          <div className="space-y-4 relative z-10 pt-24 md:pt-0">
-            <span className="text-xs uppercase tracking-widest text-white/70 font-semibold">You can easily</span>
-            <h2 className="text-2xl md:text-3xl font-bold leading-tight tracking-tight text-white/95">
-              Get access your personal hub for clarity and productivity
-            </h2>
-          </div>
-        </div>
-
-        {/* Right Side: Interactive Form */}
-        <div className="w-full md:w-[55%] p-8 md:p-12 flex flex-col justify-between bg-white dark:bg-gray-900 transition-colors duration-300">
-          {/* Top Row: Logo & Title */}
-          <div className="space-y-6">
-            <div className="flex justify-between items-center">
-              {/* Asterisk Logo in B&W */}
-              <span className="text-3xl font-light text-black dark:text-white select-none">*</span>
-              {/* Close Button back to home */}
-              <Link to="/" className="text-gray-400 hover:text-gray-600 dark:hover:text-gray-200 transition-colors">
-                ✕
-              </Link>
-            </div>
-
-            <div className="space-y-2">
-              <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white transition-all duration-300">
-                {isSignUp ? "Create an account" : "Sign in to Amthromax"}
-              </h1>
-              <p className="text-xs text-gray-500 dark:text-gray-450 leading-relaxed max-w-sm">
-                Access your tasks, notes, and projects anytime, anywhere - and keep everything flowing in one place.
-              </p>
-            </div>
-          </div>
-
-          {/* Form */}
-          <form onSubmit={handleSubmit} className="space-y-4 my-6">
-            <AnimatePresence mode="wait">
-              {isSuccess ? (
-                <motion.div
-                  key="success"
-                  initial={{ opacity: 0, scale: 0.95 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  className="bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-2xl p-6 text-center space-y-3"
+          {/* Login Form Box */}
+          <AnimatePresence mode="wait">
+            {isSuccess ? (
+              <motion.div
+                key="success"
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                className="bg-[#0b0b0d] border border-zinc-800 rounded-3xl p-8 text-center space-y-4 shadow-2xl"
+              >
+                <div className="w-12 h-12 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 flex items-center justify-center mx-auto text-xl font-bold">
+                  ✓
+                </div>
+                <h3 className="text-lg font-bold text-white">Successfully Authenticated</h3>
+                <p className="text-xs text-zinc-400 leading-relaxed">
+                  Welcome to the Amthromax Platform. Redirecting you to your developer dashboard...
+                </p>
+                <Link
+                  to="/"
+                  className="inline-block px-6 py-3 bg-white text-black rounded-full text-xs font-bold hover:bg-zinc-200 transition-all shadow-md"
                 >
-                  <span className="text-2xl">✨</span>
-                  <h3 className="text-sm font-bold text-gray-900 dark:text-white">Authentication Successful</h3>
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {email.includes("gmail.com") || email.includes("google") 
-                      ? `Successfully authenticated and connected Google Mail user: ${email}`
-                      : "Welcome back! Redirecting you to your workspace dashboard..."}
-                  </p>
-                  <Link
-                    to="/"
-                    className="inline-block mt-2 px-4 py-2 bg-black hover:bg-neutral-900 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-black rounded-full text-xs font-semibold transition-all shadow-sm"
-                  >
-                    Go to Homepage
-                  </Link>
-                </motion.div>
-              ) : (
-                <motion.div key="inputs" className="space-y-4">
-                  {/* Email Input */}
-                  <div className="space-y-1.5">
-                    <label className="text-xs font-semibold text-gray-700 dark:text-gray-300">Your email</label>
-                    <input
-                      type="email"
-                      required
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      placeholder="you@example.com"
-                      className="w-full px-4 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-850 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white transition-all"
-                    />
-                  </div>
+                  Go to Dashboard
+                </Link>
+              </motion.div>
+            ) : (
+              <form onSubmit={handleContinue} className="space-y-4 text-left">
+                {/* Email Input */}
+                <div className="space-y-1">
+                  <input
+                    type="email"
+                    required
+                    value={email}
+                    onChange={(e) => {
+                      setEmail(e.target.value);
+                      if (authError) setAuthError(null);
+                    }}
+                    placeholder="Email address"
+                    className="w-full px-5 py-3.5 text-sm rounded-full border border-zinc-800 bg-[#0c0c0e] text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 transition-all"
+                  />
+                </div>
 
-                  {/* Password Input */}
-                  <div className="space-y-1.5 relative">
-                    <div className="flex justify-between items-center">
-                      <label className="text-xs font-semibold text-gray-700 dark:text-gray-300">Password</label>
-                      {!isSignUp && (
-                        <a href="#" className="text-[10px] text-gray-500 hover:text-black dark:text-gray-400 dark:hover:text-white font-medium underline">
-                          Forgot password?
-                        </a>
-                      )}
-                    </div>
+                {/* Password Input (Appears smoothly or when user enters email) */}
+                {showPasswordStep && (
+                  <motion.div 
+                    initial={{ opacity: 0, height: 0 }}
+                    animate={{ opacity: 1, height: "auto" }}
+                    transition={{ duration: 0.25 }}
+                    className="space-y-1 relative"
+                  >
                     <div className="relative">
                       <input
                         type={showPassword ? "text" : "password"}
                         required
                         value={password}
-                        onChange={(e) => setPassword(e.target.value)}
-                        placeholder="••••••••••••"
-                        className="w-full pl-4 pr-10 py-2.5 text-sm rounded-xl border border-gray-200 dark:border-gray-850 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-1 focus:ring-black dark:focus:ring-white transition-all"
+                        onChange={(e) => {
+                          setPassword(e.target.value);
+                          if (authError) setAuthError(null);
+                        }}
+                        placeholder="Enter password"
+                        className="w-full pl-5 pr-12 py-3.5 text-sm rounded-full border border-zinc-800 bg-[#0c0c0e] text-white placeholder-zinc-500 focus:outline-none focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 transition-all"
                       />
                       <button
                         type="button"
                         onClick={() => setShowPassword(!showPassword)}
-                        className="absolute inset-y-0 right-3 flex items-center text-gray-400 hover:text-gray-600 dark:hover:text-gray-200"
+                        className="absolute inset-y-0 right-4 flex items-center text-xs text-zinc-400 hover:text-white transition-colors"
                       >
-                        {showPassword ? "👁️" : "👁️‍🗨️"}
+                        {showPassword ? "Hide" : "Show"}
                       </button>
                     </div>
+                  </motion.div>
+                )}
+
+                {/* Auth Error Banner */}
+                {authError && (
+                  <div className="p-3.5 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 text-xs font-medium text-center">
+                    {authError}
                   </div>
+                )}
 
-                  {authError && (
-                    <div className="p-3 bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-900 rounded-xl text-red-600 dark:text-red-400 text-xs font-medium">
-                      {authError}
-                    </div>
-                  )}
-
-                  {/* Submit Button (B&W) */}
-                  <button
-                    type="submit"
-                    disabled={isLoading}
-                    className="w-full mt-2 py-3 bg-black hover:bg-neutral-850 dark:bg-white dark:hover:bg-neutral-100 text-white dark:text-black rounded-xl text-xs font-semibold transition-all duration-200 shadow-md hover:shadow-lg flex items-center justify-center space-x-2"
-                  >
-                    {isLoading ? (
-                      <span className="inline-block w-4 h-4 border-2 border-white dark:border-black border-t-transparent dark:border-t-transparent rounded-full animate-spin" />
-                    ) : (
-                      <span>{isSignUp ? "Get Started" : "Sign In"}</span>
-                    )}
-                  </button>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </form>
-
-          {/* Social Sign In */}
-          {!isSuccess && (
-            <div className="space-y-4">
-              <div className="relative flex items-center justify-center">
-                <div className="absolute inset-0 flex items-center">
-                  <div className="w-full border-t border-gray-200 dark:border-gray-800" />
-                </div>
-                <span className="relative px-3 text-[10px] text-gray-400 bg-white dark:bg-gray-900 uppercase tracking-widest font-semibold">
-                  or continue with
-                </span>
-              </div>
-
-              {/* Social Buttons (B&W Minimalist Style) */}
-              <div className="grid grid-cols-3 gap-3">
+                {/* Main Action Button */}
                 <button
-                  type="button"
-                  onClick={() => signInWithProvider('github')}
-                  className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full py-3.5 bg-white hover:bg-zinc-200 text-black rounded-full text-sm font-semibold transition-all duration-200 shadow-md flex items-center justify-center space-x-2 cursor-pointer"
                 >
-                  <span>GitHub</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => signInWithProvider('google')}
-                  className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
-                >
-                  <span>Google</span>
-                </button>
-                <button
-                  type="button"
-                  onClick={() => signInWithProvider('apple')}
-                  className="py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 text-xs font-bold text-gray-850 dark:text-gray-200 flex justify-center items-center space-x-2 transition-all"
-                >
-                  <span>Apple</span>
-                </button>
-              </div>
-
-              {/* Toggle Account View */}
-              <div className="text-center pt-2">
-                <button
-                  type="button"
-                  onClick={() => setIsSignUp(!isSignUp)}
-                  className="text-xs text-gray-500 hover:text-black dark:text-gray-455 dark:hover:text-white transition-colors"
-                >
-                  {isSignUp ? (
-                    <>
-                      Already have an account? <span className="text-black dark:text-white font-bold underline">Sign in</span>
-                    </>
+                  {isLoading ? (
+                    <span className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin" />
                   ) : (
-                    <>
-                      Don't have an account? <span className="text-black dark:text-white font-bold underline">Sign up</span>
-                    </>
+                    <span>{showPasswordStep ? (isSignUp ? "Create Account" : "Sign In") : "Continue"}</span>
                   )}
                 </button>
-              </div>
+              </form>
+            )}
+          </AnimatePresence>
+
+          {/* Divider */}
+          {!isSuccess && (
+            <div className="relative flex items-center justify-center my-6">
+              <div className="w-full border-t border-zinc-800/80" />
+              <span className="absolute px-3 text-[11px] text-zinc-500 bg-[#000000] font-semibold tracking-wider">
+                OR
+              </span>
             </div>
           )}
-        </div>
-      </motion.div>
 
-      {/* Google Sign In Modal */}
+          {/* Social Provider Buttons */}
+          {!isSuccess && (
+            <div className="space-y-3">
+              {/* Google */}
+              <button
+                type="button"
+                onClick={() => signInWithProvider('google')}
+                className="w-full py-3.5 px-5 rounded-full border border-zinc-800/90 bg-[#09090b] hover:bg-zinc-900 text-white text-sm font-medium flex items-center justify-center gap-3 transition-colors cursor-pointer"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 24 24">
+                  <path fill="#EA4335" d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.54 14.98 1 12 1 7.35 1 3.39 3.67 1.52 7.57l3.8 2.95C6.23 7.37 8.87 5.04 12 5.04z" />
+                  <path fill="#4285F4" d="M23.49 12.27c0-.81-.07-1.59-.2-2.36H12v4.47h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.73-4.92 3.73-8.56z" />
+                  <path fill="#FBBC05" d="M5.32 14.48c-.23-.69-.36-1.43-.36-2.2s.13-1.51.36-2.2l-3.8-2.95C.57 8.92 0 10.4 0 12s.57 3.08 1.52 4.87l3.8-2.87c-.23-.69-.36-1.43-.36-2.2z" />
+                  <path fill="#34A853" d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.12.75-2.55 1.19-4.26 1.19-3.13 0-5.77-2.33-6.68-5.48l-3.8 2.95C3.39 20.33 7.35 23 12 23z" />
+                </svg>
+                <span>Continue with Google</span>
+              </button>
+
+              {/* Apple */}
+              <button
+                type="button"
+                onClick={() => signInWithProvider('apple')}
+                className="w-full py-3.5 px-5 rounded-full border border-zinc-800/90 bg-[#09090b] hover:bg-zinc-900 text-white text-sm font-medium flex items-center justify-center gap-3 transition-colors cursor-pointer"
+              >
+                <svg className="w-4 h-4 fill-current text-white" viewBox="0 0 24 24">
+                  <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.32c.67-.82 1.12-1.96.99-3.1-.96.04-2.13.65-2.82 1.45-.61.71-1.15 1.87-.99 3 1.07.08 2.16-.54 2.82-1.35z"/>
+                </svg>
+                <span>Continue with Apple</span>
+              </button>
+
+              {/* Microsoft */}
+              <button
+                type="button"
+                onClick={() => signInWithProvider('microsoft')}
+                className="w-full py-3.5 px-5 rounded-full border border-zinc-800/90 bg-[#09090b] hover:bg-zinc-900 text-white text-sm font-medium flex items-center justify-center gap-3 transition-colors cursor-pointer"
+              >
+                <svg className="w-4 h-4" viewBox="0 0 23 23">
+                  <path fill="#f35325" d="M1 1h10v10H1z"/>
+                  <path fill="#81bc06" d="M12 1h10v10H12z"/>
+                  <path fill="#05a6f0" d="M1 12h10v10H1z"/>
+                  <path fill="#ffba08" d="M12 12h10v10H12z"/>
+                </svg>
+                <span>Continue with Microsoft</span>
+              </button>
+            </div>
+          )}
+
+          {/* Footer Terms / Privacy Links */}
+          <div className="pt-2 flex items-center justify-center gap-3 text-xs text-zinc-500">
+            <Link to="/terms" className="hover:text-zinc-300 transition-colors underline">
+              Terms of Use
+            </Link>
+            <span className="text-zinc-700">|</span>
+            <Link to="/privacy" className="hover:text-zinc-300 transition-colors underline">
+              Privacy Policy
+            </Link>
+          </div>
+        </motion.div>
+      </main>
+
+      {/* Sleek Editorial Minimalist Footer */}
+      <footer className="max-w-6xl w-full mx-auto pt-10 pb-6 px-4 border-t border-zinc-900/80 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-zinc-500 font-medium select-none">
+        {/* Quick Links */}
+        <div className="flex flex-wrap items-center justify-center gap-6 text-zinc-400">
+          <Link to="/docs" className="hover:text-white transition-colors">Documentation</Link>
+          <Link to="/overview" className="hover:text-white transition-colors">API Status</Link>
+          <Link to="/security" className="hover:text-white transition-colors">Security</Link>
+          <Link to="/contact" className="hover:text-white transition-colors">Contact Support</Link>
+        </div>
+
+        {/* Copyright */}
+        <div className="text-zinc-500 text-[11px]">
+          © {new Date().getFullYear()} Amthromax Inc. All rights reserved.
+        </div>
+      </footer>
+
+      {/* Google Sign In Modal Fallback */}
       <AnimatePresence>
         {showGoogleModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/45 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white dark:bg-[#161617] w-full max-w-sm rounded-3xl p-6 border border-gray-150 dark:border-white/[0.06] shadow-2xl space-y-6"
+              className="bg-[#121215] w-full max-w-sm rounded-3xl p-6 border border-zinc-800 shadow-2xl space-y-6"
             >
-              {/* Google Brand Logo Mock */}
               <div className="flex flex-col items-center text-center space-y-2">
-                <div className="w-10 h-10 rounded-full bg-gray-50 dark:bg-gray-850 flex items-center justify-center border border-gray-100 dark:border-gray-800">
+                <div className="w-10 h-10 rounded-full bg-zinc-900 flex items-center justify-center border border-zinc-800">
                   <svg className="w-5 h-5" viewBox="0 0 24 24">
-                    <path
-                      fill="#EA4335"
-                      d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.54 14.98 1 12 1 7.35 1 3.39 3.67 1.52 7.57l3.8 2.95C6.23 7.37 8.87 5.04 12 5.04z"
-                    />
-                    <path
-                      fill="#4285F4"
-                      d="M23.49 12.27c0-.81-.07-1.59-.2-2.36H12v4.47h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.73-4.92 3.73-8.56z"
-                    />
-                    <path
-                      fill="#FBBC05"
-                      d="M5.32 14.48c-.23-.69-.36-1.43-.36-2.2s.13-1.51.36-2.2l-3.8-2.95C.57 8.92 0 10.4 0 12s.57 3.08 1.52 4.87l3.8-2.87c-.23-.69-.36-1.43-.36-2.2z"
-                    />
-                    <path
-                      fill="#34A853"
-                      d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.12.75-2.55 1.19-4.26 1.19-3.13 0-5.77-2.33-6.68-5.48l-3.8 2.95C3.39 20.33 7.35 23 12 23z"
-                    />
+                    <path fill="#EA4335" d="M12 5.04c1.66 0 3.2.57 4.38 1.69l3.27-3.27C17.67 1.54 14.98 1 12 1 7.35 1 3.39 3.67 1.52 7.57l3.8 2.95C6.23 7.37 8.87 5.04 12 5.04z" />
+                    <path fill="#4285F4" d="M23.49 12.27c0-.81-.07-1.59-.2-2.36H12v4.47h6.44c-.28 1.48-1.12 2.73-2.38 3.58l3.7 2.87c2.16-1.99 3.73-4.92 3.73-8.56z" />
+                    <path fill="#FBBC05" d="M5.32 14.48c-.23-.69-.36-1.43-.36-2.2s.13-1.51.36-2.2l-3.8-2.95C.57 8.92 0 10.4 0 12s.57 3.08 1.52 4.87l3.8-2.87c-.23-.69-.36-1.43-.36-2.2z" />
+                    <path fill="#34A853" d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.12.75-2.55 1.19-4.26 1.19-3.13 0-5.77-2.33-6.68-5.48l-3.8 2.95C3.39 20.33 7.35 23 12 23z" />
                   </svg>
                 </div>
-                <h3 className="text-base font-bold text-gray-900 dark:text-white">Sign in with Google</h3>
-                <p className="text-xs text-gray-500 dark:text-gray-400">to continue to Amthromax</p>
+                <h3 className="text-base font-bold text-white">Sign in with Google</h3>
+                <p className="text-xs text-zinc-400">to continue to Amthromax Platform</p>
               </div>
 
               {isGoogleConnecting ? (
                 <div className="flex flex-col items-center justify-center py-6 space-y-4">
-                  <span className="inline-block w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
-                  <p className="text-xs font-semibold text-gray-600 dark:text-gray-400">Connecting to Google Mail...</p>
+                  <span className="w-8 h-8 border-2 border-white border-t-transparent rounded-full animate-spin" />
+                  <p className="text-xs font-semibold text-zinc-400">Connecting to Google Mail...</p>
                 </div>
               ) : (
                 <div className="space-y-3">
-                  {/* Account List */}
-                  {[
-                    "kishorekanth@gmail.com",
-                    "admin@amthromax.com"
-                  ].map((emailOpt, i) => (
+                  {["kishorekanth@gmail.com", "admin@amthromax.com"].map((emailOpt, i) => (
                     <button
                       key={i}
                       type="button"
@@ -399,41 +400,37 @@ const LoginSection: React.FC = () => {
                         setTimeout(() => {
                           const name = emailOpt.split("@")[0].toUpperCase();
                           localStorage.setItem("amthromax-user", emailOpt);
-                          localStorage.setItem("amthromax-profile", JSON.stringify({
-                            full_name: name
-                          }));
+                          localStorage.setItem("amthromax-profile", JSON.stringify({ full_name: name }));
                           window.dispatchEvent(new Event("storage"));
                           window.dispatchEvent(new Event("auth-change"));
                           setIsGoogleConnecting(false);
                           setShowGoogleModal(false);
                           setEmail(emailOpt);
-                          setPassword("••••••••••••");
                           setIsSuccess(true);
                           setTimeout(() => navigate('/'), 1200);
                         }, 1000);
                       }}
-                      className="w-full p-3 rounded-xl border border-gray-150 dark:border-gray-800 hover:bg-gray-50 dark:hover:bg-gray-800/80 transition-all text-left flex items-center justify-between group"
+                      className="w-full p-3 rounded-2xl border border-zinc-800 bg-[#09090b] hover:bg-zinc-900 transition-all text-left flex items-center justify-between group cursor-pointer"
                     >
                       <div className="flex items-center space-x-3">
-                        <div className="w-7 h-7 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-600 font-bold text-xs flex items-center justify-center">
+                        <div className="w-7 h-7 rounded-full bg-zinc-800 text-white font-bold text-xs flex items-center justify-center">
                           {emailOpt[0].toUpperCase()}
                         </div>
-                        <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">{emailOpt}</span>
+                        <span className="text-xs font-semibold text-zinc-200">{emailOpt}</span>
                       </div>
-                      <span className="text-[10px] text-gray-400 group-hover:text-gray-600 transition-colors">Select</span>
+                      <span className="text-[10px] text-zinc-500 group-hover:text-white transition-colors">Select</span>
                     </button>
                   ))}
 
-                  {/* Manual input option */}
-                  <div className="pt-2 border-t border-gray-100 dark:border-gray-800">
-                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-2">Use another account</label>
+                  <div className="pt-2 border-t border-zinc-800">
+                    <label className="block text-[10px] font-bold text-zinc-500 uppercase tracking-wider mb-2">Use another account</label>
                     <div className="flex gap-2">
                       <input
                         type="email"
                         placeholder="username@gmail.com"
                         value={googleEmail}
                         onChange={(e) => setGoogleEmail(e.target.value)}
-                        className="flex-1 px-3 py-2 text-xs rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-900 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none"
+                        className="flex-1 px-3 py-2 text-xs rounded-xl border border-zinc-800 bg-[#09090b] text-white placeholder-zinc-600 focus:outline-none"
                       />
                       <button
                         type="button"
@@ -443,31 +440,27 @@ const LoginSection: React.FC = () => {
                           setTimeout(() => {
                             const name = googleEmail.split("@")[0].toUpperCase();
                             localStorage.setItem("amthromax-user", googleEmail);
-                            localStorage.setItem("amthromax-profile", JSON.stringify({
-                              full_name: name
-                            }));
+                            localStorage.setItem("amthromax-profile", JSON.stringify({ full_name: name }));
                             window.dispatchEvent(new Event("storage"));
                             window.dispatchEvent(new Event("auth-change"));
                             setIsGoogleConnecting(false);
                             setShowGoogleModal(false);
                             setEmail(googleEmail);
-                            setPassword("••••••••••••");
                             setIsSuccess(true);
                             setTimeout(() => navigate('/'), 1200);
                           }, 1000);
                         }}
-                        className="px-4 py-2 bg-black dark:bg-white text-white dark:text-black rounded-xl text-xs font-bold cursor-pointer"
+                        className="px-4 py-2 bg-white text-black rounded-xl text-xs font-bold cursor-pointer hover:bg-zinc-200"
                       >
                         Sign In
                       </button>
                     </div>
                   </div>
 
-                  {/* Close button */}
                   <button
                     type="button"
                     onClick={() => setShowGoogleModal(false)}
-                    className="w-full text-center text-xs text-gray-500 hover:text-gray-700 dark:text-gray-400 dark:hover:text-gray-200 pt-2 transition-colors"
+                    className="w-full text-center text-xs text-zinc-500 hover:text-zinc-300 pt-2 transition-colors cursor-pointer"
                   >
                     Cancel
                   </button>
