@@ -9,6 +9,7 @@ import FoundationSection from "./components/foundation/FoundationSection";
 import FoundationDetailPage from "./components/foundation/FoundationDetailPage";
 import Footer from "./components/footer/Footer";
 import UpcomingProjectsSection from "./components/projects/UpcomingProjectsSection";
+import EditorialMissionSection from "./components/home/EditorialMissionSection";
 import LoginSection from "./components/login/LoginSection";
 import ServiceDetailPage from "./components/services/ServiceDetailPage";
 import ResearchDetailPage from "./components/research/ResearchDetailPage";
@@ -815,6 +816,7 @@ const App: React.FC = () => {
                   </section>
 
                   <UpcomingProjectsSection />
+                  <EditorialMissionSection />
                   <Footer />
                 </div>
               } />
