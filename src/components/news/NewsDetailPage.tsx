@@ -91,8 +91,8 @@ const NewsDetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
             
-            {/* Left Side Header Info */}
-            <div className="lg:col-span-7 space-y-6">
+            {/* Header Info */}
+            <div className="lg:col-span-12 space-y-6 max-w-4xl">
               {/* Breadcrumb Navigation */}
               <div className="flex flex-wrap items-center gap-2 text-xs font-semibold tracking-wide text-gray-500 dark:text-gray-400">
                 <Link to="/newsroom" className="hover:text-gray-900 dark:hover:text-white transition-colors">
@@ -130,46 +130,16 @@ const NewsDetailPage: React.FC = () => {
 
               {/* Author Badge */}
               <div className="flex items-center pt-2">
-                <div className="w-8 h-8 rounded-lg bg-gray-950 dark:bg-white text-white dark:text-gray-950 font-black text-sm flex items-center justify-center border border-black/10 shrink-0">
-                  ✻
+                <div className="w-8 h-8 rounded-lg bg-white dark:bg-white/10 p-1.5 flex items-center justify-center border border-gray-200/80 dark:border-white/10 shadow-xs shrink-0">
+                  <img
+                    src="/images/amthromax_asterisk_logo.png"
+                    alt="Amthromax Logo"
+                    className="w-full h-full object-contain dark:invert"
+                  />
                 </div>
                 <span className="text-xs font-bold text-gray-800 dark:text-gray-200 ml-3">
                   Written by The Amthromax Team
                 </span>
-              </div>
-            </div>
-
-            {/* Right Side Illustration Card Box */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-md bg-[#faf9f6] dark:bg-white/[0.02] border border-gray-200/80 dark:border-white/10 rounded-2xl p-6 sm:p-8 flex items-center justify-center shadow-sm">
-                <svg viewBox="0 0 320 220" fill="none" className="w-full h-auto max-w-[280px]">
-                  {/* Growth Bar Chart Card */}
-                  <rect x="195" y="15" width="95" height="75" rx="12" fill="white" stroke="#e2e8f0" strokeWidth="1.5" />
-                  <path d="M210 65 L227 45 L245 52 L275 25" stroke="#2563eb" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <path d="M266 25 H275 V34" stroke="#2563eb" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" />
-                  <rect x="210" y="55" width="9" height="20" rx="1" fill="#e2e8f0" />
-                  <rect x="226" y="45" width="9" height="30" rx="1" fill="#e2e8f0" />
-                  <rect x="243" y="40" width="9" height="35" rx="1" fill="#e2e8f0" />
-                  <rect x="260" y="28" width="9" height="47" rx="1" fill="#2563eb" />
-
-                  {/* Person sitting at desk working on laptop */}
-                  <path d="M175 42 C162 42 155 52 155 65 C155 78 164 85 175 85 C186 85 195 78 195 65 C195 52 188 42 175 42 Z" fill="#1e293b" />
-                  <circle cx="178" cy="68" r="14" fill="#fed7aa" />
-
-                  {/* Torso / Lavender Shirt */}
-                  <path d="M142 105 C142 92 156 88 175 88 C194 88 208 92 208 105 L200 155 H150 Z" fill="#c084fc" opacity="0.8" stroke="#1e293b" strokeWidth="2" />
-
-                  {/* Laptop */}
-                  <rect x="180" y="120" width="68" height="44" rx="4" fill="white" stroke="#1e293b" strokeWidth="2.5" />
-                  <circle cx="214" cy="142" r="3.5" fill="#1e293b" />
-                  <path d="M165 164 H265 L269 169 H160 Z" fill="#e2e8f0" stroke="#1e293b" strokeWidth="2" />
-
-                  {/* Hands typing */}
-                  <path d="M170 142 Q190 150 205 143" stroke="#fed7aa" strokeWidth="6" strokeLinecap="round" />
-
-                  {/* Desk Line */}
-                  <path d="M130 169 H275 Q280 169 280 182 V195" stroke="#1e293b" strokeWidth="2.5" fill="none" strokeLinecap="round" />
-                </svg>
               </div>
             </div>
 
