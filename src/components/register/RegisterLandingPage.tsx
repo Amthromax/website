@@ -179,21 +179,21 @@ const RegisterLandingPage: React.FC = () => {
             className="w-full max-w-6xl md:max-w-7xl mx-auto rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)] relative p-4 sm:p-6 md:p-8 mb-8 bg-[#F2F1ED] flex flex-col justify-between items-center"
           >
             {/* Top Segmented Header Tabs */}
-            <div className="flex items-center justify-between w-full max-w-xl mx-auto bg-[#E6E4DD]/90 p-1.5 rounded-full border border-white/60 shadow-inner mb-4 sm:mb-6">
+            <div className="flex items-center justify-between w-full max-w-xl mx-auto bg-[#E6E4DD]/90 p-1 sm:p-1.5 rounded-full border border-white/60 shadow-inner mb-4 sm:mb-6 overflow-x-auto no-scrollbar gap-1">
               <button
                 type="button"
                 onClick={() => {
                   setActiveHeaderTab("helleious");
                   setActiveCategoryPill("Multi-Agent Swarm");
                 }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-sm sm:text-base font-bold transition-all duration-300 ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full text-xs sm:text-base font-bold transition-all duration-300 shrink-0 ${
                   activeHeaderTab === "helleious"
                     ? "bg-white text-[#1A1815] shadow-md border border-black/5"
                     : "text-[#2D2926] hover:text-black"
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1A1815]" />
-                <span>Helleious.AI</span>
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#1A1815]" />
+                <span className="whitespace-nowrap">Helleious.AI</span>
               </button>
 
               <button
@@ -202,14 +202,14 @@ const RegisterLandingPage: React.FC = () => {
                   setActiveHeaderTab("codehoomer");
                   setActiveCategoryPill("Autonomous Agent");
                 }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-sm sm:text-base font-bold transition-all duration-300 ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full text-xs sm:text-base font-bold transition-all duration-300 shrink-0 ${
                   activeHeaderTab === "codehoomer"
                     ? "bg-white text-[#1A1815] shadow-md border border-black/5"
                     : "text-[#2D2926] hover:text-black"
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1A1815]" />
-                <span>CodeHoomer.AI</span>
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#1A1815]" />
+                <span className="whitespace-nowrap">CodeHoomer.AI</span>
               </button>
 
               <button
@@ -218,14 +218,14 @@ const RegisterLandingPage: React.FC = () => {
                   setActiveHeaderTab("amxapi");
                   setActiveCategoryPill("JS / TS SDK");
                 }}
-                className={`flex-1 flex items-center justify-center gap-2 py-2.5 px-4 rounded-full text-sm sm:text-base font-bold transition-all duration-300 ${
+                className={`flex-1 flex items-center justify-center gap-1.5 sm:gap-2 py-2 sm:py-2.5 px-2.5 sm:px-4 rounded-full text-xs sm:text-base font-bold transition-all duration-300 shrink-0 ${
                   activeHeaderTab === "amxapi"
                     ? "bg-white text-[#1A1815] shadow-md border border-black/5"
                     : "text-[#2D2926] hover:text-black"
                 }`}
               >
-                <span className="w-2.5 h-2.5 rounded-full bg-[#1A1815]" />
-                <span>AMX Api</span>
+                <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-[#1A1815]" />
+                <span className="whitespace-nowrap">AMX Api</span>
               </button>
             </div>
 
