@@ -200,55 +200,56 @@ const PublicationsPage: React.FC = () => {
       </div>
 
       {/* Publications Grid */}
-      <div className="max-w-6xl mx-auto px-6 pb-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-24">
         {filteredPapers.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {filteredPapers.map((paper) => (
               <div
                 key={paper.slug}
-                className="bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-3xl p-8 shadow-sm flex flex-col justify-between hover:shadow-md transition-all duration-300 relative overflow-hidden min-h-[320px]"
+                className="bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 lg:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] flex flex-col justify-between transition-all duration-300 relative overflow-hidden h-full"
               >
-                <div className="absolute top-6 right-8 text-xs font-semibold text-gray-400 dark:text-gray-500">
-                  {paper.readTime}
-                </div>
-
                 <div>
-                  <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wide mb-3">
-                    {paper.category}
+                  <div className="flex items-center justify-between gap-4 mb-4">
+                    <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider">
+                      {paper.category}
+                    </span>
+                    <span className="text-xs font-medium text-[#86868b] dark:text-gray-500 bg-[#f5f5f7] dark:bg-white/5 px-3 py-1 rounded-full">
+                      {paper.readTime}
+                    </span>
                   </div>
 
-                  <h3 className="text-xl font-bold tracking-tight text-gray-950 dark:text-white mb-3">
+                  <h3 className="text-2xl sm:text-3xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white mb-4 leading-[1.25]">
                     {paper.title}
                   </h3>
 
-                  <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed mb-6">
+                  <p className="text-[15px] sm:text-base text-[#515154] dark:text-gray-300 leading-relaxed font-normal mb-8">
                     {paper.abstract}
                   </p>
                 </div>
 
                 <div>
                   {/* Authors & date */}
-                  <div className="pt-5 border-t border-gray-100 dark:border-white/[0.04]">
-                    <p className="text-[10px] text-gray-400 dark:text-gray-500 uppercase tracking-wider font-semibold">Authors</p>
-                    <p className="text-xs text-gray-650 dark:text-gray-300 font-semibold">{paper.authors}</p>
-                    <p className="text-[10px] text-gray-400 mt-1">Published in {paper.date}</p>
+                  <div className="pt-6 border-t border-[#e5e5e7]/80 dark:border-white/10 space-y-1">
+                    <p className="text-xs font-semibold text-[#86868b] dark:text-gray-500 uppercase tracking-wider">Authors</p>
+                    <p className="text-sm text-[#1d1d1f] dark:text-white font-medium">{paper.authors}</p>
+                    <p className="text-xs text-[#86868b] dark:text-gray-500 pt-0.5">Published in {paper.date}</p>
                   </div>
 
                   {/* Actions */}
-                  <div className="flex items-center justify-between mt-6">
+                  <div className="flex items-center justify-between mt-6 pt-4 border-t border-[#e5e5e7]/60 dark:border-white/10">
                     <button
                       onClick={() => setSelectedCitationPaper(paper)}
-                      className="text-xs font-bold text-gray-550 dark:text-gray-400 hover:text-black dark:hover:text-white transition-colors"
+                      className="text-xs font-medium text-[#6e6e73] dark:text-gray-400 hover:text-[#1d1d1f] dark:hover:text-white transition-colors cursor-pointer"
                     >
                       Cite Paper (BibTeX)
                     </button>
                     
                     <Link
                       to={`/research/${paper.slug}`}
-                      className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-1.5"
+                      className="text-[15px] font-medium text-[#0066cc] dark:text-[#2997ff] hover:underline flex items-center gap-1.5"
                     >
                       <span>Read Publication</span>
-                      <span>&rarr;</span>
+                      <span>›</span>
                     </Link>
                   </div>
                 </div>

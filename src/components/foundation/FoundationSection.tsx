@@ -231,10 +231,11 @@ const FoundationSection: React.FC = () => {
       </section>
 
       {/* 5. Resources Grid Section */}
-      <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12">
-        <div className="space-y-4">
-          <h2 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-            Resources
+      <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-300">
+        <div className="space-y-2 text-center md:text-left">
+          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">Foundation Insights</span>
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+            Resources & Initiatives
           </h2>
         </div>
 
@@ -243,17 +244,17 @@ const FoundationSection: React.FC = () => {
             <Link
               key={index}
               to={`/foundation/${item.slug}`}
-              className="block group"
+              className="block group h-full"
             >
               <motion.div
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.05 }}
-                className="flex flex-col space-y-4 p-5 rounded-3xl border border-gray-150 dark:border-white/[0.04] bg-white dark:bg-gray-900 shadow-sm hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full"
+                transition={{ duration: 0.5, delay: index * 0.08 }}
+                className="flex flex-col space-y-5 p-6 rounded-[28px] border border-[#e5e5e7] dark:border-white/[0.08] bg-white dark:bg-[#161617] shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
               >
                 {/* Image Container */}
-                <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-gray-50 dark:bg-gray-950/40 relative">
+                <div className="rounded-[20px] overflow-hidden aspect-[16/10] bg-[#f5f5f7] dark:bg-white/5 relative">
                   <img
                     src={item.image}
                     alt={item.title}
@@ -261,19 +262,19 @@ const FoundationSection: React.FC = () => {
                   />
                 </div>
                 
-                <div className="space-y-3 flex-grow flex flex-col justify-between">
-                  <div className="space-y-1">
-                    <span className="text-[10px] font-bold text-gray-400 dark:text-gray-500 uppercase tracking-wider block">
+                <div className="space-y-4 flex-grow flex flex-col justify-between">
+                  <div className="space-y-2">
+                    <span className="text-xs font-medium text-[#86868b] dark:text-gray-500 uppercase tracking-wider block">
                       {item.date}
                     </span>
-                    <h4 className="text-sm font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200 leading-snug">
+                    <h4 className="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-[#0066cc] dark:group-hover:text-[#2997ff] transition-colors duration-200 leading-snug">
                       {item.title}
                     </h4>
                   </div>
                   
-                  <div className="pt-4 flex items-center justify-between text-xs font-bold text-blue-650 dark:text-blue-450 border-t border-gray-100 dark:border-white/[0.04]">
+                  <div className="pt-4 flex items-center justify-between text-[15px] font-medium text-[#0066cc] dark:text-[#2997ff] border-t border-[#e5e5e7]/80 dark:border-white/10">
                     <span>Read Article</span>
-                    <span className="transform group-hover:translate-x-1 transition-transform duration-200">&rarr;</span>
+                    <span className="transform group-hover:translate-x-1 transition-transform duration-200">›</span>
                   </div>
                 </div>
               </motion.div>

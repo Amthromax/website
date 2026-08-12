@@ -9,6 +9,7 @@ import FoundationSection from "./components/foundation/FoundationSection";
 import FoundationDetailPage from "./components/foundation/FoundationDetailPage";
 import Footer from "./components/footer/Footer";
 import UpcomingProjectsSection from "./components/projects/UpcomingProjectsSection";
+import EventsSection from "./components/events/EventsSection";
 import EditorialMissionSection from "./components/home/EditorialMissionSection";
 import LoginSection from "./components/login/LoginSection";
 import ServiceDetailPage from "./components/services/ServiceDetailPage";
@@ -242,7 +243,7 @@ const App: React.FC = () => {
 
       {/* Navigation */}
       {!isRegisterPage && (
-        <motion.nav 
+        <motion.nav
           variants={{
             visible: { y: 0 },
             hidden: { y: "-100%" },
@@ -304,8 +305,8 @@ const App: React.FC = () => {
                   Foundation
                 </Link>
 
-                <button 
-                  type="button" 
+                <button
+                  type="button"
                   onClick={() => {
                     setIsSearchOpen(!isSearchOpen);
                     setActiveMenu(null);
@@ -338,9 +339,9 @@ const App: React.FC = () => {
                         className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
                       >
                         {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
-                          <img 
-                            src={user.user_metadata.avatar_url || user.user_metadata.picture} 
-                            alt="Profile" 
+                          <img
+                            src={user.user_metadata.avatar_url || user.user_metadata.picture}
+                            alt="Profile"
                             className="w-full h-full object-cover"
                             referrerPolicy="no-referrer"
                           />
@@ -403,8 +404,8 @@ const App: React.FC = () => {
 
                 {/* Mobile Search & Hamburger Toggle (Mobile only) */}
                 <div className="lg:hidden flex items-center space-x-2">
-                  <button 
-                    type="button" 
+                  <button
+                    type="button"
                     onClick={() => {
                       setIsSearchOpen(!isSearchOpen);
                       setIsMobileMenuOpen(false);
@@ -459,42 +460,42 @@ const App: React.FC = () => {
               >
                 {/* Navigation Links List */}
                 <div className="flex flex-col space-y-7 pt-4">
-                  <Link 
-                    to="/research" 
+                  <Link
+                    to="/research"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
                   >
                     Research
                   </Link>
-                  <Link 
+                  <Link
                     to="/products"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
                   >
                     Products
                   </Link>
-                  <Link 
+                  <Link
                     to="/solutions"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
                   >
                     Business
                   </Link>
-                  <Link 
+                  <Link
                     to="/developers"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
                   >
                     Developers
                   </Link>
-                  <Link 
+                  <Link
                     to="/about"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
                   >
                     Company
                   </Link>
-                  <a 
+                  <a
                     href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
@@ -504,7 +505,7 @@ const App: React.FC = () => {
                     <span>Contact Sales</span>
                     <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
                   </a>
-                  <Link 
+                  <Link
                     to="/foundation"
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
@@ -517,7 +518,7 @@ const App: React.FC = () => {
                 {/* Footer Action Buttons inside Mobile Menu Drawer */}
                 <div className="w-full">
                   <div className="border-t border-white/[0.08] my-6 w-full" />
-                  
+
                   <div className="flex flex-col space-y-5 pt-2">
                     {authLoading ? (
                       <div className="flex justify-start py-2">
@@ -525,7 +526,7 @@ const App: React.FC = () => {
                       </div>
                     ) : user ? (
                       <>
-                        <Link 
+                        <Link
                           to="/profile"
                           onClick={() => setIsMobileMenuOpen(false)}
                           className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
@@ -546,7 +547,7 @@ const App: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        <button 
+                        <button
                           type="button"
                           onClick={() => {
                             setIsMobileMenuOpen(false);
@@ -558,7 +559,7 @@ const App: React.FC = () => {
                           <span>Try Amthromax</span>
                           <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
                         </button>
-                        <Link 
+                        <Link
                           to="/login"
                           onClick={() => setIsMobileMenuOpen(false)}
                           className="block text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity"
@@ -712,9 +713,8 @@ const App: React.FC = () => {
                     />
                     <button
                       type="button"
-                      className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${
-                        searchQuery.trim() ? "bg-white text-black hover:bg-white/95" : "bg-white/10 text-white/40 cursor-default"
-                      }`}
+                      className={`flex-shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-all ${searchQuery.trim() ? "bg-white text-black hover:bg-white/95" : "bg-white/10 text-white/40 cursor-default"
+                        }`}
                     >
                       <svg className="w-4 h-4 stroke-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 10l7-7m0 0l7 7m-7-7v18" />
@@ -733,8 +733,8 @@ const App: React.FC = () => {
                           item.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
                           item.type.toLowerCase().includes(searchQuery.toLowerCase())
                         ).map((item, index) => (
-                          <Link 
-                            key={index} 
+                          <Link
+                            key={index}
                             to={item.url}
                             className="block p-4 rounded-2xl bg-white/[0.03] border border-white/[0.04] hover:bg-white/[0.06] hover:border-white/[0.08] transition-all flex justify-between items-center group"
                           >
@@ -786,204 +786,205 @@ const App: React.FC = () => {
           </AnimatePresence>
         </motion.nav>
       )}
-        <main>
-          <AnimatePresence>
-            <Routes location={location}>
-              <Route path="/" element={
-                <div>
-                  <SEO title="Amthromax | AI Software Company for Enterprise AI & Intelligent Automation" description="Amthromax is an AI software company building enterprise AI platforms, autonomous agents, workflow automation, APIs, and developer tools for modern businesses." />
-                  <HeroSection />
-                  <FeaturesSection />
-                  
-                  {/* Showcase Images Section */}
-                  <section className="py-12 bg-white dark:bg-gray-950 transition-colors duration-300">
-                    <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                      <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 relative group aspect-[3/2]">
-                        <img 
-                          src="/images/desktop_setup.png" 
-                          alt="Amthromax Enterprise System Collaboration" 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                        />
-                      </div>
-                      <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 relative group aspect-[3/2]">
-                        <img 
-                          src="/images/laptop_setup.png" 
-                          alt="Amthromax Custom Engineering System" 
-                          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
-                        />
-                      </div>
-                    </div>
-                  </section>
-
-                  <UpcomingProjectsSection />
-                  <EditorialMissionSection />
-                  <Footer />
-                </div>
-              } />
-              <Route path="/about" element={<AboutPage />} />
-              <Route path="/services" element={
-                <div>
-                  <SEO title="AI Development Services | Amthromax" description="Custom AI agents, workflow automation, enterprise AI software and intelligent systems." />
-                  <div className="py-12">
-                    <FeaturesSection />
-                  </div>
-                  <Footer />
-                </div>
-              } />
-              <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
-              <Route path="/research" element={
-                <div>
-                  <SEO title="Research & Development | Amthromax" description="Explore our peer-reviewed whitepapers, predictive system auto-scaling algorithms, and zero-trust cryptography solutions." />
-                  <ResearchSection />
-                  <Footer />
-                </div>
-              } />
-              <Route path="/research/overview" element={<ResearchOverviewPage />} />
-              <Route path="/research/publications" element={<PublicationsPage />} />
-              <Route path="/publications" element={<PublicationsPage />} />
-              <Route path="/research/:paperId" element={<ResearchDetailPage />} />
-              <Route path="/foundation" element={
-                <div>
-                  <FoundationSection />
-                  <Footer />
-                </div>
-              } />
-              <Route path="/foundation/:articleId" element={<FoundationDetailPage />} />
-              <Route path="/contact" element={<ContactSalesPage />} />
-              <Route path="/contact-sales" element={<ContactSalesPage />} />
-              <Route path="/privacy" element={<PrivacyPolicyPage />} />
-              <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
-              <Route path="/terms" element={<TermsOfServicePage />} />
-              <Route path="/terms-of-service" element={<TermsOfServicePage />} />
-              <Route path="/team" element={<TeamPage />} />
-              <Route path="/solutions" element={<SolutionsPage />} />
-              <Route path="/why/enterprises" element={<EnterprisesPage />} />
-              <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
-              <Route path="/why/developers" element={<DevelopersPage />} />
-              <Route path="/login" element={<LoginSection />} />
-              <Route path="/register" element={<RegisterLandingPage />} />
-              <Route path="/gtm-2026" element={<RegisterLandingPage />} />
-              <Route path="/auth/callback" element={<AuthCallback />} />
-              <Route path="/profile" element={<ProfilePage />} />
-              <Route path="/blog" element={<BlogPage />} />
-              <Route path="/blog/publish" element={<PublishPage />} />
-              <Route path="/blog/:postId" element={<BlogPostDetail />} />
-              <Route path="/news" element={<NewsPage />} />
-              <Route path="/news/:articleId" element={<NewsDetailPage />} />
-              <Route path="/newsroom" element={<NewsPage />} />
-              <Route path="/insights" element={<NewsPage />} />
-              <Route path="/insights/:articleId" element={<NewsDetailPage />} />
-              <Route path="/cookies" element={<CookiePolicyPage />} />
-              <Route path="/cookie-policy" element={<CookiePolicyPage />} />
-              <Route path="/platform" element={<PlatformPage />} />
-              <Route path="/products" element={<ProductsPage />} />
-              <Route path="/products/:productId" element={<ProductDetailPage />} />
-              <Route path="/developers" element={<DevelopersPage />} />
-              <Route path="/docs" element={<DocsPage />} />
-              <Route path="/docs/:section" element={<DocsPage />} />
-              <Route path="/documentation" element={<DocsPage />} />
-              <Route path="/pricing" element={<PricingPage />} />
-              <Route path="/careers" element={<CareersPage />} />
-              <Route path="/security" element={<SecurityPage />} />
-              <Route path="/overview" element={<OverviewPage />} />
-              <Route path="/developers/overview" element={<OverviewPage />} />
-              <Route path="/platform/overview" element={<OverviewPage />} />
-              <Route path="/partners" element={<PartnerNetworkPage />} />
-              <Route path="/partner-network" element={<PartnerNetworkPage />} />
-              <Route path="/charter" element={<CharterPage />} />
-              <Route path="/our-charter" element={<CharterPage />} />
-            </Routes>
-          </AnimatePresence>
-        </main>
-        <CookieConsent />
-
-        {/* Coming Soon Modal */}
+      <main>
         <AnimatePresence>
-          {showComingSoonModal && (
-            <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.92, y: 15 }}
-                animate={{ opacity: 1, scale: 1, y: 0 }}
-                exit={{ opacity: 0, scale: 0.92, y: 15 }}
-                transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
-                className="relative w-full max-w-md bg-[#161617] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden text-center"
-              >
-                {/* Glow backdrop decoration */}
-                <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
-                <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+          <Routes location={location}>
+            <Route path="/" element={
+              <div>
+                <SEO title="Amthromax | AI Software Company for Enterprise AI & Intelligent Automation" description="Amthromax is an AI software company building enterprise AI platforms, autonomous agents, workflow automation, APIs, and developer tools for modern businesses." />
+                <HeroSection />
+                <FeaturesSection />
 
-                {/* Close Button */}
-                <button
-                  type="button"
-                  onClick={() => setShowComingSoonModal(false)}
-                  className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
-                >
-                  ✕
-                </button>
-
-                {/* Badge */}
-                <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-bold tracking-wider uppercase mb-4">
-                  <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
-                  Coming Soon
-                </div>
-
-                {/* Title & Subtitle */}
-                <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
-                  Amthromax Console
-                </h3>
-                <p className="text-xs text-gray-400 leading-relaxed mb-6">
-                  Our next-generation enterprise AI orchestration platform is currently in private preview. Request priority access to be notified when public beta opens.
-                </p>
-
-                {/* Form or Success State */}
-                {isSubmittedWaitlist ? (
-                  <motion.div
-                    initial={{ opacity: 0, y: 8 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-emerald-400 text-xs font-semibold"
-                  >
-                    ✓ You're on the priority waitlist! We'll invite you as soon as early access opens.
-                  </motion.div>
-                ) : (
-                  <form
-                    onSubmit={(e) => {
-                      e.preventDefault();
-                      if (waitlistEmail.trim()) {
-                        setIsSubmittedWaitlist(true);
-                      }
-                    }}
-                    className="space-y-3 text-left"
-                  >
-                    <div>
-                      <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
-                        Work Email
-                      </label>
-                      <input
-                        type="email"
-                        placeholder="username@company.com"
-                        value={waitlistEmail}
-                        onChange={(e) => setWaitlistEmail(e.target.value)}
-                        required
-                        className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                {/* Showcase Images Section */}
+                <section className="py-12 bg-[#f5f5f7] dark:bg-black transition-colors duration-300">
+                  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 relative group aspect-[3/2]">
+                      <img
+                        src="/images/desktop_setup.png"
+                        alt="Amthromax Enterprise System Collaboration"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
                       />
                     </div>
-                    <button
-                      type="submit"
-                      className="w-full py-3 bg-white text-black font-bold rounded-xl text-xs hover:bg-gray-100 transition-all shadow-lg cursor-pointer flex items-center justify-center gap-1"
-                    >
-                      <span>Request Early Access</span>
-                      <span>↗</span>
-                    </button>
-                  </form>
-                )}
-              </motion.div>
-            </div>
-          )}
-        </AnimatePresence>
+                    <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 relative group aspect-[3/2]">
+                      <img
+                        src="/images/laptop_setup.png"
+                        alt="Amthromax Custom Engineering System"
+                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                      />
+                    </div>
+                  </div>
+                </section>
 
-        {/* 10-second Lead Demo Modal */}
-        <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
-      </div>
+                <UpcomingProjectsSection />
+                <EventsSection />
+                <EditorialMissionSection />
+                <Footer />
+              </div>
+            } />
+            <Route path="/about" element={<AboutPage />} />
+            <Route path="/services" element={
+              <div>
+                <SEO title="AI Development Services | Amthromax" description="Custom AI agents, workflow automation, enterprise AI software and intelligent systems." />
+                <div className="py-12">
+                  <FeaturesSection />
+                </div>
+                <Footer />
+              </div>
+            } />
+            <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
+            <Route path="/research" element={
+              <div>
+                <SEO title="Research & Development | Amthromax" description="Explore our peer-reviewed whitepapers, predictive system auto-scaling algorithms, and zero-trust cryptography solutions." />
+                <ResearchSection />
+                <Footer />
+              </div>
+            } />
+            <Route path="/research/overview" element={<ResearchOverviewPage />} />
+            <Route path="/research/publications" element={<PublicationsPage />} />
+            <Route path="/publications" element={<PublicationsPage />} />
+            <Route path="/research/:paperId" element={<ResearchDetailPage />} />
+            <Route path="/foundation" element={
+              <div>
+                <FoundationSection />
+                <Footer />
+              </div>
+            } />
+            <Route path="/foundation/:articleId" element={<FoundationDetailPage />} />
+            <Route path="/contact" element={<ContactSalesPage />} />
+            <Route path="/contact-sales" element={<ContactSalesPage />} />
+            <Route path="/privacy" element={<PrivacyPolicyPage />} />
+            <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
+            <Route path="/terms" element={<TermsOfServicePage />} />
+            <Route path="/terms-of-service" element={<TermsOfServicePage />} />
+            <Route path="/team" element={<TeamPage />} />
+            <Route path="/solutions" element={<SolutionsPage />} />
+            <Route path="/why/enterprises" element={<EnterprisesPage />} />
+            <Route path="/why/small-businesses" element={<SmallBusinessesPage />} />
+            <Route path="/why/developers" element={<DevelopersPage />} />
+            <Route path="/login" element={<LoginSection />} />
+            <Route path="/register" element={<RegisterLandingPage />} />
+            <Route path="/gtm-2026" element={<RegisterLandingPage />} />
+            <Route path="/auth/callback" element={<AuthCallback />} />
+            <Route path="/profile" element={<ProfilePage />} />
+            <Route path="/blog" element={<BlogPage />} />
+            <Route path="/blog/publish" element={<PublishPage />} />
+            <Route path="/blog/:postId" element={<BlogPostDetail />} />
+            <Route path="/news" element={<NewsPage />} />
+            <Route path="/news/:articleId" element={<NewsDetailPage />} />
+            <Route path="/newsroom" element={<NewsPage />} />
+            <Route path="/insights" element={<NewsPage />} />
+            <Route path="/insights/:articleId" element={<NewsDetailPage />} />
+            <Route path="/cookies" element={<CookiePolicyPage />} />
+            <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+            <Route path="/platform" element={<PlatformPage />} />
+            <Route path="/products" element={<ProductsPage />} />
+            <Route path="/products/:productId" element={<ProductDetailPage />} />
+            <Route path="/developers" element={<DevelopersPage />} />
+            <Route path="/docs" element={<DocsPage />} />
+            <Route path="/docs/:section" element={<DocsPage />} />
+            <Route path="/documentation" element={<DocsPage />} />
+            <Route path="/pricing" element={<PricingPage />} />
+            <Route path="/careers" element={<CareersPage />} />
+            <Route path="/security" element={<SecurityPage />} />
+            <Route path="/overview" element={<OverviewPage />} />
+            <Route path="/developers/overview" element={<OverviewPage />} />
+            <Route path="/platform/overview" element={<OverviewPage />} />
+            <Route path="/partners" element={<PartnerNetworkPage />} />
+            <Route path="/partner-network" element={<PartnerNetworkPage />} />
+            <Route path="/charter" element={<CharterPage />} />
+            <Route path="/our-charter" element={<CharterPage />} />
+          </Routes>
+        </AnimatePresence>
+      </main>
+      <CookieConsent />
+
+      {/* Coming Soon Modal */}
+      <AnimatePresence>
+        {showComingSoonModal && (
+          <div className="fixed inset-0 z-[99999] flex items-center justify-center p-4 bg-black/80 backdrop-blur-md">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.92, y: 15 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.92, y: 15 }}
+              transition={{ duration: 0.25, ease: [0.16, 1, 0.3, 1] }}
+              className="relative w-full max-w-md bg-[#161617] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden text-center"
+            >
+              {/* Glow backdrop decoration */}
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
+
+              {/* Close Button */}
+              <button
+                type="button"
+                onClick={() => setShowComingSoonModal(false)}
+                className="absolute top-4 right-4 text-gray-400 hover:text-white p-2 rounded-full hover:bg-white/10 transition-colors cursor-pointer"
+              >
+                ✕
+              </button>
+
+              {/* Badge */}
+              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-bold tracking-wider uppercase mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+                Coming Soon
+              </div>
+
+              {/* Title & Subtitle */}
+              <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
+                Amthromax Console
+              </h3>
+              <p className="text-xs text-gray-400 leading-relaxed mb-6">
+                Our next-generation enterprise AI orchestration platform is currently in private preview. Request priority access to be notified when public beta opens.
+              </p>
+
+              {/* Form or Success State */}
+              {isSubmittedWaitlist ? (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-emerald-500/10 border border-emerald-500/20 rounded-2xl text-emerald-400 text-xs font-semibold"
+                >
+                  ✓ You're on the priority waitlist! We'll invite you as soon as early access opens.
+                </motion.div>
+              ) : (
+                <form
+                  onSubmit={(e) => {
+                    e.preventDefault();
+                    if (waitlistEmail.trim()) {
+                      setIsSubmittedWaitlist(true);
+                    }
+                  }}
+                  className="space-y-3 text-left"
+                >
+                  <div>
+                    <label className="block text-[10px] font-bold text-gray-400 uppercase tracking-wider mb-1.5">
+                      Work Email
+                    </label>
+                    <input
+                      type="email"
+                      placeholder="username@company.com"
+                      value={waitlistEmail}
+                      onChange={(e) => setWaitlistEmail(e.target.value)}
+                      required
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                    />
+                  </div>
+                  <button
+                    type="submit"
+                    className="w-full py-3 bg-white text-black font-bold rounded-xl text-xs hover:bg-gray-100 transition-all shadow-lg cursor-pointer flex items-center justify-center gap-1"
+                  >
+                    <span>Request Early Access</span>
+                    <span>↗</span>
+                  </button>
+                </form>
+              )}
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
+
+      {/* 10-second Lead Demo Modal */}
+      <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
+    </div>
   );
 };
 

@@ -159,7 +159,7 @@ const FeaturesSection: React.FC = () => {
 
   return (
     <section
-      className="py-32 bg-gray-50 dark:bg-gray-950 relative overflow-hidden"
+      className="py-32 bg-[#f5f5f7] dark:bg-black relative overflow-hidden"
     >
       {/* Corner Text - Inter font in solid Black / White */}
       <div className="absolute top-8 left-6 sm:left-10 md:left-14 z-20">

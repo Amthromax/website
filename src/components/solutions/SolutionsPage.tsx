@@ -70,37 +70,36 @@ const SolutionsPage: React.FC = () => {
   });
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       {/* Hero */}
       <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/60 via-indigo-950/40 to-black z-0" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-widest text-blue-400 font-semibold bg-blue-500/10 border border-blue-500/20 px-3.5 py-1.5 rounded-full backdrop-blur-md">
-            AMTHROMAX SOLUTIONS
+          <span className="text-xs uppercase tracking-[0.15em] text-blue-400 font-semibold">
+            SYSTEM ARCHITECTURES
           </span>
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
             Tailored Intelligent Systems
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
             Deploying state-of-the-art AI agents, multi-modal ingestion pipelines, and post-quantum encryption matrices for enterprise scale.
           </p>
         </div>
       </div>
 
-      {/* Solutions Grid */}
-      <div ref={ref} className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 py-20 space-y-24">
+      {/* Solutions Grid - Apple Developer Container Styling */}
+      <div ref={ref} className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 space-y-16">
         {solutionsList.map((sol, index) => (
           <motion.div
             key={sol.id}
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`flex flex-col lg:flex-row gap-12 items-center ${
+            className={`bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] p-8 sm:p-10 lg:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
             {/* Visual Media (Image) */}
-            <div className="w-full lg:w-1/2 aspect-video lg:aspect-[4/3] rounded-3xl overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-lg relative bg-gray-50 dark:bg-gray-900 flex justify-center items-center">
+            <div className="w-full lg:w-1/2 aspect-video lg:aspect-[4/3] rounded-[20px] sm:rounded-[24px] overflow-hidden border border-[#e5e5e7]/80 dark:border-white/10 relative bg-[#f5f5f7] dark:bg-white/5 shrink-0">
               <img
                 src={sol.image}
                 alt={sol.title}
@@ -112,25 +111,30 @@ const SolutionsPage: React.FC = () => {
 
             {/* Description Block */}
             <div className="w-full lg:w-1/2 space-y-6">
-              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest bg-blue-50 dark:bg-blue-900/30 px-3 py-1 rounded-full">
-                {sol.category}
-              </span>
-              <h2 className="text-3xl md:text-4xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">
-                {sol.title}
-              </h2>
-              <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
+              <div className="space-y-2">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0066cc] dark:text-[#2997ff]">
+                  {sol.category}
+                </span>
+                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
+                  {sol.title}
+                </h2>
+              </div>
+
+              <p className="text-[#515154] dark:text-gray-300 text-base leading-relaxed font-normal">
                 {sol.description}
               </p>
-              <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">
+              <p className="text-[#515154]/90 dark:text-gray-400 text-sm sm:text-[15px] leading-relaxed font-normal">
                 {sol.longText}
               </p>
 
               {/* Bullet features */}
-              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3 pt-4">
+              <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-[#e5e5e7]/80 dark:border-white/10">
                 {sol.features.map((feat) => (
-                  <li key={feat} className="flex items-center text-xs font-semibold text-gray-700 dark:text-gray-300">
-                    <span className="text-emerald-500 mr-2 text-base">✓</span>
-                    {feat}
+                  <li key={feat} className="flex items-start text-xs sm:text-sm font-medium text-[#1d1d1f] dark:text-gray-200">
+                    <svg className="w-4 h-4 text-[#0066cc] dark:text-[#2997ff] mr-2 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
+                    </svg>
+                    <span>{feat}</span>
                   </li>
                 ))}
               </ul>
@@ -140,18 +144,18 @@ const SolutionsPage: React.FC = () => {
       </div>
 
       {/* CTA Footer card */}
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 pb-24">
-        <div className="bg-gray-50 dark:bg-[#161617] border border-gray-100 dark:border-white/[0.04] rounded-3xl p-12 text-center space-y-6">
-          <h3 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-24">
+        <div className="bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] p-10 sm:p-14 text-center space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+          <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Need a custom integration?
           </h3>
-          <p className="text-gray-500 dark:text-gray-400 max-w-xl mx-auto text-sm md:text-base leading-relaxed">
+          <p className="text-[#515154] dark:text-gray-300 max-w-xl mx-auto text-base leading-relaxed font-normal">
             Our specialized engineering team builds tailor-made models and architectural integrations matching your data architecture parameters.
           </p>
           <div className="pt-2">
             <Link
               to="/login"
-              className="inline-block px-8 py-3.5 bg-black text-white dark:bg-white dark:text-black font-bold rounded-full hover:opacity-90 transition-all shadow-md text-sm"
+              className="inline-block px-8 py-3.5 bg-[#0066cc] hover:bg-[#0052a3] text-white font-medium rounded-full transition-all shadow-xs text-sm"
             >
               Consult Our Engineers
             </Link>

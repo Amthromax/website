@@ -96,7 +96,7 @@ const UpcomingProjectsSection: React.FC = () => {
   });
 
   return (
-    <section className="w-full bg-white dark:bg-gray-950 py-24 border-t border-gray-100 dark:border-gray-900 transition-colors duration-300 font-sans">
+    <section className="w-full bg-[#f5f5f7] dark:bg-black py-24 border-t border-[#e5e5e7]/60 dark:border-white/10 transition-colors duration-300 font-sans">
       <div className="max-w-6xl mx-auto px-6 space-y-12">
         {/* Header Block */}
         <div className="space-y-4">

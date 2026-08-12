@@ -139,7 +139,7 @@ const ProductsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Products | Enterprise AI & Software Systems" 
         description="Browse the suite of Amthromax products: custom software engineering, cloud pipelines, Atlas AI agents, cybersecurity tools, and analytics." 
@@ -147,7 +147,7 @@ const ProductsPage: React.FC = () => {
 
       {/* Hero Header */}
       <div className="relative py-20 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0 pointer-events-none" />
         
         {/* Top Header Label Bar */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-6 w-full flex justify-between items-center text-xs text-gray-400 font-sans">
@@ -155,7 +155,7 @@ const ProductsPage: React.FC = () => {
             href="/overview" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center gap-1 text-gray-300 hover:text-white font-semibold transition-colors cursor-pointer group"
+            className="flex items-center gap-1 text-gray-300 hover:text-white font-medium transition-colors cursor-pointer group"
           >
             <span>Overview</span>
             <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
@@ -165,7 +165,7 @@ const ProductsPage: React.FC = () => {
             href="/contact" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center gap-1 text-gray-300 hover:text-white font-semibold transition-colors cursor-pointer group"
+            className="flex items-center gap-1 text-gray-300 hover:text-white font-medium transition-colors cursor-pointer group"
           >
             <span>Contact Sales</span>
             <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
@@ -173,13 +173,13 @@ const ProductsPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-widest text-blue-400 font-bold">
+          <span className="text-xs uppercase tracking-[0.15em] text-blue-400 font-semibold">
             PRODUCT PORTFOLIO
           </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
             Intelligent Products & APIs
           </h1>
-          <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
             Scalable automation frameworks, zero-trust cloud pipelines, and cognitive models designed to run at industrial scale.
           </p>
 
@@ -188,7 +188,7 @@ const ProductsPage: React.FC = () => {
               href="/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 bg-white text-black font-extrabold rounded-full text-xs hover:bg-gray-150 transition-all shadow-lg font-sans cursor-pointer flex items-center gap-2"
+              className="px-7 py-3.5 bg-white text-black font-semibold rounded-full text-xs hover:bg-gray-150 transition-all shadow-md font-sans cursor-pointer flex items-center gap-2"
             >
               <span>Contact Sales</span>
               <span className="text-sm font-bold leading-none">↗</span>
@@ -197,7 +197,7 @@ const ProductsPage: React.FC = () => {
               href="/overview"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 bg-black border border-white/20 text-white font-bold rounded-full text-xs hover:bg-white/10 transition-all font-sans cursor-pointer flex items-center gap-2"
+              className="px-7 py-3.5 bg-black border border-white/20 text-white font-medium rounded-full text-xs hover:bg-white/10 transition-all font-sans cursor-pointer flex items-center gap-2"
             >
               <span>System Overview</span>
               <span className="text-sm font-bold leading-none">↗</span>
@@ -207,95 +207,95 @@ const ProductsPage: React.FC = () => {
       </div>
 
       {/* Core AI Models Section */}
-      <div className="max-w-6xl mx-auto px-6 pt-24 pb-8 space-y-12">
-        <div className="max-w-3xl space-y-4 text-center md:text-left">
-          <span className="text-xs uppercase tracking-widest text-blue-650 dark:text-blue-400 font-bold">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-24 pb-12 space-y-12">
+        <div className="max-w-3xl space-y-3 text-center md:text-left">
+          <span className="text-xs uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400 font-semibold">
             COGNITIVE POWER
           </span>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight text-gray-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Core AI Models & Systems
           </h2>
-          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 font-medium">
+          <p className="text-base sm:text-lg text-[#515154] dark:text-gray-300 font-normal leading-relaxed">
             Our state-of-the-art model registry is designed for heavy analytical inferences, low-latency synchronizations, and secure sandboxed computation.
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Card 1 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="MORFIX 0.1" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-3">
+            <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">MORFIX 0.1</h3>
-                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">1. Instant Customer Sync</h4>
+                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">1. Instant Customer Sync</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">MORFIX 0.1</h3>
               </div>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
+              <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Automatically capture incoming emails, intelligently categorize support requests, and push prioritized contact data directly to your local tracking CRM dashboards without a single keystroke of manual copy-pasting.
               </p>
             </div>
           </div>
           
           {/* Card 2 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="INTOX 0.2" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-3">
+            <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">INTOX 0.2</h3>
-                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">2. Low Operational Overhead</h4>
+                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">2. Low Operational Overhead</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">INTOX 0.2</h3>
               </div>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
+              <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Our lightweight code designs run inside autonomous micro-instances on the edge network, ensuring that you only pay for exactly the compute cycles you use, eliminating expensive flat hosting rates and server maintenance constraints.
               </p>
             </div>
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="COTISES 0.5 MAX" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-3">
+            <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">COTISES 0.5 MAX</h3>
-                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">3. Automated Marketing Triggers</h4>
+                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">3. Automated Marketing Triggers</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">COTISES 0.5 MAX</h3>
               </div>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
+              <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Set up dynamic event triggers that launch highly personalized outreach campaigns based on user behavior inside your website. Nurture leads continuously without requiring dedicated marketing bandwidth to expand your customer base.
               </p>
             </div>
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
-            <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
+          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+            <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="VERKOX 0.4 INSTANT" 
               />
             </div>
-            <div className="p-8 md:p-10 space-y-3">
+            <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <h3 className="text-3xl md:text-4xl font-black text-gray-900 dark:text-white tracking-tight uppercase">VERKOX 0.4 INSTANT</h3>
-                <h4 className="text-base md:text-lg font-bold text-blue-600 dark:text-blue-400">4. Smart Logistics & Tracking</h4>
+                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">4. Smart Logistics & Tracking</span>
+                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">VERKOX 0.4 INSTANT</h3>
               </div>
-              <p className="text-gray-500 dark:text-gray-400 leading-relaxed text-sm font-medium pt-1">
+              <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Maintain complete oversight of your small business supply chain. Agents parse receipts, forecast inventory needs, and automatically flag accounting anomalies by correlating data across your spreadsheet tools in real-time.
               </p>
             </div>
@@ -304,15 +304,15 @@ const ProductsPage: React.FC = () => {
       </div>
 
       {/* Product List Grid */}
-      <div className="max-w-6xl mx-auto px-6 py-20 border-t border-gray-150 dark:border-white/[0.04] space-y-12">
-        <div className="max-w-3xl space-y-4 text-center md:text-left">
-          <span className="text-xs uppercase tracking-widest text-blue-650 dark:text-blue-400 font-bold">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 space-y-12">
+        <div className="max-w-3xl space-y-3 text-center md:text-left">
+          <span className="text-xs uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400 font-semibold">
             CAPABILITIES & TOOLS
           </span>
-          <h2 className="text-3xl md:text-5xl font-black tracking-tighter leading-tight text-gray-900 dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Enterprise Solutions Portfolio
           </h2>
-          <p className="text-base md:text-lg text-gray-500 dark:text-gray-400 font-medium">
+          <p className="text-base sm:text-lg text-[#515154] dark:text-gray-300 font-normal">
             Browse our core APIs, platform suites, and custom automation infrastructure deployed at scale.
           </p>
         </div>
@@ -321,27 +321,27 @@ const ProductsPage: React.FC = () => {
           {products.map((prod) => (
             <div 
               key={prod.id} 
-              className="group flex flex-col justify-between p-8 bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-3xl hover:shadow-md transition-all duration-300"
+              className="group flex flex-col justify-between p-8 sm:p-10 bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
             >
               <div className="space-y-4">
-                <div className="inline-flex items-center justify-center p-3.5 bg-white dark:bg-gray-900 rounded-2xl shadow-sm border border-gray-100 dark:border-white/[0.02] transition-transform duration-300 group-hover:scale-105">
+                <div className="inline-flex items-center justify-center p-3.5 bg-[#f5f5f7] dark:bg-white/5 rounded-2xl border border-[#e5e5e7]/60 dark:border-white/10 transition-transform duration-300 group-hover:scale-105">
                   {prod.icon}
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-semibold text-[#1d1d1f] dark:text-white group-hover:text-[#0066cc] dark:group-hover:text-[#2997ff] transition-colors">
                   {prod.title}
                 </h3>
-                <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm leading-relaxed">
+                <p className="text-[#515154] dark:text-gray-300 text-sm leading-relaxed font-normal">
                   {prod.desc}
                 </p>
               </div>
               
-              <div className="pt-6 mt-6 border-t border-gray-100 dark:border-gray-800/80">
+              <div className="pt-6 mt-6 border-t border-[#e5e5e7]/80 dark:border-white/10">
                 <Link 
                   to={prod.link} 
-                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline inline-flex items-center gap-1.5"
+                  className="text-[15px] font-medium text-[#0066cc] dark:text-[#2997ff] group-hover:underline flex items-center gap-1.5"
                 >
                   <span>Explore Capabilities</span>
-                  <span>→</span>
+                  <span>›</span>
                 </Link>
               </div>
             </div>
@@ -355,3 +355,4 @@ const ProductsPage: React.FC = () => {
 };
 
 export default ProductsPage;
+

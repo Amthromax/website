@@ -74,34 +74,13 @@ const NewsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Side 3D Isometric Asterisk Logo Card Box */}
-            <div className="lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="w-full max-w-md bg-[#faf9f6] dark:bg-white/[0.02] border border-gray-200/80 dark:border-white/10 rounded-2xl p-8 sm:p-12 flex items-center justify-center shadow-sm">
-                <svg viewBox="0 0 240 240" fill="none" className="w-full h-auto max-w-[200px] sm:max-w-[220px]">
-                  <g transform="translate(120, 120)">
-                    {[0, 60, 120, 180, 240, 300].map((angle, i) => (
-                      <g key={i} transform={`rotate(${angle})`}>
-                        {/* 3D Black Side Shadow Face */}
-                        <polygon
-                          points="0,-85 24,-71 24,-24 0,-38"
-                          fill="#000000"
-                          stroke="#000000"
-                          strokeWidth="1.5"
-                          strokeLinejoin="round"
-                        />
-                        {/* Front White Face */}
-                        <polygon
-                          points="-24,-71 0,-85 0,-38 -24,-24"
-                          fill="#FFFFFF"
-                          stroke="#000000"
-                          strokeWidth="2.5"
-                          strokeLinejoin="round"
-                        />
-                      </g>
-                    ))}
-                  </g>
-                </svg>
-              </div>
+            {/* Right Side 3D Isometric Asterisk Logo Container */}
+            <div className="lg:col-span-5 flex justify-center lg:justify-end items-center">
+              <img
+                src="/images/amthromax_asterisk_logo.png"
+                alt="Amthromax 3D Asterisk Logo"
+                className="w-full h-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[400px] object-contain transition-transform duration-300 hover:scale-105"
+              />
             </div>
 
           </div>
@@ -136,49 +115,50 @@ const NewsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* 3-Column Insights Card Grid (Matching Screenshot) */}
+        {/* 3-Column Insights Card Grid (Apple Developer Aesthetic) */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
         >
           {filteredItems.map((item) => (
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className="group rounded-2xl bg-[#f5f4f0] dark:bg-[#161617] p-6 sm:p-7 hover:shadow-md transition-all duration-300 flex flex-col justify-between"
+              className="group rounded-[28px] bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] p-8 hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] shadow-[0_4px_16px_rgba(0,0,0,0.03)] transition-all duration-300 flex flex-col justify-between h-full"
             >
-              <div className="space-y-3">
+              <div className="space-y-4">
                 {/* Category Header */}
-                <span className="text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 block">
+                <span className="text-xs font-semibold uppercase tracking-wider text-[#0066cc] dark:text-[#2997ff] block">
                   {item.category}
                 </span>
 
                 {/* Article Title */}
                 <Link
                   to={`/news/${item.id}`}
-                  className="text-xl sm:text-2xl font-bold font-sans text-gray-950 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors leading-[1.25] block tracking-tight"
+                  className="text-xl sm:text-2xl font-semibold text-[#1d1d1f] dark:text-white group-hover:text-[#0066cc] dark:group-hover:text-[#2997ff] transition-colors leading-[1.25] block tracking-tight"
                 >
                   {item.title}
                 </Link>
 
                 {/* Excerpt / Summary */}
-                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed pt-1">
+                <p className="text-sm sm:text-[15px] text-[#515154] dark:text-gray-300 leading-relaxed font-normal">
                   {item.summary}
                 </p>
               </div>
 
               {/* Article Footer Link */}
-              <div className="pt-4 mt-4 border-t border-gray-200/50 dark:border-white/5 flex items-center justify-between">
-                <span className="text-[11px] font-semibold text-gray-400 dark:text-gray-500">
+              <div className="pt-6 mt-6 border-t border-[#e5e5e7]/80 dark:border-white/10 flex items-center justify-between">
+                <span className="text-xs font-medium text-[#86868b] dark:text-gray-500">
                   {item.date}
                 </span>
                 <Link
                   to={`/news/${item.id}`}
-                  className="text-xs font-bold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors"
+                  className="text-[15px] font-medium text-[#0066cc] dark:text-[#2997ff] group-hover:underline flex items-center gap-1.5"
                 >
-                  Read article →
+                  <span>Read article</span>
+                  <span>›</span>
                 </Link>
               </div>
             </motion.div>
