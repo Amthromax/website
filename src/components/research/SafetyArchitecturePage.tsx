@@ -698,7 +698,7 @@ const SafetyArchitecturePage: React.FC = () => {
                       height={baseH}
                       rx="1"
                       fill="#4b5563"
-                      className="transition-all duration-300 hover:fill="#6b7280"`}
+                      className="transition-all duration-300 hover:opacity-80"
                     />
 
                     {/* Upper White Segment */}
@@ -709,7 +709,7 @@ const SafetyArchitecturePage: React.FC = () => {
                       height={Math.max(4, topH - baseH - gap)}
                       rx="1"
                       fill="#ffffff"
-                      className="transition-all duration-300 hover:fill="#e5e7eb"`}
+                      className="transition-all duration-300 hover:opacity-80"
                     />
                   </g>
                 );
