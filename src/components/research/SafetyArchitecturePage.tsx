@@ -525,9 +525,9 @@ const SafetyArchitecturePage: React.FC = () => {
                       <path
                         d={outerPath}
                         fill={sector.outerColor}
-                        stroke="#ffffff"
+                        stroke="#1c1c22"
                         strokeWidth="2.5"
-                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white" : ""}`}
+                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white/50" : ""}`}
                       />
 
                       {/* Inner Light Petal */}
@@ -571,12 +571,9 @@ const SafetyArchitecturePage: React.FC = () => {
                   );
                 })}
 
-                {/* Outer Circle White Line Ring */}
-                <circle r="235" fill="none" stroke="#ffffff" strokeWidth="2.5" className="pointer-events-none" />
-
                 {/* Central Star / Ring Cutout */}
-                <circle r="48" fill="#000000" stroke="#ffffff" strokeWidth="3" />
-                <circle r="16" fill="#000000" stroke="#ffffff" strokeWidth="1.5" />
+                <circle r="48" fill="#000000" stroke="#1c1c22" strokeWidth="3" />
+                <circle r="16" fill="#000000" stroke="#1c1c22" strokeWidth="1.5" />
               </g>
             </svg>
           </div>
