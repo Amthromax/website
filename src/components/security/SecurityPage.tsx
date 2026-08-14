@@ -278,11 +278,11 @@ const SecurityPage: React.FC = () => {
               <div className="space-y-2">
                 <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">62%</span>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
-                  Staff Struggle To Process Orders Quickly Due To Slow Navigation And Multiple Steps During Peak Hours.
+                  Enterprise AI Deployments Vulnerable To Indirect Prompt Injection & Unsanitized Tool Inputs.
                 </p>
                 <div className="pt-1">
                   <span className="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md border border-gray-200/80 dark:border-gray-800">
-                    From User Interviews
+                    From Security Audit
                   </span>
                 </div>
               </div>
@@ -291,11 +291,11 @@ const SecurityPage: React.FC = () => {
               <div className="space-y-2">
                 <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">48%</span>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
-                  Unclear Item Selection And Lack Of Structured Customization Lead To Frequent Order Mistakes.
+                  Unencrypted Inter-Agent Communication Routes Exposing Sensitive Session Credentials.
                 </p>
                 <div className="pt-1">
                   <span className="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md border border-gray-200/80 dark:border-gray-800">
-                    From Market Research
+                    From Threat Intelligence
                   </span>
                 </div>
               </div>
@@ -304,11 +304,11 @@ const SecurityPage: React.FC = () => {
               <div className="space-y-2">
                 <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">57%</span>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
-                  Staff Waste Time Switching Between Categories And Screens To Complete A Single Order.
+                  Security Engineering Time Wasted Manually Auditing Unverified Execution Traces Across Clusters.
                 </p>
                 <div className="pt-1">
                   <span className="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md border border-gray-200/80 dark:border-gray-800">
-                    From Survey
+                    From Operational Telemetry
                   </span>
                 </div>
               </div>
@@ -376,11 +376,11 @@ const SecurityPage: React.FC = () => {
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/20 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
-                  Complex Navigation
+                  Prompt Injection Attack
                 </span>
                 <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
                 </div>
               </div>
@@ -389,11 +389,11 @@ const SecurityPage: React.FC = () => {
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/25 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
-                  Unclear Customization
+                  Credential Exposure
                 </span>
                 <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                   </svg>
                 </div>
               </div>
@@ -402,7 +402,7 @@ const SecurityPage: React.FC = () => {
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
-                  Manual Billing Process
+                  Unverified Trace Logs
                 </span>
                 <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -415,11 +415,11 @@ const SecurityPage: React.FC = () => {
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/35 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
-                  More Kitchen Delay
+                  Execution Latency Risk
                 </span>
                 <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
                 </div>
               </div>
