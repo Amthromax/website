@@ -255,6 +255,186 @@ const SecurityPage: React.FC = () => {
         </div>
       </section>
 
+      {/* 03 Problem / Empirical Risk & Vulnerability Analysis (Matching User Reference Diagram) */}
+      <section className="py-16 md:py-24 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 space-y-12">
+          {/* Header Row */}
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-3">
+              <span className="text-3xl sm:text-4xl font-light text-gray-400 dark:text-gray-500 font-serif">03</span>
+              <h2 className="text-2xl sm:text-3xl font-normal tracking-tight text-gray-900 dark:text-white font-sans">
+                Problem
+              </h2>
+            </div>
+            {/* Circular Progress Indicator Icon (Top Right) */}
+            <div className="w-7 h-7 relative flex items-center justify-center">
+              <svg className="w-full h-full text-gray-200 dark:text-gray-800" viewBox="0 0 32 32">
+                <circle cx="16" cy="16" r="12" fill="none" stroke="currentColor" strokeWidth="3" />
+                <path d="M16 4 A12 12 0 0 1 28 16" fill="none" stroke="#111113" strokeWidth="3.5" strokeLinecap="round" className="dark:stroke-white" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Main 3-Column Diagram Showcase */}
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center pt-4">
+            
+            {/* Left Column: 3 Percentage Empirical Stats */}
+            <div className="lg:col-span-4 space-y-8">
+              {/* Stat 1 */}
+              <div className="space-y-2">
+                <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">62%</span>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
+                  Staff Struggle To Process Orders Quickly Due To Slow Navigation And Multiple Steps During Peak Hours.
+                </p>
+                <div className="pt-1">
+                  <span className="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md border border-gray-200/80 dark:border-gray-800">
+                    From User Interviews
+                  </span>
+                </div>
+              </div>
+
+              {/* Stat 2 */}
+              <div className="space-y-2">
+                <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">48%</span>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
+                  Unclear Item Selection And Lack Of Structured Customization Lead To Frequent Order Mistakes.
+                </p>
+                <div className="pt-1">
+                  <span className="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md border border-gray-200/80 dark:border-gray-800">
+                    From Market Research
+                  </span>
+                </div>
+              </div>
+
+              {/* Stat 3 */}
+              <div className="space-y-2">
+                <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">57%</span>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
+                  Staff Waste Time Switching Between Categories And Screens To Complete A Single Order.
+                </p>
+                <div className="pt-1">
+                  <span className="inline-block px-3 py-1 bg-gray-50 dark:bg-gray-900 text-gray-700 dark:text-gray-300 text-[11px] font-medium rounded-md border border-gray-200/80 dark:border-gray-800">
+                    From Survey
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            {/* Center Column: Radial Sunburst Spoke Disc with Glowing Coral Blur */}
+            <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[380px]">
+              <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
+                {/* Radial SVG Artwork */}
+                <svg viewBox="0 0 320 320" className="w-full h-full select-none">
+                  {/* Outer Dotted Arc Connecting to Left Dots */}
+                  <path
+                    d="M 60,40 A 130 130 0 0 1 60,280"
+                    fill="none"
+                    stroke="#f97316"
+                    strokeWidth="1.2"
+                    strokeDasharray="3 3"
+                    opacity="0.5"
+                  />
+                  {/* Connection Dots & Lines */}
+                  <line x1="10" y1="40" x2="60" y2="40" stroke="#f97316" strokeWidth="1" opacity="0.4" />
+                  <circle cx="60" cy="40" r="3.5" fill="#ea580c" />
+
+                  <line x1="10" y1="160" x2="100" y2="160" stroke="#f97316" strokeWidth="1" opacity="0.4" />
+                  <circle cx="100" cy="160" r="3.5" fill="#ea580c" />
+
+                  <line x1="10" y1="280" x2="60" y2="280" stroke="#f97316" strokeWidth="1" opacity="0.4" />
+                  <circle cx="60" cy="280" r="3.5" fill="#ea580c" />
+
+                  {/* Dense Radial Spoke Lines Disc */}
+                  <g transform="translate(180, 160)">
+                    {Array.from({ length: 90 }).map((_, i) => {
+                      const angle = (i * 360) / 90;
+                      const rad = (angle * Math.PI) / 180;
+                      const x1 = Math.cos(rad) * 65;
+                      const y1 = Math.sin(rad) * 65;
+                      const x2 = Math.cos(rad) * 115;
+                      const y2 = Math.sin(rad) * 115;
+                      return (
+                        <line
+                          key={i}
+                          x1={x1}
+                          y1={y1}
+                          x2={x2}
+                          y2={y2}
+                          stroke="#ea580c"
+                          strokeWidth="1.8"
+                          opacity={angle > 90 && angle < 270 ? 0.8 : 0.4}
+                        />
+                      );
+                    })}
+                    {/* Inner Coral Circle */}
+                    <circle cx="0" cy="0" r="62" fill="#ea580c" opacity="0.25" />
+                  </g>
+                </svg>
+
+                {/* Glowing Coral/Orange Blur Overlay on Right Half */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-72 bg-gradient-to-r from-orange-500/70 via-rose-500/80 to-transparent rounded-full blur-2xl pointer-events-none opacity-90 dark:opacity-75" />
+              </div>
+            </div>
+
+            {/* Right Column: 4 Soft Rounded Cards with Red/Coral Icons */}
+            <div className="lg:col-span-3 space-y-4">
+              {/* Card 1 */}
+              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/20 to-transparent pointer-events-none" />
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                  Complex Navigation
+                </span>
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Card 2 */}
+              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/25 to-transparent pointer-events-none" />
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                  Unclear Customization
+                </span>
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Card 3 */}
+              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/30 to-transparent pointer-events-none" />
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                  Manual Billing Process
+                </span>
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* Card 4 */}
+              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-orange-500/35 to-transparent pointer-events-none" />
+                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                  More Kitchen Delay
+                </span>
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-orange-500 to-rose-500 text-white flex items-center justify-center shadow-md shrink-0 z-10">
+                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
       {/* Main Grid: Features and Interactive Dashboard */}
       <section className="max-w-7xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
         
