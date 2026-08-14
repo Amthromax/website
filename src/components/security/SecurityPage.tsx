@@ -218,9 +218,9 @@ const SecurityPage: React.FC = () => {
 
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex flex-col items-center justify-center bg-[#050505] text-white border-b border-gray-900 transition-colors duration-300">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(59,130,246,0.1),transparent_50%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.04),transparent_50%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#3b82f6] font-bold">
+          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-gray-400 font-bold">
             AMTHROMAX ENTERPRISE
           </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-white">
@@ -255,42 +255,42 @@ const SecurityPage: React.FC = () => {
       <section className="bg-white dark:bg-gray-950 py-12 md:py-16 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 border-b border-gray-100 dark:border-gray-800 pb-16 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">01 / INTEGRITY</div>
+            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">01 / INTEGRITY</div>
             <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Zero-Trust Network Models</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               Enforce granular access logs, identity federation (SAML/OIDC), and hardware-isolated key storage across every agent deployment. Prevent credential hijacking at the edge.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">02 / VELOCITY</div>
+            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">02 / VELOCITY</div>
             <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Automated Pipeline Scaling</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               Distribute analytical requests dynamically through load-balanced Kubernetes clusters. Experience automatic compute scaling during periods of extreme workflow traffic.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">03 / CONTINUITY</div>
+            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">03 / CONTINUITY</div>
             <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Dedicated SLA Commitments</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               Access around-the-clock enterprise engineers via direct Slack channels and priority ticketing, backed by contractually enforced support response times.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">04 / COMPLIANCE</div>
+            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">04 / COMPLIANCE</div>
             <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Global Data Residency</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               Choose geographically isolated deployments that adhere strictly to local regulations, ensuring GDPR, HIPAA, and CCPA compliance effortlessly.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">05 / RESILIENCE</div>
+            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">05 / RESILIENCE</div>
             <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Self-Healing Infrastructure</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               Automated failure detection instantly reroutes workloads to operational nodes without downtime, recovering corrupted states using ephemeral snapshots.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">06 / COMPUTE</div>
+            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">06 / COMPUTE</div>
             <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Edge Inference Engines</h3>
             <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
               Deploy lightweight inference engines directly to your edge devices, eliminating network latency and reducing cloud compute expenditures for real-time AI.
@@ -299,7 +299,7 @@ const SecurityPage: React.FC = () => {
         </div>
       </section>
 
-      {/* 03 Problem / Empirical Risk & Vulnerability Analysis (Matching User Reference Diagram) */}
+      {/* 03 Problem / Empirical Risk & Vulnerability Analysis (Monochromatic Obsidian) */}
       <section className="py-16 md:py-24 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           {/* Header Row */}
@@ -358,29 +358,29 @@ const SecurityPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Center Column: Radial Sunburst Spoke Disc with Soft Glowing Milk Yellow Blur */}
+            {/* Center Column: Radial Sunburst Spoke Disc (Monochromatic Monochrome) */}
             <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[380px]">
               <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
                 {/* Radial SVG Artwork */}
-                <svg viewBox="0 0 320 320" className="w-full h-full select-none">
+                <svg viewBox="0 0 320 320" className="w-full h-full select-none text-zinc-400 dark:text-zinc-600">
                   {/* Outer Dotted Arc Connecting to Left Dots */}
                   <path
                     d="M 60,40 A 130 130 0 0 1 60,280"
                     fill="none"
-                    stroke="#f59e0b"
+                    stroke="currentColor"
                     strokeWidth="1.2"
                     strokeDasharray="3 3"
                     opacity="0.5"
                   />
                   {/* Connection Dots & Lines */}
-                  <line x1="10" y1="40" x2="60" y2="40" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
-                  <circle cx="60" cy="40" r="3.5" fill="#d97706" />
+                  <line x1="10" y1="40" x2="60" y2="40" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+                  <circle cx="60" cy="40" r="3.5" fill="currentColor" />
 
-                  <line x1="10" y1="160" x2="100" y2="160" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
-                  <circle cx="100" cy="160" r="3.5" fill="#d97706" />
+                  <line x1="10" y1="160" x2="100" y2="160" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+                  <circle cx="100" cy="160" r="3.5" fill="currentColor" />
 
-                  <line x1="10" y1="280" x2="60" y2="280" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
-                  <circle cx="60" cy="280" r="3.5" fill="#d97706" />
+                  <line x1="10" y1="280" x2="60" y2="280" stroke="currentColor" strokeWidth="1" opacity="0.4" />
+                  <circle cx="60" cy="280" r="3.5" fill="currentColor" />
 
                   {/* Dense Radial Spoke Lines Disc */}
                   <g transform="translate(180, 160)">
@@ -398,31 +398,31 @@ const SecurityPage: React.FC = () => {
                           y1={y1}
                           x2={x2}
                           y2={y2}
-                          stroke="#f59e0b"
+                          stroke="currentColor"
                           strokeWidth="1.8"
-                          opacity={angle > 90 && angle < 270 ? 0.75 : 0.35}
+                          opacity={angle > 90 && angle < 270 ? 0.8 : 0.35}
                         />
                       );
                     })}
-                    {/* Inner Subtle Ring - Soft transparent fill */}
-                    <circle cx="0" cy="0" r="62" fill="#fef3c7" fillOpacity="0.1" stroke="#f59e0b" strokeWidth="0.8" opacity="0.3" />
+                    {/* Inner Subtle Ring */}
+                    <circle cx="0" cy="0" r="62" fill="currentColor" fillOpacity="0.05" stroke="currentColor" strokeWidth="0.8" opacity="0.3" />
                   </g>
                 </svg>
 
-                {/* Soft Glowing Milk Yellow Radial Blur Overlay on Right Half */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-72 bg-gradient-to-r from-amber-300/40 via-yellow-300/30 to-transparent rounded-full blur-3xl pointer-events-none opacity-80 dark:opacity-65" />
+                {/* Monochromatic Glow Overlay */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-72 bg-gradient-to-r from-zinc-300/20 via-zinc-400/10 to-transparent rounded-full blur-3xl pointer-events-none opacity-60 dark:opacity-40" />
               </div>
             </div>
 
-            {/* Right Column: 4 Soft Rounded Cards with Milk Yellow Icons */}
+            {/* Right Column: 4 Soft Rounded Cards with Monochromatic Icons */}
             <div className="lg:col-span-3 space-y-4">
               {/* Card 1 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/20 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Prompt Injection Attack
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
@@ -431,11 +431,11 @@ const SecurityPage: React.FC = () => {
 
               {/* Card 2 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/25 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Credential Exposure
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                   </svg>
@@ -444,11 +444,11 @@ const SecurityPage: React.FC = () => {
 
               {/* Card 3 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/30 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Unverified Trace Logs
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -457,11 +457,11 @@ const SecurityPage: React.FC = () => {
 
               {/* Card 4 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/35 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Execution Latency Risk
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -487,7 +487,7 @@ const SecurityPage: React.FC = () => {
             
             {/* Card 1 */}
             <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-2xl bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
@@ -500,7 +500,7 @@ const SecurityPage: React.FC = () => {
 
             {/* Card 2 */}
             <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-2xl bg-indigo-50 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
@@ -513,7 +513,7 @@ const SecurityPage: React.FC = () => {
 
             {/* Card 3 */}
             <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-2xl bg-purple-50 dark:bg-purple-900/30 text-purple-600 dark:text-purple-400 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
@@ -526,7 +526,7 @@ const SecurityPage: React.FC = () => {
 
             {/* Card 4 */}
             <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
-              <div className="w-10 h-10 rounded-2xl bg-emerald-50 dark:bg-emerald-900/30 text-emerald-600 dark:text-emerald-400 flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
+              <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
