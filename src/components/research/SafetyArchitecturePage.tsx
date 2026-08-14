@@ -641,17 +641,17 @@ const SafetyArchitecturePage: React.FC = () => {
                   Hover over or tap any slice of the alignment spectrum dial to view empirical score metrics, toxicity suppression rates, and behavioral safety details.
                 </p>
 
-                {/* Grid of all 8 sectors quick-select pills */}
-                <div className="grid grid-cols-2 gap-2.5 pt-2">
+                {/* Grid of all 8 sectors quick-select items (No background boxes) */}
+                <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-2">
                   {wheelSectors.map((sec) => (
                     <button
                       key={sec.id}
                       type="button"
                       onMouseEnter={() => setActiveWheelSlice(sec.id)}
                       onClick={() => setActiveWheelSlice(sec.id)}
-                      className="px-4 py-3 bg-[#1c1c22] hover:bg-white/15 border border-white/10 hover:border-white/30 text-left rounded-xl transition-all cursor-pointer flex items-center justify-between shadow-sm"
+                      className="py-1.5 px-1 text-left text-xs font-medium text-gray-300 hover:text-white transition-colors cursor-pointer flex items-center justify-between group"
                     >
-                      <span className="text-xs font-semibold text-gray-200">{sec.label}</span>
+                      <span className="text-xs font-medium text-gray-300 group-hover:text-white transition-colors">{sec.label}</span>
                     </button>
                   ))}
                 </div>
