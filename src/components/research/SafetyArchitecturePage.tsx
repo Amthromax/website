@@ -238,7 +238,7 @@ const SafetyArchitecturePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-sans selection:bg-emerald-500 selection:text-black">
+    <div className="min-h-screen bg-[#000000] text-white font-sans selection:bg-white selection:text-black">
       <SEO
         title="Safety | Amthromax R&D Labs"
         description="Safety at every step: Explore Amthromax AI safety architecture, continuous red-teaming, constitutional alignment, and risk evaluation protocols."
@@ -278,14 +278,14 @@ const SafetyArchitecturePage: React.FC = () => {
                   className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.4)]"
                 />
 
-                {/* Gray Circle with Green Checkmark */}
+                {/* Gray Circle with White Checkmark Badge */}
                 <div className="relative">
                   <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#6b7280]/60" />
                   <motion.div
                     initial={{ scale: 0.8, opacity: 0 }}
                     animate={{ scale: 1, opacity: 1 }}
                     transition={{ delay: 0.3, duration: 0.5 }}
-                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-lg bg-[#22c55e] flex items-center justify-center shadow-lg"
+                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-lg bg-[#383842] border border-white/20 flex items-center justify-center shadow-lg"
                   >
                     <svg className="w-5 h-5 text-white stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
@@ -307,8 +307,8 @@ const SafetyArchitecturePage: React.FC = () => {
             {/* Inner Visual Box */}
             <div className="h-64 sm:h-72 rounded-2xl bg-[#1c1c20] relative overflow-hidden flex items-center justify-center p-6 border border-white/[0.05]">
               <div className="w-full max-w-[210px] bg-[#2a2a30] rounded-xl p-4 space-y-2.5 relative shadow-xl border border-white/10">
-                {/* Green Checkmark Badge at top-left */}
-                <div className="w-6 h-6 rounded-md bg-[#22c55e] flex items-center justify-center shadow-md">
+                {/* White Checkmark Badge at top-left */}
+                <div className="w-6 h-6 rounded-md bg-[#383842] border border-white/20 flex items-center justify-center shadow-md">
                   <svg className="w-4 h-4 text-white stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
@@ -339,8 +339,8 @@ const SafetyArchitecturePage: React.FC = () => {
                   </div>
                 ))}
 
-                {/* Green Checkmark Badge at bottom-right */}
-                <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-lg bg-[#22c55e] flex items-center justify-center shadow-lg">
+                {/* White Checkmark Badge at bottom-right */}
+                <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-lg bg-[#383842] border border-white/20 flex items-center justify-center shadow-lg">
                   <svg className="w-4.5 h-4.5 text-white stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                   </svg>
@@ -354,7 +354,7 @@ const SafetyArchitecturePage: React.FC = () => {
       {/* SECTION 2: Model Emotional & Behavioral Alignment Spectrum */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <span className="text-xs uppercase tracking-[0.25em] text-emerald-400 font-semibold block">
+          <span className="text-xs uppercase tracking-[0.25em] text-gray-400 font-semibold block">
             BEHAVIORAL BENCHMARKS
           </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -389,8 +389,7 @@ const SafetyArchitecturePage: React.FC = () => {
                   // Calculate mid angle for label placement
                   const midAngle = (sector.startAngle + sector.endAngle) / 2;
 
-                  // Label positions (Number closer to center/petal, Word slightly further out)
-                  // For high score sectors, place text centered in light petal; for lower, place in outer wedge
+                  // Label positions
                   const labelRadiusWord = sector.score >= 8 ? 165 : 190;
                   const labelRadiusScore = sector.score >= 8 ? 130 : 140;
 
@@ -468,10 +467,10 @@ const SafetyArchitecturePage: React.FC = () => {
           {/* Interactive Dynamic Details Side Card */}
           <div className="w-full lg:w-96 bg-[#121215] border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
-              <span className="text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase">
+              <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                 SAFETY EVALUATION METRICS
               </span>
-              <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-bold">
+              <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-gray-200 text-xs font-medium">
                 LIVE AUDIT
               </span>
             </div>
@@ -483,10 +482,10 @@ const SafetyArchitecturePage: React.FC = () => {
                     {wheelSectors[activeWheelSlice].label}
                   </h3>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-mono font-black text-emerald-400">
+                    <span className="text-3xl font-black text-white">
                       {wheelSectors[activeWheelSlice].score}
                     </span>
-                    <span className="text-xs font-mono text-gray-400">/ 12</span>
+                    <span className="text-xs text-gray-400">/ 12</span>
                   </div>
                 </div>
 
@@ -496,12 +495,12 @@ const SafetyArchitecturePage: React.FC = () => {
 
                 {/* Empirical Metrics Checklist */}
                 <div className="space-y-2 pt-2">
-                  <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block font-bold">
+                  <span className="text-xs text-gray-400 uppercase tracking-wider block font-semibold">
                     Empirical Benchmarks:
                   </span>
                   {wheelSectors[activeWheelSlice].details.map((detail, idx) => (
-                    <div key={idx} className="flex items-center gap-2 text-xs text-gray-200 bg-[#1c1c22] p-2.5 rounded-xl border border-white/5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                    <div key={idx} className="flex items-center gap-2.5 text-xs text-gray-200 bg-[#1c1c22] p-3 rounded-xl border border-white/10">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
                       <span>{detail}</span>
                     </div>
                   ))}
@@ -509,7 +508,7 @@ const SafetyArchitecturePage: React.FC = () => {
 
                 {/* Score Progress Bar */}
                 <div className="space-y-1.5 pt-2">
-                  <div className="flex justify-between text-[10px] font-mono text-gray-400 font-bold">
+                  <div className="flex justify-between text-xs text-gray-400 font-medium">
                     <span>ALIGNMENT INTENSITY</span>
                     <span>{Math.round((wheelSectors[activeWheelSlice].score / 12) * 100)}%</span>
                   </div>
@@ -520,29 +519,28 @@ const SafetyArchitecturePage: React.FC = () => {
                         width: `${(wheelSectors[activeWheelSlice].score / 12) * 100}%`,
                       }}
                       transition={{ duration: 0.4 }}
-                      className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                      className="h-full bg-white rounded-full"
                     />
                   </div>
                 </div>
               </div>
             ) : (
               <div className="space-y-4 py-2">
-                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
                   Hover over or tap any slice of the alignment spectrum dial to view empirical score metrics, toxicity suppression rates, and behavioral safety details.
                 </p>
 
-                {/* Grid of all 8 sectors quick-select pills */}
-                <div className="grid grid-cols-2 gap-2 pt-2">
+                {/* Grid of all 8 sectors quick-select pills (numbers removed per request) */}
+                <div className="grid grid-cols-2 gap-2.5 pt-2">
                   {wheelSectors.map((sec) => (
                     <button
                       key={sec.id}
                       type="button"
                       onMouseEnter={() => setActiveWheelSlice(sec.id)}
                       onClick={() => setActiveWheelSlice(sec.id)}
-                      className="px-3 py-2 bg-[#1c1c22] hover:bg-white/10 border border-white/5 hover:border-white/20 text-left rounded-xl transition-all cursor-pointer flex items-center justify-between"
+                      className="px-4 py-3 bg-[#1c1c22] hover:bg-white/15 border border-white/10 hover:border-white/30 text-left rounded-xl transition-all cursor-pointer flex items-center justify-between shadow-sm"
                     >
                       <span className="text-xs font-semibold text-gray-200">{sec.label}</span>
-                      <span className="text-xs font-mono font-bold text-emerald-400">{sec.score}</span>
                     </button>
                   ))}
                 </div>
