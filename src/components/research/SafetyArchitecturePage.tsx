@@ -430,7 +430,7 @@ const SafetyArchitecturePage: React.FC = () => {
               <div className="py-2 flex items-center justify-center">
                 <DottedCircularProgress
                   percentage={33}
-                  label="Users struggle with login guidance."
+                  label="Pre-training safety dataset filtering & alignment."
                 />
               </div>
             </motion.div>
@@ -445,7 +445,7 @@ const SafetyArchitecturePage: React.FC = () => {
               <div className="py-2 flex items-center justify-center">
                 <DottedCircularProgress
                   percentage={48}
-                  label="Additional support requests from users."
+                  label="Automated adversarial red-teaming coverage."
                 />
               </div>
             </motion.div>
@@ -460,7 +460,7 @@ const SafetyArchitecturePage: React.FC = () => {
               <div className="py-2 flex items-center justify-center">
                 <DottedCircularProgress
                   percentage={67}
-                  label="Inaccurate forecasts disrupt planning."
+                  label="Real-time output guardrail & toxicity suppression."
                 />
               </div>
             </motion.div>
