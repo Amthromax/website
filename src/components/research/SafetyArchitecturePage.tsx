@@ -102,12 +102,12 @@ const DottedCircularProgress: React.FC<{ percentage: number; label: string }> = 
         })}
       </svg>
 
-      {/* Central Dark Inner Circle with Percentage and Label */}
-      <div className="absolute w-[165px] h-[165px] rounded-full bg-[#111114] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-[inset_0_2px_8px_rgba(0,0,0,0.6)]">
+      {/* Central Percentage and Label */}
+      <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
         <span className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-none mb-2">
           {percentage}%
         </span>
-        <p className="text-[11px] sm:text-xs text-gray-400 font-normal leading-tight max-w-[130px]">
+        <p className="text-[11px] sm:text-xs text-gray-400 font-normal leading-tight max-w-[135px]">
           {label}
         </p>
       </div>
@@ -424,12 +424,10 @@ const SafetyArchitecturePage: React.FC = () => {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-2xl group cursor-pointer"
             >
               <span className="text-base font-bold text-white tracking-wide">Teach</span>
-
-              {/* Inner Visual Box: 33% Progress Dial */}
-              <div className="h-64 sm:h-72 rounded-2xl bg-[#0a0a0d] relative overflow-hidden flex items-center justify-center p-4 border border-white/[0.05]">
+              <div className="py-2 flex items-center justify-center">
                 <DottedCircularProgress
                   percentage={33}
                   label="Users struggle with login guidance."
@@ -441,12 +439,10 @@ const SafetyArchitecturePage: React.FC = () => {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-2xl group cursor-pointer"
             >
               <span className="text-base font-bold text-white tracking-wide">Test</span>
-
-              {/* Inner Visual Box: 48% Progress Dial */}
-              <div className="h-64 sm:h-72 rounded-2xl bg-[#0a0a0d] relative overflow-hidden flex items-center justify-center p-4 border border-white/[0.05]">
+              <div className="py-2 flex items-center justify-center">
                 <DottedCircularProgress
                   percentage={48}
                   label="Additional support requests from users."
@@ -458,12 +454,10 @@ const SafetyArchitecturePage: React.FC = () => {
             <motion.div
               whileHover={{ y: -6 }}
               transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-2xl group cursor-pointer"
             >
               <span className="text-base font-bold text-white tracking-wide">Share</span>
-
-              {/* Inner Visual Box: 67% Progress Dial */}
-              <div className="h-64 sm:h-72 rounded-2xl bg-[#0a0a0d] relative overflow-hidden flex items-center justify-center p-4 border border-white/[0.05]">
+              <div className="py-2 flex items-center justify-center">
                 <DottedCircularProgress
                   percentage={67}
                   label="Inaccurate forecasts disrupt planning."
