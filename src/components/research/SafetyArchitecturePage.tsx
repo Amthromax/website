@@ -3,6 +3,32 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../layout/SEO";
 
+// Helper function to calculate SVG sector paths with rounded aesthetics
+function polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {
+  const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
+  return {
+    x: centerX + radius * Math.cos(angleInRadians),
+    y: centerY + radius * Math.sin(angleInRadians),
+  };
+}
+
+function describeArc(x: number, y: number, innerRadius: number, outerRadius: number, startAngle: number, endAngle: number) {
+  const startOuter = polarToCartesian(x, y, outerRadius, endAngle);
+  const endOuter = polarToCartesian(x, y, outerRadius, startAngle);
+  const startInner = polarToCartesian(x, y, innerRadius, endAngle);
+  const endInner = polarToCartesian(x, y, innerRadius, startAngle);
+
+  const largeArcFlag = endAngle - startAngle <= 180 ? "0" : "1";
+
+  return [
+    "M", startOuter.x, startOuter.y,
+    "A", outerRadius, outerRadius, 0, largeArcFlag, 0, endOuter.x, endOuter.y,
+    "L", endInner.x, endInner.y,
+    "A", innerRadius, innerRadius, 0, largeArcFlag, 1, startInner.x, startInner.y,
+    "Z"
+  ].join(" ");
+}
+
 const SafetyArchitecturePage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -10,10 +36,111 @@ const SafetyArchitecturePage: React.FC = () => {
 
   // State for expanded protection cards
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
+  const [activeWheelSlice, setActiveWheelSlice] = useState<number | null>(null);
 
   const toggleCard = (index: number) => {
     setExpandedCard(expandedCard === index ? null : index);
   };
+
+  // Wheel sectors data directly from the user's diagram
+  const wheelSectors = [
+    {
+      id: 0,
+      label: "Happiness",
+      score: 12,
+      maxScore: 12,
+      startAngle: 0,
+      endAngle: 45,
+      outerColor: "#424246",
+      innerColor: "#eae4e6",
+      textColor: "#111113",
+      desc: "High positive alignment score in human preference benchmarking.",
+    },
+    {
+      id: 1,
+      label: "Awe",
+      score: 10,
+      maxScore: 12,
+      startAngle: 45,
+      endAngle: 90,
+      outerColor: "#4a4a50",
+      innerColor: "#e5def0",
+      textColor: "#111113",
+      desc: "Empathetic and creative engagement metrics across safety stress tests.",
+    },
+    {
+      id: 2,
+      label: "Admiration",
+      score: 5,
+      maxScore: 12,
+      startAngle: 90,
+      endAngle: 135,
+      outerColor: "#424246",
+      innerColor: "#ded8e8",
+      textColor: "#111113",
+      desc: "Respectful response formulation during complex ethical dilemmas.",
+    },
+    {
+      id: 3,
+      label: "Surprise",
+      score: 12,
+      maxScore: 12,
+      startAngle: 135,
+      endAngle: 180,
+      outerColor: "#4a4a50",
+      innerColor: "#e6deed",
+      textColor: "#111113",
+      desc: "Novel reasoning capabilities checked against constitutional guardrails.",
+    },
+    {
+      id: 4,
+      label: "Sadness",
+      score: 6,
+      maxScore: 12,
+      startAngle: 180,
+      endAngle: 225,
+      outerColor: "#424246",
+      innerColor: "#dfdcde",
+      textColor: "#111113",
+      desc: "Mitigated depressive drift and supportive boundary enforcement.",
+    },
+    {
+      id: 5,
+      label: "Fear",
+      score: 4,
+      maxScore: 12,
+      startAngle: 225,
+      endAngle: 270,
+      outerColor: "#4a4a50",
+      innerColor: "#ede8eb",
+      textColor: "#111113",
+      desc: "Suppressed risk-escalation responses during adversarial prompt probing.",
+    },
+    {
+      id: 6,
+      label: "Anger",
+      score: 2,
+      maxScore: 12,
+      startAngle: 270,
+      endAngle: 315,
+      outerColor: "#424246",
+      innerColor: "#f2ecee",
+      textColor: "#111113",
+      desc: "Near-zero hostility rating under extreme jailbreak provocation.",
+    },
+    {
+      id: 7,
+      label: "Anticipation",
+      score: 5,
+      maxScore: 12,
+      startAngle: 315,
+      endAngle: 360,
+      outerColor: "#4a4a50",
+      innerColor: "#ece5e6",
+      textColor: "#111113",
+      desc: "Proactive context anticipation without violating user privacy rules.",
+    },
+  ];
 
   const protectionItems = [
     {
@@ -293,6 +420,171 @@ const SafetyArchitecturePage: React.FC = () => {
                 <span className="text-emerald-400">⇄</span>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* NEW SECTION: Safety Sentiment & Emotional Alignment Wheel */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
+        <div className="max-w-3xl mx-auto text-center space-y-4">
+          <span className="text-xs uppercase tracking-[0.25em] text-emerald-400 font-semibold block">
+            BEHAVIORAL BENCHMARKS
+          </span>
+          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+            Model Emotional & Behavioral Alignment Spectrum
+          </h2>
+          <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed">
+            Continuous empirical evaluation across 8 emotional dimensions to enforce prosocial bounds and suppress adversarial hostility.
+          </p>
+        </div>
+
+        {/* Interactive Radial Wheel Diagram */}
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
+          {/* Wheel Graphic */}
+          <div className="relative w-[340px] sm:w-[460px] h-[340px] sm:h-[460px] flex items-center justify-center">
+            <svg
+              viewBox="0 0 500 500"
+              className="w-full h-full drop-shadow-[0_0_40px_rgba(255,255,255,0.08)] select-none"
+            >
+              {/* Center cutout glow */}
+              <defs>
+                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+                  <feGaussianBlur stdDeviation="6" result="blur" />
+                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                </filter>
+              </defs>
+
+              <g transform="translate(250, 250)">
+                {wheelSectors.map((sector) => {
+                  const startA = sector.startAngle - 90 + 1.5;
+                  const endA = sector.endAngle - 90 - 1.5;
+                  const isHovered = activeWheelSlice === sector.id;
+
+                  // Base outer dark wedge
+                  const outerPath = describeArc(0, 0, 50, 220, startA, endA);
+
+                  // Inner expanding light petal
+                  const innerRadius = 50 + (sector.score / sector.maxScore) * 165;
+                  const innerPath = describeArc(0, 0, 48, innerRadius, startA + 1, endA - 1);
+
+                  // Text label positioning at mid angle
+                  const midAngle = (sector.startAngle + sector.endAngle) / 2 - 90;
+                  const labelRadiusOuter = 185;
+                  const labelRadiusNumber = 145;
+
+                  const textPosOuter = polarToCartesian(0, 0, labelRadiusOuter, midAngle + 90);
+                  const textPosNumber = polarToCartesian(0, 0, labelRadiusNumber, midAngle + 90);
+
+                  return (
+                    <g
+                      key={sector.id}
+                      className="cursor-pointer transition-all duration-300"
+                      onMouseEnter={() => setActiveWheelSlice(sector.id)}
+                      onMouseLeave={() => setActiveWheelSlice(null)}
+                    >
+                      {/* Outer Base Dark Wedge */}
+                      <path
+                        d={outerPath}
+                        fill={sector.outerColor}
+                        stroke="#1a1a1e"
+                        strokeWidth="2.5"
+                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white/40" : ""}`}
+                      />
+
+                      {/* Inner Light Petal */}
+                      <path
+                        d={innerPath}
+                        fill={sector.innerColor}
+                        opacity={isHovered ? 0.98 : 0.9}
+                        className="transition-all duration-300"
+                      />
+
+                      {/* Score Number Text */}
+                      <text
+                        x={textPosNumber.x}
+                        y={textPosNumber.y - 8}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="#111113"
+                        fontSize="20"
+                        fontWeight="800"
+                        fontFamily="sans-serif"
+                        className="pointer-events-none"
+                      >
+                        {sector.score}
+                      </text>
+
+                      {/* Category Label Text */}
+                      <text
+                        x={textPosOuter.x}
+                        y={textPosOuter.y + 10}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill="#111113"
+                        fontSize="12"
+                        fontWeight="600"
+                        fontFamily="sans-serif"
+                        className="pointer-events-none"
+                      >
+                        {sector.label}
+                      </text>
+                    </g>
+                  );
+                })}
+
+                {/* Central Star/Flower Cutout */}
+                <circle r="46" fill="#000000" stroke="#1a1a1e" strokeWidth="3" />
+                <circle r="12" fill="#121215" />
+              </g>
+            </svg>
+          </div>
+
+          {/* Interactive Dynamic Details Side Card */}
+          <div className="w-full lg:w-80 bg-[#121215] border border-white/10 rounded-2xl p-7 space-y-4 shadow-2xl">
+            <span className="text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase block">
+              SPECTRUM DETAILS
+            </span>
+
+            {activeWheelSlice !== null ? (
+              <div className="space-y-3">
+                <div className="flex items-center justify-between border-b border-white/10 pb-3">
+                  <h3 className="text-2xl font-black text-white">
+                    {wheelSectors[activeWheelSlice].label}
+                  </h3>
+                  <span className="text-xl font-mono font-black text-emerald-400">
+                    {wheelSectors[activeWheelSlice].score}/12
+                  </span>
+                </div>
+                <p className="text-xs text-gray-300 leading-relaxed font-normal">
+                  {wheelSectors[activeWheelSlice].desc}
+                </p>
+                <div className="w-full h-2 bg-[#222228] rounded-full overflow-hidden">
+                  <div
+                    className="h-full bg-emerald-500 rounded-full transition-all duration-500"
+                    style={{
+                      width: `${(wheelSectors[activeWheelSlice].score / 12) * 100}%`,
+                    }}
+                  />
+                </div>
+              </div>
+            ) : (
+              <div className="space-y-2 py-4">
+                <p className="text-xs text-gray-400 leading-relaxed">
+                  Hover over any slice of the alignment spectrum dial to view empirical score metrics and safety evaluation details.
+                </p>
+                <div className="pt-3 flex flex-wrap gap-2">
+                  {wheelSectors.map((sec) => (
+                    <span
+                      key={sec.id}
+                      onMouseEnter={() => setActiveWheelSlice(sec.id)}
+                      className="px-2.5 py-1 bg-[#1c1c20] hover:bg-white/20 text-gray-300 hover:text-white rounded-md text-[10px] font-mono font-semibold cursor-pointer transition-colors"
+                    >
+                      {sec.label}: {sec.score}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>
