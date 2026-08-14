@@ -78,12 +78,12 @@ const PlatformPage: React.FC = () => {
       {/* Hero Header */}
       <section className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
         <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,102,204,0.15),transparent_60%)] pointer-events-none" />
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_60%)] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
           <motion.span 
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-xs uppercase tracking-widest text-blue-400 font-bold"
+            className="text-xs uppercase tracking-widest text-gray-400 font-bold"
           >
             AMTHROMAX CORE PLATFORM
           </motion.span>
@@ -134,7 +134,7 @@ const PlatformPage: React.FC = () => {
               transition={{ delay: idx * 0.15 }}
               className="p-8 bg-white dark:bg-[#161617] border border-gray-200/50 dark:border-white/[0.04] rounded-3xl space-y-4 hover:shadow-md transition-all duration-300 group"
             >
-              <span className="text-xs font-black text-blue-600 dark:text-blue-400 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
+              <span className="text-xs font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
             </motion.div>
@@ -161,7 +161,7 @@ const PlatformPage: React.FC = () => {
                     disabled={isRunning}
                     value={simulatedQuery}
                     onChange={(e) => setSimulatedQuery(e.target.value)}
-                    className="w-full px-4 py-3 bg-gray-55 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-semibold text-gray-900 dark:text-white"
+                    className="w-full px-4 py-3 bg-gray-55 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-zinc-500 transition-all font-semibold text-gray-900 dark:text-white"
                     placeholder="Enter query..."
                   />
                 </div>
@@ -201,9 +201,9 @@ const PlatformPage: React.FC = () => {
                       type="button"
                       disabled={isRunning}
                       onClick={() => setUseCache(!useCache)}
-                      className={`w-11 h-6 rounded-full relative p-0.5 transition-colors duration-200 ${useCache ? "bg-emerald-500" : "bg-gray-300 dark:bg-gray-700"}`}
+                      className={`w-11 h-6 rounded-full relative p-0.5 transition-colors duration-200 ${useCache ? "bg-zinc-800 dark:bg-zinc-200" : "bg-gray-300 dark:bg-gray-700"}`}
                     >
-                      <span className={`w-5 h-5 bg-white rounded-full block transition-transform duration-200 ${useCache ? "translate-x-5" : "translate-x-0"}`} />
+                      <span className={`w-5 h-5 bg-white dark:bg-zinc-900 rounded-full block transition-transform duration-200 ${useCache ? "translate-x-5" : "translate-x-0"}`} />
                     </button>
                   </label>
                 </div>
@@ -213,11 +213,11 @@ const PlatformPage: React.FC = () => {
                 type="button"
                 onClick={runSimulation}
                 disabled={isRunning}
-                className="w-full py-4 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 text-white font-bold rounded-2xl text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
+                className="w-full py-4 bg-zinc-900 hover:bg-zinc-800 dark:bg-white dark:hover:bg-zinc-200 text-white dark:text-black font-bold rounded-2xl text-xs uppercase tracking-wider transition-all shadow-md cursor-pointer flex items-center justify-center gap-2"
               >
                 {isRunning ? (
                   <>
-                    <svg className="animate-spin h-4 w-4 text-white" fill="none" viewBox="0 0 24 24">
+                    <svg className="animate-spin h-4 w-4 text-white dark:text-black" fill="none" viewBox="0 0 24 24">
                       <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                       <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z" />
                     </svg>
@@ -234,10 +234,10 @@ const PlatformPage: React.FC = () => {
               {/* Telemetry Header */}
               <div className="bg-[#161617] px-4 py-3 border-b border-zinc-850 flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-blue-500 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-zinc-400 inline-block" />
                   <span className="text-[10px] text-zinc-400 font-bold">real-time-core-orchestrator</span>
                 </div>
-                <span className={`text-[9px] px-2 py-0.5 rounded font-black ${useCache ? "bg-emerald-500/10 text-emerald-450 border border-emerald-500/20" : "bg-blue-500/10 text-blue-400 border border-blue-500/20"}`}>
+                <span className="text-[9px] px-2 py-0.5 rounded font-black bg-zinc-800 text-zinc-300 border border-zinc-700">
                   CACHE_{useCache ? "OPTIMIZED" : "BYPASSED"}
                 </span>
               </div>
@@ -247,7 +247,7 @@ const PlatformPage: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-[10px] text-zinc-550 border-b border-zinc-850 pb-2">
                     <span>EXECUTION FLOW LOG</span>
-                    <span className="animate-pulse text-emerald-400 font-bold">● ONLINE</span>
+                    <span className="animate-pulse text-zinc-300 font-bold">● ONLINE</span>
                   </div>
 
                   {/* Execution Progress */}
@@ -261,7 +261,7 @@ const PlatformPage: React.FC = () => {
                           exit={{ opacity: 0, x: 10 }}
                           className="text-white font-semibold flex items-center gap-3 text-xs"
                         >
-                          <span className="w-2 h-2 bg-blue-500 rounded-full animate-ping" />
+                          <span className="w-2 h-2 bg-zinc-400 rounded-full animate-ping" />
                           <span>{currentStep}</span>
                         </motion.div>
                       ) : (
@@ -290,17 +290,11 @@ const PlatformPage: React.FC = () => {
                             <td className="py-1.5 max-w-[150px] truncate text-[11px] font-semibold">{item.query}</td>
                             <td className="py-1.5 text-zinc-400">{item.model}</td>
                             <td className="py-1.5 text-center">
-                              <span className={`px-1.5 py-0.5 rounded font-black ${
-                                item.cacheStatus === "HIT" 
-                                  ? "bg-green-500/10 text-green-450 border border-green-500/20" 
-                                  : "bg-amber-500/10 text-amber-500 border border-amber-500/20"
-                              }`}>
+                              <span className="px-1.5 py-0.5 rounded font-black bg-zinc-800 text-zinc-300 border border-zinc-700">
                                 {item.cacheStatus}
                               </span>
                             </td>
-                            <td className={`py-1.5 text-right font-bold ${
-                              item.latency < 50 ? "text-green-450" : "text-zinc-300"
-                            }`}>
+                            <td className="py-1.5 text-right font-bold text-zinc-300">
                               {item.latency}ms
                             </td>
                           </tr>
@@ -325,15 +319,15 @@ const PlatformPage: React.FC = () => {
             </p>
             <div className="space-y-3 pt-2 text-xs md:text-sm font-semibold text-gray-800 dark:text-gray-200">
               <div className="flex items-center gap-3">
-                <span className="text-emerald-500 text-base">✓</span>
+                <span className="text-gray-400 text-base">✓</span>
                 <span>Active load balancing across multiple server clusters</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-emerald-500 text-base">✓</span>
+                <span className="text-gray-400 text-base">✓</span>
                 <span>Immutable cryptographic trace logging for auditing</span>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-emerald-500 text-base">✓</span>
+                <span className="text-gray-400 text-base">✓</span>
                 <span>Bidirectional WebSockets for real-time progress indicators</span>
               </div>
             </div>

@@ -3,13 +3,13 @@ import Footer from "../footer/Footer";
 import SEO from "../layout/SEO";
 import { Link } from "react-router-dom";
 
-// Premium Custom SVG Logos
+// Premium Custom SVG Logos (Monochromatic Obsidian)
 const SoftwareIcon: React.FC = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="softwareGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#3b82f6" />
-        <stop offset="100%" stopColor="#1d4ed8" />
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
       </linearGradient>
     </defs>
     <rect x="3" y="3" width="18" height="13" rx="2.5" stroke="url(#softwareGrad)" strokeWidth="2" strokeLinejoin="round" />
@@ -21,11 +21,11 @@ const SoftwareIcon: React.FC = () => (
 );
 
 const CloudIcon: React.FC = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="cloudGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#a855f7" />
-        <stop offset="100%" stopColor="#7e22ce" />
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
       </linearGradient>
     </defs>
     <path d="M18 10C18 6.68629 15.3137 4 12 4C9.36443 4 7.1264 5.70014 6.31154 8.04907C3.8967 8.35824 2 10.4578 2 13C2 15.7614 4.23858 18 7 18H17C19.7614 18 22 15.7614 22 13C22 10.4578 20.1033 8.35824 17.6885 8.04907C17.8924 8.66597 18 9.31754 18 10Z" stroke="url(#cloudGrad)" strokeWidth="2" strokeLinejoin="round" />
@@ -34,29 +34,29 @@ const CloudIcon: React.FC = () => (
 );
 
 const AIIcon: React.FC = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="aiGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#ec4899" />
-        <stop offset="100%" stopColor="#be185d" />
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
       </linearGradient>
     </defs>
     <circle cx="12" cy="12" r="3" stroke="url(#aiGrad)" strokeWidth="2" />
-    <circle cx="5" cy="12" r="1.5" fill="#ec4899" />
-    <circle cx="19" cy="12" r="1.5" fill="#ec4899" />
-    <circle cx="12" cy="5" r="1.5" fill="#ec4899" />
-    <circle cx="12" cy="19" r="1.5" fill="#ec4899" />
+    <circle cx="5" cy="12" r="1.5" fill="currentColor" />
+    <circle cx="19" cy="12" r="1.5" fill="currentColor" />
+    <circle cx="12" cy="5" r="1.5" fill="currentColor" />
+    <circle cx="12" cy="19" r="1.5" fill="currentColor" />
     <path d="M8 12H9M15 12H16M12 8V9M12 15V16" stroke="url(#aiGrad)" strokeWidth="1.5" />
     <path d="M7.5 7.5L9.5 9.5M14.5 14.5L16.5 16.5M16.5 7.5L14.5 9.5M9.5 14.5L7.5 16.5" stroke="url(#aiGrad)" strokeWidth="1.2" strokeDasharray="1.5 1.5" />
   </svg>
 );
 
 const SecurityIcon: React.FC = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="securityGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#06b6d4" />
-        <stop offset="100%" stopColor="#0891b2" />
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
       </linearGradient>
     </defs>
     <path d="M12 22C12 22 20 18 20 12V5L12 2L4 5V12C4 18 12 22 12 22Z" stroke="url(#securityGrad)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
@@ -65,11 +65,11 @@ const SecurityIcon: React.FC = () => (
 );
 
 const DataIcon: React.FC = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="dataGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#f59e0b" />
-        <stop offset="100%" stopColor="#d97706" />
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
       </linearGradient>
     </defs>
     <path d="M21 7V17C21 19.2091 16.9706 21 12 21C7.02944 21 3 19.2091 3 17V7" stroke="url(#dataGrad)" strokeWidth="2" />
@@ -79,11 +79,11 @@ const DataIcon: React.FC = () => (
 );
 
 const MobileIcon: React.FC = () => (
-  <svg className="w-8 h-8" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <svg className="w-8 h-8 text-gray-900 dark:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="mobileGrad" x1="0" y1="0" x2="24" y2="24" gradientUnits="userSpaceOnUse">
-        <stop offset="0%" stopColor="#10b981" />
-        <stop offset="100%" stopColor="#047857" />
+        <stop offset="0%" stopColor="currentColor" stopOpacity="0.9" />
+        <stop offset="100%" stopColor="currentColor" stopOpacity="0.6" />
       </linearGradient>
     </defs>
     <rect x="6" y="2" width="12" height="20" rx="2.5" stroke="url(#mobileGrad)" strokeWidth="2" strokeLinejoin="round" />
@@ -173,7 +173,7 @@ const ProductsPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-[0.15em] text-blue-400 font-semibold">
+          <span className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold">
             PRODUCT PORTFOLIO
           </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
@@ -232,7 +232,7 @@ const ProductsPage: React.FC = () => {
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">1. Instant Customer Sync</span>
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">1. Instant Customer Sync</span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">MORFIX 0.1</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
@@ -252,7 +252,7 @@ const ProductsPage: React.FC = () => {
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">2. Low Operational Overhead</span>
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">2. Low Operational Overhead</span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">INTOX 0.2</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
@@ -272,7 +272,7 @@ const ProductsPage: React.FC = () => {
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">3. Automated Marketing Triggers</span>
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">3. Automated Marketing Triggers</span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">COTISES 0.5 MAX</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
@@ -292,7 +292,7 @@ const ProductsPage: React.FC = () => {
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
-                <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">4. Smart Logistics & Tracking</span>
+                <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">4. Smart Logistics & Tracking</span>
                 <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">VERKOX 0.4 INSTANT</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
@@ -327,7 +327,7 @@ const ProductsPage: React.FC = () => {
                 <div className="inline-flex items-center justify-center p-3.5 bg-[#f5f5f7] dark:bg-white/5 rounded-2xl border border-[#e5e5e7]/60 dark:border-white/10 transition-transform duration-300 group-hover:scale-105">
                   {prod.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-[#1d1d1f] dark:text-white group-hover:text-[#0066cc] dark:group-hover:text-[#2997ff] transition-colors">
+                <h3 className="text-xl font-semibold text-[#1d1d1f] dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                   {prod.title}
                 </h3>
                 <p className="text-[#515154] dark:text-gray-300 text-sm leading-relaxed font-normal">
@@ -338,7 +338,7 @@ const ProductsPage: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-[#e5e5e7]/80 dark:border-white/10">
                 <Link 
                   to={prod.link} 
-                  className="text-[15px] font-medium text-[#0066cc] dark:text-[#2997ff] group-hover:underline flex items-center gap-1.5"
+                  className="text-[15px] font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white group-hover:underline flex items-center gap-1.5 transition-colors"
                 >
                   <span>Explore Capabilities</span>
                   <span>›</span>
