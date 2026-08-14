@@ -597,11 +597,14 @@ const SafetyArchitecturePage: React.FC = () => {
           </h2>
         </div>
 
-        {/* Dual Side-by-Side Dark Dashboard Chart Containers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto pt-4 text-left">
+        {/* Dual Side-by-Side Premium Obsidian Dashboard Chart Containers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto pt-4 text-left">
           {/* Left Container: Particle Cluster Scatter Plot */}
-          <div className="bg-[#0e0e11] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
-            <svg viewBox="0 0 400 300" className="w-full h-full">
+          <div className="bg-[#0a0a0d] border border-white/15 hover:border-white/30 rounded-3xl p-6 sm:p-8 relative aspect-[4/3] flex flex-col justify-between shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden group transition-all duration-500">
+            {/* Top Subtle Edge Sheen */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+            
+            <svg viewBox="0 0 400 300" className="w-full h-full relative z-10">
               {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
               {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
                 const yPos = 20 + idx * 31;
@@ -612,8 +615,8 @@ const SafetyArchitecturePage: React.FC = () => {
                       y1={yPos}
                       x2="350"
                       y2={yPos}
-                      stroke="rgba(255, 255, 255, 0.05)"
-                      strokeDasharray="2 3"
+                      stroke="rgba(255, 255, 255, 0.06)"
+                      strokeDasharray="2 4"
                     />
                     <text
                       x="385"
@@ -645,8 +648,11 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
 
           {/* Right Container: Stacked Volatility Bar Chart */}
-          <div className="bg-[#0e0e11] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
-            <svg viewBox="0 0 400 300" className="w-full h-full">
+          <div className="bg-[#0a0a0d] border border-white/15 hover:border-white/30 rounded-3xl p-6 sm:p-8 relative aspect-[4/3] flex flex-col justify-between shadow-[0_25px_60px_-15px_rgba(0,0,0,0.9)] overflow-hidden group transition-all duration-500">
+            {/* Top Subtle Edge Sheen */}
+            <div className="absolute top-0 left-0 right-0 h-[1px] bg-gradient-to-r from-transparent via-white/25 to-transparent pointer-events-none" />
+
+            <svg viewBox="0 0 400 300" className="w-full h-full relative z-10">
               {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
               {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
                 const yPos = 20 + idx * 31;
@@ -657,8 +663,8 @@ const SafetyArchitecturePage: React.FC = () => {
                       y1={yPos}
                       x2="350"
                       y2={yPos}
-                      stroke="rgba(255, 255, 255, 0.05)"
-                      strokeDasharray="2 3"
+                      stroke="rgba(255, 255, 255, 0.06)"
+                      strokeDasharray="2 4"
                     />
                     <text
                       x="385"
@@ -683,16 +689,16 @@ const SafetyArchitecturePage: React.FC = () => {
                 const gap = 5;
 
                 return (
-                  <g key={idx} className="cursor-pointer">
+                  <g key={idx} className="cursor-pointer group/bar">
                     {/* Base Dark Gray Segment */}
                     <rect
                       x={xPos}
                       y={268 - baseH}
                       width="10"
                       height={baseH}
-                      rx="1"
+                      rx="1.5"
                       fill="#4b5563"
-                      className="transition-all duration-300 hover:opacity-80"
+                      className="transition-all duration-300 group-hover/bar:fill-[#6b7280]"
                     />
 
                     {/* Upper White Segment */}
@@ -701,9 +707,9 @@ const SafetyArchitecturePage: React.FC = () => {
                       y={268 - topH}
                       width="10"
                       height={Math.max(4, topH - baseH - gap)}
-                      rx="1"
+                      rx="1.5"
                       fill="#ffffff"
-                      className="transition-all duration-300 hover:opacity-80"
+                      className="transition-all duration-300 group-hover/bar:fill-[#e5e7eb] group-hover/bar:drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]"
                     />
                   </g>
                 );
