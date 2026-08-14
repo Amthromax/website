@@ -502,12 +502,9 @@ const SafetyArchitecturePage: React.FC = () => {
 
           {/* Interactive Dynamic Details Side Card */}
           <div className="w-full lg:w-96 bg-[#000000] border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
-            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+            <div className="border-b border-white/10 pb-4">
               <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                 SAFETY EVALUATION METRICS
-              </span>
-              <span className="px-3 py-1 rounded-full bg-white/10 border border-white/20 text-gray-200 text-xs font-medium">
-                LIVE AUDIT
               </span>
             </div>
 
