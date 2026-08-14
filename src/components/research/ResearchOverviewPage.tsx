@@ -32,8 +32,8 @@ const ResearchOverviewPage: React.FC = () => {
       title: "Frontier General Intelligence & Multimodal Reasoning",
       description: "Our flagship frontier foundation model trained on multi-modal streams for high-reasoning tasks, deep coding, and complex problem-solving.",
       bannerStyle: {
-        bg: "bg-gradient-to-br from-[#38bdf8] via-[#60a5fa] to-[#bfdbfe]",
-        overlay: "from-blue-600/30 to-sky-400/20",
+        bg: "bg-gradient-to-br from-[#374151] via-[#4b5563] to-[#9ca3af]",
+        overlay: "from-gray-900/40 to-slate-700/20",
         textLogo: "MORFIX",
       },
       metrics: [
@@ -49,8 +49,8 @@ const ResearchOverviewPage: React.FC = () => {
       title: "High-Throughput Autonomous Agent Coordination",
       description: "Optimized for enterprise agentic swarms, self-correcting workflow execution, and real-time environment interaction.",
       bannerStyle: {
-        bg: "bg-gradient-to-tr from-[#a855f7] via-[#d946ef] to-[#f472b6]",
-        overlay: "from-fuchsia-600/30 to-pink-400/20",
+        bg: "bg-gradient-to-tr from-[#d4b996] via-[#e6d0b3] to-[#f4e7d7]",
+        overlay: "from-[#8c6d46]/30 to-[#b89b72]/20",
         textLogo: "COTISES",
       },
       metrics: [
@@ -66,8 +66,8 @@ const ResearchOverviewPage: React.FC = () => {
       title: "Deep Cognitive Chain-of-Thought System",
       description: "Specialized reasoning model that generates internal self-reflection traces to solve advanced mathematics, logic, and scientific proofs.",
       bannerStyle: {
-        bg: "bg-gradient-to-br from-[#10b981] via-[#34d399] to-[#a3e635]",
-        overlay: "from-emerald-600/30 to-lime-400/20",
+        bg: "bg-gradient-to-br from-[#1e293b] via-[#475569] to-[#94a3b8]",
+        overlay: "from-slate-900/50 to-slate-600/20",
         textLogo: "INTOX",
       },
       metrics: [
@@ -83,8 +83,8 @@ const ResearchOverviewPage: React.FC = () => {
       title: "Sub-10ms Edge Inference & On-Device Processing",
       description: "Ultra-compact neural weights designed for zero-latency mobile, embedded, and local edge deployment without loss of accuracy.",
       bannerStyle: {
-        bg: "bg-gradient-to-tr from-[#0284c7] via-[#06b6d4] to-[#67e8f9]",
-        overlay: "from-cyan-500/30 to-sky-300/20",
+        bg: "bg-gradient-to-tr from-[#c2a27d] via-[#dfc4a5] to-[#f7ebd9]",
+        overlay: "from-[#7a5e3d]/30 to-[#a88a65]/20",
         textLogo: "VERKOX",
       },
       metrics: [
@@ -230,9 +230,9 @@ const ResearchOverviewPage: React.FC = () => {
                   {model.bannerStyle.textLogo}
                 </span>
 
-                {/* Glass Pill Badge */}
+                {/* Badge Text */}
                 <div className="z-10 self-start">
-                  <span className="inline-flex items-center px-3.5 py-1 rounded-full text-xs font-bold bg-white/20 backdrop-blur-md text-white border border-white/30 shadow-sm">
+                  <span className="text-xs font-bold text-white tracking-wide opacity-90 drop-shadow-sm">
                     {model.badge}
                   </span>
                 </div>
@@ -273,16 +273,29 @@ const ResearchOverviewPage: React.FC = () => {
           </p>
         </div>
 
-        {/* 2-Column Visual Cards Showcase */}
+        {/* 2-Column Visual Cards Showcase with Dynamic Animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Visual Card 1: Magazine Tabletop Artwork */}
+          {/* Visual Card 1: Magazine Tabletop Artwork with Levitation Animation */}
           <div className="flex flex-col space-y-4 group cursor-pointer">
-            <div className="h-[300px] sm:h-[360px] rounded-lg bg-gradient-to-br from-[#78350f] via-[#b45309] to-[#451a03] relative overflow-hidden flex items-center justify-center p-6 border border-amber-800/20 shadow-md">
-              <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.2),transparent_70%)] pointer-events-none" />
-              <div className="absolute top-0 right-0 w-32 h-32 bg-amber-400/30 rounded-full blur-3xl" />
+            <div className="h-[300px] sm:h-[360px] rounded-2xl bg-gradient-to-br from-[#78350f] via-[#b45309] to-[#451a03] relative overflow-hidden flex items-center justify-center p-6 border border-amber-800/20 shadow-md">
+              {/* Animated Glowing Rays Background */}
+              <motion.div
+                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.3),transparent_70%)] pointer-events-none"
+              />
+              <motion.div
+                animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
+                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-0 right-0 w-44 h-44 bg-amber-400/30 rounded-full blur-3xl"
+              />
 
-              {/* Magazine Canvas */}
-              <div className="relative w-[220px] sm:w-[260px] aspect-[3/4] bg-[#0f172a] rounded-lg border border-blue-400/30 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.4)] flex flex-col justify-between transform -rotate-3 group-hover:rotate-0 group-hover:scale-105 transition-all duration-500">
+              {/* Levitating Magazine Canvas */}
+              <motion.div
+                animate={{ y: [0, -8, 0], rotate: [-3, -1, -3] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="relative w-[220px] sm:w-[260px] aspect-[3/4] bg-[#0f172a] rounded-xl border border-blue-400/30 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col justify-between group-hover:scale-105 transition-transform duration-500"
+              >
                 <div className="space-y-1">
                   <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400 block">
                     Convergence
@@ -292,10 +305,14 @@ const ResearchOverviewPage: React.FC = () => {
                   </h4>
                 </div>
 
-                {/* Chameleon Visual Placeholder */}
-                <div className="w-full h-28 rounded-md bg-gradient-to-tr from-emerald-600 via-teal-500 to-lime-400 relative overflow-hidden flex items-center justify-center">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-r from-amber-400 to-emerald-400 blur-md opacity-80" />
-                  <span className="absolute text-[11px] font-extrabold text-white uppercase tracking-wider drop-shadow-md">
+                {/* Animated Pulsing SOTA Vision Inner Box */}
+                <div className="w-full h-28 rounded-lg bg-gradient-to-tr from-emerald-600 via-teal-500 to-lime-400 relative overflow-hidden flex items-center justify-center border border-white/20 shadow-inner">
+                  <motion.div
+                    animate={{ scale: [0.9, 1.3, 0.9], opacity: [0.6, 0.9, 0.6] }}
+                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+                    className="w-20 h-20 rounded-full bg-gradient-to-r from-amber-300 via-emerald-400 to-cyan-400 blur-lg"
+                  />
+                  <span className="absolute text-[11px] font-black text-white uppercase tracking-wider drop-shadow-lg">
                     SOTA Vision
                   </span>
                 </div>
@@ -304,12 +321,16 @@ const ResearchOverviewPage: React.FC = () => {
                   <span>ISSUE 04</span>
                   <span>AUG 2026</span>
                 </div>
-              </div>
+              </motion.div>
 
-              {/* SOTA Sticky Note */}
-              <div className="absolute bottom-6 right-8 bg-[#fef08a] text-amber-950 font-bold font-mono text-[11px] px-3.5 py-1.5 rounded-sm shadow-md transform rotate-6 group-hover:rotate-0 transition-transform">
+              {/* Floating SOTA Sticky Note */}
+              <motion.div
+                animate={{ y: [0, -5, 0], rotate: [6, 2, 6] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-6 right-8 bg-[#fef08a] text-amber-950 font-bold font-mono text-[11px] px-3.5 py-1.5 rounded-sm shadow-md"
+              >
                 SOTA
-              </div>
+              </motion.div>
             </div>
 
             {/* Typography & Meta below Card 1 */}
@@ -327,16 +348,38 @@ const ResearchOverviewPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual Card 2: Sky & Frosted Glass Square */}
+          {/* Visual Card 2: Sky & Animated Floating Frosted Glass Prism */}
           <div className="flex flex-col space-y-4 group cursor-pointer">
-            <div className="h-[300px] sm:h-[360px] rounded-lg bg-gradient-to-tr from-[#38bdf8] via-[#0284c7] to-[#bae6fd] relative overflow-hidden flex items-center justify-center p-8 border border-sky-300/40 shadow-md">
-              <div className="absolute -top-12 -left-12 w-3/4 h-3/4 bg-white/50 rounded-full blur-3xl" />
-              <div className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-cyan-200/60 rounded-full blur-2xl" />
+            <div className="h-[300px] sm:h-[360px] rounded-2xl bg-gradient-to-tr from-[#38bdf8] via-[#0284c7] to-[#bae6fd] relative overflow-hidden flex items-center justify-center p-8 border border-sky-300/40 shadow-md">
+              <motion.div
+                animate={{ scale: [1, 1.25, 1], x: [-10, 15, -10] }}
+                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -top-12 -left-12 w-3/4 h-3/4 bg-white/50 rounded-full blur-3xl"
+              />
+              <motion.div
+                animate={{ scale: [1.2, 1, 1.2], y: [10, -10, 10] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-cyan-200/60 rounded-full blur-2xl"
+              />
 
-              {/* Floating Frosted Glass Square */}
-              <div className="w-40 sm:w-48 h-40 sm:h-48 rounded-lg bg-white/40 backdrop-blur-xl border border-white/70 shadow-[0_20px_50px_rgba(0,0,0,0.12)] flex items-center justify-center transform group-hover:scale-105 transition-transform duration-500">
-                <div className="w-12 h-12 rounded-full bg-white/50 blur-md" />
-              </div>
+              {/* Floating Animated Frosted Glass Square */}
+              <motion.div
+                animate={{ y: [0, -12, 0], rotate: [0, 4, 0] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+                className="w-44 sm:w-52 h-44 sm:h-52 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/70 shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500"
+              >
+                {/* Iridescent Energy Orb inside Glass Square */}
+                <motion.div
+                  animate={{ scale: [0.8, 1.2, 0.8], rotate: [0, 180, 360] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
+                  className="w-16 h-16 rounded-full bg-gradient-to-tr from-sky-200 via-white to-cyan-300 blur-md opacity-90 shadow-lg"
+                />
+                <motion.div
+                  animate={{ scale: [1.2, 0.9, 1.2] }}
+                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                  className="absolute w-8 h-8 rounded-full bg-white blur-sm shadow-md"
+                />
+              </motion.div>
             </div>
 
             {/* Typography & Meta below Card 2 */}
@@ -351,6 +394,161 @@ const ResearchOverviewPage: React.FC = () => {
                 <span>•</span>
                 <span>6 min read</span>
               </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Investor & Partner Endorsements Section */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20 border-t border-gray-100 bg-white">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
+          {/* Card 1: Coral Red */}
+          <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#e05244] via-[#ea5845] to-[#c83b2d] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
+            {/* Fine Geometric Architectural Grid Lines Overlay */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none">
+              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="grid-red" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.75" />
+                    <path d="M 0 0 L 80 80" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-red)" />
+              </svg>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+            {/* Top Logo / Spacer */}
+            <div className="z-10">
+              <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif">
+                Sequoia
+              </span>
+            </div>
+
+            {/* Bottom Content Area */}
+            <div className="z-10 space-y-4">
+              {/* Author Row */}
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-black/40 border border-white/40 flex items-center justify-center text-[10px] font-bold text-white shadow-sm overflow-hidden">
+                  <span className="bg-gradient-to-tr from-amber-400 to-rose-400 w-full h-full flex items-center justify-center text-white">
+                    JZ
+                  </span>
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-white/90">
+                  Jessie Zhang
+                </span>
+              </div>
+
+              {/* Quote */}
+              <p className="text-lg sm:text-xl font-medium tracking-tight text-white leading-snug">
+                “We are building the interface between humans and autonomous AI systems at planetary scale.”
+              </p>
+
+              {/* Subtext */}
+              <p className="text-xs text-white/70 font-normal leading-relaxed">
+                Led investments in Figma, Notion, and other frontier tech market leaders
+              </p>
+            </div>
+          </div>
+
+          {/* Card 2: Accel (Forest / Emerald Green) */}
+          <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#2d5a44] via-[#3a6b52] to-[#1f4231] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
+            {/* Fine Geometric Architectural Grid Lines Overlay */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none">
+              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="grid-green" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.75" />
+                    <path d="M 0 0 L 80 80" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-green)" />
+              </svg>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+            {/* Top Logo */}
+            <div className="z-10">
+              <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif italic">
+                Accel
+              </span>
+            </div>
+
+            {/* Bottom Content Area */}
+            <div className="z-10 space-y-4">
+              {/* Author Row */}
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-black/40 border border-white/40 flex items-center justify-center text-[10px] font-bold text-white shadow-sm overflow-hidden">
+                  <span className="bg-gradient-to-tr from-emerald-400 to-teal-600 w-full h-full flex items-center justify-center text-white">
+                    IZ
+                  </span>
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-white/90">
+                  Ivan Zhou
+                </span>
+              </div>
+
+              {/* Quote */}
+              <p className="text-lg sm:text-xl font-medium tracking-tight text-white leading-snug">
+                “The next generation of enterprise teams will need messaging designed around humans and agents.”
+              </p>
+
+              {/* Subtext */}
+              <p className="text-xs text-white/70 font-normal leading-relaxed">
+                Led Slack's seed & series A when they were still a gaming company
+              </p>
+            </div>
+          </div>
+
+          {/* Card 3: Emergence (Warm Taupe / Muted Olive) */}
+          <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#6b6758] via-[#7d7867] to-[#545144] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
+            {/* Fine Geometric Architectural Grid Lines Overlay */}
+            <div className="absolute inset-0 opacity-20 pointer-events-none">
+              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                  <pattern id="grid-taupe" width="80" height="80" patternUnits="userSpaceOnUse">
+                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.75" />
+                    <path d="M 0 0 L 80 80" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" />
+                  </pattern>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grid-taupe)" />
+              </svg>
+            </div>
+            <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
+
+            {/* Top Logo */}
+            <div className="z-10 flex items-center gap-2">
+              <div className="flex items-center justify-center font-bold text-white border-2 border-white px-1 py-0.5 text-xs tracking-tighter">
+                |E|
+              </div>
+              <span className="text-sm sm:text-base font-extrabold tracking-widest text-white uppercase">
+                EMERGENCE
+              </span>
+            </div>
+
+            {/* Bottom Content Area */}
+            <div className="z-10 space-y-4">
+              {/* Author Row */}
+              <div className="flex items-center gap-2.5">
+                <div className="w-7 h-7 rounded-full bg-black/40 border border-white/40 flex items-center justify-center text-[10px] font-bold text-white shadow-sm overflow-hidden">
+                  <span className="bg-gradient-to-tr from-stone-400 to-amber-600 w-full h-full flex items-center justify-center text-white">
+                    SS
+                  </span>
+                </div>
+                <span className="text-xs sm:text-sm font-semibold text-white/90">
+                  Santi Subotovsky
+                </span>
+              </div>
+
+              {/* Quote */}
+              <p className="text-lg sm:text-xl font-medium tracking-tight text-white leading-snug">
+                “We believe the next era of enterprise productivity requires a dedicated platform for real human–AI collaboration.”
+              </p>
+
+              {/* Subtext */}
+              <p className="text-xs text-white/70 font-normal leading-relaxed">
+                Seeded Zoom, Veeva Systems, & other landmark enterprise SaaS plays
+              </p>
             </div>
           </div>
         </div>
