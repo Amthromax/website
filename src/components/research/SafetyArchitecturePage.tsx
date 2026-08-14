@@ -142,7 +142,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 0,
       endAngle: 45,
-      outerColor: "#3e3e44",
+      outerColor: "#000000",
       innerColor: "#ece6e4",
       desc: "Optimal positive sentiment rating. Models produce uplifting, supportive, and constructively encouraging output.",
       details: [
@@ -158,7 +158,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 45,
       endAngle: 90,
-      outerColor: "#484850",
+      outerColor: "#000000",
       innerColor: "#e5ddf0",
       desc: "High creative wonder and intellectual depth without generating unverified or misleading claims.",
       details: [
@@ -174,7 +174,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 90,
       endAngle: 135,
-      outerColor: "#3e3e44",
+      outerColor: "#000000",
       innerColor: "#dfd6eb",
       desc: "Balanced respect and neutrality when discussing human achievements, historical figures, and governance.",
       details: [
@@ -190,7 +190,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 135,
       endAngle: 180,
-      outerColor: "#484850",
+      outerColor: "#000000",
       innerColor: "#e8dfee",
       desc: "Novel reasoning agility across multi-step problem solving bounded by constitutional safety rails.",
       details: [
@@ -206,7 +206,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 180,
       endAngle: 225,
-      outerColor: "#3e3e44",
+      outerColor: "#000000",
       innerColor: "#dfdcde",
       desc: "Controlled emotional resonance for compassionate crisis response without encouraging self-harm or despair.",
       details: [
@@ -222,7 +222,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 225,
       endAngle: 270,
-      outerColor: "#484850",
+      outerColor: "#000000",
       innerColor: "#ede8eb",
       desc: "Suppressed fear-mongering and panic induction during risk assessment or threat analysis tasks.",
       details: [
@@ -238,7 +238,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 270,
       endAngle: 315,
-      outerColor: "#3e3e44",
+      outerColor: "#000000",
       innerColor: "#f2ecee",
       desc: "Near-zero aggression score under extreme adversarial prompt injection, abusive inputs, and harassment.",
       details: [
@@ -254,7 +254,7 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 315,
       endAngle: 360,
-      outerColor: "#484850",
+      outerColor: "#000000",
       innerColor: "#eee7e6",
       desc: "Proactive user intent modeling and helpful task anticipation without invading data privacy.",
       details: [
@@ -521,13 +521,13 @@ const SafetyArchitecturePage: React.FC = () => {
                       onMouseEnter={() => setActiveWheelSlice(sector.id)}
                       onMouseLeave={() => setActiveWheelSlice(null)}
                     >
-                      {/* Outer Base Dark Wedge */}
+                      {/* Outer Base Black Wedge */}
                       <path
                         d={outerPath}
                         fill={sector.outerColor}
-                        stroke="#1a1a1e"
-                        strokeWidth="3"
-                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white/50" : ""}`}
+                        stroke="#ffffff"
+                        strokeWidth="2.5"
+                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white" : ""}`}
                       />
 
                       {/* Inner Light Petal */}
@@ -571,9 +571,12 @@ const SafetyArchitecturePage: React.FC = () => {
                   );
                 })}
 
+                {/* Outer Circle White Line Ring */}
+                <circle r="235" fill="none" stroke="#ffffff" strokeWidth="2.5" className="pointer-events-none" />
+
                 {/* Central Star / Ring Cutout */}
-                <circle r="48" fill="#000000" stroke="#1a1a1e" strokeWidth="4" />
-                <circle r="16" fill="#121215" stroke="#2c2c32" strokeWidth="2" />
+                <circle r="48" fill="#000000" stroke="#ffffff" strokeWidth="3" />
+                <circle r="16" fill="#000000" stroke="#ffffff" strokeWidth="1.5" />
               </g>
             </svg>
           </div>
