@@ -290,7 +290,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <span className="text-xs uppercase tracking-[0.25em] text-gray-400 font-semibold block">
             Safety
           </span>
-          <h1 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl font-normal text-white tracking-tight leading-[1.08]">
             Safety at every step
           </h1>
           <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
@@ -397,7 +397,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <span className="text-xs uppercase tracking-[0.25em] text-gray-400 font-semibold block">
             BEHAVIORAL BENCHMARKS
           </span>
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
             Model Emotional & Behavioral Alignment Spectrum
           </h2>
           <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed">
@@ -597,7 +597,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <span className="text-xs text-gray-400 font-medium tracking-wide block">
             Now / Practices
           </span>
-          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.08]">
+          <h2 className="text-4xl sm:text-6xl font-normal text-white tracking-tight leading-[1.08]">
             Best practices for designing <br className="hidden sm:inline" />
             Linear Dashboards
           </h2>
@@ -729,7 +729,7 @@ const SafetyArchitecturePage: React.FC = () => {
       {/* SECTION 4: Protecting people where it matters most */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
             Protecting people where it matters most
           </h2>
           <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed">
@@ -831,7 +831,7 @@ const SafetyArchitecturePage: React.FC = () => {
       {/* SECTION 5: Go deeper on safety */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20">
         <div className="rounded-3xl bg-[#1c1c20] border border-white/10 p-12 sm:p-20 text-center space-y-8 shadow-2xl">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
             Go deeper on safety
           </h2>
           <div className="flex justify-center pt-2">
