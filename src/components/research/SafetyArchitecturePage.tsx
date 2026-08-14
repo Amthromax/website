@@ -600,7 +600,7 @@ const SafetyArchitecturePage: React.FC = () => {
         {/* Dual Side-by-Side Dashboard Chart Containers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto pt-4 text-left">
           {/* Left Container: Particle Cluster Scatter Plot */}
-          <div className="bg-[#0e0e11] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
+          <div className="bg-[#000000] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
             <svg viewBox="0 0 400 300" className="w-full h-full">
               {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
               {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
@@ -644,7 +644,7 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
 
           {/* Right Container: Stacked Volatility Bar Chart */}
-          <div className="bg-[#0e0e11] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
+          <div className="bg-[#000000] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
             <svg viewBox="0 0 400 300" className="w-full h-full">
               {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
               {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
