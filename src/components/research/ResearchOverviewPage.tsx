@@ -260,6 +260,205 @@ const ResearchOverviewPage: React.FC = () => {
             </motion.div>
           ))}
         </div>
+
+        {/* Learn About Safety Link */}
+        <div className="flex justify-center pt-4">
+          <a
+            href="#safety"
+            className="text-blue-600 hover:text-blue-700 font-semibold text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group cursor-pointer"
+          >
+            <span>Learn about safety</span>
+            <span className="group-hover:translate-x-1 transition-transform">›</span>
+          </a>
+        </div>
+
+        {/* Safety Section Block */}
+        <div id="safety" className="bg-black text-white rounded-[32px] p-8 sm:p-16 space-y-24 border border-white/10 shadow-2xl relative overflow-hidden">
+          {/* Subtle Ambient Radial Lighting */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-96 bg-gradient-to-b from-emerald-950/20 via-transparent to-transparent pointer-events-none" />
+
+          {/* Section 1: Safety at Every Step */}
+          <div className="space-y-12 relative z-10">
+            <div className="text-center max-w-2xl mx-auto space-y-3">
+              <span className="text-[11px] uppercase tracking-[0.25em] text-gray-400 font-bold block">
+                Safety
+              </span>
+              <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+                Safety at every step
+              </h3>
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal pt-1">
+                We believe in AI's potential to make life better for everyone, which means making it safe for everyone
+              </p>
+            </div>
+
+            {/* 3 Step Cards Grid: Teach, Test, Share */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+              {/* Card 1: Teach */}
+              <div className="bg-[#0f0f0f] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-[340px] sm:h-[360px] relative group hover:border-white/20 transition-all shadow-xl">
+                <span className="text-sm font-bold text-white tracking-wide">
+                  Teach
+                </span>
+                
+                {/* Visual Graphics: White circle + Gray circle with Green Checkmark */}
+                <div className="flex items-center justify-center my-auto relative">
+                  <div className="flex items-center gap-4">
+                    <div className="w-16 h-16 rounded-full bg-white shadow-2xl" />
+                    <div className="w-16 h-16 rounded-full bg-[#2a2a2a] relative border border-white/10 shadow-xl">
+                      <div className="absolute -bottom-1 -right-1 bg-[#22c55e] text-black w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs shadow-lg">
+                        ✓
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 2: Test */}
+              <div className="bg-[#0f0f0f] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-[340px] sm:h-[360px] relative group hover:border-white/20 transition-all shadow-xl">
+                <span className="text-sm font-bold text-white tracking-wide">
+                  Test
+                </span>
+
+                {/* Visual Graphics: Message Bubble Box with Green Checkmark */}
+                <div className="flex items-center justify-center my-auto">
+                  <div className="w-52 bg-[#1a1a1a] rounded-xl p-4 space-y-2.5 border border-white/10 relative shadow-2xl">
+                    <div className="absolute -top-2.5 -left-2.5 bg-[#22c55e] text-black w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs shadow-lg">
+                      ✓
+                    </div>
+                    <div className="h-2.5 bg-white/20 rounded-full w-full" />
+                    <div className="h-2.5 bg-white/20 rounded-full w-3/4" />
+                    <div className="h-2.5 bg-white/20 rounded-full w-5/6" />
+                  </div>
+                </div>
+              </div>
+
+              {/* Card 3: Share */}
+              <div className="bg-[#0f0f0f] border border-white/10 rounded-2xl p-6 sm:p-8 flex flex-col justify-between h-[340px] sm:h-[360px] relative group hover:border-white/20 transition-all shadow-xl">
+                <span className="text-sm font-bold text-white tracking-wide">
+                  Share
+                </span>
+
+                {/* Visual Graphics: 2x2 User Avatars with Green Checkmark */}
+                <div className="flex items-center justify-center my-auto">
+                  <div className="relative">
+                    <div className="grid grid-cols-2 gap-4">
+                      {[1, 2, 3, 4].map((i) => (
+                        <div key={i} className="w-10 h-12 flex flex-col items-center justify-end space-y-1">
+                          <div className="w-5 h-5 rounded-full bg-white/80" />
+                          <div className="w-9 h-4 bg-white/80 rounded-t-full" />
+                        </div>
+                      ))}
+                    </div>
+                    <div className="absolute -bottom-2 -right-2 bg-[#22c55e] text-black w-6 h-6 rounded-md flex items-center justify-center font-bold text-xs shadow-lg">
+                      ✓
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 2: Safety Doesn't Stop Cyclic Diagram */}
+          <div className="space-y-16 pt-8 relative z-10">
+            <div className="text-center max-w-2xl mx-auto space-y-4">
+              <h3 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+                Safety doesn’t stop
+              </h3>
+              <p className="text-sm sm:text-base text-gray-400 leading-relaxed font-normal">
+                Building safe AI isn’t one and done. Every day is a chance to make things better. And every step helps anticipate, evaluate, and prevent risk.
+              </p>
+            </div>
+
+            {/* 3-Loop Cyclic Diagram Container */}
+            <div className="py-10 max-w-5xl mx-auto relative flex flex-col items-center justify-center">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 w-full max-w-4xl relative">
+
+                {/* TEACH Loop (Top Left) */}
+                <div className="relative flex items-center justify-center h-80">
+                  {/* Dashed Orbit Circle */}
+                  <div className="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full border-2 border-dashed border-emerald-500/50 flex items-center justify-center pointer-events-none animate-[spin_60s_linear_infinite]" />
+                  
+                  {/* Center Node */}
+                  <div className="w-32 h-32 rounded-full bg-[#161616] border border-white/20 shadow-2xl flex items-center justify-center text-sm font-black tracking-widest text-white z-10">
+                    TEACH
+                  </div>
+
+                  {/* Orbiting Nodes */}
+                  <span className="absolute top-2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                    FILTER DATA
+                  </span>
+                  <span className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                    HUMAN VALUES
+                  </span>
+                  <span className="absolute bottom-2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                    AMTHROMAX POLICIES
+                  </span>
+                </div>
+
+                {/* TEST Loop (Top Right) */}
+                <div className="relative flex items-center justify-center h-80">
+                  {/* Dashed Orbit Circle */}
+                  <div className="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full border-2 border-dashed border-emerald-500/50 flex items-center justify-center pointer-events-none animate-[spin_60s_linear_infinite]" />
+                  
+                  {/* Center Node */}
+                  <div className="w-32 h-32 rounded-full bg-[#161616] border border-white/20 shadow-2xl flex items-center justify-center text-sm font-black tracking-widest text-white z-10">
+                    TEST
+                  </div>
+
+                  {/* Orbiting Nodes */}
+                  <span className="absolute top-2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                    RED TEAMING
+                  </span>
+                  <span className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                    PREPAREDNESS EVALS
+                  </span>
+                  <span className="absolute bottom-2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                    SYSTEM CARDS
+                  </span>
+                </div>
+              </div>
+
+              {/* SHARE Loop (Bottom Center) */}
+              <div className="relative flex items-center justify-center h-80 mt-4 md:-mt-8">
+                {/* Dashed Orbit Circle */}
+                <div className="absolute w-64 h-64 sm:w-72 sm:h-72 rounded-full border-2 border-dashed border-emerald-500/50 flex items-center justify-center pointer-events-none animate-[spin_60s_linear_infinite]" />
+                
+                {/* Center Node */}
+                <div className="w-32 h-32 rounded-full bg-[#161616] border border-white/20 shadow-2xl flex items-center justify-center text-sm font-black tracking-widest text-white z-10">
+                  SHARE
+                </div>
+
+                {/* Orbiting Nodes */}
+                <span className="absolute top-2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                  SAFETY COMMITTEES
+                </span>
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                  FEEDBACK
+                </span>
+                <span className="absolute right-0 top-1/2 -translate-y-1/2 bg-[#1c1c1c] border border-white/20 text-[10px] sm:text-xs font-bold text-gray-300 uppercase px-3 py-1 rounded-md shadow-md z-20">
+                  ALPHA / BETA
+                </span>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 3: Go Deeper On Safety Hub Container */}
+          <div className="pt-6 z-10 relative">
+            <div className="bg-[#141414] border border-white/10 rounded-3xl p-10 sm:p-14 text-center max-w-3xl mx-auto space-y-6 shadow-2xl">
+              <h3 className="text-2xl sm:text-4xl font-extrabold tracking-tight text-white">
+                Go deeper on safety
+              </h3>
+              <div>
+                <a
+                  href="/legal/privacy"
+                  className="bg-[#242424] hover:bg-[#333333] border border-white/20 text-white font-semibold text-xs sm:text-sm px-6 py-3 rounded-full inline-flex items-center gap-2 transition-all cursor-pointer shadow-lg hover:scale-105"
+                >
+                  <span>Explore the deployment safety hub</span>
+                  <span>↗</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* Visual Research Section */}
@@ -404,18 +603,6 @@ const ResearchOverviewPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Card 1: Coral Red */}
           <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#e05244] via-[#ea5845] to-[#c83b2d] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
-            {/* Fine Geometric Architectural Grid Lines Overlay */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none">
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="grid-red" width="80" height="80" patternUnits="userSpaceOnUse">
-                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.75" />
-                    <path d="M 0 0 L 80 80" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid-red)" />
-              </svg>
-            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
             {/* Top Logo / Spacer */}
@@ -453,18 +640,6 @@ const ResearchOverviewPage: React.FC = () => {
 
           {/* Card 2: Accel (Forest / Emerald Green) */}
           <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#2d5a44] via-[#3a6b52] to-[#1f4231] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
-            {/* Fine Geometric Architectural Grid Lines Overlay */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none">
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="grid-green" width="80" height="80" patternUnits="userSpaceOnUse">
-                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.75" />
-                    <path d="M 0 0 L 80 80" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid-green)" />
-              </svg>
-            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
             {/* Top Logo */}
@@ -502,18 +677,6 @@ const ResearchOverviewPage: React.FC = () => {
 
           {/* Card 3: Emergence (Warm Taupe / Muted Olive) */}
           <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#6b6758] via-[#7d7867] to-[#545144] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
-            {/* Fine Geometric Architectural Grid Lines Overlay */}
-            <div className="absolute inset-0 opacity-20 pointer-events-none">
-              <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                  <pattern id="grid-taupe" width="80" height="80" patternUnits="userSpaceOnUse">
-                    <path d="M 80 0 L 0 0 0 80" fill="none" stroke="white" strokeWidth="0.75" />
-                    <path d="M 0 0 L 80 80" fill="none" stroke="white" strokeWidth="0.5" strokeDasharray="4 4" />
-                  </pattern>
-                </defs>
-                <rect width="100%" height="100%" fill="url(#grid-taupe)" />
-              </svg>
-            </div>
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
             {/* Top Logo */}
