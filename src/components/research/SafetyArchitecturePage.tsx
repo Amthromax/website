@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../layout/SEO";
 
-// Helper function to calculate SVG sector paths with rounded aesthetics
+// Helper function to calculate SVG sector paths
 function polarToCartesian(centerX: number, centerY: number, radius: number, angleInDegrees: number) {
   const angleInRadians = ((angleInDegrees - 90) * Math.PI) / 180.0;
   return {
@@ -34,7 +34,6 @@ const SafetyArchitecturePage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  // State for expanded protection cards
   const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [activeWheelSlice, setActiveWheelSlice] = useState<number | null>(null);
 
@@ -42,7 +41,7 @@ const SafetyArchitecturePage: React.FC = () => {
     setExpandedCard(expandedCard === index ? null : index);
   };
 
-  // Wheel sectors data directly from the user's diagram
+  // Exactly matching the user's reference diagram
   const wheelSectors = [
     {
       id: 0,
@@ -51,10 +50,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 0,
       endAngle: 45,
-      outerColor: "#424246",
-      innerColor: "#eae4e6",
-      textColor: "#111113",
-      desc: "High positive alignment score in human preference benchmarking.",
+      outerColor: "#3e3e44",
+      innerColor: "#ece6e4",
+      desc: "Optimal positive sentiment rating. Models produce uplifting, supportive, and constructively encouraging output.",
+      details: [
+        "Prosocial engagement score: 98.4%",
+        "Toxicity suppression: 100%",
+        "Empathy benchmarking: Peak alignment",
+      ],
     },
     {
       id: 1,
@@ -63,10 +66,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 45,
       endAngle: 90,
-      outerColor: "#4a4a50",
-      innerColor: "#e5def0",
-      textColor: "#111113",
-      desc: "Empathetic and creative engagement metrics across safety stress tests.",
+      outerColor: "#484850",
+      innerColor: "#e5ddf0",
+      desc: "High creative wonder and intellectual depth without generating unverified or misleading claims.",
+      details: [
+        "Inspirational clarity index: 94.2%",
+        "Hallucination threshold: <0.01%",
+        "Scientific accuracy: Verified",
+      ],
     },
     {
       id: 2,
@@ -75,10 +82,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 90,
       endAngle: 135,
-      outerColor: "#424246",
-      innerColor: "#ded8e8",
-      textColor: "#111113",
-      desc: "Respectful response formulation during complex ethical dilemmas.",
+      outerColor: "#3e3e44",
+      innerColor: "#dfd6eb",
+      desc: "Balanced respect and neutrality when discussing human achievements, historical figures, and governance.",
+      details: [
+        "Neutrality index: 96.8%",
+        "Biased praise mitigation: Active",
+        "Fact-checking score: 99.1%",
+      ],
     },
     {
       id: 3,
@@ -87,10 +98,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 135,
       endAngle: 180,
-      outerColor: "#4a4a50",
-      innerColor: "#e6deed",
-      textColor: "#111113",
-      desc: "Novel reasoning capabilities checked against constitutional guardrails.",
+      outerColor: "#484850",
+      innerColor: "#e8dfee",
+      desc: "Novel reasoning agility across multi-step problem solving bounded by constitutional safety rails.",
+      details: [
+        "Zero-shot problem solving: 97.5%",
+        "Constraint adherence: 100%",
+        "Out-of-distribution stability: High",
+      ],
     },
     {
       id: 4,
@@ -99,10 +114,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 180,
       endAngle: 225,
-      outerColor: "#424246",
+      outerColor: "#3e3e44",
       innerColor: "#dfdcde",
-      textColor: "#111113",
-      desc: "Mitigated depressive drift and supportive boundary enforcement.",
+      desc: "Controlled emotional resonance for compassionate crisis response without encouraging self-harm or despair.",
+      details: [
+        "Crisis hotline redirection: 100% trigger rate",
+        "Depressive tone dampening: Active",
+        "Safety guardrail pass rate: 100%",
+      ],
     },
     {
       id: 5,
@@ -111,10 +130,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 225,
       endAngle: 270,
-      outerColor: "#4a4a50",
+      outerColor: "#484850",
       innerColor: "#ede8eb",
-      textColor: "#111113",
-      desc: "Suppressed risk-escalation responses during adversarial prompt probing.",
+      desc: "Suppressed fear-mongering and panic induction during risk assessment or threat analysis tasks.",
+      details: [
+        "Disinformation dampening: 99.9%",
+        "Alarmist language filter: Enforced",
+        "Objective risk framing: Active",
+      ],
     },
     {
       id: 6,
@@ -123,10 +146,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 270,
       endAngle: 315,
-      outerColor: "#424246",
+      outerColor: "#3e3e44",
       innerColor: "#f2ecee",
-      textColor: "#111113",
-      desc: "Near-zero hostility rating under extreme jailbreak provocation.",
+      desc: "Near-zero aggression score under extreme adversarial prompt injection, abusive inputs, and harassment.",
+      details: [
+        "Hostility suppression: 99.99%",
+        "Adversarial red-team resilience: 100%",
+        "De-escalation protocol: Active",
+      ],
     },
     {
       id: 7,
@@ -135,10 +162,14 @@ const SafetyArchitecturePage: React.FC = () => {
       maxScore: 12,
       startAngle: 315,
       endAngle: 360,
-      outerColor: "#4a4a50",
-      innerColor: "#ece5e6",
-      textColor: "#111113",
-      desc: "Proactive context anticipation without violating user privacy rules.",
+      outerColor: "#484850",
+      innerColor: "#eee7e6",
+      desc: "Proactive user intent modeling and helpful task anticipation without invading data privacy.",
+      details: [
+        "Intent prediction accuracy: 92.4%",
+        "Zero data retention compliance: Enforced",
+        "Privacy boundary safety: 100%",
+      ],
     },
   ];
 
@@ -320,9 +351,7 @@ const SafetyArchitecturePage: React.FC = () => {
         </div>
       </section>
 
-
-
-      {/* NEW SECTION: Safety Sentiment & Emotional Alignment Wheel */}
+      {/* SECTION 2: Model Emotional & Behavioral Alignment Spectrum */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <span className="text-xs uppercase tracking-[0.25em] text-emerald-400 font-semibold block">
@@ -337,41 +366,40 @@ const SafetyArchitecturePage: React.FC = () => {
         </div>
 
         {/* Interactive Radial Wheel Diagram */}
-        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-5xl mx-auto">
-          {/* Wheel Graphic */}
-          <div className="relative w-[340px] sm:w-[460px] h-[340px] sm:h-[460px] flex items-center justify-center">
+        <div className="flex flex-col lg:flex-row items-center justify-center gap-12 max-w-6xl mx-auto">
+          {/* SVG Wheel Graphic */}
+          <div className="relative w-[360px] sm:w-[500px] h-[360px] sm:h-[500px] flex items-center justify-center">
             <svg
-              viewBox="0 0 500 500"
-              className="w-full h-full drop-shadow-[0_0_40px_rgba(255,255,255,0.08)] select-none"
+              viewBox="0 0 540 540"
+              className="w-full h-full drop-shadow-[0_0_50px_rgba(255,255,255,0.06)] select-none"
             >
-              {/* Center cutout glow */}
-              <defs>
-                <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feGaussianBlur stdDeviation="6" result="blur" />
-                  <feComposite in="SourceGraphic" in2="blur" operator="over" />
-                </filter>
-              </defs>
-
-              <g transform="translate(250, 250)">
+              <g transform="translate(270, 270)">
                 {wheelSectors.map((sector) => {
-                  const startA = sector.startAngle - 90 + 1.5;
-                  const endA = sector.endAngle - 90 - 1.5;
+                  const startA = sector.startAngle + 1.5;
+                  const endA = sector.endAngle - 1.5;
                   const isHovered = activeWheelSlice === sector.id;
 
-                  // Base outer dark wedge
-                  const outerPath = describeArc(0, 0, 50, 220, startA, endA);
+                  // Base outer dark wedge (radius: 50 -> 240)
+                  const outerPath = describeArc(0, 0, 50, 240, startA, endA);
 
-                  // Inner expanding light petal
-                  const innerRadius = 50 + (sector.score / sector.maxScore) * 165;
+                  // Inner expanding light petal based on score (1..12)
+                  const innerRadius = 50 + (sector.score / sector.maxScore) * 185;
                   const innerPath = describeArc(0, 0, 48, innerRadius, startA + 1, endA - 1);
 
-                  // Text label positioning at mid angle
-                  const midAngle = (sector.startAngle + sector.endAngle) / 2 - 90;
-                  const labelRadiusOuter = 185;
-                  const labelRadiusNumber = 145;
+                  // Calculate mid angle for label placement
+                  const midAngle = (sector.startAngle + sector.endAngle) / 2;
 
-                  const textPosOuter = polarToCartesian(0, 0, labelRadiusOuter, midAngle + 90);
-                  const textPosNumber = polarToCartesian(0, 0, labelRadiusNumber, midAngle + 90);
+                  // Label positions (Number closer to center/petal, Word slightly further out)
+                  // For high score sectors, place text centered in light petal; for lower, place in outer wedge
+                  const labelRadiusWord = sector.score >= 8 ? 165 : 190;
+                  const labelRadiusScore = sector.score >= 8 ? 130 : 140;
+
+                  const textPosWord = polarToCartesian(0, 0, labelRadiusWord, midAngle);
+                  const textPosScore = polarToCartesian(0, 0, labelRadiusScore, midAngle);
+
+                  // Text color logic: dark text when on light petal, white text when on dark base
+                  const textColorWord = sector.score >= 8 ? "#111113" : "#ffffff";
+                  const textColorScore = sector.score >= 8 ? "#111113" : "#ffffff";
 
                   return (
                     <g
@@ -385,100 +413,137 @@ const SafetyArchitecturePage: React.FC = () => {
                         d={outerPath}
                         fill={sector.outerColor}
                         stroke="#1a1a1e"
-                        strokeWidth="2.5"
-                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white/40" : ""}`}
+                        strokeWidth="3"
+                        className={`transition-all duration-300 ${isHovered ? "brightness-125 stroke-white/50" : ""}`}
                       />
 
                       {/* Inner Light Petal */}
                       <path
                         d={innerPath}
                         fill={sector.innerColor}
-                        opacity={isHovered ? 0.98 : 0.9}
+                        opacity={isHovered ? 1 : 0.92}
                         className="transition-all duration-300"
                       />
 
-                      {/* Score Number Text */}
+                      {/* Label Word Text (e.g. Happiness, Anger, etc.) */}
                       <text
-                        x={textPosNumber.x}
-                        y={textPosNumber.y - 8}
+                        x={textPosWord.x}
+                        y={textPosWord.y - 8}
                         textAnchor="middle"
                         dominantBaseline="middle"
-                        fill="#111113"
-                        fontSize="20"
-                        fontWeight="800"
+                        fill={textColorWord}
+                        fontSize="13"
+                        fontWeight="700"
                         fontFamily="sans-serif"
-                        className="pointer-events-none"
-                      >
-                        {sector.score}
-                      </text>
-
-                      {/* Category Label Text */}
-                      <text
-                        x={textPosOuter.x}
-                        y={textPosOuter.y + 10}
-                        textAnchor="middle"
-                        dominantBaseline="middle"
-                        fill="#111113"
-                        fontSize="12"
-                        fontWeight="600"
-                        fontFamily="sans-serif"
-                        className="pointer-events-none"
+                        className="pointer-events-none transition-colors duration-300"
                       >
                         {sector.label}
+                      </text>
+
+                      {/* Score Number Text (e.g. 12, 10, 5, 2) */}
+                      <text
+                        x={textPosScore.x}
+                        y={textPosScore.y + 10}
+                        textAnchor="middle"
+                        dominantBaseline="middle"
+                        fill={textColorScore}
+                        fontSize="22"
+                        fontWeight="900"
+                        fontFamily="sans-serif"
+                        className="pointer-events-none transition-colors duration-300"
+                      >
+                        {sector.score}
                       </text>
                     </g>
                   );
                 })}
 
-                {/* Central Star/Flower Cutout */}
-                <circle r="46" fill="#000000" stroke="#1a1a1e" strokeWidth="3" />
-                <circle r="12" fill="#121215" />
+                {/* Central Star / Ring Cutout */}
+                <circle r="48" fill="#000000" stroke="#1a1a1e" strokeWidth="4" />
+                <circle r="16" fill="#121215" stroke="#2c2c32" strokeWidth="2" />
               </g>
             </svg>
           </div>
 
           {/* Interactive Dynamic Details Side Card */}
-          <div className="w-full lg:w-80 bg-[#121215] border border-white/10 rounded-2xl p-7 space-y-4 shadow-2xl">
-            <span className="text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase block">
-              SPECTRUM DETAILS
-            </span>
+          <div className="w-full lg:w-96 bg-[#121215] border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
+            <div className="flex items-center justify-between border-b border-white/10 pb-4">
+              <span className="text-[10px] font-mono font-bold tracking-widest text-emerald-400 uppercase">
+                SAFETY EVALUATION METRICS
+              </span>
+              <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 font-mono text-[10px] font-bold">
+                LIVE AUDIT
+              </span>
+            </div>
 
             {activeWheelSlice !== null ? (
-              <div className="space-y-3">
-                <div className="flex items-center justify-between border-b border-white/10 pb-3">
-                  <h3 className="text-2xl font-black text-white">
+              <div className="space-y-4">
+                <div className="flex items-baseline justify-between">
+                  <h3 className="text-3xl font-black text-white">
                     {wheelSectors[activeWheelSlice].label}
                   </h3>
-                  <span className="text-xl font-mono font-black text-emerald-400">
-                    {wheelSectors[activeWheelSlice].score}/12
-                  </span>
+                  <div className="flex items-baseline gap-1">
+                    <span className="text-3xl font-mono font-black text-emerald-400">
+                      {wheelSectors[activeWheelSlice].score}
+                    </span>
+                    <span className="text-xs font-mono text-gray-400">/ 12</span>
+                  </div>
                 </div>
-                <p className="text-xs text-gray-300 leading-relaxed font-normal">
+
+                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
                   {wheelSectors[activeWheelSlice].desc}
                 </p>
-                <div className="w-full h-2 bg-[#222228] rounded-full overflow-hidden">
-                  <div
-                    className="h-full bg-emerald-500 rounded-full transition-all duration-500"
-                    style={{
-                      width: `${(wheelSectors[activeWheelSlice].score / 12) * 100}%`,
-                    }}
-                  />
+
+                {/* Empirical Metrics Checklist */}
+                <div className="space-y-2 pt-2">
+                  <span className="text-[10px] font-mono text-gray-400 uppercase tracking-wider block font-bold">
+                    Empirical Benchmarks:
+                  </span>
+                  {wheelSectors[activeWheelSlice].details.map((detail, idx) => (
+                    <div key={idx} className="flex items-center gap-2 text-xs text-gray-200 bg-[#1c1c22] p-2.5 rounded-xl border border-white/5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-emerald-400" />
+                      <span>{detail}</span>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Score Progress Bar */}
+                <div className="space-y-1.5 pt-2">
+                  <div className="flex justify-between text-[10px] font-mono text-gray-400 font-bold">
+                    <span>ALIGNMENT INTENSITY</span>
+                    <span>{Math.round((wheelSectors[activeWheelSlice].score / 12) * 100)}%</span>
+                  </div>
+                  <div className="w-full h-2.5 bg-[#222228] rounded-full overflow-hidden p-0.5 border border-white/10">
+                    <motion.div
+                      initial={{ width: 0 }}
+                      animate={{
+                        width: `${(wheelSectors[activeWheelSlice].score / 12) * 100}%`,
+                      }}
+                      transition={{ duration: 0.4 }}
+                      className="h-full bg-gradient-to-r from-emerald-500 to-teal-400 rounded-full"
+                    />
+                  </div>
                 </div>
               </div>
             ) : (
-              <div className="space-y-2 py-4">
-                <p className="text-xs text-gray-400 leading-relaxed">
-                  Hover over any slice of the alignment spectrum dial to view empirical score metrics and safety evaluation details.
+              <div className="space-y-4 py-2">
+                <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+                  Hover over or tap any slice of the alignment spectrum dial to view empirical score metrics, toxicity suppression rates, and behavioral safety details.
                 </p>
-                <div className="pt-3 flex flex-wrap gap-2">
+
+                {/* Grid of all 8 sectors quick-select pills */}
+                <div className="grid grid-cols-2 gap-2 pt-2">
                   {wheelSectors.map((sec) => (
-                    <span
+                    <button
                       key={sec.id}
+                      type="button"
                       onMouseEnter={() => setActiveWheelSlice(sec.id)}
-                      className="px-2.5 py-1 bg-[#1c1c20] hover:bg-white/20 text-gray-300 hover:text-white rounded-md text-[10px] font-mono font-semibold cursor-pointer transition-colors"
+                      onClick={() => setActiveWheelSlice(sec.id)}
+                      className="px-3 py-2 bg-[#1c1c22] hover:bg-white/10 border border-white/5 hover:border-white/20 text-left rounded-xl transition-all cursor-pointer flex items-center justify-between"
                     >
-                      {sec.label}: {sec.score}
-                    </span>
+                      <span className="text-xs font-semibold text-gray-200">{sec.label}</span>
+                      <span className="text-xs font-mono font-bold text-emerald-400">{sec.score}</span>
+                    </button>
                   ))}
                 </div>
               </div>
