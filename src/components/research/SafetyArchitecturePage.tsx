@@ -29,6 +29,46 @@ function describeArc(x: number, y: number, innerRadius: number, outerRadius: num
   ].join(" ");
 }
 
+// Generate scatter particles for the left chart
+const scatterParticles = (() => {
+  const columns = [18, 34, 50, 66, 82]; // Column X positions in %
+  const particles: { x: number; y: number; r: number; color: string; opacity: number }[] = [];
+
+  columns.forEach((colX, colIndex) => {
+    for (let i = 0; i < 34; i++) {
+      const offsetX = colX + Math.sin(i * 4 + colIndex) * 3.5;
+      const y = 30 + ((i * 11 + colIndex * 23) % 320);
+      const colors = ["#ffffff", "#ffffff", "#e5e7eb", "#9ca3af", "#6b7280", "#4b5563"];
+      const color = colors[i % colors.length];
+      const r = i % 4 === 0 ? 3.2 : i % 3 === 0 ? 2.5 : 2.0;
+      particles.push({
+        x: offsetX,
+        y: y,
+        r: r,
+        color: color,
+        opacity: color === "#ffffff" ? 0.95 : 0.75,
+      });
+    }
+  });
+  return particles;
+})();
+
+// Bar chart data for the right chart
+const linearBarData = [
+  { base: 1.9, top: 2.5 },
+  { base: 1.4, top: 2.4 },
+  { base: 1.0, top: 1.9 },
+  { base: 0.7, top: 1.5 },
+  { base: 0.3, top: 1.1 },
+  { base: 0.6, top: 1.6 },
+  { base: 1.2, top: 2.1 },
+  { base: 1.7, top: 2.6 },
+  { base: 2.3, top: 3.1 },
+  { base: 2.7, top: 3.5 },
+  { base: 3.1, top: 3.7 },
+  { base: 3.2, top: 3.8 },
+];
+
 const SafetyArchitecturePage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -530,7 +570,7 @@ const SafetyArchitecturePage: React.FC = () => {
                   Hover over or tap any slice of the alignment spectrum dial to view empirical score metrics, toxicity suppression rates, and behavioral safety details.
                 </p>
 
-                {/* Grid of all 8 sectors quick-select pills (numbers removed per request) */}
+                {/* Grid of all 8 sectors quick-select pills */}
                 <div className="grid grid-cols-2 gap-2.5 pt-2">
                   {wheelSectors.map((sec) => (
                     <button
@@ -550,7 +590,143 @@ const SafetyArchitecturePage: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: Protecting people where it matters most */}
+      {/* NEW SECTION: Best Practices for Designing Linear Dashboards (Matching User Image) */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16 text-center">
+        {/* Header Breadcrumb & Title */}
+        <div className="max-w-3xl mx-auto space-y-4">
+          <span className="text-xs text-gray-400 font-medium tracking-wide block">
+            Now / Practices
+          </span>
+          <h2 className="text-4xl sm:text-6xl font-black text-white tracking-tight leading-[1.08]">
+            Best practices for designing <br className="hidden sm:inline" />
+            Linear Dashboards
+          </h2>
+        </div>
+
+        {/* Dual Side-by-Side Dark Dashboard Chart Containers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto pt-4 text-left">
+          {/* Left Container: Particle Cluster Scatter Plot */}
+          <div className="bg-[#0e0e11] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
+            <svg viewBox="0 0 400 300" className="w-full h-full">
+              {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
+              {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
+                const yPos = 20 + idx * 31;
+                return (
+                  <g key={label}>
+                    <line
+                      x1="15"
+                      y1={yPos}
+                      x2="350"
+                      y2={yPos}
+                      stroke="rgba(255, 255, 255, 0.05)"
+                      strokeDasharray="2 3"
+                    />
+                    <text
+                      x="385"
+                      y={yPos + 3}
+                      textAnchor="end"
+                      fill="#6b7280"
+                      fontSize="9"
+                      fontFamily="monospace"
+                    >
+                      {label}
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* Particle Cluster Plot */}
+              {scatterParticles.map((pt, idx) => (
+                <circle
+                  key={idx}
+                  cx={`${pt.x}%`}
+                  cy={pt.y * 0.82 + 15}
+                  r={pt.r}
+                  fill={pt.color}
+                  opacity={pt.opacity}
+                  className="transition-all duration-300 group-hover:scale-110"
+                />
+              ))}
+            </svg>
+          </div>
+
+          {/* Right Container: Stacked Volatility Bar Chart */}
+          <div className="bg-[#0e0e11] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
+            <svg viewBox="0 0 400 300" className="w-full h-full">
+              {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
+              {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
+                const yPos = 20 + idx * 31;
+                return (
+                  <g key={label}>
+                    <line
+                      x1="15"
+                      y1={yPos}
+                      x2="350"
+                      y2={yPos}
+                      stroke="rgba(255, 255, 255, 0.05)"
+                      strokeDasharray="2 3"
+                    />
+                    <text
+                      x="385"
+                      y={yPos + 3}
+                      textAnchor="end"
+                      fill="#6b7280"
+                      fontSize="9"
+                      fontFamily="monospace"
+                    >
+                      {label}
+                    </text>
+                  </g>
+                );
+              })}
+
+              {/* 12 Vertical Bars */}
+              {linearBarData.map((bar, idx) => {
+                const xPos = 28 + idx * 27;
+                // Convert values (0..4) to Y coordinates (268 -> 20)
+                const baseH = (bar.base / 4.0) * 248;
+                const topH = (bar.top / 4.0) * 248;
+                const gap = 5;
+
+                return (
+                  <g key={idx} className="cursor-pointer">
+                    {/* Base Dark Gray Segment */}
+                    <rect
+                      x={xPos}
+                      y={268 - baseH}
+                      width="10"
+                      height={baseH}
+                      rx="1"
+                      fill="#4b5563"
+                      className="transition-all duration-300 hover:fill="#6b7280"`}
+                    />
+
+                    {/* Upper White Segment */}
+                    <rect
+                      x={xPos}
+                      y={268 - topH}
+                      width="10"
+                      height={Math.max(4, topH - baseH - gap)}
+                      rx="1"
+                      fill="#ffffff"
+                      className="transition-all duration-300 hover:fill="#e5e7eb"`}
+                    />
+                  </g>
+                );
+              })}
+            </svg>
+          </div>
+        </div>
+
+        {/* Footer Metadata */}
+        <div className="pt-2 text-center">
+          <span className="text-xs text-gray-500 font-medium">
+            Tim Qi · October 07, 2025
+          </span>
+        </div>
+      </section>
+
+      {/* SECTION 4: Protecting people where it matters most */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
@@ -652,7 +828,7 @@ const SafetyArchitecturePage: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 4: Go deeper on safety */}
+      {/* SECTION 5: Go deeper on safety */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20">
         <div className="rounded-3xl bg-[#1c1c20] border border-white/10 p-12 sm:p-20 text-center space-y-8 shadow-2xl">
           <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
