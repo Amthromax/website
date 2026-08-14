@@ -69,6 +69,52 @@ const linearBarData = [
   { base: 3.2, top: 3.8 },
 ];
 
+// Dotted Circular Percentage Progress Indicator Component
+const DottedCircularProgress: React.FC<{ percentage: number; label: string }> = ({ percentage, label }) => {
+  const totalDots = 44;
+  const activeDots = Math.round((percentage / 100) * totalDots);
+  const radius = 98;
+  const centerX = 115;
+  const centerY = 115;
+
+  return (
+    <div className="relative w-full h-full flex items-center justify-center select-none">
+      <svg viewBox="0 0 230 230" className="w-full h-full max-w-[240px] max-h-[240px]">
+        {/* Dotted Outer Ring */}
+        {Array.from({ length: totalDots }).map((_, i) => {
+          const angleDeg = -90 + i * (360 / totalDots);
+          const angleRad = (angleDeg * Math.PI) / 180;
+          const x = centerX + radius * Math.cos(angleRad);
+          const y = centerY + radius * Math.sin(angleRad);
+          const isActive = i < activeDots;
+
+          return (
+            <circle
+              key={i}
+              cx={x}
+              cy={y}
+              r={isActive ? 2.8 : 2.2}
+              fill={isActive ? "#ffffff" : "#373740"}
+              opacity={isActive ? 0.95 : 0.35}
+              className="transition-all duration-300"
+            />
+          );
+        })}
+      </svg>
+
+      {/* Central Dark Inner Circle with Percentage and Label */}
+      <div className="absolute w-[165px] h-[165px] rounded-full bg-[#111114] border border-white/[0.08] flex flex-col items-center justify-center text-center p-4 shadow-[inset_0_2px_8px_rgba(0,0,0,0.6)]">
+        <span className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-none mb-2">
+          {percentage}%
+        </span>
+        <p className="text-[11px] sm:text-xs text-gray-400 font-normal leading-tight max-w-[130px]">
+          {label}
+        </p>
+      </div>
+    </div>
+  );
+};
+
 const SafetyArchitecturePage: React.FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -372,97 +418,59 @@ const SafetyArchitecturePage: React.FC = () => {
           </p>
         </div>
 
-        {/* 3 Step Visual Cards Showcase */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
-          {/* Card 1: Teach */}
-          <motion.div
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
-          >
-            <span className="text-base font-bold text-white tracking-wide">Teach</span>
+          {/* 3 Step Visual Cards Showcase */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
+            {/* Card 1: Teach */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+            >
+              <span className="text-base font-bold text-white tracking-wide">Teach</span>
 
-            {/* Inner Visual Box */}
-            <div className="h-64 sm:h-72 rounded-2xl bg-[#1c1c20] relative overflow-hidden flex items-center justify-center p-6 border border-white/[0.05]">
-              <div className="flex items-center gap-6 relative">
-                {/* White Circle */}
-                <motion.div
-                  animate={{ scale: [1, 1.05, 1] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-white shadow-[0_0_30px_rgba(255,255,255,0.4)]"
+              {/* Inner Visual Box: 33% Progress Dial */}
+              <div className="h-64 sm:h-72 rounded-2xl bg-[#0a0a0d] relative overflow-hidden flex items-center justify-center p-4 border border-white/[0.05]">
+                <DottedCircularProgress
+                  percentage={33}
+                  label="Users struggle with login guidance."
                 />
-
-                {/* Gray Circle with White Checkmark Badge */}
-                <div className="relative">
-                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full bg-[#6b7280]/60" />
-                  <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ delay: 0.3, duration: 0.5 }}
-                    className="absolute -bottom-1 -right-1 w-8 h-8 rounded-lg bg-[#383842] border border-white/20 flex items-center justify-center shadow-lg"
-                  >
-                    <svg className="w-5 h-5 text-white stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                  </motion.div>
-                </div>
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Card 2: Test */}
-          <motion.div
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
-          >
-            <span className="text-base font-bold text-white tracking-wide">Test</span>
+            {/* Card 2: Test */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+            >
+              <span className="text-base font-bold text-white tracking-wide">Test</span>
 
-            {/* Inner Visual Box */}
-            <div className="h-64 sm:h-72 rounded-2xl bg-[#1c1c20] relative overflow-hidden flex items-center justify-center p-6 border border-white/[0.05]">
-              <div className="w-full max-w-[210px] bg-[#2a2a30] rounded-xl p-4 space-y-2.5 relative shadow-xl border border-white/10">
-                {/* White Checkmark Badge at top-left */}
-                <div className="w-6 h-6 rounded-md bg-[#383842] border border-white/20 flex items-center justify-center shadow-md">
-                  <svg className="w-4 h-4 text-white stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
-                {/* Content Placeholders */}
-                <div className="w-full h-2.5 bg-gray-400/30 rounded-full" />
-                <div className="w-4/5 h-2.5 bg-gray-400/20 rounded-full" />
-                <div className="w-2/3 h-2.5 bg-gray-400/20 rounded-full" />
+              {/* Inner Visual Box: 48% Progress Dial */}
+              <div className="h-64 sm:h-72 rounded-2xl bg-[#0a0a0d] relative overflow-hidden flex items-center justify-center p-4 border border-white/[0.05]">
+                <DottedCircularProgress
+                  percentage={48}
+                  label="Additional support requests from users."
+                />
               </div>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          {/* Card 3: Share */}
-          <motion.div
-            whileHover={{ y: -6 }}
-            transition={{ duration: 0.3 }}
-            className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
-          >
-            <span className="text-base font-bold text-white tracking-wide">Share</span>
+            {/* Card 3: Share */}
+            <motion.div
+              whileHover={{ y: -6 }}
+              transition={{ duration: 0.3 }}
+              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+            >
+              <span className="text-base font-bold text-white tracking-wide">Share</span>
 
-            {/* Inner Visual Box */}
-            <div className="h-64 sm:h-72 rounded-2xl bg-[#1c1c20] relative overflow-hidden flex items-center justify-center p-6 border border-white/[0.05]">
-              <div className="grid grid-cols-2 gap-4 relative">
-                {[1, 2, 3, 4].map((user) => (
-                  <div key={user} className="flex flex-col items-center space-y-1">
-                    <div className="w-10 h-10 rounded-full bg-[#d1d5db]" />
-                    <div className="w-12 h-5 rounded-t-full bg-[#9ca3af]/60" />
-                  </div>
-                ))}
-
-                {/* White Checkmark Badge at bottom-right */}
-                <div className="absolute -bottom-2 -right-2 w-7 h-7 rounded-lg bg-[#383842] border border-white/20 flex items-center justify-center shadow-lg">
-                  <svg className="w-4.5 h-4.5 text-white stroke-[3]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                  </svg>
-                </div>
+              {/* Inner Visual Box: 67% Progress Dial */}
+              <div className="h-64 sm:h-72 rounded-2xl bg-[#0a0a0d] relative overflow-hidden flex items-center justify-center p-4 border border-white/[0.05]">
+                <DottedCircularProgress
+                  percentage={67}
+                  label="Inaccurate forecasts disrupt planning."
+                />
               </div>
-            </div>
-          </motion.div>
-        </div>
+            </motion.div>
+          </div>
       </section>
 
       {/* SECTION 2: Model Emotional & Behavioral Alignment Spectrum */}
