@@ -876,6 +876,200 @@ const SafetyArchitecturePage: React.FC = () => {
         </div>
       </section>
 
+      {/* SECTION: 03 Problem Showcase (Interactive Radial Diagram) */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-12">
+        {/* Section Header */}
+        <div className="flex items-center justify-between border-b border-white/10 pb-6">
+          <div className="flex items-center gap-3">
+            <span className="text-2xl font-light text-gray-400 font-mono">03</span>
+            <h2 className="text-3xl sm:text-4xl font-normal text-white tracking-tight">Problem</h2>
+          </div>
+          {/* Top Right Mini Ring Progress */}
+          <div className="relative w-8 h-8 flex items-center justify-center">
+            <svg className="w-8 h-8 transform -rotate-90" viewBox="0 0 36 36">
+              <path
+                className="text-white/10"
+                strokeWidth="3"
+                stroke="currentColor"
+                fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+              <path
+                className="text-orange-500"
+                strokeDasharray="75, 100"
+                strokeWidth="3.5"
+                strokeLinecap="round"
+                stroke="currentColor"
+                fill="none"
+                d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+              />
+            </svg>
+          </div>
+        </div>
+
+        {/* Main 3-Column Diagram Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center bg-[#050507] border border-white/10 rounded-3xl p-6 sm:p-12 relative overflow-hidden shadow-2xl">
+          {/* Subtle Background Glow */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-500/10 rounded-full blur-3xl pointer-events-none" />
+
+          {/* Left Column: 3 Stat Blocks (62%, 48%, 57%) */}
+          <div className="lg:col-span-4 space-y-10 z-10">
+            {/* Stat 1 */}
+            <div className="space-y-3 relative group">
+              <div className="text-4xl sm:text-5xl font-light text-white tracking-tight font-serif">62%</div>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xs font-normal">
+                Staff Struggle To Process Orders Quickly Due To Slow Navigation And Multiple Steps During Peak Hours.
+              </p>
+              <div className="inline-block px-3.5 py-1 bg-white/5 border border-white/10 rounded-full text-[11px] text-gray-300 font-medium">
+                From User Interviews
+              </div>
+            </div>
+
+            {/* Stat 2 */}
+            <div className="space-y-3 relative group">
+              <div className="text-4xl sm:text-5xl font-light text-white tracking-tight font-serif">48%</div>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xs font-normal">
+                Unclear Item Selection And Lack Of Structured Customization Lead To Frequent Order Mistakes.
+              </p>
+              <div className="inline-block px-3.5 py-1 bg-white/5 border border-white/10 rounded-full text-[11px] text-gray-300 font-medium">
+                From Market Research
+              </div>
+            </div>
+
+            {/* Stat 3 */}
+            <div className="space-y-3 relative group">
+              <div className="text-4xl sm:text-5xl font-light text-white tracking-tight font-serif">57%</div>
+              <p className="text-xs sm:text-sm text-gray-400 leading-relaxed max-w-xs font-normal">
+                Staff Waste Time Switching Between Categories And Screens To Complete A Single Order.
+              </p>
+              <div className="inline-block px-3.5 py-1 bg-white/5 border border-white/10 rounded-full text-[11px] text-gray-300 font-medium">
+                From Survey
+              </div>
+            </div>
+          </div>
+
+          {/* Center Column: Grooved Semi-Circular Dial & Leader Lines */}
+          <div className="lg:col-span-4 flex items-center justify-center relative py-8 z-10 min-h-[400px]">
+            <svg viewBox="0 0 300 400" className="w-full h-auto max-w-[320px] overflow-visible">
+              <defs>
+                <radialGradient id="coralGlow" cx="60%" cy="50%" r="50%">
+                  <stop offset="0%" stopColor="#ff5733" stopOpacity="0.8" />
+                  <stop offset="60%" stopColor="#ff5733" stopOpacity="0.3" />
+                  <stop offset="100%" stopColor="#ff5733" stopOpacity="0" />
+                </radialGradient>
+                <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stopColor="rgba(255, 87, 51, 0.2)" />
+                  <stop offset="100%" stopColor="#ff5733" />
+                </linearGradient>
+              </defs>
+
+              {/* Connecting Lines from Left Stats to Center Dial */}
+              {/* Line 1 (Top) */}
+              <line x1="0" y1="60" x2="180" y2="60" stroke="url(#lineGrad)" strokeWidth="1.5" />
+              <circle cx="180" cy="60" r="3.5" fill="#ff5733" />
+
+              {/* Line 2 (Middle) */}
+              <line x1="0" y1="200" x2="110" y2="200" stroke="url(#lineGrad)" strokeWidth="1.5" />
+              <circle cx="110" cy="200" r="3.5" fill="#ff5733" />
+
+              {/* Line 3 (Bottom) */}
+              <line x1="0" y1="340" x2="180" y2="340" stroke="url(#lineGrad)" strokeWidth="1.5" />
+              <circle cx="180" cy="340" r="3.5" fill="#ff5733" />
+
+              {/* Dotted Outer Connecting Arc */}
+              <path
+                d="M 180,60 A 140,140 0 0,1 180,340"
+                fill="none"
+                stroke="#ff5733"
+                strokeWidth="1"
+                strokeDasharray="3,3"
+                opacity="0.6"
+              />
+
+              {/* Glowing Aura Disk */}
+              <circle cx="210" cy="200" r="130" fill="url(#coralGlow)" className="blur-xl" />
+
+              {/* Sunburst Grooved Semi-Circle Dial */}
+              <g transform="translate(210, 200)">
+                {/* Outer Ring Ticks */}
+                {Array.from({ length: 60 }).map((_, i) => {
+                  const angle = -90 + (i / 59) * 180;
+                  const rad = (angle * Math.PI) / 180;
+                  const innerR = 75;
+                  const outerR = 105;
+                  const x1 = innerR * Math.cos(rad);
+                  const y1 = innerR * Math.sin(rad);
+                  const x2 = outerR * Math.cos(rad);
+                  const y2 = outerR * Math.sin(rad);
+                  return (
+                    <line
+                      key={i}
+                      x1={x1}
+                      y1={y1}
+                      x2={x2}
+                      y2={y2}
+                      stroke="#ff5733"
+                      strokeWidth="2.5"
+                      opacity={0.85}
+                    />
+                  );
+                })}
+
+                {/* Inner Filled Semi-Circle */}
+                <path
+                  d="M 0,-75 A 75,75 0 0,1 0,75 Z"
+                  fill="#ff5733"
+                  opacity="0.4"
+                />
+              </g>
+            </svg>
+          </div>
+
+          {/* Right Column: 4 Floating Problem Cards */}
+          <div className="lg:col-span-4 space-y-4 z-10">
+            {/* Card 1 */}
+            <div className="bg-[#121216] border border-white/10 rounded-2xl p-5 flex items-center justify-between shadow-xl hover:border-orange-500/40 transition-all group">
+              <span className="text-sm font-semibold text-white tracking-wide">Complex Navigation</span>
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-md">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Card 2 */}
+            <div className="bg-[#121216] border border-white/10 rounded-2xl p-5 flex items-center justify-between shadow-xl hover:border-orange-500/40 transition-all group">
+              <span className="text-sm font-semibold text-white tracking-wide">Unclear Customization</span>
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-md">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 6V4m0 2a2 2 2 0 100 4m0-4a2 2 2 0 110 4m-6 8a2 2 2 0 100-4m0 4a2 2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 2 0 100-4m0 4a2 2 2 0 110-4m0 4v2m0-6V4" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-[#121216] border border-white/10 rounded-2xl p-5 flex items-center justify-between shadow-xl hover:border-orange-500/40 transition-all group">
+              <span className="text-sm font-semibold text-white tracking-wide">Manual Billing Process</span>
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-md">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+              </div>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-[#121216] border border-white/10 rounded-2xl p-5 flex items-center justify-between shadow-xl hover:border-orange-500/40 transition-all group">
+              <span className="text-sm font-semibold text-white tracking-wide">More Kitchen Delay</span>
+              <div className="w-9 h-9 rounded-full bg-gradient-to-tr from-orange-600 to-amber-500 flex items-center justify-center text-white shadow-md">
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* SECTION 5: Go deeper on safety */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20">
         <div className="rounded-3xl bg-[#1c1c20] border border-white/10 p-12 sm:p-20 text-center space-y-8 shadow-2xl">
