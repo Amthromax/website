@@ -74,12 +74,18 @@ const SafetyArchitecturePage: React.FC = () => {
     window.scrollTo(0, 0);
   }, []);
 
-  const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const [activeWheelSlice, setActiveWheelSlice] = useState<number | null>(null);
-
-  const toggleCard = (index: number) => {
-    setExpandedCard(expandedCard === index ? null : index);
-  };
+  const [activeModalItem, setActiveModalItem] = useState<{
+    id: number;
+    title: string;
+    subtitle: string;
+    description: string;
+    category: string;
+    modalHeading: string;
+    modalIntro: string;
+    modalPoints: { label: string; text: string }[];
+    icon: React.ReactNode;
+  } | null>(null);
 
   // Exactly matching the user's reference diagram
   const wheelSectors = [
@@ -218,6 +224,20 @@ const SafetyArchitecturePage: React.FC = () => {
       id: 1,
       title: "Child safety",
       subtitle: "Preventing child exploitation & harm",
+      category: "Child Safety",
+      modalHeading: "Working together to keep children safe",
+      modalIntro:
+        "This issue is important to all of us, that's why we partner with Amazon, Anthropic, Apple, Civitai, Google, Meta, Metaphysic, Microsoft, Mistral AI, Stability AI, Thorn and All Tech is Human.",
+      modalPoints: [
+        {
+          label: "Prevent",
+          text: "We are careful what information we use to teach our AI. We avoid and filter child sexual abuse material (CSAM) and child sexual exploitation material (CSEM), and we report any attempts by users to upload it.",
+        },
+        {
+          label: "Protect",
+          text: "We always stay vigilant and observant. We monitor for attempts to produce sexual content involving minors with our AI and block them.",
+        },
+      ],
       description:
         "We build proactive detection models, robust content filters, and partner with national safety organizations to prevent child sexual abuse material (CSAM) and unsafe interactions.",
       icon: (
@@ -230,6 +250,20 @@ const SafetyArchitecturePage: React.FC = () => {
       id: 2,
       title: "Private information",
       subtitle: "Protecting personally identifiable data",
+      category: "Private Information",
+      modalHeading: "Safeguarding personal data across all AI models",
+      modalIntro:
+        "Privacy is fundamental to human dignity. We build zero-retention data pipelines and automatic privacy redaction algorithms into every deployment to safeguard sensitive user information.",
+      modalPoints: [
+        {
+          label: "Redact",
+          text: "Automated PII scrubbing strips phone numbers, email addresses, SSNs, and medical records from training corpora prior to model ingestion.",
+        },
+        {
+          label: "Isolate",
+          text: "Real-time inference guardrails prevent unauthorized extraction or leakage of private, financial, and proprietary data during active conversations.",
+        },
+      ],
       description:
         "Our data scrubbing pipelines remove PII from training sets. Real-time inference filters block unauthorized access to private, financial, and medical records.",
       icon: (
@@ -243,6 +277,20 @@ const SafetyArchitecturePage: React.FC = () => {
       id: 3,
       title: "Deep fakes",
       subtitle: "Improving transparency in AI content",
+      category: "Deep Fakes",
+      modalHeading: "Ensuring authenticity and synthetic media transparency",
+      modalIntro:
+        "We partner with global standards bodies like the Coalition for Content Provenance and Authenticity (C2PA) to establish cryptographic digital watermarking and prevent non-consensual media manipulation.",
+      modalPoints: [
+        {
+          label: "Watermark",
+          text: "All generated media includes robust C2PA cryptographic metadata signatures to verify origin and prevent deceptive impersonation.",
+        },
+        {
+          label: "Detect",
+          text: "We provide open detection APIs to enable journalists, researchers, and security teams to audit and identify AI-generated audio and imagery.",
+        },
+      ],
       description:
         "We implement C2PA cryptographic provenance watermarks, synthetic media detection APIs, and strict verification protocols to prevent non-consensual impersonation.",
       icon: (
@@ -255,6 +303,20 @@ const SafetyArchitecturePage: React.FC = () => {
       id: 4,
       title: "Bias",
       subtitle: "Rigorously evaluating content to avoid reinforcing biases or stereotypes",
+      category: "Bias & Fairness",
+      modalHeading: "Fostering inclusive and non-stereotypical AI behavior",
+      modalIntro:
+        "We rigorously test our models against standardized global fairness benchmarks to eliminate systemic bias across languages, cultures, and demographics.",
+      modalPoints: [
+        {
+          label: "Evaluate",
+          text: "Continuous red-teaming across diverse demographic groups ensures output parity and mitigates historical dataset biases.",
+        },
+        {
+          label: "Align",
+          text: "Reinforcement Learning from Human Feedback (RLHF) and Constitutional AI rules guide models toward respectful and neutral engagement.",
+        },
+      ],
       description:
         "We benchmark model outputs against diverse global evaluation datasets, applying debiasing techniques and constitutional principles across all modalities.",
       icon: (
@@ -267,6 +329,20 @@ const SafetyArchitecturePage: React.FC = () => {
       id: 5,
       title: "Elections",
       subtitle: "Partnering with governments to combat disinformation globally",
+      category: "Elections & Democracy",
+      modalHeading: "Defending democratic integrity during global elections",
+      modalIntro:
+        "Democratic processes require truthful and unbiased information. We actively prevent model misuse for political manipulation, voter suppression, or targeted campaign deception.",
+      modalPoints: [
+        {
+          label: "Monitor",
+          text: "Heightened anti-disinformation filters restrict models from generating targeted campaign deception or fake polling claims.",
+        },
+        {
+          label: "Collaborate",
+          text: "We coordinate directly with election authorities and cybersecurity agencies to identify and neutralize emerging influence operations.",
+        },
+      ],
       description:
         "During democratic elections, we enforce heightened anti-disinformation guardrails, restrict political campaigning generation, and provide real-time threat intelligence.",
       icon: (
@@ -730,7 +806,7 @@ const SafetyArchitecturePage: React.FC = () => {
           {protectionItems.slice(0, 3).map((item) => (
             <motion.div
               key={item.id}
-              onClick={() => toggleCard(item.id)}
+              onClick={() => setActiveModalItem(item)}
               whileHover={{ scale: 1.01 }}
               className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
             >
@@ -743,27 +819,18 @@ const SafetyArchitecturePage: React.FC = () => {
                 {item.subtitle && (
                   <p className="text-xs text-gray-400 font-medium">{item.subtitle}</p>
                 )}
-
-                <AnimatePresence>
-                  {expandedCard === item.id && (
-                    <motion.p
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="text-xs text-gray-300 leading-relaxed pt-2 border-t border-white/10"
-                    >
-                      {item.description}
-                    </motion.p>
-                  )}
-                </AnimatePresence>
               </div>
 
-              <div className="pt-4 flex justify-start">
+              <div className="pt-6 flex justify-start">
                 <button
                   type="button"
-                  className="w-8 h-8 rounded-full bg-[#1c1c20] hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center text-sm font-bold transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveModalItem(item);
+                  }}
+                  className="w-8 h-8 rounded-full bg-[#1c1c20] group-hover:bg-white/20 text-gray-300 group-hover:text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
                 >
-                  {expandedCard === item.id ? "−" : "+"}
+                  +
                 </button>
               </div>
             </motion.div>
@@ -775,7 +842,7 @@ const SafetyArchitecturePage: React.FC = () => {
           {protectionItems.slice(3, 5).map((item) => (
             <motion.div
               key={item.id}
-              onClick={() => toggleCard(item.id)}
+              onClick={() => setActiveModalItem(item)}
               whileHover={{ scale: 1.01 }}
               className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
             >
@@ -788,27 +855,18 @@ const SafetyArchitecturePage: React.FC = () => {
                 {item.subtitle && (
                   <p className="text-xs text-gray-400 font-medium">{item.subtitle}</p>
                 )}
-
-                <AnimatePresence>
-                  {expandedCard === item.id && (
-                    <motion.p
-                      initial={{ opacity: 0, height: 0 }}
-                      animate={{ opacity: 1, height: "auto" }}
-                      exit={{ opacity: 0, height: 0 }}
-                      className="text-xs text-gray-300 leading-relaxed pt-2 border-t border-white/10"
-                    >
-                      {item.description}
-                    </motion.p>
-                  )}
-                </AnimatePresence>
               </div>
 
-              <div className="pt-4 flex justify-start">
+              <div className="pt-6 flex justify-start">
                 <button
                   type="button"
-                  className="w-8 h-8 rounded-full bg-[#1c1c20] hover:bg-white/20 text-gray-300 hover:text-white flex items-center justify-center text-sm font-bold transition-all"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setActiveModalItem(item);
+                  }}
+                  className="w-8 h-8 rounded-full bg-[#1c1c20] group-hover:bg-white/20 text-gray-300 group-hover:text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
                 >
-                  {expandedCard === item.id ? "−" : "+"}
+                  +
                 </button>
               </div>
             </motion.div>
@@ -833,6 +891,72 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
         </div>
       </section>
+
+      {/* Full-Screen Protection Item Detail Modal */}
+      <AnimatePresence>
+        {activeModalItem && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-6 sm:p-12 overflow-y-auto"
+            onClick={() => setActiveModalItem(null)}
+          >
+            {/* Close button fixed top right */}
+            <button
+              type="button"
+              onClick={() => setActiveModalItem(null)}
+              className="fixed top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer z-50 border border-white/10 shadow-lg"
+              aria-label="Close modal"
+            >
+              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+
+            {/* Modal Dialog Body */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.96, y: 12 }}
+              transition={{ duration: 0.25, ease: "easeOut" }}
+              className="max-w-2xl w-full text-left space-y-6 relative z-40 my-auto p-4 sm:p-6"
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Top Icon */}
+              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/10">
+                {activeModalItem.icon}
+              </div>
+
+              {/* Category Subtitle */}
+              <span className="text-xs text-gray-400 font-medium tracking-wide block">
+                {activeModalItem.category}
+              </span>
+
+              {/* Main Modal Title */}
+              <h2 className="text-2xl sm:text-4xl font-semibold text-white tracking-tight leading-tight">
+                {activeModalItem.modalHeading}
+              </h2>
+
+              {/* Intro Paragraph */}
+              <p className="text-sm sm:text-base text-gray-300 leading-relaxed font-normal">
+                {activeModalItem.modalIntro}
+              </p>
+
+              {/* Bullet Points */}
+              <ul className="space-y-4 pt-2">
+                {activeModalItem.modalPoints.map((point, idx) => (
+                  <li key={idx} className="text-xs sm:text-sm text-gray-300 leading-relaxed pl-5 relative">
+                    <span className="absolute left-0 top-0.5 text-gray-400 text-base">•</span>
+                    <strong className="text-white font-medium italic">{point.label}: </strong>
+                    {point.text}
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </div>
   );
 };
