@@ -314,7 +314,7 @@ const SecurityPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Center Column: Radial Sunburst Spoke Disc with Glowing Milk Yellow Blur */}
+            {/* Center Column: Radial Sunburst Spoke Disc with Soft Glowing Milk Yellow Blur */}
             <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[380px]">
               <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
                 {/* Radial SVG Artwork */}
@@ -326,16 +326,16 @@ const SecurityPage: React.FC = () => {
                     stroke="#f59e0b"
                     strokeWidth="1.2"
                     strokeDasharray="3 3"
-                    opacity="0.6"
+                    opacity="0.5"
                   />
                   {/* Connection Dots & Lines */}
-                  <line x1="10" y1="40" x2="60" y2="40" stroke="#f59e0b" strokeWidth="1" opacity="0.5" />
+                  <line x1="10" y1="40" x2="60" y2="40" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
                   <circle cx="60" cy="40" r="3.5" fill="#d97706" />
 
-                  <line x1="10" y1="160" x2="100" y2="160" stroke="#f59e0b" strokeWidth="1" opacity="0.5" />
+                  <line x1="10" y1="160" x2="100" y2="160" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
                   <circle cx="100" cy="160" r="3.5" fill="#d97706" />
 
-                  <line x1="10" y1="280" x2="60" y2="280" stroke="#f59e0b" strokeWidth="1" opacity="0.5" />
+                  <line x1="10" y1="280" x2="60" y2="280" stroke="#f59e0b" strokeWidth="1" opacity="0.4" />
                   <circle cx="60" cy="280" r="3.5" fill="#d97706" />
 
                   {/* Dense Radial Spoke Lines Disc */}
@@ -356,17 +356,17 @@ const SecurityPage: React.FC = () => {
                           y2={y2}
                           stroke="#f59e0b"
                           strokeWidth="1.8"
-                          opacity={angle > 90 && angle < 270 ? 0.85 : 0.45}
+                          opacity={angle > 90 && angle < 270 ? 0.75 : 0.35}
                         />
                       );
                     })}
-                    {/* Inner Milk Yellow Circle */}
-                    <circle cx="0" cy="0" r="62" fill="#fbbf24" opacity="0.3" />
+                    {/* Inner Subtle Ring - Soft transparent fill */}
+                    <circle cx="0" cy="0" r="62" fill="#fef3c7" fillOpacity="0.1" stroke="#f59e0b" strokeWidth="0.8" opacity="0.3" />
                   </g>
                 </svg>
 
-                {/* Glowing Milk Yellow Blur Overlay on Right Half */}
-                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-52 h-72 bg-gradient-to-r from-amber-400/80 via-yellow-400/90 to-amber-200/20 rounded-full blur-2xl pointer-events-none opacity-90 dark:opacity-75" />
+                {/* Soft Glowing Milk Yellow Radial Blur Overlay on Right Half */}
+                <div className="absolute right-0 top-1/2 -translate-y-1/2 w-48 h-72 bg-gradient-to-r from-amber-300/40 via-yellow-300/30 to-transparent rounded-full blur-3xl pointer-events-none opacity-80 dark:opacity-65" />
               </div>
             </div>
 
@@ -374,11 +374,11 @@ const SecurityPage: React.FC = () => {
             <div className="lg:col-span-3 space-y-4">
               {/* Card 1 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/30 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/20 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Prompt Injection Attack
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-400 text-amber-950 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
@@ -387,11 +387,11 @@ const SecurityPage: React.FC = () => {
 
               {/* Card 2 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/35 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/25 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Credential Exposure
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-400 text-amber-950 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                   </svg>
@@ -400,11 +400,11 @@ const SecurityPage: React.FC = () => {
 
               {/* Card 3 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/40 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Unverified Trace Logs
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-400 text-amber-950 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -413,11 +413,11 @@ const SecurityPage: React.FC = () => {
 
               {/* Card 4 */}
               <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
-                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/45 to-transparent pointer-events-none" />
+                <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-amber-400/35 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Execution Latency Risk
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 via-amber-400 to-yellow-400 text-amber-950 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-gradient-to-tr from-amber-500 to-yellow-400 text-white flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
