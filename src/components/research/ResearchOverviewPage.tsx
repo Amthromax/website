@@ -164,7 +164,7 @@ const ResearchOverviewPage: React.FC = () => {
               View research index
             </a>
             <Link
-              to="/privacy"
+              to="/research/safety"
               className="px-5 py-3 text-gray-700 hover:text-black text-sm font-medium transition-colors flex items-center gap-1 cursor-pointer"
             >
               <span>Learn about safety</span>
