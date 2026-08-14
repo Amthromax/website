@@ -302,7 +302,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <motion.div
             whileHover={{ y: -6 }}
             transition={{ duration: 0.3 }}
-            className="rounded-3xl bg-[#121215] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+            className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
           >
             <span className="text-base font-bold text-white tracking-wide">Teach</span>
 
@@ -338,7 +338,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <motion.div
             whileHover={{ y: -6 }}
             transition={{ duration: 0.3 }}
-            className="rounded-3xl bg-[#121215] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+            className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
           >
             <span className="text-base font-bold text-white tracking-wide">Test</span>
 
@@ -363,7 +363,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <motion.div
             whileHover={{ y: -6 }}
             transition={{ duration: 0.3 }}
-            className="rounded-3xl bg-[#121215] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
+            className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-6 shadow-2xl group cursor-pointer"
           >
             <span className="text-base font-bold text-white tracking-wide">Share</span>
 
@@ -501,7 +501,7 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
 
           {/* Interactive Dynamic Details Side Card */}
-          <div className="w-full lg:w-96 bg-[#121215] border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
+          <div className="w-full lg:w-96 bg-[#000000] border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
             <div className="flex items-center justify-between border-b border-white/10 pb-4">
               <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
                 SAFETY EVALUATION METRICS
@@ -735,7 +735,7 @@ const SafetyArchitecturePage: React.FC = () => {
               key={item.id}
               onClick={() => toggleCard(item.id)}
               whileHover={{ scale: 1.01 }}
-              className="bg-[#0e0e11] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
+              className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
             >
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-[#1c1c20] flex items-center justify-center border border-white/10">
@@ -780,7 +780,7 @@ const SafetyArchitecturePage: React.FC = () => {
               key={item.id}
               onClick={() => toggleCard(item.id)}
               whileHover={{ scale: 1.01 }}
-              className="bg-[#0e0e11] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
+              className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
             >
               <div className="space-y-4">
                 <div className="w-10 h-10 rounded-xl bg-[#1c1c20] flex items-center justify-center border border-white/10">
