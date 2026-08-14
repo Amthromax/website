@@ -259,13 +259,7 @@ const SecurityPage: React.FC = () => {
       <section className="py-16 md:py-24 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           {/* Header Row */}
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-3">
-              <span className="text-3xl sm:text-4xl font-light text-gray-400 dark:text-gray-500 font-serif">03</span>
-              <h2 className="text-2xl sm:text-3xl font-normal tracking-tight text-gray-900 dark:text-white font-sans">
-                Problem
-              </h2>
-            </div>
+          <div className="flex items-center justify-end">
             {/* Circular Progress Indicator Icon (Top Right) */}
             <div className="w-7 h-7 relative flex items-center justify-center">
               <svg className="w-full h-full text-gray-200 dark:text-gray-800" viewBox="0 0 32 32">
