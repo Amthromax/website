@@ -17,7 +17,7 @@ export const OverviewPage: React.FC = () => {
       tag: "AGENTIC FRAMEWORK",
       desc: "Multi-agent coordination pipelines running sub-15ms reasoning loops. Ephemeral execution sandboxes ground model queries with deterministic enterprise memory.",
       icon: (
-        <svg className="w-6 h-6 text-blue-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <svg className="w-6 h-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       )
@@ -28,7 +28,7 @@ export const OverviewPage: React.FC = () => {
       tag: "QUANTUM-SAFE CRYPTO",
       desc: "Post-quantum lattice encryption utilizing CRYSTALS-Kyber algorithms. Hardware-isolated key vaults and mTLS tunnel validation prevent unauthorized payload interception.",
       icon: (
-        <svg className="w-6 h-6 text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <svg className="w-6 h-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
         </svg>
       )
@@ -39,7 +39,7 @@ export const OverviewPage: React.FC = () => {
       tag: "HIGH THROUGHPUT",
       desc: "Active-active multi-region Kubernetes clusters with predictive load balancing. Sub-second data synchronization across AWS, GCP, and bare-metal nodes.",
       icon: (
-        <svg className="w-6 h-6 text-purple-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <svg className="w-6 h-6 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
         </svg>
       )
@@ -50,7 +50,7 @@ export const OverviewPage: React.FC = () => {
       tag: "DEVELOPER INTEGRATION",
       desc: "Type-safe SDKs for TypeScript, Python, and Go with streaming WebSockets, automatic rate limiting, and real-time execution trace monitoring.",
       icon: (
-        <svg className="w-6 h-6 text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+        <svg className="w-6 h-6 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
           <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
         </svg>
       )
@@ -64,7 +64,7 @@ export const OverviewPage: React.FC = () => {
       latency: "1.4ms",
       throughput: "450 t/s",
       badge: "Production Active",
-      badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+      badgeColor: "bg-zinc-800 text-zinc-300 border-zinc-700"
     },
     {
       name: "INTOX 0.2",
@@ -72,7 +72,7 @@ export const OverviewPage: React.FC = () => {
       latency: "0.8ms",
       throughput: "1,200 t/s",
       badge: "Production Active",
-      badgeColor: "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+      badgeColor: "bg-zinc-800 text-zinc-300 border-zinc-700"
     },
     {
       name: "COTISES 0.5 MAX",
@@ -80,7 +80,7 @@ export const OverviewPage: React.FC = () => {
       latency: "12.5ms",
       throughput: "180 t/s",
       badge: "Enterprise Tier",
-      badgeColor: "bg-blue-500/10 text-blue-400 border-blue-500/20"
+      badgeColor: "bg-zinc-800 text-zinc-300 border-zinc-700"
     },
     {
       name: "VERKOX 0.4 INSTANT",
@@ -88,7 +88,7 @@ export const OverviewPage: React.FC = () => {
       latency: "0.3ms",
       throughput: "2,400 t/s",
       badge: "Ultra Fast",
-      badgeColor: "bg-purple-500/10 text-purple-400 border-purple-500/20"
+      badgeColor: "bg-zinc-800 text-zinc-300 border-zinc-700"
     }
   ];
 
@@ -101,8 +101,8 @@ export const OverviewPage: React.FC = () => {
 
       {/* Hero Banner Section */}
       <div ref={heroRef} className="relative pt-24 pb-24 overflow-hidden border-b border-white/10">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/20 via-black to-black pointer-events-none" />
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-black to-black pointer-events-none" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[350px] bg-white/[0.03] rounded-full blur-[120px] pointer-events-none" />
 
         {/* Top Header Label Bar */}
         <div className="relative max-w-7xl mx-auto px-6 pb-8 flex justify-between items-center text-xs text-gray-400 font-inter">
@@ -181,7 +181,7 @@ export const OverviewPage: React.FC = () => {
       {/* Four Core Architectural Pillars */}
       <div ref={archRef} className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-extrabold text-blue-400 uppercase tracking-widest block font-inter">
+          <span className="text-xs font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
             Core Engineering Specs
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-inter">
@@ -211,7 +211,7 @@ export const OverviewPage: React.FC = () => {
               </div>
 
               <div className="space-y-3">
-                <span className="text-[10px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">
+                <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
                   {pillar.tag}
                 </span>
                 <h3 className="text-2xl font-black text-white font-inter tracking-tight">
@@ -230,7 +230,7 @@ export const OverviewPage: React.FC = () => {
       <div ref={modelsRef} className="bg-[#050507] border-y border-white/10 py-24">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-extrabold text-blue-400 uppercase tracking-widest block font-inter">
+            <span className="text-xs font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
               Deployed Intelligence
             </span>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-inter">
@@ -255,7 +255,7 @@ export const OverviewPage: React.FC = () => {
                     <span className={`px-2.5 py-1 rounded-full border text-[9px] font-extrabold uppercase tracking-wider font-inter ${model.badgeColor}`}>
                       {model.badge}
                     </span>
-                    <span className="w-2 h-2 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.8)]" />
+                    <span className="w-2 h-2 rounded-full bg-zinc-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                   </div>
 
                   <h4 className="text-lg font-black text-white font-inter tracking-tight">
@@ -285,7 +285,7 @@ export const OverviewPage: React.FC = () => {
       {/* Operational Workflow Execution Steps */}
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-extrabold text-blue-400 uppercase tracking-widest block font-inter">
+          <span className="text-xs font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
             Execution Lifecycle
           </span>
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-inter">
@@ -301,7 +301,7 @@ export const OverviewPage: React.FC = () => {
             { step: "04", title: "Deterministic Output", desc: "Execution outputs undergo verification, telemetry logging, and real-time client streaming." }
           ].map((item, idx) => (
             <div key={idx} className="p-6 rounded-2xl bg-[#09090b] border border-white/15 space-y-4 shadow-lg">
-              <span className="text-2xl font-black text-blue-400 font-sans tracking-tight block">
+              <span className="text-2xl font-black text-gray-400 font-sans tracking-tight block">
                 {item.step}
               </span>
               <h3 className="text-lg font-bold text-white font-inter">
@@ -317,7 +317,7 @@ export const OverviewPage: React.FC = () => {
 
       {/* Bottom CTA Banner */}
       <div className="max-w-6xl mx-auto px-6 pb-24 text-center">
-        <div className="p-12 md:p-16 rounded-3xl bg-gradient-to-r from-blue-950/40 via-black to-indigo-950/40 border border-white/20 space-y-8 shadow-2xl">
+        <div className="p-12 md:p-16 rounded-3xl bg-gradient-to-r from-zinc-950 via-black to-zinc-950 border border-white/20 space-y-8 shadow-2xl">
           <h2 className="text-3xl md:text-5xl font-black text-white font-inter tracking-tight">
             Ready to Build on Amthromax?
           </h2>
