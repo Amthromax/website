@@ -252,6 +252,45 @@ const LoginSection: React.FC = () => {
                   </motion.div>
                 )}
 
+                {/* Signup Consent Checkboxes (Phase 5 DPDP Rules) */}
+                {isSignUp && (
+                  <div className="space-y-3 pt-2 pb-1">
+                    <label className="flex items-start gap-2.5 cursor-pointer text-xs text-zinc-300 leading-relaxed select-none">
+                      <input
+                        type="checkbox"
+                        required
+                        defaultChecked
+                        className="mt-0.5 rounded border-zinc-800 bg-[#0c0c0e] text-white focus:ring-0 accent-white shrink-0"
+                      />
+                      <span>
+                        I agree to the{" "}
+                        <Link to="/terms" className="underline hover:text-white">
+                          Terms of Use
+                        </Link>{" "}
+                        and acknowledge the{" "}
+                        <Link to="/privacy" className="underline hover:text-white">
+                          Privacy Policy
+                        </Link>{" "}
+                        &{" "}
+                        <Link to="/data-protection" className="underline hover:text-white">
+                          Data Protection Framework
+                        </Link>.
+                      </span>
+                    </label>
+
+                    <label className="flex items-start gap-2.5 cursor-pointer text-xs text-zinc-400 leading-relaxed select-none">
+                      <input
+                        type="checkbox"
+                        defaultChecked={false}
+                        className="mt-0.5 rounded border-zinc-800 bg-[#0c0c0e] text-white focus:ring-0 accent-white shrink-0"
+                      />
+                      <span>
+                        I would like to receive product updates and security advisories from Amthromax (Optional).
+                      </span>
+                    </label>
+                  </div>
+                )}
+
                 {/* Auth Error Banner */}
                 {authError && (
                   <div className="p-3.5 bg-red-500/10 border border-red-500/20 rounded-2xl text-red-400 text-xs font-medium text-center">

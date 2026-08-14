@@ -163,15 +163,31 @@ const FeaturesSection: React.FC = () => {
     >
       {/* Corner Text - Inter font in solid Black / White */}
       <div className="absolute top-8 left-6 sm:left-10 md:left-14 z-20">
-        <span className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+        <a
+          href="/helleious"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           HELLEIOUS.AI
-        </span>
+          <svg className="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </a>
       </div>
 
       <div className="absolute top-8 right-6 sm:right-10 md:right-14 z-20">
-        <span className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white" style={{ fontFamily: "'Inter', sans-serif" }}>
+        <Link
+          to="/codehoomer"
+          className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
+          style={{ fontFamily: "'Inter', sans-serif" }}
+        >
           CODEHOOMER.AI
-        </span>
+          <svg className="w-3.5 h-3.5 opacity-60" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+          </svg>
+        </Link>
       </div>
 
       <div className="container mx-auto px-6 max-w-7xl relative z-10">

@@ -119,7 +119,10 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Vertical Legal Links */}
-            <div className="flex flex-col space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg font-medium text-[#5c5850] dark:text-gray-400">
+            <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg font-medium text-[#5c5850] dark:text-gray-400">
+              <Link to="/privacy-center" className="hover:text-black dark:hover:text-white transition-colors">
+                Privacy Center
+              </Link>
               <Link to="/privacy" className="hover:text-black dark:hover:text-white transition-colors">
                 Privacy Policy
               </Link>
@@ -129,9 +132,12 @@ const Footer: React.FC = () => {
               <Link to="/cookie-policy" className="hover:text-black dark:hover:text-white transition-colors">
                 Cookie Policy
               </Link>
+              <Link to="/data-protection" className="hover:text-black dark:hover:text-white transition-colors">
+                Data Protection Framework
+              </Link>
               <button
                 onClick={handleManageCookies}
-                className="text-left hover:text-black dark:hover:text-white transition-colors cursor-pointer"
+                className="hover:text-black dark:hover:text-white transition-colors cursor-pointer text-center"
               >
                 Manage Cookies
               </button>

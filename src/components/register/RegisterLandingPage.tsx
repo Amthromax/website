@@ -1284,7 +1284,15 @@ const RegisterLandingPage: React.FC = () => {
               {/* Active Feature Info */}
               <div className="text-center max-w-sm sm:max-w-md mx-auto space-y-1">
                 <a
-                  href="#registration-form"
+                  href={
+                    activeHeaderTab === "codehoomer"
+                      ? "https://codehoomer.ai"
+                      : activeHeaderTab === "amxapi"
+                      ? "/api-pricing"
+                      : "/helleious"
+                  }
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="inline-flex items-center gap-1 text-base sm:text-xl font-bold text-[#1A1815] hover:text-black transition-colors"
                 >
                   <span>

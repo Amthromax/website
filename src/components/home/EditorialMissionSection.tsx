@@ -7,7 +7,7 @@ interface HighlightItem {
   title: string;
   category: string;
   href: string;
-  isExternal?: boolean;
+  openInNewTab?: boolean;
 }
 
 const EditorialMissionSection: React.FC = () => {
@@ -16,7 +16,8 @@ const EditorialMissionSection: React.FC = () => {
       id: 1,
       title: "Helleious.ai Core Views on Safety & Governance",
       category: "Announcements",
-      href: "/security",
+      href: "/helleious-safety",
+      openInNewTab: true,
     },
     {
       id: 2,
@@ -67,6 +68,8 @@ const EditorialMissionSection: React.FC = () => {
               <Link
                 key={item.id}
                 to={item.href}
+                target={item.openInNewTab ? "_blank" : undefined}
+                rel={item.openInNewTab ? "noopener noreferrer" : undefined}
                 className="py-5 flex items-center justify-between group transition-colors duration-200"
               >
                 <div className="flex items-center gap-2">

@@ -29,6 +29,9 @@ import NewsDetailPage from "./components/news/NewsDetailPage";
 import CookiePolicyPage from "./components/legal/CookiePolicyPage";
 import PrivacyPolicyPage from "./components/legal/PrivacyPolicyPage";
 import TermsOfServicePage from "./components/legal/TermsOfServicePage";
+import DataProtectionPage from "./components/legal/DataProtectionPage";
+import GlobalPrivacyCenterPage from "./components/legal/GlobalPrivacyCenterPage";
+import PrivacyRequestPortalPage from "./components/legal/PrivacyRequestPortalPage";
 import PlatformPage from "./components/platform/PlatformPage";
 import ProductsPage from "./components/products/ProductsPage";
 import DocsPage from "./components/docs/DocsPage";
@@ -48,6 +51,9 @@ import CharterPage from "./components/charter/CharterPage";
 import DemoModal from "./components/modals/DemoModal";
 import AnnouncementBanner from "./components/layout/AnnouncementBanner";
 import RegisterLandingPage from "./components/register/RegisterLandingPage";
+import HelleiousSafetyPage from "./components/announcements/HelleiousSafetyPage";
+import HelleiousPage from "./components/helleious/HelleiousPage";
+import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -97,6 +103,7 @@ const searchItems: SearchItem[] = [
   { type: "Model", title: "VERKOX 0.4 instant Model & Edge Sandbox", url: "/blog" },
   { type: "Platform", title: "System Architecture & Platform Overview", url: "/overview" },
   { type: "Company", title: "Contact Enterprise Sales & Engineering Team", url: "/contact" },
+  { type: "Announcement", title: "Helleious.ai Core Views on Safety & Governance", url: "/helleious-safety" },
 ];
 
 const App: React.FC = () => {
@@ -876,6 +883,13 @@ const App: React.FC = () => {
             <Route path="/insights/:articleId" element={<NewsDetailPage />} />
             <Route path="/cookies" element={<CookiePolicyPage />} />
             <Route path="/cookie-policy" element={<CookiePolicyPage />} />
+            <Route path="/data-protection" element={<DataProtectionPage />} />
+            <Route path="/dpdp" element={<DataProtectionPage />} />
+            <Route path="/privacy-center" element={<GlobalPrivacyCenterPage />} />
+            <Route path="/privacy-request" element={<PrivacyRequestPortalPage />} />
+            <Route path="/privacy/request" element={<PrivacyRequestPortalPage />} />
+            <Route path="/privacy/cookies" element={<GlobalPrivacyCenterPage />} />
+            <Route path="/privacy/rights" element={<GlobalPrivacyCenterPage />} />
             <Route path="/platform" element={<PlatformPage />} />
             <Route path="/products" element={<ProductsPage />} />
             <Route path="/products/:productId" element={<ProductDetailPage />} />
@@ -893,6 +907,12 @@ const App: React.FC = () => {
             <Route path="/partner-network" element={<PartnerNetworkPage />} />
             <Route path="/charter" element={<CharterPage />} />
             <Route path="/our-charter" element={<CharterPage />} />
+            <Route path="/helleious" element={<HelleiousPage />} />
+            <Route path="/codehoomer" element={<CodeHoomerPage />} />
+            <Route path="/codehoomer-ai" element={<CodeHoomerPage />} />
+            <Route path="/helleious-safety" element={<HelleiousSafetyPage />} />
+            <Route path="/safety-governance" element={<HelleiousSafetyPage />} />
+            <Route path="/announcements/helleious-safety" element={<HelleiousSafetyPage />} />
           </Routes>
         </AnimatePresence>
       </main>

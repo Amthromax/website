@@ -58,14 +58,14 @@ const AnnouncementBanner: React.FC<AnnouncementBannerProps> = () => {
         >
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 md:gap-8">
             {/* High Clarity Announcement Text */}
-            <div className="flex-1 flex items-center justify-center text-center text-xs sm:text-[13.5px] font-medium text-white/95 tracking-normal leading-relaxed">
-              <p className="max-w-4xl">
+            <div className="flex-1 flex items-center justify-center text-center text-xs sm:text-[13.5px] font-medium text-white/95 tracking-normal leading-normal overflow-hidden">
+              <p className="whitespace-nowrap overflow-hidden text-ellipsis">
                 <span className="font-semibold text-white">Amthromax Next AI is coming.</span>{" "}
                 <span className="text-white/80 font-normal">
                   A new generation of enterprise intelligence — autonomous reasoning, real-time pipelines, and beyond.{" "}
                 </span>
-                <span className="text-white font-semibold hover:underline cursor-pointer" onClick={handleRegisterClick}>
-                  Be the first to know →
+                <span className="text-white font-semibold hover:underline cursor-pointer whitespace-nowrap" onClick={handleRegisterClick}>
+                  Be the first to know &rarr;
                 </span>
               </p>
             </div>

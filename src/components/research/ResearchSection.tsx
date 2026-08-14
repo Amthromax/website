@@ -111,14 +111,6 @@ const ResearchSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12">
         {/* Header - Apple Editorial Style */}
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <motion.p
-            initial={{ opacity: 0, y: 10 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5 }}
-            className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400"
-          >
-            Scientific Division
-          </motion.p>
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
@@ -227,7 +219,7 @@ const ResearchSection: React.FC = () => {
                     {paper.tags.map((tag) => (
                       <span
                         key={tag}
-                        className="text-xs bg-[#f5f5f7] dark:bg-white/5 border border-[#e5e5e7]/80 dark:border-white/10 text-[#515154] dark:text-gray-300 px-3 py-1 rounded-full font-medium"
+                        className="text-xs bg-[#f5f5f7] dark:bg-white/5 text-[#515154] dark:text-gray-300 px-3 py-1 rounded-full font-medium"
                       >
                         {tag}
                       </span>
