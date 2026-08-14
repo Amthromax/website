@@ -147,7 +147,7 @@ const ProductsPage: React.FC = () => {
 
       {/* Hero Header */}
       <div className="relative py-20 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/60 to-black z-0 pointer-events-none" />
         
         {/* Top Header Label Bar */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-6 w-full flex justify-between items-center text-xs text-gray-400 font-sans">

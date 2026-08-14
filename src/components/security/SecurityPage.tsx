@@ -177,10 +177,10 @@ const SecurityPage: React.FC = () => {
   };
 
   const getScoreColor = (score: number) => {
-    if (score === 100) return "text-emerald-500 dark:text-emerald-400";
-    if (score >= 75) return "text-blue-500 dark:text-blue-400";
-    if (score >= 50) return "text-amber-500 dark:text-amber-400";
-    return "text-rose-500 dark:text-rose-400";
+    if (score === 100) return "text-zinc-900 dark:text-white";
+    if (score >= 75) return "text-zinc-800 dark:text-zinc-200";
+    if (score >= 50) return "text-zinc-600 dark:text-zinc-400";
+    return "text-zinc-500 dark:text-zinc-500";
   };
 
   const getScoreGrade = (score: number) => {
@@ -565,7 +565,7 @@ const SecurityPage: React.FC = () => {
                   type="checkbox" 
                   checked={sandboxEnabled} 
                   onChange={(e) => setSandboxEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-blue-600 focus:ring-blue-500 rounded cursor-pointer"
+                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
                 />
               </label>
 
@@ -575,7 +575,7 @@ const SecurityPage: React.FC = () => {
                   type="checkbox" 
                   checked={pqcEnabled} 
                   onChange={(e) => setPqcEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-blue-600 focus:ring-blue-500 rounded cursor-pointer"
+                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
                 />
               </label>
 
@@ -585,7 +585,7 @@ const SecurityPage: React.FC = () => {
                   type="checkbox" 
                   checked={ledgerEnabled} 
                   onChange={(e) => setLedgerEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-blue-600 focus:ring-blue-500 rounded cursor-pointer"
+                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
                 />
               </label>
 
@@ -595,7 +595,7 @@ const SecurityPage: React.FC = () => {
                   type="checkbox" 
                   checked={shieldEnabled} 
                   onChange={(e) => setShieldEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-blue-600 focus:ring-blue-500 rounded cursor-pointer"
+                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
                 />
               </label>
             </div>
@@ -633,16 +633,16 @@ const SecurityPage: React.FC = () => {
                   <span className="text-zinc-600 select-none text-[11px] min-w-[24px] text-right font-mono">{index + 1}</span>
                   <span className="text-zinc-500 select-none font-mono text-xs">[{log.timestamp}]</span>
                   <span className={`font-bold select-none min-w-[70px] font-mono text-xs ${
-                    log.system === "SYSTEM" ? "text-cyan-400" :
-                    log.system === "SHIELD" ? "text-emerald-400" :
-                    log.system === "CRYPTO" ? "text-indigo-400" :
-                    log.system === "SANDBOX" ? "text-amber-400" :
-                    log.system === "LEDGER" ? "text-purple-400" :
-                    log.system === "FIREWALL" ? "text-rose-400" :
-                    log.system === "USER" ? "text-blue-400" :
-                    log.level === "success" ? "text-emerald-400" : 
-                    log.level === "warning" ? "text-amber-400" : 
-                    log.level === "error" ? "text-rose-400" : "text-blue-400"
+                    log.system === "SYSTEM" ? "text-zinc-300" :
+                    log.system === "SHIELD" ? "text-zinc-200" :
+                    log.system === "CRYPTO" ? "text-zinc-400" :
+                    log.system === "SANDBOX" ? "text-zinc-300" :
+                    log.system === "LEDGER" ? "text-zinc-400" :
+                    log.system === "FIREWALL" ? "text-zinc-300" :
+                    log.system === "USER" ? "text-zinc-400" :
+                    log.level === "success" ? "text-zinc-200" : 
+                    log.level === "warning" ? "text-zinc-400" : 
+                    log.level === "error" ? "text-zinc-400" : "text-zinc-300"
                   }`}>
                     {log.system}:
                   </span>

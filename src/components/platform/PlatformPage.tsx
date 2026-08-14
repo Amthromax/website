@@ -69,7 +69,7 @@ const PlatformPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-[#f5f5f7] dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Platform | The Agentic Execution Layer" 
         description="Explore the architecture behind Amthromax: low-latency orchestration, semantic caching, and federated databases designed for agentic workflows." 
@@ -77,7 +77,7 @@ const PlatformPage: React.FC = () => {
 
       {/* Hero Header */}
       <section className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0 pointer-events-none" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/60 to-black z-0 pointer-events-none" />
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(255,255,255,0.05),transparent_60%)] pointer-events-none" />
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
           <motion.span 

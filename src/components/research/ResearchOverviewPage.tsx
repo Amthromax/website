@@ -136,7 +136,7 @@ const ResearchOverviewPage: React.FC = () => {
       {/* Full White Hero Section */}
       <section ref={heroRef} className="relative pt-32 pb-20 md:pt-40 md:pb-28 px-6 text-center overflow-hidden bg-white">
         {/* Subtle Ambient Radial Blur Glow */}
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-radial from-blue-100/60 via-purple-50/40 to-transparent blur-3xl pointer-events-none z-0" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[450px] bg-radial from-zinc-200/40 via-zinc-100/20 to-transparent blur-3xl pointer-events-none z-0" />
 
         <motion.div
           initial={{ opacity: 0, y: 24 }}
