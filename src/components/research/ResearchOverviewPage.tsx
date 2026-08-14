@@ -573,7 +573,7 @@ const ResearchOverviewPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-6 py-24 bg-white">
         <div className="rounded-lg bg-[#f5f5f7] border border-gray-200 p-8 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-sm">
           <div className="space-y-4 max-w-2xl">
-            <span className="text-xs uppercase tracking-[0.2em] text-emerald-600 font-semibold block">
+            <span className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold block">
               Safety & Alignment Protocol
             </span>
             <h3 className="text-2xl sm:text-4xl font-extrabold text-gray-900 tracking-tight leading-tight">
