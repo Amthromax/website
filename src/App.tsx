@@ -16,6 +16,7 @@ import ServiceDetailPage from "./components/services/ServiceDetailPage";
 import ResearchDetailPage from "./components/research/ResearchDetailPage";
 import ResearchOverviewPage from "./components/research/ResearchOverviewPage";
 import PublicationsPage from "./components/research/PublicationsPage";
+import SafetyArchitecturePage from "./components/research/SafetyArchitecturePage";
 import CookieConsent from "./components/layout/CookieConsent";
 import ScrollToTop from "./components/layout/ScrollToTop";
 import SolutionsPage from "./components/solutions/SolutionsPage";
@@ -847,6 +848,8 @@ const App: React.FC = () => {
               </div>
             } />
             <Route path="/research/overview" element={<ResearchOverviewPage />} />
+            <Route path="/research/safety" element={<SafetyArchitecturePage />} />
+            <Route path="/safety" element={<SafetyArchitecturePage />} />
             <Route path="/research/publications" element={<PublicationsPage />} />
             <Route path="/publications" element={<PublicationsPage />} />
             <Route path="/research/:paperId" element={<ResearchDetailPage />} />
