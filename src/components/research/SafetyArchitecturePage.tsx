@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../layout/SEO";
-import Footer from "../footer/Footer";
 
 const SafetyArchitecturePage: React.FC = () => {
   useEffect(() => {
@@ -417,8 +416,6 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 };
