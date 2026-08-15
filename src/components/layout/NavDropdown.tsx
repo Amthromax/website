@@ -6,6 +6,7 @@ interface DropdownItem {
   label: string;
   href: string;
   isHeader?: boolean;
+  isExternal?: boolean;
 }
 
 interface NavDropdownProps {
@@ -74,9 +75,10 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, href, items }) => {
                     key={index}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
-                    className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors text-xs font-semibold block"
+                    className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors text-xs font-semibold flex items-center justify-between"
                   >
-                    {item.label}
+                    <span>{item.label}</span>
+                    {item.isExternal && <span className="text-[10px] opacity-70">↗</span>}
                   </Link>
                 );
               })}

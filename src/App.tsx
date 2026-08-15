@@ -139,7 +139,7 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | null>(null);
+  const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | 'developers' | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showComingSoonModal, setShowComingSoonModal] = useState(false);
   const [showDemoModal, setShowDemoModal] = useState(false);
@@ -160,7 +160,7 @@ const App: React.FC = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company') => {
+  const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company' | 'developers') => {
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
     setActiveMenu(menu);
   };
@@ -294,12 +294,13 @@ const App: React.FC = () => {
                 >
                   Business
                 </button>
-                <Link
-                  to="/developers"
+                <button
+                  type="button"
+                  onMouseEnter={() => handleMouseEnter('developers')}
                   className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
                 >
                   Developers
-                </Link>
+                </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('company')}
@@ -650,23 +651,50 @@ const App: React.FC = () => {
 
                   {activeMenu === 'business' && (
                     <>
-                      {/* Left Column */}
+                      {/* Left Column - BUSINESS */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Solutions</span>
-                        <div className="space-y-4">
-                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Our Charter</Link>
-                          <Link to="/why/enterprises" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Enterprises</Link>
-                          <Link to="/why/small-businesses" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Small Businesses</Link>
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">BUSINESS</span>
+                        <div className="space-y-2.5">
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Overview</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Solutions</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Resources</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/partners" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Partner Network</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/contact" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Contact Sales</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Developer Hub</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Docs</span><span className="text-xs opacity-70">↗</span></Link>
                         </div>
                       </div>
-                      {/* Right Column */}
+                      {/* Right Column - API Platform */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Services Offered</span>
-                        <div className="space-y-3">
-                          <Link to="/services/custom-software" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Custom Software</Link>
-                          <Link to="/services/cloud-solutions" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Cloud Solutions</Link>
-                          <Link to="/services/artificial-intelligence" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">AI Systems</Link>
-                          <Link to="/services/cybersecurity" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Cybersecurity</Link>
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">API Platform</span>
+                        <div className="space-y-2.5">
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Overview</Link>
+                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-xs opacity-70">↗</span></Link>
+                        </div>
+                      </div>
+                    </>
+                  )}
+
+                  {activeMenu === 'developers' && (
+                    <>
+                      {/* Left Column - API Platform */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">API Platform</span>
+                        <div className="space-y-2.5">
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Overview</Link>
+                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-xs opacity-70">↗</span></Link>
+                        </div>
+                      </div>
+                      {/* Right Column - Developer Hub */}
+                      <div className="space-y-6">
+                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Developer Hub</span>
+                        <div className="space-y-2.5">
+                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Developer Portal</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Documentation</span><span className="text-xs opacity-70">↗</span></Link>
+                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Pricing &amp; Quotas</Link>
+                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Developer Tools</Link>
                         </div>
                       </div>
                     </>
