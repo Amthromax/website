@@ -71,9 +71,6 @@ const BlogPage: React.FC = () => {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-16 space-y-16">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">
-              Insights & Engineering
-            </span>
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
               The Amthromax Blog
             </h1>
