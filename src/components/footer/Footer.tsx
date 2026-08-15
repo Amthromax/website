@@ -22,10 +22,10 @@ const Footer: React.FC = () => {
 
   const footerColumns: FooterColumn[] = [
     {
-      title: "Research",
+      title: "Intelligence",
       items: [
-        { name: "Research Index", href: "/research" },
-        { name: "Research Overview", href: "/research/overview" },
+        { name: "Intelligence Index", href: "/research" },
+        { name: "Intelligence Overview", href: "/research/overview" },
         { name: "Tech Publications", href: "/research/publications" },
         { name: "Security Standards", href: "/security" },
         { name: "System Safety", href: "/security" },

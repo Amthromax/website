@@ -278,7 +278,7 @@ const App: React.FC = () => {
                   onMouseEnter={() => handleMouseEnter('research')}
                   className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
                 >
-                  Research
+                  Intelligence
                 </button>
                 <button
                   type="button"
@@ -475,7 +475,7 @@ const App: React.FC = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
                   >
-                    Research
+                    Intelligence
                   </Link>
                   <Link
                     to="/products"
@@ -603,11 +603,11 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Explore Research</span>
+                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Explore Intelligence</span>
                         <div className="space-y-3">
-                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Research Index</Link>
-                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Research Overview</Link>
-                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Research Residency</Link>
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Intelligence Index</Link>
+                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Intelligence Overview</Link>
+                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Intelligence Residency</Link>
                           <Link to="/security" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Safety</Link>
                         </div>
                       </div>
