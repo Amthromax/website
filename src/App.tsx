@@ -263,54 +263,54 @@ const App: React.FC = () => {
           onMouseLeave={handleMouseLeave}
         >
           <div className="max-w-7xl mx-auto px-6">
-            <div className="flex justify-between items-center h-16">
+            <div className="flex justify-between items-center h-13 sm:h-14">
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="flex items-center gap-2.5 text-xl md:text-2xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none group">
+                <Link to="/" className="flex items-center gap-2.5 text-lg md:text-xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none group">
                   <span>Amthromax</span>
                 </Link>
               </div>
 
               {/* Center Navigation Links (Desktop only) */}
-              <div className="hidden lg:flex items-center justify-center space-x-7 flex-1">
+              <div className="hidden lg:flex items-center justify-center space-x-6 flex-1">
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('research')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Intelligence
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('products')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Products
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('business')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Business
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('developers')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Developers
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('company')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Company
                 </button>
                 <Link
                   to="/foundation"
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2"
                 >
                   AI Foundation
                 </Link>
@@ -592,7 +592,7 @@ const App: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
-                className="absolute top-16 left-0 right-0 bg-[#0b0b0c] border-b border-white/[0.08] text-white z-45 py-12 px-6 sm:px-12 md:px-24"
+                className="absolute top-full left-0 right-0 bg-[#0b0b0c] border-b border-white/[0.08] text-white z-45 py-8 px-6 sm:px-12 md:px-24"
                 onMouseEnter={() => {
                   if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
                 }}
