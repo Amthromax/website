@@ -124,7 +124,7 @@ const Footer: React.FC = () => {
               <img
                 src="/images/amthromax_asterisk_logo.png"
                 alt="Amthromax 3D Asterisk Logo"
-                className="w-52 h-52 sm:w-64 sm:h-64 md:w-72 md:h-72 lg:w-80 lg:h-80 object-contain transition-transform duration-300 group-hover:scale-105"
+                className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px] xl:w-[440px] xl:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
 
