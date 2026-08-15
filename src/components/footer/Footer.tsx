@@ -118,24 +118,24 @@ const Footer: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-24 items-start"
         >
           {/* Left Column: 3D Asterisk Logo + Copyright + Legal Links */}
-          <div className="lg:col-span-3 space-y-6 sm:space-y-8 flex flex-col items-center text-center">
+          <div className="lg:col-span-4 space-y-6 sm:space-y-10 flex flex-col items-center text-center">
             {/* 3D Isometric 6-Pointed Asterisk Logo (Responsive across Mobile, Tablet, Laptop) */}
             <Link to="/" className="block mx-auto w-fit group">
               <img
                 src="/images/amthromax_asterisk_logo.png"
                 alt="Amthromax 3D Asterisk Logo"
-                className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-[380px] lg:h-[380px] xl:w-[440px] xl:h-[440px] object-contain transition-transform duration-300 group-hover:scale-105"
+                className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain transition-transform duration-300 group-hover:scale-105"
               />
             </Link>
 
             <div className="space-y-1">
-              <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
+              <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
                 Amthromax © {new Date().getFullYear()}
               </h3>
             </div>
 
             {/* Vertical Legal Links */}
-            <div className="flex flex-col items-center text-center space-y-2.5 sm:space-y-3 text-xs sm:text-sm font-medium text-[#5c5850] dark:text-gray-400">
+            <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg font-medium text-[#5c5850] dark:text-gray-400">
               <Link to="/privacy-center" className="hover:text-black dark:hover:text-white transition-colors">
                 Privacy Center
               </Link>
@@ -161,7 +161,7 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Right Columns: Multi-Column Links Grid + Emails */}
-          <div className="lg:col-span-9 flex flex-col gap-10 pt-2 sm:pt-4">
+          <div className="lg:col-span-8 flex flex-col gap-10 pt-2 sm:pt-4">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6 lg:gap-4 xl:gap-6">
               {footerColumns.map((column) => (
                 <div key={column.title} className="space-y-3 sm:space-y-4">
