@@ -1,5 +1,10 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+
+interface ProjectBullet {
+  title: string;
+  desc: string;
+}
 
 interface Project {
   id: number;
@@ -9,6 +14,9 @@ interface Project {
   subtitle: string;
   date: string;
   category: "AI & Intelligence" | "Infrastructure" | "Security & Ledger";
+  modalHeading: string;
+  modalIntro: string;
+  modalPoints: ProjectBullet[];
   image?: string;
   icon?: React.ReactNode;
   bgStyle: {
@@ -20,6 +28,8 @@ interface Project {
 }
 
 const UpcomingProjectsSection: React.FC = () => {
+  const [selectedProject, setSelectedProject] = useState<Project | null>(null);
+
   const projects: Project[] = [
     {
       id: 1,
@@ -29,6 +39,13 @@ const UpcomingProjectsSection: React.FC = () => {
       subtitle: "Executing multi-step enterprise business operations using self-correcting agent chains.",
       date: "Sep 01, 2026",
       category: "AI & Intelligence",
+      modalHeading: "Executing multi-step enterprise business operations with self-correcting agent chains",
+      modalIntro: "Enterprise workflow automation powered by self-healing, multi-agent intelligence swarms that dynamically adapt to real-time execution anomalies.",
+      modalPoints: [
+        { title: "Prevent", desc: "Strict boundary checking prevents unauthorized agent state mutations and data exfiltration across connected business systems." },
+        { title: "Protect", desc: "Continuous execution monitoring halts runaway loops and automatically rolls back unverified database transactions." },
+        { title: "Scale", desc: "Distributed task queues process over 50,000 parallel execution steps per second with guaranteed order delivery." }
+      ],
       image: "/images/project_blue_grain.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -55,6 +72,13 @@ const UpcomingProjectsSection: React.FC = () => {
       subtitle: "Ultra-low latency portfolio analytics, predictive hedging, and real-time ledger settlement.",
       date: "Aug 28, 2026",
       category: "Security & Ledger",
+      modalHeading: "Ultra-low latency portfolio analytics & cryptographic trade settlement",
+      modalIntro: "Institutional-grade financial execution pipeline combining predictive market hedging algorithms with zero-knowledge cryptographic ledger verification.",
+      modalPoints: [
+        { title: "Verify", desc: "Zero-knowledge proofs validate trade compliance and collateral margin ratios before transaction submission." },
+        { title: "Shield", desc: "Hardware isolation modules protect proprietary trading algorithms and private order book depth." },
+        { title: "Optimize", desc: "Sub-millisecond order routing minimizes market slippage and maximizes execution liquidity." }
+      ],
       image: "/images/project_red_grain.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -78,6 +102,13 @@ const UpcomingProjectsSection: React.FC = () => {
       subtitle: "Unified control plane to design, monitor, and scale enterprise-grade AI agents.",
       date: "Aug 20, 2026",
       category: "AI & Intelligence",
+      modalHeading: "Unified control plane to design, monitor, and scale enterprise AI agents",
+      modalIntro: "A central governance portal enabling enterprise teams to visual-code, audit, and deploy custom intelligent agent networks with full RBAC policies.",
+      modalPoints: [
+        { title: "Govern", desc: "Granular role-based access control (RBAC) ensures developers and agents operate strictly within permitted API scopes." },
+        { title: "Audit", desc: "Real-time prompt and response tracing records every step of agent decision-making for regulatory compliance." },
+        { title: "Deploy", desc: "One-click deployment converts visual agent topologies into production serverless containers instantly." }
+      ],
       image: "/images/project_green_grain.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -101,6 +132,13 @@ const UpcomingProjectsSection: React.FC = () => {
       subtitle: "Transforming unstructured multi-modal enterprise data into dynamic semantic knowledge bases.",
       date: "Aug 18, 2026",
       category: "AI & Intelligence",
+      modalHeading: "Transforming unstructured multi-modal data into dynamic semantic knowledge bases",
+      modalIntro: "Neural data ingested across PDFs, databases, and media feeds is automatically indexed into high-dimensional vector representations for sub-5ms lookup.",
+      modalPoints: [
+        { title: "Index", desc: "Automated schema extraction converts raw documents, videos, and logs into structured vector embeddings." },
+        { title: "Search", desc: "Sub-5ms semantic vector retrieval delivers precise contextual answers across multi-terabyte knowledge stores." },
+        { title: "Refine", desc: "Continuous feedback loops continuously refine embedding accuracy based on user query satisfaction." }
+      ],
       image: "/images/project_purple_grain.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -124,6 +162,13 @@ const UpcomingProjectsSection: React.FC = () => {
       subtitle: "Generative intelligence engine for institutional wealth allocation and predictive risk modeling.",
       date: "Aug 15, 2026",
       category: "AI & Intelligence",
+      modalHeading: "Generative intelligence engine for institutional wealth & predictive risk modeling",
+      modalIntro: "Real-time market simulation engine using agentic Monte Carlo techniques to model portfolio drawdowns, macro shifts, and yield optimization.",
+      modalPoints: [
+        { title: "Simulate", desc: "Run over 1,000,000 stress scenarios per minute across global equity, bond, and derivative markets." },
+        { title: "Protect", desc: "Automated hedging triggers mitigate downside tail risk during sudden market volatility spikes." },
+        { title: "Report", desc: "Automated executive summary generation produces regulatory-ready compliance briefings instantly." }
+      ],
       image: "/images/project_yellow_grain.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -147,6 +192,13 @@ const UpcomingProjectsSection: React.FC = () => {
       subtitle: "Scaling high-fidelity real-time data ingestion and stream processing for enterprise analytics.",
       date: "Aug 12, 2026",
       category: "Infrastructure",
+      modalHeading: "Scaling high-fidelity real-time data ingestion & stream processing for enterprise analytics",
+      modalIntro: "Low-latency streaming grid connecting distributed data centers with zero-copy memory buffers and automatic failover clustering.",
+      modalPoints: [
+        { title: "Stream", desc: "Zero-copy Kafka pipeline architecture processes multi-gigabit data feeds with sub-millisecond overhead." },
+        { title: "Balance", desc: "Dynamic regional load balancing shifts telemetry traffic away from congested network hubs automatically." },
+        { title: "Isolate", desc: "Encrypted memory enclaves prevent cross-tenant data bleeding across shared cloud instances." }
+      ],
       image: "/images/project_cyan_grain.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
@@ -165,7 +217,7 @@ const UpcomingProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f5f5f7] dark:bg-black py-24 border-t border-[#e5e5e7]/60 dark:border-white/10 transition-colors duration-300 font-sans">
+    <section className="w-full bg-[#f5f5f7] dark:bg-black py-24 border-t border-[#e5e5e7]/60 dark:border-white/10 transition-colors duration-300 font-sans relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
         {/* Header Block */}
         <div className="space-y-3">
@@ -182,6 +234,7 @@ const UpcomingProjectsSection: React.FC = () => {
           {projects.map((project) => (
             <motion.div
               key={project.id}
+              onClick={() => setSelectedProject(project)}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -240,6 +293,78 @@ const UpcomingProjectsSection: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Full-Screen Dark Detail Modal matching Image 1 */}
+      <AnimatePresence>
+        {selectedProject && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 z-50 bg-black/95 backdrop-blur-md flex items-center justify-center p-6 sm:p-10 text-white overflow-y-auto"
+            onClick={() => setSelectedProject(null)}
+          >
+            {/* Top Right Close Button */}
+            <button
+              type="button"
+              onClick={(e) => {
+                e.stopPropagation();
+                setSelectedProject(null);
+              }}
+              className="fixed top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer z-50"
+              aria-label="Close modal"
+            >
+              ✕
+            </button>
+
+            {/* Modal Dialog Content */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              exit={{ opacity: 0, scale: 0.95, y: 10 }}
+              transition={{ duration: 0.2 }}
+              onClick={(e) => e.stopPropagation()}
+              className="max-w-2xl w-full my-auto py-8 space-y-6 text-left relative"
+            >
+              {/* Category Icon */}
+              {selectedProject.icon && (
+                <div className="w-12 h-12 rounded-2xl bg-white/10 flex items-center justify-center text-white mb-2">
+                  {selectedProject.icon}
+                </div>
+              )}
+
+              {/* Subtitle / Category Label */}
+              <span className="text-xs font-bold text-white/60 uppercase tracking-widest block">
+                {selectedProject.category}
+              </span>
+
+              {/* Headline / Title */}
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-snug">
+                {selectedProject.modalHeading}
+              </h2>
+
+              {/* Main Description */}
+              <p className="text-sm sm:text-base text-white/80 leading-relaxed font-normal">
+                {selectedProject.modalIntro}
+              </p>
+
+              {/* Bulleted Highlights */}
+              <ul className="space-y-4 pt-2 text-sm sm:text-base text-white/90">
+                {selectedProject.modalPoints.map((bullet, idx) => (
+                  <li key={idx} className="flex items-start gap-2.5">
+                    <span className="text-white/60 text-lg leading-none mt-0.5">•</span>
+                    <div className="leading-relaxed">
+                      <span className="font-bold italic text-white mr-1.5">{bullet.title}:</span>
+                      <span className="text-white/80">{bullet.desc}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
