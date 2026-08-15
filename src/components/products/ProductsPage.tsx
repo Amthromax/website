@@ -95,39 +95,53 @@ const MobileIcon: React.FC = () => (
 const ProductsPage: React.FC = () => {
   const products = [
     {
+      id: "orarqlow-ai",
+      title: "OrarQlow.Ai Swarm Engine",
+      desc: "Distributed low-latency autonomous agent swarm orchestration engine capable of sub-15ms coordination across Kubernetes nodes.",
+      icon: <AIIcon />,
+      link: "/orarqlow"
+    },
+    {
+      id: "helleious-ai",
+      title: "Helleious.Ai Workflow Platform",
+      desc: "Enterprise zero-code AI automation, blueprint orchestration, and event-driven trigger system built for modern teams.",
+      icon: <SoftwareIcon />,
+      link: "/helleious"
+    },
+    {
+      id: "codehoomer-ai",
+      title: "CodeHoomer.Ai Engineering Studio",
+      desc: "Autonomous AI software developer for building, testing, refactoring, and auditing enterprise codebases at scale.",
+      icon: <DataIcon />,
+      link: "/codehoomer"
+    },
+    {
       id: "custom-software",
       title: "Custom Software Suite",
-      desc: "Tailored enterprise solutions built with low-latency frameworks, optimized caching, and automated sync layers. Designed for companies demanding zero operational lag.",
+      desc: "Tailored enterprise solutions built with low-latency frameworks, optimized caching, and automated sync layers.",
       icon: <SoftwareIcon />,
       link: "/services/custom-software"
     },
     {
       id: "cloud-solutions",
       title: "Cloud Infrastructure Pipelines",
-      desc: "High-throughput cloud pipelines running on auto-scaling clusters, complete with cryptographic edge routing and SOC2-compliant databases.",
+      desc: "High-throughput cloud pipelines running on auto-scaling clusters, complete with cryptographic edge routing.",
       icon: <CloudIcon />,
       link: "/services/cloud-solutions"
     },
     {
       id: "artificial-intelligence",
       title: "Atlas AI Agent Networks",
-      desc: "Deploy specialized agentic swarms that automatically plan, execute, retrieve semantic data, and automate entire back-office processes.",
+      desc: "Deploy specialized agentic swarms that automatically plan, execute, retrieve semantic data, and automate processes.",
       icon: <AIIcon />,
       link: "/services/artificial-intelligence"
     },
     {
       id: "cybersecurity",
       title: "Zero-Trust Cybersecurity Shield",
-      desc: "Establish threat detection layers, post-quantum cryptography, and sandboxed runtimes to isolate and defend critical API endpoints.",
+      desc: "Establish threat detection layers, post-quantum cryptography, and sandboxed runtimes to defend API endpoints.",
       icon: <SecurityIcon />,
       link: "/services/cybersecurity"
-    },
-    {
-      id: "data-analytics",
-      title: "Cognitive Knowledge Mining",
-      desc: "Convert high-volume unstructured files into searchable, auditable semantic databases with real-time analytics indicators.",
-      icon: <DataIcon />,
-      link: "/services/data-analytics"
     },
     {
       id: "mobile-apps",

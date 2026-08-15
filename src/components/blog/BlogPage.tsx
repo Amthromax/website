@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { blogPosts, type BlogPost } from "./blogData";
+import BlogMarquee from "./BlogMarquee";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
 
@@ -66,7 +67,7 @@ const BlogPage: React.FC = () => {
         description="Insights on artificial intelligence, automation, enterprise software, AI agents, LLMs, and future technologies."
       />
 
-      <div className="py-20 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-300 min-h-[85vh] font-sans">
+      <div className="py-20 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-300 min-h-[85vh] font-sans overflow-x-hidden">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-16 space-y-16">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
@@ -159,6 +160,9 @@ const BlogPage: React.FC = () => {
               </div>
             </motion.div>
           )}
+
+          {/* Marquee Ticker */}
+          <BlogMarquee />
 
           {/* Grid Posts */}
           <motion.div

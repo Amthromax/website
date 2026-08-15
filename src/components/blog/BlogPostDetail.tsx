@@ -167,40 +167,40 @@ const BlogPostDetail: React.FC = () => {
 
           {/* Post Header info */}
           <div className="space-y-6">
-            <div className="flex items-center space-x-2 text-xs font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
-              <span>{post.category}</span>
+            <div className="flex items-center space-x-3 text-xs font-semibold uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400">
+              <span className="px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-black dark:text-white text-[11px] font-bold tracking-wider">{post.category}</span>
               <span>•</span>
-              <span className="text-gray-400 dark:text-gray-500">{post.readTime}</span>
+              <span className="text-zinc-400 dark:text-zinc-500">{post.readTime}</span>
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-black dark:text-white leading-[1.1]">
               {post.title}
             </h1>
-            <p className="text-lg md:text-xl text-gray-500 dark:text-gray-400 font-medium leading-relaxed italic border-l-4 border-blue-500 pl-4 py-1">
+            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 font-normal leading-relaxed italic border-l-2 border-black dark:border-white pl-6 py-2">
               {post.excerpt}
             </p>
           </div>
 
           {/* Author Block */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-gray-100 dark:border-gray-900">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-black/[0.06] dark:border-white/[0.08]">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-gray-200 dark:border-gray-800 shadow-sm">
+              <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-black/10 dark:border-white/10 shadow-sm">
                 {post.author.avatar}
               </div>
               <div>
-                <h4 className="text-sm font-bold text-gray-900 dark:text-white">{post.author.name}</h4>
-                <p className="text-xs text-gray-400 dark:text-gray-500">{post.author.role}</p>
+                <h4 className="text-sm font-bold text-black dark:text-white">{post.author.name}</h4>
+                <p className="text-xs text-zinc-400 dark:text-zinc-500">{post.author.role}</p>
               </div>
             </div>
             
             {/* Share and Date Block */}
             <div className="flex flex-wrap items-center gap-6 sm:ml-auto">
               <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider mr-1">Share</span>
+                <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-[0.15em] mr-1">Share</span>
                 
                 {/* LinkedIn */}
                 <button
                   onClick={handleShareLinkedIn}
-                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] dark:text-gray-400 dark:hover:text-[#0077b5] dark:hover:border-[#0077b5] flex items-center justify-center hover:bg-blue-50/10 transition-all select-none cursor-pointer"
+                  className="w-9 h-9 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-[#f5f5f7]/60 dark:bg-[#1c1c1e]/60 text-zinc-600 hover:text-black hover:bg-white dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 flex items-center justify-center transition-all duration-200 select-none cursor-pointer shadow-xs"
                   title="Share to LinkedIn"
                 >
                   <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
@@ -211,7 +211,7 @@ const BlogPostDetail: React.FC = () => {
                 {/* X */}
                 <button
                   onClick={handleShareX}
-                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-black hover:border-black dark:text-gray-400 dark:hover:text-white dark:hover:border-white flex items-center justify-center hover:bg-gray-50 dark:hover:bg-gray-900 transition-all select-none cursor-pointer"
+                  className="w-9 h-9 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-[#f5f5f7]/60 dark:bg-[#1c1c1e]/60 text-zinc-600 hover:text-black hover:bg-white dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 flex items-center justify-center transition-all duration-200 select-none cursor-pointer shadow-xs"
                   title="Share to X"
                 >
                   <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
@@ -290,12 +290,12 @@ const BlogPostDetail: React.FC = () => {
                     <div 
                       key={index} 
                       onClick={() => setLightboxImg(match[2])}
-                      className="my-8 rounded-[24px] overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-55 dark:bg-gray-900 cursor-zoom-in group/inlineimg"
+                      className="my-8 max-w-xl mx-auto rounded-[24px] overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900 cursor-zoom-in group/inlineimg"
                     >
                       <img 
                         src={match[2]} 
                         alt={match[1]} 
-                        className="w-full object-cover transition-transform duration-500 group-hover/inlineimg:scale-[1.02]" 
+                        className="w-full max-h-[500px] object-cover object-top transition-transform duration-500 group-hover/inlineimg:scale-[1.02]" 
                       />
                     </div>
                   );
@@ -547,40 +547,40 @@ const BlogPostDetail: React.FC = () => {
           <aside className="hidden xl:block w-80 shrink-0">
             <div className="sticky top-28 space-y-6">
               {/* Author Card */}
-              <div className="p-6 rounded-[20px] bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] space-y-4">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Written by</p>
-                <div className="flex items-center space-x-3">
-                  <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center shadow-sm">
+              <div className="p-6 rounded-[28px] bg-[#f5f5f7]/90 dark:bg-[#1c1c1e]/90 backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all duration-300 space-y-5">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">Written by</p>
+                <div className="flex items-center space-x-3.5">
+                  <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center shadow-sm border border-black/10 dark:border-white/10 shrink-0">
                     {post.author.avatar}
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-gray-900 dark:text-white">{post.author.name}</h4>
-                    <p className="text-xs text-gray-400 dark:text-gray-500">{post.author.role}</p>
+                    <h4 className="text-sm font-bold text-black dark:text-white leading-snug">{post.author.name}</h4>
+                    <p className="text-xs text-zinc-400 dark:text-zinc-500">{post.author.role}</p>
                   </div>
                 </div>
-                <div className="pt-3 border-t border-gray-100 dark:border-gray-800 flex justify-between text-xs">
-                  <span className="text-gray-400">Published</span>
-                  <span className="font-bold text-gray-800 dark:text-gray-200">{post.date}</span>
+                <div className="pt-4 border-t border-black/[0.05] dark:border-white/[0.08] flex justify-between text-xs">
+                  <span className="text-zinc-400 dark:text-zinc-500 font-medium">Published</span>
+                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">{post.date}</span>
                 </div>
                 <div className="flex justify-between text-xs">
-                  <span className="text-gray-400">Read time</span>
-                  <span className="font-bold text-gray-800 dark:text-gray-200">{post.readTime}</span>
+                  <span className="text-zinc-400 dark:text-zinc-500 font-medium">Read time</span>
+                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">{post.readTime}</span>
                 </div>
               </div>
 
               {/* Share Card */}
-              <div className="p-6 rounded-[20px] bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] space-y-4">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Share this post</p>
-                <div className="flex flex-wrap gap-2">
-                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[72px] py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#0077b5] hover:border-[#0077b5] transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+              <div className="p-6 rounded-[28px] bg-[#f5f5f7]/90 dark:bg-[#1c1c1e]/90 backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">Share this post</p>
+                <div className="flex flex-wrap gap-2.5">
+                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[80px] py-2.5 px-3 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                   </button>
-                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[72px] py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-black dark:hover:text-white hover:border-black dark:hover:border-white transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-2.5 px-3 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     X
                   </button>
-                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-2.5 rounded-xl border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-blue-600 hover:border-blue-600 transition-all text-xs font-bold flex items-center justify-center gap-1.5 cursor-pointer">
+                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-2.5 px-4 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
                     Copy Link
                   </button>
@@ -588,9 +588,13 @@ const BlogPostDetail: React.FC = () => {
               </div>
 
               {/* Category Tag */}
-              <div className="p-6 rounded-[20px] bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] space-y-3">
-                <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400">Category</p>
-                <span className="inline-block px-4 py-1.5 rounded-full bg-blue-600 text-white text-xs font-bold">{post.category}</span>
+              <div className="p-6 rounded-[28px] bg-[#f5f5f7]/90 dark:bg-[#1c1c1e]/90 backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all duration-300 space-y-3.5">
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">Category</p>
+                <div className="flex">
+                  <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold tracking-tight shadow-sm">
+                    {post.category}
+                  </span>
+                </div>
               </div>
             </div>
           </aside>

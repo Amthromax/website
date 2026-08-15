@@ -55,6 +55,7 @@ import RegisterLandingPage from "./components/register/RegisterLandingPage";
 import HelleiousSafetyPage from "./components/announcements/HelleiousSafetyPage";
 import HelleiousPage from "./components/helleious/HelleiousPage";
 import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
+import OrarQlowPage from "./components/orarqlow/OrarQlowPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -627,10 +628,12 @@ const App: React.FC = () => {
                       {/* Left Column */}
                       <div className="space-y-6">
                         <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Products</span>
-                        <div className="space-y-4">
-                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Product Index</Link>
-                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Platform Core</Link>
-                          <Link to="/services" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Features Index</Link>
+                        <div className="space-y-3">
+                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Product Index</Link>
+                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Platform Core</Link>
+                          <Link to="/orarqlow" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">OrarQlow.Ai</Link>
+                          <Link to="/helleious" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">Helleious.Ai</Link>
+                          <Link to="/codehoomer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-purple-400 hover:text-purple-300 transition-colors">CodeHoomer.Ai</Link>
                         </div>
                       </div>
                       {/* Right Column */}
@@ -913,6 +916,8 @@ const App: React.FC = () => {
             <Route path="/helleious" element={<HelleiousPage />} />
             <Route path="/codehoomer" element={<CodeHoomerPage />} />
             <Route path="/codehoomer-ai" element={<CodeHoomerPage />} />
+            <Route path="/orarqlow" element={<OrarQlowPage />} />
+            <Route path="/orarqlow-ai" element={<OrarQlowPage />} />
             <Route path="/helleious-safety" element={<HelleiousSafetyPage />} />
             <Route path="/safety-governance" element={<HelleiousSafetyPage />} />
             <Route path="/announcements/helleious-safety" element={<HelleiousSafetyPage />} />

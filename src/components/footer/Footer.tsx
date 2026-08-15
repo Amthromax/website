@@ -37,6 +37,9 @@ const Footer: React.FC = () => {
       items: [
         { name: "Product Index", href: "/products" },
         { name: "Platform Core", href: "/platform" },
+        { name: "OrarQlow.Ai", href: "/orarqlow" },
+        { name: "Helleious.Ai", href: "/helleious" },
+        { name: "CodeHoomer.Ai", href: "/codehoomer" },
         { name: "Pricing Plans", href: "/pricing" },
         { name: "AI Agent Networks", href: "/services/artificial-intelligence" },
         { name: "Custom Software", href: "/services/custom-software" },
