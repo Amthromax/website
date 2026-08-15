@@ -92,11 +92,14 @@ const Footer: React.FC = () => {
     {
       title: "Industries",
       items: [
-        { name: "Financial Services", href: "/solutions" },
-        { name: "Government", href: "/solutions" },
-        { name: "Healthcare", href: "/solutions" },
-        { name: "Life Sciences", href: "/solutions" },
-        { name: "Nonprofits", href: "/solutions" },
+        { name: "FinTech & Banking", href: "/solutions" },
+        { name: "Aerospace & Defense", href: "/solutions" },
+        { name: "Energy & Utilities", href: "/solutions" },
+        { name: "Automotive & Mobility", href: "/solutions" },
+        { name: "Telecommunications", href: "/solutions" },
+        { name: "Retail & E-Commerce", href: "/solutions" },
+        { name: "Supply Chain & Logistics", href: "/solutions" },
+        { name: "Media & Gaming", href: "/solutions" },
       ],
     },
   ];
