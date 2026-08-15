@@ -126,38 +126,32 @@
     font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
   }
 
-  /* Custom premium scrollbar styling */
+  /* Clean, non-intrusive scrollbar styling without side track line boxes */
   ::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
+    width: 6px;
+    height: 6px;
   }
 
   ::-webkit-scrollbar-track {
-    background: #f5f5f7;
-  }
-
-  .dark ::-webkit-scrollbar-track {
-    background: #0b0b0c;
+    background: transparent;
   }
 
   ::-webkit-scrollbar-thumb {
-    background: #d2d2d7;
-    border-radius: 5px;
-    border: 2px solid #f5f5f7;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 9999px;
   }
 
   .dark ::-webkit-scrollbar-thumb {
-    background: #3a3a3c;
-    border-radius: 5px;
-    border: 2px solid #0b0b0c;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 9999px;
   }
 
   ::-webkit-scrollbar-thumb:hover {
-    background: #a1a1aa;
+    background: rgba(0, 0, 0, 0.4);
   }
 
   .dark ::-webkit-scrollbar-thumb:hover {
-    background: #525254;
+    background: rgba(255, 255, 255, 0.4);
   }
 
   /* Enhanced high-contrast input placeholders for dark inputs */

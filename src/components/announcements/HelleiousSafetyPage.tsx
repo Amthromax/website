@@ -65,7 +65,7 @@ const HelleiousSafetyPage: React.FC = () => {
             className="grid md:grid-cols-12 gap-12 items-start"
           >
             {/* Left Sidebar Info */}
-            <div className="md:col-span-4 space-y-6 border-b md:border-b-0 md:border-r border-white/10 pb-8 md:pb-0 md:pr-8">
+            <div className="md:col-span-4 space-y-6 pb-8 md:pb-0 md:pr-8">
               <div className="space-y-2">
                 <span className="text-xs font-mono uppercase tracking-widest text-white/40 block">Category</span>
                 <p className="text-sm font-semibold text-white">Safety & Governance Policy</p>
