@@ -312,7 +312,7 @@ const App: React.FC = () => {
                   to="/foundation"
                   className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
                 >
-                  Foundation
+                  AI Foundation
                 </Link>
 
                 <button
@@ -520,7 +520,7 @@ const App: React.FC = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
                   >
-                    <span>Foundation</span>
+                    <span>AI Foundation</span>
                     <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
                   </Link>
                 </div>
@@ -718,7 +718,7 @@ const App: React.FC = () => {
                         <div className="space-y-3">
                           <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Blog</Link>
                           <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Newsroom</Link>
-                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Foundation</Link>
+                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">AI Foundation</Link>
                           <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors flex items-center gap-1"><span>Contact Sales</span><span className="text-[10px] opacity-70">↗</span></a>
                         </div>
                       </div>
