@@ -272,45 +272,45 @@ const App: React.FC = () => {
               </div>
 
               {/* Center Navigation Links (Desktop only) */}
-              <div className="hidden lg:flex items-center justify-center space-x-6 flex-1">
+              <div className="hidden lg:flex items-center justify-center space-x-7 flex-1">
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('research')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
                 >
                   Research
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('products')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
                 >
                   Products
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('business')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
                 >
                   Business
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('developers')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
                 >
                   Developers
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('company')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
                 >
                   Company
                 </button>
                 <Link
                   to="/foundation"
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm font-semibold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4"
                 >
                   AI Foundation
                 </Link>
@@ -603,7 +603,7 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Research</span>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Explore Research</span>
                         <div className="space-y-4">
                           <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Research Index</Link>
                           <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Research Overview</Link>
@@ -613,12 +613,12 @@ const App: React.FC = () => {
                       </div>
                       {/* Right Column */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Latest Advancements</span>
-                        <div className="space-y-3">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">MORFIX 0.1</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">INTOX 0.2</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">COTISES 0.5 MAX</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">VERKOX 0.4 INSTANT</Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Latest Advancements</span>
+                        <div className="space-y-3.5">
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">MORFIX 0.1</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">INTOX 0.2</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">COTISES 0.5 MAX</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">VERKOX 0.4 INSTANT</Link>
                         </div>
                       </div>
                     </>
@@ -628,22 +628,22 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Products</span>
-                        <div className="space-y-3">
-                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Product Index</Link>
-                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Platform Core</Link>
-                          <Link to="/orarqlow" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">OrarQlow.Ai</Link>
-                          <Link to="/helleious" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">Helleious.Ai</Link>
-                          <Link to="/codehoomer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-purple-400 hover:text-purple-300 transition-colors">CodeHoomer.Ai</Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Explore Products</span>
+                        <div className="space-y-3.5">
+                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Product Index</Link>
+                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Platform Core</Link>
+                          <Link to="/orarqlow" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">OrarQlow.Ai</Link>
+                          <Link to="/helleious" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-blue-400 hover:text-blue-300 transition-colors">Helleious.Ai</Link>
+                          <Link to="/codehoomer" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-purple-400 hover:text-purple-300 transition-colors">CodeHoomer.Ai</Link>
                         </div>
                       </div>
                       {/* Right Column */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Developer Hub</span>
-                        <div className="space-y-3">
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Documentation</Link>
-                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Pricing Plans</Link>
-                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Developer Tools</Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Developer Hub</span>
+                        <div className="space-y-3.5">
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">Documentation</Link>
+                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">Pricing Plans</Link>
+                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">Developer Tools</Link>
                         </div>
                       </div>
                     </>
@@ -653,24 +653,24 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column - BUSINESS */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">BUSINESS</span>
-                        <div className="space-y-2.5">
-                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Overview</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Solutions</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Resources</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/partners" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Partner Network</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/contact" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Contact Sales</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Developer Hub</Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Docs</span><span className="text-xs opacity-70">↗</span></Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">BUSINESS</span>
+                        <div className="space-y-3.5">
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Overview</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Solutions</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Resources</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/partners" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Partner Network</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/contact" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Contact Sales</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors">Developer Hub</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Docs</span><span className="text-sm opacity-70">↗</span></Link>
                         </div>
                       </div>
                       {/* Right Column - API Platform */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">API Platform</span>
-                        <div className="space-y-2.5">
-                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Overview</Link>
-                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-xs opacity-70">↗</span></Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">API Platform</span>
+                        <div className="space-y-3.5">
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors">Overview</Link>
+                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-sm opacity-70">↗</span></Link>
                         </div>
                       </div>
                     </>
@@ -680,21 +680,21 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column - API Platform */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">API Platform</span>
-                        <div className="space-y-2.5">
-                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Overview</Link>
-                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-xs opacity-70">↗</span></Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">API Platform</span>
+                        <div className="space-y-3.5">
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors">Overview</Link>
+                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-sm opacity-70">↗</span></Link>
                         </div>
                       </div>
                       {/* Right Column - Developer Hub */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Developer Hub</span>
-                        <div className="space-y-2.5">
-                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Developer Portal</Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Documentation</span><span className="text-xs opacity-70">↗</span></Link>
-                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Pricing &amp; Quotas</Link>
-                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white transition-colors">Developer Tools</Link>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Developer Hub</span>
+                        <div className="space-y-3.5">
+                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors">Developer Portal</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Documentation</span><span className="text-sm opacity-70">↗</span></Link>
+                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors">Pricing &amp; Quotas</Link>
+                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white transition-colors">Developer Tools</Link>
                         </div>
                       </div>
                     </>
@@ -704,7 +704,7 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Explore Corporate</span>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Explore Corporate</span>
                         <div className="space-y-4">
                           <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">About Us</Link>
                           <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-2xl md:text-3xl font-bold text-white hover:text-white/80 transition-colors">Careers</Link>
@@ -714,12 +714,12 @@ const App: React.FC = () => {
                       </div>
                       {/* Right Column */}
                       <div className="space-y-6">
-                        <span className="text-[10px] font-bold text-white/40 uppercase tracking-widest block">Resources</span>
-                        <div className="space-y-3">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Blog</Link>
-                          <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">Newsroom</Link>
-                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors">AI Foundation</Link>
-                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-sm font-semibold text-white/90 hover:text-white/70 transition-colors flex items-center gap-1"><span>Contact Sales</span><span className="text-[10px] opacity-70">↗</span></a>
+                        <span className="text-xs sm:text-sm font-extrabold text-white/50 uppercase tracking-widest block">Resources</span>
+                        <div className="space-y-3.5">
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">Blog</Link>
+                          <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">Newsroom</Link>
+                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors">AI Foundation</Link>
+                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-lg sm:text-xl font-bold text-white/90 hover:text-white/70 transition-colors flex items-center gap-1"><span>Contact Sales</span><span className="text-xs opacity-70">↗</span></a>
                         </div>
                       </div>
                     </>
