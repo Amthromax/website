@@ -276,41 +276,41 @@ const App: React.FC = () => {
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('research')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
                 >
                   Research
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('products')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
                 >
                   Products
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('business')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
                 >
                   Business
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('developers')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
                 >
                   Developers
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('company')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4 cursor-pointer"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4 cursor-pointer"
                 >
                   Company
                 </button>
                 <Link
                   to="/foundation"
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-bold py-4"
+                  className="text-white/80 hover:text-white transition-colors duration-200 text-base font-medium py-4"
                 >
                   AI Foundation
                 </Link>
