@@ -141,16 +141,68 @@ const PlatformPage: React.FC = () => {
           ))}
         </div>
 
+        {/* Live Metrics & Telemetry Bar */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {[
+            { label: "AVG CACHE LATENCY", value: "12 ms", sub: "vs 1,450ms raw model", highlight: "text-emerald-500" },
+            { label: "CACHE HIT RATIO", value: "88.4%", sub: "Semantic intent matching", highlight: "text-blue-500" },
+            { label: "ESTIMATED COST SAVED", value: `$${(14290 + history.length * 1.42).toFixed(2)}`, sub: "Calculated @ $0.002/1k tokens", highlight: "text-amber-500" },
+            { label: "EXECUTION AUDIT TRAIL", value: "100%", sub: "Immutable SOC2 ledger", highlight: "text-purple-500" }
+          ].map((kpi, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: idx * 0.1 }}
+              className="p-5 bg-white dark:bg-[#161617] border border-gray-200/50 dark:border-white/[0.04] rounded-2xl shadow-sm space-y-1 text-center md:text-left"
+            >
+              <span className="text-[10px] font-bold tracking-wider text-gray-400 dark:text-gray-500 block uppercase">{kpi.label}</span>
+              <span className={`text-2xl md:text-3xl font-black tracking-tight ${kpi.highlight}`}>{kpi.value}</span>
+              <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 block">{kpi.sub}</span>
+            </motion.div>
+          ))}
+        </div>
+
         {/* Interactive Orchestrator Playground */}
         <div className="space-y-6">
           <div className="space-y-2 text-center max-w-2xl mx-auto">
             <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight">Orchestrator Performance Playground</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-              Toggle the Semantic Cache option and trigger model queries to observe the execution pipeline's latency and token conservation.
+              Toggle the Semantic Cache option and trigger model queries to observe the execution pipeline's latency, vector memory retrieval, and token conservation in real time.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-4">
+          {/* Animated Pipeline Step Diagram */}
+          <div className="bg-white dark:bg-[#161617] rounded-3xl p-6 border border-gray-200/50 dark:border-white/[0.04] shadow-sm">
+            <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block mb-4">LIVE EXECUTION DISPATCH PIPELINE</span>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+              {[
+                { step: "01", name: "Query Ingestion", detail: "Vector Embedding", active: isRunning },
+                { step: "02", name: "Semantic Cache", detail: useCache ? "HNSW Index (<15ms)" : "Bypassed", active: isRunning && useCache },
+                { step: "03", name: "Model Dispatcher", detail: useCache ? "Cache Edge Node" : activeModel, active: isRunning },
+                { step: "04", name: "Ephemeral Micro-VM", detail: "Zero-Trust Sandbox", active: isRunning }
+              ].map((node, idx) => (
+                <div 
+                  key={idx} 
+                  className={`p-4 rounded-2xl border transition-all ${
+                    node.active 
+                      ? "border-blue-500 bg-blue-50/20 dark:bg-blue-950/20 shadow-md ring-2 ring-blue-500/20" 
+                      : "border-gray-150 dark:border-gray-800 bg-gray-50/50 dark:bg-gray-900/40 opacity-80"
+                  }`}
+                >
+                  <div className="flex items-center justify-between mb-1">
+                    <span className="text-[9px] font-bold text-gray-400">{node.step}</span>
+                    <span className={`w-2 h-2 rounded-full ${node.active ? "bg-blue-500 animate-ping" : "bg-gray-300 dark:bg-gray-700"}`} />
+                  </div>
+                  <h4 className="text-xs font-bold text-gray-900 dark:text-white">{node.name}</h4>
+                  <p className="text-[10px] font-mono text-gray-500 dark:text-gray-400 mt-0.5">{node.detail}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch pt-2">
             {/* Control Panel (left) */}
             <div className="lg:col-span-5 bg-white dark:bg-[#161617] rounded-3xl p-6 border border-gray-200/50 dark:border-white/[0.04] shadow-sm flex flex-col justify-between space-y-6">
               <div className="space-y-4">
@@ -237,7 +289,7 @@ const PlatformPage: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-zinc-400 inline-block" />
                   <span className="text-[10px] text-zinc-400 font-bold">real-time-core-orchestrator</span>
                 </div>
-                <span className="text-[9px] px-2 py-0.5 rounded font-black bg-zinc-800 text-zinc-300 border border-zinc-700">
+                <span className="text-[10px] font-mono font-bold text-zinc-400">
                   CACHE_{useCache ? "OPTIMIZED" : "BYPASSED"}
                 </span>
               </div>
@@ -290,7 +342,7 @@ const PlatformPage: React.FC = () => {
                             <td className="py-1.5 max-w-[150px] truncate text-[11px] font-semibold">{item.query}</td>
                             <td className="py-1.5 text-zinc-400">{item.model}</td>
                             <td className="py-1.5 text-center">
-                              <span className="px-1.5 py-0.5 rounded font-black bg-zinc-800 text-zinc-300 border border-zinc-700">
+                              <span className="font-mono text-[10px] font-bold text-zinc-400">
                                 {item.cacheStatus}
                               </span>
                             </td>

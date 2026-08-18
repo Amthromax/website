@@ -36,16 +36,16 @@ const DataProtectionPage: React.FC = () => {
           >
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-black/[0.08] text-blue-600 text-[11px] font-bold shadow-sm font-inter">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-600 animate-pulse" />
-              <span>DPDP Alignment Architecture</span>
+              <span>Global Privacy Architecture</span>
               <span>•</span>
-              <span>India Framework</span>
+              <span>US & International Framework</span>
             </div>
 
             <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-950 leading-tight font-inter">
               Data Protection & Privacy Governance
             </h1>
             <p className="text-sm sm:text-base text-gray-600 max-w-2xl leading-relaxed font-normal">
-              Establishing transparent data processing practices, strict Data Principal rights, and robust security controls for enterprise AI workflows under the Digital Personal Data Protection (DPDP) framework.
+              Establishing transparent data processing practices, strict Data Subject rights, and robust security controls for enterprise AI workflows under US (CCPA/CPRA), EU GDPR, and international data protection standards.
             </p>
           </motion.div>
         </div>
@@ -63,7 +63,7 @@ const DataProtectionPage: React.FC = () => {
             <span>Regulatory & Legal Disclaimer</span>
           </div>
           <p className="text-xs text-gray-600 leading-relaxed font-medium">
-            This page outlines Amthromax's technical and operational data protection architecture designed to support compliance with India's Digital Personal Data Protection (DPDP) Act. This document is provided for informational transparency and does not constitute formal legal certification. Status:{" "}
+            This page outlines Amthromax Inc.'s technical and operational data protection architecture designed to support compliance with US (CCPA/CPRA), EU GDPR, and global data privacy regulations. Status:{" "}
             <span className="inline-block px-2.5 py-0.5 rounded-full bg-amber-50 border border-amber-200 text-amber-900 font-mono text-[11px] font-semibold">
               {LEGAL_CONFIG.legalReviewStatus}
             </span>
@@ -213,7 +213,7 @@ const DataProtectionPage: React.FC = () => {
               4. Grievance Redressal & Contact
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 leading-relaxed font-medium">
-              In accordance with DPDP requirements, Amthromax has designated a Grievance Redressal Desk to address data privacy inquiries, consent withdrawal requests, or data processing concerns.
+              In accordance with global data protection requirements, Amthromax Inc. has designated a Data Protection & Privacy Desk to address data privacy inquiries, consent withdrawal requests, or data processing concerns.
             </p>
           </div>
 

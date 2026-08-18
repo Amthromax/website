@@ -1,7 +1,7 @@
 # AMTHROMAX — GLOBAL PRIVACY & DATA PROTECTION ARCHITECTURE
 
 ## Executive Summary
-Amthromax implements a production-grade, multi-jurisdictional **Global Privacy & Data Protection Architecture**. Built on top of the established India DPDP framework, this architecture extends full technical mechanisms to support major international privacy regimes including **EU GDPR, UK GDPR, California CCPA/CPRA, Brazil LGPD, Canada PIPEDA, Australia Privacy Act, and Global Baseline controls**.
+Amthromax implements a production-grade, multi-jurisdictional **Global Privacy & Data Protection Architecture**. Headquartered in the United States (Amthromax Inc., San Francisco, CA), this architecture extends full technical mechanisms to support major international privacy regimes including **US CCPA/CPRA, EU GDPR, UK GDPR, India DPDP, Brazil LGPD, Canada PIPEDA, Australia Privacy Act, and Global Baseline controls**.
 
 > [!IMPORTANT]
 > **Legal Review Notice:** Amthromax provides software privacy controls designed to support compliance requirements. The application does not claim automatic legal certification without formal corporate counsel audit. All jurisdiction-specific regulatory decisions requiring business confirmation are tagged as `LEGAL REVIEW REQUIRED`.

@@ -507,7 +507,7 @@ const TermsOfServicePage: React.FC = () => {
                 <p className="text-gray-800 dark:text-gray-200">General Contact: <a href="mailto:contact@amthromax.com" className="underline font-medium text-gray-950 dark:text-white hover:text-blue-600 transition-colors">contact@amthromax.com</a></p>
                 <p className="text-gray-800 dark:text-gray-200">Support Email: <a href="mailto:support@amthromax.com" className="underline font-medium text-gray-950 dark:text-white hover:text-blue-600 transition-colors">support@amthromax.com</a></p>
                 <p className="text-gray-800 dark:text-gray-200">Legal Email: <a href="mailto:privacy@amthromax.com" className="underline font-medium text-gray-950 dark:text-white hover:text-blue-600 transition-colors">privacy@amthromax.com</a></p>
-                <p className="text-gray-800 dark:text-gray-200">Address: Amthromax Inc., Mumbai, Maharashtra, India</p>
+                <p className="text-gray-800 dark:text-gray-200">Address: Amthromax Inc., 548 Market St, San Francisco, CA 94104, USA</p>
               </div>
             </div>
           </section>

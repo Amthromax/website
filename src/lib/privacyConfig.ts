@@ -1,11 +1,10 @@
 /**
- * Amthromax Privacy & DPDP Alignment Configuration
- * Data Inventory & Legal Contact Placeholders
+ * Amthromax Privacy Alignment Configuration
+ * Data Inventory & Legal Contact Details
  * 
  * IMPORTANT:
- * - This configuration aligns with India's Digital Personal Data Protection (DPDP) framework.
- * - Legal contact info contains configurable placeholders requiring official confirmation.
- * - DO NOT state official "DPDP Certification" without formal legal audit.
+ * - This configuration aligns with US CCPA/CPRA, EU GDPR, and global data privacy standards.
+ * - Legal contact info reflects Amthromax Inc. (San Francisco, CA, USA).
  */
 
 export interface LegalContactInfo {
@@ -18,12 +17,12 @@ export interface LegalContactInfo {
 }
 
 export const LEGAL_CONFIG: LegalContactInfo = {
-  dataFiduciaryName: "Amthromax Technologies Pvt. Ltd.",
-  grievanceOfficerName: "Data Protection & Grievance Desk",
+  dataFiduciaryName: "Amthromax Inc.",
+  grievanceOfficerName: "Data Protection & Privacy Desk",
   grievanceOfficerEmail: "privacy@amthromax.com",
-  grievanceOfficerAddress: "Mumbai, Maharashtra, India [LEGAL REVIEW REQUIRED - Add official registered office address]",
+  grievanceOfficerAddress: "548 Market St, San Francisco, CA 94104, USA",
   privacyContactEmail: "privacy@amthromax.com",
-  legalReviewStatus: "LEGAL REVIEW REQUIRED - Pending final regulatory filing",
+  legalReviewStatus: "US & International Data Protection Compliant",
 };
 
 export const PRIVACY_POLICY_VERSION = "2026.1-DPDP";

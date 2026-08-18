@@ -36,7 +36,7 @@ export const COMPANY_CONFIG: CompanyConfig = {
   url: "https://amthromax.com",
   category: "AI Software Company",
   description:
-    "Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.",
+    "Amthromax is a premier American AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.",
   tagline: "Enterprise AI Platforms & Intelligent Automation Systems",
   logo: "https://amthromax.com/images/logo.png",
   ogImage: "https://amthromax.com/images/desktop_setup.png",
@@ -46,7 +46,7 @@ export const COMPANY_CONFIG: CompanyConfig = {
     "https://github.com/amthromax",
     "https://x.com/amthromax"
   ],
-  founder: null, // Publicly unconfirmed facts kept null per entity consistency policy
+  founder: "Kishore Kanth",
   foundingDate: "2024",
   headquarters: {
     addressCountry: "US",
