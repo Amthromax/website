@@ -72,15 +72,12 @@ const SolutionsPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       {/* Hero */}
-      <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
+      <div className="relative py-20 md:py-28 overflow-hidden flex items-center justify-center text-center">
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-[0.15em] text-blue-400 font-semibold">
-            SYSTEM ARCHITECTURES
-          </span>
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight text-[#1d1d1f] dark:text-white">
             Tailored Intelligent Systems
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-base sm:text-lg lg:text-xl text-[#515154] dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
             Deploying state-of-the-art AI agents, multi-modal ingestion pipelines, and post-quantum encryption matrices for enterprise scale.
           </p>
         </div>
@@ -111,10 +108,7 @@ const SolutionsPage: React.FC = () => {
 
             {/* Description Block */}
             <div className="w-full lg:w-1/2 space-y-6">
-              <div className="space-y-2">
-                <span className="text-xs font-semibold uppercase tracking-wider text-[#0066cc] dark:text-[#2997ff]">
-                  {sol.category}
-                </span>
+              <div>
                 <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
                   {sol.title}
                 </h2>

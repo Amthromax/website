@@ -47,7 +47,7 @@ const FoundationSection: React.FC = () => {
       slug: "ai-for-alzheimers",
     },
     {
-      title: "Update on the Amthromax Foundation",
+      title: "Update on the Amthromax Institute",
       date: "Mar 24, 2026",
       image: "/images/glass_blue_concentric.jpg",
       slug: "update-on-amthromax-foundation",
@@ -80,7 +80,7 @@ const FoundationSection: React.FC = () => {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white"
         >
-          Amthromax AI Foundation
+          Amthromax Intelligence Hub
         </motion.h1>
 
         <motion.p
@@ -114,7 +114,7 @@ const FoundationSection: React.FC = () => {
             className="space-y-6"
           >
             <p className="text-2xl md:text-3xl font-normal leading-snug text-gray-900 dark:text-white">
-              AI has extraordinary potential to help solve some of our hardest problems. But building systems that benefit humanity also means preparing for the challenges advanced AI brings. The Amthromax Foundation is built to address both.
+              Advanced artificial general intelligence holds unprecedented potential to solve complex global challenges. Building cognitive systems that elevate humanity requires constant scientific innovation alongside rigorous alignment standards. The Amthromax Intelligence Hub exists to pioneer both.
             </p>
           </motion.div>
           <motion.div
@@ -141,7 +141,7 @@ const FoundationSection: React.FC = () => {
           className="text-center max-w-3xl mx-auto"
         >
           <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
-            The Amthromax AI Foundation has committed $25 billion toward advanced AI initiatives
+            Powering Next-Generation Neural Compute &amp; Autonomous Intelligence
           </h2>
         </motion.div>
 
@@ -162,10 +162,10 @@ const FoundationSection: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                AI in Finance and Economics
+                Autonomous Intelligence &amp; Economic Systems
               </h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Deploying machine learning models to simulate economic cycles, track sovereign resource flows, and design equitable trade mechanisms.
+                Deploying specialized neural agents to optimize high-scale financial infrastructures, track global resource flows, and power complex macro-economic simulations.
               </p>
             </div>
           </motion.div>
@@ -186,10 +186,10 @@ const FoundationSection: React.FC = () => {
             </div>
             <div className="space-y-2">
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-                AI Safety and Alignment Research
+                Frontier Safety &amp; Alignment Systems
               </h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
-                Supporting practical technical solutions for maximizing AI's benefits and minimizing its risks.
+                Developing formal verification frameworks, automated red-teaming pipelines, and zero-trust safety protocols to ensure scalable AI alignment.
               </p>
             </div>
           </motion.div>
@@ -233,7 +233,7 @@ const FoundationSection: React.FC = () => {
       {/* 5. Resources Grid Section */}
       <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-300">
         <div className="space-y-2 text-center md:text-left">
-          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">Foundation Insights</span>
+          <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">Intelligence Insights</span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Resources & Initiatives
           </h2>

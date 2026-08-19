@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
         { name: "Tech Publications", href: "/research/publications" },
         { name: "Security Standards", href: "/security" },
         { name: "System Safety", href: "/security" },
-        { name: "Trust & Transparency", href: "/about" },
+        { name: "Trust & Transparency", href: "/trust" },
       ],
     },
     {
@@ -44,7 +44,6 @@ const Footer: React.FC = () => {
         { name: "AI Agent Networks", href: "/services/artificial-intelligence" },
         { name: "Custom Software", href: "/services/custom-software" },
         { name: "Cloud Solutions", href: "/services/cloud-solutions" },
-        { name: "Cybersecurity", href: "/services/cybersecurity" },
       ],
     },
     {
@@ -75,7 +74,7 @@ const Footer: React.FC = () => {
         { name: "Careers", href: "/careers" },
         { name: "Newsroom", href: "/news" },
         { name: "Blog", href: "/blog" },
-        { name: "AI Foundation", href: "/foundation" },
+        { name: "Intelligence Hub", href: "/foundation" },
         { name: "Contact Support", href: "/contact", isExternal: true },
       ],
     },
@@ -92,14 +91,14 @@ const Footer: React.FC = () => {
     {
       title: "Industries",
       items: [
-        { name: "FinTech & Banking", href: "/solutions" },
-        { name: "Aerospace & Defense", href: "/solutions" },
-        { name: "Energy & Utilities", href: "/solutions" },
-        { name: "Automotive & Mobility", href: "/solutions" },
-        { name: "Telecommunications", href: "/solutions" },
-        { name: "Retail & E-Commerce", href: "/solutions" },
-        { name: "Supply Chain & Logistics", href: "/solutions" },
-        { name: "Media & Gaming", href: "/solutions" },
+        { name: "Autonomous Financial Systems", href: "/solutions" },
+        { name: "BioTech & Genomics", href: "/solutions" },
+        { name: "Aerospace & Orbital Systems", href: "/solutions" },
+        { name: "Quantum & Compute Grids", href: "/solutions" },
+        { name: "Next-Gen Robotics", href: "/solutions" },
+        { name: "Sovereign Infrastructure", href: "/solutions" },
+        { name: "Edge & IoT Networks", href: "/solutions" },
+        { name: "Spatial Media & Synthetic Web", href: "/solutions" },
       ],
     },
   ];

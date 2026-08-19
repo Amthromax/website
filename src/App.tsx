@@ -56,6 +56,7 @@ import HelleiousSafetyPage from "./components/announcements/HelleiousSafetyPage"
 import HelleiousPage from "./components/helleious/HelleiousPage";
 import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
 import OrarQlowPage from "./components/orarqlow/OrarQlowPage";
+import TrustTransparencyPage from "./components/trust/TrustTransparencyPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -88,7 +89,7 @@ const searchItems: SearchItem[] = [
   { type: "Service", title: "Cybersecurity Architectures", url: "/services/cybersecurity" },
   { type: "Service", title: "Advanced Data Analytics", url: "/services/data-analytics" },
   { type: "Service", title: "Mobile Application Design", url: "/services/mobile-apps" },
-  { type: "Research", title: "Research and Development Index", url: "/research" },
+  { type: "Research", title: "Intelligence Index", url: "/research" },
   { type: "Research", title: "Predictive Scaling Whitepapers", url: "/research/overview" },
   { type: "Research", title: "Technical Publications Database", url: "/research/publications" },
   { type: "Research", title: "System Safety & Zero Trust Operations", url: "/security" },
@@ -312,7 +313,7 @@ const App: React.FC = () => {
                   to="/foundation"
                   className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2"
                 >
-                  AI Foundation
+                  Ai Intelli Hub
                 </Link>
 
                 <button
@@ -520,7 +521,7 @@ const App: React.FC = () => {
                     onClick={() => setIsMobileMenuOpen(false)}
                     className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
                   >
-                    <span>AI Foundation</span>
+                    <span>Ai Intelli Hub</span>
                     <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
                   </Link>
                 </div>
@@ -873,7 +874,7 @@ const App: React.FC = () => {
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/research" element={
               <div>
-                <SEO title="Research & Development | Amthromax" description="Explore our peer-reviewed whitepapers, predictive system auto-scaling algorithms, and zero-trust cryptography solutions." />
+                <SEO title="Intelligence Index | Amthromax" description="Explore peer-reviewed publications, autonomous agent benchmarks, and distributed neural systems." />
                 <ResearchSection />
                 <Footer />
               </div>
@@ -881,6 +882,9 @@ const App: React.FC = () => {
             <Route path="/research/overview" element={<ResearchOverviewPage />} />
             <Route path="/research/safety" element={<SafetyArchitecturePage />} />
             <Route path="/safety" element={<SafetyArchitecturePage />} />
+            <Route path="/trust" element={<TrustTransparencyPage />} />
+            <Route path="/transparency" element={<TrustTransparencyPage />} />
+            <Route path="/trust-transparency" element={<TrustTransparencyPage />} />
             <Route path="/research/publications" element={<PublicationsPage />} />
             <Route path="/publications" element={<PublicationsPage />} />
             <Route path="/research/:paperId" element={<ResearchDetailPage />} />

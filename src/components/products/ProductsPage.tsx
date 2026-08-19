@@ -187,9 +187,6 @@ const ProductsPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-[0.15em] text-gray-400 font-semibold">
-            PRODUCT PORTFOLIO
-          </span>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
             Intelligent Products & APIs
           </h1>
@@ -223,9 +220,6 @@ const ProductsPage: React.FC = () => {
       {/* Core AI Models Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-24 pb-12 space-y-12">
         <div className="max-w-3xl space-y-3 text-center md:text-left">
-          <span className="text-xs uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400 font-semibold">
-            COGNITIVE POWER
-          </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Core AI Models & Systems
           </h2>
@@ -320,9 +314,6 @@ const ProductsPage: React.FC = () => {
       {/* Product List Grid */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 space-y-12">
         <div className="max-w-3xl space-y-3 text-center md:text-left">
-          <span className="text-xs uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400 font-semibold">
-            CAPABILITIES & TOOLS
-          </span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Enterprise Solutions Portfolio
           </h2>
@@ -331,28 +322,28 @@ const ProductsPage: React.FC = () => {
           </p>
         </div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {products.map((prod) => (
             <div 
               key={prod.id} 
-              className="group flex flex-col justify-between p-8 sm:p-10 bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
+              className="group flex flex-col justify-between border-t border-gray-200 dark:border-white/10 pt-6 pb-2 min-h-[260px] h-full transition-all"
             >
               <div className="space-y-4">
-                <div className="inline-flex items-center justify-center p-3.5 bg-[#f5f5f7] dark:bg-white/5 rounded-2xl border border-[#e5e5e7]/60 dark:border-white/10 transition-transform duration-300 group-hover:scale-105">
+                <div className="inline-flex items-center justify-center py-1 transition-transform duration-300 group-hover:scale-105">
                   {prod.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-[#1d1d1f] dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
+                <h3 className="text-xl font-bold text-[#1d1d1f] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   {prod.title}
                 </h3>
-                <p className="text-[#515154] dark:text-gray-300 text-sm leading-relaxed font-normal">
+                <p className="text-[#515154] dark:text-gray-400 text-sm leading-relaxed font-normal">
                   {prod.desc}
                 </p>
               </div>
               
-              <div className="pt-6 mt-6 border-t border-[#e5e5e7]/80 dark:border-white/10">
+              <div className="pt-6 mt-6 border-t border-gray-100 dark:border-white/5">
                 <Link 
                   to={prod.link} 
-                  className="text-[15px] font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white group-hover:underline flex items-center gap-1.5 transition-colors"
+                  className="text-sm font-semibold text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 flex items-center gap-1.5 transition-colors"
                 >
                   <span>Explore Capabilities</span>
                   <span>›</span>

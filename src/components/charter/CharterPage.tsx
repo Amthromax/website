@@ -163,6 +163,8 @@ const CharterPage: React.FC = () => {
     }
   ];
 
+
+
   const commitments = [
     {
       number: "01",
@@ -234,7 +236,7 @@ const CharterPage: React.FC = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-white dark:bg-[#0a0a0d] text-gray-900 dark:text-white transition-colors duration-300 font-sans">
+    <div className="w-full min-h-screen bg-[#0a0a0d] text-white transition-colors duration-300 font-sans">
       <SEO
         title="Our Charter | Amthromax AI"
         description="The Amthromax Charter outlines our foundational commitments to broadly beneficial AI, safety alignment, open research, and cooperative governance."
@@ -246,7 +248,7 @@ const CharterPage: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-gray-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto"
+          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto"
         >
           The Amthromax Charter
         </motion.h1>
@@ -255,21 +257,21 @@ const CharterPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-normal"
+          className="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-normal"
         >
           Our mission is to ensure that artificial general intelligence and autonomous software systems serve the public interest, safeguard human dignity, and elevate enterprise capability across the globe.
         </motion.p>
       </section>
 
       {/* 2. Executive Statement Banner */}
-      <section className="py-12 border-y border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-[#121318]">
+      <section className="py-12 border-y border-white/10 bg-[#121318]">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left md:flex md:items-center md:justify-between md:gap-12">
-            <p className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white leading-snug">
+            <p className="text-xl md:text-2xl font-bold text-white leading-snug">
               "We believe advanced AI must be developed with unyielding ethical rigor, technical resilience, and universal accountability."
             </p>
-            <div className="shrink-0 space-y-1 text-sm font-semibold text-gray-500 dark:text-gray-400">
-              <span className="block font-bold text-gray-900 dark:text-white">Amthromax Board of Directors</span>
+            <div className="shrink-0 space-y-1 text-sm font-semibold text-gray-400">
+              <span className="block font-bold text-white">Amthromax Board of Directors</span>
               <span>San Francisco • London • Tokyo</span>
             </div>
           </div>
@@ -284,11 +286,10 @@ const CharterPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4 text-center max-w-3xl mx-auto"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Core Directives</span>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
             Our Four Pillar Commitments
           </h2>
-          <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg font-medium">
+          <p className="text-gray-400 text-base md:text-lg font-medium">
             These non-negotiable mandates govern every research initiative, product feature, and commercial deployment at Amthromax.
           </p>
         </motion.div>
@@ -300,39 +301,39 @@ const CharterPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={commitmentsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="grid md:grid-cols-12 gap-8 items-start border-b border-gray-200 dark:border-white/10 pb-16 last:border-b-0"
+              className="grid md:grid-cols-12 gap-8 items-start border-b border-white/10 pb-16 last:border-b-0"
             >
               <div className="md:col-span-3 space-y-2">
-                <span className="text-4xl md:text-5xl font-black text-gray-300 dark:text-gray-700 tracking-tight block">
+                <span className="text-4xl md:text-5xl font-black text-gray-700 tracking-tight block">
                   {c.number}
                 </span>
-                <span className="text-xs font-extrabold uppercase tracking-widest text-gray-500 dark:text-gray-400 block">
+                <span className="text-xs font-extrabold uppercase tracking-widest text-gray-400 block">
                   Pillar Commitment
                 </span>
               </div>
 
               <div className="md:col-span-9 space-y-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white tracking-tight mb-2">
+                  <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-2">
                     {c.title}
                   </h3>
-                  <span className="text-sm font-bold text-gray-500 dark:text-gray-400">
+                  <span className="text-sm font-bold text-gray-400">
                     {c.subtitle}
                   </span>
                 </div>
 
-                <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+                <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium">
                   {c.description}
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-black uppercase tracking-widest text-gray-900 dark:text-white">
+                  <h4 className="text-xs font-black uppercase tracking-widest text-white">
                     Operational Execution:
                   </h4>
                   <ul className="space-y-2.5">
                     {c.principles.map((p, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-3 text-sm text-gray-700 dark:text-gray-300 font-medium">
-                        <span className="text-gray-900 dark:text-white font-bold">✓</span>
+                      <li key={pIdx} className="flex items-start gap-3 text-sm text-gray-300 font-medium">
+                        <span className="text-white font-bold">✓</span>
                         <span>{p}</span>
                       </li>
                     ))}
@@ -353,7 +354,6 @@ const CharterPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4 max-w-3xl"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">System Architecture Flow</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
               Autonomous Safety Protocol Flow
             </h2>
@@ -469,7 +469,6 @@ const CharterPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4 max-w-3xl"
         >
-          <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Scale & Trajectory</span>
           <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
             Computational Growth: Now & Coming Years
           </h2>
@@ -481,17 +480,17 @@ const CharterPage: React.FC = () => {
         {/* Visual Growth Chart Container */}
         <div className="space-y-12">
           {/* Main Bar Visualizer */}
-          <div className="p-8 md:p-12 bg-gray-50 dark:bg-[#121318] border border-gray-200 dark:border-white/10 rounded-3xl space-y-10">
+          <div className="p-8 md:p-12 bg-black text-white border border-white/10 rounded-3xl space-y-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-gray-500 dark:text-gray-400">
+              <span className="text-xs font-extrabold uppercase tracking-widest text-gray-400">
                 Daily Inferences & Computational Scale Targets (2025–2030)
               </span>
               <div className="flex items-center gap-4 text-xs font-bold">
-                <span className="flex items-center gap-1.5 text-gray-700 dark:text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past Baseline
+                <span className="flex items-center gap-1.5 text-gray-300">
+                  <span className="w-3 h-3 rounded-full bg-gray-600 inline-block" /> Past Baseline
                 </span>
-                <span className="flex items-center gap-1.5 text-gray-900 dark:text-white font-black">
-                  <span className="w-3 h-3 rounded-full bg-black dark:bg-white inline-block" /> Current (Now) & Coming Year
+                <span className="flex items-center gap-1.5 text-white font-black">
+                  <span className="w-3 h-3 rounded-full bg-white inline-block" /> Current (Now) & Coming Year
                 </span>
               </div>
             </div>
@@ -507,19 +506,19 @@ const CharterPage: React.FC = () => {
                     className="group flex flex-col items-center space-y-4 cursor-pointer"
                   >
                     {/* Vertical Bar */}
-                    <div className="w-full max-w-[64px] bg-gray-200 dark:bg-white/5 rounded-2xl h-[200px] flex items-end p-1.5 relative overflow-hidden">
+                    <div className="w-full max-w-[64px] bg-white/10 rounded-2xl h-[200px] flex items-end p-1.5 relative overflow-hidden">
                       <motion.div
                         initial={{ height: 0 }}
                         animate={{ height: `${g.barHeight}%` }}
                         transition={{ duration: 0.8, delay: idx * 0.1 }}
                         className={`w-full rounded-xl transition-colors ${
                           g.status === "Current (Now)"
-                            ? "bg-gradient-to-t from-gray-900 to-black dark:from-gray-300 dark:to-white"
+                            ? "bg-gradient-to-t from-gray-300 to-white"
                             : g.status === "Coming Year"
-                            ? "bg-gradient-to-t from-gray-700 to-gray-900 dark:from-gray-400 dark:to-gray-100"
+                            ? "bg-gradient-to-t from-gray-500 to-gray-200"
                             : isSelected
-                            ? "bg-black dark:bg-white"
-                            : "bg-gray-400 dark:bg-gray-600 group-hover:bg-gray-600 dark:group-hover:bg-gray-400"
+                            ? "bg-white"
+                            : "bg-gray-600 group-hover:bg-gray-400"
                         }`}
                       />
                     </div>
@@ -527,16 +526,16 @@ const CharterPage: React.FC = () => {
                     {/* Year & Status Label */}
                     <div className="text-center space-y-1">
                       <span className={`text-base font-extrabold block ${
-                        isSelected ? "text-gray-900 dark:text-white" : "text-gray-600 dark:text-gray-400"
+                        isSelected ? "text-white" : "text-gray-400"
                       }`}>
                         {g.year}
                       </span>
                       <span className={`text-[10px] font-bold uppercase tracking-wider block ${
                         g.status === "Current (Now)"
-                          ? "text-black dark:text-white font-black"
+                          ? "text-white font-black"
                           : g.status === "Coming Year"
-                          ? "text-gray-800 dark:text-gray-200 font-bold"
-                          : "text-gray-400 dark:text-gray-500"
+                          ? "text-gray-200 font-bold"
+                          : "text-gray-500"
                       }`}>
                         {g.status}
                       </span>
@@ -547,37 +546,48 @@ const CharterPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Year Milestone Detail Card */}
-          <div className="p-8 md:p-10 bg-black text-white dark:bg-white dark:text-black rounded-3xl shadow-2xl flex flex-col lg:flex-row items-center justify-between gap-8">
-            <div className="space-y-3 max-w-xl">
-              <div className="flex items-center gap-3">
-                <span className="px-3 py-1 bg-white/10 dark:bg-black/10 rounded-full text-xs font-black uppercase tracking-widest">
-                  {growthData[selectedYear].year} Operational Scale & Target
-                </span>
-                <span className="text-xs font-bold opacity-80">
-                  Status: {growthData[selectedYear].status}
-                </span>
+          {/* Year Milestone Detail Card (Permanently Locked for Public) */}
+          <div className="relative p-8 md:p-10 bg-black text-white dark:bg-white dark:text-black rounded-3xl shadow-2xl overflow-hidden">
+            {/* Blurred Content Container */}
+            <div className="flex flex-col lg:flex-row items-center justify-between gap-8 filter blur-md select-none opacity-20 pointer-events-none scale-[0.99]">
+              <div className="space-y-3 max-w-xl">
+                <div className="flex items-center gap-3">
+                  <span className="text-xs font-bold opacity-80">
+                    Status: {growthData[selectedYear].status}
+                  </span>
+                </div>
+                <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+                  {growthData[selectedYear].label}
+                </h3>
+                <p className="text-gray-300 dark:text-gray-700 text-base md:text-lg font-medium leading-relaxed">
+                  {growthData[selectedYear].milestone}
+                </p>
               </div>
-              <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
-                {growthData[selectedYear].label}
-              </h3>
-              <p className="text-gray-300 dark:text-gray-700 text-base md:text-lg font-medium leading-relaxed">
-                {growthData[selectedYear].milestone}
-              </p>
+
+              <div className="grid grid-cols-3 gap-6 shrink-0 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-white/20 dark:border-black/20 pt-6 lg:pt-0 lg:pl-8 w-full lg:w-auto">
+                <div>
+                  <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Capacity</span>
+                  <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].targetScale}</span>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Cloud Regions</span>
+                  <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].regions}+</span>
+                </div>
+                <div>
+                  <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Metric</span>
+                  <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].growthRate}</span>
+                </div>
+              </div>
             </div>
 
-            <div className="grid grid-cols-3 gap-6 shrink-0 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-white/20 dark:border-black/20 pt-6 lg:pt-0 lg:pl-8 w-full lg:w-auto">
-              <div>
-                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Capacity</span>
-                <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].targetScale}</span>
-              </div>
-              <div>
-                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Cloud Regions</span>
-                <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].regions}+</span>
-              </div>
-              <div>
-                <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Metric</span>
-                <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].growthRate}</span>
+            {/* Permanent Restricted Access Overlay */}
+            <div className="absolute inset-0 flex items-center justify-center p-6 z-10 pointer-events-none select-none">
+              <div className="text-white dark:text-black font-bold text-sm sm:text-base flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-white dark:text-black shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0110 0v4" />
+                </svg>
+                <span>Confidential Scale Specifications — Restricted Access</span>
               </div>
             </div>
           </div>
@@ -593,7 +603,6 @@ const CharterPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4 max-w-3xl"
           >
-            <span className="text-xs font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400">Safety & Governance</span>
             <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
               Institutional Safeguards
             </h2>

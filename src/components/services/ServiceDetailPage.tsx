@@ -148,9 +148,6 @@ const ServiceDetailPage: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-0" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 space-y-8 mt-8 md:mt-12">
-          <span className="text-[10px] md:text-xs uppercase tracking-[0.2em] text-white/90 font-bold bg-white/[0.08] border border-white/10 px-4 py-2 rounded-full backdrop-blur-md">
-            Capabilities & Expertise
-          </span>
           <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight drop-shadow-lg">
             {service.title}
           </h1>
@@ -271,7 +268,6 @@ const ServiceDetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 max-w-2xl">
-              <span className="text-blue-600 dark:text-blue-500 font-black tracking-[0.2em] uppercase text-xs border border-blue-600/30 px-3 py-1.5 rounded-full inline-block">Deployment Framework</span>
               <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
                 Our Implementation Methodology
               </h2>
@@ -312,28 +308,28 @@ const ServiceDetailPage: React.FC = () => {
       </div>
 
       {/* Enterprise Standards Guarantee */}
-      <div className="max-w-7xl mx-auto px-6 py-24 md:py-32">
-        <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-[40px] p-10 md:p-16 lg:p-20 text-white overflow-hidden relative shadow-2xl">
+      <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
+        <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-[32px] p-6 sm:p-8 md:p-10 lg:p-12 text-white overflow-hidden relative shadow-2xl">
            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
            
-           <div className="relative z-10 grid lg:grid-cols-2 gap-16 items-center">
-             <div className="space-y-8">
-               <h2 className="text-4xl md:text-5xl font-black tracking-tight leading-tight">The Amthromax Enterprise Guarantee.</h2>
-               <p className="text-blue-100 text-lg md:text-xl leading-relaxed font-medium">
+           <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+             <div className="space-y-4 md:space-y-5">
+               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight">The Amthromax Enterprise Guarantee.</h2>
+               <p className="text-blue-100 text-base md:text-lg leading-relaxed font-medium">
                  When you partner with our engineering teams, you gain more than just code. You acquire a resilient technological foundation designed to scale exponentially, protected by military-grade security parameters, and backed by contractually enforced continuous support.
                </p>
              </div>
-             <div className="grid sm:grid-cols-2 gap-6">
+             <div className="grid sm:grid-cols-2 gap-4">
                 {[
                   { value: "99.99%", label: "Uptime SLA Guarantee" },
                   { value: "<25ms", label: "Average Response Latency" },
                   { value: "AES-256", label: "Payload Encryption Standard" },
                   { value: "24/7/365", label: "Priority Live Support" }
                 ].map((stat, idx) => (
-                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-[28px] space-y-3 hover:bg-white/20 transition-colors duration-300">
-                    <div className="text-4xl font-black tracking-tighter shadow-sm">{stat.value}</div>
-                    <div className="text-sm font-bold text-blue-200 uppercase tracking-widest">{stat.label}</div>
+                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 rounded-[20px] space-y-1.5 hover:bg-white/20 transition-colors duration-300">
+                    <div className="text-3xl md:text-4xl font-black tracking-tighter shadow-sm">{stat.value}</div>
+                    <div className="text-xs font-bold text-blue-200 uppercase tracking-wider">{stat.label}</div>
                   </div>
                 ))}
              </div>

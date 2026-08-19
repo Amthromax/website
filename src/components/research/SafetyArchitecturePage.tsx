@@ -813,9 +813,7 @@ const SafetyArchitecturePage: React.FC = () => {
               className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
             >
               <div className="space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-[#1c1c20] flex items-center justify-center border border-white/10">
-                  {item.icon}
-                </div>
+                {item.icon}
                 <h3 className="text-xl font-bold text-white tracking-tight">{item.title}</h3>
 
                 {item.subtitle && (
@@ -849,9 +847,7 @@ const SafetyArchitecturePage: React.FC = () => {
               className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
             >
               <div className="space-y-4">
-                <div className="w-10 h-10 rounded-xl bg-[#1c1c20] flex items-center justify-center border border-white/10">
-                  {item.icon}
-                </div>
+                {item.icon}
                 <h3 className="text-xl font-bold text-white tracking-tight">{item.title}</h3>
 
                 {item.subtitle && (
@@ -926,9 +922,7 @@ const SafetyArchitecturePage: React.FC = () => {
               onClick={(e) => e.stopPropagation()}
             >
               {/* Top Icon */}
-              <div className="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center border border-white/10">
-                {activeModalItem.icon}
-              </div>
+              {activeModalItem.icon}
 
               {/* Category Subtitle */}
               <span className="text-xs text-gray-400 font-medium tracking-wide block">

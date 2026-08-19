@@ -107,8 +107,8 @@ const PlatformPage: React.FC = () => {
       {/* Platform Architecture Sections */}
       <div className="max-w-7xl mx-auto px-6 py-16 md:py-24 space-y-24">
         
-        {/* Core Pillars Grid */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Core Pillars Grid (Minimalist List) */}
+        <div className="grid md:grid-cols-3 gap-8 sm:gap-10">
           {[
             {
               num: "01",
@@ -128,34 +128,34 @@ const PlatformPage: React.FC = () => {
           ].map((item, idx) => (
             <motion.div 
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-100px" }}
               transition={{ delay: idx * 0.15 }}
-              className="p-8 bg-white dark:bg-[#161617] border border-gray-200/50 dark:border-white/[0.04] rounded-3xl space-y-4 hover:shadow-md transition-all duration-300 group"
+              className="border-t border-gray-200 dark:border-white/10 pt-6 pb-2 space-y-3 transition-all group"
             >
-              <span className="text-xs font-black text-gray-400 dark:text-gray-500 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">{item.title}</h3>
-              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">{item.desc}</p>
+              <span className="text-xs font-extrabold text-gray-400 dark:text-gray-500 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{item.title}</h3>
+              <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-normal">{item.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* Live Metrics & Telemetry Bar */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {/* Live Metrics & Telemetry Bar (Minimalist List) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { label: "AVG CACHE LATENCY", value: "12 ms", sub: "vs 1,450ms raw model", highlight: "text-emerald-500" },
-            { label: "CACHE HIT RATIO", value: "88.4%", sub: "Semantic intent matching", highlight: "text-blue-500" },
-            { label: "ESTIMATED COST SAVED", value: `$${(14290 + history.length * 1.42).toFixed(2)}`, sub: "Calculated @ $0.002/1k tokens", highlight: "text-amber-500" },
-            { label: "EXECUTION AUDIT TRAIL", value: "100%", sub: "Immutable SOC2 ledger", highlight: "text-purple-500" }
+            { label: "AVG CACHE LATENCY", value: "12 ms", sub: "vs 1,450ms raw model", highlight: "text-emerald-600 dark:text-emerald-400" },
+            { label: "CACHE HIT RATIO", value: "88.4%", sub: "Semantic intent matching", highlight: "text-blue-600 dark:text-blue-400" },
+            { label: "ESTIMATED COST SAVED", value: `$${(14290 + history.length * 1.42).toFixed(2)}`, sub: "Calculated @ $0.002/1k tokens", highlight: "text-amber-600 dark:text-amber-400" },
+            { label: "EXECUTION AUDIT TRAIL", value: "100%", sub: "Immutable SOC2 ledger", highlight: "text-purple-600 dark:text-purple-400" }
           ].map((kpi, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 20 }}
+              initial={{ opacity: 0, y: 15 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1 }}
-              className="p-5 bg-white dark:bg-[#161617] border border-gray-200/50 dark:border-white/[0.04] rounded-2xl shadow-sm space-y-1 text-center md:text-left"
+              className="border-t border-gray-200 dark:border-white/10 pt-4 pb-2 space-y-1 text-left"
             >
               <span className="text-[10px] font-bold tracking-wider text-gray-400 dark:text-gray-500 block uppercase">{kpi.label}</span>
               <span className={`text-2xl md:text-3xl font-black tracking-tight ${kpi.highlight}`}>{kpi.value}</span>

@@ -128,11 +128,6 @@ const PartnerNetworkPage: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8"
         >
-          <div className="inline-flex items-center space-x-2 px-4 py-2 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-xs font-bold uppercase tracking-widest font-sans">
-            <span className="w-2 h-2 rounded-full bg-blue-400 animate-pulse" />
-            <span>GLOBAL PARTNER ECOSYSTEM</span>
-          </div>
-
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-white font-sans leading-tight">
             Amthromax Global Partner Network
           </h1>
@@ -167,7 +162,7 @@ const PartnerNetworkPage: React.FC = () => {
       </div>
 
       {/* Network Metrics Bar */}
-      <div ref={metricsRef} className="bg-[#08080a] border-y border-white/10 py-12">
+      <div ref={metricsRef} className="bg-[#08080a] py-12">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -197,9 +192,6 @@ const PartnerNetworkPage: React.FC = () => {
       {/* Partner Programs Section */}
       <div ref={programsRef} className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-extrabold text-blue-400 uppercase tracking-widest block font-sans">
-            PARTNER TRACKS
-          </span>
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-sans">
             Programs Tailored for Scale
           </h2>
@@ -215,33 +207,33 @@ const PartnerNetworkPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={programsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 md:p-10 rounded-3xl bg-[#09090b] border border-white/15 space-y-6 hover:border-white/30 transition-all shadow-2xl relative overflow-hidden group flex flex-col justify-between"
+              className="p-8 md:p-10 rounded-[28px] sm:rounded-[32px] bg-white border border-gray-200/80 space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.04)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
             >
               <div className="space-y-6">
                 <div className="flex justify-between items-start">
-                  <div className="p-3.5 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors">
+                  <div className="p-3.5 rounded-2xl bg-gray-100 border border-gray-200/60 group-hover:bg-gray-200/60 transition-colors">
                     {prog.icon}
                   </div>
-                  <span className="text-[10px] font-extrabold text-blue-400 uppercase tracking-widest px-3 py-1 bg-blue-500/10 border border-blue-500/20 rounded-full font-sans">
+                  <span className="text-[10px] font-bold text-[#0066cc] uppercase tracking-widest font-sans">
                     {prog.tag}
                   </span>
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-black text-white font-sans tracking-tight">
+                  <h3 className="text-2xl font-bold text-gray-900 font-sans tracking-tight">
                     {prog.title}
                   </h3>
-                  <p className="text-xs md:text-sm text-gray-300 leading-relaxed font-medium font-sans">
+                  <p className="text-xs md:text-sm text-gray-600 leading-relaxed font-normal font-sans">
                     {prog.desc}
                   </p>
                 </div>
 
-                <div className="space-y-2 pt-2 border-t border-white/10">
-                  <span className="text-[10px] uppercase tracking-wider text-gray-400 font-bold block">Key Track Benefits</span>
-                  <ul className="space-y-1.5">
+                <div className="space-y-2 pt-3 border-t border-gray-200/80">
+                  <span className="text-[10px] uppercase tracking-wider text-gray-500 font-bold block">Key Track Benefits</span>
+                  <ul className="space-y-2">
                     {prog.benefits.map((b, bIdx) => (
-                      <li key={bIdx} className="text-xs text-gray-300 flex items-center gap-2 font-sans font-medium">
-                        <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
+                      <li key={bIdx} className="text-xs text-gray-700 flex items-center gap-2 font-sans font-medium">
+                        <span className="w-1.5 h-1.5 rounded-full bg-[#0066cc]" />
                         <span>{b}</span>
                       </li>
                     ))}
@@ -257,7 +249,7 @@ const PartnerNetworkPage: React.FC = () => {
                     setIsApplyModalOpen(true);
                     setIsSubmitted(false);
                   }}
-                  className="w-full py-3 bg-white/10 hover:bg-white/20 text-white font-bold rounded-xl text-xs transition-all font-sans cursor-pointer flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-gray-900 hover:bg-black text-white font-bold rounded-2xl text-xs transition-all font-sans cursor-pointer flex items-center justify-center gap-2 shadow-sm"
                 >
                   <span>Apply for {prog.title}</span>
                   <span className="text-sm">↗</span>
@@ -272,9 +264,6 @@ const PartnerNetworkPage: React.FC = () => {
       <div className="bg-[#050507] border-y border-white/10 py-24">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-extrabold text-blue-400 uppercase tracking-widest block font-sans">
-              WHY PARTNER WITH US
-            </span>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-sans">
               Partner Network Advantages
             </h2>
@@ -307,17 +296,18 @@ const PartnerNetworkPage: React.FC = () => {
       {/* Partner Application Modal */}
       <AnimatePresence>
         {isApplyModalOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
             <motion.div
-              initial={{ opacity: 0, scale: 0.95, y: 10 }}
+              initial={{ opacity: 0, scale: 0.96, y: 12 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              className="w-full max-w-lg bg-black border border-white/20 rounded-3xl p-8 md:p-10 space-y-6 shadow-2xl relative overflow-hidden"
+              exit={{ opacity: 0, scale: 0.96, y: 12 }}
+              transition={{ duration: 0.3, ease: "easeOut" }}
+              className="w-full max-w-lg bg-[#161618] border border-white/[0.12] rounded-[32px] sm:rounded-[36px] p-8 md:p-10 space-y-6 shadow-[0_32px_80px_rgba(0,0,0,0.8)] relative overflow-hidden text-white"
             >
               <button
                 type="button"
                 onClick={() => setIsApplyModalOpen(false)}
-                className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/10 border border-white/15 hover:bg-white/20 flex items-center justify-center text-gray-400 hover:text-white transition-all cursor-pointer z-10"
+                className="absolute top-6 right-6 w-9 h-9 rounded-full bg-white/[0.08] border border-white/10 hover:bg-white/[0.15] flex items-center justify-center text-gray-300 hover:text-white transition-all cursor-pointer z-10"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M6 18L18 6M6 6l12 12" />
@@ -325,18 +315,18 @@ const PartnerNetworkPage: React.FC = () => {
               </button>
 
               {isSubmitted ? (
-                <div className="text-center py-8 space-y-4">
-                  <div className="w-14 h-14 bg-emerald-500/20 border border-emerald-500/40 rounded-full flex items-center justify-center mx-auto text-emerald-400 text-2xl font-bold shadow-lg shadow-emerald-500/20">
+                <div className="text-center py-8 space-y-5">
+                  <div className="w-16 h-16 bg-blue-500/10 border border-blue-500/20 rounded-full flex items-center justify-center mx-auto text-blue-400 text-2xl font-bold shadow-inner">
                     ✓
                   </div>
-                  <h3 className="text-2xl font-black text-white font-sans">Application Received</h3>
-                  <p className="text-sm text-gray-300 font-sans max-w-sm mx-auto leading-relaxed">
+                  <h3 className="text-2xl font-bold text-white tracking-tight">Application Received</h3>
+                  <p className="text-sm text-gray-300 max-w-sm mx-auto leading-relaxed font-normal">
                     Thank you for applying to the Amthromax Partner Network. Our Alliance Management team will review your organization details and reach out within 24 hours.
                   </p>
                   <button
                     type="button"
                     onClick={() => setIsApplyModalOpen(false)}
-                    className="px-8 py-3 bg-white text-black font-extrabold text-xs rounded-full cursor-pointer hover:bg-gray-200 transition-all shadow-lg uppercase tracking-wider"
+                    className="px-8 py-3.5 bg-white text-black font-bold text-xs rounded-full cursor-pointer hover:bg-gray-150 transition-all shadow-md uppercase tracking-wider"
                   >
                     Close Window
                   </button>
@@ -344,13 +334,12 @@ const PartnerNetworkPage: React.FC = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
                   <div className="space-y-1">
-                    <span className="text-xs uppercase tracking-widest text-blue-400 font-extrabold block">PARTNER APPLICATION</span>
-                    <h3 className="text-2xl md:text-3xl font-black text-white font-sans tracking-tight">Join Partner Ecosystem</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold text-white tracking-tight">Join Partner Ecosystem</h3>
                   </div>
 
-                  <div className="space-y-4 pt-2">
+                  <div className="space-y-4 pt-1">
                     <div>
-                      <label className="text-xs font-bold text-gray-200 uppercase tracking-wider block mb-1.5">
+                      <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">
                         Company / Organization Name <span className="text-blue-400">*</span>
                       </label>
                       <input
@@ -359,12 +348,12 @@ const PartnerNetworkPage: React.FC = () => {
                         value={formData.companyName}
                         onChange={(e) => setFormData({ ...formData, companyName: e.target.value })}
                         placeholder="e.g. Apex Systems Integrators"
-                        className="w-full px-4 py-3 bg-[#0a0a0d] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 font-medium focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50 transition-all"
+                        className="w-full px-4.5 py-3.5 bg-[#0a0a0c] border border-white/[0.1] rounded-2xl text-sm text-white placeholder:text-gray-500 font-normal focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 transition-all"
                       />
                     </div>
 
                     <div>
-                      <label className="text-xs font-bold text-gray-200 uppercase tracking-wider block mb-1.5">
+                      <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">
                         Work Email <span className="text-blue-400">*</span>
                       </label>
                       <input
@@ -373,44 +362,44 @@ const PartnerNetworkPage: React.FC = () => {
                         value={formData.workEmail}
                         onChange={(e) => setFormData({ ...formData, workEmail: e.target.value })}
                         placeholder="partnerships@company.com"
-                        className="w-full px-4 py-3 bg-[#0a0a0d] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 font-medium focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50 transition-all"
+                        className="w-full px-4.5 py-3.5 bg-[#0a0a0c] border border-white/[0.1] rounded-2xl text-sm text-white placeholder:text-gray-500 font-normal focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 transition-all"
                       />
                     </div>
 
                     <div>
-                      <label className="text-xs font-bold text-gray-200 uppercase tracking-wider block mb-1.5">
+                      <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">
                         Primary Partner Track
                       </label>
                       <select
                         value={formData.partnerType}
                         onChange={(e) => setFormData({ ...formData, partnerType: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#0a0a0d] border border-white/20 rounded-xl text-sm text-white font-medium focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50 transition-all cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1.25rem_center] bg-no-repeat pr-10"
+                        className="w-full px-4.5 py-3.5 bg-[#0a0a0c] border border-white/[0.1] rounded-2xl text-sm text-white font-normal focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 transition-all cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1.25rem_center] bg-no-repeat pr-10"
                       >
-                        <option className="bg-black text-white font-semibold py-2" value="System Integrator (GSI)">System Integrator (GSI)</option>
-                        <option className="bg-black text-white font-semibold py-2" value="Independent Software Vendor (ISV)">Independent Software Vendor (ISV)</option>
-                        <option className="bg-black text-white font-semibold py-2" value="Cloud & Infrastructure Alliance">Cloud & Infrastructure Alliance</option>
-                        <option className="bg-black text-white font-semibold py-2" value="Value-Added Reseller">Value-Added Reseller</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="System Integrator (GSI)">System Integrator (GSI)</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="Independent Software Vendor (ISV)">Independent Software Vendor (ISV)</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="Cloud & Infrastructure Alliance">Cloud & Infrastructure Alliance</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="Value-Added Reseller">Value-Added Reseller</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="text-xs font-bold text-gray-200 uppercase tracking-wider block mb-1.5">
+                      <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">
                         Region
                       </label>
                       <select
                         value={formData.region}
                         onChange={(e) => setFormData({ ...formData, region: e.target.value })}
-                        className="w-full px-4 py-3 bg-[#0a0a0d] border border-white/20 rounded-xl text-sm text-white font-medium focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50 transition-all cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1.25rem_center] bg-no-repeat pr-10"
+                        className="w-full px-4.5 py-3.5 bg-[#0a0a0c] border border-white/[0.1] rounded-2xl text-sm text-white font-normal focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 transition-all cursor-pointer appearance-none bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%239CA3AF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:12px_12px] bg-[right_1.25rem_center] bg-no-repeat pr-10"
                       >
-                        <option className="bg-black text-white font-semibold py-2" value="North America">North America</option>
-                        <option className="bg-black text-white font-semibold py-2" value="Europe / Middle East">Europe / Middle East</option>
-                        <option className="bg-black text-white font-semibold py-2" value="Asia Pacific">Asia Pacific</option>
-                        <option className="bg-black text-white font-semibold py-2" value="Latin America">Latin America</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="North America">North America</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="Europe / Middle East">Europe / Middle East</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="Asia Pacific">Asia Pacific</option>
+                        <option className="bg-[#161618] text-white font-normal py-2" value="Latin America">Latin America</option>
                       </select>
                     </div>
 
                     <div>
-                      <label className="text-xs font-bold text-gray-200 uppercase tracking-wider block mb-1.5">
+                      <label className="text-xs font-semibold text-gray-300 uppercase tracking-wider block mb-2">
                         Technical Integration Goals (Optional)
                       </label>
                       <textarea
@@ -418,17 +407,17 @@ const PartnerNetworkPage: React.FC = () => {
                         value={formData.notes}
                         onChange={(e) => setFormData({ ...formData, notes: e.target.value })}
                         placeholder="Brief description of your client deployment requirements..."
-                        className="w-full px-4 py-3 bg-[#0a0a0d] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 font-medium focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/50 transition-all resize-none"
+                        className="w-full px-4.5 py-3.5 bg-[#0a0a0c] border border-white/[0.1] rounded-2xl text-sm text-white placeholder:text-gray-500 font-normal focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40 transition-all resize-none"
                       />
                     </div>
                   </div>
 
                   <button
                     type="submit"
-                    className="w-full py-3.5 bg-white hover:bg-gray-100 text-black font-extrabold text-xs rounded-xl shadow-xl transition-all cursor-pointer mt-3 uppercase tracking-wider flex items-center justify-center gap-2 group"
+                    className="w-full py-4 bg-white hover:bg-gray-100 text-black font-bold text-sm rounded-2xl shadow-xl transition-all cursor-pointer mt-4 flex items-center justify-center gap-2 group"
                   >
                     <span>Submit Partner Application</span>
-                    <span className="text-sm font-bold group-hover:translate-x-0.5 transition-transform">↗</span>
+                    <span className="text-base font-bold group-hover:translate-x-0.5 transition-transform">↗</span>
                   </button>
                 </form>
               )}

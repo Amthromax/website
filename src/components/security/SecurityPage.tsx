@@ -67,12 +67,6 @@ const SecurityPage: React.FC = () => {
   const [isSimulating, setIsSimulating] = useState<boolean>(false);
   const consoleEndRef = useRef<HTMLDivElement>(null);
 
-  // Settings state
-  const [sandboxEnabled, setSandboxEnabled] = useState<boolean>(true);
-  const [pqcEnabled, setPqcEnabled] = useState<boolean>(true);
-  const [ledgerEnabled, setLedgerEnabled] = useState<boolean>(true);
-  const [shieldEnabled, setShieldEnabled] = useState<boolean>(true);
-
   // FAQ state
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null);
 
@@ -166,30 +160,6 @@ const SecurityPage: React.FC = () => {
     setTimeout(runNextStep, 600);
   };
 
-  // Calculate readiness score
-  const getSecurityScore = () => {
-    let score = 0;
-    if (sandboxEnabled) score += 25;
-    if (pqcEnabled) score += 25;
-    if (ledgerEnabled) score += 25;
-    if (shieldEnabled) score += 25;
-    return score;
-  };
-
-  const getScoreColor = (score: number) => {
-    if (score === 100) return "text-zinc-900 dark:text-white";
-    if (score >= 75) return "text-zinc-800 dark:text-zinc-200";
-    if (score >= 50) return "text-zinc-600 dark:text-zinc-400";
-    return "text-zinc-500 dark:text-zinc-500";
-  };
-
-  const getScoreGrade = (score: number) => {
-    if (score === 100) return "Grade: A+ (Maximum Defense)";
-    if (score >= 75) return "Grade: B (High Security)";
-    if (score >= 50) return "Grade: C (Moderate Risk)";
-    return "Grade: F (Critical Exposure)";
-  };
-
   const faqItems = [
     {
       q: "Where is my proprietary agent data stored?",
@@ -220,9 +190,6 @@ const SecurityPage: React.FC = () => {
       <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex flex-col items-center justify-center bg-[#050505] text-white border-b border-gray-900 transition-colors duration-300">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.04),transparent_50%)] pointer-events-none" />
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-gray-400 font-bold">
-            AMTHROMAX ENTERPRISE
-          </span>
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-white">
             Industrial Scale. Certified Security.
           </h1>
@@ -361,29 +328,33 @@ const SecurityPage: React.FC = () => {
             {/* Center Column: Radial Sunburst Spoke Disc (Monochromatic Monochrome) */}
             <div className="lg:col-span-5 relative flex items-center justify-center py-6 min-h-[380px]">
               <div className="relative w-full max-w-[380px] aspect-square flex items-center justify-center">
-                {/* Radial SVG Artwork */}
-                <svg viewBox="0 0 320 320" className="w-full h-full select-none text-zinc-400 dark:text-zinc-600">
+                {/* Radial SVG Artwork (Dark High-Contrast) */}
+                <svg viewBox="0 0 320 320" className="w-full h-full select-none text-gray-900 dark:text-gray-100">
                   {/* Outer Dotted Arc Connecting to Left Dots */}
                   <path
                     d="M 60,40 A 130 130 0 0 1 60,280"
                     fill="none"
                     stroke="currentColor"
-                    strokeWidth="1.2"
-                    strokeDasharray="3 3"
-                    opacity="0.5"
+                    strokeWidth="1.8"
+                    strokeDasharray="4 4"
+                    opacity="0.75"
                   />
                   {/* Connection Dots & Lines */}
-                  <line x1="10" y1="40" x2="60" y2="40" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-                  <circle cx="60" cy="40" r="3.5" fill="currentColor" />
+                  <line x1="10" y1="40" x2="60" y2="40" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+                  <circle cx="60" cy="40" r="4" fill="currentColor" />
 
-                  <line x1="10" y1="160" x2="100" y2="160" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-                  <circle cx="100" cy="160" r="3.5" fill="currentColor" />
+                  <line x1="10" y1="160" x2="100" y2="160" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+                  <circle cx="100" cy="160" r="4" fill="currentColor" />
 
-                  <line x1="10" y1="280" x2="60" y2="280" stroke="currentColor" strokeWidth="1" opacity="0.4" />
-                  <circle cx="60" cy="280" r="3.5" fill="currentColor" />
+                  <line x1="10" y1="280" x2="60" y2="280" stroke="currentColor" strokeWidth="1.5" opacity="0.7" />
+                  <circle cx="60" cy="280" r="4" fill="currentColor" />
 
-                  {/* Dense Radial Spoke Lines Disc */}
-                  <g transform="translate(180, 160)">
+                  {/* Dense Radial Spoke Lines Disc with Smooth Continuous Rotation */}
+                  <motion.g
+                    animate={{ rotate: 360 }}
+                    transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+                    style={{ transformOrigin: "180px 160px" }}
+                  >
                     {Array.from({ length: 90 }).map((_, i) => {
                       const angle = (i * 360) / 90;
                       const rad = (angle * Math.PI) / 180;
@@ -394,19 +365,19 @@ const SecurityPage: React.FC = () => {
                       return (
                         <line
                           key={i}
-                          x1={x1}
-                          y1={y1}
-                          x2={x2}
-                          y2={y2}
+                          x1={x1 + 180}
+                          y1={y1 + 160}
+                          x2={x2 + 180}
+                          y2={y2 + 160}
                           stroke="currentColor"
-                          strokeWidth="1.8"
-                          opacity={angle > 90 && angle < 270 ? 0.8 : 0.35}
+                          strokeWidth="2"
+                          opacity={angle > 90 && angle < 270 ? 0.95 : 0.6}
                         />
                       );
                     })}
                     {/* Inner Subtle Ring */}
-                    <circle cx="0" cy="0" r="62" fill="currentColor" fillOpacity="0.05" stroke="currentColor" strokeWidth="0.8" opacity="0.3" />
-                  </g>
+                    <circle cx="180" cy="160" r="62" fill="currentColor" fillOpacity="0.08" stroke="currentColor" strokeWidth="1.5" opacity="0.6" />
+                  </motion.g>
                 </svg>
 
                 {/* Monochromatic Glow Overlay */}
@@ -473,17 +444,16 @@ const SecurityPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Main Grid: Features and Interactive Dashboard */}
-      <section className="max-w-7xl mx-auto px-6 py-12 md:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-        
-        {/* Left Side: 4 Core Pillars */}
-        <div className="lg:col-span-6 space-y-6">
+      {/* Infrastructure Pillars & Bottom Full-Width Console */}
+      <section className="max-w-7xl mx-auto px-6 pt-12 md:pt-20 pb-16 space-y-16">
+        {/* Infrastructure Pillars (4 Cards Grid) */}
+        <div className="space-y-6">
           <div className="space-y-2">
             <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white">Security Infrastructure</h2>
             <p className="text-gray-500 dark:text-gray-450 text-sm">Four foundational defense systems guarding your agent network.</p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
             {/* Card 1 */}
             <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
@@ -528,7 +498,7 @@ const SecurityPage: React.FC = () => {
             <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
               <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
               <h3 className="text-base font-bold text-gray-900 dark:text-white">4. Compliance Ready</h3>
@@ -540,79 +510,27 @@ const SecurityPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Right Side: Security Simulation Console & System Control Center */}
-        <div className="lg:col-span-6 space-y-6">
-          
-          {/* Section Heading */}
-          <div className="space-y-2">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white">Security Command Center</h2>
-            <p className="text-gray-500 dark:text-gray-450 text-sm">Simulate active threats, verify sandbox integrity, and configure defenses.</p>
-          </div>
-
-          {/* Interactive Control Switches */}
-          <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm space-y-4">
-            <div className="flex items-center justify-between">
-              <h3 className="text-sm font-extrabold text-gray-900 dark:text-white uppercase tracking-wider">Dynamic Policies</h3>
-              <span className={`text-xs font-bold px-2.5 py-1 rounded-full bg-slate-100 dark:bg-slate-800 ${getScoreColor(getSecurityScore())}`}>
-                {getScoreGrade(getSecurityScore())}
-              </span>
-            </div>
-
-            <div className="grid grid-cols-2 gap-4 pt-2">
-              <label className="flex items-center justify-between p-3 rounded-2xl border border-gray-150 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 cursor-pointer select-none">
-                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">Sandbox Shield</span>
-                <input 
-                  type="checkbox" 
-                  checked={sandboxEnabled} 
-                  onChange={(e) => setSandboxEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
-                />
-              </label>
-
-              <label className="flex items-center justify-between p-3 rounded-2xl border border-gray-150 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 cursor-pointer select-none">
-                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">Kyber ML-KEM PQC</span>
-                <input 
-                  type="checkbox" 
-                  checked={pqcEnabled} 
-                  onChange={(e) => setPqcEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
-                />
-              </label>
-
-              <label className="flex items-center justify-between p-3 rounded-2xl border border-gray-150 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 cursor-pointer select-none">
-                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">Trace Logs Sign</span>
-                <input 
-                  type="checkbox" 
-                  checked={ledgerEnabled} 
-                  onChange={(e) => setLedgerEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
-                />
-              </label>
-
-              <label className="flex items-center justify-between p-3 rounded-2xl border border-gray-150 dark:border-gray-800 bg-gray-50 dark:bg-gray-900/50 cursor-pointer select-none">
-                <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">Outbound Firewall</span>
-                <input 
-                  type="checkbox" 
-                  checked={shieldEnabled} 
-                  onChange={(e) => setShieldEnabled(e.target.checked)} 
-                  className="w-4 h-4 text-zinc-900 focus:ring-zinc-500 dark:text-white rounded cursor-pointer"
-                />
-              </label>
+        {/* Bottom Full-Width Interactive Terminal Console Box */}
+        <div className="space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+            <div className="space-y-1">
+              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white">Security Command Console</h2>
+              <p className="text-gray-500 dark:text-gray-450 text-sm">Simulate active threats, verify sandbox integrity, and monitor real-time telemetry logs.</p>
             </div>
           </div>
 
-          {/* Interactive Console UI - Large Terminal Shell */}
-          <div className="bg-[#09090a] text-zinc-300 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl font-mono text-xs sm:text-[13px] flex flex-col h-[560px] md:h-[620px]">
+          {/* Expanded Full-Width Black Terminal Shell */}
+          <div className="w-full bg-[#09090a] text-zinc-300 rounded-3xl overflow-hidden border border-zinc-800 shadow-2xl font-mono text-xs sm:text-[13px] flex flex-col h-[640px] md:h-[720px]">
             {/* Console Header */}
-            <div className="bg-[#141416] px-5 py-3.5 border-b border-zinc-800/80 flex items-center justify-between">
+            <div className="bg-[#141416] px-6 py-4 border-b border-zinc-800/80 flex items-center justify-between">
               <div className="flex items-center space-x-2.5">
                 <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block shadow-sm" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block shadow-sm" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block shadow-sm" />
-                <span className="text-xs text-zinc-400 font-bold ml-2 tracking-wide font-mono">secure-telemetry-daemon v2.4.0</span>
+                <span className="text-xs text-zinc-400 font-bold ml-2 tracking-wide font-mono">secure-telemetry-daemon v2.4.0-quantum</span>
               </div>
-              <div className="flex items-center gap-3">
-                <span className="inline-flex items-center gap-1.5 text-[10px] px-2.5 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/20 font-bold">
+              <div className="flex items-center gap-4">
+                <span className="inline-flex items-center gap-2 text-xs text-emerald-400 font-bold tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   {activeScenario ? `SIMULATING: ${activeScenario.toUpperCase()}` : "PROD-NODE-ACTIVE"}
                 </span>
@@ -627,12 +545,12 @@ const SecurityPage: React.FC = () => {
             </div>
 
             {/* Console Screen (Loaded with Codes & Streamed Log Lines) */}
-            <div className="flex-1 p-5 overflow-y-auto space-y-2.5 select-text custom-scrollbar bg-[#09090a]">
+            <div className="flex-1 p-6 overflow-y-auto space-y-2.5 select-text custom-scrollbar bg-[#09090a]">
               {logs.map((log, index) => (
-                <div key={index} className="flex gap-3 items-start leading-relaxed group hover:bg-white/[0.02] -mx-2 px-2 py-0.5 rounded transition-colors">
-                  <span className="text-zinc-600 select-none text-[11px] min-w-[24px] text-right font-mono">{index + 1}</span>
+                <div key={index} className="flex gap-4 items-start leading-relaxed group hover:bg-white/[0.02] -mx-2 px-2 py-0.5 rounded transition-colors">
+                  <span className="text-zinc-600 select-none text-[11px] min-w-[28px] text-right font-mono">{index + 1}</span>
                   <span className="text-zinc-500 select-none font-mono text-xs">[{log.timestamp}]</span>
-                  <span className={`font-bold select-none min-w-[70px] font-mono text-xs ${
+                  <span className={`font-bold select-none min-w-[80px] font-mono text-xs ${
                     log.system === "SYSTEM" ? "text-zinc-300" :
                     log.system === "SHIELD" ? "text-zinc-200" :
                     log.system === "CRYPTO" ? "text-zinc-400" :
@@ -665,36 +583,36 @@ const SecurityPage: React.FC = () => {
             </div>
 
             {/* Console Actions (Bottom Bar) */}
-            <div className="bg-[#121214] p-3.5 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-2">
+            <div className="bg-[#121214] p-4 border-t border-zinc-800/80 flex flex-wrap items-center justify-between gap-3 font-sans">
               <div className="text-[11px] text-zinc-500 font-mono hidden sm:block">
                 {logs.length} Lines Logged
               </div>
-              <div className="flex flex-wrap gap-2 justify-end">
+              <div className="flex flex-wrap gap-2.5 justify-end">
                 <button
                   disabled={isSimulating}
                   onClick={() => runScenario("sandbox")}
-                  className="px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-750 disabled:opacity-50 text-white font-bold transition-all text-[11px] sm:text-xs cursor-pointer shadow-sm border border-zinc-700/50"
+                  className="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-750 disabled:opacity-50 text-white font-sans font-medium transition-all text-xs cursor-pointer shadow-sm border border-zinc-700/50"
                 >
                   Run Sandbox Demo
                 </button>
                 <button
                   disabled={isSimulating}
                   onClick={() => runScenario("pqc")}
-                  className="px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-750 disabled:opacity-50 text-white font-bold transition-all text-[11px] sm:text-xs cursor-pointer shadow-sm border border-zinc-700/50"
+                  className="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-750 disabled:opacity-50 text-white font-sans font-medium transition-all text-xs cursor-pointer shadow-sm border border-zinc-700/50"
                 >
                   PQC Handshake
                 </button>
                 <button
                   disabled={isSimulating}
                   onClick={() => runScenario("ledger")}
-                  className="px-3.5 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-750 disabled:opacity-50 text-white font-bold transition-all text-[11px] sm:text-xs cursor-pointer shadow-sm border border-zinc-700/50"
+                  className="px-4 py-2.5 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-750 disabled:opacity-50 text-white font-sans font-medium transition-all text-xs cursor-pointer shadow-sm border border-zinc-700/50"
                 >
                   Trace Sign Block
                 </button>
                 <button
                   disabled={isSimulating}
                   onClick={() => runScenario("threat")}
-                  className="px-3.5 py-2 rounded-xl bg-rose-600/90 hover:bg-rose-600 active:bg-rose-700 disabled:opacity-50 text-white font-bold transition-all text-[11px] sm:text-xs cursor-pointer shadow-sm border border-rose-500/50"
+                  className="px-4 py-2.5 rounded-xl bg-rose-600/90 hover:bg-rose-600 active:bg-rose-700 disabled:opacity-50 text-white font-sans font-medium transition-all text-xs cursor-pointer shadow-sm border border-rose-500/50"
                 >
                   Simulate Threat
                 </button>

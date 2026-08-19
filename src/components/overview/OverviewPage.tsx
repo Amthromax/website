@@ -151,7 +151,7 @@ export const OverviewPage: React.FC = () => {
       </div>
 
       {/* Live System Metrics Bar */}
-      <div ref={metricsRef} className="bg-[#08080a] border-b border-white/10 py-12">
+      <div ref={metricsRef} className="py-12 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-6">
           <motion.div 
             initial={{ opacity: 0, y: 20 }}
@@ -181,9 +181,6 @@ export const OverviewPage: React.FC = () => {
       {/* Four Core Architectural Pillars */}
       <div ref={archRef} className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
-            Core Engineering Specs
-          </span>
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-inter">
             The Amthromax Infrastructure Stack
           </h2>
@@ -192,32 +189,32 @@ export const OverviewPage: React.FC = () => {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-14">
           {architecturePillars.map((pillar, idx) => (
             <motion.div
               key={idx}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={archInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 md:p-10 rounded-3xl bg-[#09090b] border border-white/15 space-y-6 hover:border-white/30 transition-all shadow-2xl relative overflow-hidden group"
+              className="border-t border-white/10 pt-8 pb-4 space-y-6 group transition-all"
             >
-              <div className="flex justify-between items-start">
-                <div className="p-3 rounded-2xl bg-white/5 border border-white/10 group-hover:bg-white/10 transition-colors">
+              <div className="flex justify-between items-center">
+                <div className="py-1">
                   {pillar.icon}
                 </div>
-                <span className="text-xs font-black text-gray-400 tracking-wider font-sans">
+                <span className="text-xs font-mono font-bold text-gray-500">
                   {pillar.num}
                 </span>
               </div>
 
               <div className="space-y-3">
-                <span className="text-[10px] font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
+                <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest block font-inter">
                   {pillar.tag}
                 </span>
-                <h3 className="text-2xl font-black text-white font-inter tracking-tight">
+                <h3 className="text-2xl font-bold text-white font-inter tracking-tight group-hover:text-blue-400 transition-colors">
                   {pillar.title}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-300 leading-relaxed font-medium font-inter">
+                <p className="text-sm text-gray-400 leading-relaxed font-normal font-inter">
                   {pillar.desc}
                 </p>
               </div>
@@ -227,12 +224,9 @@ export const OverviewPage: React.FC = () => {
       </div>
 
       {/* Model Suite Overview */}
-      <div ref={modelsRef} className="bg-[#050507] border-y border-white/10 py-24">
+      <div ref={modelsRef} className="border-y border-white/10 py-24 bg-black">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <span className="text-xs font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
-              Deployed Intelligence
-            </span>
             <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-inter">
               Model & Agent Suite Overview
             </h2>
@@ -241,24 +235,24 @@ export const OverviewPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
             {models.map((model, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, scale: 0.95 }}
-                animate={modelsInView ? { opacity: 1, scale: 1 } : {}}
+                initial={{ opacity: 0, y: 15 }}
+                animate={modelsInView ? { opacity: 1, y: 0 } : {}}
                 transition={{ duration: 0.5, delay: idx * 0.1 }}
-                className="p-6 rounded-2xl bg-black border border-white/15 hover:border-white/30 space-y-5 transition-all shadow-xl flex flex-col justify-between"
+                className="border-t border-white/10 pt-6 pb-2 space-y-5 flex flex-col justify-between group transition-all"
               >
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className={`px-2.5 py-1 rounded-full border text-[9px] font-extrabold uppercase tracking-wider font-inter ${model.badgeColor}`}>
+                    <span className="text-[10px] font-bold text-gray-400 uppercase tracking-widest font-inter">
                       {model.badge}
                     </span>
                     <span className="w-2 h-2 rounded-full bg-zinc-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                   </div>
 
-                  <h4 className="text-lg font-black text-white font-inter tracking-tight">
+                  <h4 className="text-lg font-bold text-white font-inter tracking-tight group-hover:text-blue-400 transition-colors">
                     {model.name}
                   </h4>
                   <p className="text-xs text-gray-400 font-medium font-inter">
@@ -266,7 +260,7 @@ export const OverviewPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 space-y-2">
+                <div className="pt-4 border-t border-white/5 space-y-2">
                   <div className="flex justify-between text-xs font-sans">
                     <span className="text-gray-400">Latency:</span>
                     <span className="font-sans font-extrabold text-white tracking-tight">{model.latency}</span>
@@ -282,25 +276,75 @@ export const OverviewPage: React.FC = () => {
         </div>
       </div>
 
+      {/* Deployment Safety Section (Matches Screenshot) */}
+      <div className="border-y border-white/10 py-24 bg-black text-white">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+          
+          {/* Left Text Column */}
+          <div className="lg:col-span-5 space-y-6">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white leading-tight font-sans">
+              Deployment Safety & Governance
+            </h2>
+            <p className="text-base sm:text-lg text-gray-300 font-normal leading-relaxed max-w-lg font-sans">
+              Sharing our ongoing empirical safety evaluations, alignment guardrails, and deterministic verification protocols to ensure autonomous models operate securely at enterprise scale.
+            </p>
+            <div className="pt-2">
+              <a
+                href="/trust"
+                className="inline-flex items-center gap-2 text-sm font-semibold text-white hover:text-blue-400 transition-colors group cursor-pointer font-sans"
+              >
+                <span>Explore Safety Framework & Reports</span>
+                <span className="text-sm font-bold group-hover:translate-x-1 transition-transform">→</span>
+              </a>
+            </div>
+          </div>
+
+          {/* Right Bento Card with Blue Sky Gradient + 4 Floating Squares */}
+          <div className="lg:col-span-7">
+            <div className="w-full aspect-[16/9] rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-[#70b0ff] via-[#94c5ff] to-[#c7e0ff] p-8 sm:p-12 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+              {/* Subtle background glow highlights */}
+              <div className="absolute inset-0 bg-white/10 opacity-50 pointer-events-none group-hover:opacity-75 transition-opacity" />
+              
+              {/* 4 Floating White Glass Boxes */}
+              <div className="relative z-10 flex items-center justify-center gap-3 sm:gap-6">
+                {[0, 1, 2, 3].map((idx) => (
+                  <motion.div
+                    key={idx}
+                    initial={{ y: 0 }}
+                    animate={{ y: [0, -6, 0] }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      repeatType: "reverse",
+                      delay: idx * 0.25,
+                      ease: "easeInOut"
+                    }}
+                    className="w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 rounded-xl sm:rounded-2xl bg-white/90 dark:bg-white/95 backdrop-blur-md shadow-[0_8px_30px_rgb(0,0,0,0.08)] border border-white flex items-center justify-center transition-transform duration-300 group-hover:scale-105"
+                  />
+                ))}
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
       {/* Operational Workflow Execution Steps */}
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <span className="text-xs font-extrabold text-gray-400 uppercase tracking-widest block font-inter">
-            Execution Lifecycle
-          </span>
           <h2 className="text-3xl md:text-5xl font-black text-white tracking-tight font-inter">
             Agent Operational Lifecycle
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 relative">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 sm:gap-8 relative">
           {[
             { step: "01", title: "Ingestion & Encryption", desc: "API payload authenticated via post-quantum keys and assigned an ephemeral execution token." },
             { step: "02", title: "Sandbox Spawning", desc: "Bare-metal runtime engine initializes an isolated memory sandbox with strict resource limits." },
             { step: "03", title: "Agentic Reasoning", desc: "Multi-model reasoning loops evaluate tasks, parse vector memory, and construct plan DAGs." },
             { step: "04", title: "Deterministic Output", desc: "Execution outputs undergo verification, telemetry logging, and real-time client streaming." }
           ].map((item, idx) => (
-            <div key={idx} className="p-6 rounded-2xl bg-[#09090b] border border-white/15 space-y-4 shadow-lg">
+            <div key={idx} className="border-t border-white/10 pt-6 pb-2 space-y-4">
               <span className="text-2xl font-black text-gray-400 font-sans tracking-tight block">
                 {item.step}
               </span>
@@ -317,7 +361,7 @@ export const OverviewPage: React.FC = () => {
 
       {/* Bottom CTA Banner */}
       <div className="max-w-6xl mx-auto px-6 pb-24 text-center">
-        <div className="p-12 md:p-16 rounded-3xl bg-gradient-to-r from-zinc-950 via-black to-zinc-950 border border-white/20 space-y-8 shadow-2xl">
+        <div className="border-t border-white/10 py-16 space-y-8">
           <h2 className="text-3xl md:text-5xl font-black text-white font-inter tracking-tight">
             Ready to Build on Amthromax?
           </h2>

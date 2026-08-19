@@ -535,11 +535,11 @@ const ResearchDetailPage: React.FC = () => {
             {paper.tagline}
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-2 pt-2">
+          <div className="flex flex-wrap items-center justify-center gap-4 pt-2">
             {paper.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs bg-[#f5f5f7] border border-[#e5e5e7] text-[#515154] px-3 py-1 rounded-full font-medium"
+                className="text-xs text-[#515154] font-medium tracking-wide"
               >
                 {tag}
               </span>
@@ -839,7 +839,7 @@ const ResearchDetailPage: React.FC = () => {
         <div className="pt-8 border-t border-[#e5e5e7] flex items-center justify-between">
           <Link
             to="/research"
-            className="px-6 py-3 rounded-full bg-[#f5f5f7] hover:bg-[#e8e8ed] text-[#1d1d1f] font-semibold text-xs transition-all flex items-center gap-2 border border-[#e5e5e7]"
+            className="text-xs font-semibold text-[#1d1d1f] hover:text-[#0066cc] transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <span>&larr; Back to Research Index</span>
           </Link>

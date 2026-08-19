@@ -31,18 +31,86 @@ const AboutPage: React.FC = () => {
 
       <main>
         {/* Hero Header */}
-        <section className="relative py-24 md:py-32 overflow-hidden bg-black text-white">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/50 to-black z-0 pointer-events-none" />
+        <section className="relative py-24 md:py-32 overflow-hidden bg-white text-[#1d1d1f] dark:bg-black dark:text-white border-b border-[#e5e5e7] dark:border-white/10">
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-6">
-            <span className="text-xs font-semibold uppercase tracking-[0.15em] text-blue-400 bg-blue-500/10 px-4 py-1.5 rounded-full border border-blue-500/20 inline-block">
-              Corporate Profile &amp; Mission
-            </span>
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-[#1d1d1f] dark:text-white">
               What is Amthromax?
             </h1>
-            <p className="text-base sm:text-xl lg:text-2xl text-gray-300 leading-relaxed font-normal max-w-4xl mx-auto">
+            <p className="text-base sm:text-xl lg:text-2xl text-[#515154] dark:text-gray-300 leading-relaxed font-normal max-w-4xl mx-auto">
               Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.
             </p>
+          </div>
+        </section>
+
+        {/* AGI Vision Banner Section */}
+        <section className="bg-black text-white py-28 md:py-36 lg:py-44 my-8 border-y border-white/10">
+          <div className="max-w-[1530px] mx-auto px-4 sm:px-8 lg:px-10">
+            <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+              {/* Left Content */}
+              <div className="lg:col-span-5 space-y-6 -ml-1 sm:-ml-2 lg:-ml-6">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                  Our vision for Enterprise Autonomous Intelligence
+                </h2>
+                <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
+                  At Amthromax, our mission is to build resilient AI platforms, agentic swarms, and post-quantum infrastructure that empower global organizations to operate with complete computational autonomy.
+                </p>
+                <div className="flex items-center gap-5 pt-2">
+                  <Link
+                    to="/research"
+                    className="text-white hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
+                  >
+                    <span>Amthromax AI Roadmap</span>
+                    <span className="text-xs group-hover:translate-x-1 transition-transform">&gt;</span>
+                  </Link>
+                  <Link
+                    to="/company"
+                    className="text-white hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
+                  >
+                    <span>System Charter</span>
+                    <span className="text-xs group-hover:translate-x-1 transition-transform">&gt;</span>
+                  </Link>
+                </div>
+              </div>
+
+              {/* Right Illustration */}
+              <div className="lg:col-span-7 space-y-3">
+                <div className="relative rounded-[32px] overflow-hidden border border-white/15 shadow-2xl w-full h-[520px] sm:h-[620px] lg:h-[700px]">
+                  <svg className="w-full h-full object-cover" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stopColor="#38bdf8" />
+                        <stop offset="35%" stopColor="#fef08a" />
+                        <stop offset="65%" stopColor="#f472b6" />
+                        <stop offset="100%" stopColor="#60a5fa" />
+                      </linearGradient>
+                      <linearGradient id="hillGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stopColor="#059669" />
+                        <stop offset="50%" stopColor="#fbbf24" />
+                        <stop offset="100%" stopColor="#2563eb" />
+                      </linearGradient>
+                      <filter id="oilPaint" x="-20%" y="-20%" width="140%" height="140%">
+                        <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" result="noise" />
+                        <feDisplacementMap in="SourceGraphic" in2="noise" scale="24" xChannelSelector="R" yChannelSelector="G" />
+                      </filter>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#skyGrad)" />
+                    
+                    {/* Impressionist Painterly Layers */}
+                    <g filter="url(#oilPaint)" opacity="0.92">
+                      <circle cx="400" cy="200" r="280" fill="#fde047" opacity="0.65" />
+                      <path d="M-50 350 C 150 250, 350 400, 550 300 C 750 200, 850 380, 950 350 L 950 700 L -50 700 Z" fill="url(#hillGrad)" />
+                      <path d="M-50 420 C 200 320, 400 480, 650 360 C 800 280, 900 450, 950 420 L 950 700 L -50 700 Z" fill="#0284c7" opacity="0.75" />
+                      <path d="M-50 480 C 100 400, 300 520, 500 440 C 700 360, 850 500, 950 460 L 950 700 L -50 700 Z" fill="#eab308" opacity="0.65" />
+                      <circle cx="200" cy="180" r="140" fill="#a855f7" opacity="0.45" />
+                      <circle cx="650" cy="150" r="160" fill="#38bdf8" opacity="0.55" />
+                    </g>
+
+                    {/* Canvas Texture Overlay */}
+                    <rect width="100%" height="100%" fill="#ffffff" opacity="0.05" style={{ mixBlendMode: 'overlay' }} />
+                  </svg>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -55,11 +123,11 @@ const AboutPage: React.FC = () => {
               { label: "Global Region Deployments", value: "40+" },
               { label: "Enterprise Partners & Clients", value: "500+" }
             ].map((stat, idx) => (
-              <div key={idx} className="p-6 sm:p-8 bg-white dark:bg-[#161617] rounded-[24px] sm:rounded-[28px] border border-[#e5e5e7] dark:border-white/[0.08] text-center space-y-2 shadow-[0_4px_16px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300">
-                <span className="text-xs text-[#86868b] dark:text-gray-500 font-medium uppercase tracking-wider block">
+              <div key={idx} className="p-6 sm:p-8 bg-black rounded-[24px] sm:rounded-[28px] border border-white/10 text-center space-y-2 shadow-xl hover:border-white/20 transition-all duration-300">
+                <span className="text-xs text-gray-400 font-medium uppercase tracking-wider block">
                   {stat.label}
                 </span>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
                   {stat.value}
                 </h3>
               </div>
@@ -71,9 +139,6 @@ const AboutPage: React.FC = () => {
         <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-16 md:py-24 space-y-20">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="space-y-6">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">
-                Core Capabilities
-              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-white tracking-tight leading-tight">
                 What We Build
               </h2>
@@ -101,9 +166,6 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="space-y-6 bg-white dark:bg-[#161617] p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[36px] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#0066cc] dark:text-[#2997ff]">
-                Our Mission
-              </span>
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
                 Engineering Computational Autonomy
               </h2>
@@ -131,13 +193,26 @@ const AboutPage: React.FC = () => {
           </div>
         </section>
 
+        {/* AGI Mission Statement & Visual Section */}
+        <section className="bg-black text-white py-24 md:py-32 border-y border-white/10">
+          <div className="max-w-6xl mx-auto px-6 sm:px-10 text-center space-y-12">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white leading-snug max-w-4xl mx-auto">
+              We are building safe, resilient enterprise AI platforms and autonomous intelligence systems, empowering global organizations to achieve complete computational autonomy.
+            </h2>
+            <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/15 shadow-2xl w-full h-[400px] sm:h-[520px] lg:h-[600px] max-w-5xl mx-auto">
+              <img
+                src="/images/agi_mission_team.png"
+                alt="Amthromax AI Research Team"
+                className="w-full h-full object-cover object-center"
+              />
+            </div>
+          </div>
+        </section>
+
         {/* Technology & Engineering Pillars */}
         <section className="bg-white dark:bg-[#121213] py-20 md:py-28 border-y border-[#e5e5e7] dark:border-white/[0.08]">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
             <div className="text-center max-w-3xl mx-auto space-y-4">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">
-                Engineering Principles
-              </span>
               <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
                 Technology Standards
               </h2>
@@ -169,7 +244,7 @@ const AboutPage: React.FC = () => {
                   desc: "Self-healing background pipelines, asynchronous telemetry streaming, and multi-agent coordination."
                 }
               ].map((pillar, i) => (
-                <div key={i} className="p-8 bg-[#f5f5f7] dark:bg-[#161617] rounded-[28px] border border-[#e5e5e7]/80 dark:border-white/[0.08] space-y-4 shadow-[0_4px_16px_rgba(0,0,0,0.02)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300">
+                <div key={i} className="space-y-3 py-2">
                   <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">
                     {pillar.num} / FOUNDATION
                   </span>
@@ -185,9 +260,6 @@ const AboutPage: React.FC = () => {
         <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 md:py-28 space-y-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">
-                Company Information
-              </span>
               <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
                 Global Operations
               </h2>
@@ -215,9 +287,6 @@ const AboutPage: React.FC = () => {
             </div>
 
             <div className="p-10 sm:p-12 bg-[#161617] text-white rounded-[32px] sm:rounded-[36px] border border-white/10 space-y-6 shadow-2xl">
-              <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#2997ff]">
-                Connect With Us
-              </span>
               <h3 className="text-3xl font-bold text-white tracking-tight">
                 Enterprise &amp; Engineering Contact
               </h3>
@@ -241,6 +310,24 @@ const AboutPage: React.FC = () => {
                   View Documentation
                 </Link>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Careers CTA Banner */}
+        <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-20 md:pb-28">
+          <div className="p-12 sm:p-16 md:p-20 bg-black border border-white/10 rounded-[28px] sm:rounded-[36px] text-center space-y-6 shadow-2xl">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
+              Join us in shaping the future of Enterprise AI
+            </h2>
+            <div>
+              <Link
+                to="/careers"
+                className="text-white hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
+              >
+                <span>View careers</span>
+                <span className="text-xs group-hover:translate-x-1 transition-transform">&gt;</span>
+              </Link>
             </div>
           </div>
         </section>

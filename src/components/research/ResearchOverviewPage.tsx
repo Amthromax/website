@@ -190,9 +190,6 @@ const ResearchOverviewPage: React.FC = () => {
       <section id="focus-areas" ref={focusRef} className="max-w-7xl mx-auto px-6 sm:px-8 py-24 space-y-16 bg-white">
         {/* Focus Areas Header */}
         <div className="text-center max-w-4xl mx-auto space-y-4">
-          <span className="text-xs uppercase tracking-[0.2em] text-gray-500 font-semibold block">
-            Focus areas
-          </span>
           <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-gray-900 leading-[1.15]">
             We advance the science of AI through research on frontier models, reasoning, multimodal systems, and safe deployment.
           </h2>
@@ -275,62 +272,14 @@ const ResearchOverviewPage: React.FC = () => {
 
         {/* 2-Column Visual Cards Showcase with Dynamic Animations */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {/* Visual Card 1: Magazine Tabletop Artwork with Levitation Animation */}
+          {/* Visual Card 1: Animated GIF */}
           <div className="flex flex-col space-y-4 group cursor-pointer">
-            <div className="h-[300px] sm:h-[360px] rounded-2xl bg-gradient-to-br from-[#78350f] via-[#b45309] to-[#451a03] relative overflow-hidden flex items-center justify-center p-6 border border-amber-800/20 shadow-md">
-              {/* Animated Glowing Rays Background */}
-              <motion.div
-                animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(251,191,36,0.3),transparent_70%)] pointer-events-none"
+            <div className="h-[300px] sm:h-[360px] rounded-2xl overflow-hidden relative border border-gray-200/80 shadow-md">
+              <img
+                src="/images/vide/395478589f3a71c9af6361acf5a7f237.gif"
+                alt="Amthromax Visual 2.0 SOTA Model"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <motion.div
-                animate={{ x: [0, 20, 0], y: [0, -15, 0] }}
-                transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute top-0 right-0 w-44 h-44 bg-amber-400/30 rounded-full blur-3xl"
-              />
-
-              {/* Levitating Magazine Canvas */}
-              <motion.div
-                animate={{ y: [0, -8, 0], rotate: [-3, -1, -3] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="relative w-[220px] sm:w-[260px] aspect-[3/4] bg-[#0f172a] rounded-xl border border-blue-400/30 p-5 shadow-[0_20px_50px_rgba(0,0,0,0.5)] flex flex-col justify-between group-hover:scale-105 transition-transform duration-500"
-              >
-                <div className="space-y-1">
-                  <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-blue-400 block">
-                    Convergence
-                  </span>
-                  <h4 className="text-sm sm:text-base font-black text-white tracking-tight leading-tight">
-                    AMTHROMAX VISUAL 2.0
-                  </h4>
-                </div>
-
-                {/* Animated Pulsing SOTA Vision Inner Box */}
-                <div className="w-full h-28 rounded-lg bg-gradient-to-tr from-emerald-600 via-teal-500 to-lime-400 relative overflow-hidden flex items-center justify-center border border-white/20 shadow-inner">
-                  <motion.div
-                    animate={{ scale: [0.9, 1.3, 0.9], opacity: [0.6, 0.9, 0.6] }}
-                    transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
-                    className="w-20 h-20 rounded-full bg-gradient-to-r from-amber-300 via-emerald-400 to-cyan-400 blur-lg"
-                  />
-                  <span className="absolute text-[11px] font-black text-white uppercase tracking-wider drop-shadow-lg">
-                    SOTA Vision
-                  </span>
-                </div>
-
-                <div className="text-[9px] text-gray-400 font-mono flex justify-between pt-1">
-                  <span>ISSUE 04</span>
-                  <span>AUG 2026</span>
-                </div>
-              </motion.div>
-
-              {/* Floating SOTA Sticky Note */}
-              <motion.div
-                animate={{ y: [0, -5, 0], rotate: [6, 2, 6] }}
-                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                className="absolute bottom-6 right-8 bg-[#fef08a] text-amber-950 font-bold font-mono text-[11px] px-3.5 py-1.5 rounded-sm shadow-md"
-              >
-                SOTA
-              </motion.div>
             </div>
 
             {/* Typography & Meta below Card 1 */}
@@ -348,38 +297,14 @@ const ResearchOverviewPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Visual Card 2: Sky & Animated Floating Frosted Glass Prism */}
+          {/* Visual Card 2: Animated GIF */}
           <div className="flex flex-col space-y-4 group cursor-pointer">
-            <div className="h-[300px] sm:h-[360px] rounded-2xl bg-gradient-to-tr from-[#38bdf8] via-[#0284c7] to-[#bae6fd] relative overflow-hidden flex items-center justify-center p-8 border border-sky-300/40 shadow-md">
-              <motion.div
-                animate={{ scale: [1, 1.25, 1], x: [-10, 15, -10] }}
-                transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -top-12 -left-12 w-3/4 h-3/4 bg-white/50 rounded-full blur-3xl"
+            <div className="h-[300px] sm:h-[360px] rounded-2xl overflow-hidden relative border border-gray-200/80 shadow-md">
+              <img
+                src="/images/vide/6243253f180a27fe8e5cc682634a0e32.gif"
+                alt="Natively Multimodal Model"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
               />
-              <motion.div
-                animate={{ scale: [1.2, 1, 1.2], y: [10, -10, 10] }}
-                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                className="absolute -bottom-10 -right-10 w-2/3 h-2/3 bg-cyan-200/60 rounded-full blur-2xl"
-              />
-
-              {/* Floating Animated Frosted Glass Square */}
-              <motion.div
-                animate={{ y: [0, -12, 0], rotate: [0, 4, 0] }}
-                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-                className="w-44 sm:w-52 h-44 sm:h-52 rounded-2xl bg-white/40 backdrop-blur-xl border border-white/70 shadow-[0_20px_50px_rgba(0,0,0,0.15)] flex items-center justify-center relative overflow-hidden group-hover:scale-105 transition-transform duration-500"
-              >
-                {/* Iridescent Energy Orb inside Glass Square */}
-                <motion.div
-                  animate={{ scale: [0.8, 1.2, 0.8], rotate: [0, 180, 360] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "linear" }}
-                  className="w-16 h-16 rounded-full bg-gradient-to-tr from-sky-200 via-white to-cyan-300 blur-md opacity-90 shadow-lg"
-                />
-                <motion.div
-                  animate={{ scale: [1.2, 0.9, 1.2] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute w-8 h-8 rounded-full bg-white blur-sm shadow-md"
-                />
-              </motion.div>
             </div>
 
             {/* Typography & Meta below Card 2 */}
@@ -406,11 +331,11 @@ const ResearchOverviewPage: React.FC = () => {
           <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#e05244] via-[#ea5845] to-[#c83b2d] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-            {/* Top Logo / Spacer */}
-            <div className="z-10">
-              <span className="text-xl sm:text-2xl font-bold tracking-tight text-white font-serif">
-                Sequoia
-              </span>
+            {/* Top Icon */}
+            <div className="z-10 flex items-center">
+              <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <path d="M12 2L4.5 13.5H9V21h6v-7.5h4.5L12 2z" />
+              </svg>
             </div>
 
             {/* Bottom Content Area */}
@@ -443,11 +368,11 @@ const ResearchOverviewPage: React.FC = () => {
           <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#2d5a44] via-[#3a6b52] to-[#1f4231] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-            {/* Top Logo */}
-            <div className="z-10">
-              <span className="text-2xl sm:text-3xl font-bold tracking-tight text-white font-serif italic">
-                Accel
-              </span>
+            {/* Top Icon */}
+            <div className="z-10 flex items-center">
+              <svg className="w-12 h-12 text-white" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
+                <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
+              </svg>
             </div>
 
             {/* Bottom Content Area */}
@@ -480,14 +405,11 @@ const ResearchOverviewPage: React.FC = () => {
           <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#6b6758] via-[#7d7867] to-[#545144] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
-            {/* Top Logo */}
-            <div className="z-10 flex items-center gap-2">
-              <div className="flex items-center justify-center font-bold text-white border-2 border-white px-1 py-0.5 text-xs tracking-tighter">
+            {/* Top Icon */}
+            <div className="z-10 flex items-center">
+              <div className="w-12 h-12 rounded-xl border-2 border-white flex items-center justify-center font-black text-sm text-white tracking-tighter shadow-sm">
                 |E|
               </div>
-              <span className="text-sm sm:text-base font-extrabold tracking-widest text-white uppercase">
-                EMERGENCE
-              </span>
             </div>
 
             {/* Bottom Content Area */}

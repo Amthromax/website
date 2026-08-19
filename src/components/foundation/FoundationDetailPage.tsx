@@ -119,7 +119,7 @@ const FoundationDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       <SEO 
-        title={`${article.title} | Amthromax Foundation`} 
+        title={`${article.title} | Amthromax Intelligence Hub`} 
         description={article.tagline} 
       />
 
@@ -194,9 +194,9 @@ const FoundationDetailPage: React.FC = () => {
             className="text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2"
           >
             <span>&larr;</span>
-            <span>Back to Foundation</span>
+            <span>Back to Intelligence Hub</span>
           </Link>
-          <span className="text-xs text-gray-400">© 2026 Amthromax AI Foundation</span>
+          <span className="text-xs text-gray-400">© 2026 Amthromax Intelligence Hub</span>
         </div>
       </div>
 

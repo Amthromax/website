@@ -22,11 +22,6 @@ const OrarQlowPage: React.FC = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10 max-w-4xl mx-auto space-y-6"
         >
-          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 border border-white/15 text-xs font-semibold text-gray-300">
-            <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-            <span>OrarQlow.Ai v1.4 Swarm Engine</span>
-          </div>
-
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white leading-tight">
             Deploy & Orchestrate AI Swarms<br />with Sub-15ms Latency
           </h1>
@@ -34,26 +29,6 @@ const OrarQlowPage: React.FC = () => {
           <p className="text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
             The next-generation distributed agent orchestration system designed for high-concurrency enterprise workloads.
           </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
-            <Link
-              to="/register"
-              className="px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
-            >
-              <span>Try OrarQlow.AI</span>
-              <span className="text-base">↗</span>
-            </Link>
-
-            <a
-              href="/contact"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all backdrop-blur-md flex items-center gap-2"
-            >
-              <span>Contact sales</span>
-            </a>
-          </div>
         </motion.div>
       </section>
 

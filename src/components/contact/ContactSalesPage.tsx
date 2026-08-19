@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
+import DemoModal from "../modals/DemoModal";
 
 const INQUIRY_OPTIONS = [
   { 
@@ -61,6 +62,9 @@ export const ContactSalesPage: React.FC = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
 
+  // Demo Modal state
+  const [isDemoModalOpen, setIsDemoModalOpen] = useState(false);
+
   // Chat Agent Modal state
   const [isChatOpen, setIsChatOpen] = useState(false);
   const [chatMessages, setChatMessages] = useState<Array<{ sender: "agent" | "user"; text: string }>>([
@@ -116,14 +120,14 @@ export const ContactSalesPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-[#0b0b0c] min-h-screen text-white font-sans selection:bg-white/10 relative">
+    <div className="bg-black min-h-screen text-white font-sans selection:bg-white/10 relative">
       <SEO 
         title="Contact Sales | Amthromax" 
         description="Get started on your own or contact the Amthromax sales team for complex deployments, 500+ seat plans, and BAAs." 
       />
 
       {/* Top Header Label Bar */}
-      <div className="max-w-7xl mx-auto px-6 pt-24 pb-4 flex justify-between items-center text-xs text-gray-400">
+      <div className="max-w-[1750px] mx-auto px-6 md:px-12 pt-24 pb-4 flex justify-between items-center text-xs text-gray-400">
         <span className="font-medium text-gray-400">Contact sales</span>
         
         {/* Explore here dropdown */}
@@ -144,7 +148,7 @@ export const ContactSalesPage: React.FC = () => {
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
-                className="absolute right-0 mt-2 w-48 bg-[#161618] border border-white/10 rounded-xl shadow-xl z-50 py-2"
+                className="absolute right-0 mt-2 w-48 bg-black border border-white/20 rounded-xl shadow-xl z-50 py-2"
               >
                 <Link to="/products" className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Products Overview</Link>
                 <Link to="/pricing" className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Pricing & Plans</Link>
@@ -157,7 +161,7 @@ export const ContactSalesPage: React.FC = () => {
       </div>
 
       {/* Hero Header Section */}
-      <section className="max-w-4xl mx-auto px-6 pt-6 pb-20 text-center space-y-6">
+      <section className="max-w-[1750px] mx-auto px-6 md:px-12 pt-6 pb-20 text-center space-y-6">
         <motion.h1 
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
@@ -178,11 +182,11 @@ export const ContactSalesPage: React.FC = () => {
       </section>
 
       {/* SECTION 1: For quick results */}
-      <section className="max-w-6xl mx-auto px-6 pb-24 border-b border-white/[0.06]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="max-w-[1750px] mx-auto px-6 md:px-12 pb-24 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Text (4 Columns) */}
-          <div className="lg:col-span-4 space-y-3">
+          {/* Left Text (3 Columns) */}
+          <div className="lg:col-span-3 space-y-3">
             <h2 className="text-3xl md:text-5xl font-sans text-white font-bold tracking-tight">
               For quick results
             </h2>
@@ -191,12 +195,12 @@ export const ContactSalesPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Right Cards Grid (8 Columns) */}
-          <div className="lg:col-span-8 space-y-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {/* Right Cards Grid (9 Columns) */}
+          <div className="lg:col-span-9 space-y-6">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               
               {/* Card 1: Get the Enterprise plan */}
-              <div className="p-8 rounded-3xl bg-[#131315] border border-white/[0.08] flex flex-col justify-between space-y-6">
+              <div className="p-8 rounded-3xl bg-black border border-white/20 flex flex-col justify-between space-y-6 shadow-2xl">
                 <div className="space-y-4">
                   {/* Modern Enterprise Building Icon */}
                   <div className="w-12 h-12 text-white/90 flex items-center justify-start">
@@ -210,7 +214,7 @@ export const ContactSalesPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="space-y-6 pt-4 border-t border-white/[0.06]">
+                <div className="space-y-6 pt-4 border-t border-white/10">
                   <div className="flex items-start space-x-2 text-xs text-gray-300">
                     <span className="text-gray-400 mt-0.5">✓</span>
                     <span>Best if you know exactly what you need and are ready to check out</span>
@@ -218,7 +222,7 @@ export const ContactSalesPage: React.FC = () => {
                   
                   <Link 
                     to="/pricing" 
-                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs rounded-xl transition-all"
+                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-bold text-xs rounded-xl transition-all shadow-md"
                   >
                     Get Enterprise
                   </Link>
@@ -226,7 +230,7 @@ export const ContactSalesPage: React.FC = () => {
               </div>
 
               {/* Card 2: Chat with buying agent */}
-              <div className="p-8 rounded-3xl bg-[#131315] border border-white/[0.08] flex flex-col justify-between space-y-6">
+              <div className="p-8 rounded-3xl bg-black border border-white/20 flex flex-col justify-between space-y-6 shadow-2xl">
                 <div className="space-y-4">
                   {/* Modern AI Agent Sparkles Icon */}
                   <div className="w-12 h-12 text-white/90 flex items-center justify-start">
@@ -240,7 +244,7 @@ export const ContactSalesPage: React.FC = () => {
                   </p>
                 </div>
 
-                <div className="space-y-6 pt-4 border-t border-white/[0.06]">
+                <div className="space-y-6 pt-4 border-t border-white/10">
                   <div className="flex items-start space-x-2 text-xs text-gray-300">
                     <span className="text-gray-400 mt-0.5">✓</span>
                     <span>Best if you have questions you need answered before purchasing</span>
@@ -248,9 +252,39 @@ export const ContactSalesPage: React.FC = () => {
                   
                   <button 
                     onClick={() => setIsChatOpen(true)}
-                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-semibold text-xs rounded-xl transition-all cursor-pointer"
+                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
                   >
                     Chat now
+                  </button>
+                </div>
+              </div>
+
+              {/* Card 3: Schedule technical demo */}
+              <div className="p-8 rounded-3xl bg-black border border-white/20 flex flex-col justify-between space-y-6 shadow-2xl">
+                <div className="space-y-4">
+                  {/* Modern Calendar / Walkthrough Icon */}
+                  <div className="w-12 h-12 text-white/90 flex items-center justify-start">
+                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zM14.25 15h.008v.008H14.25V15zm0 2.25h.008v.008H14.25v-.008zM16.5 15h.008v.008H16.5V15zm0 2.25h.008v.008H16.5v-.008z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Schedule technical demo</h3>
+                  <p className="text-xs text-gray-400 leading-relaxed">
+                    Book a 1-on-1 walkthrough with an AI solution architect to explore custom GPU clusters & models.
+                  </p>
+                </div>
+
+                <div className="space-y-6 pt-4 border-t border-white/10">
+                  <div className="flex items-start space-x-2 text-xs text-gray-300">
+                    <span className="text-gray-400 mt-0.5">✓</span>
+                    <span>Best if you need custom proof-of-concept or architectural validation</span>
+                  </div>
+                  
+                  <button 
+                    onClick={() => setIsDemoModalOpen(true)}
+                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
+                  >
+                    Book demo
                   </button>
                 </div>
               </div>
@@ -258,13 +292,13 @@ export const ContactSalesPage: React.FC = () => {
             </div>
 
             {/* Bottom Support Banner Card */}
-            <div className="p-6 md:p-8 rounded-2xl bg-[#131315] border border-white/[0.08] flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="p-6 md:p-8 rounded-2xl bg-black border border-white/20 flex flex-col md:flex-row justify-between items-center gap-6 shadow-2xl">
               <p className="text-xs text-gray-300 leading-relaxed max-w-xl">
                 More help, right this way. Browse articles, see product details, and get answers to technical questions.
               </p>
               <Link 
                 to="/docs"
-                className="whitespace-nowrap px-5 py-2.5 bg-white/5 hover:bg-white/10 border border-white/15 rounded-xl text-xs font-semibold text-white transition-all"
+                className="whitespace-nowrap px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-xs font-bold text-white transition-all"
               >
                 Visit support center
               </Link>
@@ -276,11 +310,11 @@ export const ContactSalesPage: React.FC = () => {
       </section>
 
       {/* SECTION 2: For complex needs */}
-      <section className="max-w-6xl mx-auto px-6 py-24 border-b border-white/[0.06]">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <section className="max-w-[1750px] mx-auto px-6 md:px-12 py-24 border-b border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
-          {/* Left Text (4 Columns) */}
-          <div className="lg:col-span-4 space-y-3">
+          {/* Left Text (3 Columns) */}
+          <div className="lg:col-span-3 space-y-3">
             <h2 className="text-3xl md:text-5xl font-sans text-white font-bold tracking-tight">
               For complex needs
             </h2>
@@ -289,9 +323,9 @@ export const ContactSalesPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Right Form Card (8 Columns) */}
-          <div className="lg:col-span-8">
-            <div className="p-8 md:p-10 rounded-3xl bg-[#131315] border border-white/[0.08] space-y-6">
+          {/* Right Form Card (9 Columns) */}
+          <div className="lg:col-span-9">
+            <div className="p-8 md:p-10 rounded-3xl bg-black border border-white/20 space-y-6 shadow-2xl">
               
               {/* Custom Premium Selector Box */}
               <div className="space-y-2 relative" ref={dropdownRef}>
@@ -303,7 +337,7 @@ export const ContactSalesPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="w-full px-5 py-4 bg-[#18181b] hover:bg-[#1f1f23] border border-white/15 focus:border-white/40 rounded-2xl text-sm text-white flex items-center justify-between transition-all duration-200 cursor-pointer shadow-inner group"
+                  className="w-full px-5 py-4 bg-black hover:bg-white/5 border border-white/20 focus:border-white/40 rounded-2xl text-sm text-white flex items-center justify-between transition-all duration-200 cursor-pointer shadow-inner group"
                 >
                   <div className="flex items-center space-x-3 truncate">
                     <span className={inquiryType ? "text-white font-semibold truncate" : "text-gray-400 truncate"}>
@@ -340,7 +374,7 @@ export const ContactSalesPage: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -6, scale: 0.99 }}
                       transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="absolute top-full left-0 right-0 mt-2 z-50 p-2 bg-[#161618] border border-white/20 rounded-2xl shadow-2xl backdrop-blur-2xl space-y-1 max-h-[300px] overflow-y-auto overscroll-contain custom-scrollbar"
+                      className="absolute top-full left-0 right-0 mt-2 z-50 p-2 bg-black border border-white/20 rounded-2xl shadow-2xl backdrop-blur-2xl space-y-1 max-h-[300px] overflow-y-auto overscroll-contain custom-scrollbar"
                     >
                       {INQUIRY_OPTIONS.map((opt) => {
                         const isSelected = inquiryType === opt.value;
@@ -391,7 +425,7 @@ export const ContactSalesPage: React.FC = () => {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                     onSubmit={handleSubmit}
-                    className="space-y-6 pt-4 border-t border-white/[0.08]"
+                    className="space-y-6 pt-4 border-t border-white/10"
                   >
                     {isSubmitted ? (
                       <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 text-center space-y-3">
@@ -415,7 +449,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.firstName}
                               onChange={handleFormChange}
                               placeholder="First name"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
@@ -427,7 +461,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.lastName}
                               onChange={handleFormChange}
                               placeholder="Last name"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                         </div>
@@ -442,7 +476,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.workEmail}
                               onChange={handleFormChange}
                               placeholder="name@company.com"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
@@ -454,7 +488,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.companyName}
                               onChange={handleFormChange}
                               placeholder="Organization name"
-                              className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                             />
                           </div>
                         </div>
@@ -467,7 +501,7 @@ export const ContactSalesPage: React.FC = () => {
                             value={formData.message}
                             onChange={handleFormChange}
                             placeholder="Tell us about your target seat count, architecture requirements, or timeline..."
-                            className="w-full px-4 py-3 bg-[#1c1c1f] border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-300 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                            className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
                           />
                         </div>
 
@@ -475,7 +509,7 @@ export const ContactSalesPage: React.FC = () => {
                           <button 
                             type="submit"
                             disabled={isSubmitting}
-                            className="px-6 py-3 bg-white text-black font-semibold text-xs rounded-xl hover:bg-gray-200 transition-all cursor-pointer"
+                            className="px-6 py-3 bg-white text-black font-bold text-xs rounded-xl hover:bg-gray-200 transition-all cursor-pointer shadow-md"
                           >
                             {isSubmitting ? "Submitting..." : "Submit"}
                           </button>
@@ -491,7 +525,7 @@ export const ContactSalesPage: React.FC = () => {
                   <button 
                     type="button" 
                     onClick={() => setInquiryType("500+ Seats Enterprise Licensing")}
-                    className="px-6 py-3 bg-white/90 hover:bg-white text-black font-semibold text-xs rounded-xl transition-all cursor-pointer"
+                    className="px-6 py-3 bg-white text-black font-bold text-xs rounded-xl hover:bg-gray-200 transition-all cursor-pointer shadow-md"
                   >
                     Submit
                   </button>
@@ -535,7 +569,7 @@ export const ContactSalesPage: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="w-full max-w-md bg-[#131315] border-l border-white/10 h-full flex flex-col justify-between p-6"
+              className="w-full max-w-md bg-black border-l border-white/20 h-full flex flex-col justify-between p-6"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Drawer Header */}
@@ -610,6 +644,7 @@ export const ContactSalesPage: React.FC = () => {
         )}
       </AnimatePresence>
 
+      <DemoModal isOpen={isDemoModalOpen} onClose={() => setIsDemoModalOpen(false)} />
       <Footer />
     </div>
   );
