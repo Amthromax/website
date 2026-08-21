@@ -320,65 +320,67 @@ const App: React.FC = () => {
 
               {/* Action Buttons & Menu Toggles (Right) */}
               <div className="flex items-center justify-end space-x-4">
-                {/* Desktop Log In / Profile (Desktop only) */}
+                {/* Desktop Log In / Profile & Try Button (Desktop only) */}
                 <div className="hidden lg:flex items-center space-x-4">
                   {authLoading ? (
                     <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                  ) : user ? (
-                    <div className="relative group">
-                      <button
-                        type="button"
-                        className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
-                      >
-                        {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
-                          <img
-                            src={user.user_metadata.avatar_url || user.user_metadata.picture}
-                            alt="Profile"
-                            className="w-full h-full object-cover"
-                            referrerPolicy="no-referrer"
-                          />
-                        ) : (
-                          <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
-                            {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
-                          </span>
-                        )}
-                      </button>
-                      {/* Hover Dropdown menu */}
-                      <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                        <div className="p-3 border-b border-white/[0.08]">
-                          {user.user_metadata?.full_name || user.user_metadata?.name ? (
-                            <p className="text-xs font-bold text-white truncate mb-1">
-                              {user.user_metadata.full_name || user.user_metadata.name}
-                            </p>
-                          ) : null}
-                          <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
-                          <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
-                        </div>
-                        <div className="p-2 space-y-1">
-                          <Link
-                            to="/profile"
-                            className="block text-left px-3 py-2 text-xs font-bold text-white hover:bg-white/5 rounded-xl transition-all"
-                          >
-                            Settings
-                          </Link>
-                          <button
-                            type="button"
-                            onClick={async () => {
-                              await signOut();
-                            }}
-                            className="w-full text-left px-3 py-2 text-xs font-bold text-white/80 hover:bg-white/10 hover:text-white rounded-xl transition-all cursor-pointer"
-                          >
-                            Sign Out
-                          </button>
-                        </div>
-                      </div>
-                    </div>
                   ) : (
                     <>
-                      <Link to="/login" className="h-9 px-4 bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200/80 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/5 rounded-full text-xs font-semibold transition-all select-none flex items-center justify-center gap-1.5">
-                        <span>Log in</span>
-                        <span className="text-[8px] opacity-60">▼</span>
-                      </Link>
+                      {user ? (
+                        <div className="relative group">
+                          <button
+                            type="button"
+                            className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
+                          >
+                            {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
+                              <img
+                                src={user.user_metadata.avatar_url || user.user_metadata.picture}
+                                alt="Profile"
+                                className="w-full h-full object-cover"
+                                referrerPolicy="no-referrer"
+                              />
+                            ) : (
+                              <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
+                                {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
+                              </span>
+                            )}
+                          </button>
+                          {/* Hover Dropdown menu */}
+                          <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                            <div className="p-3 border-b border-white/[0.08]">
+                              {user.user_metadata?.full_name || user.user_metadata?.name ? (
+                                <p className="text-xs font-bold text-white truncate mb-1">
+                                  {user.user_metadata.full_name || user.user_metadata.name}
+                                </p>
+                              ) : null}
+                              <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
+                              <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
+                            </div>
+                            <div className="p-2 space-y-1">
+                              <Link
+                                to="/profile"
+                                className="block text-left px-3 py-2 text-xs font-bold text-white hover:bg-white/5 rounded-xl transition-all"
+                              >
+                                Settings
+                              </Link>
+                              <button
+                                type="button"
+                                onClick={async () => {
+                                  await signOut();
+                                }}
+                                className="w-full text-left px-3 py-2 text-xs font-bold text-white/80 hover:bg-white/10 hover:text-white rounded-xl transition-all cursor-pointer"
+                              >
+                                Sign Out
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      ) : (
+                        <Link to="/login" className="h-9 px-4 bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200/80 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/5 rounded-full text-xs font-semibold transition-all select-none flex items-center justify-center gap-1.5">
+                          <span>Log in</span>
+                          <span className="text-[8px] opacity-60">▼</span>
+                        </Link>
+                      )}
                       <TryDropdownButton
                         onTryClick={() => {
                           setShowComingSoonModal(true);
@@ -491,27 +493,6 @@ const App: React.FC = () => {
                       <div className="flex justify-start py-2">
                         <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
                       </div>
-                    ) : user ? (
-                      <>
-                        <Link
-                          to="/profile"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
-                        >
-                          <span>Dashboard</span>
-                          <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
-                        </Link>
-                        <button
-                          type="button"
-                          onClick={async () => {
-                            await signOut();
-                            setIsMobileMenuOpen(false);
-                          }}
-                          className="block text-left text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity w-full cursor-pointer"
-                        >
-                          Sign Out
-                        </button>
-                      </>
                     ) : (
                       <>
                         <button
@@ -526,13 +507,36 @@ const App: React.FC = () => {
                           <span>Try Amthromax</span>
                           <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
                         </button>
-                        <Link
-                          to="/login"
-                          onClick={() => setIsMobileMenuOpen(false)}
-                          className="block text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity"
-                        >
-                          Login
-                        </Link>
+                        {user ? (
+                          <>
+                            <Link
+                              to="/profile"
+                              onClick={() => setIsMobileMenuOpen(false)}
+                              className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                            >
+                              <span>Dashboard</span>
+                              <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                            </Link>
+                            <button
+                              type="button"
+                              onClick={async () => {
+                                await signOut();
+                                setIsMobileMenuOpen(false);
+                              }}
+                              className="block text-left text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity w-full cursor-pointer"
+                            >
+                              Sign Out
+                            </button>
+                          </>
+                        ) : (
+                          <Link
+                            to="/login"
+                            onClick={() => setIsMobileMenuOpen(false)}
+                            className="block text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity"
+                          >
+                            Login
+                          </Link>
+                        )}
                       </>
                     )}
                   </div>
