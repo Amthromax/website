@@ -146,7 +146,6 @@ export const ProfilePage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
         {/* Header Title Section */}
         <div className="space-y-2">
-          <span className="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">Dashboard Suite</span>
           <h1 className="text-4xl md:text-5xl font-black tracking-tight text-white font-inter">Security & Privacy Settings</h1>
         </div>
 
@@ -299,7 +298,6 @@ export const ProfilePage: React.FC = () => {
         <div className="p-8 rounded-3xl bg-black border border-white/15 space-y-8 shadow-2xl font-inter">
           <div className="space-y-1 border-b border-white/10 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <span className="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">Privacy & Governance</span>
               <h3 className="text-2xl font-black text-white font-inter">Privacy, Data Protection & Rights</h3>
             </div>
             <div className="flex items-center gap-2">
@@ -430,7 +428,6 @@ export const ProfilePage: React.FC = () => {
         {/* Workspace Inference Resource Panel */}
         <div className="p-8 rounded-3xl bg-black border border-white/15 space-y-6 shadow-2xl">
           <div className="space-y-1 border-b border-white/10 pb-4">
-            <span className="text-[11px] font-extrabold text-blue-400 uppercase tracking-widest block font-inter">Resource Space</span>
             <h3 className="text-xl font-extrabold text-white font-inter">Workspace Compute & Endpoints</h3>
           </div>
 
