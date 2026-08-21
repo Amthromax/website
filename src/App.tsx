@@ -943,7 +943,7 @@ const App: React.FC = () => {
               </button>
 
               {/* Badge */}
-              <div className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400 text-[11px] font-bold tracking-wider uppercase mb-4">
+              <div className="inline-flex items-center gap-1.5 text-blue-400 text-[11px] font-bold tracking-wider uppercase mb-4">
                 <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
                 Coming Soon
               </div>
