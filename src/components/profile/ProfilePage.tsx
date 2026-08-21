@@ -300,11 +300,11 @@ export const ProfilePage: React.FC = () => {
             <div>
               <h3 className="text-2xl font-black text-white font-inter">Privacy, Data Protection & Rights</h3>
             </div>
-            <div className="flex items-center gap-2">
-              <span className="px-3 py-1 rounded-full bg-white/10 text-white text-xs font-inter font-semibold">
+            <div className="flex items-center gap-3 text-xs font-semibold font-inter">
+              <span className="text-white/60">
                 Policy v{PRIVACY_POLICY_VERSION}
               </span>
-              <Link to="/data-protection" className="px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold hover:bg-white/20 transition-colors">
+              <Link to="/data-protection" className="text-white hover:text-gray-300 transition-colors">
                 DPDP Specs
               </Link>
             </div>
