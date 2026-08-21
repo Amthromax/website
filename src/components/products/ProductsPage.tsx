@@ -153,23 +153,22 @@ const ProductsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-white dark:bg-black text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Products | Enterprise AI & Software Systems" 
         description="Browse the suite of Amthromax products: custom software engineering, cloud pipelines, Atlas AI agents, cybersecurity tools, and analytics." 
       />
 
       {/* Hero Header */}
-      <div className="relative py-20 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950 via-zinc-950/60 to-black z-0 pointer-events-none" />
+      <div className="relative py-20 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
         
         {/* Top Header Label Bar */}
-        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-6 w-full flex justify-between items-center text-xs text-gray-400 font-sans">
+        <div className="relative z-10 max-w-7xl mx-auto px-6 pb-6 w-full flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 font-sans">
           <a 
             href="/overview" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center gap-1 text-gray-300 hover:text-white font-medium transition-colors cursor-pointer group"
+            className="flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors cursor-pointer group"
           >
             <span>Overview</span>
             <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
@@ -179,7 +178,7 @@ const ProductsPage: React.FC = () => {
             href="/contact" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="flex items-center gap-1 text-gray-300 hover:text-white font-medium transition-colors cursor-pointer group"
+            className="flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors cursor-pointer group"
           >
             <span>Contact Sales</span>
             <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
@@ -187,10 +186,10 @@ const ProductsPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-gray-900 dark:text-white">
             Intelligent Products & APIs
           </h1>
-          <p className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
             Scalable automation frameworks, zero-trust cloud pipelines, and cognitive models designed to run at industrial scale.
           </p>
 
@@ -199,7 +198,7 @@ const ProductsPage: React.FC = () => {
               href="/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 bg-white text-black font-semibold rounded-full text-xs hover:bg-gray-150 transition-all shadow-md font-sans cursor-pointer flex items-center gap-2"
+              className="px-7 py-3.5 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-semibold rounded-full text-xs transition-all shadow-md font-sans cursor-pointer flex items-center gap-2"
             >
               <span>Contact Sales</span>
               <span className="text-sm font-bold leading-none">↗</span>
@@ -208,7 +207,7 @@ const ProductsPage: React.FC = () => {
               href="/overview"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 bg-black border border-white/20 text-white font-medium rounded-full text-xs hover:bg-white/10 transition-all font-sans cursor-pointer flex items-center gap-2"
+              className="px-7 py-3.5 bg-white text-gray-900 border border-gray-300 hover:bg-gray-100 dark:bg-black dark:text-white dark:border-white/20 dark:hover:bg-white/10 font-medium rounded-full text-xs transition-all font-sans cursor-pointer flex items-center gap-2"
             >
               <span>System Overview</span>
               <span className="text-sm font-bold leading-none">↗</span>
@@ -230,18 +229,18 @@ const ProductsPage: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Card 1 */}
-          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="MORFIX 0.1" 
+                alt="SIMIFIG 4.0" 
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">1. Instant Customer Sync</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">MORFIX 0.1</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">SIMIFIG 4.0</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Automatically capture incoming emails, intelligently categorize support requests, and push prioritized contact data directly to your local tracking CRM dashboards without a single keystroke of manual copy-pasting.
@@ -250,18 +249,18 @@ const ProductsPage: React.FC = () => {
           </div>
           
           {/* Card 2 */}
-          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="INTOX 0.2" 
+                alt="LIGIVOR 5.5" 
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">2. Low Operational Overhead</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">INTOX 0.2</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">LIGIVOR 5.5</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Our lightweight code designs run inside autonomous micro-instances on the edge network, ensuring that you only pay for exactly the compute cycles you use, eliminating expensive flat hosting rates and server maintenance constraints.
@@ -270,18 +269,18 @@ const ProductsPage: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="COTISES 0.5 MAX" 
+                alt="FAVLON 5.4 THINKING" 
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">3. Automated Marketing Triggers</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">COTISES 0.5 MAX</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">FAVLON 5.4 THINKING</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Set up dynamic event triggers that launch highly personalized outreach campaigns based on user behavior inside your website. Nurture leads continuously without requiring dedicated marketing bandwidth to expand your customer base.
@@ -290,18 +289,18 @@ const ProductsPage: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
                 src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="VERKOX 0.4 INSTANT" 
+                alt="ROQLOW INSTANT" 
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">4. Smart Logistics & Tracking</span>
-                <h3 className="text-2xl sm:text-3xl font-bold text-[#1d1d1f] dark:text-white tracking-tight uppercase">VERKOX 0.4 INSTANT</h3>
+                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">ROQLOW INSTANT</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Maintain complete oversight of your small business supply chain. Agents parse receipts, forecast inventory needs, and automatically flag accounting anomalies by correlating data across your spreadsheet tools in real-time.
@@ -332,7 +331,7 @@ const ProductsPage: React.FC = () => {
                 <div className="inline-flex items-center justify-center py-1 transition-transform duration-300 group-hover:scale-105">
                   {prod.icon}
                 </div>
-                <h3 className="text-xl font-bold text-[#1d1d1f] dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-xl font-normal font-sans text-[#1d1d1f] dark:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 transition-colors">
                   {prod.title}
                 </h3>
                 <p className="text-[#515154] dark:text-gray-400 text-sm leading-relaxed font-normal">
@@ -343,7 +342,7 @@ const ProductsPage: React.FC = () => {
               <div className="pt-6 mt-6 border-t border-gray-100 dark:border-white/5">
                 <Link 
                   to={prod.link} 
-                  className="text-sm font-semibold text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 flex items-center gap-1.5 transition-colors"
+                  className="text-sm font-normal text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 flex items-center gap-1.5 transition-colors"
                 >
                   <span>Explore Capabilities</span>
                   <span>›</span>

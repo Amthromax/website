@@ -217,7 +217,7 @@ const UpcomingProjectsSection: React.FC = () => {
   ];
 
   return (
-    <section className="w-full bg-[#f5f5f7] dark:bg-black py-24 border-t border-[#e5e5e7]/60 dark:border-white/10 transition-colors duration-300 font-sans relative">
+    <section className="w-full bg-white dark:bg-black py-24 border-t border-gray-200/80 dark:border-white/10 transition-colors duration-300 font-sans relative">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
         {/* Header Block */}
         <div className="space-y-3">
@@ -249,7 +249,7 @@ const UpcomingProjectsSection: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover blur-md scale-110 group-hover:scale-115 transition-transform duration-700 ease-out"
+                    className="w-full h-full object-cover blur-md scale-110 saturate-[0.55] grayscale-[0.35] group-hover:scale-115 group-hover:saturate-100 group-hover:grayscale-0 transition-all duration-700 ease-out"
                   />
                 ) : (
                   <>
@@ -272,6 +272,9 @@ const UpcomingProjectsSection: React.FC = () => {
                     {project.centerTitle || project.title}
                   </h3>
                 </div>
+
+                {/* Gray Wash */}
+                <div className="absolute inset-0 bg-gradient-to-br from-gray-400/50 via-gray-500/40 to-gray-700/55 opacity-100 group-hover:opacity-45 transition-opacity duration-500 z-10 pointer-events-none" />
 
                 {/* Ambient Light & Contrast Overlay */}
                 <div className="absolute inset-0 bg-black/15 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none" />

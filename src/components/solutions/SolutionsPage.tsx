@@ -91,7 +91,7 @@ const SolutionsPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] p-8 sm:p-10 lg:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center ${
+            className={`bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-[28px] sm:rounded-[36px] p-8 sm:p-10 lg:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
@@ -139,7 +139,7 @@ const SolutionsPage: React.FC = () => {
 
       {/* CTA Footer card */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-24">
-        <div className="bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] rounded-[28px] sm:rounded-[36px] p-10 sm:p-14 text-center space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+        <div className="bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-[28px] sm:rounded-[36px] p-10 sm:p-14 text-center space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
           <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Need a custom integration?
           </h3>

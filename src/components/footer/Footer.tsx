@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import { useTheme } from "../../context/ThemeContext";
 
 interface FooterLink {
   name: string;
@@ -19,6 +20,7 @@ const Footer: React.FC = () => {
     triggerOnce: true,
     threshold: 0.05,
   });
+  const { isDark, setTheme } = useTheme();
 
   const footerColumns: FooterColumn[] = [
     {
@@ -43,7 +45,6 @@ const Footer: React.FC = () => {
         { name: "Pricing Plans", href: "/pricing" },
         { name: "AI Agent Networks", href: "/services/artificial-intelligence" },
         { name: "Custom Software", href: "/services/custom-software" },
-        { name: "Cloud Solutions", href: "/services/cloud-solutions" },
       ],
     },
     {
@@ -110,34 +111,34 @@ const Footer: React.FC = () => {
   return (
     <footer
       ref={ref}
-      className="w-full bg-[#dcd9d2] dark:bg-[#121213] text-[#1a1815] dark:text-white pt-16 sm:pt-24 lg:pt-32 pb-16 sm:pb-24 lg:pb-32 transition-colors duration-300 font-sans border-t border-[#cecac1] dark:border-white/10 select-none"
+      className="w-full bg-white dark:bg-black text-gray-900 dark:text-white pt-12 sm:pt-16 lg:pt-20 pb-12 sm:pb-16 lg:pb-20 transition-colors duration-300 font-sans border-t border-gray-200 dark:border-white/10 select-none"
     >
       <div className="w-full px-6 sm:px-12 md:px-16 lg:px-24 xl:px-32">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={inView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.6 }}
-          className="grid grid-cols-1 lg:grid-cols-12 gap-12 sm:gap-16 lg:gap-24 items-start"
+          className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start"
         >
           {/* Left Column: 3D Asterisk Logo + Copyright + Legal Links */}
-          <div className="lg:col-span-4 space-y-6 sm:space-y-10 flex flex-col items-center text-center">
-            {/* 3D Isometric 6-Pointed Asterisk Logo (Responsive across Mobile, Tablet, Laptop) */}
+          <div className="lg:col-span-4 space-y-4 sm:space-y-6 flex flex-col items-center text-center">
+            {/* 3D Isometric 6-Pointed Asterisk Logo */}
             <Link to="/" className="block mx-auto w-fit group">
               <img
                 src="/images/amthromax_asterisk_logo.png"
                 alt="Amthromax 3D Asterisk Logo"
-                className="w-60 h-60 sm:w-72 sm:h-72 md:w-80 md:h-80 lg:w-96 lg:h-96 object-contain transition-transform duration-300 group-hover:scale-105"
+                className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-transform duration-300 group-hover:scale-105 dark:invert dark:brightness-125"
               />
             </Link>
 
             <div className="space-y-1">
-              <h3 className="text-lg sm:text-xl lg:text-2xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
+              <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
                 Amthromax © {new Date().getFullYear()}
               </h3>
             </div>
 
             {/* Vertical Legal Links */}
-            <div className="flex flex-col items-center text-center space-y-3 sm:space-y-4 text-sm sm:text-base lg:text-lg font-medium text-[#5c5850] dark:text-gray-400">
+            <div className="flex flex-col items-center text-center space-y-2 sm:space-y-2.5 text-xs sm:text-sm lg:text-base font-medium text-[#5c5850] dark:text-gray-400">
               <Link to="/privacy-center" className="hover:text-black dark:hover:text-white transition-colors">
                 Privacy Center
               </Link>
@@ -163,14 +164,14 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Right Columns: Multi-Column Links Grid + Emails */}
-          <div className="lg:col-span-8 flex flex-col gap-10 pt-2 sm:pt-4">
+          <div className="lg:col-span-8 flex flex-col gap-6 pt-2">
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6 lg:gap-4 xl:gap-6">
               {footerColumns.map((column) => (
-                <div key={column.title} className="space-y-3 sm:space-y-4">
+                <div key={column.title} className="space-y-2.5 sm:space-y-3">
                   <h4 className="font-extrabold text-xs sm:text-sm uppercase tracking-wider text-[#1a1815] dark:text-white whitespace-nowrap">
                     {column.title}
                   </h4>
-                  <ul className="space-y-2.5 sm:space-y-3 text-xs sm:text-sm font-medium text-[#5c5850] dark:text-gray-400">
+                  <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm font-medium text-[#5c5850] dark:text-gray-400">
                     {column.items.map((item, idx) => (
                       <li key={idx}>
                         {item.isExternal ? (
@@ -199,20 +200,20 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Company Emails — bottom of nav columns */}
-            <div className="pt-8 border-t border-[#cecac1] dark:border-white/10">
-              <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-5">Contact</p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-4 sm:gap-10">
-                <a href="mailto:contact@amthromax.com" className="flex items-center gap-2 text-sm sm:text-base font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
+            <div className="pt-5 border-t border-[#cecac1] dark:border-white/10">
+              <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3">Contact</p>
+              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-8">
+                <a href="mailto:contact@amthromax.com" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
                   <span className="text-[#5c5850] dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">General</span>
                   <span className="text-[#5c5850] dark:text-gray-500">·</span>
                   <span className="underline underline-offset-2">contact@amthromax.com</span>
                 </a>
-                <a href="mailto:support@amthromax.com" className="flex items-center gap-2 text-sm sm:text-base font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
+                <a href="mailto:support@amthromax.com" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
                   <span className="text-[#5c5850] dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Support</span>
                   <span className="text-[#5c5850] dark:text-gray-500">·</span>
                   <span className="underline underline-offset-2">support@amthromax.com</span>
                 </a>
-                <a href="mailto:press@amthromax.com" className="flex items-center gap-2 text-sm sm:text-base font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
+                <a href="mailto:press@amthromax.com" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
                   <span className="text-[#5c5850] dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Press</span>
                   <span className="text-[#5c5850] dark:text-gray-500">·</span>
                   <span className="underline underline-offset-2">press@amthromax.com</span>
@@ -221,14 +222,14 @@ const Footer: React.FC = () => {
             </div>
 
             {/* AI Models — below Contact */}
-            <div className="pt-8 border-t border-[#cecac1] dark:border-white/10">
-              <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-5">Models</p>
-              <div className="flex flex-row flex-wrap gap-x-8 gap-y-3">
-                {["Morfix", "Cotises", "Intox", "Instant Verkox"].map((model) => (
+            <div className="pt-5 border-t border-[#cecac1] dark:border-white/10">
+              <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3">Models</p>
+              <div className="flex flex-row flex-wrap gap-x-8 gap-y-2">
+                {["Simifig", "Ligivor", "Favlon", "Roqlow"].map((model) => (
                   <a
                     key={model}
                     href="/blog"
-                    className="text-sm sm:text-base font-medium text-[#5c5850] dark:text-gray-400 hover:text-[#1a1815] dark:hover:text-white transition-colors"
+                    className="text-xs sm:text-sm font-medium text-[#5c5850] dark:text-gray-400 hover:text-[#1a1815] dark:hover:text-white transition-colors"
                   >
                     {model}
                   </a>
@@ -239,9 +240,8 @@ const Footer: React.FC = () => {
         </motion.div>
 
 
-        {/* Bottom Bar: Social Links + Live System Status */}
-
-        <div className="mt-16 sm:mt-24 pt-8 sm:pt-12 border-t border-[#cecac1] dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6 sm:gap-8 text-sm sm:text-base text-[#5c5850] dark:text-gray-400">
+        {/* Bottom Bar: Social Links + Theme Switcher + Live System Status */}
+        <div className="mt-10 sm:mt-12 pt-6 sm:pt-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-4 sm:gap-6 text-xs sm:text-sm text-[#5c5850] dark:text-gray-400">
           <div className="flex flex-wrap items-center gap-6 sm:space-x-10">
             <a href="https://x.com/Amthromax" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">X</a>
             <a href="https://www.linkedin.com/company/amthromaxresearch/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">LinkedIn</a>
@@ -249,9 +249,43 @@ const Footer: React.FC = () => {
             <a href="https://www.instagram.com/amthromax/" target="_blank" rel="noopener noreferrer" className="hover:text-black dark:hover:text-white transition-colors font-semibold">Instagram</a>
           </div>
 
-          <div className="flex items-center gap-2.5 text-[#1a1815] dark:text-white font-bold text-sm sm:text-base select-none">
-            <span className="w-2.5 h-2.5 rounded-full bg-[#1a1815] dark:bg-white shrink-0" />
-            <span>All Systems Operational</span>
+          <div className="flex flex-wrap items-center gap-6">
+            {/* Inline Theme Switcher for Bottom Bar */}
+            <div className="inline-flex items-center gap-1">
+              <button
+                type="button"
+                onClick={() => setTheme(false)}
+                className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  !isDark
+                    ? "bg-white text-black shadow-xs border border-gray-300"
+                    : "text-gray-400 hover:text-white"
+                }`}
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
+                </svg>
+                <span>Light</span>
+              </button>
+              <button
+                type="button"
+                onClick={() => setTheme(true)}
+                className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                  isDark
+                    ? "bg-black text-white shadow-xs border border-zinc-700"
+                    : "text-gray-500 hover:text-black"
+                }`}
+              >
+                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
+                  <path d="M12.3 2c.43 0 .77.37.7.8-.57 3.6 1.15 7.24 4.3 9 2.5 1.4 5.56 1.3 7.9-.17.37-.23.86.07.82.5-.72 7.02-6.68 12.43-13.72 11.83C5.26 23.37.5 18.42.03 11.39-.42 4.67 4.7 0 11.3 0c.34 0 .68.02 1 .06V2z"/>
+                </svg>
+                <span>Dark</span>
+              </button>
+            </div>
+
+            <div className="flex items-center gap-2.5 text-[#1a1815] dark:text-white font-bold text-sm sm:text-base select-none">
+              <span className="w-2.5 h-2.5 rounded-full bg-[#1a1815] dark:bg-white shrink-0 animate-pulse" />
+              <span>All Systems Operational</span>
+            </div>
           </div>
         </div>
       </div>

@@ -79,16 +79,16 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[460px] bg-white/95 dark:bg-[#1c1c1e]/95 text-gray-900 dark:text-white rounded-[28px] p-7 sm:p-9 shadow-[0_32px_64px_rgba(0,0,0,0.24)] z-10 border border-white/60 dark:border-white/10 overflow-hidden backdrop-blur-2xl"
+            className="relative w-full max-w-[460px] bg-white dark:bg-black text-gray-900 dark:text-white rounded-[28px] p-7 sm:p-9 shadow-2xl z-10 border border-gray-200 dark:border-white/10 overflow-hidden backdrop-blur-2xl"
           >
             {/* Top Light Ambient Highlight */}
-            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/80 dark:via-white/20 to-transparent pointer-events-none" />
+            <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent pointer-events-none" />
 
-            {/* Apple Circular Close Button */}
+            {/* Circular Close Button */}
             <button
               type="button"
               onClick={onClose}
-              className="absolute top-6 right-6 w-8 h-8 rounded-full bg-gray-100/80 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none"
+              className="absolute top-6 right-6 w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white flex items-center justify-center transition-all cursor-pointer focus:outline-none"
               aria-label="Close modal"
             >
               <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
@@ -122,7 +122,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
               </motion.div>
             ) : (
               <div>
-                {/* Heading: Apple SF / Inter Premium Typography */}
+                {/* Heading */}
                 <h2 className="text-[28px] sm:text-[32px] font-extrabold text-gray-900 dark:text-white tracking-tight leading-[1.15] pr-4 mb-2.5">
                   Skip the pitch. See Amthromax on your pipeline.
                 </h2>
@@ -141,7 +141,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                       value={company}
                       onChange={(e) => setCompany(e.target.value)}
                       placeholder="Company name"
-                      className="w-full px-4 py-3.5 bg-white dark:bg-[#2c2c2e] border border-gray-300 dark:border-gray-700 rounded-xl text-[14px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black dark:focus:ring-white transition-all shadow-none"
+                      className="w-full px-4 py-3.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-[14px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black dark:focus:ring-white transition-all shadow-none"
                     />
                   </div>
 
@@ -152,7 +152,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
                       placeholder="Company email"
-                      className="w-full px-4 py-3.5 bg-white dark:bg-[#2c2c2e] border border-gray-300 dark:border-gray-700 rounded-xl text-[14px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black dark:focus:ring-white transition-all shadow-none"
+                      className="w-full px-4 py-3.5 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-xl text-[14px] text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-black dark:focus:border-white focus:ring-1 focus:ring-black dark:focus:ring-white transition-all shadow-none"
                     />
                   </div>
 
@@ -165,7 +165,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                   <button
                     type="submit"
                     disabled={isLoading}
-                    className="w-full py-4 px-6 bg-black hover:bg-gray-800 dark:bg-white dark:hover:bg-gray-100 text-white dark:text-black font-bold text-[14px] rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 active:scale-[0.99]"
+                    className="w-full py-4 px-6 bg-black hover:bg-zinc-800 dark:bg-white dark:hover:bg-gray-200 text-white dark:text-black font-bold text-[14px] rounded-2xl transition-all shadow-md flex items-center justify-center gap-2 cursor-pointer disabled:opacity-75 active:scale-[0.99]"
                   >
                     {isLoading ? (
                       <span className="w-5 h-5 border-2 border-white/30 dark:border-black/30 border-t-white dark:border-t-black rounded-full animate-spin" />
@@ -179,7 +179,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                 </form>
 
                 {/* Privacy Note */}
-                <p className="text-[12px] text-gray-400 dark:text-gray-500 leading-snug mt-4 font-normal">
+                <p className="text-[12px] text-gray-500 dark:text-gray-400 leading-snug mt-4 font-normal">
                   By submitting this form, you will receive information, tips, and promotions from Amthromax. To learn more, see our{' '}
                   <Link to="/privacy" onClick={onClose} className="text-gray-700 dark:text-gray-300 underline font-medium hover:text-black dark:hover:text-white transition-colors">
                     Privacy Statement

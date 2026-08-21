@@ -52,6 +52,7 @@ import CharterPage from "./components/charter/CharterPage";
 import DemoModal from "./components/modals/DemoModal";
 import AnnouncementBanner from "./components/layout/AnnouncementBanner";
 import RegisterLandingPage from "./components/register/RegisterLandingPage";
+import TryDropdownButton from "./components/layout/TryDropdownButton";
 import HelleiousSafetyPage from "./components/announcements/HelleiousSafetyPage";
 import HelleiousPage from "./components/helleious/HelleiousPage";
 import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
@@ -247,7 +248,7 @@ const App: React.FC = () => {
   const isRegisterPage = location.pathname === "/register";
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-50 transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-white text-gray-900 dark:bg-black dark:text-gray-50 transition-colors duration-300 antialiased">
       <ScrollToTop />
       {!isRegisterPage && <AnnouncementBanner />}
 
@@ -260,14 +261,14 @@ const App: React.FC = () => {
           }}
           animate={hidden ? "hidden" : "visible"}
           transition={{ duration: 0.35, ease: "easeInOut" }}
-          className="sticky top-0 z-50 bg-[#000000] border-b border-white/[0.08] text-white"
+          className="sticky top-0 z-50 bg-white/80 dark:bg-[#000000]/80 backdrop-blur-md border-b border-gray-200/60 dark:border-white/[0.08] text-gray-900 dark:text-white transition-colors duration-200"
           onMouseLeave={handleMouseLeave}
         >
-          <div className="max-w-7xl mx-auto px-6">
+          <div className="max-w-[1600px] mx-auto px-8 sm:px-12 md:px-16">
             <div className="flex justify-between items-center h-13 sm:h-14">
               {/* Left Logo */}
               <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="flex items-center gap-2.5 text-lg md:text-xl font-black text-white tracking-tighter hover:opacity-95 transition-all select-none group">
+                <Link to="/" className="flex items-center gap-2.5 text-xl md:text-2xl font-bold text-gray-900 dark:text-white tracking-tighter hover:opacity-80 transition-all select-none group">
                   <span>Amthromax</span>
                 </Link>
               </div>
@@ -277,64 +278,44 @@ const App: React.FC = () => {
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('research')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Intelligence
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('products')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Products
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('business')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Business
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('developers')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Developers
                 </button>
                 <button
                   type="button"
                   onMouseEnter={() => handleMouseEnter('company')}
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2 cursor-pointer"
                 >
                   Company
                 </button>
                 <Link
                   to="/foundation"
-                  className="text-white/80 hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2"
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-sm sm:text-base font-medium py-2"
                 >
                   Ai Intelli Hub
                 </Link>
-
-                <button
-                  type="button"
-                  onClick={() => {
-                    setIsSearchOpen(!isSearchOpen);
-                    setActiveMenu(null);
-                  }}
-                  className="text-white/60 hover:text-white ml-2 transition-colors duration-200 select-none focus:outline-none flex items-center justify-center"
-                  aria-label="Toggle search overlay"
-                >
-                  {isSearchOpen ? (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                    </svg>
-                  ) : (
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                    </svg>
-                  )}
-                </button>
               </div>
 
               {/* Action Buttons & Menu Toggles (Right) */}
@@ -394,54 +375,29 @@ const App: React.FC = () => {
                     </div>
                   ) : (
                     <>
-                      <Link to="/login" className="h-9 px-4 bg-white/10 hover:bg-white/15 text-white rounded-full text-xs font-semibold transition-all select-none border border-white/5 flex items-center justify-center gap-1.5">
+                      <Link to="/login" className="h-9 px-4 bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200/80 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/5 rounded-full text-xs font-semibold transition-all select-none flex items-center justify-center gap-1.5">
                         <span>Log in</span>
                         <span className="text-[8px] opacity-60">▼</span>
                       </Link>
-                      <button
-                        type="button"
-                        onClick={() => {
+                      <TryDropdownButton
+                        onTryClick={() => {
                           setShowComingSoonModal(true);
                           setIsSubmittedWaitlist(false);
                         }}
-                        className="h-9 px-4 bg-white text-black rounded-full text-xs font-semibold hover:opacity-90 transition-all shadow-md flex items-center justify-center gap-1 cursor-pointer"
-                      >
-                        <span>Try Amthromax</span>
-                        <span className="text-xs">↗</span>
-                      </button>
+                      />
                     </>
                   )}
                 </div>
 
-                {/* Mobile Search & Hamburger Toggle (Mobile only) */}
+                {/* Mobile Hamburger Toggle (Mobile only) */}
                 <div className="lg:hidden flex items-center space-x-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsSearchOpen(!isSearchOpen);
-                      setIsMobileMenuOpen(false);
-                    }}
-                    className="text-white/80 hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
-                    aria-label="Toggle search overlay"
-                  >
-                    {isSearchOpen ? (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
-                    ) : (
-                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                      </svg>
-                    )}
-                  </button>
-
                   <button
                     type="button"
                     onClick={() => {
                       setIsMobileMenuOpen(!isMobileMenuOpen);
                       setIsSearchOpen(false);
                     }}
-                    className="text-white/80 hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
+                    className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
                     aria-label="Toggle mobile menu"
                   >
                     {isMobileMenuOpen ? (
@@ -593,33 +549,33 @@ const App: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
-                className="absolute top-full left-0 right-0 bg-[#0b0b0c] border-b border-white/[0.08] text-white z-45 py-8 px-6 sm:px-12 md:px-24"
+                className="absolute top-full left-0 right-0 bg-white dark:bg-[#0b0b0c] border-b border-gray-200 dark:border-white/[0.08] text-gray-900 dark:text-white z-45 py-8 px-6 sm:px-12 md:px-24 transition-colors duration-200"
                 onMouseEnter={() => {
                   if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
                 }}
                 onMouseLeave={handleMouseLeave}
               >
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                <div className="max-w-[1600px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
                   {activeMenu === 'research' && (
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Explore Intelligence</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Explore Intelligence</span>
                         <div className="space-y-3">
-                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Intelligence Index</Link>
-                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Intelligence Overview</Link>
-                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Intelligence Residency</Link>
-                          <Link to="/security" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Safety</Link>
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Intelligence Index</Link>
+                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Intelligence Overview</Link>
+                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Intelligence Residency</Link>
+                          <Link to="/security" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Safety</Link>
                         </div>
                       </div>
                       {/* Right Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Latest Advancements</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Latest Advancements</span>
                         <div className="space-y-2.5">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">MORFIX 0.1</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">INTOX 0.2</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">COTISES 0.5 MAX</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">VERKOX 0.4 INSTANT</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">MORFIX 0.1</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">INTOX 0.2</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">COTISES 0.5 MAX</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">VERKOX 0.4 INSTANT</Link>
                         </div>
                       </div>
                     </>
@@ -629,22 +585,22 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Explore Products</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Explore Products</span>
                         <div className="space-y-3">
-                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Product Index</Link>
-                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Platform Core</Link>
-                          <Link to="/orarqlow" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-emerald-400 hover:text-emerald-300 transition-colors">OrarQlow.Ai</Link>
-                          <Link to="/helleious" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-blue-400 hover:text-blue-300 transition-colors">Helleious.Ai</Link>
-                          <Link to="/codehoomer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-purple-400 hover:text-purple-300 transition-colors">CodeHoomer.Ai</Link>
+                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Product Index</Link>
+                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Platform Core</Link>
+                          <Link to="/orarqlow" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-300 transition-colors">OrarQlow.Ai</Link>
+                          <Link to="/helleious" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Helleious.Ai</Link>
+                          <Link to="/codehoomer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-purple-600 dark:text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 transition-colors">CodeHoomer.Ai</Link>
                         </div>
                       </div>
                       {/* Right Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Developer Hub</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Developer Hub</span>
                         <div className="space-y-2.5">
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Documentation</Link>
-                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Pricing Plans</Link>
-                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Developer Tools</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Documentation</Link>
+                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Pricing Plans</Link>
+                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Developer Tools</Link>
                         </div>
                       </div>
                     </>
@@ -654,24 +610,24 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column - BUSINESS */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">BUSINESS</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">BUSINESS</span>
                         <div className="space-y-2.5">
-                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Overview</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Solutions</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Resources</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/partners" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Partner Network</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/contact" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Developer Hub</Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Overview</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Solutions</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Resources</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/partners" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Partner Network</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/contact" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Developer Hub</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>API Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
                         </div>
                       </div>
                       {/* Right Column - API Platform */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">API Platform</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">API Platform</span>
                         <div className="space-y-2.5">
-                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Overview</Link>
-                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Overview</Link>
+                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
                         </div>
                       </div>
                     </>
@@ -681,21 +637,21 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column - API Platform */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">API Platform</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">API Platform</span>
                         <div className="space-y-2.5">
-                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Overview</Link>
-                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Overview</Link>
+                          <Link to="/login" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>API Log In</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
                         </div>
                       </div>
                       {/* Right Column - Developer Hub */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Developer Hub</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Developer Hub</span>
                         <div className="space-y-2.5">
-                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Developer Portal</Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center justify-between"><span>Documentation</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Pricing &amp; Quotas</Link>
-                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Developer Tools</Link>
+                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Developer Portal</Link>
+                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Documentation</span><span className="text-sm font-normal opacity-70">↗</span></Link>
+                          <Link to="/pricing" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Pricing &amp; Quotas</Link>
+                          <Link to="/why/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Developer Tools</Link>
                         </div>
                       </div>
                     </>
@@ -705,22 +661,22 @@ const App: React.FC = () => {
                     <>
                       {/* Left Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Explore Corporate</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Explore Corporate</span>
                         <div className="space-y-3">
-                          <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">About Us</Link>
-                          <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Careers</Link>
-                          <Link to="/team" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors">Team</Link>
-                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-white hover:text-white/80 transition-colors flex items-center gap-2"><span>Contact Sales</span><span className="text-lg font-normal opacity-70">↗</span></a>
+                          <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">About Us</Link>
+                          <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Careers</Link>
+                          <Link to="/team" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Team</Link>
+                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors flex items-center gap-2"><span>Contact Sales</span><span className="text-lg font-normal opacity-70">↗</span></a>
                         </div>
                       </div>
                       {/* Right Column */}
                       <div className="space-y-6">
-                        <span className="text-xs font-extrabold text-white/50 uppercase tracking-widest block">Resources</span>
+                        <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Resources</span>
                         <div className="space-y-2.5">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Blog</Link>
-                          <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">Newsroom</Link>
-                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors">AI Foundation</Link>
-                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-white/90 hover:text-white transition-colors flex items-center gap-1.5"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></a>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Blog</Link>
+                          <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Newsroom</Link>
+                          <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">AI Foundation</Link>
+                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></a>
                         </div>
                       </div>
                     </>

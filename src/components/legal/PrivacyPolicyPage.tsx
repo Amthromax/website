@@ -32,7 +32,7 @@ const PrivacyPolicyPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300 antialiased font-sans">
+    <div className="bg-white dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300 antialiased font-sans">
       <SEO
         title="Understand Your Privacy Rights and Data Options | Amthromax"
         description="Amthromax Privacy Policy explaining data collection, automated telemetry, AI usage, privacy rights, and compliance options."
@@ -489,7 +489,7 @@ const PrivacyPolicyPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 10 }}
-              className="relative w-full max-w-lg bg-white dark:bg-[#161617] border border-gray-200 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl text-left"
+              className="relative w-full max-w-lg bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl text-left"
             >
               <button
                 type="button"

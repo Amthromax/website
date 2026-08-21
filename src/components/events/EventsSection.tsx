@@ -80,14 +80,14 @@ const productIdeasData: ProductIdeaItem[] = [
   {
     id: "idea-4",
     badge: "Product 04",
-    title: "Verkox 0.4 Instant Lattice Encryption",
+    title: "Roqlow 0.4 Instant Lattice Encryption",
     specs: "NIST Quantum Standard · Hardware Isolation",
     location: "Amthromax Cyber Lab, San Francisco, CA",
     type: "Post-Quantum Security",
     link: "/products",
     category: "Post-Quantum Security",
     modalTitle: "Next-generation CRYSTALS-Kyber post-quantum security",
-    description: "Verkox 0.4 integrates NIST-standard lattice encryption protocols to protect high-volume enterprise telemetry against future quantum computing decryption.",
+    description: "Roqlow 0.4 integrates NIST-standard lattice encryption protocols to protect high-volume enterprise telemetry against future quantum computing decryption.",
     bullets: [
       { title: "Encrypt", desc: "Instant post-quantum key exchanges safeguard confidential enterprise payload streams in real time." },
       { title: "Isolate", desc: "Zero-trust Hardware Security Modules (HSM) store private cryptographic keys in air-gapped enclaves." },

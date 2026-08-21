@@ -54,17 +54,17 @@ const AnnouncementBanner: React.FC<AnnouncementBannerProps> = () => {
           animate={{ y: 0, opacity: 1 }}
           exit={{ y: 80, opacity: 0 }}
           transition={{ duration: 0.35, ease: [0.16, 1, 0.3, 1] }}
-          className="fixed bottom-0 left-0 right-0 z-50 bg-black text-white border-t border-white/10 select-none font-sans py-3 px-4 sm:px-8 shadow-none antialiased"
+          className="fixed bottom-0 left-0 right-0 z-50 bg-white text-gray-900 border-t border-gray-200 select-none font-sans py-3 px-4 sm:px-8 shadow-[0_-1px_24px_rgba(0,0,0,0.07)] antialiased"
         >
           <div className="max-w-7xl mx-auto flex items-center justify-between gap-4 md:gap-8">
             {/* High Clarity Announcement Text */}
-            <div className="flex-1 flex items-center justify-center text-center text-xs sm:text-[13.5px] font-medium text-white/95 tracking-normal leading-normal overflow-hidden">
+            <div className="flex-1 flex items-center justify-center text-center text-xs sm:text-[13.5px] font-medium text-gray-900 tracking-normal leading-normal overflow-hidden">
               <p className="whitespace-nowrap overflow-hidden text-ellipsis">
-                <span className="font-semibold text-white">Amthromax Next AI is coming.</span>{" "}
-                <span className="text-white/80 font-normal">
+                <span className="font-semibold text-gray-900">Amthromax Next AI is coming.</span>{" "}
+                <span className="text-gray-600 font-normal">
                   A new generation of enterprise intelligence — autonomous reasoning, real-time pipelines, and beyond.{" "}
                 </span>
-                <span className="text-white font-semibold hover:underline cursor-pointer whitespace-nowrap" onClick={handleRegisterClick}>
+                <span className="text-gray-900 font-semibold hover:underline cursor-pointer whitespace-nowrap" onClick={handleRegisterClick}>
                   Be the first to know &rarr;
                 </span>
               </p>
@@ -75,7 +75,7 @@ const AnnouncementBanner: React.FC<AnnouncementBannerProps> = () => {
               <button
                 type="button"
                 onClick={handleRegisterClick}
-                className="bg-[#d4ff00] hover:bg-[#c2f000] text-black font-bold text-xs sm:text-[12.5px] px-5 py-2 rounded-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-[#e6ff66]/40 cursor-pointer flex items-center gap-1.5"
+                className="bg-[#d4ff00] hover:bg-[#c2f000] text-black font-bold text-xs sm:text-[12.5px] px-5 py-2 rounded-xl transition-all duration-200 transform hover:scale-[1.02] active:scale-[0.98] border border-black/10 cursor-pointer flex items-center gap-1.5"
               >
                 <span>Learn More</span>
               </button>
@@ -83,7 +83,7 @@ const AnnouncementBanner: React.FC<AnnouncementBannerProps> = () => {
               <button
                 type="button"
                 onClick={handleDismiss}
-                className="text-white/50 hover:text-white transition-colors p-1.5 rounded-full hover:bg-white/10 focus:outline-none"
+                className="text-gray-400 hover:text-gray-900 transition-colors p-1.5 rounded-full hover:bg-black/5 focus:outline-none"
                 aria-label="Close announcement"
               >
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.2">

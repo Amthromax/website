@@ -1,16 +1,127 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaGithub, FaDocker } from "react-icons/fa6";
+import { 
+  FaGithub, 
+  FaDocker, 
+  FaCode, 
+  FaShieldHalved, 
+  FaCheckDouble, 
+  FaBolt, 
+  FaFolderTree, 
+  FaVial, 
+  FaWrench, 
+  FaBoxOpen, 
+  FaLaptopCode, 
+  FaLanguage, 
+  FaBrain, 
+  FaTerminal, 
+  FaSliders, 
+  FaShareNodes, 
+  FaCodeCommit 
+} from "react-icons/fa6";
 import { SiGitlab, SiKubernetes } from "react-icons/si";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
+
+const moreFeatures = [
+  {
+    icon: FaWrench,
+    title: "Autonomous Code Refactoring",
+    description: "Transform legacy monoliths into high-performance microservices automatically",
+  },
+  {
+    icon: FaShieldHalved,
+    title: "Zero-False-Positive Static Analysis",
+    description: "Deep AST code analysis to catch security vulnerabilities and memory leaks",
+  },
+  {
+    icon: FaCheckDouble,
+    title: "Automated Pull Request Reviews",
+    description: "Instant line-by-line PR reviews with automated fixes and merge approval",
+  },
+  {
+    icon: FaBolt,
+    title: "Rust & High-Speed Runtime",
+    description: "High-throughput execution engine optimized for low latency and minimal overhead",
+  },
+  {
+    icon: FaFolderTree,
+    title: "Full Repository Context Engine",
+    description: "Analyze entire enterprise codebases with deep cross-file awareness",
+  },
+  {
+    icon: FaGithub,
+    title: "Git & CI/CD Integration",
+    description: "Seamless compatibility with GitHub Actions, GitLab CI, Docker, and Kubernetes",
+  },
+  {
+    icon: FaVial,
+    title: "Automated Test Generation",
+    description: "Auto-generate unit, integration, and end-to-end test suites with high coverage",
+  },
+  {
+    icon: FaCode,
+    title: "Sub-Second Code Completion",
+    description: "Real-time inline code synthesis and intelligent function completion",
+  },
+  {
+    icon: FaBoxOpen,
+    title: "Dependency & Vulnerability Audit",
+    description: "Automatic dependency scanning and automated patch pull requests",
+  },
+  {
+    icon: FaLaptopCode,
+    title: "Multimodal UI-to-Code",
+    description: "Convert Figma screens, screenshots, and wireframes directly into clean React code",
+  },
+  {
+    icon: FaLanguage,
+    title: "30+ Programming Languages",
+    description: "Full support for Rust, TypeScript, Python, Go, C++, Java, SQL, and more",
+  },
+  {
+    icon: FaBrain,
+    title: "Persistent Code Memory",
+    description: "Maintains architecture decisions, coding standards, and documentation history",
+  },
+  {
+    icon: FaTerminal,
+    title: "Developer IDE Studio",
+    description: "Visual code editing workspace with interactive AI agent debugging session",
+  },
+  {
+    icon: FaSliders,
+    title: "Custom Linter & Style Rules",
+    description: "Enforce repository-specific coding styles and architectural patterns",
+  },
+  {
+    icon: FaShareNodes,
+    title: "Shareable Code Traces",
+    description: "Export reproducible debugging sessions and code execution traces",
+  },
+  {
+    icon: FaDocker,
+    title: "Local, Cloud & Container Deploy",
+    description: "Run locally in VS Code / JetBrains or deploy inside Docker & K8s",
+  },
+  {
+    icon: FaCodeCommit,
+    title: "Event-Driven Git Hooks",
+    description: "Auto-trigger code reviews and linting on git push and pull request events",
+  },
+  {
+    icon: FaShieldHalved,
+    title: "SuperCodeHoomer Studio",
+    description: "Priority GPU/CPU compute, unlimited parallel workers, and 24/7 dev support",
+  },
+];
 
 const CodeHoomerPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("config");
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-sans antialiased selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
       <SEO
         title="CodeHoomer.ai | Autonomous AI Software Engineering Studio | Amthromax"
         description="Build, test, refactor, and deploy enterprise codebases with CodeHoomer.ai. The next-generation autonomous AI software developer for modern engineering teams."
@@ -25,11 +136,11 @@ const CodeHoomerPage: React.FC = () => {
           className="relative z-10 max-w-4xl mx-auto space-y-6"
         >
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
             Put CodeHoomer.AI to work<br />across your codebase
           </h1>
 
-          <p className="text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
             Architect, refactor, debug, and deploy enterprise software at scale—built for modern dev teams.
           </p>
 
@@ -37,7 +148,7 @@ const CodeHoomerPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               to="/register"
-              className="px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
             >
               <span>Try CodeHoomer.AI</span>
               <span className="text-base">↗</span>
@@ -47,7 +158,7 @@ const CodeHoomerPage: React.FC = () => {
               href="/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all backdrop-blur-md flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/15 text-gray-900 dark:text-white font-semibold text-sm transition-all border border-gray-300 dark:border-white/15 flex items-center gap-2"
             >
               <span>Contact sales</span>
             </a>
@@ -55,10 +166,10 @@ const CodeHoomerPage: React.FC = () => {
         </motion.div>
       </section>
 
-      {/* Section 1: Developer Blueprints (Sharp Edge Apple Box Cards) */}
-      <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/10">
+      {/* Section 1: Developer Blueprints */}
+      <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-normal text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
             Developer Blueprints
           </h2>
         </div>
@@ -76,10 +187,10 @@ const CodeHoomerPage: React.FC = () => {
             className="flex flex-col space-y-4 group cursor-pointer"
           >
             {/* Outer Container with BLACK Obsidian Background & Sharp Edge Apple Box Styling */}
-            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-black border border-white/15 group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-2xl transition-all duration-300 flex flex-col justify-start space-y-5">
+            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 group-hover:border-gray-400 dark:group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex flex-col justify-start space-y-5">
               
               {/* Dot Grid overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               {/* Top Sharp Floating Prompt Box */}
               <motion.div 
@@ -201,10 +312,10 @@ const CodeHoomerPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 AI Code Refactoring Engine
               </h3>
-              <p className="text-base text-gray-400 font-normal leading-relaxed">
+              <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Transform legacy monoliths into high-performance microservices automatically.
               </p>
             </div>
@@ -220,13 +331,13 @@ const CodeHoomerPage: React.FC = () => {
             className="flex flex-col space-y-4 group cursor-pointer"
           >
             {/* Outer Container with BLACK Obsidian Background */}
-            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-black border border-white/15 group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-2xl transition-all duration-300 flex items-center justify-center">
+            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 group-hover:border-gray-400 dark:group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex items-center justify-center">
               
               {/* Dynamic Glow on Hover */}
               <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-purple-500/20 transition-all duration-500" />
               
               {/* Dot Grid overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               {/* Inner Stacked Layout */}
               <div className="relative z-10 w-full h-full flex items-center justify-between gap-5">
@@ -328,10 +439,10 @@ const CodeHoomerPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-purple-400 transition-colors">
+              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                 Automated Code Review & Guardrails
               </h3>
-              <p className="text-base text-gray-400 font-normal leading-relaxed">
+              <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Automate pull request reviews and static analysis with zero false positives.
               </p>
             </div>
@@ -341,12 +452,12 @@ const CodeHoomerPage: React.FC = () => {
       </section>
 
       {/* Section 2: AI Engineering with Confidence */}
-      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-5xl font-normal text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
             AI engineering built for scale
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg font-medium">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
             Integrate CodeHoomer seamlessly into your git workflows, local IDEs, and CI/CD pipelines.
           </p>
         </div>
@@ -354,23 +465,23 @@ const CodeHoomerPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-5 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight leading-tight">
               Connect your repositories
             </h3>
-            <p className="text-gray-400 text-base font-normal leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
               Grant CodeHoomer access to your codebases via fine-grained, zero-trust token scoping.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 to="/products"
-                className="px-6 py-3 rounded-xl bg-white text-black font-bold text-xs hover:bg-gray-100 transition-all shadow-md"
+                className="px-6 py-3 rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold text-xs hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-md"
               >
                 Explore IDE Extensions
               </Link>
               <Link
                 to="/docs"
-                className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs transition-all backdrop-blur-md flex items-center gap-1.5"
+                className="px-6 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-gray-900 dark:text-white font-semibold text-xs border border-gray-300 dark:border-white/15 transition-all backdrop-blur-md flex items-center gap-1.5"
               >
                 <span>Read Developer API Docs</span>
                 <span>↗</span>
@@ -379,8 +490,8 @@ const CodeHoomerPage: React.FC = () => {
           </div>
 
           <div className="lg:col-span-7">
-            <div className="w-full min-h-[380px] sm:min-h-[420px] rounded-2xl bg-black border border-white/15 hover:border-white/30 p-8 relative overflow-hidden shadow-2xl transition-all duration-300 flex items-center justify-center">
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+            <div className="w-full min-h-[380px] sm:min-h-[420px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 hover:border-gray-400 dark:hover:border-white/30 p-8 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex items-center justify-center">
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               <div className="relative z-10 flex items-center justify-center gap-4 sm:gap-6 overflow-x-auto no-scrollbar py-6 w-full">
                 {/* GitHub Logo */}
@@ -410,8 +521,8 @@ const CodeHoomerPage: React.FC = () => {
                   className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl bg-white shadow-2xl border-4 border-white/80 flex items-center justify-center shrink-0 transform scale-105 cursor-pointer"
                 >
                   <div className="flex flex-col items-center justify-center">
-                    <span className="text-2xl font-black tracking-tighter text-black">CODE</span>
-                    <span className="text-[10px] font-bold tracking-widest text-blue-600">HOOMER</span>
+                    <span className="text-2xl font-bold tracking-tighter text-black">CODE</span>
+                    <span className="text-[10px] font-semibold tracking-widest text-blue-600">HOOMER</span>
                   </div>
                 </motion.div>
 
@@ -441,8 +552,45 @@ const CodeHoomerPage: React.FC = () => {
         </div>
       </section>
 
+      {/* Section: And much more */}
+      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
+        <div className="max-w-4xl mb-16 space-y-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+            And much more
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
+            Everything your engineering team needs to build, refactor, test, and ship production software at scale.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8 sm:gap-x-12">
+          {moreFeatures.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.02 }}
+              className="flex items-start gap-4 group"
+            >
+              <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 text-gray-700 dark:text-gray-300 group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors pt-0.5">
+                <item.icon className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
       {/* Section 3: Pitch Banner */}
-      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           whileInView={{ opacity: 1, scale: 1 }}
@@ -450,18 +598,18 @@ const CodeHoomerPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="w-full text-center space-y-6 max-w-4xl mx-auto py-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
             Accelerate your engineering speed with CodeHoomer.AI
           </h2>
 
-          <p className="text-gray-400 text-sm sm:text-base font-medium max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium max-w-xl mx-auto">
             Experience the future of autonomous software engineering today.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               to="/register"
-              className="px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
             >
               <span>Try CodeHoomer.AI</span>
               <span className="text-base">↗</span>
@@ -471,7 +619,7 @@ const CodeHoomerPage: React.FC = () => {
               href="/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all backdrop-blur-md flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/15 text-gray-900 dark:text-white font-semibold text-sm transition-all border border-gray-300 dark:border-white/15 flex items-center gap-2"
             >
               <span>Contact sales</span>
             </a>

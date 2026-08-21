@@ -20,7 +20,7 @@ const PageHeader: React.FC<{ category?: string; title: string; subtitle: string 
 // 1. FOR ENTERPRISES PAGE
 export const EnterprisesPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       <PageHeader
         title="Industrial Scale. Certified Security."
         subtitle="Unify your systems with high-throughput automation engines, zero-trust cloud network frameworks, and dedicated support pipelines."
@@ -44,7 +44,7 @@ export const EnterprisesPage: React.FC = () => {
               { label: "Data Encryption", value: "AES-256" },
               { label: "Compliance Standard", value: "SOC2 Type II" }
             ].map((stat, idx) => (
-              <div key={idx} className="p-8 bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[24px] text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
+              <div key={idx} className="p-8 bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[24px] text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
                 <span className="text-[10px] md:text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider">{stat.label}</span>
                 <h3 className={`font-black text-gray-900 dark:text-white tracking-tight ${stat.value.length > 8 ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'}`}>
                   {stat.value}
@@ -58,7 +58,7 @@ export const EnterprisesPage: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {/* Card 1 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/4581a46a-71af-4f57-9755-37895b033f91.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Zero-Trust" />
             </div>
@@ -72,7 +72,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/5080718a-31ec-4965-9f36-6489a855c841.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Pipeline Scaling" />
             </div>
@@ -86,7 +86,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/6dedb3e9-0f1b-4588-be70-9a0f66e58485.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="SLA Commitments" />
             </div>
@@ -100,7 +100,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/71330e1b-6cbc-4d5f-b41a-4bd952642667.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Dedicated Compute" />
             </div>
@@ -114,7 +114,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 5 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/f52c3acd-0fed-4dc2-a531-a577ef8aa5e6.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Quantum Crypto" />
             </div>
@@ -128,7 +128,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 6 */}
-          <div className="group bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/5a420a98-3f97-4888-a234-70f644008d80.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Global Sync" />
             </div>
@@ -153,7 +153,7 @@ export const EnterprisesPage: React.FC = () => {
 // 2. FOR SMALL BUSINESSES PAGE
 export const SmallBusinessesPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       <PageHeader
         title="Accelerate Growth. Simplify Operations."
         subtitle="Bring the power of intelligent automated agents, integrated dashboards, and client-sync tools directly to your business."
@@ -172,7 +172,7 @@ export const SmallBusinessesPage: React.FC = () => {
         {/* Feature Grid with Images */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Card 1 */}
-          <div className="group bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Customer Sync" />
             </div>
@@ -185,7 +185,7 @@ export const SmallBusinessesPage: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Low Overhead" />
             </div>
@@ -198,7 +198,7 @@ export const SmallBusinessesPage: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Marketing Triggers" />
             </div>
@@ -211,7 +211,7 @@ export const SmallBusinessesPage: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-white dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Smart Financials" />
             </div>
@@ -233,7 +233,7 @@ export const SmallBusinessesPage: React.FC = () => {
 // 3. FOR DEVELOPERS PAGE
 export const DevelopersPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       <PageHeader
         title="Robust APIs. Instant Integrations."
         subtitle="Access high-performance developer tools, detailed SDK packages, and modular cryptography protocols built to integrate in minutes."

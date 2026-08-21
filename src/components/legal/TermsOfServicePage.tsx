@@ -4,7 +4,7 @@ import Footer from "../footer/Footer";
 
 const TermsOfServicePage: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300 antialiased font-sans">
+    <div className="bg-white dark:bg-black text-gray-900 dark:text-gray-100 min-h-screen transition-colors duration-300 antialiased font-sans">
       <SEO
         title="Terms of Service | Amthromax"
         description="Amthromax Terms of Service governing subscription agreements, platform usage, licensing, data processing, and user obligations."

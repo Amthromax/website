@@ -236,7 +236,7 @@ const CharterPage: React.FC = () => {
   ];
 
   return (
-    <div className="w-full min-h-screen bg-[#0a0a0d] text-white transition-colors duration-300 font-sans">
+    <div className="w-full min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300 font-sans">
       <SEO
         title="Our Charter | Amthromax AI"
         description="The Amthromax Charter outlines our foundational commitments to broadly beneficial AI, safety alignment, open research, and cooperative governance."
@@ -248,7 +248,7 @@ const CharterPage: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl sm:text-6xl lg:text-7xl font-extrabold text-white tracking-tight leading-tight max-w-4xl mx-auto"
+          className="text-4xl sm:text-6xl lg:text-7xl font-normal text-gray-900 dark:text-white tracking-tight leading-tight max-w-4xl mx-auto font-sans"
         >
           The Amthromax Charter
         </motion.h1>
@@ -257,21 +257,21 @@ const CharterPage: React.FC = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-normal"
+          className="text-gray-600 dark:text-gray-300 text-lg sm:text-xl md:text-2xl max-w-3xl mx-auto leading-relaxed font-normal"
         >
           Our mission is to ensure that artificial general intelligence and autonomous software systems serve the public interest, safeguard human dignity, and elevate enterprise capability across the globe.
         </motion.p>
       </section>
 
       {/* 2. Executive Statement Banner */}
-      <section className="py-12 border-y border-white/10 bg-[#121318]">
+      <section className="py-12 border-y border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
           <div className="max-w-4xl mx-auto space-y-4 text-center md:text-left md:flex md:items-center md:justify-between md:gap-12">
-            <p className="text-xl md:text-2xl font-bold text-white leading-snug">
+            <p className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white leading-snug font-sans">
               "We believe advanced AI must be developed with unyielding ethical rigor, technical resilience, and universal accountability."
             </p>
-            <div className="shrink-0 space-y-1 text-sm font-semibold text-gray-400">
-              <span className="block font-bold text-white">Amthromax Board of Directors</span>
+            <div className="shrink-0 space-y-1 text-sm font-normal text-gray-500 dark:text-gray-400">
+              <span className="block font-normal text-gray-900 dark:text-white">Amthromax Board of Directors</span>
               <span>San Francisco • London • Tokyo</span>
             </div>
           </div>
@@ -286,10 +286,10 @@ const CharterPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4 text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
             Our Four Pillar Commitments
           </h2>
-          <p className="text-gray-400 text-base md:text-lg font-medium">
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-normal">
             These non-negotiable mandates govern every research initiative, product feature, and commercial deployment at Amthromax.
           </p>
         </motion.div>
@@ -301,39 +301,39 @@ const CharterPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={commitmentsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="grid md:grid-cols-12 gap-8 items-start border-b border-white/10 pb-16 last:border-b-0"
+              className="grid md:grid-cols-12 gap-8 items-start border-b border-gray-200 dark:border-white/10 pb-16 last:border-b-0"
             >
               <div className="md:col-span-3 space-y-2">
-                <span className="text-4xl md:text-5xl font-black text-gray-700 tracking-tight block">
+                <span className="text-4xl md:text-5xl font-normal text-gray-400 dark:text-gray-600 tracking-tight block font-sans">
                   {c.number}
                 </span>
-                <span className="text-xs font-extrabold uppercase tracking-widest text-gray-400 block">
+                <span className="text-xs font-normal uppercase tracking-widest text-gray-500 dark:text-gray-400 block">
                   Pillar Commitment
                 </span>
               </div>
 
               <div className="md:col-span-9 space-y-6">
                 <div>
-                  <h3 className="text-2xl md:text-3xl font-extrabold text-white tracking-tight mb-2">
+                  <h3 className="text-2xl md:text-3xl font-normal text-gray-900 dark:text-white tracking-tight mb-2 font-sans">
                     {c.title}
                   </h3>
-                  <span className="text-sm font-bold text-gray-400">
+                  <span className="text-sm font-normal text-gray-500 dark:text-gray-400">
                     {c.subtitle}
                   </span>
                 </div>
 
-                <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+                <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-normal">
                   {c.description}
                 </p>
 
                 <div className="space-y-3 pt-2">
-                  <h4 className="text-xs font-black uppercase tracking-widest text-white">
+                  <h4 className="text-xs font-normal uppercase tracking-widest text-gray-900 dark:text-white">
                     Operational Execution:
                   </h4>
                   <ul className="space-y-2.5">
                     {c.principles.map((p, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-3 text-sm text-gray-300 font-medium">
-                        <span className="text-white font-bold">✓</span>
+                      <li key={pIdx} className="flex items-start gap-3 text-sm text-gray-600 dark:text-gray-300 font-normal">
+                        <span className="text-gray-900 dark:text-white font-normal">✓</span>
                         <span>{p}</span>
                       </li>
                     ))}
@@ -346,7 +346,7 @@ const CharterPage: React.FC = () => {
       </section>
 
       {/* 4. Interactive Safety Architecture Diagram Section */}
-      <section ref={diagramRef} className="py-24 bg-gray-50 dark:bg-[#121318] border-y border-gray-200 dark:border-white/10">
+      <section ref={diagramRef} className="py-24 bg-white dark:bg-black border-y border-gray-200 dark:border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 space-y-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -354,10 +354,10 @@ const CharterPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4 max-w-3xl"
           >
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
               Autonomous Safety Protocol Flow
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-normal leading-relaxed">
               An architectural pipeline showing how model requests traverse constitutional guardrails, lattice cryptography, and edge execution nodes.
             </p>
           </motion.div>
@@ -374,30 +374,30 @@ const CharterPage: React.FC = () => {
                     whileHover={{ y: -4 }}
                     className={`p-6 md:p-8 rounded-3xl border transition-all cursor-pointer space-y-4 relative ${
                       isActive
-                        ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-2xl scale-[1.02]"
-                        : "bg-white dark:bg-[#15161b] border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:border-gray-400 dark:hover:border-white/30"
+                        ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-xl scale-[1.02]"
+                        : "bg-gray-50 dark:bg-white/5 border-gray-200 dark:border-white/10 text-gray-900 dark:text-white hover:border-gray-300 dark:hover:border-white/30"
                     }`}
                   >
                     <div className="flex items-center justify-between">
-                      <span className={`text-xs font-black uppercase tracking-widest ${
-                        isActive ? "text-gray-400 dark:text-gray-600" : "text-gray-400 dark:text-gray-500"
+                      <span className={`text-xs font-normal uppercase tracking-widest ${
+                        isActive ? "text-gray-400 dark:text-gray-600" : "text-gray-500 dark:text-gray-400"
                       }`}>
                         {stg.stage}
                       </span>
-                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider ${
+                      <span className={`px-2.5 py-1 rounded-full text-[10px] font-normal uppercase tracking-wider ${
                         isActive
                           ? "bg-white/20 text-white dark:bg-black/10 dark:text-black"
-                          : "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400"
+                          : "bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300"
                       }`}>
                         {stg.badge}
                       </span>
                     </div>
 
-                    <h3 className="text-lg md:text-xl font-extrabold tracking-tight leading-snug">
+                    <h3 className="text-lg md:text-xl font-normal tracking-tight leading-snug font-sans">
                       {stg.name}
                     </h3>
 
-                    <p className={`text-xs md:text-sm font-medium leading-relaxed ${
+                    <p className={`text-xs md:text-sm font-normal leading-relaxed ${
                       isActive ? "text-gray-300 dark:text-gray-700" : "text-gray-600 dark:text-gray-400"
                     }`}>
                       {stg.description}
@@ -406,7 +406,7 @@ const CharterPage: React.FC = () => {
                     {/* Step indicator arrow */}
                     {idx < architectureStages.length - 1 && (
                       <div className="hidden lg:block absolute -right-3 top-1/2 -translate-y-1/2 z-20 pointer-events-none">
-                        <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 flex items-center justify-center text-xs font-bold shadow-md">
+                        <div className="w-6 h-6 rounded-full bg-gray-200 dark:bg-gray-800 text-gray-700 dark:text-gray-300 flex items-center justify-center text-xs font-normal shadow-sm">
                           →
                         </div>
                       </div>
@@ -417,13 +417,13 @@ const CharterPage: React.FC = () => {
             </div>
 
             {/* Stage Spec Detail Panel */}
-            <div className="p-8 md:p-10 bg-white dark:bg-[#15161b] border border-gray-200 dark:border-white/10 rounded-3xl space-y-4">
+            <div className="p-8 md:p-10 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-3xl space-y-4">
               <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="space-y-1">
-                  <span className="text-xs font-bold text-gray-500 uppercase tracking-wider block">
+                  <span className="text-xs font-normal text-gray-500 uppercase tracking-wider block">
                     Active Architecture Stage
                   </span>
-                  <h4 className="text-2xl font-black text-gray-900 dark:text-white">
+                  <h4 className="text-2xl font-normal text-gray-900 dark:text-white font-sans">
                     {architectureStages[activeStage - 1].name} — Detailed Specifications
                   </h4>
                 </div>
@@ -432,10 +432,10 @@ const CharterPage: React.FC = () => {
                     <button
                       key={i}
                       onClick={() => setActiveStage(i + 1)}
-                      className={`w-8 h-8 rounded-full text-xs font-bold transition-all ${
+                      className={`w-8 h-8 rounded-full text-xs font-normal transition-all ${
                         activeStage === i + 1
                           ? "bg-black text-white dark:bg-white dark:text-black"
-                          : "bg-gray-100 dark:bg-white/5 text-gray-600 dark:text-gray-400 hover:bg-gray-200"
+                          : "bg-gray-200 dark:bg-white/10 text-gray-700 dark:text-gray-300 hover:bg-gray-300"
                       }`}
                     >
                       0{i + 1}
@@ -444,13 +444,13 @@ const CharterPage: React.FC = () => {
                 </div>
               </div>
 
-              <div className="grid md:grid-cols-3 gap-6 pt-4 border-t border-gray-150 dark:border-white/10">
+              <div className="grid md:grid-cols-3 gap-6 pt-4 border-t border-gray-200 dark:border-white/10">
                 {architectureStages[activeStage - 1].techSpecs.map((spec, sIdx) => (
-                  <div key={sIdx} className="space-y-1.5 p-4 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200/60 dark:border-white/5">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-gray-400 block">
+                  <div key={sIdx} className="space-y-1.5 p-4 rounded-2xl bg-white dark:bg-white/5 border border-gray-200 dark:border-white/5">
+                    <span className="text-[10px] font-normal uppercase tracking-widest text-gray-500 dark:text-gray-400 block">
                       Parameter 0{sIdx + 1}
                     </span>
-                    <p className="text-sm font-bold text-gray-900 dark:text-white">
+                    <p className="text-sm font-normal text-gray-900 dark:text-white">
                       {spec}
                     </p>
                   </div>
@@ -469,10 +469,10 @@ const CharterPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="space-y-4 max-w-3xl"
         >
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
             Computational Growth: Now & Coming Years
           </h2>
-          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-normal leading-relaxed">
             Historical milestones, current daily throughput (2026 NOW), and upcoming multi-year infrastructure expansions.
           </p>
         </motion.div>
@@ -480,17 +480,17 @@ const CharterPage: React.FC = () => {
         {/* Visual Growth Chart Container */}
         <div className="space-y-12">
           {/* Main Bar Visualizer */}
-          <div className="p-8 md:p-12 bg-black text-white border border-white/10 rounded-3xl space-y-10">
+          <div className="p-8 md:p-12 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white border border-gray-200 dark:border-white/10 rounded-3xl space-y-10">
             <div className="flex flex-wrap items-center justify-between gap-4">
-              <span className="text-xs font-extrabold uppercase tracking-widest text-gray-400">
+              <span className="text-xs font-normal uppercase tracking-widest text-gray-500 dark:text-gray-400">
                 Daily Inferences & Computational Scale Targets (2025–2030)
               </span>
-              <div className="flex items-center gap-4 text-xs font-bold">
-                <span className="flex items-center gap-1.5 text-gray-300">
-                  <span className="w-3 h-3 rounded-full bg-gray-600 inline-block" /> Past Baseline
+              <div className="flex items-center gap-4 text-xs font-normal">
+                <span className="flex items-center gap-1.5 text-gray-600 dark:text-gray-300">
+                  <span className="w-3 h-3 rounded-full bg-gray-400 dark:bg-gray-600 inline-block" /> Past Baseline
                 </span>
-                <span className="flex items-center gap-1.5 text-white font-black">
-                  <span className="w-3 h-3 rounded-full bg-white inline-block" /> Current (Now) & Coming Year
+                <span className="flex items-center gap-1.5 text-gray-900 dark:text-white font-normal">
+                  <span className="w-3 h-3 rounded-full bg-black dark:bg-white inline-block" /> Current (Now) & Coming Year
                 </span>
               </div>
             </div>
@@ -506,36 +506,36 @@ const CharterPage: React.FC = () => {
                     className="group flex flex-col items-center space-y-4 cursor-pointer"
                   >
                     {/* Vertical Bar */}
-                    <div className="w-full max-w-[64px] bg-white/10 rounded-2xl h-[200px] flex items-end p-1.5 relative overflow-hidden">
+                    <div className="w-full max-w-[64px] bg-gray-200 dark:bg-white/10 rounded-2xl h-[200px] flex items-end p-1.5 relative overflow-hidden">
                       <motion.div
                         initial={{ height: 0 }}
                         animate={{ height: `${g.barHeight}%` }}
                         transition={{ duration: 0.8, delay: idx * 0.1 }}
                         className={`w-full rounded-xl transition-colors ${
                           g.status === "Current (Now)"
-                            ? "bg-gradient-to-t from-gray-300 to-white"
+                            ? "bg-black dark:bg-white"
                             : g.status === "Coming Year"
-                            ? "bg-gradient-to-t from-gray-500 to-gray-200"
+                            ? "bg-gray-700 dark:bg-gray-300"
                             : isSelected
-                            ? "bg-white"
-                            : "bg-gray-600 group-hover:bg-gray-400"
+                            ? "bg-gray-900 dark:bg-white"
+                            : "bg-gray-400 dark:bg-gray-600 group-hover:bg-gray-500"
                         }`}
                       />
                     </div>
 
                     {/* Year & Status Label */}
                     <div className="text-center space-y-1">
-                      <span className={`text-base font-extrabold block ${
-                        isSelected ? "text-white" : "text-gray-400"
+                      <span className={`text-base font-normal block ${
+                        isSelected ? "text-gray-900 dark:text-white" : "text-gray-500 dark:text-gray-400"
                       }`}>
                         {g.year}
                       </span>
-                      <span className={`text-[10px] font-bold uppercase tracking-wider block ${
+                      <span className={`text-[10px] font-normal uppercase tracking-wider block ${
                         g.status === "Current (Now)"
-                          ? "text-white font-black"
+                          ? "text-gray-900 dark:text-white"
                           : g.status === "Coming Year"
-                          ? "text-gray-200 font-bold"
-                          : "text-gray-500"
+                          ? "text-gray-700 dark:text-gray-200"
+                          : "text-gray-400 dark:text-gray-500"
                       }`}>
                         {g.status}
                       </span>
@@ -547,43 +547,43 @@ const CharterPage: React.FC = () => {
           </div>
 
           {/* Year Milestone Detail Card (Permanently Locked for Public) */}
-          <div className="relative p-8 md:p-10 bg-black text-white dark:bg-white dark:text-black rounded-3xl shadow-2xl overflow-hidden">
+          <div className="relative p-8 md:p-10 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-3xl border border-gray-200 dark:border-white/10 shadow-sm dark:shadow-2xl overflow-hidden">
             {/* Blurred Content Container */}
             <div className="flex flex-col lg:flex-row items-center justify-between gap-8 filter blur-md select-none opacity-20 pointer-events-none scale-[0.99]">
               <div className="space-y-3 max-w-xl">
                 <div className="flex items-center gap-3">
-                  <span className="text-xs font-bold opacity-80">
+                  <span className="text-xs font-normal opacity-80">
                     Status: {growthData[selectedYear].status}
                   </span>
                 </div>
-                <h3 className="text-2xl md:text-4xl font-extrabold tracking-tight">
+                <h3 className="text-2xl md:text-4xl font-normal tracking-tight font-sans">
                   {growthData[selectedYear].label}
                 </h3>
-                <p className="text-gray-300 dark:text-gray-700 text-base md:text-lg font-medium leading-relaxed">
+                <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-normal leading-relaxed">
                   {growthData[selectedYear].milestone}
                 </p>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 shrink-0 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-white/20 dark:border-black/20 pt-6 lg:pt-0 lg:pl-8 w-full lg:w-auto">
+              <div className="grid grid-cols-3 gap-6 shrink-0 text-center lg:text-right border-t lg:border-t-0 lg:border-l border-gray-200 dark:border-white/20 pt-6 lg:pt-0 lg:pl-8 w-full lg:w-auto">
                 <div>
-                  <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Capacity</span>
-                  <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].targetScale}</span>
+                  <span className="text-[10px] uppercase font-normal opacity-70 block mb-1">Target Capacity</span>
+                  <span className="text-xl md:text-2xl font-normal">{growthData[selectedYear].targetScale}</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Cloud Regions</span>
-                  <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].regions}+</span>
+                  <span className="text-[10px] uppercase font-normal opacity-70 block mb-1">Cloud Regions</span>
+                  <span className="text-xl md:text-2xl font-normal">{growthData[selectedYear].regions}+</span>
                 </div>
                 <div>
-                  <span className="text-[10px] uppercase font-bold opacity-70 block mb-1">Target Metric</span>
-                  <span className="text-xl md:text-2xl font-black">{growthData[selectedYear].growthRate}</span>
+                  <span className="text-[10px] uppercase font-normal opacity-70 block mb-1">Target Metric</span>
+                  <span className="text-xl md:text-2xl font-normal">{growthData[selectedYear].growthRate}</span>
                 </div>
               </div>
             </div>
 
             {/* Permanent Restricted Access Overlay */}
             <div className="absolute inset-0 flex items-center justify-center p-6 z-10 pointer-events-none select-none">
-              <div className="text-white dark:text-black font-bold text-sm sm:text-base flex items-center gap-2.5">
-                <svg className="w-4 h-4 text-white dark:text-black shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <div className="text-gray-900 dark:text-white font-normal text-sm sm:text-base flex items-center gap-2.5">
+                <svg className="w-4 h-4 text-gray-900 dark:text-white shrink-0" fill="none" stroke="currentColor" strokeWidth={2} viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <rect x="3" y="11" width="18" height="11" rx="2" ry="2" />
                   <path d="M7 11V7a5 5 0 0110 0v4" />
                 </svg>
@@ -595,7 +595,7 @@ const CharterPage: React.FC = () => {
       </section>
 
       {/* 6. Governance & Safety Framework Section */}
-      <section ref={governanceRef} className="py-24 bg-gray-50 dark:bg-[#121318] border-y border-gray-200 dark:border-white/10">
+      <section ref={governanceRef} className="py-24 bg-white dark:bg-black border-y border-gray-200 dark:border-white/10">
         <div className="max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16 space-y-16">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -603,10 +603,10 @@ const CharterPage: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="space-y-4 max-w-3xl"
           >
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
               Institutional Safeguards
             </h2>
-            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-medium leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg font-normal leading-relaxed">
               How we translate our philosophical commitments into technical controls, architectural guarantees, and independent oversight.
             </p>
           </motion.div>
@@ -614,13 +614,13 @@ const CharterPage: React.FC = () => {
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {governancePillars.map((g, idx) => (
               <div key={idx} className="space-y-3">
-                <span className="text-sm font-black text-gray-900 dark:text-white tracking-wider block">
+                <span className="text-sm font-normal text-gray-900 dark:text-white tracking-wider block">
                   0{idx + 1}
                 </span>
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">
+                <h3 className="text-lg font-normal text-gray-900 dark:text-white font-sans">
                   {g.title}
                 </h3>
-                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
+                <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                   {g.desc}
                 </p>
               </div>
@@ -631,25 +631,25 @@ const CharterPage: React.FC = () => {
 
       {/* 7. Bottom Action CTA Section */}
       <section className="py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="bg-black text-white rounded-[32px] p-8 md:p-14 border border-white/15 shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-[32px] p-8 md:p-14 border border-gray-200 dark:border-white/15 shadow-sm dark:shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
-            <h3 className="text-3xl md:text-4xl font-extrabold tracking-tight text-white">
+            <h3 className="text-3xl md:text-4xl font-normal tracking-tight text-gray-900 dark:text-white font-sans">
               Join Us in Building Responsible AI
             </h3>
-            <p className="text-gray-300 text-base md:text-lg leading-relaxed font-medium">
+            <p className="text-gray-600 dark:text-gray-300 text-base md:text-lg leading-relaxed font-normal">
               Explore our research whitepapers or connect with our alignment team to partner on safe enterprise technology.
             </p>
           </div>
           <div className="flex flex-wrap gap-4 shrink-0">
             <Link
               to="/research"
-              className="px-7 py-4 bg-white text-black font-extrabold text-xs rounded-full hover:bg-gray-200 transition-all shadow-lg uppercase tracking-wider"
+              className="px-7 py-4 bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 font-medium text-xs rounded-full transition-all shadow-md uppercase tracking-wider"
             >
               Read Research ↗
             </Link>
             <Link
               to="/contact"
-              className="px-7 py-4 bg-white/10 text-white font-extrabold text-xs rounded-full hover:bg-white/20 transition-all border border-white/20 uppercase tracking-wider"
+              className="px-7 py-4 bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white font-medium text-xs rounded-full hover:opacity-90 transition-all border border-gray-200 dark:border-white/20 uppercase tracking-wider"
             >
               Contact Team ↗
             </Link>

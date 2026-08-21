@@ -125,7 +125,7 @@ const ServiceDetailPage: React.FC = () => {
 
   if (!service) {
     return (
-      <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-gray-950 font-sans">
+      <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-black font-sans">
         <div className="py-24 text-center">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Service not found</h2>
           <Link to="/services" className="text-indigo-600 dark:text-indigo-400 underline mt-4 inline-block">
@@ -138,7 +138,7 @@ const ServiceDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       {/* Hero Header */}
       <div className="relative py-24 md:py-36 overflow-hidden flex items-center justify-center text-center text-white bg-black">
         <div

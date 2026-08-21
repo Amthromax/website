@@ -45,7 +45,7 @@ export const SUBPROCESSORS: SubprocessorEntry[] = [
     id: "openai_llm",
     name: "OpenAI LLC",
     category: "LLM Inference Provider",
-    purpose: "Generative AI task execution and model reasoning for Morfix / Cotises agent suites",
+    purpose: "Generative AI task execution and model reasoning for Simifig / Ligivor agent suites",
     dataShared: ["Redacted prompt text", "Task execution context"],
     region: "United States",
     transferMechanism: "Data Processing Addendum (Zero Data Retention for API execution)",

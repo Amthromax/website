@@ -104,7 +104,7 @@ const FoundationDetailPage: React.FC = () => {
 
   if (!article) {
     return (
-      <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-gray-950 font-sans">
+      <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-black font-sans">
         <div className="py-24 text-center space-y-4">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Article not found</h2>
           <Link to="/foundation" className="text-blue-600 dark:text-blue-400 underline mt-4 inline-block">
@@ -117,7 +117,7 @@ const FoundationDetailPage: React.FC = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       <SEO 
         title={`${article.title} | Amthromax Intelligence Hub`} 
         description={article.tagline} 

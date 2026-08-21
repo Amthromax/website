@@ -55,7 +55,7 @@ const FoundationSection: React.FC = () => {
   ];
 
   return (
-    <div className="w-full bg-white dark:bg-gray-950 transition-colors duration-300 font-sans">
+    <div className="w-full bg-white dark:bg-black transition-colors duration-300 font-sans">
       {/* 1. Hero Section */}
       <section ref={heroRef} className="pt-20 pb-16 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 text-center space-y-6">
         <motion.div
@@ -231,7 +231,7 @@ const FoundationSection: React.FC = () => {
       </section>
 
       {/* 5. Resources Grid Section */}
-      <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-300">
+      <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12 bg-white dark:bg-black transition-colors duration-300">
         <div className="space-y-2 text-center md:text-left">
           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">Intelligence Insights</span>
           <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">

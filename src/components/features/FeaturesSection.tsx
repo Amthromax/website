@@ -12,13 +12,6 @@ const features = [
     slug: "custom-software",
   },
   {
-    title: "Cloud Solutions",
-    description: "Scalable cloud infrastructure and migration services for optimal performance and cost efficiency.",
-    technology: ["AWS", "Azure", "Google Cloud", "Kubernetes"],
-    bgImage: "/images/2b9888c054781328a6ffad2370ead6f4.jpg",
-    slug: "cloud-solutions",
-  },
-  {
     title: "Artificial Intelligence",
     description: "AI-powered analytics, automation, and intelligent systems that transform business operations.",
     technology: ["TensorFlow", "PyTorch", "scikit-learn", "OpenAI API"],
@@ -45,6 +38,13 @@ const features = [
     technology: ["React Native", "Flutter", "Swift", "Kotlin"],
     bgImage: "/images/f69fb955aebe93c0bb4c606be8d02b8a.jpg",
     slug: "mobile-apps",
+  },
+  {
+    title: "Enterprise Cloud Solutions",
+    description: "Scalable cloud architecture, microservices, and zero-trust infrastructure for mission-critical operations.",
+    technology: ["AWS", "Kubernetes", "Docker", "Terraform"],
+    bgImage: "/images/251b80f44a10171b3221c8e65f1c0edf.jpg",
+    slug: "cloud-solutions",
   },
 ];
 
@@ -121,7 +121,7 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
 
         {/* Content */}
         <div className="relative z-20 space-y-4 text-white transform-gpu" style={{ transform: "translateZ(30px)" }}>
-          <h3 className="text-3xl font-black text-white tracking-tight leading-tight mb-2 drop-shadow-md">
+          <h3 className="text-3xl font-bold font-sans text-white tracking-tight leading-tight mb-2 drop-shadow-md">
             {feature.title}
           </h3>
           <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2">
@@ -140,9 +140,9 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
             </div>
             <motion.div 
               whileHover={{ x: 5 }}
-              className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center flex-shrink-0"
+              className="text-white/80 hover:text-white flex items-center justify-center flex-shrink-0 transition-colors"
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
             </motion.div>
           </div>
         </div>
@@ -159,7 +159,7 @@ const FeaturesSection: React.FC = () => {
 
   return (
     <section
-      className="py-32 bg-[#f5f5f7] dark:bg-black relative overflow-hidden"
+      className="py-32 bg-white dark:bg-black relative overflow-hidden"
     >
       {/* Corner Text - Inter font in solid Black / White */}
       <div className="absolute top-8 left-6 sm:left-10 md:left-14 z-20">
@@ -198,7 +198,7 @@ const FeaturesSection: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-20 relative"
         >
-          <h2 className="text-5xl md:text-6xl font-extrabold text-gray-900 dark:text-gray-50 tracking-tighter mb-6">
+          <h2 className="text-5xl md:text-6xl font-bold font-sans text-gray-900 dark:text-gray-50 tracking-tight mb-6">
             Our Core Competencies
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-medium">
@@ -220,8 +220,6 @@ const FeaturesSection: React.FC = () => {
         </motion.div>
       </div>
       
-      {/* Background decoration */}
-      <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-gray-300 dark:via-gray-700 to-transparent opacity-50"></div>
     </section>
   );
 };

@@ -75,6 +75,8 @@ const NavDropdown: React.FC<NavDropdownProps> = ({ label, href, items }) => {
                     key={index}
                     to={item.href}
                     onClick={() => setIsOpen(false)}
+                    target={item.isExternal ? "_blank" : undefined}
+                    rel={item.isExternal ? "noopener noreferrer" : undefined}
                     className="text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors text-xs font-semibold flex items-center justify-between"
                   >
                     <span>{item.label}</span>

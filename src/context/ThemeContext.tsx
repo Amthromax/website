@@ -1,25 +1,39 @@
-import { createContext, useContext, useEffect, type ReactNode } from 'react';
+import { createContext, useContext, useEffect, useState, type ReactNode } from 'react';
 
 type ThemeContextType = {
   isDark: boolean;
   toggleTheme: () => void;
+  setTheme: (dark: boolean) => void;
 };
 
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider = ({ children }: { children: ReactNode }) => {
-  const isDark = false;
+  const [isDark, setIsDark] = useState<boolean>(() => {
+    if (typeof window !== 'undefined') {
+      const saved = localStorage.getItem('theme');
+      if (saved) return saved === 'dark';
+      return window.matchMedia('(prefers-color-scheme: dark)').matches;
+    }
+    return false;
+  });
 
   useEffect(() => {
     const root = window.document.documentElement;
-    root.classList.remove('dark');
-    window.localStorage.setItem('theme', 'light');
-  }, []);
+    if (isDark) {
+      root.classList.add('dark');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      root.classList.remove('dark');
+      localStorage.setItem('theme', 'light');
+    }
+  }, [isDark]);
 
-  const toggleTheme = () => {};
+  const toggleTheme = () => setIsDark((prev) => !prev);
+  const setTheme = (dark: boolean) => setIsDark(dark);
 
   return (
-    <ThemeContext.Provider value={{ isDark, toggleTheme }}>
+    <ThemeContext.Provider value={{ isDark, toggleTheme, setTheme }}>
       {children}
     </ThemeContext.Provider>
   );

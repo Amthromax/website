@@ -16,7 +16,7 @@ const MainLayout = () => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       transition={{ duration: 0.3 }}
-      className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 transition-colors duration-300"
+      className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 transition-colors duration-300"
     >
       <AnimatePresence>
         <Outlet key={location.pathname} />

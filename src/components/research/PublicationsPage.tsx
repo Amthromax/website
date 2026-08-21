@@ -155,14 +155,14 @@ const PublicationsPage: React.FC = () => {
   const activeHeroPaper = heroSlides[currentSlide];
 
   return (
-    <div className="min-h-screen bg-black text-white font-sans selection:bg-white/10 transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Core | Research & Technical Publications" 
         description="Amthromax data, research, and stories on real-world AI use. Search our indexed repository of peer-reviewed articles and whitepapers." 
       />
 
-      {/* SECTION 1: OpenAI Core Style Hero Section */}
-      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20 border-b border-white/10">
+      {/* SECTION 1: Core Style Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-40 md:pb-28 max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20 border-b border-gray-200 dark:border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Text Column */}
@@ -171,16 +171,16 @@ const PublicationsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-white leading-[1.05]"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.05]"
             >
-              Amthromax <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-cyan-300 to-indigo-400">Core</span>
+              Amthromax <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400">Core</span>
             </motion.h1>
             
             <motion.p 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="text-gray-400 text-lg sm:text-xl font-normal leading-relaxed max-w-lg"
+              className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-normal leading-relaxed max-w-lg"
             >
               Foundational AI research, core architecture benchmarks, and technical intelligence for next-generation enterprise systems.
             </motion.p>
@@ -229,7 +229,7 @@ const PublicationsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handlePrevSlide}
-                className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full border border-gray-300 dark:border-white/20 hover:border-gray-500 dark:hover:border-white/40 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 flex items-center justify-center text-gray-900 dark:text-white transition-all cursor-pointer"
                 aria-label="Previous slide"
               >
                 ‹
@@ -237,7 +237,7 @@ const PublicationsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={handleNextSlide}
-                className="w-10 h-10 rounded-full border border-white/20 hover:border-white/40 bg-white/5 hover:bg-white/10 flex items-center justify-center text-white transition-all cursor-pointer"
+                className="w-10 h-10 rounded-full border border-gray-300 dark:border-white/20 hover:border-gray-500 dark:hover:border-white/40 bg-gray-100 dark:bg-white/5 hover:bg-gray-200 dark:hover:bg-white/10 flex items-center justify-center text-gray-900 dark:text-white transition-all cursor-pointer"
                 aria-label="Next slide"
               >
                 ›
@@ -252,10 +252,10 @@ const PublicationsPage: React.FC = () => {
       {/* SECTION 2: Technical Publications Header & Filters */}
       <section className="max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pt-20 pb-12">
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
             Technical Publications
           </h2>
-          <p className="text-sm sm:text-base text-gray-400 font-normal leading-relaxed">
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
             Search our indexed repository of peer-reviewed articles, system architecture documents, and security whitepapers.
           </p>
         </div>
@@ -269,12 +269,12 @@ const PublicationsPage: React.FC = () => {
               placeholder="Search papers, abstracts, or keywords..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="w-full py-2.5 bg-transparent border-b border-white/15 rounded-none text-sm text-white placeholder:text-gray-500 focus:outline-none focus:border-white/40 transition-all"
+              className="w-full py-2.5 bg-transparent border-b border-gray-300 dark:border-white/15 rounded-none text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-gray-900 dark:focus:border-white/40 transition-all"
             />
             {searchTerm && (
               <button 
                 onClick={() => setSearchTerm("")}
-                className="absolute right-0 top-3 text-xs text-gray-400 hover:text-white cursor-pointer"
+                className="absolute right-0 top-3 text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white cursor-pointer"
               >
                 Clear
               </button>
@@ -290,8 +290,8 @@ const PublicationsPage: React.FC = () => {
                 onClick={() => setActiveCategory(cat)}
                 className={`text-xs px-4 py-2 rounded-full font-semibold transition-all cursor-pointer ${
                   activeCategory === cat
-                    ? "bg-white text-black shadow-md"
-                    : "text-gray-400 hover:text-white"
+                    ? "bg-black text-white dark:bg-white dark:text-black shadow-md"
+                    : "text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white"
                 }`}
               >
                 {cat}
@@ -301,16 +301,16 @@ const PublicationsPage: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: Exact Image 1 Research Minimalist List */}
+      {/* SECTION 3: Minimalist Research List */}
       <section className="max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pb-32 pt-16">
         <div className="space-y-8">
           
           {/* Main Title Header */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
             Research
           </h2>
 
-          {/* Filter Type Tabs Row (Exact Image 1) */}
+          {/* Filter Type Tabs Row */}
           <div className="flex flex-wrap items-center gap-6 sm:gap-10 pb-4">
             {typeFilters.map((type) => (
               <button
@@ -319,8 +319,8 @@ const PublicationsPage: React.FC = () => {
                 onClick={() => setActiveTypeFilter(type)}
                 className={`text-sm font-semibold transition-all cursor-pointer ${
                   activeTypeFilter === type
-                    ? "text-white font-bold underline underline-offset-8 decoration-2"
-                    : "text-gray-400 hover:text-white"
+                    ? "text-gray-900 dark:text-white font-bold underline underline-offset-8 decoration-2"
+                    : "text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white"
                 }`}
               >
                 {type}
@@ -328,9 +328,9 @@ const PublicationsPage: React.FC = () => {
             ))}
           </div>
 
-          {/* Publication List Items (Exact Image 1 Layout) */}
+          {/* Publication List Items */}
           {filteredPapers.length > 0 ? (
-            <div className="divide-y divide-white/10 border-t border-white/10">
+            <div className="divide-y divide-gray-200 dark:divide-white/10 border-t border-gray-200 dark:border-white/10">
               {filteredPapers.map((paper) => (
                 <div 
                   key={paper.slug}
@@ -338,23 +338,23 @@ const PublicationsPage: React.FC = () => {
                 >
                   {/* Left Column: Type & Date */}
                   <div className="w-40 sm:w-52 shrink-0 space-y-2">
-                    <h4 className="text-sm font-bold text-white tracking-tight">
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-white tracking-tight">
                       {paper.type || "Publication"}
                     </h4>
-                    <p className="text-xs text-gray-400 font-normal">
+                    <p className="text-xs text-gray-500 dark:text-gray-400 font-normal">
                       {paper.date}
                     </p>
                   </div>
 
                   {/* Right Column: Title & Abstract */}
                   <div className="space-y-3 flex-1 max-w-4xl">
-                    <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                       <Link to={`/research/${paper.slug}`}>
                         {paper.title}
                       </Link>
                     </h3>
 
-                    <p className="text-xs sm:text-sm text-gray-400 font-normal leading-relaxed">
+                    <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                       {paper.abstract}
                     </p>
                   </div>
@@ -364,8 +364,8 @@ const PublicationsPage: React.FC = () => {
             </div>
           ) : (
             <div className="text-center py-20 space-y-2">
-              <h3 className="text-lg font-bold text-white">No research publications matched your selection</h3>
-              <p className="text-sm text-gray-400">Try selecting "All" to view all publications.</p>
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white">No research publications matched your selection</h3>
+              <p className="text-sm text-gray-500 dark:text-gray-400">Try selecting "All" to view all publications.</p>
             </div>
           )}
 
@@ -373,24 +373,24 @@ const PublicationsPage: React.FC = () => {
       </section>
 
       {/* SECTION 4: Stay Updated Section */}
-      <section className="border-t border-white/10 py-24 max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
+      <section className="border-t border-gray-200 dark:border-white/10 py-24 max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Form Side */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
                 Stay updated
               </h2>
-              <p className="text-sm sm:text-base text-gray-400 font-normal leading-relaxed max-w-lg">
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-lg">
                 Subscribe to receive the latest peer-reviewed research papers, system architecture blueprints, and AI safety insights from Amthromax R&D Labs.
               </p>
             </div>
 
             {subscribeSubmitted ? (
-              <div className="p-6 bg-white/5 border border-white/15 rounded-2xl space-y-2">
-                <h4 className="text-base font-bold text-white">Thank you for subscribing!</h4>
-                <p className="text-xs text-gray-400">You will receive future Amthromax technical publications and dataset releases directly in your inbox.</p>
+              <div className="p-6 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/15 rounded-2xl space-y-2">
+                <h4 className="text-base font-bold text-gray-900 dark:text-white">Thank you for subscribing!</h4>
+                <p className="text-xs text-gray-600 dark:text-gray-400">You will receive future Amthromax technical publications and dataset releases directly in your inbox.</p>
               </div>
             ) : (
               <form 
@@ -401,48 +401,48 @@ const PublicationsPage: React.FC = () => {
                 className="space-y-4 max-w-lg"
               >
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-gray-300">
-                    First name <span className="text-gray-500">*</span>
+                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    First name <span className="text-gray-400 dark:text-gray-500">*</span>
                   </label>
                   <input
                     type="text"
                     required
                     value={subscribeForm.firstName}
                     onChange={(e) => setSubscribeForm({ ...subscribeForm, firstName: e.target.value })}
-                    className="w-full py-2 bg-transparent border-b border-white/20 text-sm text-white focus:outline-none focus:border-white transition-all"
+                    className="w-full py-2 bg-transparent border-b border-gray-300 dark:border-white/20 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-white transition-all"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-gray-300">
-                    Last name <span className="text-gray-500">*</span>
+                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    Last name <span className="text-gray-400 dark:text-gray-500">*</span>
                   </label>
                   <input
                     type="text"
                     required
                     value={subscribeForm.lastName}
                     onChange={(e) => setSubscribeForm({ ...subscribeForm, lastName: e.target.value })}
-                    className="w-full py-2 bg-transparent border-b border-white/20 text-sm text-white focus:outline-none focus:border-white transition-all"
+                    className="w-full py-2 bg-transparent border-b border-gray-300 dark:border-white/20 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-white transition-all"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-xs font-semibold text-gray-300">
-                    Email <span className="text-gray-500">*</span>
+                  <label className="text-xs font-semibold text-gray-700 dark:text-gray-300">
+                    Email <span className="text-gray-400 dark:text-gray-500">*</span>
                   </label>
                   <input
                     type="email"
                     required
                     value={subscribeForm.email}
                     onChange={(e) => setSubscribeForm({ ...subscribeForm, email: e.target.value })}
-                    className="w-full py-2 bg-transparent border-b border-white/20 text-sm text-white focus:outline-none focus:border-white transition-all"
+                    className="w-full py-2 bg-transparent border-b border-gray-300 dark:border-white/20 text-sm text-gray-900 dark:text-white focus:outline-none focus:border-gray-900 dark:focus:border-white transition-all"
                   />
                 </div>
 
                 <div className="pt-2">
                   <button
                     type="submit"
-                    className="px-6 py-2.5 bg-white text-black text-xs font-bold rounded-full hover:bg-gray-200 transition-all cursor-pointer shadow-lg"
+                    className="px-6 py-2.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black text-xs font-bold rounded-full transition-all cursor-pointer shadow-lg"
                   >
                     Sign up
                   </button>
@@ -468,26 +468,26 @@ const PublicationsPage: React.FC = () => {
       {/* BibTeX Citation Modal */}
       <AnimatePresence>
         {selectedCitationPaper && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-md">
+          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 dark:bg-black/80 backdrop-blur-md">
             <motion.div
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-[#121214] w-full max-w-xl rounded-[28px] p-8 border border-white/15 shadow-2xl space-y-5 text-white relative"
+              className="bg-white dark:bg-[#121214] w-full max-w-xl rounded-[28px] p-8 border border-gray-200 dark:border-white/15 shadow-2xl space-y-5 text-gray-900 dark:text-white relative"
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-bold text-white">BibTeX Citation</h3>
+                <h3 className="text-lg font-bold text-gray-900 dark:text-white">BibTeX Citation</h3>
                 <button
                   onClick={() => setSelectedCitationPaper(null)}
-                  className="w-8 h-8 rounded-full bg-white/10 hover:bg-white/20 flex items-center justify-center text-gray-300 hover:text-white transition-all cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all cursor-pointer"
                 >
                   ✕
                 </button>
               </div>
 
-              <p className="text-xs text-gray-400">Copy the BibTeX block below to cite in your research papers:</p>
+              <p className="text-xs text-gray-500 dark:text-gray-400">Copy the BibTeX block below to cite in your research papers:</p>
               
-              <pre className="p-4 bg-black border border-white/15 rounded-2xl text-[10px] sm:text-xs overflow-x-auto text-gray-300 font-mono">
+              <pre className="p-4 bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 rounded-2xl text-[10px] sm:text-xs overflow-x-auto text-gray-800 dark:text-gray-300 font-mono">
                 {getBibtex(selectedCitationPaper)}
               </pre>
 
@@ -498,14 +498,14 @@ const PublicationsPage: React.FC = () => {
                     navigator.clipboard.writeText(getBibtex(selectedCitationPaper));
                     alert("Citation copied to clipboard!");
                   }}
-                  className="px-6 py-2.5 bg-white text-black text-xs font-bold rounded-xl hover:bg-gray-200 transition-all cursor-pointer"
+                  className="px-6 py-2.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black text-xs font-bold rounded-xl transition-all cursor-pointer"
                 >
                   Copy to Clipboard
                 </button>
                 <button
                   type="button"
                   onClick={() => setSelectedCitationPaper(null)}
-                  className="px-6 py-2.5 border border-white/20 text-xs font-bold rounded-xl hover:bg-white/10 text-white transition-all cursor-pointer"
+                  className="px-6 py-2.5 border border-gray-300 dark:border-white/20 text-xs font-bold rounded-xl hover:bg-gray-100 dark:hover:bg-white/10 text-gray-900 dark:text-white transition-all cursor-pointer"
                 >
                   Close
                 </button>

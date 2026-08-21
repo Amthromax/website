@@ -81,50 +81,41 @@ const PricingPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Pricing | Scalable Plans for AI & Automation" 
         description="Choose the perfect plan for Amthromax. From developer sandboxes to planet-scale enterprise deployments, we scale with your business." 
       />
 
       {/* Header */}
-      <section className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-900/70 via-zinc-950/40 to-black z-0 pointer-events-none" />
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,rgba(0,102,204,0.15),transparent_60%)] pointer-events-none" />
-        <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <motion.p 
-            initial={{ opacity: 0, y: 15 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-xs uppercase tracking-[0.15em] text-blue-400 font-semibold"
-          >
-            TRANSPARENT PRICING
-          </motion.p>
+      <section className="relative py-20 md:py-28 overflow-hidden flex items-center justify-center text-center bg-white dark:bg-black">
+        <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-4">
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
+            className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-gray-900 dark:text-white"
           >
             Plans That Scale With You
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 25 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-base sm:text-lg lg:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal"
+            className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal"
           >
             Build and optimize your workflows without complex calculations. Clear tiers from local sandbox to dedicated clusters.
           </motion.p>
         </div>
       </section>
 
-      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-16 md:py-24 space-y-16">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-12 md:py-20 space-y-16">
         
         {/* Toggle Billing */}
         <div className="flex justify-center items-center gap-4">
-          <span className={`text-xs font-semibold ${billingCycle === "monthly" ? "text-[#1d1d1f] dark:text-white" : "text-[#86868b]"}`}>Monthly billing</span>
+          <span className={`text-xs font-semibold ${billingCycle === "monthly" ? "text-gray-900 dark:text-white" : "text-gray-500"}`}>Monthly billing</span>
           <button 
             type="button"
             onClick={() => setBillingCycle(billingCycle === "monthly" ? "annually" : "monthly")}
-            className="w-12 h-6 bg-[#e5e5e7] dark:bg-white/10 rounded-full relative p-0.5 transition-all select-none cursor-pointer"
+            className="w-12 h-6 bg-gray-200 dark:bg-white/10 rounded-full relative p-0.5 transition-all select-none cursor-pointer"
           >
             <motion.span 
               layout
@@ -135,9 +126,9 @@ const PricingPage: React.FC = () => {
               }}
             />
           </button>
-          <span className={`text-xs font-semibold ${billingCycle === "annually" ? "text-[#1d1d1f] dark:text-white" : "text-[#86868b]"} flex items-center gap-2`}>
+          <span className={`text-xs font-semibold ${billingCycle === "annually" ? "text-gray-900 dark:text-white" : "text-gray-500"} flex items-center gap-2`}>
             <span>Annually billing</span>
-            <span className="px-2.5 py-0.5 bg-[#0066cc]/10 text-[#0066cc] dark:bg-[#2997ff]/20 dark:text-[#2997ff] text-[10px] font-semibold rounded-full uppercase tracking-wider">Save 20%</span>
+            <span className="px-2.5 py-0.5 bg-blue-50 text-[#0066cc] dark:bg-[#2997ff]/20 dark:text-[#2997ff] text-[10px] font-semibold rounded-full uppercase tracking-wider">Save 20%</span>
           </span>
         </div>
 
@@ -151,7 +142,7 @@ const PricingPage: React.FC = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
               whileHover={{ y: -4 }}
-              className="p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[32px] border border-[#e5e5e7] dark:border-white/[0.08] bg-white dark:bg-[#161617] flex flex-col justify-between space-y-8 transition-all duration-300 relative h-full shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)]"
+              className="p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[32px] border border-gray-200 dark:border-white/10 bg-white dark:bg-black flex flex-col justify-between space-y-8 transition-all duration-300 relative h-full shadow-sm hover:shadow-md"
             >
               {plan.highlighted && (
                 <span className="absolute top-0 right-8 -translate-y-1/2 bg-[#0066cc] dark:bg-[#2997ff] text-white px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm">
@@ -161,39 +152,39 @@ const PricingPage: React.FC = () => {
               
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white">{plan.name}</h3>
-                  <p className="text-sm text-[#515154] dark:text-gray-300 leading-relaxed font-normal">
+                  <h3 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{plan.name}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
                     {plan.desc}
                   </p>
                 </div>
                 
                 <div className="flex items-baseline gap-1 pt-2">
-                  <span className="text-4xl sm:text-5xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">{plan.price}</span>
-                  <span className="text-sm font-medium text-[#86868b] dark:text-gray-400">{plan.period}</span>
+                  <span className="text-4xl sm:text-5xl font-semibold tracking-tight text-gray-900 dark:text-white">{plan.price}</span>
+                  <span className="text-sm font-medium text-gray-500 dark:text-gray-400">{plan.period}</span>
                 </div>
 
-                <ul className="space-y-3.5 pt-6 border-t border-[#e5e5e7]/80 dark:border-white/10 text-sm">
+                <ul className="space-y-3.5 pt-6 border-t border-gray-200 dark:border-white/10 text-sm">
                   {plan.features.map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-3">
                       <svg className="w-5 h-5 text-[#0066cc] dark:text-[#2997ff] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
-                      <span className="text-[#1d1d1f]/90 dark:text-gray-300 font-normal leading-snug">{feat}</span>
+                      <span className="text-gray-700 dark:text-gray-300 font-normal leading-snug">{feat}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
-              <div className="pt-6 border-t border-[#e5e5e7]/60 dark:border-white/10">
+              <div className="pt-6 border-t border-gray-200 dark:border-white/10">
                 {plan.link === "/contact" ? (
                   <a
                     href="/contact"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className={`w-full block text-center py-3.5 rounded-full text-sm font-medium transition-all shadow-xs ${
+                    className={`w-full block text-center py-3.5 rounded-full text-sm font-semibold transition-all shadow-xs ${
                       plan.highlighted
                         ? "bg-[#0066cc] hover:bg-[#0052a3] text-white"
-                        : "bg-[#1d1d1f] hover:bg-black text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
+                        : "bg-gray-900 hover:bg-black text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
                     }`}
                   >
                     {plan.cta} ↗
@@ -201,10 +192,10 @@ const PricingPage: React.FC = () => {
                 ) : (
                   <Link
                     to={plan.link}
-                    className={`w-full block text-center py-3.5 rounded-full text-sm font-medium transition-all shadow-xs ${
+                    className={`w-full block text-center py-3.5 rounded-full text-sm font-semibold transition-all shadow-xs ${
                       plan.highlighted
                         ? "bg-[#0066cc] hover:bg-[#0052a3] text-white"
-                        : "bg-[#1d1d1f] hover:bg-black text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
+                        : "bg-gray-900 hover:bg-black text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
                     }`}
                   >
                     {plan.cta}
@@ -216,11 +207,11 @@ const PricingPage: React.FC = () => {
         </div>
 
         {/* Pricing Accordion FAQ Section */}
-        <section className="bg-white dark:bg-[#161617] rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 lg:p-12 border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] mt-20">
+        <section className="bg-white dark:bg-black rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 lg:p-12 border border-gray-200 dark:border-white/10 shadow-sm mt-20">
           <div className="max-w-4xl mx-auto space-y-10">
             <div className="text-center space-y-3">
-              <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">Pricing & License FAQ</h2>
-              <p className="text-[#6e6e73] dark:text-gray-400 text-base leading-relaxed font-normal">
+              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Pricing & License FAQ</h2>
+              <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed font-normal">
                 Get answers to common inquiries regarding quotas, custom optimizations, and multi-user configurations.
               </p>
             </div>
@@ -231,12 +222,12 @@ const PricingPage: React.FC = () => {
                 return (
                   <div 
                     key={index} 
-                    className="bg-[#f5f5f7] dark:bg-[#1c1c1e] rounded-[20px] border border-[#e5e5e7]/80 dark:border-white/[0.06] overflow-hidden transition-colors"
+                    className="bg-gray-50 dark:bg-black rounded-[20px] border border-gray-200 dark:border-white/10 overflow-hidden transition-colors"
                   >
                     <button
                       type="button"
                       onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                      className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-base text-[#1d1d1f] dark:text-white hover:opacity-90 select-none cursor-pointer"
+                      className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-base text-gray-900 dark:text-white hover:opacity-90 select-none cursor-pointer"
                     >
                       <span>{faq.q}</span>
                       <span className={`text-xl text-[#0066cc] dark:text-[#2997ff] transform transition-transform duration-200 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
@@ -252,7 +243,7 @@ const PricingPage: React.FC = () => {
                           exit={{ height: 0, opacity: 0 }}
                           transition={{ duration: 0.2, ease: "easeInOut" }}
                         >
-                          <div className="px-6 pb-6 pt-2 text-sm sm:text-[15px] text-[#515154] dark:text-gray-300 leading-relaxed font-normal border-t border-[#e5e5e7]/60 dark:border-white/10">
+                          <div className="px-6 pb-6 pt-2 text-sm sm:text-[15px] text-gray-600 dark:text-gray-300 leading-relaxed font-normal border-t border-gray-200 dark:border-white/10">
                             {faq.a}
                           </div>
                         </motion.div>

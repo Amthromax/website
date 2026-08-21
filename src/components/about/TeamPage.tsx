@@ -4,14 +4,14 @@ import SEO from "../layout/SEO";
 
 const TeamPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Our Team | Amthromax" 
         description="Meet the researchers, engineers, policy experts and operational leaders working together to build reliable AI at Amthromax." 
       />
 
       {/* The Team Section */}
-      <section className="bg-[#fcfdfa] dark:bg-gray-950 py-16 md:py-32 transition-colors duration-300">
+      <section className="bg-white dark:bg-black py-16 md:py-32 transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Left Side: Title and Intro */}

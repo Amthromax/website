@@ -506,11 +506,11 @@ const ResearchDetailPage: React.FC = () => {
 
   if (!paper) {
     return (
-      <div className="min-h-screen flex flex-col justify-between bg-white text-[#1d1d1f] font-sans">
+      <div className="min-h-screen flex flex-col justify-between bg-white dark:bg-black text-gray-900 dark:text-white font-sans transition-colors duration-300">
         <div className="py-32 text-center space-y-4">
-          <h2 className="text-3xl font-normal text-[#1d1d1f]">Research Paper Not Found</h2>
-          <p className="text-[#6e6e73]">The requested publication could not be located in our scientific repository.</p>
-          <Link to="/research" className="text-[#0066cc] hover:underline inline-block pt-4">
+          <h2 className="text-3xl font-normal text-gray-900 dark:text-white">Research Paper Not Found</h2>
+          <p className="text-gray-600 dark:text-gray-400">The requested publication could not be located in our scientific repository.</p>
+          <Link to="/research" className="text-blue-600 dark:text-blue-400 hover:underline inline-block pt-4">
             &larr; Back to Scientific Repository
           </Link>
         </div>
@@ -522,16 +522,16 @@ const ResearchDetailPage: React.FC = () => {
   const { chartConfig } = paper;
 
   return (
-    <div className="min-h-screen bg-[#ffffff] text-[#1d1d1f] font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans transition-colors duration-300 antialiased">
       
       {/* Hero Header Section */}
-      <section className="relative pt-24 pb-16 px-6 sm:px-12 max-w-5xl mx-auto text-center border-b border-[#e5e5e7]">
+      <section className="relative pt-24 pb-16 px-6 sm:px-12 max-w-5xl mx-auto text-center border-b border-gray-200 dark:border-white/10">
         <div className="space-y-6">
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-[#1d1d1f] leading-tight max-w-4xl mx-auto">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-normal tracking-tight text-gray-900 dark:text-white leading-tight max-w-4xl mx-auto">
             {paper.title}
           </h1>
 
-          <p className="text-base sm:text-xl text-[#6e6e73] max-w-2xl mx-auto leading-relaxed font-normal">
+          <p className="text-base sm:text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto leading-relaxed font-normal">
             {paper.tagline}
           </p>
 
@@ -539,7 +539,7 @@ const ResearchDetailPage: React.FC = () => {
             {paper.tags.map((tag) => (
               <span
                 key={tag}
-                className="text-xs text-[#515154] font-medium tracking-wide"
+                className="text-xs text-gray-500 dark:text-gray-400 font-medium tracking-wide"
               >
                 {tag}
               </span>
@@ -552,42 +552,42 @@ const ResearchDetailPage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6 sm:px-10 py-16 space-y-16">
         
         {/* Abstract Box */}
-        <section className="bg-[#f5f5f7] border border-[#e5e5e7] rounded-2xl p-8 sm:p-10 space-y-3">
-          <h2 className="text-xs font-sans uppercase tracking-widest text-[#6e6e73] font-semibold">
+        <section className="bg-gray-50 dark:bg-[#121214] border border-gray-200 dark:border-white/15 rounded-2xl p-8 sm:p-10 space-y-3 shadow-sm">
+          <h2 className="text-xs font-sans uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold">
             Abstract
           </h2>
-          <p className="text-[#1d1d1f] text-base sm:text-lg leading-relaxed italic font-sans">
+          <p className="text-gray-900 dark:text-gray-100 text-base sm:text-lg leading-relaxed italic font-sans">
             "{paper.abstract}"
           </p>
         </section>
 
         {/* Introduction Section */}
         <section className="space-y-6">
-          <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight border-b border-[#e5e5e7] pb-4">
+          <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight border-b border-gray-200 dark:border-white/10 pb-4">
             1. Introduction & Problem Statement
           </h2>
           {paper.introduction.map((paragraph, index) => (
-            <p key={index} className="text-[#333336] text-base sm:text-lg leading-relaxed font-normal">
+            <p key={index} className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* Dynamic Interactive System Architecture Diagram Component */}
-        <section className="space-y-6 border-t border-[#e5e5e7] pt-12">
+        <section className="space-y-6 border-t border-gray-200 dark:border-white/10 pt-12">
           <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight">
               2. System Architecture & Node Topology
             </h2>
-            <p className="text-[#6e6e73] text-sm sm:text-base font-normal">
+            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-normal">
               {paper.systemArchitectureDescription}
             </p>
           </div>
 
           {/* Interactive Topology Graph Flowcard */}
-          <div className="bg-[#f5f5f7] border border-[#e5e5e7] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
-            <div className="border-b border-[#e5e5e7] pb-4">
-              <span className="text-xs font-sans font-semibold text-[#6e6e73] uppercase tracking-widest">
+          <div className="bg-gray-50 dark:bg-[#121214] border border-gray-200 dark:border-white/15 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+            <div className="border-b border-gray-200 dark:border-white/10 pb-4">
+              <span className="text-xs font-sans font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                 FIG 1.0 &bull; {paper.diagramTitle}
               </span>
             </div>
@@ -597,22 +597,22 @@ const ResearchDetailPage: React.FC = () => {
               {paper.diagramNodes.map((node, i) => (
                 <div
                   key={i}
-                  className="bg-white border border-[#e5e5e7] hover:border-gray-400 rounded-xl p-5 space-y-3 transition-all duration-300 group shadow-sm relative"
+                  className="bg-white dark:bg-black border border-gray-200 dark:border-white/15 hover:border-gray-400 dark:hover:border-white/30 rounded-xl p-5 space-y-3 transition-all duration-300 group shadow-sm relative"
                 >
                   <div className="flex items-center justify-between">
-                    <span className="w-7 h-7 rounded-lg bg-[#1d1d1f] text-white font-sans text-xs font-semibold flex items-center justify-center">
+                    <span className="w-7 h-7 rounded-lg bg-black text-white dark:bg-white dark:text-black font-sans text-xs font-semibold flex items-center justify-center">
                       {node.step}
                     </span>
                     {node.badge && (
-                      <span className="text-[10px] font-sans font-medium bg-[#f5f5f7] border border-[#e5e5e7] text-[#515154] px-2 py-0.5 rounded-md">
+                      <span className="text-[10px] font-sans font-medium bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-700 dark:text-gray-300 px-2 py-0.5 rounded-md">
                         {node.badge}
                       </span>
                     )}
                   </div>
-                  <h4 className="text-base font-semibold text-[#1d1d1f] group-hover:text-[#0066cc] transition-colors">
+                  <h4 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                     {node.title}
                   </h4>
-                  <p className="text-xs text-[#6e6e73] leading-relaxed">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     {node.description}
                   </p>
                 </div>
@@ -620,8 +620,8 @@ const ResearchDetailPage: React.FC = () => {
             </div>
 
             {/* Visual Connected Arrow Pipeline (SVG Flow Line) */}
-            <div className="hidden sm:block pt-4 border-t border-[#e5e5e7]">
-              <div className="flex items-center justify-between text-xs text-[#6e6e73] font-sans font-medium">
+            <div className="hidden sm:block pt-4 border-t border-gray-200 dark:border-white/10">
+              <div className="flex items-center justify-between text-xs text-gray-600 dark:text-gray-400 font-sans font-medium">
                 <span>{paper.flowSummary}</span>
               </div>
             </div>
@@ -629,40 +629,40 @@ const ResearchDetailPage: React.FC = () => {
         </section>
 
         {/* Dynamic Paper-Specific Chart Section */}
-        <section className="space-y-6 border-t border-[#e5e5e7] pt-12">
+        <section className="space-y-6 border-t border-gray-200 dark:border-white/10 pt-12">
           <div className="space-y-2">
-            <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight">
+            <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight">
               3. Empirical Performance Chart & Visual Analytics
             </h2>
-            <p className="text-[#6e6e73] text-sm sm:text-base font-normal">
+            <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-normal">
               {chartConfig.subtitle}
             </p>
           </div>
 
-          <div className="bg-[#f5f5f7] border border-[#e5e5e7] rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
-            <div className="flex items-center justify-between border-b border-[#e5e5e7] pb-4 flex-wrap gap-4">
-              <span className="text-xs font-sans font-semibold text-[#6e6e73] uppercase tracking-widest">
+          <div className="bg-gray-50 dark:bg-[#121214] border border-gray-200 dark:border-white/15 rounded-2xl p-6 sm:p-8 space-y-6 shadow-sm">
+            <div className="flex items-center justify-between border-b border-gray-200 dark:border-white/10 pb-4 flex-wrap gap-4">
+              <span className="text-xs font-sans font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-widest">
                 {chartConfig.title}
               </span>
               <div className="flex items-center gap-4 text-xs font-sans">
                 {chartConfig.legend.map((item, idx) => (
                   <div key={idx} className="flex items-center gap-1.5">
                     <span className="w-3 h-3 rounded-full" style={{ backgroundColor: item.color }} />
-                    <span className="text-[#1d1d1f] font-semibold">{item.label}</span>
+                    <span className="text-gray-900 dark:text-white font-semibold">{item.label}</span>
                   </div>
                 ))}
               </div>
             </div>
 
             {/* Render Line Chart vs Bar Chart */}
-            <div className="w-full bg-white border border-[#e5e5e7] rounded-xl p-4 sm:p-6 space-y-4">
+            <div className="w-full bg-white dark:bg-black border border-gray-200 dark:border-white/15 rounded-xl p-4 sm:p-6 space-y-4">
               {chartConfig.type === "line" ? (
                 <div className="h-64 w-full relative">
                   <svg className="w-full h-full overflow-visible" viewBox="0 0 500 200" preserveAspectRatio="none">
                     {/* Grid Lines */}
-                    <line x1="0" y1="40" x2="500" y2="40" stroke="#f0f0f2" strokeDasharray="4 4" />
-                    <line x1="0" y1="90" x2="500" y2="90" stroke="#f0f0f2" strokeDasharray="4 4" />
-                    <line x1="0" y1="140" x2="500" y2="140" stroke="#f0f0f2" strokeDasharray="4 4" />
+                    <line x1="0" y1="40" x2="500" y2="40" className="stroke-gray-200 dark:stroke-white/10" strokeDasharray="4 4" />
+                    <line x1="0" y1="90" x2="500" y2="90" className="stroke-gray-200 dark:stroke-white/10" strokeDasharray="4 4" />
+                    <line x1="0" y1="140" x2="500" y2="140" className="stroke-gray-200 dark:stroke-white/10" strokeDasharray="4 4" />
                     
                     {/* Series Lines */}
                     {chartConfig.series.map((s, idx) => {
@@ -684,7 +684,7 @@ const ResearchDetailPage: React.FC = () => {
                               <text
                                 x={i * stepX}
                                 y={180 - (v * 1.5) - 10}
-                                fill="#1d1d1f"
+                                className="fill-gray-900 dark:fill-white"
                                 fontSize="9"
                                 fontWeight="bold"
                                 textAnchor="middle"
@@ -709,11 +709,11 @@ const ResearchDetailPage: React.FC = () => {
                         const disp = s.displayValues[xIdx] || "";
                         return (
                           <div key={xIdx} className="space-y-1">
-                            <div className="flex justify-between text-xs text-[#1d1d1f] font-sans font-medium">
+                            <div className="flex justify-between text-xs text-gray-900 dark:text-white font-sans font-medium">
                               <span>{xLabel}</span>
                               <span className="font-bold" style={{ color: s.color }}>{disp}</span>
                             </div>
-                            <div className="w-full bg-[#f5f5f7] h-3 rounded-full overflow-hidden border border-[#e5e5e7]">
+                            <div className="w-full bg-gray-100 dark:bg-white/10 h-3 rounded-full overflow-hidden border border-gray-200 dark:border-white/10">
                               <div
                                 className="h-full rounded-full transition-all duration-500"
                                 style={{ width: `${Math.min(val, 100)}%`, backgroundColor: s.color }}
@@ -729,9 +729,9 @@ const ResearchDetailPage: React.FC = () => {
 
               {/* X-Axis Timeline Labels for Line Charts */}
               {chartConfig.type === "line" && (
-                <div className="flex justify-between text-[11px] font-sans text-[#6e6e73] pt-2 border-t border-[#f0f0f2]">
+                <div className="flex justify-between text-[11px] font-sans text-gray-500 dark:text-gray-400 pt-2 border-t border-gray-200 dark:border-white/10">
                   {chartConfig.xLabels.map((lbl, idx) => (
-                    <span key={idx} className="font-medium text-[#1d1d1f]">{lbl}</span>
+                    <span key={idx} className="font-medium text-gray-900 dark:text-white">{lbl}</span>
                   ))}
                 </div>
               )}
@@ -740,26 +740,26 @@ const ResearchDetailPage: React.FC = () => {
         </section>
 
         {/* Methodology & Algorithmic Formulation */}
-        <section className="space-y-6 border-t border-[#e5e5e7] pt-12">
-          <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight border-b border-[#e5e5e7] pb-4">
+        <section className="space-y-6 border-t border-gray-200 dark:border-white/10 pt-12">
+          <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight border-b border-gray-200 dark:border-white/10 pb-4">
             4. Technical Methodology & Formulation
           </h2>
           {paper.methodology.map((paragraph, index) => (
-            <p key={index} className="text-[#333336] text-base sm:text-lg leading-relaxed font-normal">
+            <p key={index} className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
               {paragraph}
             </p>
           ))}
 
           {/* Mathematical Formulation Display if present */}
           {paper.mathematicalFormulation && (
-            <div className="bg-[#f5f5f7] border border-[#e5e5e7] rounded-xl p-6 sm:p-8 space-y-4 font-sans text-sm">
-              <h3 className="text-[#1d1d1f] font-sans text-lg font-semibold">
+            <div className="bg-gray-50 dark:bg-[#121214] border border-gray-200 dark:border-white/15 rounded-xl p-6 sm:p-8 space-y-4 font-sans text-sm">
+              <h3 className="text-gray-900 dark:text-white font-sans text-lg font-semibold">
                 {paper.mathematicalFormulation.title}
               </h3>
-              <p className="text-[#6e6e73] font-sans text-xs sm:text-sm">
+              <p className="text-gray-600 dark:text-gray-400 font-sans text-xs sm:text-sm">
                 {paper.mathematicalFormulation.explanation}
               </p>
-              <div className="bg-white border border-[#e5e5e7] rounded-lg p-4 space-y-2 text-[#1d1d1f] overflow-x-auto text-xs sm:text-sm font-semibold">
+              <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/15 rounded-lg p-4 space-y-2 text-gray-900 dark:text-white overflow-x-auto text-xs sm:text-sm font-semibold">
                 {paper.mathematicalFormulation.equations.map((eq, i) => (
                   <div key={i} className="py-0.5 font-sans">
                     {eq}
@@ -772,15 +772,15 @@ const ResearchDetailPage: React.FC = () => {
 
         {/* Benchmark Results Table & Visual Bar Chart */}
         {paper.benchmarkData && (
-          <section className="space-y-6 border-t border-[#e5e5e7] pt-12">
-            <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight border-b border-[#e5e5e7] pb-4">
+          <section className="space-y-6 border-t border-gray-200 dark:border-white/10 pt-12">
+            <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight border-b border-gray-200 dark:border-white/10 pb-4">
               5. Experimental Performance & Benchmark Results
             </h2>
 
             {/* Detailed Table */}
-            <div className="overflow-x-auto border border-[#e5e5e7] rounded-xl bg-white shadow-sm">
-              <table className="w-full text-left text-xs sm:text-sm text-[#333336]">
-                <thead className="bg-[#f5f5f7] text-[#6e6e73] text-xs font-sans font-semibold uppercase border-b border-[#e5e5e7]">
+            <div className="overflow-x-auto border border-gray-200 dark:border-white/15 rounded-xl bg-white dark:bg-black shadow-sm">
+              <table className="w-full text-left text-xs sm:text-sm text-gray-700 dark:text-gray-300">
+                <thead className="bg-gray-50 dark:bg-[#121214] text-gray-500 dark:text-gray-400 text-xs font-sans font-semibold uppercase border-b border-gray-200 dark:border-white/15">
                   <tr>
                     <th className="p-4">Performance Metric</th>
                     <th className="p-4">Baseline (Legacy)</th>
@@ -788,13 +788,13 @@ const ResearchDetailPage: React.FC = () => {
                     <th className="p-4 text-right">Delta / Improvement</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-[#e5e5e7] font-sans">
+                <tbody className="divide-y divide-gray-200 dark:divide-white/10 font-sans">
                   {paper.benchmarkData.map((row, idx) => (
-                    <tr key={idx} className="hover:bg-[#f5f5f7]/60 transition-colors">
-                      <td className="p-4 font-sans font-medium text-[#1d1d1f]">{row.metric}</td>
-                      <td className="p-4 text-[#6e6e73]">{row.baseline}</td>
-                      <td className="p-4 text-[#1d1d1f] font-bold">{row.proposed}</td>
-                      <td className="p-4 text-right text-emerald-700 font-bold">{row.improvement}</td>
+                    <tr key={idx} className="hover:bg-gray-50/60 dark:hover:bg-white/5 transition-colors">
+                      <td className="p-4 font-sans font-medium text-gray-900 dark:text-white">{row.metric}</td>
+                      <td className="p-4 text-gray-500 dark:text-gray-400">{row.baseline}</td>
+                      <td className="p-4 text-gray-900 dark:text-white font-bold">{row.proposed}</td>
+                      <td className="p-4 text-right text-emerald-600 dark:text-emerald-400 font-bold">{row.improvement}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -805,14 +805,14 @@ const ResearchDetailPage: React.FC = () => {
 
         {/* Runnable Code Snippet implementation if present */}
         {paper.codeSnippet && (
-          <section className="space-y-6 border-t border-[#e5e5e7] pt-12">
-            <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight border-b border-[#e5e5e7] pb-4">
+          <section className="space-y-6 border-t border-gray-200 dark:border-white/10 pt-12">
+            <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight border-b border-gray-200 dark:border-white/10 pb-4">
               6. Production Code Implementation
             </h2>
-            <div className="bg-[#161618] border border-gray-800 rounded-xl overflow-hidden shadow-xl">
-              <div className="flex items-center justify-between px-5 py-3 bg-white/5 border-b border-gray-800 text-xs font-mono text-gray-400">
+            <div className="bg-gray-900 dark:bg-[#161618] border border-gray-800 dark:border-gray-800 rounded-xl overflow-hidden shadow-xl">
+              <div className="flex items-center justify-between px-5 py-3 bg-gray-950 dark:bg-white/5 border-b border-gray-800 text-xs font-mono text-gray-400">
                 <span>{paper.codeSnippet.filename}</span>
-                <span className="uppercase text-[10px] bg-white/10 px-2 py-0.5 rounded text-gray-300">
+                <span className="uppercase text-[10px] bg-gray-800 dark:bg-white/10 px-2 py-0.5 rounded text-gray-300">
                   {paper.codeSnippet.language}
                 </span>
               </div>
@@ -824,22 +824,22 @@ const ResearchDetailPage: React.FC = () => {
         )}
 
         {/* Conclusion / Impact Results */}
-        <section className="space-y-6 border-t border-[#e5e5e7] pt-12">
-          <h2 className="text-2xl sm:text-3xl font-normal text-[#1d1d1f] tracking-tight border-b border-[#e5e5e7] pb-4">
+        <section className="space-y-6 border-t border-gray-200 dark:border-white/10 pt-12">
+          <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight border-b border-gray-200 dark:border-white/10 pb-4">
             7. Production Impact & Conclusion
           </h2>
           {paper.results.map((paragraph, index) => (
-            <p key={index} className="text-[#333336] text-base sm:text-lg leading-relaxed font-normal">
+            <p key={index} className="text-gray-700 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
               {paragraph}
             </p>
           ))}
         </section>
 
         {/* Bottom Navigation */}
-        <div className="pt-8 border-t border-[#e5e5e7] flex items-center justify-between">
+        <div className="pt-8 border-t border-gray-200 dark:border-white/10 flex items-center justify-between">
           <Link
             to="/research"
-            className="text-xs font-semibold text-[#1d1d1f] hover:text-[#0066cc] transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="text-xs font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <span>&larr; Back to Research Index</span>
           </Link>
@@ -849,7 +849,7 @@ const ResearchDetailPage: React.FC = () => {
               e.preventDefault();
               window.scrollTo({ top: 0, behavior: "smooth" });
             }}
-            className="text-xs text-[#6e6e73] hover:text-[#1d1d1f] transition-colors"
+            className="text-xs text-gray-500 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white transition-colors"
           >
             Back to Top &uarr;
           </a>

@@ -43,56 +43,56 @@ const useCases: UseCaseData[] = [
         {
           gene: "Sub-10ms Latency",
           values: [
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
           ]
         },
         {
           gene: "Fault Isolation",
           values: [
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "restrains", bg: "bg-emerald-900/90", color: "text-emerald-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
           ]
         },
         {
           gene: "Zero-Copy SerDe",
           values: [
-            { text: "restrains", bg: "bg-emerald-900/90", color: "text-emerald-200" },
-            { text: "restrains", bg: "bg-emerald-900/90", color: "text-emerald-200" },
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
+            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
+            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
           ]
         },
         {
           gene: "Auto-Failover",
           values: [
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
           ]
         },
         {
           gene: "Cross-Cloud Mesh",
           values: [
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "restrains", bg: "bg-emerald-900/90", color: "text-emerald-200" },
-            { text: "context", bg: "bg-rose-900/90", color: "text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-900/90", color: "text-indigo-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
+            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
           ]
         }
       ]
@@ -172,24 +172,24 @@ const ResearchSection: React.FC = () => {
   const activeUseCase = useCases.find((u) => u.id === activeTab) || useCases[0];
 
   return (
-    <div className="bg-black text-white font-sans min-h-screen">
+    <div className="bg-white dark:bg-black text-gray-900 dark:text-white font-sans min-h-screen transition-colors duration-300 antialiased">
       
       {/* SECTION 1: HERO HEADER */}
       <section className="relative pt-24 sm:pt-32 pb-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto overflow-hidden">
         <div className="max-w-4xl space-y-8 z-10">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-white tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-gray-900 dark:text-white tracking-tight leading-[1.08]">
             Amthromax R&D Platform <br />
             for research labs
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 font-normal leading-relaxed max-w-2xl">
+          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-2xl">
             A reasoning partner for engineering teams, academic institutions, and enterprise labs to advance scientific discovery and autonomous AI systems.
           </p>
 
           <div>
             <Link
               to="/contact-sales"
-              className="inline-flex items-center justify-center px-6 py-3.5 bg-white text-black font-semibold text-sm rounded-lg hover:bg-gray-200 transition-all cursor-pointer shadow-lg"
+              className="inline-flex items-center justify-center px-6 py-3.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-semibold text-sm rounded-lg transition-all cursor-pointer shadow-lg"
             >
               Get started
             </Link>
@@ -198,55 +198,55 @@ const ResearchSection: React.FC = () => {
       </section>
 
       {/* SECTION 2: MADE FOR SCIENTIFIC RESEARCH */}
-      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-white/10">
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16">
           
           {/* Left Title */}
           <div className="lg:col-span-5">
-            <h2 className="text-3xl sm:text-5xl font-serif text-white tracking-tight leading-snug sticky top-32">
+            <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight leading-snug sticky top-32">
               Made for scientific research
             </h2>
           </div>
 
           {/* Right Feature List with Horizontal Line Dividers */}
-          <div className="lg:col-span-7 divide-y divide-white/10 border-t border-b border-white/10">
+          <div className="lg:col-span-7 divide-y divide-gray-200 dark:divide-white/10 border-t border-b border-gray-200 dark:border-white/10">
             
             {/* Feature 1 */}
             <div className="py-10 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-start">
-              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-white tracking-tight">
+              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-gray-900 dark:text-white tracking-tight">
                 AI Agents for Research Automation
               </div>
-              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-400 font-normal leading-relaxed">
+              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Amthromax deploys autonomous agents to write benchmark code, synthesize cross-domain literature, and accelerate experimental workflows alongside your lab.
               </div>
             </div>
 
             {/* Feature 2 */}
             <div className="py-10 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-start">
-              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-white tracking-tight">
+              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-gray-900 dark:text-white tracking-tight">
                 Enterprise Knowledge Integration
               </div>
-              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-400 font-normal leading-relaxed">
+              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Connect proprietary data pipelines, PubMed databases, and vector knowledge stores so every answer is grounded in verifiable references.
               </div>
             </div>
 
             {/* Feature 3 */}
             <div className="py-10 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-start">
-              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-white tracking-tight">
+              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-gray-900 dark:text-white tracking-tight">
                 Verifiable Lineage & Auditability
               </div>
-              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-400 font-normal leading-relaxed">
+              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Every output includes reproducible code execution steps, precise source citations, and confidence metrics. Your proprietary research data remains 100% private.
               </div>
             </div>
 
             {/* Feature 4 */}
             <div className="py-10 grid grid-cols-1 sm:grid-cols-12 gap-4 sm:gap-6 items-start">
-              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-white tracking-tight">
+              <div className="sm:col-span-5 text-base sm:text-lg font-medium text-gray-900 dark:text-white tracking-tight">
                 Scalable R&D Infrastructure
               </div>
-              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-400 font-normal leading-relaxed">
+              <div className="sm:col-span-7 text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Provide your entire organization with unified access to state-of-the-art models, high-performance compute clusters, and collaborative team workspaces.
               </div>
             </div>
@@ -256,11 +256,11 @@ const ResearchSection: React.FC = () => {
         </div>
       </section>
 
-      {/* SECTION 3: HOW TEAMS USE AMTHROMAX - Screenshot 3 */}
-      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-white/10 space-y-12">
+      {/* SECTION 3: HOW TEAMS USE AMTHROMAX */}
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-12">
         
         {/* Title */}
-        <h2 className="text-3xl sm:text-5xl font-serif text-white tracking-tight text-center">
+        <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight text-center">
           How teams use Amthromax Intelligence
         </h2>
 
@@ -273,8 +273,8 @@ const ResearchSection: React.FC = () => {
               onClick={() => setActiveTab(uc.id)}
               className={`px-5 py-2.5 rounded-full text-xs font-semibold transition-all cursor-pointer flex items-center gap-2 border ${
                 activeTab === uc.id
-                  ? "bg-white text-black border-white shadow-lg"
-                  : "bg-white/5 text-gray-400 border-white/10 hover:text-white hover:border-white/20"
+                  ? "bg-black text-white dark:bg-white dark:text-black border-black dark:border-white shadow-lg"
+                  : "bg-gray-100 text-gray-600 border-gray-200 hover:text-black hover:bg-gray-200 dark:bg-white/5 dark:text-gray-400 dark:border-white/10 dark:hover:text-white dark:hover:border-white/20"
               }`}
             >
               {uc.id === "synthesis" && (
@@ -303,7 +303,7 @@ const ResearchSection: React.FC = () => {
         </div>
 
         {/* Main Canvas Display Container */}
-        <div className="bg-black border border-white/20 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
+        <div className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -316,14 +316,14 @@ const ResearchSection: React.FC = () => {
             >
               
               {/* Left Display Card: Literature Synthesis Table or Code/Chart */}
-              <div className="lg:col-span-8 bg-[#ffffff] text-black rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl border border-white/20">
+              <div className="lg:col-span-8 bg-white dark:bg-[#121214] text-gray-900 dark:text-white rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl border border-gray-200 dark:border-white/20">
                 
                 {/* Header */}
-                <div className="space-y-1 border-b border-gray-200 pb-4">
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-gray-900 leading-snug">
+                <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
+                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-gray-900 dark:text-white leading-snug">
                     {activeUseCase.title}
                   </h3>
-                  <p className="text-xs text-gray-600 font-normal">
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-normal">
                     {activeUseCase.subtitle}
                   </p>
                 </div>
@@ -333,17 +333,17 @@ const ResearchSection: React.FC = () => {
                   <div className="overflow-x-auto">
                     <table className="w-full text-left text-xs font-sans">
                       <thead>
-                        <tr className="border-b border-gray-200 text-gray-500 font-semibold">
+                        <tr className="border-b border-gray-200 dark:border-white/10 text-gray-500 dark:text-gray-400 font-semibold">
                           <th className="py-2.5 px-3">Metric / Protocol</th>
                           {activeUseCase.tableData.headers.map((h, i) => (
                             <th key={i} className="py-2.5 px-2 text-center">{h}</th>
                           ))}
                         </tr>
                       </thead>
-                      <tbody className="divide-y divide-gray-100 font-medium">
+                      <tbody className="divide-y divide-gray-100 dark:divide-white/5 font-medium">
                         {activeUseCase.tableData.rows.map((row, idx) => (
-                          <tr key={idx} className="hover:bg-gray-50/80 transition-colors">
-                            <td className="py-2.5 px-3 font-bold text-gray-900 font-mono text-xs">{row.gene}</td>
+                          <tr key={idx} className="hover:bg-gray-50/80 dark:hover:bg-white/5 transition-colors">
+                            <td className="py-2.5 px-3 font-bold text-gray-900 dark:text-white font-mono text-xs">{row.gene}</td>
                             {row.values.map((v, valIdx) => (
                               <td key={valIdx} className="py-2 px-1 text-center">
                                 <span className={`inline-block px-2 py-0.5 rounded text-[11px] font-semibold ${v.bg} ${v.color}`}>
@@ -360,10 +360,10 @@ const ResearchSection: React.FC = () => {
 
                 {/* Code Render for Research Code */}
                 {activeUseCase.codeData && (
-                  <div className="bg-[#18181b] text-gray-100 rounded-xl overflow-hidden text-xs font-mono">
-                    <div className="px-4 py-2 bg-zinc-900 text-zinc-400 flex justify-between border-b border-zinc-800">
+                  <div className="bg-gray-900 dark:bg-[#18181b] text-gray-100 rounded-xl overflow-hidden text-xs font-mono border border-gray-800 dark:border-transparent">
+                    <div className="px-4 py-2 bg-gray-950 dark:bg-zinc-900 text-gray-400 dark:text-zinc-400 flex justify-between border-b border-gray-800 dark:border-zinc-800">
                       <span>{activeUseCase.codeData.filename}</span>
-                      <span className="uppercase text-[10px] bg-zinc-800 px-2 py-0.5 rounded text-zinc-300">
+                      <span className="uppercase text-[10px] bg-gray-800 dark:bg-zinc-800 px-2 py-0.5 rounded text-gray-300 dark:text-zinc-300">
                         {activeUseCase.codeData.language}
                       </span>
                     </div>
@@ -376,17 +376,17 @@ const ResearchSection: React.FC = () => {
                 {/* Chart Render for Data Analysis & Numerical Experiments */}
                 {activeUseCase.chartData && (
                   <div className="space-y-4 py-2 font-sans">
-                    <h4 className="text-xs font-bold text-gray-700 uppercase tracking-wide">
+                    <h4 className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
                       {activeUseCase.chartData.title}
                     </h4>
                     <div className="space-y-3">
                       {activeUseCase.chartData.bars.map((bar, i) => (
                         <div key={i} className="space-y-1">
-                          <div className="flex justify-between text-xs font-semibold text-gray-800">
+                          <div className="flex justify-between text-xs font-semibold text-gray-800 dark:text-gray-200">
                             <span>{bar.label}</span>
                             <span style={{ color: bar.color }}>{bar.displayValue}</span>
                           </div>
-                          <div className="w-full bg-gray-100 h-3 rounded-full overflow-hidden border border-gray-200">
+                          <div className="w-full bg-gray-100 dark:bg-white/10 h-3 rounded-full overflow-hidden border border-gray-200 dark:border-white/10">
                             <div
                               className="h-full rounded-full transition-all duration-500"
                               style={{ width: `${bar.value}%`, backgroundColor: bar.color }}
@@ -400,19 +400,19 @@ const ResearchSection: React.FC = () => {
 
                 {/* Footer Source Attribution */}
                 {activeUseCase.sourceText && (
-                  <div className="pt-3 border-t border-gray-100 text-[11px] text-gray-500 font-normal">
+                  <div className="pt-3 border-t border-gray-100 dark:border-white/10 text-[11px] text-gray-500 dark:text-gray-400 font-normal">
                     {activeUseCase.sourceText}
                   </div>
                 )}
 
               </div>
 
-              {/* Right Floating Prompt Card (Exact Screenshot 3 Floating Card) */}
-              <div className="lg:col-span-4 bg-[#141416] border border-white/15 rounded-2xl p-6 sm:p-8 space-y-3 shadow-2xl text-white">
-                <span className="text-xs font-bold text-gray-400 uppercase tracking-wider block">
+              {/* Right Floating Prompt Card */}
+              <div className="lg:col-span-4 bg-gray-100 dark:bg-[#141416] border border-gray-200 dark:border-white/15 rounded-2xl p-6 sm:p-8 space-y-3 shadow-2xl text-gray-900 dark:text-white">
+                <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">
                   Prompt
                 </span>
-                <p className="text-xs sm:text-sm text-gray-200 font-normal leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 font-normal leading-relaxed">
                   "{activeUseCase.promptText}"
                 </p>
               </div>
@@ -424,19 +424,19 @@ const ResearchSection: React.FC = () => {
       </section>
 
       {/* SECTION 4: RESEARCH PUBLICATIONS & WHITE PAPERS LIST */}
-      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-white/10 space-y-12">
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-12">
         <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-6">
           <div className="space-y-2">
-            <h2 className="text-3xl sm:text-5xl font-serif text-white tracking-tight">
+            <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight">
               Scientific Publications
             </h2>
-            <p className="text-sm text-gray-400 font-normal">
+            <p className="text-sm text-gray-600 dark:text-gray-400 font-normal">
               Peer-reviewed whitepapers, system benchmarks, and research breakthroughs from Amthromax R&D Labs.
             </p>
           </div>
           <Link
             to="/research/publications"
-            className="text-xs font-semibold text-white hover:text-blue-400 transition-colors flex items-center gap-1 shrink-0"
+            className="text-xs font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 shrink-0"
           >
             <span>View all publications</span>
             <span>›</span>
@@ -447,64 +447,64 @@ const ResearchSection: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           
           <Link to="/research/predictive-autoscaling" className="group block">
-            <div className="border-t border-white/10 pt-6 pb-2 flex flex-col justify-between min-h-[260px] h-full transition-all">
+            <div className="border-t border-gray-200 dark:border-white/10 pt-6 pb-2 flex flex-col justify-between min-h-[260px] h-full transition-all">
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs text-gray-400 font-semibold">
+                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                   <span>Publication</span>
                   <span>Aug 1, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                   Predictive Autoscaling in Kubernetes via Deep LSTM Networks
                 </h3>
-                <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 font-normal">
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
                   Proactive autoscaling model using recurrent neural networks to forecast request density and eliminate latency spikes.
                 </p>
               </div>
-              <div className="pt-6 border-t border-white/5 flex justify-between text-xs text-gray-400 font-semibold">
+              <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                 <span>Cite</span>
-                <span className="text-white group-hover:text-blue-400">Learn more ›</span>
+                <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Learn more ›</span>
               </div>
             </div>
           </Link>
 
           <Link to="/research/zero-trust-protocol" className="group block">
-            <div className="border-t border-white/10 pt-6 pb-2 flex flex-col justify-between min-h-[260px] h-full transition-all">
+            <div className="border-t border-gray-200 dark:border-white/10 pt-6 pb-2 flex flex-col justify-between min-h-[260px] h-full transition-all">
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs text-gray-400 font-semibold">
+                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                   <span>Research</span>
                   <span>Jul 29, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                   Zero-Trust Protocol and Edge Identity Authentication
                 </h3>
-                <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 font-normal">
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
                   Cryptographically verified edge nodes delivering zero-trust isolation without the high CPU overhead of legacy schemes.
                 </p>
               </div>
-              <div className="pt-6 border-t border-white/5 flex justify-between text-xs text-gray-400 font-semibold">
+              <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                 <span>Cite</span>
-                <span className="text-white group-hover:text-blue-400">Learn more ›</span>
+                <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Learn more ›</span>
               </div>
             </div>
           </Link>
 
           <Link to="/research/distributed-query-execution" className="group block">
-            <div className="border-t border-white/10 pt-6 pb-2 flex flex-col justify-between min-h-[260px] h-full transition-all">
+            <div className="border-t border-gray-200 dark:border-white/10 pt-6 pb-2 flex flex-col justify-between min-h-[260px] h-full transition-all">
               <div className="space-y-4">
-                <div className="flex items-center justify-between text-xs text-gray-400 font-semibold">
+                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                   <span>Overview</span>
                   <span>Jul 15, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
                   Distributed Query Execution Across Hybrid Multi-Cloud Clusters
                 </h3>
-                <p className="text-xs text-gray-400 leading-relaxed line-clamp-3 font-normal">
+                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
                   Novel database middleware designed to orchestrate complex JOIN queries across heterogeneous cloud nodes.
                 </p>
               </div>
-              <div className="pt-6 border-t border-white/5 flex justify-between text-xs text-gray-400 font-semibold">
+              <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                 <span>Cite</span>
-                <span className="text-white group-hover:text-blue-400">Learn more ›</span>
+                <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Learn more ›</span>
               </div>
             </div>
           </Link>

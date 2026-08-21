@@ -23,7 +23,7 @@ const INQUIRY_OPTIONS = [
   },
   { 
     value: "Custom Fine-Tuned Model Weights", 
-    label: "Custom Fine-Tuned Model Weights (Morfix / Cotises)", 
+    label: "Custom Fine-Tuned Model Weights (Simifig / Ligivor)", 
     desc: "Proprietary model training on enterprise datasets with zero-data retention" 
   },
   { 
@@ -111,8 +111,8 @@ export const ContactSalesPage: React.FC = () => {
       
       if (userMsg.toLowerCase().includes("pricing") || userMsg.toLowerCase().includes("cost")) {
         reply = "Our Enterprise plan is customized based on your token scale and private cloud deployment (AWS/Azure/GCP). Standard seats start at $79/mo for Pro, and Enterprise includes dedicated SLA guarantees.";
-      } else if (userMsg.toLowerCase().includes("morfix") || userMsg.toLowerCase().includes("intox") || userMsg.toLowerCase().includes("cotises") || userMsg.toLowerCase().includes("model")) {
-        reply = "We offer custom fine-tuned adapters for MORFIX 0.1, INTOX 0.2, COTISES 0.5 MAX, and VERKOX 0.4 INSTANT with private weights and zero data retention.";
+      } else if (userMsg.toLowerCase().includes("simifig") || userMsg.toLowerCase().includes("favlon") || userMsg.toLowerCase().includes("ligivor") || userMsg.toLowerCase().includes("model")) {
+        reply = "We offer custom fine-tuned adapters for SIMIFIG 0.1, FAVLON 0.2, LIGIVOR 0.5 MAX, and ROQLOW 0.4 INSTANT with private weights and zero data retention.";
       }
 
       setChatMessages(prev => [...prev, { sender: "agent", text: reply }]);
@@ -120,21 +120,21 @@ export const ContactSalesPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-black min-h-screen text-white font-sans selection:bg-white/10 relative">
+    <div className="bg-white dark:bg-black min-h-screen text-gray-900 dark:text-white font-sans selection:bg-black/10 dark:selection:bg-white/10 relative transition-colors duration-300">
       <SEO 
         title="Contact Sales | Amthromax" 
         description="Get started on your own or contact the Amthromax sales team for complex deployments, 500+ seat plans, and BAAs." 
       />
 
       {/* Top Header Label Bar */}
-      <div className="max-w-[1750px] mx-auto px-6 md:px-12 pt-24 pb-4 flex justify-between items-center text-xs text-gray-400">
-        <span className="font-medium text-gray-400">Contact sales</span>
+      <div className="max-w-[1750px] mx-auto px-6 md:px-12 pt-24 pb-4 flex justify-between items-center text-xs text-gray-500 dark:text-gray-400">
+        <span className="font-medium">Contact sales</span>
         
         {/* Explore here dropdown */}
         <div className="relative">
           <button 
             onClick={() => setIsExploreOpen(!isExploreOpen)}
-            className="flex items-center space-x-1 text-gray-300 hover:text-white transition-colors cursor-pointer text-xs font-medium"
+            className="flex items-center space-x-1 text-gray-700 hover:text-black dark:text-gray-300 dark:hover:text-white transition-colors cursor-pointer text-xs font-medium"
           >
             <span>Explore here</span>
             <svg className={`w-3.5 h-3.5 transition-transform duration-200 ${isExploreOpen ? "rotate-180" : ""}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -148,12 +148,12 @@ export const ContactSalesPage: React.FC = () => {
                 initial={{ opacity: 0, y: -5 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -5 }}
-                className="absolute right-0 mt-2 w-48 bg-black border border-white/20 rounded-xl shadow-xl z-50 py-2"
+                className="absolute right-0 mt-2 w-48 bg-white dark:bg-black border border-gray-200 dark:border-white/20 rounded-xl shadow-xl z-50 py-2"
               >
-                <Link to="/products" className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Products Overview</Link>
-                <Link to="/pricing" className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Pricing & Plans</Link>
-                <Link to="/research" className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Research Whitepapers</Link>
-                <Link to="/docs" className="block px-4 py-2 text-xs text-gray-300 hover:text-white hover:bg-white/5 transition-colors">Documentation</Link>
+                <Link to="/products" className="block px-4 py-2 text-xs text-gray-700 hover:text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/5 transition-colors">Products Overview</Link>
+                <Link to="/pricing" className="block px-4 py-2 text-xs text-gray-700 hover:text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/5 transition-colors">Pricing & Plans</Link>
+                <Link to="/research" className="block px-4 py-2 text-xs text-gray-700 hover:text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/5 transition-colors">Research Whitepapers</Link>
+                <Link to="/docs" className="block px-4 py-2 text-xs text-gray-700 hover:text-black hover:bg-gray-100 dark:text-gray-300 dark:hover:text-white dark:hover:bg-white/5 transition-colors">Documentation</Link>
               </motion.div>
             )}
           </AnimatePresence>
@@ -166,7 +166,7 @@ export const ContactSalesPage: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-5xl md:text-7xl font-sans text-white tracking-tight font-extrabold"
+          className="text-5xl md:text-7xl font-sans text-gray-900 dark:text-white tracking-tight font-extrabold"
         >
           Contact sales
         </motion.h1>
@@ -175,22 +175,22 @@ export const ContactSalesPage: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, delay: 0.1 }}
-          className="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-normal"
+          className="text-gray-600 dark:text-gray-300 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-normal"
         >
           Get started on your own or contact the sales team for complex deployments.
         </motion.p>
       </section>
 
       {/* SECTION 1: For quick results */}
-      <section className="max-w-[1750px] mx-auto px-6 md:px-12 pb-24 border-b border-white/10">
+      <section className="max-w-[1750px] mx-auto px-6 md:px-12 pb-24 border-b border-gray-200 dark:border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Text (3 Columns) */}
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-3xl md:text-5xl font-sans text-white font-bold tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">
               For quick results
             </h2>
-            <p className="text-gray-400 text-sm md:text-base leading-relaxed">
+            <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
               Get started on your own without waiting on us.
             </p>
           </div>
@@ -200,29 +200,29 @@ export const ContactSalesPage: React.FC = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               
               {/* Card 1: Get the Enterprise plan */}
-              <div className="p-8 rounded-3xl bg-black border border-white/20 flex flex-col justify-between space-y-6 shadow-2xl">
+              <div className="p-8 rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 flex flex-col justify-between space-y-6 shadow-sm dark:shadow-2xl transition-colors">
                 <div className="space-y-4">
                   {/* Modern Enterprise Building Icon */}
-                  <div className="w-12 h-12 text-white/90 flex items-center justify-start">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 text-gray-900 dark:text-white/90 flex items-center justify-start">
+                    <svg className="w-8 h-8 text-gray-900 dark:text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Get the Enterprise plan</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">Get the Enterprise plan</h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     Buy or upgrade to Enterprise yourself. Check out in minutes with a credit card.
                   </p>
                 </div>
 
-                <div className="space-y-6 pt-4 border-t border-white/10">
-                  <div className="flex items-start space-x-2 text-xs text-gray-300">
-                    <span className="text-gray-400 mt-0.5">✓</span>
+                <div className="space-y-6 pt-4 border-t border-gray-200 dark:border-white/10">
+                  <div className="flex items-start space-x-2 text-xs text-gray-700 dark:text-gray-300">
+                    <span className="text-gray-500 dark:text-gray-400 mt-0.5">✓</span>
                     <span>Best if you know exactly what you need and are ready to check out</span>
                   </div>
                   
                   <Link 
                     to="/pricing" 
-                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-bold text-xs rounded-xl transition-all shadow-md"
+                    className="block w-full text-center py-3 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-bold text-xs rounded-xl transition-all shadow-md"
                   >
                     Get Enterprise
                   </Link>
@@ -230,29 +230,29 @@ export const ContactSalesPage: React.FC = () => {
               </div>
 
               {/* Card 2: Chat with buying agent */}
-              <div className="p-8 rounded-3xl bg-black border border-white/20 flex flex-col justify-between space-y-6 shadow-2xl">
+              <div className="p-8 rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 flex flex-col justify-between space-y-6 shadow-sm dark:shadow-2xl transition-colors">
                 <div className="space-y-4">
                   {/* Modern AI Agent Sparkles Icon */}
-                  <div className="w-12 h-12 text-white/90 flex items-center justify-start">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 text-gray-900 dark:text-white/90 flex items-center justify-start">
+                    <svg className="w-8 h-8 text-gray-900 dark:text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Chat with buying agent</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">Chat with buying agent</h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     Ask any questions you have, get a personalized quote, and check out today. Our buying agent can escalate to the sales team when needed.
                   </p>
                 </div>
 
-                <div className="space-y-6 pt-4 border-t border-white/10">
-                  <div className="flex items-start space-x-2 text-xs text-gray-300">
-                    <span className="text-gray-400 mt-0.5">✓</span>
+                <div className="space-y-6 pt-4 border-t border-gray-200 dark:border-white/10">
+                  <div className="flex items-start space-x-2 text-xs text-gray-700 dark:text-gray-300">
+                    <span className="text-gray-500 dark:text-gray-400 mt-0.5">✓</span>
                     <span>Best if you have questions you need answered before purchasing</span>
                   </div>
                   
                   <button 
                     onClick={() => setIsChatOpen(true)}
-                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
+                    className="block w-full text-center py-3 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
                   >
                     Chat now
                   </button>
@@ -260,29 +260,29 @@ export const ContactSalesPage: React.FC = () => {
               </div>
 
               {/* Card 3: Schedule technical demo */}
-              <div className="p-8 rounded-3xl bg-black border border-white/20 flex flex-col justify-between space-y-6 shadow-2xl">
+              <div className="p-8 rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 flex flex-col justify-between space-y-6 shadow-sm dark:shadow-2xl transition-colors">
                 <div className="space-y-4">
                   {/* Modern Calendar / Walkthrough Icon */}
-                  <div className="w-12 h-12 text-white/90 flex items-center justify-start">
-                    <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
+                  <div className="w-12 h-12 text-gray-900 dark:text-white/90 flex items-center justify-start">
+                    <svg className="w-8 h-8 text-gray-900 dark:text-white" fill="none" stroke="currentColor" strokeWidth="1.5" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zM14.25 15h.008v.008H14.25V15zm0 2.25h.008v.008H14.25v-.008zM16.5 15h.008v.008H16.5V15zm0 2.25h.008v.008H16.5v-.008z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-sans text-white font-bold tracking-tight">Schedule technical demo</h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">Schedule technical demo</h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     Book a 1-on-1 walkthrough with an AI solution architect to explore custom GPU clusters & models.
                   </p>
                 </div>
 
-                <div className="space-y-6 pt-4 border-t border-white/10">
-                  <div className="flex items-start space-x-2 text-xs text-gray-300">
-                    <span className="text-gray-400 mt-0.5">✓</span>
+                <div className="space-y-6 pt-4 border-t border-gray-200 dark:border-white/10">
+                  <div className="flex items-start space-x-2 text-xs text-gray-700 dark:text-gray-300">
+                    <span className="text-gray-500 dark:text-gray-400 mt-0.5">✓</span>
                     <span>Best if you need custom proof-of-concept or architectural validation</span>
                   </div>
                   
                   <button 
                     onClick={() => setIsDemoModalOpen(true)}
-                    className="block w-full text-center py-3 bg-white hover:bg-gray-200 text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
+                    className="block w-full text-center py-3 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
                   >
                     Book demo
                   </button>
@@ -292,13 +292,13 @@ export const ContactSalesPage: React.FC = () => {
             </div>
 
             {/* Bottom Support Banner Card */}
-            <div className="p-6 md:p-8 rounded-2xl bg-black border border-white/20 flex flex-col md:flex-row justify-between items-center gap-6 shadow-2xl">
-              <p className="text-xs text-gray-300 leading-relaxed max-w-xl">
+            <div className="p-6 md:p-8 rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 flex flex-col md:flex-row justify-between items-center gap-6 shadow-sm dark:shadow-2xl transition-colors">
+              <p className="text-xs text-gray-700 dark:text-gray-300 leading-relaxed max-w-xl">
                 More help, right this way. Browse articles, see product details, and get answers to technical questions.
               </p>
               <Link 
                 to="/docs"
-                className="whitespace-nowrap px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 rounded-xl text-xs font-bold text-white transition-all"
+                className="whitespace-nowrap px-5 py-2.5 bg-gray-200 hover:bg-gray-300 dark:bg-white/10 dark:hover:bg-white/20 border border-gray-300 dark:border-white/20 rounded-xl text-xs font-bold text-gray-900 dark:text-white transition-all"
               >
                 Visit support center
               </Link>
@@ -310,37 +310,37 @@ export const ContactSalesPage: React.FC = () => {
       </section>
 
       {/* SECTION 2: For complex needs */}
-      <section className="max-w-[1750px] mx-auto px-6 md:px-12 py-24 border-b border-white/10">
+      <section className="max-w-[1750px] mx-auto px-6 md:px-12 py-24 border-b border-gray-200 dark:border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           
           {/* Left Text (3 Columns) */}
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-3xl md:text-5xl font-sans text-white font-bold tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">
               For complex needs
             </h2>
-            <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
+            <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-sm">
               Our sales team can only support complex deals, like 500+ seat deployments and BAAs. For the fastest support, chat with our buying agent above.
             </p>
           </div>
 
           {/* Right Form Card (9 Columns) */}
           <div className="lg:col-span-9">
-            <div className="p-8 md:p-10 rounded-3xl bg-black border border-white/20 space-y-6 shadow-2xl">
+            <div className="p-8 md:p-10 rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 space-y-6 shadow-sm dark:shadow-2xl transition-colors">
               
               {/* Custom Premium Selector Box */}
               <div className="space-y-2 relative" ref={dropdownRef}>
-                <label className="text-xs font-bold text-gray-300">
-                  What can we help you with? <span className="text-rose-400">*</span>
+                <label className="text-xs font-bold text-gray-800 dark:text-gray-300">
+                  What can we help you with? <span className="text-rose-500 dark:text-rose-400">*</span>
                 </label>
                 
                 {/* Custom Box Trigger Button */}
                 <button
                   type="button"
                   onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                  className="w-full px-5 py-4 bg-black hover:bg-white/5 border border-white/20 focus:border-white/40 rounded-2xl text-sm text-white flex items-center justify-between transition-all duration-200 cursor-pointer shadow-inner group"
+                  className="w-full px-5 py-4 bg-white dark:bg-black hover:bg-gray-100 dark:hover:bg-white/5 border border-gray-200 dark:border-white/20 focus:border-gray-400 dark:focus:border-white/40 rounded-2xl text-sm text-gray-900 dark:text-white flex items-center justify-between transition-all duration-200 cursor-pointer shadow-sm dark:shadow-inner group"
                 >
                   <div className="flex items-center space-x-3 truncate">
-                    <span className={inquiryType ? "text-white font-semibold truncate" : "text-gray-400 truncate"}>
+                    <span className={inquiryType ? "text-gray-900 dark:text-white font-semibold truncate" : "text-gray-400 dark:text-gray-500 truncate"}>
                       {inquiryType 
                         ? INQUIRY_OPTIONS.find(o => o.value === inquiryType)?.label || inquiryType 
                         : "Please select an enterprise requirement..."}
@@ -349,12 +349,12 @@ export const ContactSalesPage: React.FC = () => {
 
                   <div className="flex items-center space-x-2 pl-2">
                     {inquiryType && (
-                      <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-white/10 text-white border border-white/20 font-medium">
+                      <span className="text-[11px] px-2.5 py-0.5 rounded-full bg-gray-200 text-gray-900 border border-gray-300 dark:bg-white/10 dark:text-white dark:border-white/20 font-medium">
                         Selected
                       </span>
                     )}
                     <svg 
-                      className={`w-4 h-4 text-gray-400 transition-transform duration-200 group-hover:text-white ${isDropdownOpen ? "rotate-180 text-white" : ""}`} 
+                      className={`w-4 h-4 text-gray-400 transition-transform duration-200 group-hover:text-gray-900 dark:group-hover:text-white ${isDropdownOpen ? "rotate-180 text-gray-900 dark:text-white" : ""}`} 
                       fill="none" 
                       stroke="currentColor" 
                       viewBox="0 0 24 24"
@@ -374,7 +374,7 @@ export const ContactSalesPage: React.FC = () => {
                       animate={{ opacity: 1, y: 0, scale: 1 }}
                       exit={{ opacity: 0, y: -6, scale: 0.99 }}
                       transition={{ duration: 0.15, ease: "easeOut" }}
-                      className="absolute top-full left-0 right-0 mt-2 z-50 p-2 bg-black border border-white/20 rounded-2xl shadow-2xl backdrop-blur-2xl space-y-1 max-h-[300px] overflow-y-auto overscroll-contain custom-scrollbar"
+                      className="absolute top-full left-0 right-0 mt-2 z-50 p-2 bg-white dark:bg-black border border-gray-200 dark:border-white/20 rounded-2xl shadow-2xl backdrop-blur-2xl space-y-1 max-h-[300px] overflow-y-auto overscroll-contain custom-scrollbar"
                     >
                       {INQUIRY_OPTIONS.map((opt) => {
                         const isSelected = inquiryType === opt.value;
@@ -388,25 +388,25 @@ export const ContactSalesPage: React.FC = () => {
                             }}
                             className={`w-full text-left px-4 py-3.5 rounded-xl transition-all flex items-start justify-between group cursor-pointer ${
                               isSelected 
-                                ? "bg-white/10 text-white border border-white/20" 
-                                : "hover:bg-white/[0.07] text-gray-300 hover:text-white border border-transparent"
+                                ? "bg-gray-100 dark:bg-white/10 text-gray-900 dark:text-white border border-gray-300 dark:border-white/20" 
+                                : "hover:bg-gray-50 dark:hover:bg-white/[0.07] text-gray-700 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white border border-transparent"
                             }`}
                           >
                             <div className="space-y-1 pr-3">
                               <div className="text-sm font-semibold flex items-center gap-2">
                                 <span>{opt.label}</span>
                               </div>
-                              <div className="text-xs text-gray-400 leading-normal font-normal">
+                              <div className="text-xs text-gray-500 dark:text-gray-400 leading-normal font-normal">
                                 {opt.desc}
                               </div>
                             </div>
 
                             {isSelected ? (
-                              <div className="w-5 h-5 rounded-full bg-white text-black flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">
+                              <div className="w-5 h-5 rounded-full bg-black text-white dark:bg-white dark:text-black flex items-center justify-center text-xs font-bold shrink-0 mt-0.5 shadow-sm">
                                 ✓
                               </div>
                             ) : (
-                              <div className="w-5 h-5 rounded-full border border-white/20 group-hover:border-white/50 shrink-0 mt-0.5 transition-colors" />
+                              <div className="w-5 h-5 rounded-full border border-gray-300 dark:border-white/20 group-hover:border-gray-500 dark:group-hover:border-white/50 shrink-0 mt-0.5 transition-colors" />
                             )}
                           </button>
                         );
@@ -425,23 +425,23 @@ export const ContactSalesPage: React.FC = () => {
                     exit={{ opacity: 0, height: 0 }}
                     transition={{ duration: 0.3 }}
                     onSubmit={handleSubmit}
-                    className="space-y-6 pt-4 border-t border-white/10"
+                    className="space-y-6 pt-4 border-t border-gray-200 dark:border-white/10"
                   >
                     {isSubmitted ? (
-                      <div className="p-6 rounded-2xl bg-emerald-950/20 border border-emerald-500/30 text-center space-y-3">
-                        <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-400 text-xl font-bold">
+                      <div className="p-6 rounded-2xl bg-emerald-50 dark:bg-emerald-950/20 border border-emerald-200 dark:border-emerald-500/30 text-center space-y-3">
+                        <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400 text-xl font-bold">
                           ✓
                         </div>
-                        <h4 className="text-xl font-bold text-white">Inquiry Received</h4>
-                        <p className="text-xs text-gray-300">
-                          Thank you, <span className="text-white font-semibold">{formData.firstName}</span>. An Amthromax Enterprise Specialist will review your request for <span className="text-white font-semibold">{inquiryType}</span> and contact <span className="text-white font-semibold">{formData.workEmail}</span>.
+                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">Inquiry Received</h4>
+                        <p className="text-xs text-gray-600 dark:text-gray-300">
+                          Thank you, <span className="text-gray-900 dark:text-white font-semibold">{formData.firstName}</span>. An Amthromax Enterprise Specialist will review your request for <span className="text-gray-900 dark:text-white font-semibold">{inquiryType}</span> and contact <span className="text-gray-900 dark:text-white font-semibold">{formData.workEmail}</span>.
                         </p>
                       </div>
                     ) : (
                       <>
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-200">First Name *</label>
+                            <label className="text-xs font-bold text-gray-800 dark:text-gray-200">First Name *</label>
                             <input 
                               type="text" 
                               name="firstName"
@@ -449,11 +449,11 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.firstName}
                               onChange={handleFormChange}
                               placeholder="First name"
-                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-200">Last Name *</label>
+                            <label className="text-xs font-bold text-gray-800 dark:text-gray-200">Last Name *</label>
                             <input 
                               type="text" 
                               name="lastName"
@@ -461,14 +461,14 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.lastName}
                               onChange={handleFormChange}
                               placeholder="Last name"
-                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
                             />
                           </div>
                         </div>
 
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-200">Work Email *</label>
+                            <label className="text-xs font-bold text-gray-800 dark:text-gray-200">Work Email *</label>
                             <input 
                               type="email" 
                               name="workEmail"
@@ -476,11 +476,11 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.workEmail}
                               onChange={handleFormChange}
                               placeholder="name@company.com"
-                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
-                            <label className="text-xs font-bold text-gray-200">Company Name *</label>
+                            <label className="text-xs font-bold text-gray-800 dark:text-gray-200">Company Name *</label>
                             <input 
                               type="text" 
                               name="companyName"
@@ -488,20 +488,20 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.companyName}
                               onChange={handleFormChange}
                               placeholder="Organization name"
-                              className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
                             />
                           </div>
                         </div>
 
                         <div className="space-y-2">
-                          <label className="text-xs font-bold text-gray-200">Deployment Details / Message</label>
+                          <label className="text-xs font-bold text-gray-800 dark:text-gray-200">Deployment Details / Message</label>
                           <textarea 
                             name="message"
                             rows={3}
                             value={formData.message}
                             onChange={handleFormChange}
                             placeholder="Tell us about your target seat count, architecture requirements, or timeline..."
-                            className="w-full px-4 py-3 bg-black border border-white/20 rounded-xl text-sm text-white placeholder:text-gray-400 focus:outline-none focus:border-blue-400 focus:ring-1 focus:ring-blue-400/30 transition-all"
+                            className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
                           />
                         </div>
 
@@ -509,7 +509,7 @@ export const ContactSalesPage: React.FC = () => {
                           <button 
                             type="submit"
                             disabled={isSubmitting}
-                            className="px-6 py-3 bg-white text-black font-bold text-xs rounded-xl hover:bg-gray-200 transition-all cursor-pointer shadow-md"
+                            className="px-6 py-3 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
                           >
                             {isSubmitting ? "Submitting..." : "Submit"}
                           </button>
@@ -525,7 +525,7 @@ export const ContactSalesPage: React.FC = () => {
                   <button 
                     type="button" 
                     onClick={() => setInquiryType("500+ Seats Enterprise Licensing")}
-                    className="px-6 py-3 bg-white text-black font-bold text-xs rounded-xl hover:bg-gray-200 transition-all cursor-pointer shadow-md"
+                    className="px-6 py-3 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-bold text-xs rounded-xl transition-all cursor-pointer shadow-md"
                   >
                     Submit
                   </button>
@@ -540,14 +540,14 @@ export const ContactSalesPage: React.FC = () => {
 
       {/* SECTION 3: Transform Banner */}
       <section className="max-w-7xl mx-auto px-6 py-28 text-center space-y-8">
-        <h2 className="text-4xl md:text-6xl font-sans text-white font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+        <h2 className="text-4xl md:text-6xl font-sans text-gray-900 dark:text-white font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
           Transform how your organization operates with Amthromax
         </h2>
         
         <div>
           <Link 
             to="/login"
-            className="inline-block px-8 py-3.5 bg-white hover:bg-gray-200 text-black font-semibold text-sm rounded-xl transition-all shadow-lg"
+            className="inline-block px-8 py-3.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-semibold text-sm rounded-xl transition-all shadow-lg"
           >
             Get started
           </Link>
@@ -561,7 +561,7 @@ export const ContactSalesPage: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex justify-end"
+            className="fixed inset-0 bg-black/50 dark:bg-black/80 backdrop-blur-sm z-50 flex justify-end"
             onClick={() => setIsChatOpen(false)}
           >
             <motion.div 
@@ -569,19 +569,19 @@ export const ContactSalesPage: React.FC = () => {
               animate={{ x: 0 }}
               exit={{ x: "100%" }}
               transition={{ type: "spring", damping: 25, stiffness: 200 }}
-              className="w-full max-w-md bg-black border-l border-white/20 h-full flex flex-col justify-between p-6"
+              className="w-full max-w-md bg-white dark:bg-black border-l border-gray-200 dark:border-white/20 h-full flex flex-col justify-between p-6 shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Drawer Header */}
-              <div className="flex justify-between items-center pb-4 border-b border-white/10">
+              <div className="flex justify-between items-center pb-4 border-b border-gray-200 dark:border-white/10">
                 <div className="flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-white text-black font-black text-xs flex items-center justify-center">
+                  <div className="w-8 h-8 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-xs flex items-center justify-center">
                     A
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-white">Amthromax Buying Agent</h3>
-                    <p className="text-[10px] text-emerald-400 flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 bg-emerald-400 rounded-full animate-pulse" />
+                    <h3 className="text-sm font-bold text-gray-900 dark:text-white">Amthromax Buying Agent</h3>
+                    <p className="text-[10px] text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                       Active & ready to quote
                     </p>
                   </div>
@@ -589,7 +589,7 @@ export const ContactSalesPage: React.FC = () => {
 
                 <button 
                   onClick={() => setIsChatOpen(false)}
-                  className="text-gray-400 hover:text-white p-1"
+                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white p-1 cursor-pointer"
                 >
                   ✕
                 </button>
@@ -605,8 +605,8 @@ export const ContactSalesPage: React.FC = () => {
                     <div 
                       className={`max-w-[85%] p-3.5 rounded-2xl ${
                         msg.sender === "user" 
-                          ? "bg-white text-black font-medium" 
-                          : "bg-[#1f1f23] text-gray-200 border border-white/10"
+                          ? "bg-black text-white dark:bg-white dark:text-black font-medium" 
+                          : "bg-gray-100 text-gray-900 border border-gray-200 dark:bg-[#1f1f23] dark:text-gray-200 dark:border-white/10"
                       }`}
                     >
                       {msg.text}
@@ -616,7 +616,7 @@ export const ContactSalesPage: React.FC = () => {
 
                 {isAgentTyping && (
                   <div className="flex justify-start">
-                    <div className="bg-[#1f1f23] p-3 rounded-2xl text-gray-400 italic">
+                    <div className="bg-gray-100 dark:bg-[#1f1f23] p-3 rounded-2xl text-gray-500 dark:text-gray-400 italic">
                       Buying agent is typing...
                     </div>
                   </div>
@@ -624,17 +624,17 @@ export const ContactSalesPage: React.FC = () => {
               </div>
 
               {/* Chat Input Form */}
-              <form onSubmit={handleSendChatMessage} className="pt-3 border-t border-white/10 flex gap-2">
+              <form onSubmit={handleSendChatMessage} className="pt-3 border-t border-gray-200 dark:border-white/10 flex gap-2">
                 <input 
                   type="text" 
                   value={chatInput}
                   onChange={(e) => setChatInput(e.target.value)}
                   placeholder="Ask about pricing, enterprise seats, models..."
-                  className="flex-1 px-4 py-2.5 bg-[#1f1f23] border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-white/30"
+                  className="flex-1 px-4 py-2.5 bg-gray-100 dark:bg-[#1f1f23] border border-gray-300 dark:border-white/10 rounded-xl text-xs text-gray-900 dark:text-white placeholder-gray-400 dark:placeholder-gray-500 focus:outline-none focus:border-gray-500 dark:focus:border-white/30"
                 />
                 <button 
                   type="submit"
-                  className="px-4 py-2.5 bg-white text-black font-bold text-xs rounded-xl hover:bg-gray-200 transition-all cursor-pointer"
+                  className="px-4 py-2.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-bold text-xs rounded-xl transition-all cursor-pointer"
                 >
                   Send
                 </button>

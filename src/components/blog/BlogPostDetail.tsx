@@ -52,7 +52,7 @@ const BlogPostDetail: React.FC = () => {
 
   if (!post) {
     return (
-      <div className="py-32 text-center bg-white dark:bg-gray-950 min-h-[90vh] font-sans">
+      <div className="py-32 text-center bg-white dark:bg-black min-h-[90vh] font-sans">
         <SEO title="Post Not Found | Amthromax" description="The requested blog post could not be found." />
         <div className="max-w-md mx-auto space-y-6 px-6">
           <h1 className="text-3xl font-black text-gray-900 dark:text-white">Blog Post Not Found</h1>
@@ -154,7 +154,7 @@ const BlogPostDetail: React.FC = () => {
         schema={articleSchema}
       />
 
-      <article className="py-16 md:py-24 bg-white dark:bg-gray-950 transition-colors duration-300 min-h-[85vh] font-sans">
+      <article className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300 min-h-[85vh] font-sans">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-20 space-y-10">
           {/* Back Navigation */}
           <Link

@@ -177,7 +177,7 @@ const PublishPage: React.FC = () => {
 
   if (!isAdmin) {
     return (
-      <div className="bg-gray-50 dark:bg-gray-950 min-h-screen flex items-center justify-center p-6 font-sans transition-colors duration-300">
+      <div className="bg-gray-50 dark:bg-black min-h-screen flex items-center justify-center p-6 font-sans transition-colors duration-300">
         <SEO
           title="Admin Verification | Amthromax"
           description="Secure gate to verify administrative access to Amthromax publishing utilities."
@@ -202,7 +202,7 @@ const PublishPage: React.FC = () => {
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-gray-950 text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-sans"
+                className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-black text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-sans"
               />
               {passwordError && (
                 <p className="text-[10px] text-red-500 font-semibold mt-1">
@@ -228,14 +228,14 @@ const PublishPage: React.FC = () => {
   }
 
   return (
-    <div className="bg-white dark:bg-gray-950 min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans">
+    <div className="bg-white dark:bg-black min-h-screen text-gray-900 dark:text-gray-100 transition-colors duration-300 font-sans">
       <SEO
         title="Publish Article | Amthromax Blog Editor"
         description="Write and publish a new article to the Amthromax Blog with real-time markdown-style rendering."
       />
 
       {/* Editor Header */}
-      <header className="border-b border-gray-150 dark:border-white/[0.04] bg-white/80 dark:bg-gray-950/80 backdrop-blur-md sticky top-0 z-40 px-6 py-4">
+      <header className="border-b border-gray-150 dark:border-white/[0.04] bg-white/80 dark:bg-black/80 backdrop-blur-md sticky top-0 z-40 px-6 py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center space-x-3">
             <Link

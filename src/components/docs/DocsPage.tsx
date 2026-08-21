@@ -69,7 +69,7 @@ const DocsPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       <SEO
         title={`${currentTitle} | Amthromax Docs`}
         description={currentDesc}

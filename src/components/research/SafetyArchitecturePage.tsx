@@ -38,7 +38,7 @@ const scatterParticles = (() => {
     for (let i = 0; i < 34; i++) {
       const offsetX = colX + Math.sin(i * 4 + colIndex) * 3.5;
       const y = 30 + ((i * 11 + colIndex * 23) % 320);
-      const colors = ["#ffffff", "#ffffff", "#e5e7eb", "#9ca3af", "#6b7280", "#4b5563"];
+      const colors = ["#818cf8", "#34d399", "#f472b6", "#fbbf24", "#a78bfa", "#60a5fa"];
       const color = colors[i % colors.length];
       const r = i % 4 === 0 ? 3.2 : i % 3 === 0 ? 2.5 : 2.0;
       particles.push({
@@ -46,7 +46,7 @@ const scatterParticles = (() => {
         y: y,
         r: r,
         color: color,
-        opacity: color === "#ffffff" ? 0.95 : 0.75,
+        opacity: 0.85,
       });
     }
   });
@@ -94,9 +94,11 @@ const DottedCircularProgress: React.FC<{ percentage: number; label: string }> = 
               cx={x}
               cy={y}
               r={isActive ? 2.8 : 2.2}
-              fill={isActive ? "#ffffff" : "#373740"}
-              opacity={isActive ? 0.95 : 0.35}
-              className="transition-all duration-300"
+              className={`transition-all duration-300 ${
+                isActive
+                  ? "fill-gray-900 dark:fill-white opacity-95"
+                  : "fill-gray-300 dark:fill-gray-700 opacity-40"
+              }`}
             />
           );
         })}
@@ -104,10 +106,10 @@ const DottedCircularProgress: React.FC<{ percentage: number; label: string }> = 
 
       {/* Central Percentage and Label */}
       <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-4">
-        <span className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-none mb-2">
+        <span className="text-3xl sm:text-4xl font-normal text-gray-900 dark:text-white tracking-tight leading-none mb-2">
           {percentage}%
         </span>
-        <p className="text-[11px] sm:text-xs text-gray-400 font-normal leading-tight max-w-[135px]">
+        <p className="text-[11px] sm:text-xs text-gray-600 dark:text-gray-400 font-normal leading-tight max-w-[135px]">
           {label}
         </p>
       </div>
@@ -287,7 +289,7 @@ const SafetyArchitecturePage: React.FC = () => {
       description:
         "We build proactive detection models, robust content filters, and partner with national safety organizations to prevent child sexual abuse material (CSAM) and unsafe interactions.",
       icon: (
-        <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       ),
@@ -313,7 +315,7 @@ const SafetyArchitecturePage: React.FC = () => {
       description:
         "Our data scrubbing pipelines remove PII from training sets. Real-time inference filters block unauthorized access to private, financial, and medical records.",
       icon: (
-        <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
         </svg>
@@ -340,7 +342,7 @@ const SafetyArchitecturePage: React.FC = () => {
       description:
         "We implement C2PA cryptographic provenance watermarks, synthetic media detection APIs, and strict verification protocols to prevent non-consensual impersonation.",
       icon: (
-        <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       ),
@@ -366,7 +368,7 @@ const SafetyArchitecturePage: React.FC = () => {
       description:
         "We benchmark model outputs against diverse global evaluation datasets, applying debiasing techniques and constitutional principles across all modalities.",
       icon: (
-        <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M3 6l9-4 9 4v6c0 5.55-3.84 10.74-9 12-5.16-1.26-9-6.45-9-12V6z" />
         </svg>
       ),
@@ -392,7 +394,7 @@ const SafetyArchitecturePage: React.FC = () => {
       description:
         "During democratic elections, we enforce heightened anti-disinformation guardrails, restrict political campaigning generation, and provide real-time threat intelligence.",
       icon: (
-        <svg className="w-6 h-6 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.8" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
         </svg>
       ),
@@ -400,7 +402,7 @@ const SafetyArchitecturePage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-sans selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans transition-colors duration-300 antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black">
       <SEO
         title="Safety | Amthromax R&D Labs"
         description="Safety at every step: Explore Amthromax AI safety architecture, continuous red-teaming, constitutional alignment, and risk evaluation protocols."
@@ -409,72 +411,70 @@ const SafetyArchitecturePage: React.FC = () => {
       {/* SECTION 1: Safety at Every Step */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-24 pb-20 text-center space-y-16">
         <div className="max-w-3xl mx-auto space-y-5">
-
-          <h1 className="text-4xl sm:text-6xl font-normal text-white tracking-tight leading-[1.08]">
+          <h1 className="text-4xl sm:text-6xl font-normal text-gray-900 dark:text-white tracking-tight leading-[1.08]">
             Safety at every step
           </h1>
-          <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-2xl mx-auto">
             We believe in AI's potential to make life better for everyone, which means making it safe for everyone
           </p>
         </div>
 
-          {/* 3 Step Visual Cards Showcase */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
-            {/* Card 1: Teach */}
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-2xl group cursor-pointer"
-            >
-              <span className="text-base font-bold text-white tracking-wide">Teach</span>
-              <div className="py-2 flex items-center justify-center">
-                <DottedCircularProgress
-                  percentage={33}
-                  label="Pre-training safety dataset filtering & alignment."
-                />
-              </div>
-            </motion.div>
+        {/* 3 Step Visual Cards Showcase */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8 text-left">
+          {/* Card 1: Teach */}
+          <motion.div
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-xl group cursor-pointer"
+          >
+            <span className="text-base font-bold text-gray-900 dark:text-white tracking-wide">Teach</span>
+            <div className="py-2 flex items-center justify-center">
+              <DottedCircularProgress
+                percentage={33}
+                label="Pre-training safety dataset filtering & alignment."
+              />
+            </div>
+          </motion.div>
 
-            {/* Card 2: Test */}
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-2xl group cursor-pointer"
-            >
-              <span className="text-base font-bold text-white tracking-wide">Test</span>
-              <div className="py-2 flex items-center justify-center">
-                <DottedCircularProgress
-                  percentage={48}
-                  label="Automated adversarial red-teaming coverage."
-                />
-              </div>
-            </motion.div>
+          {/* Card 2: Test */}
+          <motion.div
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-xl group cursor-pointer"
+          >
+            <span className="text-base font-bold text-gray-900 dark:text-white tracking-wide">Test</span>
+            <div className="py-2 flex items-center justify-center">
+              <DottedCircularProgress
+                percentage={48}
+                label="Automated adversarial red-teaming coverage."
+              />
+            </div>
+          </motion.div>
 
-            {/* Card 3: Share */}
-            <motion.div
-              whileHover={{ y: -6 }}
-              transition={{ duration: 0.3 }}
-              className="rounded-3xl bg-[#000000] border border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-2xl group cursor-pointer"
-            >
-              <span className="text-base font-bold text-white tracking-wide">Share</span>
-              <div className="py-2 flex items-center justify-center">
-                <DottedCircularProgress
-                  percentage={67}
-                  label="Real-time output guardrail & toxicity suppression."
-                />
-              </div>
-            </motion.div>
-          </div>
+          {/* Card 3: Share */}
+          <motion.div
+            whileHover={{ y: -6 }}
+            transition={{ duration: 0.3 }}
+            className="rounded-3xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 p-6 sm:p-7 flex flex-col justify-between space-y-4 shadow-xl group cursor-pointer"
+          >
+            <span className="text-base font-bold text-gray-900 dark:text-white tracking-wide">Share</span>
+            <div className="py-2 flex items-center justify-center">
+              <DottedCircularProgress
+                percentage={67}
+                label="Real-time output guardrail & toxicity suppression."
+              />
+            </div>
+          </motion.div>
+        </div>
       </section>
 
       {/* SECTION 2: Model Emotional & Behavioral Alignment Spectrum */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-gray-200 dark:border-white/10 space-y-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
-
-          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-normal text-gray-900 dark:text-white tracking-tight">
             Model Emotional & Behavioral Alignment Spectrum
           </h2>
-          <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
             Continuous empirical evaluation across 8 emotional dimensions to enforce prosocial bounds and suppress adversarial hostility.
           </p>
         </div>
@@ -485,7 +485,7 @@ const SafetyArchitecturePage: React.FC = () => {
           <div className="relative w-[360px] sm:w-[500px] h-[360px] sm:h-[500px] flex items-center justify-center">
             <svg
               viewBox="0 0 540 540"
-              className="w-full h-full drop-shadow-[0_0_50px_rgba(255,255,255,0.06)] select-none"
+              className="w-full h-full drop-shadow-[0_0_50px_rgba(0,0,0,0.06)] dark:drop-shadow-[0_0_50px_rgba(255,255,255,0.06)] select-none"
             >
               <g transform="translate(270, 270)">
                 {wheelSectors.map((sector) => {
@@ -579,9 +579,9 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
 
           {/* Interactive Dynamic Details Side Card */}
-          <div className="w-full lg:w-96 bg-[#000000] border border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
-            <div className="border-b border-white/10 pb-4">
-              <span className="text-xs font-semibold tracking-wider text-gray-300 uppercase">
+          <div className="w-full lg:w-96 bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 rounded-3xl p-8 space-y-6 shadow-2xl">
+            <div className="border-b border-gray-200 dark:border-white/10 pb-4">
+              <span className="text-xs font-semibold tracking-wider text-gray-500 dark:text-gray-300 uppercase">
                 SAFETY EVALUATION METRICS
               </span>
             </div>
@@ -589,29 +589,29 @@ const SafetyArchitecturePage: React.FC = () => {
             {activeWheelSlice !== null ? (
               <div className="space-y-4">
                 <div className="flex items-baseline justify-between">
-                  <h3 className="text-3xl font-black text-white">
+                  <h3 className="text-3xl font-black text-gray-900 dark:text-white">
                     {wheelSectors[activeWheelSlice].label}
                   </h3>
                   <div className="flex items-baseline gap-1">
-                    <span className="text-3xl font-black text-white">
+                    <span className="text-3xl font-black text-gray-900 dark:text-white">
                       {wheelSectors[activeWheelSlice].score}
                     </span>
-                    <span className="text-xs text-gray-400">/ 12</span>
+                    <span className="text-xs text-gray-500 dark:text-gray-400">/ 12</span>
                   </div>
                 </div>
 
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed font-normal">
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed font-normal">
                   {wheelSectors[activeWheelSlice].desc}
                 </p>
 
                 {/* Empirical Metrics Checklist */}
                 <div className="space-y-2 pt-2">
-                  <span className="text-xs text-gray-400 uppercase tracking-wider block font-semibold">
+                  <span className="text-xs text-gray-500 dark:text-gray-400 uppercase tracking-wider block font-semibold">
                     Empirical Benchmarks:
                   </span>
                   {wheelSectors[activeWheelSlice].details.map((detail, idx) => (
-                    <div key={idx} className="flex items-center gap-2.5 text-xs text-gray-200 bg-[#1c1c22] p-3 rounded-xl border border-white/10">
-                      <span className="w-1.5 h-1.5 rounded-full bg-gray-300" />
+                    <div key={idx} className="flex items-center gap-2.5 text-xs text-gray-800 dark:text-gray-200 bg-white dark:bg-[#1c1c22] p-3 rounded-xl border border-gray-200 dark:border-white/10 shadow-sm">
+                      <span className="w-1.5 h-1.5 rounded-full bg-gray-900 dark:bg-gray-300" />
                       <span>{detail}</span>
                     </div>
                   ))}
@@ -619,29 +619,29 @@ const SafetyArchitecturePage: React.FC = () => {
 
                 {/* Score Progress Bar */}
                 <div className="space-y-1.5 pt-2">
-                  <div className="flex justify-between text-xs text-gray-400 font-medium">
+                  <div className="flex justify-between text-xs text-gray-500 dark:text-gray-400 font-medium">
                     <span>ALIGNMENT INTENSITY</span>
                     <span>{Math.round((wheelSectors[activeWheelSlice].score / 12) * 100)}%</span>
                   </div>
-                  <div className="w-full h-2.5 bg-[#222228] rounded-full overflow-hidden p-0.5 border border-white/10">
+                  <div className="w-full h-2.5 bg-gray-200 dark:bg-[#222228] rounded-full overflow-hidden p-0.5 border border-gray-300 dark:border-white/10">
                     <motion.div
                       initial={{ width: 0 }}
                       animate={{
                         width: `${(wheelSectors[activeWheelSlice].score / 12) * 100}%`,
                       }}
                       transition={{ duration: 0.4 }}
-                      className="h-full bg-white rounded-full"
+                      className="h-full bg-black dark:bg-white rounded-full"
                     />
                   </div>
                 </div>
               </div>
             ) : (
               <div className="space-y-4 py-2">
-                <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-300 leading-relaxed">
                   Hover over or tap any slice of the alignment spectrum dial to view empirical score metrics, toxicity suppression rates, and behavioral safety details.
                 </p>
 
-                {/* Grid of all 8 sectors quick-select items (No background boxes) */}
+                {/* Grid of all 8 sectors quick-select items */}
                 <div className="grid grid-cols-2 gap-x-4 gap-y-2 pt-2">
                   {wheelSectors.map((sec) => (
                     <button
@@ -649,9 +649,9 @@ const SafetyArchitecturePage: React.FC = () => {
                       type="button"
                       onMouseEnter={() => setActiveWheelSlice(sec.id)}
                       onClick={() => setActiveWheelSlice(sec.id)}
-                      className="py-1.5 px-1 text-left text-xs font-medium text-gray-300 hover:text-white transition-colors cursor-pointer flex items-center justify-between group"
+                      className="py-1.5 px-1 text-left text-xs font-medium text-gray-700 dark:text-gray-300 hover:text-black dark:hover:text-white transition-colors cursor-pointer flex items-center justify-between group"
                     >
-                      <span className="text-xs font-medium text-gray-300 group-hover:text-white transition-colors">{sec.label}</span>
+                      <span className="text-xs font-medium text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors">{sec.label}</span>
                     </button>
                   ))}
                 </div>
@@ -661,12 +661,11 @@ const SafetyArchitecturePage: React.FC = () => {
         </div>
       </section>
 
-      {/* NEW SECTION: Best Practices for Designing Linear Dashboards (Matching User Image) */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16 text-center">
+      {/* NEW SECTION: Best Practices for Designing Linear Dashboards */}
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-gray-200 dark:border-white/10 space-y-16 text-center">
         {/* Header Breadcrumb & Title */}
         <div className="max-w-3xl mx-auto space-y-4">
-
-          <h2 className="text-4xl sm:text-6xl font-normal text-white tracking-tight leading-[1.08]">
+          <h2 className="text-4xl sm:text-6xl font-normal text-gray-900 dark:text-white tracking-tight leading-[1.08]">
             Best practices for designing <br className="hidden sm:inline" />
             Linear Dashboards
           </h2>
@@ -675,7 +674,7 @@ const SafetyArchitecturePage: React.FC = () => {
         {/* Dual Side-by-Side Dashboard Chart Containers */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto pt-4 text-left">
           {/* Left Container: Particle Cluster Scatter Plot */}
-          <div className="bg-[#000000] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
+          <div className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
             <svg viewBox="0 0 400 300" className="w-full h-full">
               {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
               {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
@@ -687,14 +686,14 @@ const SafetyArchitecturePage: React.FC = () => {
                       y1={yPos}
                       x2="350"
                       y2={yPos}
-                      stroke="rgba(255, 255, 255, 0.05)"
+                      className="stroke-gray-200 dark:stroke-white/10"
                       strokeDasharray="2 3"
                     />
                     <text
                       x="385"
                       y={yPos + 3}
                       textAnchor="end"
-                      fill="#6b7280"
+                      className="fill-gray-400 dark:fill-gray-500"
                       fontSize="9"
                       fontFamily="monospace"
                     >
@@ -719,7 +718,7 @@ const SafetyArchitecturePage: React.FC = () => {
           </div>
 
           {/* Right Container: Stacked Volatility Bar Chart */}
-          <div className="bg-[#000000] border border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
+          <div className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-7 relative aspect-[4/3] flex flex-col justify-between shadow-2xl overflow-hidden group">
             <svg viewBox="0 0 400 300" className="w-full h-full">
               {/* Y-Axis Horizontal Dashed Gridlines & Labels */}
               {["4.0", "3.5", "3.0", "2.5", "2.0", "1.5", "1.0", "0.5", "0.0"].map((label, idx) => {
@@ -731,14 +730,14 @@ const SafetyArchitecturePage: React.FC = () => {
                       y1={yPos}
                       x2="350"
                       y2={yPos}
-                      stroke="rgba(255, 255, 255, 0.05)"
+                      className="stroke-gray-200 dark:stroke-white/10"
                       strokeDasharray="2 3"
                     />
                     <text
                       x="385"
                       y={yPos + 3}
                       textAnchor="end"
-                      fill="#6b7280"
+                      className="fill-gray-400 dark:fill-gray-500"
                       fontSize="9"
                       fontFamily="monospace"
                     >
@@ -758,24 +757,24 @@ const SafetyArchitecturePage: React.FC = () => {
 
                 return (
                   <g key={idx}>
-                    {/* Base Dark Gray Segment */}
+                    {/* Base Segment */}
                     <rect
                       x={xPos}
                       y={268 - baseH}
                       width="10"
                       height={baseH}
                       rx="1"
-                      fill="#4b5563"
+                      className="fill-gray-400 dark:fill-gray-600"
                     />
 
-                    {/* Upper White Segment */}
+                    {/* Upper Segment */}
                     <rect
                       x={xPos}
                       y={268 - topH}
                       width="10"
                       height={Math.max(4, topH - baseH - gap)}
                       rx="1"
-                      fill="#ffffff"
+                      className="fill-black dark:fill-white"
                     />
                   </g>
                 );
@@ -793,12 +792,12 @@ const SafetyArchitecturePage: React.FC = () => {
       </section>
 
       {/* SECTION 4: Protecting people where it matters most */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-white/10 space-y-16">
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-24 border-t border-gray-200 dark:border-white/10 space-y-16">
         <div className="max-w-3xl mx-auto text-center space-y-4">
-          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
+          <h2 className="text-3xl sm:text-5xl font-normal text-gray-900 dark:text-white tracking-tight">
             Protecting people where it matters most
           </h2>
-          <p className="text-base sm:text-lg text-gray-400 font-normal leading-relaxed">
+          <p className="text-base sm:text-lg text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
             We work with industry leaders and policymakers to reduce harm and protect people across critical areas.
           </p>
         </div>
@@ -810,14 +809,14 @@ const SafetyArchitecturePage: React.FC = () => {
               key={item.id}
               onClick={() => setActiveModalItem(item)}
               whileHover={{ scale: 1.01 }}
-              className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
+              className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-gray-300 dark:hover:border-white/20 transition-all relative overflow-hidden group"
             >
               <div className="space-y-4">
                 {item.icon}
-                <h3 className="text-xl font-bold text-white tracking-tight">{item.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
 
                 {item.subtitle && (
-                  <p className="text-xs text-gray-400 font-medium">{item.subtitle}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">{item.subtitle}</p>
                 )}
               </div>
 
@@ -828,7 +827,7 @@ const SafetyArchitecturePage: React.FC = () => {
                     e.stopPropagation();
                     setActiveModalItem(item);
                   }}
-                  className="w-8 h-8 rounded-full bg-[#1c1c20] group-hover:bg-white/20 text-gray-300 group-hover:text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-gray-200 dark:bg-[#1c1c20] group-hover:bg-black group-hover:text-white dark:group-hover:bg-white/20 text-gray-800 dark:text-gray-300 flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
                 >
                   +
                 </button>
@@ -844,14 +843,14 @@ const SafetyArchitecturePage: React.FC = () => {
               key={item.id}
               onClick={() => setActiveModalItem(item)}
               whileHover={{ scale: 1.01 }}
-              className="bg-[#000000] border border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-white/20 transition-all relative overflow-hidden group"
+              className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-7 sm:p-8 flex flex-col justify-between min-h-[220px] shadow-lg cursor-pointer hover:border-gray-300 dark:hover:border-white/20 transition-all relative overflow-hidden group"
             >
               <div className="space-y-4">
                 {item.icon}
-                <h3 className="text-xl font-bold text-white tracking-tight">{item.title}</h3>
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
 
                 {item.subtitle && (
-                  <p className="text-xs text-gray-400 font-medium">{item.subtitle}</p>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">{item.subtitle}</p>
                 )}
               </div>
 
@@ -862,7 +861,7 @@ const SafetyArchitecturePage: React.FC = () => {
                     e.stopPropagation();
                     setActiveModalItem(item);
                   }}
-                  className="w-8 h-8 rounded-full bg-[#1c1c20] group-hover:bg-white/20 text-gray-300 group-hover:text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
+                  className="w-8 h-8 rounded-full bg-gray-200 dark:bg-[#1c1c20] group-hover:bg-black group-hover:text-white dark:group-hover:bg-white/20 text-gray-800 dark:text-gray-300 flex items-center justify-center text-sm font-bold transition-all cursor-pointer"
                 >
                   +
                 </button>
@@ -874,14 +873,14 @@ const SafetyArchitecturePage: React.FC = () => {
 
       {/* SECTION 5: Go deeper on safety */}
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20">
-        <div className="rounded-3xl bg-[#1c1c20] border border-white/10 p-12 sm:p-20 text-center space-y-8 shadow-2xl">
-          <h2 className="text-3xl sm:text-5xl font-normal text-white tracking-tight">
+        <div className="rounded-3xl bg-gray-100 dark:bg-[#1c1c20] border border-gray-200 dark:border-white/10 p-12 sm:p-20 text-center space-y-8 shadow-2xl">
+          <h2 className="text-3xl sm:text-5xl font-normal text-gray-900 dark:text-white tracking-tight">
             Go deeper on safety
           </h2>
           <div className="flex justify-center pt-2">
             <Link
               to="/research/publications"
-              className="px-8 py-4 bg-[#2a2a30] hover:bg-[#383842] text-white font-semibold text-sm rounded-full transition-all border border-white/10 shadow-md flex items-center gap-2 cursor-pointer"
+              className="px-8 py-4 bg-black text-white hover:bg-gray-800 dark:bg-[#2a2a30] dark:hover:bg-[#383842] dark:text-white font-semibold text-sm rounded-full transition-all border border-gray-900 dark:border-white/10 shadow-md flex items-center gap-2 cursor-pointer"
             >
               <span>Explore the deployment safety hub</span>
               <span className="text-xs">↗</span>
@@ -897,14 +896,14 @@ const SafetyArchitecturePage: React.FC = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-6 sm:p-12 overflow-y-auto"
+            className="fixed inset-0 bg-black/80 dark:bg-black/95 backdrop-blur-xl z-50 flex items-center justify-center p-6 sm:p-12 overflow-y-auto"
             onClick={() => setActiveModalItem(null)}
           >
             {/* Close button fixed top right */}
             <button
               type="button"
               onClick={() => setActiveModalItem(null)}
-              className="fixed top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer z-50 border border-white/10 shadow-lg"
+              className="fixed top-6 right-6 sm:top-8 sm:right-8 w-10 h-10 rounded-full bg-white/20 dark:bg-white/10 hover:bg-white/40 dark:hover:bg-white/20 text-white flex items-center justify-center transition-all cursor-pointer z-50 border border-white/20 shadow-lg"
               aria-label="Close modal"
             >
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -918,7 +917,7 @@ const SafetyArchitecturePage: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.25, ease: "easeOut" }}
-              className="max-w-2xl w-full text-left space-y-6 relative z-40 my-auto p-4 sm:p-6"
+              className="max-w-2xl w-full text-left space-y-6 relative z-40 my-auto p-4 sm:p-6 text-white"
               onClick={(e) => e.stopPropagation()}
             >
               {/* Top Icon */}

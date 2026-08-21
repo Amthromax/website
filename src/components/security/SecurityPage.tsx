@@ -180,27 +180,26 @@ const SecurityPage: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-gray-950 text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO 
         title="Amthromax Security Hub | Trust, Compliance & Sandbox Execution" 
         description="Learn how Amthromax safeguards your enterprise data. Zero-trust sandboxed agent execution, post-quantum ML-KEM encryption, and SOC2 compliant trace logs." 
       />
 
       {/* Hero Section */}
-      <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex flex-col items-center justify-center bg-[#050505] text-white border-b border-gray-900 transition-colors duration-300">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.04),transparent_50%)] pointer-events-none" />
+      <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex flex-col items-center justify-center bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-extrabold tracking-tighter leading-tight text-white">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter leading-tight text-gray-900 dark:text-white">
             Industrial Scale. Certified Security.
           </h1>
-          <p className="text-base md:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-base md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
             Unify your systems with high-throughput automation engines, zero-trust cloud network frameworks, and dedicated support pipelines.
           </p>
         </div>
       </section>
 
       {/* Stats Section */}
-      <section className="bg-white dark:bg-gray-950 pt-16 pb-8 transition-colors duration-300">
+      <section className="bg-white dark:bg-black pt-16 pb-8 transition-colors duration-300">
         <div className="max-w-6xl mx-auto px-6 relative z-20">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
@@ -209,9 +208,9 @@ const SecurityPage: React.FC = () => {
               { label: "DATA ENCRYPTION", value: "AES-256" },
               { label: "COMPLIANCE STANDARD", value: "SOC2 Type II" }
             ].map((stat, i) => (
-              <div key={i} className="bg-white dark:bg-[#161617] rounded-xl border border-gray-100 dark:border-white/[0.04] p-8 text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-md transition-shadow">
-                <div className="text-[11px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">{stat.label}</div>
-                <div className="text-3xl font-extrabold text-gray-900 dark:text-white">{stat.value}</div>
+              <div key={i} className="bg-white dark:bg-black rounded-xl border border-gray-200 dark:border-white/10 p-8 text-center shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)] dark:shadow-none hover:shadow-md transition-shadow">
+                <div className="text-[11px] font-normal text-gray-500 dark:text-gray-400 uppercase tracking-widest mb-3">{stat.label}</div>
+                <div className="text-3xl font-normal text-gray-900 dark:text-white font-sans">{stat.value}</div>
               </div>
             ))}
           </div>
@@ -219,47 +218,47 @@ const SecurityPage: React.FC = () => {
       </section>
 
       {/* Amthromax Enterprise Pillars */}
-      <section className="bg-white dark:bg-gray-950 py-12 md:py-16 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6 border-b border-gray-100 dark:border-gray-800 pb-16 grid grid-cols-1 md:grid-cols-3 gap-12">
+      <section className="bg-white dark:bg-black py-12 md:py-16 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 pb-16 grid grid-cols-1 md:grid-cols-3 gap-12">
           <div className="space-y-4">
-            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">01 / INTEGRITY</div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Zero-Trust Network Models</h3>
-            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            <div className="text-xs font-normal text-gray-400 dark:text-gray-500 uppercase tracking-widest">01 / INTEGRITY</div>
+            <h3 className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white font-sans">Zero-Trust Network Models</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
               Enforce granular access logs, identity federation (SAML/OIDC), and hardware-isolated key storage across every agent deployment. Prevent credential hijacking at the edge.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">02 / VELOCITY</div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Automated Pipeline Scaling</h3>
-            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            <div className="text-xs font-normal text-gray-400 dark:text-gray-500 uppercase tracking-widest">02 / VELOCITY</div>
+            <h3 className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white font-sans">Automated Pipeline Scaling</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
               Distribute analytical requests dynamically through load-balanced Kubernetes clusters. Experience automatic compute scaling during periods of extreme workflow traffic.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">03 / CONTINUITY</div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Dedicated SLA Commitments</h3>
-            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            <div className="text-xs font-normal text-gray-400 dark:text-gray-500 uppercase tracking-widest">03 / CONTINUITY</div>
+            <h3 className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white font-sans">Dedicated SLA Commitments</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
               Access around-the-clock enterprise engineers via direct Slack channels and priority ticketing, backed by contractually enforced support response times.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">04 / COMPLIANCE</div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Global Data Residency</h3>
-            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            <div className="text-xs font-normal text-gray-400 dark:text-gray-500 uppercase tracking-widest">04 / COMPLIANCE</div>
+            <h3 className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white font-sans">Global Data Residency</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
               Choose geographically isolated deployments that adhere strictly to local regulations, ensuring GDPR, HIPAA, and CCPA compliance effortlessly.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">05 / RESILIENCE</div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Self-Healing Infrastructure</h3>
-            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            <div className="text-xs font-normal text-gray-400 dark:text-gray-500 uppercase tracking-widest">05 / RESILIENCE</div>
+            <h3 className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white font-sans">Self-Healing Infrastructure</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
               Automated failure detection instantly reroutes workloads to operational nodes without downtime, recovering corrupted states using ephemeral snapshots.
             </p>
           </div>
           <div className="space-y-4">
-            <div className="text-xs font-bold text-gray-400 dark:text-gray-500 uppercase tracking-widest">06 / COMPUTE</div>
-            <h3 className="text-xl md:text-2xl font-extrabold text-gray-900 dark:text-white">Edge Inference Engines</h3>
-            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed">
+            <div className="text-xs font-normal text-gray-400 dark:text-gray-500 uppercase tracking-widest">06 / COMPUTE</div>
+            <h3 className="text-xl md:text-2xl font-normal text-gray-900 dark:text-white font-sans">Edge Inference Engines</h3>
+            <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 leading-relaxed font-normal">
               Deploy lightweight inference engines directly to your edge devices, eliminating network latency and reducing cloud compute expenditures for real-time AI.
             </p>
           </div>
@@ -267,7 +266,7 @@ const SecurityPage: React.FC = () => {
       </section>
 
       {/* 03 Problem / Empirical Risk & Vulnerability Analysis (Monochromatic Obsidian) */}
-      <section className="py-16 md:py-24 bg-white dark:bg-gray-950 border-b border-gray-100 dark:border-gray-800 transition-colors duration-300">
+      <section className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 space-y-12">
           {/* Header Row */}
           <div className="flex items-center justify-end">
@@ -388,7 +387,7 @@ const SecurityPage: React.FC = () => {
             {/* Right Column: 4 Soft Rounded Cards with Monochromatic Icons */}
             <div className="lg:col-span-3 space-y-4">
               {/* Card 1 */}
-              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+              <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Prompt Injection Attack
@@ -401,7 +400,7 @@ const SecurityPage: React.FC = () => {
               </div>
 
               {/* Card 2 */}
-              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+              <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Credential Exposure
@@ -414,7 +413,7 @@ const SecurityPage: React.FC = () => {
               </div>
 
               {/* Card 3 */}
-              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+              <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Unverified Trace Logs
@@ -427,7 +426,7 @@ const SecurityPage: React.FC = () => {
               </div>
 
               {/* Card 4 */}
-              <div className="relative p-5 bg-white dark:bg-[#161617] rounded-3xl border border-gray-150 dark:border-white/[0.06] shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
+              <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
                 <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Execution Latency Risk
@@ -456,7 +455,7 @@ const SecurityPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             
             {/* Card 1 */}
-            <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div className="p-6 bg-white dark:bg-black rounded-3xl border border-gray-200/50 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 group">
               <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
@@ -469,7 +468,7 @@ const SecurityPage: React.FC = () => {
             </div>
 
             {/* Card 2 */}
-            <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div className="p-6 bg-white dark:bg-black rounded-3xl border border-gray-200/50 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 group">
               <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -482,7 +481,7 @@ const SecurityPage: React.FC = () => {
             </div>
 
             {/* Card 3 */}
-            <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div className="p-6 bg-white dark:bg-black rounded-3xl border border-gray-200/50 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 group">
               <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
@@ -495,7 +494,7 @@ const SecurityPage: React.FC = () => {
             </div>
 
             {/* Card 4 */}
-            <div className="p-6 bg-white dark:bg-[#161617] rounded-3xl border border-gray-200/50 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 group">
+            <div className="p-6 bg-white dark:bg-black rounded-3xl border border-gray-200/50 dark:border-white/10 shadow-sm hover:shadow-md transition-all duration-300 group">
               <div className="w-10 h-10 rounded-2xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white flex items-center justify-center mb-4 transition-transform group-hover:scale-105">
                 <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
@@ -624,7 +623,7 @@ const SecurityPage: React.FC = () => {
       </section>
 
       {/* Accordion FAQ Section */}
-      <section className="bg-white dark:bg-gray-950 py-16 md:py-24 border-t border-gray-150 dark:border-gray-900 transition-colors duration-300">
+      <section className="bg-white dark:bg-black py-16 md:py-24 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-6 space-y-12">
           
           <div className="text-center space-y-3">
@@ -640,7 +639,7 @@ const SecurityPage: React.FC = () => {
               return (
                 <div 
                   key={index} 
-                  className="bg-gray-50 dark:bg-[#161617] rounded-2xl border border-gray-150 dark:border-white/[0.04] transition-all overflow-hidden"
+                  className="bg-gray-50 dark:bg-black rounded-2xl border border-gray-150 dark:border-white/10 transition-all overflow-hidden"
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}

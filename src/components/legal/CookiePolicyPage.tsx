@@ -6,11 +6,10 @@ const CookiePolicyPage: React.FC = () => {
   return (
     <div>
       <SEO title="Cookie Policy | Amthromax" description="Understand how Amthromax uses cookies and other tracking technologies." />
-      <div className="py-20 bg-white dark:bg-gray-950 min-h-[85vh] transition-colors duration-300">
+      <div className="py-20 bg-white dark:bg-black min-h-[85vh] transition-colors duration-300 font-sans">
         <div className="max-w-3xl mx-auto px-6 space-y-8">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400 bg-blue-50 dark:bg-blue-900/30 px-3 py-1.5 rounded-full">Legal</span>
-          <h1 className="text-4xl font-bold tracking-tight text-gray-900 dark:text-white">Cookie Policy</h1>
-          <p className="text-sm text-gray-400">Last updated: July 10, 2026</p>
+          <h1 className="text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Cookie Policy</h1>
+          <p className="text-sm font-medium text-gray-500 dark:text-gray-400">Last updated: July 10, 2026</p>
 
           <section className="space-y-4">
             <h2 className="text-xl font-semibold text-gray-900 dark:text-white">1. What Are Cookies?</h2>

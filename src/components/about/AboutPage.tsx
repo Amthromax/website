@@ -18,7 +18,7 @@ const AboutPage: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#f5f5f7] dark:bg-[#000000] text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
       <SEO
         title="About Amthromax | AI Software & Enterprise Systems Company"
         description="Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems."
@@ -31,40 +31,40 @@ const AboutPage: React.FC = () => {
 
       <main>
         {/* Hero Header */}
-        <section className="relative py-24 md:py-32 overflow-hidden bg-white text-[#1d1d1f] dark:bg-black dark:text-white border-b border-[#e5e5e7] dark:border-white/10">
+        <section className="relative py-24 md:py-32 overflow-hidden bg-white text-gray-900 dark:bg-black dark:text-white">
           <div className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-6">
-            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-tight text-[#1d1d1f] dark:text-white">
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight leading-tight text-gray-900 dark:text-white font-sans">
               What is Amthromax?
             </h1>
-            <p className="text-base sm:text-xl lg:text-2xl text-[#515154] dark:text-gray-300 leading-relaxed font-normal max-w-4xl mx-auto">
+            <p className="text-base sm:text-xl lg:text-2xl text-gray-600 dark:text-gray-300 leading-relaxed font-normal max-w-4xl mx-auto">
               Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.
             </p>
           </div>
         </section>
 
         {/* AGI Vision Banner Section */}
-        <section className="bg-black text-white py-28 md:py-36 lg:py-44 my-8 border-y border-white/10">
+        <section className="bg-white text-gray-900 dark:bg-black dark:text-white py-28 md:py-36 lg:py-44">
           <div className="max-w-[1530px] mx-auto px-4 sm:px-8 lg:px-10">
             <div className="grid lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <div className="lg:col-span-5 space-y-6 -ml-1 sm:-ml-2 lg:-ml-6">
-                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight">
+                <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-gray-900 dark:text-white leading-tight font-sans">
                   Our vision for Enterprise Autonomous Intelligence
                 </h2>
-                <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
+                <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal max-w-xl">
                   At Amthromax, our mission is to build resilient AI platforms, agentic swarms, and post-quantum infrastructure that empower global organizations to operate with complete computational autonomy.
                 </p>
                 <div className="flex items-center gap-5 pt-2">
                   <Link
                     to="/research"
-                    className="text-white hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
+                    className="text-gray-900 hover:text-black dark:text-white dark:hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
                   >
                     <span>Amthromax AI Roadmap</span>
                     <span className="text-xs group-hover:translate-x-1 transition-transform">&gt;</span>
                   </Link>
                   <Link
                     to="/company"
-                    className="text-white hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
+                    className="text-gray-900 hover:text-black dark:text-white dark:hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
                   >
                     <span>System Charter</span>
                     <span className="text-xs group-hover:translate-x-1 transition-transform">&gt;</span>
@@ -74,7 +74,7 @@ const AboutPage: React.FC = () => {
 
               {/* Right Illustration */}
               <div className="lg:col-span-7 space-y-3">
-                <div className="relative rounded-[32px] overflow-hidden border border-white/15 shadow-2xl w-full h-[520px] sm:h-[620px] lg:h-[700px]">
+                <div className="relative rounded-[32px] overflow-hidden border border-gray-200 dark:border-white/15 shadow-2xl w-full h-[520px] sm:h-[620px] lg:h-[700px]">
                   <svg className="w-full h-full object-cover" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -123,11 +123,11 @@ const AboutPage: React.FC = () => {
               { label: "Global Region Deployments", value: "40+" },
               { label: "Enterprise Partners & Clients", value: "500+" }
             ].map((stat, idx) => (
-              <div key={idx} className="p-6 sm:p-8 bg-black rounded-[24px] sm:rounded-[28px] border border-white/10 text-center space-y-2 shadow-xl hover:border-white/20 transition-all duration-300">
-                <span className="text-xs text-gray-400 font-medium uppercase tracking-wider block">
+              <div key={idx} className="p-6 sm:p-8 bg-gray-50 dark:bg-white/5 rounded-[24px] sm:rounded-[28px] border border-gray-200 dark:border-white/10 text-center space-y-2 shadow-sm dark:shadow-xl hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
+                <span className="text-xs text-gray-500 dark:text-gray-400 font-normal uppercase tracking-wider block">
                   {stat.label}
                 </span>
-                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white tracking-tight">
+                <h3 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                   {stat.value}
                 </h3>
               </div>
@@ -139,10 +139,10 @@ const AboutPage: React.FC = () => {
         <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-16 md:py-24 space-y-20">
           <div className="grid md:grid-cols-2 gap-12 lg:gap-16 items-start">
             <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-white tracking-tight leading-tight">
+              <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 dark:text-white tracking-tight leading-tight font-sans">
                 What We Build
               </h2>
-              <p className="text-[#515154] dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
+              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
                 Amthromax develops modular computational architectures that bridge theoretical cognitive research with real-world enterprise operations. Our core software suite includes:
               </p>
               <ul className="space-y-4 pt-2">
@@ -153,38 +153,38 @@ const AboutPage: React.FC = () => {
                   { title: "Developer Infrastructure & APIs", desc: "Typed SDKs (TypeScript, Python, Go) and REST/WebSocket endpoints for low-latency integration." },
                   { title: "Post-Quantum Cryptography", desc: "Zero-trust network encryption tunnels and lattice-based security protocols." }
                 ].map((item, idx) => (
-                  <li key={idx} className="flex items-start gap-3.5 text-sm sm:text-base font-normal text-[#1d1d1f] dark:text-gray-200">
-                    <svg className="w-5 h-5 text-[#0066cc] dark:text-[#2997ff] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <li key={idx} className="flex items-start gap-3.5 text-sm sm:text-base font-normal text-gray-800 dark:text-gray-200">
+                    <svg className="w-5 h-5 text-gray-900 dark:text-white shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <div>
-                      <strong className="font-semibold text-[#1d1d1f] dark:text-white">{item.title}:</strong> {item.desc}
+                      <span className="font-normal text-gray-900 dark:text-white">{item.title}:</span> {item.desc}
                     </div>
                   </li>
                 ))}
               </ul>
             </div>
 
-            <div className="space-y-6 bg-white dark:bg-[#161617] p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[36px] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
+            <div className="space-y-6 bg-gray-50 dark:bg-white/5 p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[36px] border border-gray-200 dark:border-white/10 shadow-sm">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                 Engineering Computational Autonomy
               </h2>
-              <p className="text-[#515154] dark:text-gray-300 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed font-normal">
                 Our mission is to build intelligent technology that enables organizations and developers to create, operate, and scale AI-powered software safely and efficiently.
               </p>
-              <p className="text-[#515154] dark:text-gray-300 text-sm sm:text-base leading-relaxed font-normal">
+              <p className="text-gray-600 dark:text-gray-300 text-sm sm:text-base leading-relaxed font-normal">
                 We believe the future of enterprise software relies on zero-latency integration layers, proactive self-healing workflows, and post-quantum security protocols—removing manual operational drag so human teams can focus on strategic breakthroughs.
               </p>
               <div className="pt-4 flex flex-wrap gap-4">
                 <Link
                   to="/products"
-                  className="px-6 py-3 bg-[#0066cc] hover:bg-[#0052a3] text-white font-medium text-xs rounded-full transition-all shadow-xs"
+                  className="px-6 py-3 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-medium text-xs rounded-full transition-all shadow-xs"
                 >
                   Explore Products →
                 </Link>
                 <Link
                   to="/developers"
-                  className="px-6 py-3 bg-[#1d1d1f] text-white dark:bg-white dark:text-black font-medium text-xs rounded-full hover:opacity-90 transition-all"
+                  className="px-6 py-3 bg-gray-100 text-black dark:bg-white/10 dark:text-white border border-gray-200 dark:border-white/10 font-medium text-xs rounded-full hover:opacity-90 transition-all"
                 >
                   Developer Hub →
                 </Link>
@@ -194,12 +194,12 @@ const AboutPage: React.FC = () => {
         </section>
 
         {/* AGI Mission Statement & Visual Section */}
-        <section className="bg-black text-white py-24 md:py-32 border-y border-white/10">
+        <section className="bg-white text-gray-900 dark:bg-black dark:text-white py-24 md:py-32">
           <div className="max-w-6xl mx-auto px-6 sm:px-10 text-center space-y-12">
-            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold tracking-tight text-white leading-snug max-w-4xl mx-auto">
+            <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-gray-900 dark:text-white leading-snug max-w-4xl mx-auto font-sans">
               We are building safe, resilient enterprise AI platforms and autonomous intelligence systems, empowering global organizations to achieve complete computational autonomy.
             </h2>
-            <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-white/15 shadow-2xl w-full h-[400px] sm:h-[520px] lg:h-[600px] max-w-5xl mx-auto">
+            <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-gray-200 dark:border-white/15 shadow-2xl w-full h-[400px] sm:h-[520px] lg:h-[600px] max-w-5xl mx-auto">
               <img
                 src="/images/agi_mission_team.png"
                 alt="Amthromax AI Research Team"
@@ -210,13 +210,13 @@ const AboutPage: React.FC = () => {
         </section>
 
         {/* Technology & Engineering Pillars */}
-        <section className="bg-white dark:bg-[#121213] py-20 md:py-28 border-y border-[#e5e5e7] dark:border-white/[0.08]">
+        <section className="bg-white dark:bg-black py-20 md:py-28">
           <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 space-y-16">
             <div className="text-center max-w-3xl mx-auto space-y-4">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                 Technology Standards
               </h2>
-              <p className="text-[#515154] dark:text-gray-300 text-base sm:text-lg font-normal">
+              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg font-normal">
                 The technical foundations that power every product, API endpoint, and neural model in our catalog.
               </p>
             </div>
@@ -245,11 +245,11 @@ const AboutPage: React.FC = () => {
                 }
               ].map((pillar, i) => (
                 <div key={i} className="space-y-3 py-2">
-                  <span className="text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider block">
+                  <span className="text-xs font-normal text-gray-500 dark:text-gray-400 uppercase tracking-wider block">
                     {pillar.num} / FOUNDATION
                   </span>
-                  <h3 className="text-xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">{pillar.title}</h3>
-                  <p className="text-[#515154] dark:text-gray-300 text-sm leading-relaxed font-normal">{pillar.desc}</p>
+                  <h3 className="text-xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">{pillar.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300 text-sm leading-relaxed font-normal">{pillar.desc}</p>
                 </div>
               ))}
             </div>
@@ -260,37 +260,37 @@ const AboutPage: React.FC = () => {
         <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 md:py-28 space-y-16">
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
-              <h2 className="text-3xl sm:text-4xl font-bold text-[#1d1d1f] dark:text-white tracking-tight">
+              <h2 className="text-3xl sm:text-4xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                 Global Operations
               </h2>
-              <p className="text-[#515154] dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
+              <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
                 Amthromax operates global infrastructure across 40+ cloud regions, serving Fortune 500 enterprises, hyper-growth startups, and developer communities worldwide.
               </p>
               <div className="space-y-3 pt-2">
-                <div className="flex justify-between py-2.5 border-b border-[#e5e5e7]/80 dark:border-white/10 text-sm">
-                  <span className="text-[#86868b] dark:text-gray-400 font-medium">Official Entity:</span>
-                  <strong className="text-[#1d1d1f] dark:text-white font-semibold">{COMPANY_CONFIG.legalName}</strong>
+                <div className="flex justify-between py-2.5 border-b border-gray-200 dark:border-white/10 text-sm">
+                  <span className="text-gray-500 dark:text-gray-400 font-normal">Official Entity:</span>
+                  <span className="text-gray-900 dark:text-white font-normal">{COMPANY_CONFIG.legalName}</span>
                 </div>
-                <div className="flex justify-between py-2.5 border-b border-[#e5e5e7]/80 dark:border-white/10 text-sm">
-                  <span className="text-[#86868b] dark:text-gray-400 font-medium">Industry Category:</span>
-                  <strong className="text-[#1d1d1f] dark:text-white font-semibold">{COMPANY_CONFIG.category}</strong>
+                <div className="flex justify-between py-2.5 border-b border-gray-200 dark:border-white/10 text-sm">
+                  <span className="text-gray-500 dark:text-gray-400 font-normal">Industry Category:</span>
+                  <span className="text-gray-900 dark:text-white font-normal">{COMPANY_CONFIG.category}</span>
                 </div>
-                <div className="flex justify-between py-2.5 border-b border-[#e5e5e7]/80 dark:border-white/10 text-sm">
-                  <span className="text-[#86868b] dark:text-gray-400 font-medium">Official Contact:</span>
-                  <strong className="text-[#1d1d1f] dark:text-white font-semibold">{COMPANY_CONFIG.email}</strong>
+                <div className="flex justify-between py-2.5 border-b border-gray-200 dark:border-white/10 text-sm">
+                  <span className="text-gray-500 dark:text-gray-400 font-normal">Official Contact:</span>
+                  <span className="text-gray-900 dark:text-white font-normal">{COMPANY_CONFIG.email}</span>
                 </div>
-                <div className="flex justify-between py-2.5 border-b border-[#e5e5e7]/80 dark:border-white/10 text-sm">
-                  <span className="text-[#86868b] dark:text-gray-400 font-medium">Canonical Domain:</span>
-                  <strong className="text-[#1d1d1f] dark:text-white font-semibold">{COMPANY_CONFIG.url}</strong>
+                <div className="flex justify-between py-2.5 border-b border-gray-200 dark:border-white/10 text-sm">
+                  <span className="text-gray-500 dark:text-gray-400 font-normal">Canonical Domain:</span>
+                  <span className="text-gray-900 dark:text-white font-normal">{COMPANY_CONFIG.url}</span>
                 </div>
               </div>
             </div>
 
-            <div className="p-10 sm:p-12 bg-[#161617] text-white rounded-[32px] sm:rounded-[36px] border border-white/10 space-y-6 shadow-2xl">
-              <h3 className="text-3xl font-bold text-white tracking-tight">
+            <div className="p-10 sm:p-12 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-[32px] sm:rounded-[36px] border border-gray-200 dark:border-white/10 space-y-6 shadow-sm dark:shadow-2xl">
+              <h3 className="text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                 Enterprise &amp; Engineering Contact
               </h3>
-              <p className="text-gray-300 text-base leading-relaxed font-normal">
+              <p className="text-gray-600 dark:text-gray-300 text-base leading-relaxed font-normal">
                 Looking to integrate Amthromax AI platforms, request custom agent swarms, or discuss enterprise deployment specifications?
               </p>
               <div className="pt-4 flex flex-wrap gap-4">
@@ -298,14 +298,14 @@ const AboutPage: React.FC = () => {
                   href="/contact"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="px-7 py-3.5 bg-white text-black font-semibold text-xs rounded-full hover:bg-gray-200 transition-all shadow-md flex items-center gap-1.5"
+                  className="px-7 py-3.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:text-black dark:hover:bg-gray-200 font-medium text-xs rounded-full transition-all shadow-md flex items-center gap-1.5"
                 >
                   <span>Contact Sales</span>
                   <span>↗</span>
                 </a>
                 <Link
                   to="/docs"
-                  className="px-7 py-3.5 bg-white/10 border border-white/20 text-white font-semibold text-xs rounded-full hover:bg-white/20 transition-all"
+                  className="px-7 py-3.5 bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/20 text-gray-900 dark:text-white font-medium text-xs rounded-full hover:opacity-90 transition-all"
                 >
                   View Documentation
                 </Link>
@@ -316,14 +316,14 @@ const AboutPage: React.FC = () => {
 
         {/* Careers CTA Banner */}
         <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-20 md:pb-28">
-          <div className="p-12 sm:p-16 md:p-20 bg-black border border-white/10 rounded-[28px] sm:rounded-[36px] text-center space-y-6 shadow-2xl">
-            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight max-w-4xl mx-auto">
+          <div className="p-12 sm:p-16 md:p-20 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] text-center space-y-6 shadow-sm dark:shadow-2xl">
+            <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-gray-900 dark:text-white leading-tight max-w-4xl mx-auto font-sans">
               Join us in shaping the future of Enterprise AI
             </h2>
             <div>
               <Link
                 to="/careers"
-                className="text-white hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
+                className="text-gray-900 hover:text-black dark:text-white dark:hover:text-gray-300 font-medium text-sm sm:text-base inline-flex items-center gap-1.5 transition-colors group"
               >
                 <span>View careers</span>
                 <span className="text-xs group-hover:translate-x-1 transition-transform">&gt;</span>

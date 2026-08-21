@@ -1,15 +1,126 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
-import { FaSalesforce, FaShieldHalved, FaGlobe, FaUserShield } from "react-icons/fa6";
+import { 
+  FaSalesforce, 
+  FaShieldHalved, 
+  FaGlobe, 
+  FaUserShield,
+  FaDatabase,
+  FaLock,
+  FaMagnifyingGlass,
+  FaUsers,
+  FaCheckDouble,
+  FaPlug,
+  FaKey,
+  FaChartLine,
+  FaFileContract,
+  FaSliders,
+  FaFilePdf,
+  FaCloud,
+  FaNetworkWired,
+  FaServer
+} from "react-icons/fa6";
 import { SiPostgresql, SiSnowflake } from "react-icons/si";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
 
+const moreFeatures = [
+  {
+    icon: FaPlug,
+    title: "Model Context Protocol (MCP)",
+    description: "Connect internal enterprise databases & legacy APIs securely via MCP",
+  },
+  {
+    icon: FaLock,
+    title: "Zero-Trust Data Governance",
+    description: "Strict zero data retention policy with end-to-end hardware HSM encryption",
+  },
+  {
+    icon: FaMagnifyingGlass,
+    title: "Enterprise Knowledge Engine",
+    description: "Autonomous RAG retrieval with verified real-time source citation",
+  },
+  {
+    icon: FaUsers,
+    title: "Multi-Agent OS Kernel",
+    description: "Coordinate cross-department agent teams with unified system orchestration",
+  },
+  {
+    icon: FaCheckDouble,
+    title: "SOC 2 Type II Certified",
+    description: "Continuous automated security compliance and auditing guardrails",
+  },
+  {
+    icon: FaDatabase,
+    title: "Custom Data Connectors",
+    description: "Direct integration with Salesforce, Snowflake, PostgreSQL, and Slack",
+  },
+  {
+    icon: FaKey,
+    title: "Role-Based Access Control",
+    description: "Granular IAM policy scoping for enterprise users and autonomous agents",
+  },
+  {
+    icon: FaChartLine,
+    title: "Real-Time Data Streaming",
+    description: "High-throughput telemetry & event streaming across enterprise clusters",
+  },
+  {
+    icon: FaFileContract,
+    title: "Automated Audit Logs",
+    description: "Tamper-proof activity logs for complete enterprise compliance oversight",
+  },
+  {
+    icon: FaFilePdf,
+    title: "Multimodal Document Search",
+    description: "Parse PDFs, contracts, financial reports, and technical schematics",
+  },
+  {
+    icon: FaGlobe,
+    title: "30+ Enterprise Languages",
+    description: "Native multilingual processing for global enterprise operations",
+  },
+  {
+    icon: FaServer,
+    title: "Context-Aware Memory",
+    description: "Persistent enterprise context retention across organizational workflows",
+  },
+  {
+    icon: FaChartLine,
+    title: "Executive Analytics Dashboard",
+    description: "Instant ARR, SLA metrics, and operational performance insights",
+  },
+  {
+    icon: FaSliders,
+    title: "Custom Security Guardrails",
+    description: "Define custom DLP (Data Loss Prevention) rules and policy checks",
+  },
+  {
+    icon: FaFilePdf,
+    title: "Exportable Governance Reports",
+    description: "One-click PDF export of enterprise privacy and audit compliance",
+  },
+  {
+    icon: FaCloud,
+    title: "Hybrid Cloud Deployment",
+    description: "Flexible deployment across AWS, Azure, GCP, and private on-prem clouds",
+  },
+  {
+    icon: FaNetworkWired,
+    title: "Event-Driven Workflows",
+    description: "Trigger autonomous multi-agent pipelines on webhooks and database events",
+  },
+  {
+    icon: FaShieldHalved,
+    title: "SuperHelleious Enterprise",
+    description: "Dedicated private cluster infrastructure with guaranteed 99.99% uptime SLA",
+  },
+];
 
 const HelleiousPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#000000] text-white font-sans antialiased selection:bg-white selection:text-black">
+    <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
       <SEO
         title="Helleious.ai | Enterprise Multi-Agent Operating System | Amthromax"
         description="Put AI to work across your organization with Helleious.ai. Explore proven ways to apply multi-agent intelligence, custom MCP servers, knowledge retrieval, and enterprise governance."
@@ -23,11 +134,11 @@ const HelleiousPage: React.FC = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10 max-w-4xl mx-auto space-y-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-normal tracking-tight text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
             Put AI to work across<br />your enterprise
           </h1>
 
-          <p className="text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
+          <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
             Explore proven ways to apply AI across your organization—built to fit how your teams work.
           </p>
 
@@ -35,7 +146,7 @@ const HelleiousPage: React.FC = () => {
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               to="/register"
-              className="px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-black dark:bg-white text-white dark:text-black font-semibold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
             >
               <span>Try Helleious Business</span>
               <span className="text-base">↗</span>
@@ -45,7 +156,7 @@ const HelleiousPage: React.FC = () => {
               href="/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all backdrop-blur-md flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/15 text-gray-900 dark:text-white font-semibold text-sm transition-all border border-gray-300 dark:border-white/15 flex items-center gap-2"
             >
               <span>Contact sales</span>
             </a>
@@ -54,10 +165,10 @@ const HelleiousPage: React.FC = () => {
       </section>
 
 
-      {/* Section 2: Blueprints (Bigger Roomier Cards - Black Container Background) */}
-      <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/10">
+      {/* Section 2: Blueprints */}
+      <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-normal text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
             Enterprise Blueprints
           </h2>
         </div>
@@ -75,10 +186,10 @@ const HelleiousPage: React.FC = () => {
             className="flex flex-col space-y-4 group cursor-pointer"
           >
             {/* Outer Container with BLACK Obsidian Background & Dot Grid */}
-            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-black border border-white/15 group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-2xl transition-all duration-300 flex flex-col justify-start space-y-5">
+            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 group-hover:border-gray-400 dark:group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex flex-col justify-start space-y-5">
               
               {/* Dot Grid overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               {/* Top Floating Prompt Box */}
               <motion.div 
@@ -166,10 +277,10 @@ const HelleiousPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                 Enterprise Data Protocol
               </h3>
-              <p className="text-base text-gray-400 font-normal leading-relaxed">
+              <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Connect internal databases & custom systems with Model Context Protocol (MCP).
               </p>
             </div>
@@ -185,13 +296,13 @@ const HelleiousPage: React.FC = () => {
             className="flex flex-col space-y-4 group cursor-pointer"
           >
             {/* Outer Container with BLACK Obsidian Background */}
-            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-black border border-white/15 group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-2xl transition-all duration-300 flex items-center justify-center">
+            <div className="w-full min-h-[500px] sm:min-h-[540px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 group-hover:border-gray-400 dark:group-hover:border-white/30 p-7 sm:p-9 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex items-center justify-center">
               
               {/* Dynamic Glow on Hover */}
               <div className="absolute top-0 left-0 w-96 h-96 bg-purple-600/10 rounded-full blur-[100px] pointer-events-none group-hover:bg-purple-500/20 transition-all duration-500" />
 
               {/* Dot Grid overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               {/* Inner Stacked Layout */}
               <div className="relative z-10 w-full h-full flex items-center justify-between gap-5">
@@ -293,10 +404,10 @@ const HelleiousPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-white tracking-tight group-hover:text-purple-400 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                 Autonomous Knowledge Engine
               </h3>
-              <p className="text-base text-gray-400 font-normal leading-relaxed">
+              <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
                 Deliver real-time, zero-trust answers verified directly from your data.
               </p>
             </div>
@@ -306,12 +417,12 @@ const HelleiousPage: React.FC = () => {
       </section>
 
       {/* Section 3: AI you can deploy with confidence */}
-      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/10">
+      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-5xl font-normal text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
             AI you can deploy with confidence
           </h2>
-          <p className="text-gray-400 text-base sm:text-lg font-medium">
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
             Bring advanced intelligence into your organization with security, control, and transparency.
           </p>
         </div>
@@ -321,23 +432,23 @@ const HelleiousPage: React.FC = () => {
           
           {/* Left Column Text & Buttons */}
           <div className="lg:col-span-5 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight leading-tight">
               Connect your data
             </h3>
-            <p className="text-gray-400 text-base font-normal leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
               Bring your business context into every prompt—delivering reliable, cited responses.
             </p>
 
             <div className="flex flex-wrap items-center gap-3 pt-2">
               <Link
                 to="/products"
-                className="px-6 py-3 rounded-xl bg-white text-black font-bold text-xs hover:bg-gray-100 transition-all shadow-md"
+                className="px-6 py-3 rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold text-xs hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-md"
               >
                 Explore apps
               </Link>
               <Link
                 to="/docs"
-                className="px-6 py-3 rounded-xl bg-white/10 hover:bg-white/20 text-white font-semibold text-xs border border-white/15 transition-all backdrop-blur-md flex items-center gap-1.5"
+                className="px-6 py-3 rounded-xl bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/20 text-gray-900 dark:text-white font-semibold text-xs border border-gray-300 dark:border-white/15 transition-all backdrop-blur-md flex items-center gap-1.5"
               >
                 <span>Connect with MCP</span>
                 <span>↗</span>
@@ -347,9 +458,9 @@ const HelleiousPage: React.FC = () => {
 
           {/* Right Column Graphic Card */}
           <div className="lg:col-span-7">
-            <div className="w-full min-h-[380px] sm:min-h-[420px] rounded-2xl bg-black border border-white/15 hover:border-white/30 p-8 relative overflow-hidden shadow-2xl transition-all duration-300 flex items-center justify-center">
+            <div className="w-full min-h-[380px] sm:min-h-[420px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 hover:border-gray-400 dark:hover:border-white/30 p-8 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex items-center justify-center">
               {/* Ambient Grid Overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               {/* Horizontal Icon Strip Flow */}
               <div className="relative z-10 flex items-center justify-center gap-4 sm:gap-6 overflow-x-auto no-scrollbar py-6 w-full">
@@ -391,7 +502,7 @@ const HelleiousPage: React.FC = () => {
                     <span className="w-3.5 h-3.5 rounded-md bg-gray-900 group-hover:scale-110 transition-transform shadow-sm" />
                     <span className="w-3.5 h-3.5 rounded-md bg-gray-900 group-hover:scale-110 transition-transform shadow-sm" />
                   </div>
-                  <span className="text-[10px] font-extrabold tracking-widest text-gray-900 uppercase">
+                  <span className="text-[10px] font-semibold tracking-widest text-gray-900 uppercase">
                     HELLEIOUS
                   </span>
                 </motion.div>
@@ -424,17 +535,17 @@ const HelleiousPage: React.FC = () => {
       </section>
 
       {/* Section 4: Enterprise Security & Governance */}
-      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-white/10 space-y-24">
+      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10 space-y-24">
         
         {/* Top 2-Column: Security Badges Graphic + Security Text */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           {/* Left Column Graphic Card with Certification Badges */}
           <div className="lg:col-span-6">
-            <div className="w-full min-h-[400px] rounded-2xl bg-black border border-white/15 hover:border-white/30 p-6 sm:p-8 relative overflow-hidden shadow-2xl transition-all duration-300 flex flex-col justify-between items-center">
+            <div className="w-full min-h-[400px] rounded-2xl bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/15 hover:border-gray-400 dark:hover:border-white/30 p-6 sm:p-8 relative overflow-hidden shadow-xl dark:shadow-2xl transition-all duration-300 flex flex-col justify-between items-center">
               
               {/* Ambient Dot Grid Overlay */}
-              <div className="absolute inset-0 bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-25" />
+              <div className="absolute inset-0 bg-[radial-gradient(#000000_1.2px,transparent_1.2px)] dark:bg-[radial-gradient(#ffffff_1.2px,transparent_1.2px)] [background-size:16px_16px] opacity-10 dark:opacity-25" />
 
               {/* Top Zero-Trust Status Bar */}
               <div 
@@ -442,7 +553,7 @@ const HelleiousPage: React.FC = () => {
               >
                 <div className="flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-white animate-pulse" />
-                  <span className="text-white font-bold">Zero-Trust Guardrails</span>
+                  <span className="text-white font-semibold">Zero-Trust Guardrails</span>
                 </div>
               </div>
 
@@ -460,8 +571,8 @@ const HelleiousPage: React.FC = () => {
                   </div>
 
                   <div className="space-y-0.5">
-                    <h5 className="text-xs font-black tracking-tight text-gray-900">SOC 2 TYPE II</h5>
-                    <p className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">AICPA CERTIFIED</p>
+                    <h5 className="text-xs font-semibold tracking-tight text-gray-900">SOC 2 TYPE II</h5>
+                    <p className="text-[9px] font-semibold text-gray-500 uppercase tracking-widest">AICPA CERTIFIED</p>
                   </div>
                 </motion.div>
 
@@ -476,8 +587,8 @@ const HelleiousPage: React.FC = () => {
                   </div>
 
                   <div className="space-y-0.5">
-                    <h5 className="text-xs font-black tracking-tight text-gray-900">ISO 27001</h5>
-                    <p className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">INFO SECURITY</p>
+                    <h5 className="text-xs font-semibold tracking-tight text-gray-900">ISO 27001</h5>
+                    <p className="text-[9px] font-semibold text-gray-500 uppercase tracking-widest">INFO SECURITY</p>
                   </div>
                 </motion.div>
 
@@ -492,8 +603,8 @@ const HelleiousPage: React.FC = () => {
                   </div>
 
                   <div className="space-y-0.5">
-                    <h5 className="text-xs font-black tracking-tight text-gray-900">GDPR & CCPA</h5>
-                    <p className="text-[9px] font-bold text-gray-500 uppercase tracking-widest">ZERO DATA RETENTION</p>
+                    <h5 className="text-xs font-semibold tracking-tight text-gray-900">GDPR & CCPA</h5>
+                    <p className="text-[9px] font-semibold text-gray-500 uppercase tracking-widest">ZERO DATA RETENTION</p>
                   </div>
                 </motion.div>
 
@@ -511,24 +622,60 @@ const HelleiousPage: React.FC = () => {
 
           {/* Right Column Security Text */}
           <div className="lg:col-span-6 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-normal text-white tracking-tight leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight leading-tight">
               Built-in enterprise security
             </h3>
-            <p className="text-gray-400 text-base font-normal leading-relaxed">
+            <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
               Keep data private and in your control with encryption and configurable policies.
             </p>
 
             <div className="pt-2">
               <Link
                 to="/privacy-center"
-                className="px-6 py-3 rounded-xl bg-white text-black font-bold text-xs hover:bg-gray-100 transition-all shadow-md inline-block"
+                className="px-6 py-3 rounded-xl bg-black dark:bg-white text-white dark:text-black font-semibold text-xs hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-md inline-block"
               >
                 View enterprise privacy
               </Link>
             </div>
           </div>
-
         </div>
+
+      {/* Section: And much more */}
+      <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
+        <div className="max-w-4xl mb-16 space-y-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+            And much more
+          </h2>
+          <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
+            Everything your enterprise needs to deploy, manage, and govern intelligent multi-agent OS solutions.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-10 gap-x-8 sm:gap-x-12">
+          {moreFeatures.map((item, idx) => (
+            <motion.div
+              key={idx}
+              initial={{ opacity: 0, y: 15 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.4, delay: idx * 0.02 }}
+              className="flex items-start gap-4 group"
+            >
+              <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors pt-0.5">
+                <item.icon className="w-5 h-5" />
+              </div>
+              <div className="space-y-1">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  {item.title}
+                </h3>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
         {/* Bottom Pitch Dark Banner */}
         <motion.div
@@ -538,18 +685,18 @@ const HelleiousPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="w-full text-center space-y-6 py-12 relative overflow-hidden"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-normal text-white tracking-tight max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
             Transform your organization with intelligent solutions
           </h2>
 
-          <p className="text-gray-400 text-sm sm:text-base font-medium max-w-xl mx-auto">
+          <p className="text-gray-600 dark:text-gray-400 text-sm sm:text-base font-medium max-w-xl mx-auto">
             See how Helleious can help you scale AI securely and responsibly.
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 pt-4">
             <Link
               to="/register"
-              className="px-7 py-3.5 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-black dark:bg-white text-white dark:text-black font-bold text-sm hover:bg-gray-800 dark:hover:bg-gray-100 transition-all shadow-xl hover:scale-105 active:scale-95 flex items-center gap-2"
             >
               <span>Try Helleious.ai</span>
               <span className="text-base">↗</span>
@@ -559,7 +706,7 @@ const HelleiousPage: React.FC = () => {
               href="/contact"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 text-white font-semibold text-sm transition-all backdrop-blur-md flex items-center gap-2"
+              className="px-7 py-3.5 rounded-full bg-gray-100 hover:bg-gray-200 dark:bg-white/10 dark:hover:bg-white/15 text-gray-900 dark:text-white font-semibold text-sm transition-all border border-gray-300 dark:border-white/15 flex items-center gap-2"
             >
               <span>Contact sales</span>
             </a>
