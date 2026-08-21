@@ -191,7 +191,7 @@ export const ProfilePage: React.FC = () => {
             </div>
 
             <div className="inline-flex items-center space-x-2 px-4 py-2 bg-black border border-white/20 rounded-full text-[10px] font-extrabold uppercase tracking-wider text-white shadow-sm font-inter shrink-0">
-              <span className="w-2 h-2 bg-blue-400 rounded-full shadow-[0_0_8px_rgba(96,165,250,0.8)]" />
+              <span className="w-2 h-2 bg-white rounded-full shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
               <span>Enterprise Member</span>
             </div>
           </div>
@@ -204,7 +204,7 @@ export const ProfilePage: React.FC = () => {
                 {!isEditing ? (
                   <button
                     onClick={() => setIsEditing(true)}
-                    className="text-xs font-extrabold text-blue-400 hover:text-blue-300 transition-colors font-inter cursor-pointer"
+                    className="text-xs font-extrabold text-white hover:text-gray-300 transition-colors font-inter cursor-pointer"
                   >
                     Edit Details
                   </button>
@@ -232,7 +232,7 @@ export const ProfilePage: React.FC = () => {
                         type="text"
                         value={fullName}
                         onChange={(e) => setFullName(e.target.value)}
-                        className="w-full sm:w-64 px-3 py-1.5 bg-black border border-white/30 focus:border-blue-400 rounded-lg text-sm font-semibold focus:outline-none transition-all text-white placeholder-gray-500 font-inter"
+                        className="w-full sm:w-64 px-3 py-1.5 bg-black border border-white/30 focus:border-white rounded-lg text-sm font-semibold focus:outline-none transition-all text-white placeholder-gray-500 font-inter"
                         placeholder="Your name"
                         required
                         autoFocus
@@ -304,7 +304,7 @@ export const ProfilePage: React.FC = () => {
               <span className="px-3 py-1 rounded-full bg-white/10 text-white text-xs font-inter font-semibold">
                 Policy v{PRIVACY_POLICY_VERSION}
               </span>
-              <Link to="/data-protection" className="px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20 text-xs font-semibold hover:bg-blue-500/20 transition-colors">
+              <Link to="/data-protection" className="px-3 py-1 rounded-full bg-white/10 text-white border border-white/20 text-xs font-semibold hover:bg-white/20 transition-colors">
                 DPDP Specs
               </Link>
             </div>
@@ -322,9 +322,9 @@ export const ProfilePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleToggleConsent("analytics")}
-                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${consentRecord.analytics ? "bg-blue-500" : "bg-zinc-800"}`}
+                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${consentRecord.analytics ? "bg-white" : "bg-zinc-800"}`}
                 >
-                  <span className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-transform ${consentRecord.analytics ? "left-6" : "left-0.5"}`} />
+                  <span className={`w-5 h-5 rounded-full absolute top-0.5 transition-transform ${consentRecord.analytics ? "left-6 bg-black" : "left-0.5 bg-white"}`} />
                 </button>
               </div>
 
@@ -336,9 +336,9 @@ export const ProfilePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleToggleConsent("marketing")}
-                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${consentRecord.marketing ? "bg-blue-500" : "bg-zinc-800"}`}
+                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${consentRecord.marketing ? "bg-white" : "bg-zinc-800"}`}
                 >
-                  <span className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-transform ${consentRecord.marketing ? "left-6" : "left-0.5"}`} />
+                  <span className={`w-5 h-5 rounded-full absolute top-0.5 transition-transform ${consentRecord.marketing ? "left-6 bg-black" : "left-0.5 bg-white"}`} />
                 </button>
               </div>
             </div>
@@ -356,9 +356,9 @@ export const ProfilePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleToggleAIPrivacy("redactSecretsBeforeInference")}
-                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${aiPrivacyConfig.redactSecretsBeforeInference ? "bg-blue-500" : "bg-zinc-800"}`}
+                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${aiPrivacyConfig.redactSecretsBeforeInference ? "bg-white" : "bg-zinc-800"}`}
                 >
-                  <span className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-transform ${aiPrivacyConfig.redactSecretsBeforeInference ? "left-6" : "left-0.5"}`} />
+                  <span className={`w-5 h-5 rounded-full absolute top-0.5 transition-transform ${aiPrivacyConfig.redactSecretsBeforeInference ? "left-6 bg-black" : "left-0.5 bg-white"}`} />
                 </button>
               </div>
 
@@ -370,9 +370,9 @@ export const ProfilePage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => handleToggleAIPrivacy("disableProviderTraining")}
-                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${aiPrivacyConfig.disableProviderTraining ? "bg-blue-500" : "bg-zinc-800"}`}
+                  className={`w-12 h-6 rounded-full transition-colors relative cursor-pointer ${aiPrivacyConfig.disableProviderTraining ? "bg-white" : "bg-zinc-800"}`}
                 >
-                  <span className={`w-5 h-5 rounded-full bg-white absolute top-0.5 transition-transform ${aiPrivacyConfig.disableProviderTraining ? "left-6" : "left-0.5"}`} />
+                  <span className={`w-5 h-5 rounded-full absolute top-0.5 transition-transform ${aiPrivacyConfig.disableProviderTraining ? "left-6 bg-black" : "left-0.5 bg-white"}`} />
                 </button>
               </div>
             </div>
@@ -439,7 +439,7 @@ export const ProfilePage: React.FC = () => {
                 <span className="font-number text-sm font-extrabold text-white tracking-tight bg-black px-3 py-1 rounded-lg border border-white/20 shadow-sm">1.46B / 10.0B tokens</span>
               </div>
               <div className="w-full h-2.5 bg-white/10 rounded-full overflow-hidden p-0.5 border border-white/15">
-                <div className="h-full bg-gradient-to-r from-blue-500 to-indigo-400 rounded-full w-[14.6%] shadow-[0_0_10px_rgba(59,130,246,0.6)]" />
+                <div className="h-full bg-white rounded-full w-[14.6%] shadow-[0_0_10px_rgba(255,255,255,0.4)]" />
               </div>
               <p className="text-[11px] text-gray-300 font-medium font-inter">Renews on August 29, 2026. Limit resets automatically.</p>
             </div>
@@ -507,7 +507,7 @@ export const ProfilePage: React.FC = () => {
                   </div>
 
                   {deletionStatus?.message && (
-                    <div className={`p-3 rounded-xl text-xs font-medium ${deletionStatus.success ? 'bg-blue-500/10 text-blue-300 border border-blue-500/20' : 'bg-red-500/10 text-red-300 border border-red-500/20'}`}>
+                    <div className={`p-3 rounded-xl text-xs font-medium ${deletionStatus.success ? 'bg-white/10 text-white border border-white/20' : 'bg-red-500/10 text-red-300 border border-red-500/20'}`}>
                       {deletionStatus.message}
                     </div>
                   )}
