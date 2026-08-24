@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import SEO from "../layout/SEO";
+import FAQSection from "../faq/FAQSection";
 import Footer from "../footer/Footer";
 
 const PrivacyPolicyPage: React.FC = () => {
@@ -576,6 +577,7 @@ const PrivacyPolicyPage: React.FC = () => {
         )}
       </AnimatePresence>
 
+      <FAQSection />
       <Footer />
     </div>
   );

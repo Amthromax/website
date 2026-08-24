@@ -240,8 +240,66 @@ const TrustTransparencyPage: React.FC = () => {
         </motion.div>
       </section>
 
+      {/* IN-BETWEEN CONTENT DETAILS BOX WITH GOLD PARTICLE WAVE BACKGROUND */}
+      <section className="py-12 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto">
+        <div className="relative rounded-3xl p-8 sm:p-12 border border-gray-800/80 dark:border-white/10 shadow-2xl overflow-hidden text-white group">
+          {/* HD Gold Particle Wave Background Image */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-100 group-hover:scale-[1.01]"
+            style={{ 
+              backgroundImage: "url('/images/gold_particle_wave.png')",
+              filter: "contrast(110%) brightness(115%) saturate(125%)",
+              WebkitFilter: "contrast(110%) brightness(115%) saturate(125%)",
+            }}
+          />
+          {/* Minimal Dark Shadow Gradient for Crisp Text */}
+          <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/35 to-transparent pointer-events-none" />
+
+          {/* Content Details Inside Box */}
+          <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-8 space-y-4">
+              <h3 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-snug drop-shadow-lg">
+                Enterprise Assurance & Continuous Alignment Verification
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
+                Amthromax provides real-time cryptographic audit logs, automated action firewalls, and dedicated single-tenant VPC enclaves to protect sensitive enterprise intelligence.
+              </p>
+              
+              <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
+                <div className="space-y-1 border-l-2 border-blue-500 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                  <span className="text-[11px] text-gray-300 font-medium block">Action Firewalls</span>
+                  <span className="text-xs font-bold text-white">Deterministic</span>
+                </div>
+                <div className="space-y-1 border-l-2 border-emerald-400 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                  <span className="text-[11px] text-gray-300 font-medium block">Data Retention</span>
+                  <span className="text-xs font-bold text-white">0% Storage</span>
+                </div>
+                <div className="space-y-1 border-l-2 border-indigo-400 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                  <span className="text-[11px] text-gray-300 font-medium block">Audit Logs</span>
+                  <span className="text-xs font-bold text-white">SHA-256 Signed</span>
+                </div>
+                <div className="space-y-1 border-l-2 border-cyan-400 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                  <span className="text-[11px] text-gray-300 font-medium block">SLA Guarantee</span>
+                  <span className="text-xs font-bold text-white">99.99% Uptime</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="lg:col-span-4 flex lg:justify-end">
+              <Link
+                to="/security"
+                className="px-6 py-3.5 bg-white text-black hover:bg-gray-200 text-xs font-bold rounded-full transition-all shadow-xl inline-flex items-center gap-2"
+              >
+                <span>View Security Posture</span>
+                <span className="group-hover:translate-x-1 transition-transform">→</span>
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Compliance & Certification Downloads Section */}
-      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto space-y-12">
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
           <div className="space-y-2">
             <h2 className="text-3xl sm:text-4xl font-serif text-gray-900 dark:text-white tracking-tight">

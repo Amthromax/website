@@ -256,6 +256,25 @@ const ResearchSection: React.FC = () => {
         </div>
       </section>
 
+      {/* IN-BETWEEN HIGHLIGHT BOX SECTION WITH HIGH-DEFINITION METALLIC TEXTURE */}
+      <section className="py-12 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto">
+        <div className="relative rounded-3xl h-[240px] sm:h-[280px] w-full border border-gray-800/80 dark:border-white/20 shadow-2xl overflow-hidden group">
+          {/* Main HD Sharpened Image Background */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-100 group-hover:scale-[1.01]"
+            style={{ 
+              backgroundImage: "url('/images/metallic_noise_texture.jpg')",
+              filter: "contrast(125%) brightness(108%) saturate(110%)",
+              WebkitFilter: "contrast(125%) brightness(108%) saturate(110%)",
+            }}
+          />
+          {/* Lighting Vignette Overlay for Depth & Contrast */}
+          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 pointer-events-none" />
+          {/* Specular Inner Edge Highlight */}
+          <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20 pointer-events-none" />
+        </div>
+      </section>
+
       {/* SECTION 3: HOW TEAMS USE AMTHROMAX */}
       <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-12">
         

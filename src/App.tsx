@@ -58,6 +58,7 @@ import HelleiousPage from "./components/helleious/HelleiousPage";
 import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
 import OrarQlowPage from "./components/orarqlow/OrarQlowPage";
 import TrustTransparencyPage from "./components/trust/TrustTransparencyPage";
+import NotFoundPage from "./components/common/NotFoundPage";
 import './App.css';
 
 // Clean up testing post from localStorage
@@ -796,20 +797,20 @@ const App: React.FC = () => {
                 <FeaturesSection />
 
                 {/* Showcase Images Section */}
-                <section className="py-12 bg-[#f5f5f7] dark:bg-black transition-colors duration-300">
-                  <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 relative group aspect-[3/2]">
+                <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
+                  <div className="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
+                    <div className="overflow-hidden rounded-[28px] border border-gray-200 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#141517] shadow-sm hover:shadow-xl transition-all duration-500 group flex items-center justify-center">
                       <img
-                        src="/images/desktop_setup.png"
-                        alt="Amthromax Enterprise System Collaboration"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                        src="/images/amthromax_lab_workspace.jpg"
+                        alt="Amthromax Lab Autonomous Workspace"
+                        className="w-full h-full object-cover rounded-[28px] group-hover:scale-[1.02] transition-transform duration-500"
                       />
                     </div>
-                    <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-100 dark:border-white/[0.04] shadow-sm hover:shadow-md transition-all duration-300 relative group aspect-[3/2]">
+                    <div className="overflow-hidden rounded-[28px] border border-gray-200 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#141517] shadow-sm hover:shadow-xl transition-all duration-500 group flex items-center justify-center">
                       <img
-                        src="/images/laptop_setup.png"
-                        alt="Amthromax Custom Engineering System"
-                        className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-103"
+                        src="/images/amthromax_laptop_workspace.png"
+                        alt="Amthromax Platform Executive Dashboard"
+                        className="w-full h-full object-cover rounded-[28px] group-hover:scale-[1.02] transition-transform duration-500"
                       />
                     </div>
                   </div>
@@ -913,6 +914,7 @@ const App: React.FC = () => {
             <Route path="/helleious-safety" element={<HelleiousSafetyPage />} />
             <Route path="/safety-governance" element={<HelleiousSafetyPage />} />
             <Route path="/announcements/helleious-safety" element={<HelleiousSafetyPage />} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </AnimatePresence>
       </main>

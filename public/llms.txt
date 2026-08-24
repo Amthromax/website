@@ -1,0 +1,103 @@
+# Amthromax
+
+> Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems.
+
+Amthromax Inc. designs and operates the software layer that lets organisations run
+autonomous and semi-autonomous AI systems in production: an orchestration platform,
+agent runtimes, workflow automation, and the developer tooling, SDKs and APIs that sit
+around them. This site covers the products themselves, the research and safety work that
+informs them, and the documentation engineers need to build on top.
+
+- Canonical origin: https://amthromax.com
+- Contact: contact@amthromax.com
+- Full URL inventory: https://amthromax.com/sitemap.xml
+- Crawler policy: https://amthromax.com/robots.txt
+
+## Start here
+
+- [Amthromax home](https://amthromax.com/): Company overview, flagship platform, and current product direction.
+- [About Amthromax](https://amthromax.com/about): Who we are, what we build, and how the company is organised.
+- [Platform](https://amthromax.com/platform): The Amthromax platform — orchestration, runtime, and control plane.
+- [Solutions](https://amthromax.com/solutions): How the platform maps onto real operational problems by domain.
+- [Overview](https://amthromax.com/overview): Condensed technical tour of the stack end to end.
+- [Pricing](https://amthromax.com/pricing): Plans, tiers, and what is included at each level.
+- [Contact sales](https://amthromax.com/contact): Enterprise enquiries, pilots, and procurement.
+
+## Products
+
+- [Products index](https://amthromax.com/products): All Amthromax product lines in one place.
+- [AI Platform](https://amthromax.com/products/ai-platform): Core enterprise AI platform — models, routing, evaluation, and governance.
+- [AI Agents](https://amthromax.com/products/ai-agents): Agent runtime for planning, tool use, and long-running autonomous tasks.
+- [Automation](https://amthromax.com/products/automation): Intelligent workflow automation across systems of record.
+- [Developer Platform](https://amthromax.com/products/developer-platform): APIs, SDKs, and infrastructure for building on Amthromax.
+- [Enterprise AI](https://amthromax.com/products/enterprise-ai): Deployment, security, and scale characteristics for large organisations.
+- [Services](https://amthromax.com/services): Implementation, integration, and managed engagements.
+
+## Flagship systems
+
+- [Helleious](https://amthromax.com/helleious): The Amthromax AI operating system — the substrate the rest of the stack runs on.
+- [Helleious safety and governance](https://amthromax.com/helleious-safety): Safety architecture, guardrails, and the governance model for Helleious.
+- [CodeHoomer](https://amthromax.com/codehoomer): AI system for software engineering workflows.
+- [OrarQlow](https://amthromax.com/orarqlow): AI system for orchestrated, high-throughput operational flows.
+
+## Developers and documentation
+
+- [Developers](https://amthromax.com/developers): Entry point for engineers — concepts, primitives, and quickstarts.
+- [Documentation](https://amthromax.com/docs): Full product and API documentation.
+- [Getting started](https://amthromax.com/docs/getting-started): First integration, from key to first successful call.
+- [Authentication](https://amthromax.com/docs/authentication): API keys, tokens, scopes, and auth flows.
+- [API reference](https://amthromax.com/docs/api): Endpoints, parameters, payloads, and response shapes.
+- [SDKs](https://amthromax.com/docs/sdks): Official client libraries and language support.
+- [Guides](https://amthromax.com/docs/guides): Task-oriented walkthroughs for common integrations.
+- [Changelog](https://amthromax.com/docs/changelog): Platform and API release history.
+
+## Research
+
+- [Research](https://amthromax.com/research): The Amthromax research programme and its current lines of work.
+- [Research overview](https://amthromax.com/research/overview): How research is structured and what it feeds into.
+- [Safety architecture](https://amthromax.com/research/safety): Technical approach to AI safety, alignment, and containment.
+- [Publications](https://amthromax.com/research/publications): Papers, technical reports, and public write-ups.
+- [Foundation](https://amthromax.com/foundation): Foundational articles on the ideas underneath the platform.
+- [Our charter](https://amthromax.com/charter): The commitments that govern how Amthromax builds and deploys AI.
+
+## Trust, security and privacy
+
+- [Trust and transparency](https://amthromax.com/trust): Operating principles, disclosures, and accountability.
+- [Security](https://amthromax.com/security): Security posture, controls, and infrastructure hardening.
+- [Data protection](https://amthromax.com/data-protection): DPDP and data-handling commitments.
+- [Privacy centre](https://amthromax.com/privacy-center): Consent, cookie controls, and privacy rights in one place.
+
+## Why Amthromax
+
+- [For enterprises](https://amthromax.com/why/enterprises): Scale, compliance, and the integration story for large organisations.
+- [For small businesses](https://amthromax.com/why/small-businesses): A lower-friction path to production AI.
+- [For developers](https://amthromax.com/why/developers): What the platform gives engineers that a raw model API does not.
+
+## Company
+
+- [Team](https://amthromax.com/team): The people building Amthromax.
+- [Careers](https://amthromax.com/careers): Open roles and how we hire.
+- [Partner network](https://amthromax.com/partners): Integration, delivery, and technology partners.
+- [News](https://amthromax.com/news): Company announcements and press.
+
+## Writing
+
+- [Blog](https://amthromax.com/blog): Engineering, product, and strategy writing from the team.
+- [Helleious: views on safety and governance](https://amthromax.com/blog/helleious-ai-core-views-on-safety-and-governance): How safety and governance are built into the core system.
+- [Helleious: the most powerful AI operating system](https://amthromax.com/blog/helleious-ai-most-powerful-ai-operating-system): Design and capabilities of the Helleious OS.
+- [How news organizations use AI](https://amthromax.com/blog/how-news-organizations-use-ai): Applied AI patterns in newsrooms.
+- [Kishore Kanth — founder profile](https://amthromax.com/blog/kishore-kanth-founder-profile): Background on the founder and the origin of the company.
+- [The next AI future: strategic roadmap](https://amthromax.com/blog/the-next-ai-future-strategic-roadmap): Where Amthromax believes the field is heading.
+- [Building the next era of AI](https://amthromax.com/blog/building-the-next-era-of-ai): The engineering thesis behind the platform.
+- [The future of enterprise AI](https://amthromax.com/blog/future-of-enterprise-ai): How enterprise adoption is changing.
+- [Enterprise AI platform](https://amthromax.com/blog/enterprise-ai-platform): What an enterprise-grade AI platform actually requires.
+- [Introducing Amthromax — company profile](https://amthromax.com/blog/introducing-amthromax-company-profile): Company introduction and mission.
+- [The future of AI agents](https://amthromax.com/blog/future-of-ai-agents): Where autonomous agents are useful today, and next.
+- [Security for enterprise cognitive workflows](https://amthromax.com/blog/security-enterprise-cognitive-workflows): Threat model and controls for agentic systems.
+- [Designing zero-latency AI layers](https://amthromax.com/blog/designing-zero-latency-ai-layers): Latency engineering across the inference path.
+
+## Optional
+
+- [Privacy policy](https://amthromax.com/privacy): How Amthromax collects, uses, and retains data.
+- [Terms of service](https://amthromax.com/terms): Legal terms governing use of the site and products.
+- [Cookie policy](https://amthromax.com/cookie-policy): Cookie categories and how consent is handled.

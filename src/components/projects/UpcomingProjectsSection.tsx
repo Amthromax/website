@@ -37,7 +37,7 @@ const UpcomingProjectsSection: React.FC = () => {
       title: "Autonomous Workflow Swarms",
       centerTitle: "Autonomous\nWorkflow Swarms",
       subtitle: "Executing multi-step enterprise business operations using self-correcting agent chains.",
-      date: "Sep 01, 2026",
+      date: "Jul 28, 2026",
       category: "AI & Intelligence",
       modalHeading: "Executing multi-step enterprise business operations with self-correcting agent chains",
       modalIntro: "Enterprise workflow automation powered by self-healing, multi-agent intelligence swarms that dynamically adapt to real-time execution anomalies.",
@@ -70,7 +70,7 @@ const UpcomingProjectsSection: React.FC = () => {
       title: "Institutional Trade Engine",
       centerTitle: "Institutional\nTrade Engine",
       subtitle: "Ultra-low latency portfolio analytics, predictive hedging, and real-time ledger settlement.",
-      date: "Aug 28, 2026",
+      date: "Jul 18, 2026",
       category: "Security & Ledger",
       modalHeading: "Ultra-low latency portfolio analytics & cryptographic trade settlement",
       modalIntro: "Institutional-grade financial execution pipeline combining predictive market hedging algorithms with zero-knowledge cryptographic ledger verification.",
@@ -100,7 +100,7 @@ const UpcomingProjectsSection: React.FC = () => {
       title: "Amthromax Agent Orchestrator",
       centerTitle: "Amthromax\nAgent Orchestrator",
       subtitle: "Unified control plane to design, monitor, and scale enterprise-grade AI agents.",
-      date: "Aug 20, 2026",
+      date: "Jul 05, 2026",
       category: "AI & Intelligence",
       modalHeading: "Unified control plane to design, monitor, and scale enterprise AI agents",
       modalIntro: "A central governance portal enabling enterprise teams to visual-code, audit, and deploy custom intelligent agent networks with full RBAC policies.",
@@ -130,7 +130,7 @@ const UpcomingProjectsSection: React.FC = () => {
       title: "Adaptive Knowledge Engine",
       centerTitle: "Adaptive\nKnowledge Engine",
       subtitle: "Transforming unstructured multi-modal enterprise data into dynamic semantic knowledge bases.",
-      date: "Aug 18, 2026",
+      date: "Jun 28, 2026",
       category: "AI & Intelligence",
       modalHeading: "Transforming unstructured multi-modal data into dynamic semantic knowledge bases",
       modalIntro: "Neural data ingested across PDFs, databases, and media feeds is automatically indexed into high-dimensional vector representations for sub-5ms lookup.",
@@ -160,7 +160,7 @@ const UpcomingProjectsSection: React.FC = () => {
       title: "Apex Financial Engine",
       centerTitle: "Apex\nFinancial Engine",
       subtitle: "Generative intelligence engine for institutional wealth allocation and predictive risk modeling.",
-      date: "Aug 15, 2026",
+      date: "Jun 18, 2026",
       category: "AI & Intelligence",
       modalHeading: "Generative intelligence engine for institutional wealth & predictive risk modeling",
       modalIntro: "Real-time market simulation engine using agentic Monte Carlo techniques to model portfolio drawdowns, macro shifts, and yield optimization.",
@@ -190,7 +190,7 @@ const UpcomingProjectsSection: React.FC = () => {
       title: "Hyper-Scale Data Mesh",
       centerTitle: "Hyper-Scale\nData Mesh",
       subtitle: "Scaling high-fidelity real-time data ingestion and stream processing for enterprise analytics.",
-      date: "Aug 12, 2026",
+      date: "Jun 05, 2026",
       category: "Infrastructure",
       modalHeading: "Scaling high-fidelity real-time data ingestion & stream processing for enterprise analytics",
       modalIntro: "Low-latency streaming grid connecting distributed data centers with zero-copy memory buffers and automatic failover clustering.",
@@ -249,7 +249,7 @@ const UpcomingProjectsSection: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover blur-md scale-110 saturate-[0.55] grayscale-[0.35] group-hover:scale-115 group-hover:saturate-100 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                    className="w-full h-full object-cover blur-md scale-110 group-hover:scale-115 transition-all duration-700 ease-out"
                   />
                 ) : (
                   <>
@@ -268,16 +268,13 @@ const UpcomingProjectsSection: React.FC = () => {
                     </div>
                   )}
 
-                  <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.5)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
+                  <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
                     {project.centerTitle || project.title}
                   </h3>
                 </div>
 
-                {/* Gray Wash */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-400/50 via-gray-500/40 to-gray-700/55 opacity-100 group-hover:opacity-45 transition-opacity duration-500 z-10 pointer-events-none" />
-
-                {/* Ambient Light & Contrast Overlay */}
-                <div className="absolute inset-0 bg-black/15 group-hover:bg-black/20 transition-colors duration-500 z-10 pointer-events-none" />
+                {/* Ambient Contrast Overlay */}
+                <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-500 z-10 pointer-events-none" />
               </div>
 
               {/* Typography below box (Matching reference look) */}

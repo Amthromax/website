@@ -1,4 +1,136 @@
+# robots.txt for https://amthromax.com
+# Amthromax Inc. — Enterprise AI software & intelligent technology
+# Structured summary for LLMs: https://amthromax.com/llms.txt
+
+# ---------------------------------------------------------------
+# Default: all crawlers welcome across the public site
+# ---------------------------------------------------------------
 User-agent: *
 Allow: /
 
+# Private / authenticated surfaces — no value in the index
+Disallow: /login
+Disallow: /register
+Disallow: /gtm-2026
+Disallow: /profile
+Disallow: /auth/
+Disallow: /blog/publish
+Disallow: /privacy-request
+Disallow: /privacy/request
+
+# Build + tooling artifacts
+Disallow: /assets/*.map$
+Disallow: /*?*utm_
+Disallow: /*?*fbclid=
+Disallow: /*?*gclid=
+
+# ---------------------------------------------------------------
+# AI / LLM crawlers — explicitly allowed
+# Amthromax builds AI systems; we want this site to be readable
+# by the models our customers use. Same rules as the default group.
+# ---------------------------------------------------------------
+
+# OpenAI
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Anthropic
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Google
+User-agent: Google-Extended
+User-agent: Googlebot
+User-agent: Googlebot-Image
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Microsoft / Bing
+User-agent: bingbot
+User-agent: msnbot
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Perplexity
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Apple
+User-agent: Applebot
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Meta
+User-agent: meta-externalagent
+User-agent: FacebookBot
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# Common Crawl, Amazon, Mistral, You.com, Cohere, DuckDuckGo
+User-agent: CCBot
+User-agent: Amazonbot
+User-agent: MistralAI-User
+User-agent: YouBot
+User-agent: cohere-ai
+User-agent: DuckAssistBot
+User-agent: DuckDuckBot
+Allow: /
+Disallow: /login
+Disallow: /register
+Disallow: /profile
+Disallow: /auth/
+
+# ---------------------------------------------------------------
+# Aggressive scrapers with no reciprocal value — blocked
+# ---------------------------------------------------------------
+User-agent: Bytespider
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# ---------------------------------------------------------------
 Sitemap: https://amthromax.com/sitemap.xml

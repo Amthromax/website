@@ -1,7 +1,7 @@
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
-import React, { useRef } from "react";
+import React from "react";
 
 const features = [
   {
@@ -49,55 +49,14 @@ const features = [
 ];
 
 const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index }) => {
-  const ref = useRef<HTMLDivElement>(null);
-  
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const mouseX = e.clientX - rect.left;
-    const mouseY = e.clientY - rect.top;
-    
-    const xPct = mouseX / width - 0.5;
-    const yPct = mouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
   return (
-    <Link to={`/services/${feature.slug}`} className="block perspective-1000">
+    <Link to={`/services/${feature.slug}`} className="block">
       <motion.div
-        ref={ref}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        style={{
-          rotateX,
-          rotateY,
-          transformStyle: "preserve-3d",
-        }}
         variants={{
-          hidden: { opacity: 0, y: 50, scale: 0.95 },
+          hidden: { opacity: 0, y: 50 },
           visible: { 
             opacity: 1, 
-            y: 0, 
-            scale: 1,
+            y: 0,
             transition: { 
               type: "spring", 
               stiffness: 100, 
@@ -106,21 +65,19 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
             }
           }
         }}
-        whileHover={{ scale: 1.02, zIndex: 10 }}
-        className="relative rounded-2xl p-8 transition-shadow duration-500 border border-gray-200/50 dark:border-gray-800/50 overflow-hidden min-h-[360px] flex flex-col justify-end shadow-lg hover:shadow-2xl"
+        className="relative rounded-2xl p-8 border border-gray-200/50 dark:border-gray-800/50 overflow-hidden min-h-[360px] flex flex-col justify-end shadow-lg hover:shadow-2xl transition-shadow duration-300"
       >
-        {/* Background Image with slight scale on hover */}
-        <motion.div 
-          className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-700"
+        {/* Background Image */}
+        <div 
+          className="absolute inset-0 z-0 bg-cover bg-center"
           style={{ backgroundImage: `url(${feature.bgImage})` }}
-          whileHover={{ scale: 1.1 }}
         />
         
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10 group-hover:via-black/70 transition-all duration-500 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10 z-10" />
 
         {/* Content */}
-        <div className="relative z-20 space-y-4 text-white transform-gpu" style={{ transform: "translateZ(30px)" }}>
+        <div className="relative z-20 space-y-4 text-white">
           <h3 className="text-3xl font-bold font-sans text-white tracking-tight leading-tight mb-2 drop-shadow-md">
             {feature.title}
           </h3>
@@ -138,12 +95,11 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
                 </span>
               ))}
             </div>
-            <motion.div 
-              whileHover={{ x: 5 }}
+            <div 
               className="text-white/80 hover:text-white flex items-center justify-center flex-shrink-0 transition-colors"
             >
               <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </motion.div>
+            </div>
           </div>
         </div>
       </motion.div>

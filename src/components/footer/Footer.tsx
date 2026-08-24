@@ -2,6 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import { Sun, Moon } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 interface FooterLink {
@@ -250,35 +251,33 @@ const Footer: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap items-center gap-6">
-            {/* Inline Theme Switcher for Bottom Bar */}
-            <div className="inline-flex items-center gap-1">
+            {/* Inline Theme Switcher for Bottom Bar - Lucide Icons */}
+            <div className="inline-flex items-center gap-1.5">
               <button
                 type="button"
                 onClick={() => setTheme(false)}
-                className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                aria-label="Switch to Light Theme"
+                title="Light Theme"
+                className={`p-2 rounded-lg transition-all cursor-pointer flex items-center justify-center ${
                   !isDark
-                    ? "bg-white text-black shadow-xs border border-gray-300"
-                    : "text-gray-400 hover:text-white"
+                    ? "bg-gray-200/90 text-black shadow-xs dark:bg-white/20 dark:text-white"
+                    : "text-gray-400 hover:text-black dark:hover:text-white"
                 }`}
               >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12 7c-2.76 0-5 2.24-5 5s2.24 5 5 5 5-2.24 5-5-2.24-5-5-5zM2 13h2c.55 0 1-.45 1-1s-.45-1-1-1H2c-.55 0-1 .45-1 1s.45 1 1 1zm18 0h2c.55 0 1-.45 1-1s-.45-1-1-1h-2c-.55 0-1 .45-1 1s.45 1 1 1zM11 2v2c0 .55.45 1 1 1s1-.45 1-1V2c0-.55-.45-1-1-1s-1 .45-1 1zm0 18v2c0 .55.45 1 1 1s1-.45 1-1v-2c0-.55-.45-1-1-1s-1 .45-1 1zM5.99 4.58c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41L5.99 4.58zm12.37 12.37c-.39-.39-1.03-.39-1.41 0s-.39 1.03 0 1.41l1.06 1.06c.39.39 1.03.39 1.41 0s.39-1.03 0-1.41l-1.06-1.06zm1.06-10.96c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06zM7.05 18.36c.39-.39.39-1.03 0-1.41s-1.03-.39-1.41 0l-1.06 1.06c-.39.39-.39 1.03 0 1.41s1.03.39 1.41 0l1.06-1.06z"/>
-                </svg>
-                <span>Light</span>
+                <Sun className="w-4 h-4" />
               </button>
               <button
                 type="button"
                 onClick={() => setTheme(true)}
-                className={`px-3 py-1 rounded-lg text-xs font-semibold flex items-center gap-1.5 transition-all cursor-pointer ${
+                aria-label="Switch to Dark Theme"
+                title="Dark Theme"
+                className={`p-2 rounded-lg transition-all cursor-pointer flex items-center justify-center ${
                   isDark
-                    ? "bg-black text-white shadow-xs border border-zinc-700"
-                    : "text-gray-500 hover:text-black"
+                    ? "bg-black text-white shadow-xs border border-zinc-700/60 dark:bg-white/20 dark:text-white"
+                    : "text-gray-500 hover:text-black dark:hover:text-white"
                 }`}
               >
-                <svg className="w-3.5 h-3.5 fill-current" viewBox="0 0 24 24">
-                  <path d="M12.3 2c.43 0 .77.37.7.8-.57 3.6 1.15 7.24 4.3 9 2.5 1.4 5.56 1.3 7.9-.17.37-.23.86.07.82.5-.72 7.02-6.68 12.43-13.72 11.83C5.26 23.37.5 18.42.03 11.39-.42 4.67 4.7 0 11.3 0c.34 0 .68.02 1 .06V2z"/>
-                </svg>
-                <span>Dark</span>
+                <Moon className="w-4 h-4" />
               </button>
             </div>
 

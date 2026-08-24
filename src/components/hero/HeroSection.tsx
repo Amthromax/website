@@ -98,9 +98,6 @@ const CODE_MS = 12; // per character, diff line
 const FEED_MASK =
   "linear-gradient(to bottom, transparent 0, #000 16px, #000 100%)";
 
-const CAPTION_MASK =
-  "linear-gradient(to right, transparent 0, #000 28px, #000 100%)";
-
 const SESSION_CSS = `
 @keyframes amx-caret { 0%, 45% { opacity: 1; } 55%, 100% { opacity: 0; } }
 .amx-caret {
@@ -139,9 +136,9 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
     case "prompt": {
       const typing = item.typed < item.text.length;
       return (
-        <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-[#1f1f1f] flex items-baseline gap-2 min-w-0">
-          <span className="text-[#3b82f6] shrink-0">&rsaquo;</span>
-          <span className="text-white font-semibold truncate">
+        <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-gray-100 dark:bg-[#1f1f1f] flex items-baseline gap-2 min-w-0">
+          <span className="text-[#2563eb] dark:text-[#3b82f6] shrink-0">&rsaquo;</span>
+          <span className="text-gray-900 dark:text-white font-semibold truncate">
             {item.text.slice(0, item.typed)}
             {typing && <Caret />}
           </span>
@@ -153,11 +150,11 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
       if (item.ms < item.total) {
         const dots = ".".repeat(1 + (Math.floor(item.ms / 300) % 3));
         return (
-          <div className="flex items-center gap-2 text-[#8b8b93]">
-            <span className="text-[#a78bfa]">&#8942;</span>
+          <div className="flex items-center gap-2 text-gray-500 dark:text-[#8b8b93]">
+            <span className="text-purple-600 dark:text-[#a78bfa]">&#8942;</span>
             <span>
               Thinking{dots}
-              <span className="text-[#5b5b63] tabular-nums">
+              <span className="text-gray-400 dark:text-[#5b5b63] tabular-nums">
                 {" "}
                 {(item.ms / 1000).toFixed(1)}s
               </span>
@@ -166,8 +163,8 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
         );
       }
       return (
-        <div className="flex items-center gap-2 text-[#a1a1aa]">
-          <span className="text-[#a78bfa] text-[10px]">&#9670;</span>
+        <div className="flex items-center gap-2 text-gray-500 dark:text-[#a1a1aa]">
+          <span className="text-purple-600 dark:text-[#a78bfa] text-[10px]">&#9670;</span>
           <span>Thought for {(item.total / 1000).toFixed(1)}s</span>
         </div>
       );
@@ -177,15 +174,15 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
       return (
         <div className="flex items-baseline gap-2 min-w-0">
           <span
-            className={`text-[#2dd4bf]/70 text-[10px] shrink-0 ${
+            className={`text-teal-600 dark:text-[#2dd4bf]/70 text-[10px] shrink-0 ${
               item.ready ? "" : "animate-pulse"
             }`}
           >
             &#9656;
           </span>
-          <span className="text-[#2dd4bf] font-semibold shrink-0">{item.name}</span>
-          <span className="text-[#d4d4d8] truncate">{item.arg}</span>
-          <span className="text-[#6b7280] shrink-0">
+          <span className="text-teal-700 dark:text-[#2dd4bf] font-semibold shrink-0">{item.name}</span>
+          <span className="text-gray-700 dark:text-[#d4d4d8] truncate">{item.arg}</span>
+          <span className="text-gray-400 dark:text-[#6b7280] shrink-0">
             {item.ready ? item.out : <span className="animate-pulse">&#8230;</span>}
           </span>
         </div>
@@ -196,14 +193,14 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
         <div className="flex items-center gap-2 min-w-0">
           <span
             className={`w-[2px] h-[14px] shrink-0 ${
-              item.done ? "bg-[#22c55e]" : "bg-[#3b82f6] animate-pulse"
+              item.done ? "bg-emerald-500 dark:bg-[#22c55e]" : "bg-blue-500 dark:bg-[#3b82f6] animate-pulse"
             }`}
           />
-          <span className="text-[#d4d4d8] truncate">{item.title}</span>
-          <span className="text-[#6b7280] truncate">{item.agent}</span>
+          <span className="text-gray-700 dark:text-[#d4d4d8] truncate">{item.title}</span>
+          <span className="text-gray-400 dark:text-[#6b7280] truncate">{item.agent}</span>
           <span
             className={`ml-auto pl-2 shrink-0 ${
-              item.done ? "text-[#4ade80]" : "text-[#60a5fa] animate-pulse"
+              item.done ? "text-emerald-600 dark:text-[#4ade80]" : "text-blue-600 dark:text-[#60a5fa] animate-pulse"
             }`}
           >
             {item.done ? "[done]" : "[running]"}
@@ -214,9 +211,9 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
     case "edit":
       return (
         <div className="flex items-baseline gap-2 mt-1.5 min-w-0">
-          <span className="text-[#a78bfa] text-[10px] shrink-0">&#9670;</span>
-          <span className="text-white font-semibold shrink-0">Edit</span>
-          <span className="text-[#86efac] truncate">{item.file}</span>
+          <span className="text-purple-600 dark:text-[#a78bfa] text-[10px] shrink-0">&#9670;</span>
+          <span className="text-gray-900 dark:text-white font-semibold shrink-0">Edit</span>
+          <span className="text-emerald-600 dark:text-[#86efac] truncate">{item.file}</span>
         </div>
       );
 
@@ -356,26 +353,26 @@ const AgentSession: React.FC = () => {
   return (
     <div className="space-y-1.5 overflow-hidden">
       <style>{SESSION_CSS}</style>
-      <div className="flex items-center justify-between border-b border-white/10 pb-2 text-[11px] text-gray-400">
+      <div className="flex items-center justify-between border-b border-gray-200/50 dark:border-white/10 pb-2 text-[11px] text-gray-500 dark:text-gray-400">
         <div className="flex items-center gap-2 min-w-0">
           <span className="flex items-center gap-1 shrink-0">
             <span className="w-[7px] h-[7px] rounded-full bg-[#fd5f57] inline-block" />
             <span className="w-[7px] h-[7px] rounded-full bg-[#febc30] inline-block" />
             <span className="w-[7px] h-[7px] rounded-full bg-[#28c840] inline-block" />
           </span>
-          <span className="text-[#a1a1aa] font-medium text-xs truncate">
+          <span className="text-gray-600 dark:text-[#a1a1aa] font-medium text-xs truncate">
             amthromax/neural-core
           </span>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
-          <span className="text-[#4b4b52]">|</span>
-          <span className="w-7 h-[5px] rounded-full bg-white/10 overflow-hidden inline-block">
+          <span className="text-gray-300 dark:text-[#4b4b52]">|</span>
+          <span className="w-7 h-[5px] rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden inline-block">
             <span
-              className="block h-full rounded-full bg-white/60 transition-[width] duration-500 ease-linear"
+              className="block h-full rounded-full bg-gray-600 dark:bg-white/60 transition-[width] duration-500 ease-linear"
               style={{ width: `${pct}%` }}
             />
           </span>
-          <span className="text-[10px] text-[#d4d4d8] font-mono tabular-nums">
+          <span className="text-[10px] text-gray-600 dark:text-[#d4d4d8] font-mono tabular-nums">
             {pct.toFixed(1)}%
           </span>
         </div>
@@ -1032,379 +1029,905 @@ const SwarmChat: React.FC = () => {
   );
 };
 
-/* ------------------------------------------------------------- spatial */
 
-type P3 = { x: number; y: number; z: number };
 
-// A Fibonacci sphere: an even scatter over a unit sphere, so the cloud
-// reads as a surface instead of banded rings.
-const CLOUD: P3[] = Array.from({ length: 64 }, (_, i) => {
-  const k = i + 0.5;
-  const phi = Math.acos(1 - (2 * k) / 64);
-  const theta = Math.PI * (1 + Math.sqrt(5)) * k;
-  return {
-    x: Math.cos(theta) * Math.sin(phi),
-    y: Math.cos(phi),
-    z: Math.sin(theta) * Math.sin(phi),
-  };
-});
+/* ------------------------------------------------------- Design Studio *
+ * Prompt-to-interface console. Nothing here is a looped keyframe: the
+ * prompt is typed one character per tick, the suggestion cursor walks
+ * the list on its own clock, the send press is a real 0→100 ramp, and
+ * the wireframe gains one layer at a time because the build is actually
+ * advancing. Every field below is a pure function of elapsed ms.
+ * ---------------------------------------------------------------------- */
 
-// Point pairs close enough on the sphere to be worth drawing as mesh
-// edges. Computed once, then filtered each frame by what has been caught.
-const EDGES: [number, number][] = (() => {
-  const out: [number, number][] = [];
-  for (let i = 0; i < CLOUD.length; i += 1) {
-    for (let j = i + 1; j < CLOUD.length; j += 1) {
-      const a = CLOUD[i];
-      const b = CLOUD[j];
-      const d = Math.hypot(a.x - b.x, a.y - b.y, a.z - b.z);
-      if (d < 0.44) out.push([i, j]);
-    }
-  }
-  return out;
-})();
+type StudioPhase = "type" | "hold" | "send" | "build" | "done";
 
-const SWEEP = 190; // frames in one top-to-bottom capture pass
-const SPIN = 0.012; // radians of yaw per frame
-const STAGES = [
-  "Scanning depth",
-  "Meshing surface",
-  "Baking texture",
-  "Scene ready",
+type StudioRun = {
+  prompt: string;
+  tab: number;
+  pick: number;
+  layers: string[];
+  spans: number[];
+  pal: string[];
+  host: string;
+  tok: number;
+};
+
+const ST_TABS = ["Suggested", "Wireframe", "Apps", "Websites", "Prototype"];
+
+const ST_SUGGESTS: { icon: "grid" | "clock" | "bag"; text: string }[] = [
+  { icon: "grid", text: "A developer portfolio with dark theme, project cards, and contact form." },
+  { icon: "clock", text: "A modern SaaS landing page for a time-tracking app." },
+  { icon: "bag", text: "An e-commerce homepage for a skincare brand." },
 ];
 
-const SpatialEngine: React.FC = () => {
-  const reduced = usePrefersReducedMotion();
-  const [tick, setTick] = React.useState(0);
-  const [caught, setCaught] = React.useState<boolean[]>(() =>
-    CLOUD.map(() => false)
+const ST_RUNS: StudioRun[] = [
+  {
+    prompt: "A modern SaaS landing page for a time-tracking app.",
+    tab: 3,
+    pick: 1,
+    layers: ["Nav + logo lockup", "Hero headline", "Live timer widget", "Pricing table", "Footer"],
+    spans: [3, 5, 2, 4, 2],
+    pal: ["#18181b", "#2563eb", "#a855f7", "#e4e4e7"],
+    host: "amthromax.design/timeflow",
+    tok: 1840,
+  },
+  {
+    prompt: "A developer portfolio with dark theme and project cards.",
+    tab: 1,
+    pick: 0,
+    layers: ["Sidebar rail", "Project grid", "Case study", "Contact form"],
+    spans: [2, 5, 4, 3],
+    pal: ["#0b0c0e", "#a855f7", "#f59e0b", "#e4e4e7"],
+    host: "amthromax.design/folio",
+    tok: 1265,
+  },
+  {
+    prompt: "An e-commerce homepage for a skincare brand.",
+    tab: 2,
+    pick: 2,
+    layers: ["Sticky header", "Product carousel", "Bundle offer", "Reviews", "Footer + links"],
+    spans: [2, 5, 3, 4, 2],
+    pal: ["#1c1917", "#f472b6", "#fb923c", "#e7e5e4"],
+    host: "amthromax.design/lumen",
+    tok: 2110,
+  },
+];
+
+const ST_TYPE_MS = 38; // per character
+const ST_SCAN_MS = 300; // cursor dwell per suggestion row
+const ST_HOLD_MS = 560;
+const ST_SEND_MS = 420;
+const ST_LAYER_MS = 470;
+const ST_DONE_MS = 1500;
+
+const ST_LENS = ST_RUNS.map(
+  (r) => r.prompt.length * ST_TYPE_MS + ST_HOLD_MS + ST_SEND_MS + r.layers.length * ST_LAYER_MS + ST_DONE_MS,
+);
+const ST_CYCLE = ST_LENS.reduce((a, b) => a + b, 0);
+
+type StudioFrame = {
+  run: number;
+  phase: StudioPhase;
+  typed: number;
+  caret: boolean;
+  hover: number;
+  picked: boolean;
+  tab: number;
+  layers: number;
+  pct: number;
+  press: number;
+  wave: number[];
+  blink: boolean;
+  look: number;
+  tokens: number;
+  elapsed: number;
+  swatch: number;
+};
+
+const sampleStudio = (raw: number): StudioFrame => {
+  const ms = Math.max(0, raw);
+  const cyc = ms % ST_CYCLE;
+
+  let run = 0;
+  let t = cyc;
+  while (run < ST_RUNS.length - 1 && t >= ST_LENS[run]) {
+    t -= ST_LENS[run];
+    run += 1;
+  }
+
+  const r = ST_RUNS[run];
+  const typeEnd = r.prompt.length * ST_TYPE_MS;
+  const holdEnd = typeEnd + ST_HOLD_MS;
+  const sendEnd = holdEnd + ST_SEND_MS;
+  const buildLen = r.layers.length * ST_LAYER_MS;
+  const buildEnd = sendEnd + buildLen;
+
+  let phase: StudioPhase = "done";
+  let typed = r.prompt.length;
+  let hover = r.pick;
+  let picked = true;
+  let layers = r.layers.length;
+  let pct = 100;
+  let press = 0;
+
+  if (t < typeEnd) {
+    phase = "type";
+    typed = Math.floor(t / ST_TYPE_MS);
+    hover = Math.floor(t / ST_SCAN_MS) % ST_SUGGESTS.length;
+    picked = false;
+    layers = 0;
+    pct = 0;
+  } else if (t < holdEnd) {
+    phase = "hold";
+    picked = false;
+    layers = 0;
+    pct = 0;
+  } else if (t < sendEnd) {
+    phase = "send";
+    press = Math.round(((t - holdEnd) / ST_SEND_MS) * 20) * 5;
+    layers = 0;
+    pct = 0;
+  } else if (t < buildEnd) {
+    phase = "build";
+    layers = Math.min(r.layers.length, Math.floor((t - sendEnd) / ST_LAYER_MS) + 1);
+    pct = Math.min(100, Math.round(((t - sendEnd) / buildLen) * 100));
+  }
+
+  let tokens = 0;
+  let elapsed = 0;
+
+  if (phase === "send") {
+    elapsed = Math.round((t - holdEnd) / 100) * 100;
+  } else if (phase === "build") {
+    tokens = Math.round((((t - sendEnd) / buildLen) * r.tok) / 9) * 9;
+    elapsed = Math.round((t - holdEnd) / 100) * 100;
+  } else if (phase === "done") {
+    tokens = r.tok;
+    elapsed = Math.round((ST_SEND_MS + buildLen) / 100) * 100;
+  }
+
+  const live = phase === "type" || phase === "send";
+  const wave = [0, 1, 2, 3].map((i) =>
+    live ? 1 + Math.round(Math.abs(Math.sin(ms / 125 + i * 0.85)) * 4) : 1 + (i % 2),
   );
-  const [stage, setStage] = React.useState(0);
 
-  React.useEffect(() => {
-    if (reduced) {
-      setCaught(CLOUD.map(() => true));
-      setStage(STAGES.length - 1);
-      return;
-    }
+  return {
+    run,
+    phase,
+    typed,
+    caret: phase === "type" ? true : Math.floor(ms / 520) % 2 === 0,
+    hover,
+    picked,
+    tab: phase === "type" || phase === "hold" ? 0 : r.tab,
+    layers,
+    pct,
+    press,
+    wave,
+    blink: ms % 4300 > 4080,
+    look: phase === "type" ? -1 : phase === "build" || phase === "send" ? 1 : 0,
+    tokens,
+    elapsed,
+    swatch: phase === "build" || phase === "done" ? Math.min(4, layers) : 0,
+  };
+};
 
-    let raf = 0;
-    let n = 0;
-    const loop = () => {
-      raf = requestAnimationFrame(loop);
-      n += 1;
-      if (n % 2) return; // hold the cloud at ~30fps, not 60
-      setTick(n);
+const sameStudio = (a: StudioFrame, b: StudioFrame) =>
+  a.run === b.run &&
+  a.phase === b.phase &&
+  a.typed === b.typed &&
+  a.caret === b.caret &&
+  a.hover === b.hover &&
+  a.picked === b.picked &&
+  a.tab === b.tab &&
+  a.layers === b.layers &&
+  a.pct === b.pct &&
+  a.press === b.press &&
+  a.blink === b.blink &&
+  a.look === b.look &&
+  a.tokens === b.tokens &&
+  a.elapsed === b.elapsed &&
+  a.swatch === b.swatch &&
+  a.wave.every((v, i) => v === b.wave[i]);
 
-      const pass = Math.floor(n / SWEEP) % STAGES.length;
-      const at = n % SWEEP;
-      if (at < 2) {
-        // A pass just ended. The last stage holds the finished mesh; the
-        // rest start over with nothing captured yet.
-        setStage(pass);
-        setCaught(CLOUD.map(() => pass === STAGES.length - 1));
-        return;
-      }
-      if (pass === STAGES.length - 1) return; // built, just let it turn
-      // Where the scan plane sits this frame, in sphere space.
-      const plane = 1 - (2 * at) / SWEEP;
-      setCaught((prev) => {
-        let hit = false;
-        const next = prev.map((was, i) => {
-          if (was || CLOUD[i].y < plane) return was;
-          hit = true;
-          return true;
-        });
-        return hit ? next : prev;
-      });
-    };
-    raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
-  }, [reduced]);
+const ST_SPIN_MS = 950;
+const ST_MAN_LAYER_MS = 620;
 
-  const yaw = tick * SPIN;
-  const cos = Math.cos(yaw);
-  const sin = Math.sin(yaw);
-  // Yaw only, no tilt: a point's model y then maps straight to a screen
-  // row, so the scan line lands exactly on the points it captures.
-  const view = CLOUD.map((p) => {
-    const z = p.z * cos - p.x * sin;
+/* suggestion row -> the run that actually builds that prompt */
+const ST_SUG_RUN = ST_SUGGESTS.map((_, i) => {
+  const k = ST_RUNS.findIndex((r) => r.pick === i);
+  return k < 0 ? 0 : k;
+});
+
+type StManPhase = "spin" | "run" | "done";
+
+type StManFrame = {
+  run: number;
+  phase: StManPhase;
+  spin: number;
+  dots: number;
+  layers: number;
+  pct: number;
+  tokens: number;
+  elapsed: number;
+  swatch: number;
+};
+
+/* The visitor-started timeline. Same contract as sampleStudio: a pure function
+   of elapsed ms, quantised so React only re-renders on a real change. */
+const sampleMan = (runIdx: number, raw: number): StManFrame => {
+  const ms = Math.max(0, raw);
+  const r = ST_RUNS[runIdx];
+  const buildLen = r.layers.length * ST_MAN_LAYER_MS;
+
+  if (ms < ST_SPIN_MS) {
     return {
-      cx: 100 + (p.x * cos + p.z * sin) * 60,
-      cy: 100 - p.y * 60,
-      d: (z + 1) / 2, // 0 = far, 1 = near
+      run: runIdx,
+      phase: "spin",
+      spin: Math.round((ms / ST_SPIN_MS) * 20) * 5,
+      dots: 1 + (Math.floor(ms / 300) % 3),
+      layers: 0,
+      pct: 0,
+      tokens: 0,
+      elapsed: 0,
+      swatch: 0,
     };
-  });
+  }
 
-  const at = tick % SWEEP;
-  const plane = 1 - (2 * at) / SWEEP;
-  const scanY = 100 - plane * 60;
-  const got = caught.reduce((a, b) => a + (b ? 1 : 0), 0);
-  const pts = got * 16; // 64 sampled points stand in for 1,024
-  const settled = stage === STAGES.length - 1;
+  const t = ms - ST_SPIN_MS;
 
+  if (t < buildLen) {
+    const layers = Math.min(r.layers.length, Math.floor(t / ST_MAN_LAYER_MS) + 1);
+    return {
+      run: runIdx,
+      phase: "run",
+      spin: 100,
+      dots: 1 + (Math.floor(t / 300) % 3),
+      layers,
+      pct: Math.min(100, Math.round((t / buildLen) * 100)),
+      tokens: Math.round(((t / buildLen) * r.tok) / 9) * 9,
+      elapsed: Math.round((ST_SPIN_MS + t) / 100) * 100,
+      swatch: Math.min(4, layers),
+    };
+  }
+
+  return {
+    run: runIdx,
+    phase: "done",
+    spin: 100,
+    dots: 0,
+    layers: r.layers.length,
+    pct: 100,
+    tokens: r.tok,
+    elapsed: Math.round((ST_SPIN_MS + buildLen) / 100) * 100,
+    swatch: 4,
+  };
+};
+
+const sameMan = (a: StManFrame, b: StManFrame) =>
+  a.run === b.run &&
+  a.phase === b.phase &&
+  a.spin === b.spin &&
+  a.dots === b.dots &&
+  a.layers === b.layers &&
+  a.pct === b.pct &&
+  a.tokens === b.tokens &&
+  a.elapsed === b.elapsed &&
+  a.swatch === b.swatch;
+
+const STUDIO_CSS = `
+@keyframes amx-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
+@keyframes amx-blip { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
+.amx-bob { animation: amx-bob 3.6s ease-in-out infinite; }
+.amx-blip { animation: amx-blip 1.6s ease-in-out infinite; }
+.amx-bar { transition: height .09s linear; }
+@keyframes amx-spin { to { transform: rotate(360deg); } }
+@keyframes amx-halo { 0% { transform: scale(.8); opacity: .6; } 100% { transform: scale(1.55); opacity: 0; } }
+@keyframes amx-rise { from { opacity: 0; transform: translateY(10px) scale(.985); } to { opacity: 1; transform: none; } }
+.amx-spin { animation: amx-spin .9s linear infinite; }
+.amx-halo { animation: amx-halo 1.5s ease-out infinite; }
+.amx-rise { animation: amx-rise .34s cubic-bezier(.22,1,.36,1) both; }
+@media (prefers-reduced-motion: reduce) {
+  .amx-bob, .amx-blip, .amx-spin, .amx-halo, .amx-rise { animation: none; }
+  .amx-bar { transition: none; }
+}
+`;
+
+const StIcon: React.FC<{ k: string; className?: string }> = ({ k, className }) => {
+  const p = { className, viewBox: "0 0 16 16", fill: "none", stroke: "currentColor", strokeWidth: 1.4 } as const;
+  if (k === "grid")
+    return (
+      <svg {...p}>
+        <rect x="2" y="2" width="5" height="5" rx="1.2" />
+        <rect x="9" y="2" width="5" height="5" rx="1.2" />
+        <rect x="2" y="9" width="5" height="5" rx="1.2" />
+        <rect x="9" y="9" width="5" height="5" rx="1.2" />
+      </svg>
+    );
+  if (k === "clock")
+    return (
+      <svg {...p}>
+        <circle cx="8" cy="8" r="6" />
+        <path d="M8 4.6V8l2.4 1.5" strokeLinecap="round" />
+      </svg>
+    );
+  if (k === "bag")
+    return (
+      <svg {...p}>
+        <path d="M3.2 5.4h9.6l-.8 8.2H4z" strokeLinejoin="round" />
+        <path d="M6 5.4a2 2 0 0 1 4 0" />
+      </svg>
+    );
+  if (k === "clip")
+    return (
+      <svg {...p}>
+        <path d="M11.4 7.3 7.6 11a2.3 2.3 0 0 1-3.3-3.3l4.4-4.4a1.6 1.6 0 0 1 2.3 2.3l-4.4 4.4a.8.8 0 0 1-1.1-1.1l3.9-3.9" strokeLinecap="round" />
+      </svg>
+    );
+  if (k === "bulb")
+    return (
+      <svg {...p}>
+        <path d="M5.6 9.6a3.6 3.6 0 1 1 4.8 0c-.5.5-.7 1-.7 1.6H6.3c0-.6-.2-1.1-.7-1.6Z" strokeLinejoin="round" />
+        <path d="M6.4 13.4h3.2" strokeLinecap="round" />
+      </svg>
+    );
+  if (k === "chev")
+    return (
+      <svg {...p}>
+        <path d="m5 6.5 3 3 3-3" strokeLinecap="round" strokeLinejoin="round" />
+      </svg>
+    );
   return (
-    <>
-      <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-        <svg className="w-full h-full" viewBox="0 0 200 200" fill="none">
-          <circle
-            cx="100"
-            cy="100"
-            r="76"
-            stroke="#ef4444"
-            strokeOpacity="0.22"
-            strokeWidth="1.5"
-            strokeDasharray="4 6"
-            transform={`rotate(${-tick * 0.3} 100 100)`}
-          />
-          {EDGES.map(([i, j], k) =>
-            caught[i] && caught[j] ? (
-              <line
-                key={k}
-                x1={view[i].cx}
-                y1={view[i].cy}
-                x2={view[j].cx}
-                y2={view[j].cy}
-                stroke="#ef4444"
-                strokeWidth="0.7"
-                strokeOpacity={
-                  0.08 + ((view[i].d + view[j].d) / 2) * (settled ? 0.4 : 0.26)
-                }
-              />
-            ) : null
-          )}
-          {view.map((p, i) => (
-            <circle
-              key={i}
-              cx={p.cx}
-              cy={p.cy}
-              r={caught[i] ? 1.3 + p.d * 1.9 : 1 + p.d * 0.8}
-              fill={caught[i] ? "#ef4444" : "#ffffff"}
-              fillOpacity={
-                caught[i] ? 0.35 + p.d * 0.6 : 0.06 + p.d * 0.12
-              }
-            />
-          ))}
-          {!settled && (
-            <>
-              <line
-                x1="16"
-                y1={scanY}
-                x2="184"
-                y2={scanY}
-                stroke="#ef4444"
-                strokeWidth="1"
-                strokeOpacity="0.55"
-              />
-              <rect
-                x="16"
-                y={scanY - 7}
-                width="168"
-                height="14"
-                fill="#ef4444"
-                fillOpacity="0.07"
-              />
-            </>
-          )}
-        </svg>
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0b0c0e] via-transparent to-[#0b0c0e]/40" />
-      </div>
-
-      <div className="relative z-10 flex items-start justify-between gap-2">
-        <span className="text-xs font-mono text-gray-300 bg-white/10 px-3 py-1 rounded-full backdrop-blur-xs border border-white/10 font-medium">
-          Imagine
-        </span>
-        <span className="text-right leading-[13px]">
-          <span className="flex items-center justify-end gap-1.5 text-[10px] font-mono text-red-300/90">
-            <span
-              className="inline-block w-1 h-1 rounded-full bg-red-500"
-              style={{ opacity: settled ? 1 : 0.35 + (at / SWEEP) * 0.65 }}
-            />
-            {STAGES[stage]}
-          </span>
-          <span className="block text-[10px] font-mono text-gray-500 tabular-nums mt-0.5">
-            {pts.toLocaleString()} / 1,024 pts
-          </span>
-        </span>
-      </div>
-    </>
+    <svg {...p} fill="currentColor" stroke="none">
+      <path d="m8 1.6 1.5 4.2 4.2 1.5-4.2 1.5L8 13l-1.5-4.2L2.3 7.3l4.2-1.5z" />
+    </svg>
   );
 };
 
-/* ------------------------------------------------------------ acoustic */
-
-const PHRASE = [
-  "route",
-  "this",
-  "call",
-  "to",
-  "the",
-  "on-call",
-  "agent",
-  "and",
-  "open",
-  "a",
-  "priority",
-  "ticket",
-];
-const BARS = 30;
-// Fixed per-bar weight: speech energy peaks through the mid band.
-const BAND = Array.from({ length: BARS }, (_, i) =>
-  Math.max(
-    0.18,
-    0.32 + 0.68 * Math.sin(Math.PI * Math.pow(i / (BARS - 1), 0.85))
-  )
+/* 3D Glass Asterisk Core Emblem without outer black box container */
+const StudioBot: React.FC<{ blink?: boolean; look?: number }> = () => (
+  <div className="relative group shrink-0 select-none">
+    {/* Ambient Glow behind 3D Asterisk */}
+    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-400/30 via-purple-500/30 to-blue-500/30 blur-lg group-hover:opacity-100 opacity-70 transition-opacity duration-500 amx-blip" />
+    
+    {/* Floating 3D Emblem Image ONLY - Seamless integration */}
+    <div className="amx-bob relative h-[62px] w-[62px] md:h-[74px] md:w-[74px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_8px_16px_rgba(0,0,0,0.4)]">
+      <img
+        src="/images/asterisk_3d_transparent.png"
+        alt="Amthromax 3D Core Emblem"
+        className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.3)]"
+      />
+    </div>
+  </div>
 );
-const FRAME_MS = 40; // one analysis frame
-const GAP_MS = 80; // silence between words
-const HOLD_MS = 1500; // how long the verdict sits before the next take
 
-const AcousticEngine: React.FC = () => {
+const AMTHROMAX_MODELS = [
+  { name: "Simifig", tag: "Flagship", desc: "Frontier reasoning & code synthesis" },
+  { name: "Ligivor", tag: "Multimodal", desc: "Real-time UI & spatial generation" },
+  { name: "Favlon", tag: "Fast", desc: "Sub-50ms ultra-low latency agent" },
+  { name: "Roqlow", tag: "Deep", desc: "Autonomous complex task mesh" },
+];
+
+const DESIGN_STYLES = [
+  { name: "Obsidian Dark", desc: "Monochrome enterprise dark theme" },
+  { name: "Liquid Glass", desc: "Apple frosted glassmorphic UI" },
+  { name: "Neumorphic", desc: "Soft tactile depth elements" },
+  { name: "Cyber Neon", desc: "High contrast glowing accents" },
+  { name: "Minimal Clean", desc: "Ultra clean Swiss typography" },
+];
+
+const DesignStudio: React.FC = () => {
   const reduced = usePrefersReducedMotion();
-  const [bars, setBars] = React.useState<number[]>(() =>
-    Array.from({ length: BARS }, () => 0)
-  );
-  const [said, setSaid] = React.useState(0);
-  const [done, setDone] = React.useState(false);
+  const [f, setF] = React.useState<StudioFrame>(() => sampleStudio(0));
+  const [selectedModel, setSelectedModel] = React.useState("Simifig");
+  const [selectedStyle, setSelectedStyle] = React.useState("Obsidian Dark");
+  const [modelDropdownOpen, setModelDropdownOpen] = React.useState(false);
+  const [styleDropdownOpen, setStyleDropdownOpen] = React.useState(false);
+  const [attachedFile, setAttachedFile] = React.useState<string | null>(null);
+  
+  const dropdownRef = React.useRef<HTMLDivElement>(null);
+  const styleDropdownRef = React.useRef<HTMLDivElement>(null);
+  const fileInputRef = React.useRef<HTMLInputElement>(null);
+
+  /* A visitor-started run lives beside the autonomous demo. pick is the row
+     they clicked; the ref mirrors it so the rAF loop below never restarts. */
+  const [pick, setPick] = React.useState<number | null>(null);
+  const [mf, setMf] = React.useState<StManFrame | null>(null);
+  const [hover, setHover] = React.useState(-1);
+  const pickRef = React.useRef(-1);
+  const pickT0 = React.useRef(0);
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setModelDropdownOpen(false);
+      }
+      if (styleDropdownRef.current && !styleDropdownRef.current.contains(event.target as Node)) {
+        setStyleDropdownOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   React.useEffect(() => {
     if (reduced) {
-      setBars(BAND.map((b) => b * 0.5));
-      setSaid(PHRASE.length);
-      setDone(true);
+      setF(sampleStudio(ST_LENS[0] - ST_DONE_MS / 2));
       return;
     }
-
-    // How long a word takes to say, from how much word there is.
-    const span = (w: string) => 130 + w.length * 46;
-
-    let wi = 0; // word being spoken
-    let wt = 0; // ms into that word
-    let rest = 0; // ms left on the verdict hold
-
-    const id = window.setInterval(() => {
-      let env = 0;
-
-      if (wi < PHRASE.length) {
-        const d = span(PHRASE[wi]);
-        if (wt === 0) setSaid(wi + 1);
-        wt += FRAME_MS;
-        // A single breath of energy, rising and falling across the word.
-        env = wt <= d ? Math.sin(Math.PI * (wt / d)) : 0;
-        if (wt >= d + GAP_MS) {
-          wi += 1;
-          wt = 0;
-          if (wi >= PHRASE.length) {
-            setDone(true);
-            rest = HOLD_MS;
-          }
-        }
-      } else {
-        rest -= FRAME_MS;
-        if (rest <= 0) {
-          wi = 0;
-          wt = 0;
-          setSaid(0);
-          setDone(false);
-        }
+    let raf = 0;
+    const t0 = performance.now();
+    const tick = (now: number) => {
+      const next = sampleStudio(now - t0);
+      setF((prev) => (sameStudio(prev, next) ? prev : next));
+      if (pickRef.current >= 0) {
+        const m = sampleMan(pickRef.current, now - pickT0.current);
+        setMf((prev) => (prev && sameMan(prev, m) ? prev : m));
       }
-
-      setBars((prev) =>
-        prev.map((v, i) => {
-          const target = env
-            ? Math.min(1, env * BAND[i] * (0.5 + Math.random() * 0.7))
-            : Math.random() * 0.05;
-          // Ease toward the target so the bars settle instead of snapping.
-          return v + (target - v) * 0.5;
-        })
-      );
-    }, FRAME_MS);
-
-    return () => window.clearInterval(id);
+      raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
   }, [reduced]);
 
-  const rms = Math.sqrt(
-    bars.reduce((a, b) => a + b * b, 0) / BARS
+  const startRun = React.useCallback(
+    (i: number) => {
+      const rx = ST_SUG_RUN[i];
+      setPick(i);
+      setHover(-1);
+      if (reduced) {
+        pickRef.current = -1;
+        setMf(sampleMan(rx, ST_SPIN_MS + ST_RUNS[rx].layers.length * ST_MAN_LAYER_MS));
+        return;
+      }
+      pickT0.current = performance.now();
+      pickRef.current = rx;
+      setMf(sampleMan(rx, 0));
+    },
+    [reduced],
   );
-  const db = Math.round(-52 + rms * 50);
+
+  const resetRun = React.useCallback(() => {
+    pickRef.current = -1;
+    setPick(null);
+    setMf(null);
+  }, []);
+
+  const againRun = React.useCallback(() => {
+    if (pick !== null) startRun(pick);
+  }, [pick, startRun]);
+
+  const run = ST_RUNS[f.run];
+
+  /* One view object, so every readout below reports whichever timeline is
+     really driving: the autonomous demo, or the run the visitor just started. */
+  const vRun = mf ? ST_RUNS[mf.run] : run;
+  const vTab = mf ? vRun.tab : f.tab;
+  const vText = mf ? vRun.prompt : run.prompt.slice(0, f.typed);
+  const vCaret = mf ? false : f.caret;
+  const vLayers = mf ? mf.layers : f.layers;
+  const vPct = mf ? mf.pct : f.pct;
+  const vTokens = mf ? mf.tokens : f.tokens;
+  const vElapsed = mf ? mf.elapsed : f.elapsed;
+  const vSwatch = mf ? mf.swatch : f.swatch;
+  const vBusy = mf ? mf.phase !== "done" : f.phase === "build";
+  const vDone = mf ? mf.phase === "done" : f.phase === "done";
+  const nodes = vRun.spans.slice(0, vLayers).reduce((a, b) => a + b, 0) * 3;
+
+  const status = mf
+    ? mf.phase === "spin"
+      ? "Warming the model"
+      : mf.phase === "run"
+        ? `Generating ${vRun.layers[Math.max(0, mf.layers - 1)]}`
+        : "Interface ready"
+    : f.phase === "build"
+      ? `Generating ${run.layers[Math.max(0, f.layers - 1)]}`
+      : f.phase === "done"
+        ? "Interface ready"
+        : f.phase === "send"
+          ? "Sending to the model"
+          : "Waiting for a prompt";
+
+  /* What the popup quotes: the layer being written now, then what is queued. */
+  const vQueue = [...vRun.layers, "Finalising the layout", "Handing off to preview"];
+  const li = mf ? Math.max(0, Math.min(vRun.layers.length - 1, mf.layers - 1)) : 0;
+  const popLines =
+    mf && mf.phase === "done"
+      ? [vRun.host, `${vRun.layers.length} layers, ${nodes} nodes`, `${vRun.tok.toLocaleString()} tokens`]
+      : [vQueue[li], vQueue[li + 1], vQueue[li + 2]];
 
   return (
-    <div className="flex-1 min-h-0 flex flex-col items-center justify-center gap-2.5 relative">
-      <div className="relative w-14 h-14 shrink-0">
-        <div
-          className="absolute inset-0 rounded-full border border-white/40"
-          style={{
-            transform: `scale(${1 + rms * 0.75})`,
-            opacity: Math.max(0, 0.45 - rms * 0.4),
-          }}
-        />
-        <div
-          className="w-full h-full rounded-full bg-gradient-to-tr from-zinc-700 via-zinc-400 to-white p-0.5 shadow-xl"
-          style={{ transform: `scale(${1 + rms * 0.16})` }}
-        >
-          <div className="w-full h-full rounded-full bg-[#0a0a0d] flex items-center justify-center relative overflow-hidden">
+    <div className="bg-[#0c0d0e] rounded-2xl overflow-hidden border border-white/10 shadow-sm flex flex-col md:h-[450px] group hover:border-white/20 transition-all duration-300">
+      <style>{STUDIO_CSS}</style>
+
+      {/* Top macOS Window Control Bar */}
+      <div className="flex shrink-0 items-center justify-between border-b border-white/10 bg-[#08090b] px-4 py-2.5 select-none">
+        <div className="flex items-center gap-2">
+          <span className="size-3 rounded-full bg-[#ff5f56] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
+          <span className="size-3 rounded-full bg-[#ffbd2e] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
+          <span className="size-3 rounded-full bg-[#27c93f] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
+        </div>
+        <span className="font-mono text-[11.5px] font-semibold text-gray-300 tracking-wider">amthromax.design / studio</span>
+        <div className="w-12" />
+      </div>
+
+      <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
+        {/* ---- prompt side ---- */}
+        <div className="flex min-h-0 flex-col justify-center gap-3.5 bg-[#0c0d0e] p-5 md:p-7">
+          <div className="flex items-start justify-between gap-3">
+            <h3 className="font-sans text-[20px] leading-[1.25] tracking-tight text-white md:text-[25px]">
+              Turn your <span className="font-semibold text-white">ideas</span> into{" "}
+              <span className="font-semibold text-white">interfaces</span>
+            </h3>
+            <StudioBot blink={f.blink} look={f.look} />
+          </div>
+
+          <div className="relative rounded-2xl bg-white/[0.07] backdrop-blur-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.1] hover:shadow-[0_16px_48px_rgba(0,0,0,0.6)] group/glass">
+            <div className="relative z-10 min-h-[38px] font-sans text-[14px] font-semibold leading-relaxed text-white">
+              {vCaret && <span className="mr-1 inline-block h-[17px] w-[2.5px] -mb-[2px] bg-blue-400 align-middle shadow-[0_0_10px_#60a5fa]" />}
+              {vText ? (
+                <span className="tracking-tight text-white drop-shadow-sm font-semibold">{vText}</span>
+              ) : (
+                <span className="text-gray-200 font-medium">What do you want to design?</span>
+              )}
+            </div>
+
+            <div className="relative z-10 mt-3.5 flex items-center justify-between gap-2">
+              <div className="flex min-w-0 items-center gap-2">
+                <input
+                  type="file"
+                  ref={fileInputRef}
+                  className="hidden"
+                  onChange={(e) => {
+                    const file = e.target.files?.[0];
+                    if (file) setAttachedFile(file.name);
+                  }}
+                />
+                <button
+                  type="button"
+                  onClick={() => fileInputRef.current?.click()}
+                  title={attachedFile ? `Attached: ${attachedFile}` : "Attach file or asset"}
+                  className="relative flex size-8 shrink-0 items-center justify-center rounded-full bg-white/25 backdrop-blur-md text-white shadow-md hover:bg-white/35 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                >
+                  <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[2.4] stroke-linecap-round">
+                    <path d="M8 3.5V12.5M3.5 8H12.5" />
+                  </svg>
+                  {attachedFile && (
+                    <span className="absolute -top-0.5 -right-0.5 size-2.5 rounded-full bg-emerald-400 border border-black shadow-[0_0_8px_#34d399]" />
+                  )}
+                </button>
+
+                {/* Design Style Selector Dropdown */}
+                <div className="relative shrink-0" ref={styleDropdownRef}>
+                  <button
+                    type="button"
+                    onClick={() => setStyleDropdownOpen((prev) => !prev)}
+                    className="flex shrink-0 items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-md px-3.5 py-1.5 font-sans text-[12.5px] font-bold text-white shadow-md hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer select-none"
+                  >
+                    <span className="hidden sm:inline">{selectedStyle}</span>
+                    <span className="sm:hidden">Style</span>
+                    <StIcon k="chev" className={`size-3.5 text-white transition-transform duration-200 ${styleDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+
+                  {styleDropdownOpen && (
+                    <div className="absolute left-0 bottom-full mb-2 w-[220px] rounded-xl border border-white/20 bg-[#16171b] p-1.5 shadow-2xl backdrop-blur-2xl z-50 animate-in fade-in slide-in-from-bottom-2 duration-200 font-sans select-none max-h-[175px] overflow-y-auto">
+                      <div className="px-2 py-1 text-[10px] font-semibold text-gray-300 uppercase tracking-wider border-b border-white/10 mb-1 flex items-center justify-between">
+                        <span>Design Style</span>
+                        <span className="text-blue-400 text-[9.5px] font-mono font-medium">Preset</span>
+                      </div>
+                      <div className="flex flex-col gap-0.5">
+                        {DESIGN_STYLES.map((style) => {
+                          const isSelected = selectedStyle === style.name;
+                          return (
+                            <button
+                              key={style.name}
+                              type="button"
+                              onClick={() => {
+                                setSelectedStyle(style.name);
+                                setStyleDropdownOpen(false);
+                              }}
+                              className={`text-left px-2 py-1.5 rounded-lg text-xs font-sans transition-all flex items-center justify-between cursor-pointer ${
+                                isSelected
+                                  ? "bg-white/15 text-white font-semibold shadow-xs ring-1 ring-white/25"
+                                  : "text-gray-200 hover:bg-white/10 hover:text-white"
+                              }`}
+                            >
+                              <span className="font-semibold text-white text-[11.5px]">{style.name}</span>
+                              {isSelected && <span className="text-blue-400 text-[10px] font-bold">✓</span>}
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex shrink-0 items-center gap-2">
+                {/* Model Selector Dropdown */}
+                <div className="relative shrink-0" ref={dropdownRef}>
+                  <button
+                    type="button"
+                    onClick={() => setModelDropdownOpen((prev) => !prev)}
+                    className="flex items-center gap-1.5 font-sans text-[12.5px] font-bold text-white bg-gradient-to-r from-amber-500/25 via-purple-500/25 to-blue-500/25 hover:from-amber-500/35 hover:to-blue-500/35 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all duration-200 select-none cursor-pointer"
+                  >
+                    <span className="font-bold text-white tracking-wide">{selectedModel}</span>
+                    <StIcon k="chev" className={`size-3.5 text-white transition-transform duration-200 ${modelDropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+
+                  {modelDropdownOpen && (
+                    <div className="absolute right-0 bottom-full mb-2 w-[270px] rounded-xl border border-white/20 bg-[#16171b] p-1.5 shadow-2xl backdrop-blur-2xl z-50 animate-in fade-in slide-in-from-bottom-2 duration-200 font-sans select-none max-h-[180px] overflow-y-auto">
+                      <div className="px-2 py-1 text-[10px] font-semibold text-gray-300 uppercase tracking-wider border-b border-white/10 mb-1 flex items-center justify-between">
+                        <span>AI Model</span>
+                        <span className="text-white text-[9.5px] font-mono font-medium">Active</span>
+                      </div>
+                      <div className="grid grid-cols-2 gap-1">
+                        {AMTHROMAX_MODELS.map((m) => {
+                          const isSelected = selectedModel === m.name;
+                          return (
+                            <button
+                              key={m.name}
+                              type="button"
+                              onClick={() => {
+                                setSelectedModel(m.name);
+                                setModelDropdownOpen(false);
+                              }}
+                              className={`text-left px-2 py-1.5 rounded-lg text-xs font-sans transition-all flex items-center justify-between cursor-pointer ${
+                                isSelected
+                                  ? "bg-white/15 text-white font-semibold shadow-xs ring-1 ring-white/25"
+                                  : "text-gray-200 hover:bg-white/10 hover:text-white"
+                              }`}
+                            >
+                              <span className="font-semibold text-white text-[11.5px]">{m.name}</span>
+                              <span className="text-[9px] px-1 py-0.2 rounded bg-white/15 text-gray-300 font-mono">
+                                {m.tag}
+                              </span>
+                            </button>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+
+                <span className="relative flex size-9 items-center justify-center rounded-full bg-gradient-to-b from-white via-gray-100 to-gray-200 text-black shadow-[0_0_20px_rgba(255,255,255,0.35),0_4px_12px_rgba(0,0,0,0.4)] hover:shadow-[0_0_28px_rgba(255,255,255,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer">
+                  {f.press > 0 && (
+                    <span
+                      className="absolute inset-0 rounded-full border border-white"
+                      style={{
+                        transform: `scale(${1 + f.press / 90})`,
+                        opacity: Math.max(0, 1 - f.press / 100) * 0.5,
+                      }}
+                    />
+                  )}
+                  <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-black stroke-[2.2] stroke-linecap-round stroke-linejoin-round">
+                    <path d="M8 13V3.2M3.8 7L8 2.8L12.2 7" />
+                  </svg>
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ---- suggestions + build side ---- */}
+        <div className="flex min-h-0 flex-col gap-2.5 border-t border-white/10 bg-[#0c0d0e] p-5 md:border-l md:border-t-0 md:p-7">
+          <div className="flex items-center gap-1.5 overflow-hidden">
+            {ST_TABS.map((t, i) => (
+              <span
+                key={t}
+                className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 font-sans text-[12.5px] transition-all duration-200 select-none cursor-pointer ${
+                  i === vTab
+                    ? "bg-white/20 text-white font-bold shadow-xs border border-white/20"
+                    : "text-gray-200 font-semibold hover:text-white hover:bg-white/10"
+                } ${i > 2 ? "hidden lg:flex" : ""}`}
+              >
+                {i === 0 && <StIcon k="bulb" className="size-3.5 text-white" />}
+                <span>{t}</span>
+              </span>
+            ))}
+          </div>
+
+          {/* Real buttons. Click one and the demo hands over: the pick lifts out of
+              the stack, the core spins up, then the popup reports the run itself. */}
+          <div className="relative min-h-[150px] flex-1">
             <div
-              className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/25 via-zinc-500/10 to-transparent blur-sm"
-              style={{ opacity: 0.3 + rms * 0.7 }}
-            />
-            <div
-              className="w-2.5 h-2.5 rounded-full bg-white shadow-lg shadow-white/50"
-              style={{ transform: `scale(${1 + rms * 0.5})` }}
-            />
-            <div className="w-1.5 h-1.5 rounded-full bg-zinc-300 absolute top-3 left-4" />
-            <div className="w-1.5 h-1.5 rounded-full bg-zinc-400 absolute bottom-4 right-4" />
+              className={`space-y-1.5 transition-opacity duration-300 ${
+                mf && mf.phase !== "spin" ? "pointer-events-none opacity-0" : "opacity-100"
+              }`}
+            >
+              {ST_SUGGESTS.map((s, i) => {
+                const lifted = pick === i;
+                const sunk = pick !== null && pick !== i;
+                const on = pick === null && (hover === i || (hover === -1 && i === f.hover));
+                const chosen = pick === null && f.picked && i === run.pick;
+                return (
+                  <button
+                    key={s.text}
+                    type="button"
+                    onClick={() => startRun(i)}
+                    onMouseEnter={() => setHover(i)}
+                    onMouseLeave={() => setHover(-1)}
+                    className={`flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-all duration-300 ${
+                      lifted
+                        ? "bg-white/[0.15] text-white ring-1 ring-white/30 shadow-[0_10px_28px_rgba(0,0,0,0.55)]"
+                        : sunk
+                          ? "text-gray-400 opacity-40"
+                          : chosen
+                            ? "bg-white/15 text-white font-semibold"
+                            : on
+                              ? "bg-white/10 text-white font-medium"
+                              : "text-gray-200 hover:text-white"
+                    }`}
+                    style={{ transform: lifted ? "scale(1.02)" : sunk ? "scale(0.96)" : "none" }}
+                  >
+                    <StIcon
+                      k={s.icon}
+                      className={`size-4 shrink-0 transition-colors duration-300 ${
+                        lifted ? "text-purple-300" : "text-gray-300"
+                      }`}
+                    />
+                    <span
+                      className={`min-w-0 flex-1 font-sans text-[12.5px] font-semibold leading-[1.35] line-clamp-2 ${
+                        lifted ? "text-white" : "text-gray-100"
+                      }`}
+                    >
+                      {s.text}
+                    </span>
+                    {chosen ? (
+                      <span className="shrink-0 font-sans text-[13px] font-bold text-white">→</span>
+                    ) : on ? (
+                      <svg viewBox="0 0 12 14" className="size-3.5 shrink-0 fill-white">
+                        <path d="M0 0l11 6.6-4.6.8L8.9 12l-1.9.9-2.4-4.5L0 11z" />
+                      </svg>
+                    ) : null}
+                  </button>
+                );
+              })}
+            </div>
+
+            {/* The core spins while the request is still on the wire. */}
+            {mf && mf.phase === "spin" && (
+              <div className="amx-rise pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
+                <div className="flex items-center gap-2.5 rounded-full border border-white/10 bg-[#101114]/90 py-2 pl-2 pr-4 shadow-[0_12px_34px_rgba(0,0,0,0.6)] backdrop-blur-sm">
+                  <span className="relative flex size-8 items-center justify-center">
+                    <span className="amx-spin absolute inset-0 rounded-full border-[1.6px] border-purple-400/20 border-t-purple-400" />
+                    <span className="amx-halo absolute inset-0 rounded-full border border-purple-400/40" />
+                    <img
+                      src="/images/asterisk_3d_transparent.png"
+                      alt=""
+                      className="size-[17px] object-contain"
+                      style={{ transform: `rotate(${mf.spin * 3.6}deg)` }}
+                    />
+                  </span>
+                  <span className="font-sans text-[11px] text-gray-200">
+                    Spinning up the core{".".repeat(mf.dots)}
+                  </span>
+                </div>
+              </div>
+            )}
+
+            {/* Live report of the run the visitor started. */}
+            {mf && mf.phase !== "spin" && (
+              <div className="amx-rise absolute inset-0 z-10 flex items-center">
+                <div className="w-full rounded-2xl border border-white/[0.12] bg-[#141519] p-3 shadow-[0_16px_44px_rgba(0,0,0,0.6)]">
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="truncate font-sans text-[10px] font-medium uppercase tracking-[0.14em] text-purple-300">
+                      {mf.phase === "run" ? "Running your prompt" : "Build complete"}
+                    </span>
+                    {mf.phase === "run" ? (
+                      <span className="amx-spin size-3.5 shrink-0 rounded-full border-[1.6px] border-purple-400/20 border-t-purple-400" />
+                    ) : (
+                      <span className="flex size-3.5 shrink-0 items-center justify-center rounded-full bg-purple-500/20 font-sans text-[8px] leading-none text-purple-300">
+                        &#10003;
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="mt-2.5 flex items-start gap-2.5">
+                    <span
+                      className="size-9 shrink-0 rounded-lg ring-1 ring-white/20 transition-all duration-500 shadow-sm"
+                      style={{
+                        background: `linear-gradient(135deg, ${vRun.pal[1]} 0%, ${vRun.pal[2]} 100%)`,
+                        opacity: 0.45 + (vPct / 100) * 0.55,
+                      }}
+                    />
+                    <div className="min-w-0 flex-1 space-y-[3px]">
+                      <p className="truncate font-sans text-[12.5px] font-semibold leading-tight text-white tracking-tight">
+                        &ldquo;{popLines[0]}&rdquo;
+                      </p>
+                      <p className="truncate font-sans text-[11.5px] font-medium leading-tight text-gray-200">
+                        &ldquo;{popLines[1]}&rdquo;
+                      </p>
+                      <p className="truncate font-sans text-[11.5px] font-medium leading-tight text-gray-300">
+                        &ldquo;{popLines[2]}&rdquo;
+                      </p>
+                    </div>
+                  </div>
+
+                  <div className="mt-2.5 flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={resetRun}
+                      className="cursor-pointer rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md px-4 py-1.5 font-sans text-[12.5px] font-bold text-white shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
+                    >
+                      Start over
+                    </button>
+                    <button
+                      type="button"
+                      onClick={againRun}
+                      disabled={mf.phase === "run"}
+                      className="cursor-pointer rounded-full bg-white text-black hover:bg-gray-200 px-4.5 py-1.5 font-sans text-[12.5px] font-bold shadow-md hover:scale-105 active:scale-95 transition-all duration-200 disabled:cursor-default disabled:opacity-50"
+                    >
+                      {mf.phase === "run" ? `Building ${mf.pct}%` : "Build again"}
+                    </button>
+                    <span className="ml-auto shrink-0 font-mono text-[10.5px] font-medium text-gray-300">
+                      {(mf.elapsed / 1000).toFixed(1)}s
+                    </span>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+
+          <div className="mt-auto rounded-2xl bg-white/[0.06] backdrop-blur-xl px-4 py-3.5 shadow-lg">
+            <div className="flex items-center justify-between gap-2 font-sans text-[12px]">
+              <span className="flex min-w-0 items-center gap-2 truncate text-white font-semibold">
+                <span
+                  className={`size-2.5 shrink-0 rounded-full ${
+                    vBusy
+                      ? "bg-white"
+                      : vDone
+                        ? "bg-white"
+                        : "bg-gray-400"
+                  }`}
+                />
+                <span className="truncate text-white font-bold tracking-tight">{status}</span>
+              </span>
+              <span className="flex shrink-0 items-center gap-2.5">
+                <span className="hidden items-center gap-[4px] sm:flex">
+                  {vRun.pal.map((c, i) => (
+                    <span
+                      key={c}
+                      className="size-2.5 rounded-full transition-all duration-300"
+                      style={{
+                        background: c,
+                        opacity: i < vSwatch ? 0.9 : 0.25,
+                        transform: i < vSwatch ? "none" : "scale(0.75)",
+                      }}
+                    />
+                  ))}
+                </span>
+                <span className="font-mono text-white font-bold text-[11.5px] tracking-wide">
+                  {vLayers}/{vRun.layers.length} layers
+                </span>
+              </span>
+            </div>
+
+            <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10 p-[1px]">
+              <div
+                className="h-full rounded-full bg-gradient-to-r from-purple-500 via-indigo-400 to-emerald-400 transition-[width] duration-150 ease-linear"
+                style={{ width: `${vPct}%` }}
+              />
+            </div>
+
+            <div className="mt-3 flex items-center justify-between font-mono text-[11px] font-bold text-white">
+              <span className="text-white bg-white/10 px-2 py-0.5 rounded-md">{vTokens.toLocaleString()} tok</span>
+              <span className="text-white bg-white/10 px-2 py-0.5 rounded-md">{nodes} nodes</span>
+              <span className="text-white bg-white/10 px-2 py-0.5 rounded-md">{(vElapsed / 1000).toFixed(1)}s</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="flex items-end justify-center gap-[2px] h-[30px] w-full shrink-0">
-        {bars.map((v, i) => (
-          <span
-            key={i}
-            className="w-[3px] rounded-full bg-gradient-to-t from-zinc-600 to-white"
-            style={{
-              height: `${3 + v * 27}px`,
-              opacity: 0.28 + v * 0.72,
-            }}
-          />
-        ))}
+      <div className="flex shrink-0 items-center justify-between border-t border-white/10 bg-[#090a0c] px-5 py-3 font-sans text-xs">
+        <span className="font-sans font-semibold text-white tracking-wide">Interface Synthesis</span>
+        <Link
+          to="/products"
+          className="flex items-center gap-1.5 text-gray-300 font-medium transition-colors hover:text-white"
+        >
+          <span>Explore</span>
+          <span>→</span>
+        </Link>
       </div>
-
-      <div
-        className="w-full h-[14px] overflow-hidden flex justify-end items-center whitespace-nowrap text-[11px] font-mono shrink-0"
-        style={{ maskImage: CAPTION_MASK, WebkitMaskImage: CAPTION_MASK }}
-      >
-        {said === 0 ? (
-          <span className="text-gray-600 w-full text-center">listening…</span>
-        ) : (
-          PHRASE.slice(0, said).map((w, i) => (
-            <span
-              key={i}
-              className={
-                i === said - 1 && !done
-                  ? "text-white ml-1"
-                  : "text-gray-500 ml-1"
-              }
-            >
-              {w}
-            </span>
-          ))
-        )}
-      </div>
-
-      <span className="relative z-10 text-[10px] font-mono px-2.5 py-0.5 rounded-full w-fit backdrop-blur-xs border font-medium shrink-0 whitespace-nowrap bg-white/10 border-white/10 text-gray-300">
-        {done ? (
-          <>
-            <span className="text-emerald-400">&#10003;</span> escalate_ticket
-            &middot; 0.98
-          </>
-        ) : (
-          <>
-            Voice Engine <span className="text-gray-500">&middot;</span>{" "}
-            <span className="tabular-nums text-gray-400">{db} dB</span>
-          </>
-        )}
-      </span>
     </div>
   );
 };
@@ -1465,16 +1988,16 @@ const HeroSection: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-        className="max-w-6xl mx-auto mt-14 space-y-4 md:space-y-5"
+        className="max-w-7xl mx-auto mt-14 space-y-4 md:space-y-5"
       >
         {/* Top Row: 2 Equal-Sized Premium Bento Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Equal Box 1: Neural Reasoning & Agentic Build */}
-          <div className="bg-[#141414] rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-white/10 shadow-md font-mono text-[11px] text-gray-300 overflow-hidden h-[240px] relative group hover:border-white/20 transition-all duration-300">
+          <div className="bg-white dark:bg-[#0b0c0e] rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-sm font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
             <AgentSession />
-            <div className="flex items-center justify-between text-xs text-gray-400 border-t border-white/10 pt-2.5 font-sans font-medium">
-              <span className="font-mono text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
-              <Link to="/products" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
+            <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
+              <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
+              <Link to="/products" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
                 <span>Explore</span>
                 <span>→</span>
               </Link>
@@ -1495,55 +2018,8 @@ const HeroSection: React.FC = () => {
           </div>
         </div>
 
-        {/* Bottom Row: 3 Equal-Sized Bento Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-5">
-
-        {/* Standalone Card 3: Imagine */}
-        <div className="bg-[#0b0c0e] rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden border border-white/10 shadow-inner group hover:border-white/20 transition-all h-[240px]">
-          <SpatialEngine />
-          <div className="relative z-10 flex items-center justify-between text-xs font-mono text-gray-400 border-t border-white/10 pt-2 font-sans">
-            <span>Spatial Engine</span>
-            <Link to="/products" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-              <span>Explore</span>
-              <span>→</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* Standalone Card 4: Vision */}
-        <div className="bg-[#f8f9fa] dark:bg-[#111114] rounded-2xl p-5 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-sm h-[240px]">
-          <div className="space-y-2.5">
-            <span className="text-xs font-bold text-gray-900 dark:text-white uppercase tracking-wider">Multimodal Vision</span>
-            <div className="space-y-2">
-              <div className="bg-stone-200 dark:bg-stone-900 rounded-xl px-3.5 py-2.5 flex items-center justify-between border border-stone-300/50 dark:border-stone-800">
-                <span className="font-serif italic text-xs text-stone-800 dark:text-stone-200 font-bold">La Belle Vie</span>
-              </div>
-              <div className="bg-white dark:bg-stone-950 rounded-xl px-3.5 py-2.5 flex items-center justify-between border border-gray-200 dark:border-stone-800 shadow-2xs">
-                <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">Superlight Pro</span>
-              </div>
-            </div>
-          </div>
-          <div className="flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2 border-t border-gray-200/50 dark:border-white/5 font-sans">
-            <span>Vision Gallery</span>
-            <Link to="/products" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
-              <span>Explore</span>
-              <span>→</span>
-            </Link>
-          </div>
-        </div>
-
-        {/* Standalone Card 5: Voice */}
-        <div className="bg-[#0b0c0e] rounded-2xl p-5 flex flex-col justify-between relative overflow-hidden border border-white/10 shadow-inner h-[240px]">
-          <AcousticEngine />
-          <div className="relative z-10 flex items-center justify-between text-xs font-mono text-gray-400 border-t border-white/10 pt-2 font-sans">
-            <span>Acoustic Neural</span>
-            <Link to="/products" className="text-gray-400 hover:text-white transition-colors flex items-center gap-1">
-              <span>Explore</span>
-              <span>→</span>
-            </Link>
-          </div>
-        </div>
-        </div>
+        {/* Bottom Row: Prompt-to-interface design studio */}
+        <DesignStudio />
       </motion.div>
     </section>
   );

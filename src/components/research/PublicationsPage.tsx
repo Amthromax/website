@@ -451,14 +451,18 @@ const PublicationsPage: React.FC = () => {
             )}
           </div>
 
-          {/* Right Gradient Artwork Visual Side */}
+          {/* Right Visual Video Side */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="relative aspect-square w-full max-w-md lg:max-w-lg rounded-[32px] overflow-hidden bg-gradient-to-tr from-sky-400 via-teal-300 to-indigo-400 shadow-2xl border border-white/10 group">
-              {/* Soft Ambient Radial Bloom Overlay Layers */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom_left,rgba(56,189,248,0.8),transparent_60%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(168,85,247,0.5),transparent_55%)]" />
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(20,184,166,0.6),transparent_70%)]" />
-              <div className="absolute inset-0 bg-white/10 backdrop-blur-[2px] opacity-80" />
+            <div className="relative aspect-square w-full max-w-md lg:max-w-lg rounded-[32px] overflow-hidden bg-black/5 dark:bg-white/5 shadow-2xl border border-gray-200 dark:border-white/10 group">
+              <video
+                src="/video/c8294fa6ad33fbabdb1d5d9ed86f3749_720w.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
             </div>
           </div>
 
