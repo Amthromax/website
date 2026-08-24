@@ -143,22 +143,24 @@ const AboutPage: React.FC = () => {
                 What We Build
               </h2>
               <p className="text-gray-600 dark:text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
-                Amthromax develops modular computational architectures that bridge theoretical cognitive research with real-world enterprise operations. Our core software suite includes:
+                Amthromax develops AI and software products including <strong>Codehoomer AI</strong>, <strong>Helleious AI</strong>, and <strong>Orarqlow AI</strong>, alongside modular enterprise infrastructure. Our primary software products include:
               </p>
               <ul className="space-y-4 pt-2">
                 {[
-                  { title: "Enterprise AI Platforms", desc: "High-throughput orchestration layers for machine learning models and serverless inferencing." },
-                  { title: "AI Agents Runtime", desc: "Autonomous multi-agent swarms equipped with tool execution, planning, and memory persistence." },
-                  { title: "Intelligent Automation Engine", desc: "Event-driven workflow triggers connecting CRM, ERP, and unstructured document pipelines." },
-                  { title: "Developer Infrastructure & APIs", desc: "Typed SDKs (TypeScript, Python, Go) and REST/WebSocket endpoints for low-latency integration." },
-                  { title: "Post-Quantum Cryptography", desc: "Zero-trust network encryption tunnels and lattice-based security protocols." }
+                  { title: "Codehoomer AI", desc: "Autonomous AI software engineering partner and developer assistant built by Amthromax to build, test, refactor, and deploy enterprise codebases.", link: "/codehoomer" },
+                  { title: "Helleious AI", desc: "Enterprise multi-agent operating system developed by Amthromax providing model context protocol integration, knowledge retrieval, and zero-trust data governance.", link: "/helleious" },
+                  { title: "Orarqlow AI", desc: "Autonomous agent swarm orchestration engine developed by Amthromax designed to deploy and orchestrate distributed multi-agent swarms with sub-15ms latency.", link: "/orarqlow" },
+                  { title: "Enterprise AI Infrastructure", desc: "High-throughput cognitive orchestration layers, typed SDKs, and zero-trust cloud pipelines.", link: "/products" }
                 ].map((item, idx) => (
                   <li key={idx} className="flex items-start gap-3.5 text-sm sm:text-base font-normal text-gray-800 dark:text-gray-200">
                     <svg className="w-5 h-5 text-gray-900 dark:text-white shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                     <div>
-                      <span className="font-normal text-gray-900 dark:text-white">{item.title}:</span> {item.desc}
+                      <Link to={item.link} className="font-semibold text-gray-900 dark:text-white hover:underline">
+                        {item.title}:
+                      </Link>{" "}
+                      {item.desc}
                     </div>
                   </li>
                 ))}

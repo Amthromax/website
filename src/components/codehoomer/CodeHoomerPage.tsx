@@ -120,11 +120,34 @@ const moreFeatures = [
 const CodeHoomerPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("config");
 
+  const codehoomerSchema = {
+    "@type": "SoftwareApplication",
+    "@id": "https://amthromax.com/codehoomer#software",
+    "name": "Codehoomer AI",
+    "url": "https://amthromax.com/codehoomer",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Cross-Platform (Web, VS Code, JetBrains, Docker, Kubernetes)",
+    "description":
+      "Codehoomer AI is an autonomous AI software engineering partner and developer assistant developed by Amthromax to architect, refactor, test, and deploy enterprise codebases.",
+    "creator": {
+      "@id": "https://amthromax.com/#organization"
+    },
+    "publisher": {
+      "@id": "https://amthromax.com/#organization"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
       <SEO
-        title="CodeHoomer.ai | Autonomous AI Software Engineering Studio | Amthromax"
-        description="Build, test, refactor, and deploy enterprise codebases with CodeHoomer.ai. The next-generation autonomous AI software developer for modern engineering teams."
+        title="Codehoomer AI — AI Software Engineering Partner | Amthromax"
+        description="Codehoomer AI is an autonomous AI software developer developed by Amthromax. Architect, refactor, debug, and deploy enterprise software at scale."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Products", url: "/products" },
+          { name: "Codehoomer AI", url: "/codehoomer" }
+        ]}
+        schema={codehoomerSchema}
       />
 
       {/* Hero Section */}
@@ -141,7 +164,7 @@ const CodeHoomerPage: React.FC = () => {
           </h1>
 
           <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-            Architect, refactor, debug, and deploy enterprise software at scale—built for modern dev teams.
+            Developed by Amthromax. Architect, refactor, debug, and deploy enterprise software at scale—built for modern dev teams.
           </p>
 
           {/* CTA Buttons */}

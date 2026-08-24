@@ -54,6 +54,51 @@ export const COMPANY_CONFIG: CompanyConfig = {
   },
   products: [
     {
+      id: "codehoomer",
+      name: "Codehoomer AI",
+      tagline: "Autonomous AI software engineering partner and developer studio",
+      description:
+        "Codehoomer AI is an autonomous AI software developer built by Amthromax to architect, refactor, test, and deploy enterprise codebases at scale.",
+      url: "https://amthromax.com/codehoomer",
+      category: "Developer Application",
+      features: [
+        "Autonomous Code Refactoring",
+        "Zero-False-Positive Static Analysis",
+        "Automated Pull Request Reviews",
+        "Full Repository Context Engine"
+      ]
+    },
+    {
+      id: "helleious",
+      name: "Helleious AI",
+      tagline: "Enterprise Multi-Agent Operating System & Governance Engine",
+      description:
+        "Helleious AI is an enterprise multi-agent operating system developed by Amthromax providing model context protocol integration, knowledge retrieval, and zero-trust data governance.",
+      url: "https://amthromax.com/helleious",
+      category: "Enterprise Application",
+      features: [
+        "Model Context Protocol (MCP) Integration",
+        "Zero-Trust Data Governance",
+        "Autonomous Knowledge Engine & RAG",
+        "Multi-Agent OS Kernel"
+      ]
+    },
+    {
+      id: "orarqlow",
+      name: "Orarqlow AI",
+      tagline: "Autonomous Agent Swarm Orchestration Engine",
+      description:
+        "Orarqlow AI is an autonomous agent swarm orchestration engine developed by Amthromax designed to deploy and orchestrate distributed multi-agent swarms with sub-15ms latency.",
+      url: "https://amthromax.com/orarqlow",
+      category: "Developer Application",
+      features: [
+        "Sub-15ms Swarm Coordination Latency",
+        "Autonomous Swarm Mesh Topology",
+        "Distributed Vector Memory",
+        "Real-Time Telemetry & Health Monitoring"
+      ]
+    },
+    {
       id: "ai-platform",
       name: "Enterprise AI Platform",
       tagline: "High-throughput cognitive infrastructure for enterprise applications",

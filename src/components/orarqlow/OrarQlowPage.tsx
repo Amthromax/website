@@ -120,11 +120,34 @@ const moreFeatures = [
 const OrarQlowPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("swarm");
 
+  const orarqlowSchema = {
+    "@type": "SoftwareApplication",
+    "@id": "https://amthromax.com/orarqlow#software",
+    "name": "Orarqlow AI",
+    "url": "https://amthromax.com/orarqlow",
+    "applicationCategory": "DeveloperApplication",
+    "operatingSystem": "Distributed Agent Swarm Mesh / Kubernetes",
+    "description":
+      "Orarqlow AI is an autonomous agent swarm orchestration engine developed by Amthromax designed to deploy and orchestrate distributed multi-agent swarms with sub-15ms latency.",
+    "creator": {
+      "@id": "https://amthromax.com/#organization"
+    },
+    "publisher": {
+      "@id": "https://amthromax.com/#organization"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
       <SEO
-        title="OrarQlow.ai | Autonomous Agent Swarm Orchestration Engine | Amthromax"
-        description="Orchestrate low-latency autonomous AI swarms at enterprise scale with OrarQlow.ai. Ultra-fast sub-15ms coordination, zero-trust security, and adaptive agent topologies."
+        title="Orarqlow AI — Autonomous Agent Swarm Orchestration Engine | Amthromax"
+        description="Orarqlow AI is an autonomous agent swarm orchestration engine developed by Amthromax designed to deploy and orchestrate distributed multi-agent swarms with sub-15ms latency."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Products", url: "/products" },
+          { name: "Orarqlow AI", url: "/orarqlow" }
+        ]}
+        schema={orarqlowSchema}
       />
 
       {/* Hero Section */}
@@ -140,7 +163,7 @@ const OrarQlowPage: React.FC = () => {
           </h1>
 
           <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-            The next-generation distributed agent orchestration system designed for high-concurrency enterprise workloads.
+            Orarqlow AI is an autonomous agent swarm orchestration engine developed by Amthromax designed for high-concurrency enterprise workloads.
           </p>
 
           {/* CTA Buttons */}

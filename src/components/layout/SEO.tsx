@@ -109,7 +109,12 @@ const SEO: React.FC<SEOProps> = ({
       },
       "description": COMPANY_CONFIG.description,
       "email": COMPANY_CONFIG.email,
-      "sameAs": COMPANY_CONFIG.socialProfiles
+      "sameAs": COMPANY_CONFIG.socialProfiles,
+      "brand": [
+        { "@id": `${COMPANY_CONFIG.url}/codehoomer#software` },
+        { "@id": `${COMPANY_CONFIG.url}/helleious#software` },
+        { "@id": `${COMPANY_CONFIG.url}/orarqlow#software` }
+      ]
     };
 
     const websiteEntity = {
@@ -120,6 +125,14 @@ const SEO: React.FC<SEOProps> = ({
       "description": COMPANY_CONFIG.description,
       "publisher": {
         "@id": `${COMPANY_CONFIG.url}/#organization`
+      },
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": `${COMPANY_CONFIG.url}/?s={search_term_string}`
+        },
+        "query-input": "required name=search_term_string"
       }
     };
 

@@ -119,11 +119,34 @@ const moreFeatures = [
 ];
 
 const HelleiousPage: React.FC = () => {
+  const helleiousSchema = {
+    "@type": "SoftwareApplication",
+    "@id": "https://amthromax.com/helleious#software",
+    "name": "Helleious AI",
+    "url": "https://amthromax.com/helleious",
+    "applicationCategory": "EnterpriseApplication",
+    "operatingSystem": "Cloud / On-Premises Enterprise Multi-Agent OS",
+    "description":
+      "Helleious AI is an enterprise multi-agent operating system developed by Amthromax providing model context protocol integration, knowledge retrieval, and zero-trust data governance.",
+    "creator": {
+      "@id": "https://amthromax.com/#organization"
+    },
+    "publisher": {
+      "@id": "https://amthromax.com/#organization"
+    }
+  };
+
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans antialiased selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300">
       <SEO
-        title="Helleious.ai | Enterprise Multi-Agent Operating System | Amthromax"
-        description="Put AI to work across your organization with Helleious.ai. Explore proven ways to apply multi-agent intelligence, custom MCP servers, knowledge retrieval, and enterprise governance."
+        title="Helleious AI — Enterprise Multi-Agent Operating System | Amthromax"
+        description="Helleious AI is an enterprise multi-agent operating system developed by Amthromax providing model context protocol integration, knowledge retrieval, and zero-trust data governance."
+        breadcrumbs={[
+          { name: "Home", url: "/" },
+          { name: "Products", url: "/products" },
+          { name: "Helleious AI", url: "/helleious" }
+        ]}
+        schema={helleiousSchema}
       />
 
       {/* Hero Section */}
@@ -139,7 +162,7 @@ const HelleiousPage: React.FC = () => {
           </h1>
 
           <p className="text-gray-600 dark:text-gray-400 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed">
-            Explore proven ways to apply AI across your organization—built to fit how your teams work.
+            Helleious AI is an enterprise multi-agent operating system developed by Amthromax. Explore proven ways to apply AI across your organization—built to fit how your teams work.
           </p>
 
           {/* CTA Buttons */}

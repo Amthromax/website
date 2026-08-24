@@ -95,25 +95,25 @@ const MobileIcon: React.FC = () => (
 const ProductsPage: React.FC = () => {
   const products = [
     {
-      id: "orarqlow-ai",
-      title: "OrarQlow.Ai Swarm Engine",
-      desc: "Distributed low-latency autonomous agent swarm orchestration engine capable of sub-15ms coordination across Kubernetes nodes.",
-      icon: <AIIcon />,
-      link: "/orarqlow"
+      id: "codehoomer-ai",
+      title: "Codehoomer AI",
+      desc: "Autonomous AI software engineering partner and developer assistant developed by Amthromax to build, test, refactor, and deploy enterprise codebases.",
+      icon: <DataIcon />,
+      link: "/codehoomer"
     },
     {
       id: "helleious-ai",
-      title: "Helleious.Ai Workflow Platform",
-      desc: "Enterprise zero-code AI automation, blueprint orchestration, and event-driven trigger system built for modern teams.",
+      title: "Helleious AI",
+      desc: "Enterprise multi-agent operating system developed by Amthromax providing model context protocol integration, knowledge retrieval, and zero-trust data governance.",
       icon: <SoftwareIcon />,
       link: "/helleious"
     },
     {
-      id: "codehoomer-ai",
-      title: "CodeHoomer.Ai Engineering Studio",
-      desc: "Autonomous AI software developer for building, testing, refactoring, and auditing enterprise codebases at scale.",
-      icon: <DataIcon />,
-      link: "/codehoomer"
+      id: "orarqlow-ai",
+      title: "Orarqlow AI",
+      desc: "Autonomous agent swarm orchestration engine developed by Amthromax designed to deploy and orchestrate distributed multi-agent swarms with sub-15ms latency.",
+      icon: <AIIcon />,
+      link: "/orarqlow"
     },
     {
       id: "custom-software",
