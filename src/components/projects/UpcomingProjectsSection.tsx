@@ -46,7 +46,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Protect", desc: "Continuous execution monitoring halts runaway loops and automatically rolls back unverified database transactions." },
         { title: "Scale", desc: "Distributed task queues process over 50,000 parallel execution steps per second with guaranteed order delivery." }
       ],
-      image: "/images/project_blue_grain.jpg",
+      image: "/images/project_teal_mesh.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <circle cx="12" cy="6" r="3" />
@@ -79,7 +79,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Shield", desc: "Hardware isolation modules protect proprietary trading algorithms and private order book depth." },
         { title: "Optimize", desc: "Sub-millisecond order routing minimizes market slippage and maximizes execution liquidity." }
       ],
-      image: "/images/project_red_grain.jpg",
+      image: "/images/project_hot_pink_mesh.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />
@@ -109,7 +109,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Audit", desc: "Real-time prompt and response tracing records every step of agent decision-making for regulatory compliance." },
         { title: "Deploy", desc: "One-click deployment converts visual agent topologies into production serverless containers instantly." }
       ],
-      image: "/images/project_green_grain.jpg",
+      image: "/images/project_green_scale_mesh.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <rect x="4" y="4" width="16" height="16" rx="3" />
@@ -139,7 +139,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Search", desc: "Sub-5ms semantic vector retrieval delivers precise contextual answers across multi-terabyte knowledge stores." },
         { title: "Refine", desc: "Continuous feedback loops continuously refine embedding accuracy based on user query satisfaction." }
       ],
-      image: "/images/project_purple_grain.jpg",
+      image: "/images/project_purple_gradient_mesh.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2a9 9 0 019 9c0 3.1-1.5 5.8-3.8 7.5L16 21h-8l-1.2-2.5C4.5 16.8 3 14.1 3 11a9 9 0 019-9z" />
@@ -169,7 +169,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Protect", desc: "Automated hedging triggers mitigate downside tail risk during sudden market volatility spikes." },
         { title: "Report", desc: "Automated executive summary generation produces regulatory-ready compliance briefings instantly." }
       ],
-      image: "/images/project_yellow_grain.jpg",
+      image: "/images/project_dark_purple_mesh.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M6 3h12l4 6-10 12L2 9l4-6z" />
@@ -199,7 +199,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Balance", desc: "Dynamic regional load balancing shifts telemetry traffic away from congested network hubs automatically." },
         { title: "Isolate", desc: "Encrypted memory enclaves prevent cross-tenant data bleeding across shared cloud instances." }
       ],
-      image: "/images/project_cyan_grain.jpg",
+      image: "/images/project_teal_mesh.jpg",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
@@ -249,7 +249,7 @@ const UpcomingProjectsSection: React.FC = () => {
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover blur-md scale-110 group-hover:scale-115 transition-all duration-700 ease-out"
+                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
                   />
                 ) : (
                   <>

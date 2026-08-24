@@ -232,7 +232,7 @@ const ProductsPage: React.FC = () => {
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
-                src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" 
+                src="/images/model_simifig.jpg" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="SIMIFIG 4.0" 
               />
@@ -252,7 +252,7 @@ const ProductsPage: React.FC = () => {
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
-                src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" 
+                src="/images/model_ligivor.jpg" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="LIGIVOR 5.5" 
               />
@@ -272,7 +272,7 @@ const ProductsPage: React.FC = () => {
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
-                src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" 
+                src="/images/model_favlon.jpg" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="FAVLON 5.4 THINKING" 
               />
@@ -292,7 +292,7 @@ const ProductsPage: React.FC = () => {
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img 
-                src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" 
+                src="/images/model_roqlow.jpg" 
                 className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
                 alt="ROQLOW INSTANT" 
               />
