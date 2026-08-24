@@ -418,133 +418,7 @@ const App: React.FC = () => {
             </div>
           </div>
 
-          {/* Mobile Navigation Drawer */}
-          <AnimatePresence>
-            {isMobileMenuOpen && (
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
-                transition={{ duration: 0.25, ease: "easeInOut" }}
-                className="lg:hidden fixed top-16 left-0 right-0 bottom-0 bg-[#000000] text-white z-40 overflow-y-auto flex flex-col justify-between px-8 py-10 select-none"
-              >
-                {/* Navigation Links List */}
-                <div className="flex flex-col space-y-7 pt-4">
-                  <Link
-                    to="/research"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
-                  >
-                    Intelligence
-                  </Link>
-                  <Link
-                    to="/products"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
-                  >
-                    Products
-                  </Link>
-                  <Link
-                    to="/solutions"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
-                  >
-                    Business
-                  </Link>
-                  <Link
-                    to="/developers"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
-                  >
-                    Developers
-                  </Link>
-                  <Link
-                    to="/about"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
-                  >
-                    Company
-                  </Link>
-                  <a
-                    href="/contact"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
-                  >
-                    <span>Contact Sales</span>
-                    <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
-                  </a>
-                  <Link
-                    to="/foundation"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="block text-[32px] sm:text-[36px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
-                  >
-                    <span>Ai Intelli Hub</span>
-                    <span className="text-[28px] font-normal opacity-90 relative top-[-1px]">↗</span>
-                  </Link>
-                </div>
 
-                {/* Footer Action Buttons inside Mobile Menu Drawer */}
-                <div className="w-full">
-                  <div className="border-t border-white/[0.08] my-6 w-full" />
-
-                  <div className="flex flex-col space-y-5 pt-2">
-                    {authLoading ? (
-                      <div className="flex justify-start py-2">
-                        <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                      </div>
-                    ) : (
-                      <>
-                        <button
-                          type="button"
-                          onClick={() => {
-                            setIsMobileMenuOpen(false);
-                            setShowComingSoonModal(true);
-                            setIsSubmittedWaitlist(false);
-                          }}
-                          className="block text-left text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5 cursor-pointer"
-                        >
-                          <span>Try Amthromax</span>
-                          <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
-                        </button>
-                        {user ? (
-                          <>
-                            <Link
-                              to="/profile"
-                              onClick={() => setIsMobileMenuOpen(false)}
-                              className="block text-[28px] sm:text-[30px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
-                            >
-                              <span>Dashboard</span>
-                              <span className="text-[24px] font-normal opacity-90 relative top-[-1px]">↗</span>
-                            </Link>
-                            <button
-                              type="button"
-                              onClick={async () => {
-                                await signOut();
-                                setIsMobileMenuOpen(false);
-                              }}
-                              className="block text-left text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity w-full cursor-pointer"
-                            >
-                              Sign Out
-                            </button>
-                          </>
-                        ) : (
-                          <Link
-                            to="/login"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                            className="block text-[28px] sm:text-[30px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity"
-                          >
-                            Login
-                          </Link>
-                        )}
-                      </>
-                    )}
-                  </div>
-                </div>
-              </motion.div>
-            )}
-          </AnimatePresence>
 
           {/* Unified MegaDropdown */}
           <AnimatePresence>
@@ -787,6 +661,155 @@ const App: React.FC = () => {
           </AnimatePresence>
         </motion.nav>
       )}
+
+      {/* Mobile Navigation Drawer Fullscreen Overlay */}
+      <AnimatePresence>
+        {!isRegisterPage && isMobileMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.25, ease: "easeInOut" }}
+            className="lg:hidden fixed inset-0 z-[100] bg-[#000000] text-white flex flex-col justify-between p-6 sm:p-8 select-none overflow-y-auto"
+          >
+            {/* Top Bar Header inside Mobile Drawer */}
+            <div className="flex items-center justify-between h-14 border-b border-white/10 pb-3">
+              <Link
+                to="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-xl sm:text-2xl font-bold text-white tracking-tighter"
+              >
+                Amthromax
+              </Link>
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-white/80 hover:text-white p-2 transition-colors focus:outline-none cursor-pointer"
+                aria-label="Close mobile menu"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Navigation Links List */}
+            <div className="flex flex-col space-y-6 pt-6 flex-1">
+              <Link
+                to="/research"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+              >
+                Intelligence
+              </Link>
+              <Link
+                to="/products"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+              >
+                Products
+              </Link>
+              <Link
+                to="/solutions"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+              >
+                Business
+              </Link>
+              <Link
+                to="/developers"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+              >
+                Developers
+              </Link>
+              <Link
+                to="/about"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity"
+              >
+                Company
+              </Link>
+              <a
+                href="/contact"
+                target="_blank"
+                rel="noopener noreferrer"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+              >
+                <span>Contact Sales</span>
+                <span className="text-[26px] font-normal opacity-90 relative top-[-1px]">↗</span>
+              </a>
+              <Link
+                to="/foundation"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="block text-[30px] sm:text-[34px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+              >
+                <span>Ai Intelli Hub</span>
+                <span className="text-[26px] font-normal opacity-90 relative top-[-1px]">↗</span>
+              </Link>
+            </div>
+
+            {/* Footer Action Buttons inside Mobile Menu Drawer */}
+            <div className="w-full pt-6">
+              <div className="border-t border-white/[0.08] mb-6 w-full" />
+
+              <div className="flex flex-col space-y-4">
+                {authLoading ? (
+                  <div className="flex justify-start py-2">
+                    <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                  </div>
+                ) : (
+                  <>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setShowComingSoonModal(true);
+                        setIsSubmittedWaitlist(false);
+                      }}
+                      className="block text-left text-[26px] sm:text-[28px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5 cursor-pointer"
+                    >
+                      <span>Try Amthromax</span>
+                      <span className="text-[22px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                    </button>
+                    {user ? (
+                      <>
+                        <Link
+                          to="/profile"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="block text-[26px] sm:text-[28px] font-bold text-white tracking-tight leading-none hover:opacity-85 transition-opacity flex items-center gap-1.5"
+                        >
+                          <span>Dashboard</span>
+                          <span className="text-[22px] font-normal opacity-90 relative top-[-1px]">↗</span>
+                        </Link>
+                        <button
+                          type="button"
+                          onClick={async () => {
+                            await signOut();
+                            setIsMobileMenuOpen(false);
+                          }}
+                          className="block text-left text-[26px] sm:text-[28px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity w-full cursor-pointer"
+                        >
+                          Sign Out
+                        </button>
+                      </>
+                    ) : (
+                      <Link
+                        to="/login"
+                        onClick={() => setIsMobileMenuOpen(false)}
+                        className="block text-[26px] sm:text-[28px] font-bold text-[#8e8e93] tracking-tight leading-none hover:opacity-85 transition-opacity"
+                      >
+                        Login
+                      </Link>
+                    )}
+                  </>
+                )}
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <main>
         <AnimatePresence>
           <Routes location={location}>
