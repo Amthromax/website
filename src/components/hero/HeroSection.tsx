@@ -1538,9 +1538,9 @@ const DesignStudio: React.FC = () => {
           <button
             type="button"
             title="Terminal CLI"
-            className="flex size-7 items-center justify-center rounded-lg bg-white/10 text-white hover:bg-white/20 transition-all cursor-pointer"
+            className="flex size-7.5 items-center justify-center rounded-lg bg-white/20 text-white hover:bg-white/30 transition-all cursor-pointer shadow-xs"
           >
-            <svg viewBox="0 0 16 16" className="size-3.5 fill-none stroke-current stroke-[2] stroke-linecap-round stroke-linejoin-round">
+            <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[2.2] stroke-linecap-round stroke-linejoin-round">
               <path d="M3.5 5.5l3 2.5-3 2.5M8.5 10.5h4" />
             </svg>
           </button>
@@ -1549,9 +1549,9 @@ const DesignStudio: React.FC = () => {
           <button
             type="button"
             title="Documentation"
-            className="flex size-7 items-center justify-center rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+            className="flex size-7.5 items-center justify-center rounded-lg text-white hover:bg-white/20 transition-all cursor-pointer"
           >
-            <svg viewBox="0 0 16 16" className="size-3.5 fill-none stroke-current stroke-[1.6]">
+            <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[1.8]">
               <rect x="3" y="2.5" width="10" height="11" rx="1.8" />
               <path d="M6 6h4M6 8.5h4M8 11h.01" />
             </svg>
@@ -1561,9 +1561,9 @@ const DesignStudio: React.FC = () => {
           <button
             type="button"
             title="Global Network"
-            className="flex size-7 items-center justify-center rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+            className="flex size-7.5 items-center justify-center rounded-lg text-white hover:bg-white/20 transition-all cursor-pointer"
           >
-            <svg viewBox="0 0 16 16" className="size-3.5 fill-none stroke-current stroke-[1.5]">
+            <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[1.8]">
               <circle cx="8" cy="8" r="5.5" />
               <path d="M2.5 8h11M8 2.5a8.5 8.5 0 0 1 0 11 8.5 8.5 0 0 1 0-11z" />
             </svg>
@@ -1573,22 +1573,18 @@ const DesignStudio: React.FC = () => {
           <button
             type="button"
             title="More Options"
-            className="flex size-7 items-center justify-center rounded-lg text-gray-400 hover:text-white hover:bg-white/10 transition-all cursor-pointer"
+            className="flex size-7.5 items-center justify-center rounded-lg text-white hover:bg-white/20 transition-all cursor-pointer"
           >
-            <svg viewBox="0 0 16 16" className="size-3.5 fill-current">
-              <circle cx="8" cy="3" r="1.3" />
-              <circle cx="8" cy="8" r="1.3" />
-              <circle cx="8" cy="13" r="1.3" />
+            <svg viewBox="0 0 16 16" className="size-4 fill-white">
+              <circle cx="8" cy="3" r="1.4" />
+              <circle cx="8" cy="8" r="1.4" />
+              <circle cx="8" cy="13" r="1.4" />
             </svg>
           </button>
 
-          <span className="hidden lg:inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-gray-400 text-[10.5px] font-mono select-none ml-1">
-            <kbd className="font-sans text-[11px]">⌘</kbd>K
-          </span>
-
           <button
             type="button"
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-sans text-[11px] font-semibold shadow-[0_0_15px_rgba(99,102,241,0.35)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ml-0.5"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-sans text-[11px] font-semibold shadow-[0_0_15px_rgba(99,102,241,0.35)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ml-1"
           >
             <span className="text-[11px] leading-none">✦</span>
             <span>Deploy</span>
