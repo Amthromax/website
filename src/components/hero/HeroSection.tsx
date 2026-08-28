@@ -1963,7 +1963,7 @@ const HeroSection: React.FC = () => {
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
               <Link to="/products" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
-                <span>Explore</span>
+                <span>Learn More</span>
                 <span>→</span>
               </Link>
             </div>
@@ -1976,7 +1976,7 @@ const HeroSection: React.FC = () => {
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Autonomous Swarm</span>
               <Link to="/platform" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
-                <span>Explore</span>
+                <span>View Architecture</span>
                 <span>→</span>
               </Link>
             </div>
