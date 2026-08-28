@@ -1757,8 +1757,8 @@ const DesignStudio: React.FC = () => {
                     {chosen ? (
                       <span className="shrink-0 font-sans text-[13px] font-bold text-white">→</span>
                     ) : on ? (
-                      <svg viewBox="0 0 12 14" className="size-3.5 shrink-0 fill-white">
-                        <path d="M0 0l11 6.6-4.6.8L8.9 12l-1.9.9-2.4-4.5L0 11z" />
+                      <svg viewBox="0 0 16 16" className="size-[18px] shrink-0 fill-black stroke-white stroke-[1.5] drop-shadow-md">
+                        <path d="M2.5 2.5l4.5 11 2.2-4.4 4.4-2.2L2.5 2.5z" />
                       </svg>
                     ) : null}
                   </button>
