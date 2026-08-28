@@ -94,11 +94,9 @@ const Footer: React.FC = () => {
       title: "Industries",
       items: [
         { name: "Autonomous Financial Systems", href: "/solutions" },
-        { name: "BioTech & Genomics", href: "/solutions" },
         { name: "Aerospace & Orbital Systems", href: "/solutions" },
         { name: "Quantum & Compute Grids", href: "/solutions" },
         { name: "Next-Gen Robotics", href: "/solutions" },
-        { name: "Sovereign Infrastructure", href: "/solutions" },
         { name: "Edge & IoT Networks", href: "/solutions" },
         { name: "Spatial Media & Synthetic Web", href: "/solutions" },
       ],
