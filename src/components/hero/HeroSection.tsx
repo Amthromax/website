@@ -1584,9 +1584,8 @@ const DesignStudio: React.FC = () => {
 
           <button
             type="button"
-            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-white hover:bg-gray-200 text-black font-sans text-[11px] font-bold shadow-xs hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ml-1"
+            className="flex items-center px-3.5 py-1 rounded-full bg-white hover:bg-gray-200 text-black font-sans text-[11px] font-bold shadow-xs hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ml-1"
           >
-            <span className="text-[11px] leading-none">✦</span>
             <span>Deploy</span>
           </button>
         </div>
