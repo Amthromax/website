@@ -1662,14 +1662,14 @@ const DesignStudio: React.FC = () => {
 
         {/* ---- suggestions + build side ---- */}
         <div className="flex min-h-0 flex-col gap-2 border-t border-white/10 bg-black p-4 md:border-l md:border-t-0 md:p-5">
-          <div className="flex items-center gap-1.5 overflow-hidden">
+          <div className="flex items-center gap-3 overflow-hidden">
             {ST_TABS.map((t, i) => (
               <span
                 key={t}
-                className={`flex shrink-0 items-center gap-1.5 rounded-full px-3 py-1.5 font-sans text-[12.5px] transition-all duration-200 select-none cursor-pointer ${
+                className={`flex shrink-0 items-center gap-1.5 px-1 py-1 font-sans text-[12.5px] transition-all duration-200 select-none cursor-pointer ${
                   i === vTab
-                    ? "bg-white/20 text-white font-bold shadow-xs border border-white/20"
-                    : "text-gray-200 font-semibold hover:text-white hover:bg-white/10"
+                    ? "text-white font-bold"
+                    : "text-gray-400 font-medium hover:text-white"
                 } ${i > 2 ? "hidden lg:flex" : ""}`}
               >
                 {i === 0 && <StIcon k="bulb" className="size-3.5 text-white" />}
