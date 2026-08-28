@@ -1533,7 +1533,18 @@ const DesignStudio: React.FC = () => {
           <span className="size-3 rounded-full bg-[#27c93f] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
         <span className="font-mono text-[11.5px] font-semibold text-gray-300 tracking-wider">amthromax.design / studio</span>
-        <div className="w-12" />
+        <div className="flex items-center gap-2.5">
+          <span className="hidden sm:inline-flex items-center gap-1 px-2 py-0.5 rounded-md bg-white/5 border border-white/10 text-gray-400 text-[10.5px] font-mono select-none">
+            <kbd className="font-sans text-[11px]">⌘</kbd>K
+          </span>
+          <button
+            type="button"
+            className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600 text-white font-sans text-[11px] font-semibold shadow-[0_0_15px_rgba(99,102,241,0.35)] hover:shadow-[0_0_20px_rgba(99,102,241,0.6)] hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+          >
+            <span className="text-[11px] leading-none">✦</span>
+            <span>Deploy</span>
+          </button>
+        </div>
       </div>
 
       <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
