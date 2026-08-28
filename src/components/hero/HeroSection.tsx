@@ -1545,18 +1545,6 @@ const DesignStudio: React.FC = () => {
             </svg>
           </button>
 
-          {/* Doc/Book box button ([+]) */}
-          <button
-            type="button"
-            title="Documentation"
-            className="flex size-7.5 items-center justify-center rounded-lg text-white hover:bg-white/20 transition-all cursor-pointer"
-          >
-            <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[1.8]">
-              <rect x="3" y="2.5" width="10" height="11" rx="1.8" />
-              <path d="M6 6h4M6 8.5h4M8 11h.01" />
-            </svg>
-          </button>
-
           {/* Globe button (🌐) */}
           <button
             type="button"
@@ -1566,19 +1554,6 @@ const DesignStudio: React.FC = () => {
             <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[1.8]">
               <circle cx="8" cy="8" r="5.5" />
               <path d="M2.5 8h11M8 2.5a8.5 8.5 0 0 1 0 11 8.5 8.5 0 0 1 0-11z" />
-            </svg>
-          </button>
-
-          {/* Vertical Three Dots Options (⋮) */}
-          <button
-            type="button"
-            title="More Options"
-            className="flex size-7.5 items-center justify-center rounded-lg text-white hover:bg-white/20 transition-all cursor-pointer"
-          >
-            <svg viewBox="0 0 16 16" className="size-4 fill-white">
-              <circle cx="8" cy="3" r="1.4" />
-              <circle cx="8" cy="8" r="1.4" />
-              <circle cx="8" cy="13" r="1.4" />
             </svg>
           </button>
 
