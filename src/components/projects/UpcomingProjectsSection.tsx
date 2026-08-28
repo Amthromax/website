@@ -241,9 +241,9 @@ const UpcomingProjectsSection: React.FC = () => {
               transition={{ duration: 0.4 }}
               className="flex flex-col space-y-4 group cursor-pointer"
             >
-              {/* Premium Big Box with Pure CSS Silk Gradient Mesh or Image */}
+              {/* Premium Box with Pure CSS Silk Gradient Mesh or Image */}
               <div
-                className={`w-full aspect-square rounded-[24px] relative overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1 ${project.bgStyle.base}`}
+                className={`w-full aspect-[4/3] rounded-[20px] relative overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1 ${project.bgStyle.base}`}
               >
                 {project.image ? (
                   <img
@@ -261,14 +261,14 @@ const UpcomingProjectsSection: React.FC = () => {
                 )}
 
                 {/* Center Overlay Content (Icon + Text) */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center z-20 pointer-events-none">
+                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-5 text-center z-20 pointer-events-none">
                   {project.icon && (
-                    <div className="mb-3 group-hover:scale-110 transition-transform duration-500">
+                    <div className="mb-2 group-hover:scale-110 transition-transform duration-500">
                       {project.icon}
                     </div>
                   )}
 
-                  <h3 className="text-2xl sm:text-3xl md:text-3xl lg:text-4xl font-extrabold text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
                     {project.centerTitle || project.title}
                   </h3>
                 </div>
