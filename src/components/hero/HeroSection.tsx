@@ -1920,15 +1920,21 @@ const HeroSection: React.FC = () => {
           className="flex flex-wrap items-center justify-center gap-3 pt-2"
         >
           <Link
-            to="/login"
-            className="h-11 px-6 bg-black dark:bg-white text-white dark:text-black rounded-full text-xs font-normal hover:opacity-90 transition-all flex items-center gap-1.5 shadow-xs select-none"
+            to="/register"
+            className="h-11 px-6 bg-black dark:bg-white text-white dark:text-black rounded-full text-xs font-semibold hover:opacity-90 transition-all flex items-center gap-1.5 shadow-md select-none"
           >
-            <span>Get API Access</span>
+            <span>Start Free Trial</span>
             <span className="text-xs font-normal">›</span>
           </Link>
           <Link
+            to="/book"
+            className="h-11 px-6 border border-gray-300 dark:border-white/20 bg-white dark:bg-black text-gray-900 dark:text-white rounded-full text-xs font-semibold hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center select-none"
+          >
+            Book Enterprise Demo
+          </Link>
+          <Link
             to="/docs"
-            className="h-11 px-6 border border-gray-300 dark:border-white/20 bg-white dark:bg-black text-gray-900 dark:text-white rounded-full text-xs font-normal hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center select-none"
+            className="h-11 px-6 border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 text-gray-700 dark:text-gray-300 rounded-full text-xs font-medium hover:bg-gray-100 dark:hover:bg-white/10 transition-all flex items-center select-none"
           >
             View Documentation
           </Link>
