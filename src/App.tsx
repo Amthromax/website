@@ -53,6 +53,7 @@ import DemoModal from "./components/modals/DemoModal";
 import AnnouncementBanner from "./components/layout/AnnouncementBanner";
 import RegisterLandingPage from "./components/register/RegisterLandingPage";
 import TryDropdownButton from "./components/layout/TryDropdownButton";
+import LoginDropdownButton from "./components/layout/LoginDropdownButton";
 import HelleiousSafetyPage from "./components/announcements/HelleiousSafetyPage";
 import HelleiousPage from "./components/helleious/HelleiousPage";
 import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
@@ -377,10 +378,7 @@ const App: React.FC = () => {
                           </div>
                         </div>
                       ) : (
-                        <Link to="/login" className="h-9 px-4 bg-gray-100 hover:bg-gray-200 text-gray-900 border border-gray-200/80 dark:bg-white/10 dark:hover:bg-white/15 dark:text-white dark:border-white/5 rounded-full text-xs font-semibold transition-all select-none flex items-center justify-center gap-1.5">
-                          <span>Log in</span>
-                          <span className="text-[8px] opacity-60">▼</span>
-                        </Link>
+                        <LoginDropdownButton />
                       )}
                       <TryDropdownButton
                         onTryClick={() => {

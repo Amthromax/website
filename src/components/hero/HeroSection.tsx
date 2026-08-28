@@ -1899,8 +1899,15 @@ const HeroSection: React.FC = () => {
           <br />
           <span>for enterprise </span>
           <span className="relative inline-block text-black dark:text-white underline underline-offset-8 decoration-1 decoration-gray-400 dark:decoration-gray-600">
-            <span>intelligence.</span>
+            <span>intelligence</span>
           </span>
+          <motion.span
+            animate={{ opacity: [1, 0, 1] }}
+            transition={{ duration: 1.2, repeat: Infinity, ease: "easeInOut" }}
+            className="inline-block text-black dark:text-white"
+          >
+            .
+          </motion.span>
         </motion.h1>
 
         <motion.p
