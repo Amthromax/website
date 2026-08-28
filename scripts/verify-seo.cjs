@@ -21,10 +21,10 @@ function runSeoAudit() {
   assert(fs.existsSync(indexPath), 'index.html exists');
   const indexContent = fs.readFileSync(indexPath, 'utf8');
 
-  assert(indexContent.includes('<title>Amthromax — Enterprise AI Software &amp; Intelligent Technology</title>'), 'index.html has title tag');
+  assert(indexContent.includes('<title>Amthromax — Artificial Intelligence Company</title>'), 'index.html has title tag');
   assert(indexContent.includes('rel="canonical" href="https://amthromax.com/"'), 'index.html has canonical link');
   assert(indexContent.includes('rel="manifest" href="/manifest.json"'), 'index.html has manifest link');
-  assert(indexContent.includes('rel="apple-touch-icon" href="/images/logo.png"'), 'index.html has apple-touch-icon link');
+  assert(indexContent.includes('rel="apple-touch-icon" href="/apple-touch-icon.png"'), 'index.html has apple-touch-icon link');
   assert(indexContent.includes('https://amthromax.com/#organization'), 'index.html includes Organization @id schema');
   assert(indexContent.includes('https://amthromax.com/#website'), 'index.html includes WebSite @id schema');
   assert(indexContent.includes('https://amthromax.com/#webpage'), 'index.html includes WebPage @id schema');

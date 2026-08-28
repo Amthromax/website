@@ -1387,7 +1387,7 @@ const StIcon: React.FC<{ k: string; className?: string }> = ({ k, className }) =
 const StudioBot: React.FC<{ blink?: boolean; look?: number }> = () => (
   <div className="relative group shrink-0 select-none">
     {/* Ambient Glow behind 3D Asterisk */}
-    <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-orange-400/30 via-purple-500/30 to-blue-500/30 blur-lg group-hover:opacity-100 opacity-70 transition-opacity duration-500 amx-blip" />
+    <div className="absolute inset-0 rounded-full bg-white/10 blur-xl group-hover:opacity-100 opacity-50 transition-opacity duration-500 amx-blip" />
     
     {/* Floating 3D Emblem Image ONLY - Seamless integration */}
     <div className="amx-bob relative h-[62px] w-[62px] md:h-[74px] md:w-[74px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_8px_16px_rgba(0,0,0,0.4)]">
@@ -1407,25 +1407,14 @@ const AMTHROMAX_MODELS = [
   { name: "Roqlow", tag: "Deep", desc: "Autonomous complex task mesh" },
 ];
 
-const DESIGN_STYLES = [
-  { name: "Obsidian Dark", desc: "Monochrome enterprise dark theme" },
-  { name: "Liquid Glass", desc: "Apple frosted glassmorphic UI" },
-  { name: "Neumorphic", desc: "Soft tactile depth elements" },
-  { name: "Cyber Neon", desc: "High contrast glowing accents" },
-  { name: "Minimal Clean", desc: "Ultra clean Swiss typography" },
-];
-
 const DesignStudio: React.FC = () => {
   const reduced = usePrefersReducedMotion();
   const [f, setF] = React.useState<StudioFrame>(() => sampleStudio(0));
   const [selectedModel, setSelectedModel] = React.useState("Simifig");
-  const [selectedStyle, setSelectedStyle] = React.useState("Obsidian Dark");
   const [modelDropdownOpen, setModelDropdownOpen] = React.useState(false);
-  const [styleDropdownOpen, setStyleDropdownOpen] = React.useState(false);
   const [attachedFile, setAttachedFile] = React.useState<string | null>(null);
   
   const dropdownRef = React.useRef<HTMLDivElement>(null);
-  const styleDropdownRef = React.useRef<HTMLDivElement>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   /* A visitor-started run lives beside the autonomous demo. pick is the row
@@ -1440,9 +1429,6 @@ const DesignStudio: React.FC = () => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setModelDropdownOpen(false);
-      }
-      if (styleDropdownRef.current && !styleDropdownRef.current.contains(event.target as Node)) {
-        setStyleDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -1536,11 +1522,11 @@ const DesignStudio: React.FC = () => {
       : [vQueue[li], vQueue[li + 1], vQueue[li + 2]];
 
   return (
-    <div className="bg-[#0c0d0e] rounded-2xl overflow-hidden border border-white/10 shadow-sm flex flex-col md:h-[450px] group hover:border-white/20 transition-all duration-300">
+    <div className="bg-black rounded-2xl border border-white/10 shadow-sm flex flex-col md:h-[390px] group hover:border-white/20 transition-all duration-300 relative">
       <style>{STUDIO_CSS}</style>
 
       {/* Top macOS Window Control Bar */}
-      <div className="flex shrink-0 items-center justify-between border-b border-white/10 bg-[#08090b] px-4 py-2.5 select-none">
+      <div className="flex shrink-0 items-center justify-between border-b border-white/10 bg-black px-4 py-2.5 select-none rounded-t-2xl">
         <div className="flex items-center gap-2">
           <span className="size-3 rounded-full bg-[#ff5f56] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
           <span className="size-3 rounded-full bg-[#ffbd2e] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
@@ -1552,7 +1538,7 @@ const DesignStudio: React.FC = () => {
 
       <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
         {/* ---- prompt side ---- */}
-        <div className="flex min-h-0 flex-col justify-center gap-3.5 bg-[#0c0d0e] p-5 md:p-7">
+        <div className="flex min-h-0 flex-col justify-center gap-3 bg-black p-4 md:p-5">
           <div className="flex items-start justify-between gap-3">
             <h3 className="font-sans text-[20px] leading-[1.25] tracking-tight text-white md:text-[25px]">
               Turn your <span className="font-semibold text-white">ideas</span> into{" "}
@@ -1561,7 +1547,7 @@ const DesignStudio: React.FC = () => {
             <StudioBot blink={f.blink} look={f.look} />
           </div>
 
-          <div className="relative rounded-2xl bg-white/[0.07] backdrop-blur-2xl p-4 shadow-[0_12px_40px_rgba(0,0,0,0.5)] transition-all duration-300 hover:bg-white/[0.1] hover:shadow-[0_16px_48px_rgba(0,0,0,0.6)] group/glass">
+          <div className="relative rounded-2xl bg-black border border-white/15 p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-white/30 group/glass">
             <div className="relative z-10 min-h-[38px] font-sans text-[14px] font-semibold leading-relaxed text-white">
               {vCaret && <span className="mr-1 inline-block h-[17px] w-[2.5px] -mb-[2px] bg-blue-400 align-middle shadow-[0_0_10px_#60a5fa]" />}
               {vText ? (
@@ -1586,9 +1572,9 @@ const DesignStudio: React.FC = () => {
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
                   title={attachedFile ? `Attached: ${attachedFile}` : "Attach file or asset"}
-                  className="relative flex size-8 shrink-0 items-center justify-center rounded-full bg-white/25 backdrop-blur-md text-white shadow-md hover:bg-white/35 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
+                  className="relative flex size-8 shrink-0 items-center justify-center text-white/70 hover:text-white hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer"
                 >
-                  <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-white stroke-[2.4] stroke-linecap-round">
+                  <svg viewBox="0 0 16 16" className="size-4 fill-none stroke-current stroke-[2.4] stroke-linecap-round">
                     <path d="M8 3.5V12.5M3.5 8H12.5" />
                   </svg>
                   {attachedFile && (
@@ -1596,50 +1582,6 @@ const DesignStudio: React.FC = () => {
                   )}
                 </button>
 
-                {/* Design Style Selector Dropdown */}
-                <div className="relative shrink-0" ref={styleDropdownRef}>
-                  <button
-                    type="button"
-                    onClick={() => setStyleDropdownOpen((prev) => !prev)}
-                    className="flex shrink-0 items-center gap-1.5 rounded-full bg-white/15 backdrop-blur-md px-3.5 py-1.5 font-sans text-[12.5px] font-bold text-white shadow-md hover:bg-white/25 hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer select-none"
-                  >
-                    <span className="hidden sm:inline">{selectedStyle}</span>
-                    <span className="sm:hidden">Style</span>
-                    <StIcon k="chev" className={`size-3.5 text-white transition-transform duration-200 ${styleDropdownOpen ? "rotate-180" : ""}`} />
-                  </button>
-
-                  {styleDropdownOpen && (
-                    <div className="absolute left-0 bottom-full mb-2 w-[220px] rounded-xl border border-white/20 bg-[#16171b] p-1.5 shadow-2xl backdrop-blur-2xl z-50 animate-in fade-in slide-in-from-bottom-2 duration-200 font-sans select-none max-h-[175px] overflow-y-auto">
-                      <div className="px-2 py-1 text-[10px] font-semibold text-gray-300 uppercase tracking-wider border-b border-white/10 mb-1 flex items-center justify-between">
-                        <span>Design Style</span>
-                        <span className="text-blue-400 text-[9.5px] font-mono font-medium">Preset</span>
-                      </div>
-                      <div className="flex flex-col gap-0.5">
-                        {DESIGN_STYLES.map((style) => {
-                          const isSelected = selectedStyle === style.name;
-                          return (
-                            <button
-                              key={style.name}
-                              type="button"
-                              onClick={() => {
-                                setSelectedStyle(style.name);
-                                setStyleDropdownOpen(false);
-                              }}
-                              className={`text-left px-2 py-1.5 rounded-lg text-xs font-sans transition-all flex items-center justify-between cursor-pointer ${
-                                isSelected
-                                  ? "bg-white/15 text-white font-semibold shadow-xs ring-1 ring-white/25"
-                                  : "text-gray-200 hover:bg-white/10 hover:text-white"
-                              }`}
-                            >
-                              <span className="font-semibold text-white text-[11.5px]">{style.name}</span>
-                              {isSelected && <span className="text-blue-400 text-[10px] font-bold">✓</span>}
-                            </button>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  )}
-                </div>
               </div>
 
               <div className="flex shrink-0 items-center gap-2">
@@ -1648,20 +1590,22 @@ const DesignStudio: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setModelDropdownOpen((prev) => !prev)}
-                    className="flex items-center gap-1.5 font-sans text-[12.5px] font-bold text-white bg-gradient-to-r from-amber-500/25 via-purple-500/25 to-blue-500/25 hover:from-amber-500/35 hover:to-blue-500/35 backdrop-blur-md px-3.5 py-1.5 rounded-full shadow-md hover:scale-105 active:scale-95 transition-all duration-200 select-none cursor-pointer"
+                    className="flex items-center gap-1 font-sans text-[12.5px] font-bold text-white/90 hover:text-white px-1.5 py-1 hover:scale-105 active:scale-95 transition-all duration-200 select-none cursor-pointer"
                   >
                     <span className="font-bold text-white tracking-wide">{selectedModel}</span>
-                    <StIcon k="chev" className={`size-3.5 text-white transition-transform duration-200 ${modelDropdownOpen ? "rotate-180" : ""}`} />
+                    <StIcon k="chev" className={`size-3.5 text-white/90 transition-transform duration-200 ${modelDropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
                   {modelDropdownOpen && (
-                    <div className="absolute right-0 bottom-full mb-2 w-[270px] rounded-xl border border-white/20 bg-[#16171b] p-1.5 shadow-2xl backdrop-blur-2xl z-50 animate-in fade-in slide-in-from-bottom-2 duration-200 font-sans select-none max-h-[180px] overflow-y-auto">
-                      <div className="px-2 py-1 text-[10px] font-semibold text-gray-300 uppercase tracking-wider border-b border-white/10 mb-1 flex items-center justify-between">
-                        <span>AI Model</span>
-                        <span className="text-white text-[9.5px] font-mono font-medium">Active</span>
+                    <div className="absolute right-0 bottom-full mb-2 w-[260px] rounded-2xl border border-white/10 bg-[#18181b] p-2.5 shadow-2xl backdrop-blur-2xl z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200 font-sans select-none text-left">
+                      {/* Section 1: Header */}
+                      <div className="px-2.5 py-1 text-[12px] font-medium text-zinc-400">
+                        Models
                       </div>
-                      <div className="grid grid-cols-2 gap-1">
-                        {AMTHROMAX_MODELS.map((m) => {
+
+                      {/* Models vertical list */}
+                      <div className="flex flex-col gap-0.5 mt-1">
+                        {AMTHROMAX_MODELS.map((m, idx) => {
                           const isSelected = selectedModel === m.name;
                           return (
                             <button
@@ -1671,16 +1615,24 @@ const DesignStudio: React.FC = () => {
                                 setSelectedModel(m.name);
                                 setModelDropdownOpen(false);
                               }}
-                              className={`text-left px-2 py-1.5 rounded-lg text-xs font-sans transition-all flex items-center justify-between cursor-pointer ${
+                              className={`w-full text-left px-2.5 py-2 rounded-xl text-[13px] font-semibold transition-all flex items-center justify-between cursor-pointer ${
                                 isSelected
-                                  ? "bg-white/15 text-white font-semibold shadow-xs ring-1 ring-white/25"
-                                  : "text-gray-200 hover:bg-white/10 hover:text-white"
+                                  ? "bg-white/10 text-white"
+                                  : "text-zinc-300 hover:bg-white/5 hover:text-white"
                               }`}
                             >
-                              <span className="font-semibold text-white text-[11.5px]">{m.name}</span>
-                              <span className="text-[9px] px-1 py-0.2 rounded bg-white/15 text-gray-300 font-mono">
-                                {m.tag}
-                              </span>
+                              <div className="flex items-center gap-2">
+                                <span className="font-semibold text-white">{m.name}</span>
+                                {m.tag && (
+                                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-zinc-400 font-normal">
+                                    {m.tag}
+                                  </span>
+                                )}
+                              </div>
+                              <div className="flex items-center gap-2 text-zinc-400 font-mono text-[11px]">
+                                {isSelected && <span className="text-blue-500 font-bold text-[13px]">✓</span>}
+                                <span>{idx + 1}</span>
+                              </div>
                             </button>
                           );
                         })}
@@ -1709,7 +1661,7 @@ const DesignStudio: React.FC = () => {
         </div>
 
         {/* ---- suggestions + build side ---- */}
-        <div className="flex min-h-0 flex-col gap-2.5 border-t border-white/10 bg-[#0c0d0e] p-5 md:border-l md:border-t-0 md:p-7">
+        <div className="flex min-h-0 flex-col gap-2 border-t border-white/10 bg-black p-4 md:border-l md:border-t-0 md:p-5">
           <div className="flex items-center gap-1.5 overflow-hidden">
             {ST_TABS.map((t, i) => (
               <span
@@ -1728,7 +1680,7 @@ const DesignStudio: React.FC = () => {
 
           {/* Real buttons. Click one and the demo hands over: the pick lifts out of
               the stack, the core spins up, then the popup reports the run itself. */}
-          <div className="relative min-h-[150px] flex-1">
+          <div className="relative min-h-[120px] flex-1">
             <div
               className={`space-y-1.5 transition-opacity duration-300 ${
                 mf && mf.phase !== "spin" ? "pointer-events-none opacity-0" : "opacity-100"
@@ -1868,7 +1820,7 @@ const DesignStudio: React.FC = () => {
             )}
           </div>
 
-          <div className="mt-auto rounded-2xl bg-white/[0.06] backdrop-blur-xl px-4 py-3.5 shadow-lg">
+          <div className="mt-auto rounded-2xl bg-black border border-white/10 px-4 py-3.5 shadow-lg">
             <div className="flex items-center justify-between gap-2 font-sans text-[12px]">
               <span className="flex min-w-0 items-center gap-2 truncate text-white font-semibold">
                 <span
@@ -1904,7 +1856,7 @@ const DesignStudio: React.FC = () => {
 
             <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10 p-[1px]">
               <div
-                className="h-full rounded-full bg-gradient-to-r from-purple-500 via-indigo-400 to-emerald-400 transition-[width] duration-150 ease-linear"
+                className="h-full rounded-full bg-white transition-[width] duration-150 ease-linear"
                 style={{ width: `${vPct}%` }}
               />
             </div>
@@ -1918,7 +1870,7 @@ const DesignStudio: React.FC = () => {
         </div>
       </div>
 
-      <div className="flex shrink-0 items-center justify-between border-t border-white/10 bg-[#090a0c] px-5 py-3 font-sans text-xs">
+      <div className="flex shrink-0 items-center justify-between border-t border-white/10 bg-black px-5 py-3 font-sans text-xs rounded-b-2xl">
         <span className="font-sans font-semibold text-white tracking-wide">Interface Synthesis</span>
         <Link
           to="/products"
@@ -1993,7 +1945,7 @@ const HeroSection: React.FC = () => {
         {/* Top Row: 2 Equal-Sized Premium Bento Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Equal Box 1: Neural Reasoning & Agentic Build */}
-          <div className="bg-white dark:bg-[#0b0c0e] rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-sm font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
+          <div className="bg-white dark:bg-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-sm font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
             <AgentSession />
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
@@ -2005,7 +1957,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Equal Box 2: Autonomous Swarm Mesh */}
-          <div className="bg-white dark:bg-[#0b0c0e] rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-sm overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
+          <div className="bg-white dark:bg-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-sm overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
             <SwarmChat />
 
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">

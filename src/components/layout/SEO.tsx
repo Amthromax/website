@@ -44,7 +44,7 @@ const SEO: React.FC<SEOProps> = ({
       ? title.includes("Amthromax")
         ? title
         : `${title} | Amthromax`
-      : `${COMPANY_CONFIG.name} — Enterprise AI Software & Intelligent Technology`;
+      : `${COMPANY_CONFIG.name} — Artificial Intelligence Company`;
 
     document.title = formattedTitle;
 
@@ -60,7 +60,7 @@ const SEO: React.FC<SEOProps> = ({
     };
 
     // 2. Canonical URL Resolution
-    const currentPath = window.location.pathname === "/" ? "" : window.location.pathname;
+    const currentPath = window.location.pathname === "/" ? "/" : window.location.pathname;
     const canonicalUrl = url || `${COMPANY_CONFIG.url}${currentPath}`;
 
     let canonicalLink = document.querySelector('link[rel="canonical"]');
@@ -100,14 +100,14 @@ const SEO: React.FC<SEOProps> = ({
       "@id": `${COMPANY_CONFIG.url}/#organization`,
       "name": COMPANY_CONFIG.name,
       "legalName": COMPANY_CONFIG.legalName,
-      "url": COMPANY_CONFIG.url,
+      "url": `${COMPANY_CONFIG.url}/`,
       "logo": {
         "@type": "ImageObject",
         "@id": `${COMPANY_CONFIG.url}/#logo`,
         "url": COMPANY_CONFIG.logo,
         "caption": COMPANY_CONFIG.name
       },
-      "description": COMPANY_CONFIG.description,
+      "description": "Amthromax is an artificial intelligence and software company.",
       "email": COMPANY_CONFIG.email,
       "sameAs": COMPANY_CONFIG.socialProfiles,
       "brand": [
@@ -120,19 +120,12 @@ const SEO: React.FC<SEOProps> = ({
     const websiteEntity = {
       "@type": "WebSite",
       "@id": `${COMPANY_CONFIG.url}/#website`,
-      "url": COMPANY_CONFIG.url,
+      "url": `${COMPANY_CONFIG.url}/`,
       "name": COMPANY_CONFIG.name,
+      "alternateName": "Amthromax AI",
       "description": COMPANY_CONFIG.description,
       "publisher": {
         "@id": `${COMPANY_CONFIG.url}/#organization`
-      },
-      "potentialAction": {
-        "@type": "SearchAction",
-        "target": {
-          "@type": "EntryPoint",
-          "urlTemplate": `${COMPANY_CONFIG.url}/?s={search_term_string}`
-        },
-        "query-input": "required name=search_term_string"
       }
     };
 

@@ -1,14 +1,14 @@
 {
   "short_name": "Amthromax",
-  "name": "Amthromax Enterprise AI Systems",
+  "name": "Amthromax",
   "icons": [
     {
-      "src": "/images/logo.png",
+      "src": "/favicon.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/images/logo.png",
+      "src": "/apple-touch-icon.png",
       "type": "image/png",
       "sizes": "512x512"
     }
@@ -17,5 +17,5 @@
   "background_color": "#000000",
   "theme_color": "#000000",
   "display": "standalone",
-  "description": "Amthromax is an AI software and technology company building enterprise AI platforms, intelligent agents, intelligent automation, developer infrastructure, APIs, and next-generation software systems."
+  "description": "Amthromax is an artificial intelligence and software company developing advanced AI products, autonomous agents, developer tools, and intelligent software systems."
 }
