@@ -228,12 +228,12 @@
 .privacy-header nav {
   display: flex;
   align-items: center;
-  gap: 34px;
+  gap: 28px;
 }
 
 .privacy-header nav a,
 .privacy-header nav button {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 500;
   color: #6b7280;
   line-height: 1;
