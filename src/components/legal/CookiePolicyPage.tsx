@@ -19,7 +19,7 @@ const CookiePolicyPage: React.FC = () => {
             Amthromax Cookie Policy
           </h1>
           <p className="privacy-effective text-gray-600 dark:text-[#9b9b9b]">
-            Effective: August 24, 2026 (previous version)
+            Effective: August 30, 2026 (previous version)
           </p>
         </header>
 

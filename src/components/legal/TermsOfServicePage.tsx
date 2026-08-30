@@ -19,7 +19,7 @@ const TermsOfServicePage: React.FC = () => {
             Amthromax Terms of Service — Consumer & Platform Usage
           </h1>
           <p className="privacy-effective text-gray-600 dark:text-[#9b9b9b]">
-            Effective: August 24, 2026 (
+            Effective: August 30, 2026 (
             <button 
               type="button" 
               className="underline hover:text-gray-900 dark:hover:text-white transition-colors cursor-pointer"
