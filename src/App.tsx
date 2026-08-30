@@ -413,7 +413,6 @@ const App: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
 
           {/* Unified MegaDropdown */}
           <AnimatePresence>

@@ -85,7 +85,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 py-10 space-y-[48px] font-sans">
+      <main className="legal-container pt-[48px] space-y-[42px] font-sans">
         
         {/* Jurisdiction & GPC Signal Banner */}
         <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">

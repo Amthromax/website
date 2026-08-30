@@ -11,7 +11,7 @@ const CookiePolicyPage: React.FC = () => {
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="privacy-container">
+      <div className="legal-container pt-[48px]">
         
         {/* Main Document Header */}
         <header>
