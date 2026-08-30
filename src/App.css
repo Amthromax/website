@@ -264,18 +264,18 @@
 
 /* TITLE */
 .privacy-title {
-  margin: 0 0 32px;
-  font-size: 38px;
+  margin: 0 0 28px;
+  font-size: 34px;
   line-height: 1.15;
   font-weight: 500;
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
 }
 
 /* EFFECTIVE DATE */
 .privacy-effective {
-  margin-bottom: 26px;
-  font-size: 17px;
-  line-height: 1.55;
+  margin-bottom: 22px;
+  font-size: 15px;
+  line-height: 1.5;
   font-style: italic;
   font-weight: 500;
 }
@@ -283,21 +283,21 @@
 /* BODY */
 .privacy-container p {
   max-width: 1300px;
-  margin: 0 0 22px;
-  font-size: 17px;
-  line-height: 1.72;
+  margin: 0 0 20px;
+  font-size: 15.2px;
+  line-height: 1.68;
   font-weight: 400;
   letter-spacing: -0.006em;
 }
 
 /* SECTION */
 .privacy-section {
-  margin-top: 49px;
+  margin-top: 42px;
 }
 
 .privacy-section h2 {
-  margin: 0 0 24px;
-  font-size: 23px;
+  margin: 0 0 20px;
+  font-size: 20px;
   line-height: 1.3;
   font-weight: 650;
   letter-spacing: -0.02em;
@@ -334,11 +334,11 @@
   }
 
   .privacy-title {
-    font-size: 32px;
+    font-size: 28px;
   }
 
   .privacy-container p {
-    font-size: 16px;
+    font-size: 14.5px;
   }
 }
 
@@ -353,46 +353,46 @@
 
 .legal-container p,
 .legal-container li {
-  font-size: 16.5px;
-  line-height: 1.62;
+  font-size: 15.2px;
+  line-height: 1.6;
   font-weight: 400;
 }
 
 .legal-container p {
-  margin-bottom: 18px;
+  margin-bottom: 16px;
 }
 
 .legal-container h2 {
-  font-size: 21px;
+  font-size: 19.5px;
   line-height: 1.3;
   font-weight: 650;
-  margin-top: 42px;
-  margin-bottom: 18px;
+  margin-top: 36px;
+  margin-bottom: 16px;
   letter-spacing: -0.02em;
 }
 
 .legal-container h3 {
-  font-size: 17px;
+  font-size: 16px;
   line-height: 1.4;
   font-weight: 650;
-  margin-top: 24px;
-  margin-bottom: 12px;
+  margin-top: 22px;
+  margin-bottom: 10px;
   letter-spacing: -0.01em;
 }
 
 .legal-container ul {
-  padding-left: 34px;
-  margin: 14px 0 22px;
+  padding-left: 32px;
+  margin: 12px 0 20px;
 }
 
 .legal-container ul ul {
-  padding-left: 34px;
-  margin-top: 10px;
+  padding-left: 32px;
+  margin-top: 8px;
 }
 
 .legal-container li {
   padding-left: 4px;
-  margin-bottom: 12px;
+  margin-bottom: 10px;
 }
 
 .legal-container strong {
@@ -412,11 +412,11 @@
 
   .legal-container p,
   .legal-container li {
-    font-size: 15.5px;
+    font-size: 14.5px;
   }
 
   .legal-container h2 {
-    font-size: 19px;
-    margin-top: 32px;
+    font-size: 18px;
+    margin-top: 28px;
   }
 }
