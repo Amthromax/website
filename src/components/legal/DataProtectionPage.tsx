@@ -18,7 +18,7 @@ const DataProtectionPage: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="relative pt-[60px] pb-10 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-black">
+      <section className="relative pt-[72px] pb-10 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-black">
         <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16">
           <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4 font-sans">
             <Link to="/" className="hover:text-black dark:hover:text-white transition-colors">
@@ -45,7 +45,7 @@ const DataProtectionPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <main className="legal-container pt-[48px] space-y-[42px] font-sans">
+      <main className="legal-container pt-[72px] space-y-[42px] font-sans">
         
         {/* Notice Alert - Compact Apple Box */}
         <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-2 max-w-[1300px]">

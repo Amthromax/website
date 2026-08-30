@@ -73,7 +73,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="relative pt-[60px] pb-10 border-b border-black/[0.06] bg-[#f5f5f7]">
+      <section className="relative pt-[72px] pb-10 border-b border-black/[0.06] bg-[#f5f5f7]">
         <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16">
           <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-4 font-inter">
             <Link to="/privacy-center" className="hover:text-black transition-colors">
