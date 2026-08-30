@@ -40,7 +40,7 @@ const TermsOfServicePage: React.FC = () => {
           </p>
 
           <div className="bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 sm:p-7 my-10 space-y-3 text-sm sm:text-base text-gray-800 dark:text-zinc-300">
-            <p className="font-semibold text-gray-950 dark:text-white text-base sm:text-lg">Key Summary Notices & Navigation:</p>
+            <p className="font-medium text-gray-950 dark:text-white text-base sm:text-lg">Key Summary Notices & Navigation:</p>
             <ul className="list-disc pl-5 space-y-2">
               <li><strong>Modifications:</strong> We reserve the right to update these Terms to reflect product improvements, new AI capabilities, or changing legal mandates.</li>
               <li><strong>Enterprise Workspaces:</strong> Separate Enterprise Terms govern corporate contracts, dedicated model instances, and custom API SLAs.</li>
@@ -311,25 +311,25 @@ const TermsOfServicePage: React.FC = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10 pt-4">
               <div className="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <p className="font-semibold text-gray-950 dark:text-white">Global Legal Headquarters</p>
+                <p className="font-medium text-gray-950 dark:text-white">Global Legal Headquarters</p>
                 <p className="text-gray-700 dark:text-zinc-300">Amthromax Inc. Legal Office</p>
                 <p className="text-gray-700 dark:text-zinc-300">Email: <a href="mailto:legal@amthromax.com">legal@amthromax.com</a></p>
               </div>
 
               <div className="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <p className="font-semibold text-gray-950 dark:text-white">United Kingdom Representative</p>
+                <p className="font-medium text-gray-950 dark:text-white">United Kingdom Representative</p>
                 <p className="text-gray-700 dark:text-zinc-300">Lionheart Squared Limited (FAO Amthromax)</p>
                 <p className="text-gray-700 dark:text-zinc-300">Email: <a href="mailto:uk-privacy@amthromax.com">uk-privacy@amthromax.com</a></p>
               </div>
 
               <div className="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <p className="font-semibold text-gray-950 dark:text-white">European Union Representative</p>
+                <p className="font-medium text-gray-950 dark:text-white">European Union Representative</p>
                 <p className="text-gray-700 dark:text-zinc-300">Lionheart Squared (Europe) Ltd (FAO Amthromax)</p>
                 <p className="text-gray-700 dark:text-zinc-300">Email: <a href="mailto:eu-privacy@amthromax.com">eu-privacy@amthromax.com</a></p>
               </div>
 
               <div className="space-y-1 border-b border-zinc-200 dark:border-zinc-800 pb-4">
-                <p className="font-semibold text-gray-950 dark:text-white">Switzerland Representative</p>
+                <p className="font-medium text-gray-950 dark:text-white">Switzerland Representative</p>
                 <p className="text-gray-700 dark:text-zinc-300">Lionheart Squared Switzerland SarL (FAO Amthromax)</p>
                 <p className="text-gray-700 dark:text-zinc-300">Email: <a href="mailto:ch-privacy@amthromax.com">ch-privacy@amthromax.com</a></p>
               </div>
