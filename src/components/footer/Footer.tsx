@@ -90,17 +90,6 @@ const Footer: React.FC = () => {
         { name: "Small Business", href: "/why/small-businesses" },
       ],
     },
-    {
-      title: "Industries",
-      items: [
-        { name: "Autonomous Financial Systems", href: "/solutions" },
-        { name: "Aerospace & Orbital Systems", href: "/solutions" },
-        { name: "Quantum & Compute Grids", href: "/solutions" },
-        { name: "Next-Gen Robotics", href: "/solutions" },
-        { name: "Edge & IoT Networks", href: "/solutions" },
-        { name: "Spatial Media & Synthetic Web", href: "/solutions" },
-      ],
-    },
   ];
 
   const handleManageCookies = () => {
@@ -164,7 +153,7 @@ const Footer: React.FC = () => {
 
           {/* Right Columns: Multi-Column Links Grid + Emails */}
           <div className="lg:col-span-8 flex flex-col gap-6 pt-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-4 sm:gap-6 lg:gap-4 xl:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 xl:gap-6">
               {footerColumns.map((column) => (
                 <div key={column.title} className="space-y-2.5 sm:space-y-3">
                   <h4 className="font-extrabold text-xs sm:text-sm uppercase tracking-wider text-[#1a1815] dark:text-white whitespace-nowrap">
