@@ -6,8 +6,8 @@ const TermsOfServicePage: React.FC = () => {
   return (
     <div className="privacy-page font-sans antialiased">
       <SEO
-        title="Amthromax Terms of Service | Consumer & Enterprise Terms"
-        description="Amthromax Terms of Service governing platform access, foundation models, agentic execution, model training controls, payments, and regional legal compliance."
+        title="Amthromax Terms of Service | Master Consumer & Enterprise Terms"
+        description="Comprehensive Amthromax Terms of Service governing platform access, foundation models, agentic execution, model training controls, payments, intellectual property, and international regional compliance."
       />
 
       {/* Clean Document Reading Layout Container */}
@@ -33,19 +33,20 @@ const TermsOfServicePage: React.FC = () => {
         {/* Introductory Preamble & Key Highlights */}
         <div>
           <p>
-            Welcome to <strong>Amthromax</strong>! These Terms of Service (<strong>“Terms”</strong> or <strong>“Agreement”</strong>) apply to your access to, interaction with, and use of Amthromax AI, Amthromax Studio, Amthromax Intelli Hub, foundation models, and associated applications, features, tools, software, developer APIs, and websites (collectively, the <strong>“Service”</strong>).
+            Welcome to <strong>Amthromax</strong>! These Terms of Service (<strong>“Terms”</strong> or <strong>“Agreement”</strong>) constitute a legally binding contract governing your access to, interaction with, and use of Amthromax AI, Amthromax Studio, Amthromax Intelli Hub, foundation models, developer APIs, web interfaces, mobile applications, software tools, and connected services (collectively, the <strong>“Service”</strong>).
           </p>
           <p>
-            These Terms form a legally binding contract between you and <strong>Amthromax LLC</strong>, a Delaware corporate entity (<strong>“Amthromax,” “we,” “our,”</strong> or <strong>“us”</strong>) when you accept these Terms or otherwise access, interact with, or use the Service. By accessing or using our Service, you acknowledge and agree to these Terms, our <a href="/privacy">Privacy Policy</a>, and our Acceptable Use Policy.
+            This Agreement is entered into between you (<strong>“you”</strong> or <strong>“User”</strong>) and <strong>Amthromax LLC</strong>, a Delaware corporate entity (<strong>“Amthromax,” “we,” “our,”</strong> or <strong>“us”</strong>). By registering an account, clicking to accept, or accessing or using any portion of the Service, you confirm that you have read, understood, and agreed to be bound by these Terms, our <a href="/privacy">Privacy Policy</a>, our <a href="/cookie-policy">Cookie Policy</a>, and our Acceptable Use Policy.
           </p>
 
           <div className="bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 my-6 space-y-2 text-sm text-gray-800 dark:text-zinc-300">
-            <p className="font-semibold text-gray-950 dark:text-white text-base">Key Summary Notices:</p>
+            <p className="font-semibold text-gray-950 dark:text-white text-base">Key Summary Notices & Navigation:</p>
             <ul className="list-disc pl-5 space-y-1">
-              <li><strong>Modifications:</strong> We reserve the right to modify these Terms as our products and regulations evolve.</li>
-              <li><strong>Enterprise Accounts:</strong> Separate Enterprise Terms govern corporate workspaces, dedicated model endpoints, and developer API contracts.</li>
+              <li><strong>Modifications:</strong> We reserve the right to update these Terms to reflect product improvements, new AI capabilities, or changing legal mandates.</li>
+              <li><strong>Enterprise Workspaces:</strong> Separate Enterprise Terms govern corporate contracts, dedicated model instances, and custom API SLAs.</li>
+              <li><strong>Agentic Execution:</strong> You are responsible for directing autonomous actions executed by Amthromax models on your behalf.</li>
               <li><strong>European Consumers:</strong> If you reside in the EEA, UK, or Switzerland, Europe Specific Terms (EST) apply, including a 14-day statutory right of withdrawal.</li>
-              <li><strong>Data Rights:</strong> Your privacy is essential. Review our <a href="/privacy" className="font-medium underline">Privacy Policy</a> to understand how we collect, process, and secure personal information.</li>
+              <li><strong>Dispute Resolution:</strong> Section 12 contains an individual binding arbitration agreement and class action waiver.</li>
             </ul>
           </div>
         </div>
@@ -57,217 +58,255 @@ const TermsOfServicePage: React.FC = () => {
           <section id="section-1">
             <h2>1. Who We Are and Our Mission</h2>
             <p>
-              Amthromax is a US-based artificial intelligence company working on building advanced AI foundation models, enterprise reasoning systems, and autonomous tools to accelerate human scientific discovery, software development, and technical workflows. We are guided by our mission to advance our collective understanding of intelligence.
+              Amthromax is an advanced artificial intelligence company dedicated to building frontier foundation models, autonomous reasoning engines, enterprise IDEs, and scientific computing frameworks designed to accelerate human discovery and technical productivity. We are guided by our mission to advance humanity's collective intelligence safely and transparently.
             </p>
             <p>
-              As part of our mission, we have developed our proprietary conversational and generative AI suite powered by Amthromax foundation models, alongside developer portals, enterprise workspaces, and knowledge indexing platforms. For more information about Amthromax, please visit <a href="/">amthromax.com</a>.
+              Our product suite encompasses consumer conversational assistants, developer API endpoints, enterprise workspace hubs, automated code execution sandboxes, and knowledge indexing systems. For detailed information regarding our research and corporate structure, please visit <a href="/">amthromax.com</a>.
             </p>
           </section>
 
           {/* Section 2 */}
           <section id="section-2">
-            <h2>2. Registration, Eligibility, and Account Access</h2>
-            
-            <h3>Minimum Age Requirements</h3>
-            <p>
-              You must be at least 13 years old or the minimum age required in your country to use the Service, and you confirm that you meet this minimum age requirement. If you are a teenager between the ages of 13 and 17, you must have your parent or legal guardian's permission to use the Service, and they must accept these Terms on your behalf. Parents and legal guardians are responsible for all activities occurring under their teenager's account.
-            </p>
-
-            <h3>Safety Controls & Content Disclaimers</h3>
-            <p>
-              We apply technical controls and safeguards designed to support age-appropriate experiences for minors as required by applicable law. However, generative model outputs are probabilistic in nature. Depending on your settings and prompts, the Service may produce dialogue or outputs involving coarse language, complex adult themes, or unverified technical statements. Parents and guardians are encouraged to actively monitor teenager usage and utilize our in-product Data Control settings.
-            </p>
-
-            <h3>Account Registration & Credentials</h3>
-            <p>
-              You must provide accurate, complete, and current information when registering for an account. You may not share your account credentials, transfer your account, or make your credentials available to any unauthorized third party. You are solely responsible for all activities that occur under your account.
-            </p>
-
-            <h3>Social Login & Third-Party Authentication</h3>
-            <p>
-              If you register or log in through a third-party service (such as Google, Apple, GitHub, or X), you authorize Amthromax to access, store, and process authentication tokens, profile details, date of birth, and account credentials permitted by that service to maintain your Amthromax profile.
-            </p>
-
-            <h3>Business & Corporate Email Domains</h3>
-            <p>
-              If you create an account using an email address owned by your employer or organization, your account may be linked to that organization’s Enterprise Amthromax workspace. In such events, your organization's designated administrator may access, monitor, audit, export, or terminate your account access in accordance with our Enterprise Terms.
-            </p>
-
-            <h3>Beta Modes and Preview Features</h3>
-            <p>
-              We may make experimental features, preview models, alpha integrations, or trial tools available to you. Pre-release features are provided for personal, non-commercial evaluation only, on an “AS IS” basis, and may contain bugs, latency, or temporary downtime.
-            </p>
+            <h2>2. Formal Definitions</h2>
+            <p>For the purposes of these Terms, the following capitalized terms have the meanings set forth below:</p>
+            <ul>
+              <li><strong>“Agentic Action”</strong> means any autonomous or semi-autonomous action executed by an Amthromax model on your instruction, including web browsing, code execution, database queries, API tool invocation, file modifications, or third-party service interactions.</li>
+              <li><strong>“Authorized User”</strong> means an individual employee, contractor, or affiliate granted access to the Service under your account or organizational workspace.</li>
+              <li><strong>“Customer Data” or “User Content”</strong> means all text, prompts, code, files, images, audio, video, or data submitted to (<strong>“Input”</strong>) or generated by (<strong>“Output”</strong>) the Service for you.</li>
+              <li><strong>“Documentation”</strong> means all user guides, API references, system specifications, and safety guidelines published on <a href="/docs">amthromax.com/docs</a>.</li>
+              <li><strong>“Foundation Models”</strong> means proprietary large language models, multimodal neural networks, tokenizers, and inference engines developed by Amthromax.</li>
+              <li><strong>“Usage Data”</strong> means technical, diagnostic, latency, token consumption, and performance metrics collected by Amthromax regarding Service operations.</li>
+            </ul>
           </section>
 
           {/* Section 3 */}
           <section id="section-3">
-            <h2>3. Using Our Service & Acceptable Use</h2>
+            <h2>3. Registration, Eligibility, and Account Access</h2>
             
-            <h3>Permitted Access</h3>
+            <h3>Minimum Age & Parental Consent</h3>
             <p>
-              Subject to your ongoing compliance with these Terms, applicable documentation, and relevant laws, Amthromax grants you a non-exclusive, non-transferable, revocable right to access and use the Service for your personal or internal business purposes.
+              You must be at least 13 years old (or the minimum legal age required in your jurisdiction) to access or use the Service. By using the Service, you represent and warrant that you meet this age threshold. Teenagers between the ages of 13 and 17 must obtain express permission from a parent or legal guardian who accepts these Terms on their behalf. Parents and legal guardians remain fully responsible for minor account activity.
             </p>
 
-            <h3>Prohibited Conduct</h3>
+            <h3>Safety Guardrails & Content Disclaimers</h3>
             <p>
-              You agree that you will not, and will not assist or enable others to:
+              We implement safety guardrails, automated content filters, and age-appropriate output restrictions. However, because generative neural networks are probabilistic, the Service may occasionally produce outputs that contain coarse language, unverified statements, or unexpected dialogue. Parents and account holders are encouraged to utilize our Data Controls settings to tailor content filters.
             </p>
-            <ul>
-              <li>Use the Service for any illegal, harmful, deceptive, harassing, or fraudulent activity;</li>
-              <li>Reverse engineer, decompile, disassemble, or attempt to extract foundation model weights, algorithms, or source code;</li>
-              <li>Use automated bots, scrapers, or crawlers to extract platform data or content without express authorization;</li>
-              <li>Bypass or tamper with rate limits, safety guardrails, content filters, or system security measures;</li>
-              <li>Represent AI-generated output as being human-authored when prohibited by applicable law or policy;</li>
-              <li>Infringe, misappropriate, or violate the intellectual property or privacy rights of any third party.</li>
-            </ul>
 
-            <h3>Suspension and Termination Rights</h3>
+            <h3>Account Security & Credentials</h3>
             <p>
-              We reserve the right to modify, suspend, restrict, or discontinue your access to the Service at any time, with or without notice, if we determine that you have violated these Terms, engaged in abuse, or if necessary to address security risks or legal mandates.
+              You are responsible for maintaining the confidentiality of your account credentials, passwords, and API keys. You may not sell, transfer, or share your account access with third parties. You must notify us immediately at <a href="mailto:security@amthromax.com">security@amthromax.com</a> upon discovering any unauthorized use or security breach.
+            </p>
+
+            <h3>Third-Party Social Authentication</h3>
+            <p>
+              If you log in via third-party identity providers (e.g., Google, Apple, GitHub, or X), you grant Amthromax authorization to store and process authentication tokens, profile details, and account metadata in accordance with provider permissions.
+            </p>
+
+            <h3>Enterprise & Organizational Email Domains</h3>
+            <p>
+              Registering an account with an email domain owned by your employer or organization may result in your account being linked to that organization’s Enterprise Amthromax subscription. In such events, your organization's administrative personnel may monitor, audit, export, or manage your account in accordance with Enterprise Terms.
+            </p>
+
+            <h3>Beta Modes & Pre-Release Features</h3>
+            <p>
+              We may offer experimental models, preview tools, pilot integrations, or alpha features (collectively, <strong>“Beta Features”</strong>). Beta Features are provided for internal evaluation on an “AS IS” basis without performance SLAs or warranties, and may be modified or retired at any time.
             </p>
           </section>
 
           {/* Section 4 */}
           <section id="section-4">
-            <h2>4. User Content & Agentic Autonomous Execution</h2>
-
-            <h3>Ownership of User Content</h3>
+            <h2>4. Acceptable Use Policy & Platform Conduct</h2>
+            
+            <h3>Permitted Scope of Use</h3>
             <p>
-              You may submit prompts, files, text, code, audio, images, or documents to the Service (<strong>“Inputs”</strong>) and receive outputs generated by the Service based on those Inputs (<strong>“Outputs”</strong>). Collectively, Inputs and Outputs are <strong>“User Content.”</strong> As between you and Amthromax, to the extent permitted by law, you retain ownership of your User Content.
+              Subject to your ongoing compliance with these Terms, Amthromax grants you a limited, non-exclusive, non-transferable, revocable license to access and use the Service for personal or internal business operations.
             </p>
 
-            <h3>Agentic Execution & Autonomous Actions</h3>
-            <p>
-              Certain advanced features of the Service enable Amthromax models to execute autonomous actions on your behalf (<strong>“Agentic Actions”</strong>), including web browsing, code compilation, database queries, API tool calls, file modifications, or interactions with third-party web platforms and connected services.
-            </p>
-            <p>
-              You acknowledge and agree that you are solely responsible for directing and authorizing Agentic Actions. Amthromax makes no representations or warranties regarding the accuracy, safety, execution fidelity, or legal implications of Agentic Actions and disclaims all liability arising from automated execution to the fullest extent permitted by law.
-            </p>
+            <h3>Prohibited Activities</h3>
+            <p>You agree that you will not, and will not authorize any third party to:</p>
+            <ul>
+              <li>Use the Service for illegal activities, terrorism, hate speech, harassment, cyberattacks, or bio-weapon development assistance;</li>
+              <li>Reverse engineer, decompile, extract weights, or attempt to derive the underlying architecture of Amthromax foundation models;</li>
+              <li>Use web crawlers, scrapers, or automated bots to extract system data or outputs without express authorization;</li>
+              <li>Bypass, disable, or tamper with security filters, content safety filters, rate limits, or authentication systems;</li>
+              <li>Misrepresent AI-generated Output as human-authored content where prohibited by law;</li>
+              <li>Use Outputs to train competing artificial intelligence or machine learning models without a commercial agreement.</li>
+            </ul>
 
-            <h3>Grant of License to Amthromax</h3>
+            <h3>Enforcement & Account Suspension</h3>
             <p>
-              By submitting User Content to the Service, you grant Amthromax a worldwide, royalty-free, transferable, sublicensable, non-exclusive license to host, store, replicate, process, transmit, and display such User Content strictly as necessary to: (i) operate, maintain, and deliver the Service; (ii) improve platform security and prevent abuse; and (iii) comply with legal obligations.
-            </p>
-
-            <h3>Data Controls & Model Training Opt-Out</h3>
-            <p>
-              You have full control over your data. Via account Settings → Data Controls, you can choose whether your User Content is used to train or refine Amthromax foundation models. When logged into your account, opting out ensures your prompts and inputs are excluded from model training queues. Deleted conversations are purged from active stores within 30 days, except where retention is legally required.
-            </p>
-
-            <h3>AI-Generated Content Disclosures</h3>
-            <p>
-              To maintain public transparency, Amthromax may apply automated metadata disclosures or visual watermarks indicating that content or Agentic Actions were generated or modified by artificial intelligence.
+              Amthromax reserves the right to audit platform usage, deploy automated safety monitoring, and suspend or terminate accounts that violate our Acceptable Use Policy, threaten system security, or expose Amthromax to legal liability.
             </p>
           </section>
 
           {/* Section 5 */}
           <section id="section-5">
-            <h2>5. Amthromax Intellectual Property & Usage Analytics</h2>
+            <h2>5. User Content, Agentic Execution, and Model Training</h2>
 
-            <h3>Platform Ownership</h3>
+            <h3>Ownership of User Content</h3>
             <p>
-              Amthromax and its licensors retain all right, title, and interest (including all patents, copyrights, trade secrets, trademarks, and model weights) in and to the Service, foundation models, algorithms, APIs, user interfaces, and documentation.
+              As between you and Amthromax, to the maximum extent permitted by law, you retain all ownership rights in your Inputs and Outputs (collectively, <strong>“User Content”</strong>).
             </p>
 
-            <h3>Telemetry & Diagnostic Usage Data</h3>
+            <h3>Agentic Autonomous Execution</h3>
             <p>
-              We may collect diagnostic, technical, latency, error logging, and performance metrics relating to your interaction with the Service (<strong>“Usage Data”</strong>). All Usage Data is owned exclusively by Amthromax and used to optimize service stability, monitor security, and conduct system research.
+              Certain advanced tools within Amthromax Studio allow models to execute autonomous actions (<strong>“Agentic Actions”</strong>), such as web searching, code execution in sandbox environments, API requests, database queries, file modifications, or financial tool invocations.
+            </p>
+            <p>
+              You acknowledge that you are solely responsible for authorizing and supervising Agentic Actions. Amthromax makes no representations regarding the accuracy, execution safety, or legal outcome of Agentic Actions and disclaims all liability for automated execution.
             </p>
 
-            <h3>User Feedback</h3>
+            <h3>License Grant to Amthromax</h3>
             <p>
-              If you provide suggestions, feature requests, or feedback regarding the Service (<strong>“Feedback”</strong>), you assign all rights in such Feedback to Amthromax. We may freely use Feedback without obligation, compensation, or attribution to you.
+              You grant Amthromax a worldwide, royalty-free, non-exclusive license to host, store, reproduce, process, and transmit User Content strictly to provide, maintain, secure, and debug the Service, enforce our Terms, and comply with applicable law.
+            </p>
+
+            <h3>Model Training Opt-Out & Data Controls</h3>
+            <p>
+              You maintain control over your data. In Account Settings → Data Controls, you can opt out of having your User Content used for training or improving Amthromax foundation models. For paid Enterprise accounts, non-training is the default policy. Deleted conversations are removed from primary storage within 30 days, except where legal retention mandates apply.
+            </p>
+
+            <h3>AI Disclosures & Digital Provenance</h3>
+            <p>
+              Amthromax may attach automated metadata disclosures or C2PA digital provenance watermarks to generated media or code Outputs to comply with global synthetic content transparency regulations.
+            </p>
+
+            <h3>Accuracy & Probabilistic Nature</h3>
+            <p>
+              Artificial intelligence outputs are probabilistic. Outputs may contain inaccurate information, hallucinations, or non-unique content similar to outputs generated for other users. You are responsible for verifying all Output accuracy before relying on it for safety-critical, medical, legal, or financial decisions.
             </p>
           </section>
 
           {/* Section 6 */}
           <section id="section-6">
-            <h2>6. Subscriptions, Paid Accounts, and Renewals</h2>
+            <h2>6. Amthromax Intellectual Property & Usage Analytics</h2>
 
-            <h3>Billing & Automated Renewals</h3>
+            <h3>Proprietary Platform Rights</h3>
             <p>
-              If you purchase a paid subscription or compute tier, you must provide valid, up-to-date payment details. Subscriptions automatically renew at the end of each billing cycle (monthly or annually) until cancelled. Taxes are calculated and added where required by local tax jurisdictions.
+              Amthromax and its licensors retain all right, title, and interest (including patents, copyrights, trade secrets, trademarks, model weights, and brand assets) in and to the Service, foundation models, algorithms, and documentation.
             </p>
 
-            <h3>Cancellation & Price Adjustments</h3>
+            <h3>Usage Data & Diagnostics</h3>
             <p>
-              You can cancel your subscription at any time in Account Settings. Cancellation takes effect at the end of your current paid billing period. Payments already processed are non-refundable except where mandated by law. We may adjust subscription fees periodically upon 30 days' advance notice; your continued subscription after the effective date constitutes acceptance of updated rates.
+              Amthromax owns all diagnostic, latency, error logging, and operational usage metrics (<strong>“Usage Data”</strong>) generated by your access to the Service. We use Usage Data to optimize infrastructure stability, monitor security, and conduct system research.
+            </p>
+
+            <h3>User Feedback</h3>
+            <p>
+              Any suggestions, feature requests, or feedback you submit regarding the Service (<strong>“Feedback”</strong>) become the exclusive property of Amthromax. We may use Feedback for any purpose without obligation, attribution, or compensation to you.
             </p>
           </section>
 
           {/* Section 7 */}
           <section id="section-7">
-            <h2>7. Disclaimer of Warranties ("AS IS")</h2>
+            <h2>7. Paid Accounts, Billing, and Renewals</h2>
+
+            <h3>Subscription Billing & Automatic Renewals</h3>
             <p>
-              TO THE MAXIMUM EXTENT PERMITTED BY APPLICABLE LAW, THE SERVICE, OUTPUTS, AND AGENTIC ACTIONS ARE PROVIDED ON AN <strong>“AS IS”</strong> AND <strong>“AS AVAILABLE”</strong> BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS, IMPLIED, OR STATUTORY. AMTHROMAX EXPRESSLY DISCLAIMS ALL IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, SYSTEM AVAILABILITY, AND NON-INFRINGEMENT. USE OF THE SERVICE AND AGENTIC EXECUTION IS AT YOUR SOLE RISK.
+              Paid plans and compute tiers require valid payment credentials. Subscriptions automatically renew at the end of each billing period (monthly or annually) until cancelled. Applicable taxes (VAT, GST, sales tax) will be charged based on your registered address.
+            </p>
+
+            <h3>Cancellation & Fee Adjustments</h3>
+            <p>
+              You can cancel your subscription at any time via Account Settings. Cancellation takes effect at the end of the current paid billing cycle. Payments are non-refundable except where mandated by law. We may adjust subscription pricing upon 30 days' advance notice; continuing your subscription after the effective date constitutes acceptance of new rates.
             </p>
           </section>
 
           {/* Section 8 */}
           <section id="section-8">
-            <h2>8. Limitation of Liability</h2>
+            <h2>8. Service Availability & Modifications</h2>
             <p>
-              TO THE FULLEST EXTENT PERMITTED BY LAW, IN NO EVENT SHALL AMTHROMAX, ITS AFFILIATES, OFFICERS, DIRECTORS, EMPLOYEES, OR AGENTS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES (INCLUDING LOSS OF PROFITS, DATA CORRUPTION, BUSINESS INTERRUPTION, OR REPUTATIONAL HARM) ARISING OUT OF OR RELATING TO YOUR USE OR INABILITY TO USE THE SERVICE.
-            </p>
-            <p>
-              OUR TOTAL CUMULATIVE LIABILITY FOR ALL CLAIMS RELATING TO THE SERVICE SHALL NOT EXCEED THE GREATER OF ONE HUNDRED U.S. DOLLARS ($100.00) OR THE TOTAL AMOUNT PAID BY YOU TO AMTHROMAX IN THE TWELVE (12) MONTHS PRECEDING THE CLAIM.
+              We continuously update our foundation models and infrastructure. We reserve the right to modify, update, or discontinue features, APIs, or model versions. We will endeavor to provide reasonable notice for material deprecations affecting production API endpoints.
             </p>
           </section>
 
           {/* Section 9 */}
           <section id="section-9">
-            <h2>9. Indemnification</h2>
+            <h2>9. Disclaimer of Warranties ("AS IS")</h2>
             <p>
-              You agree to defend, indemnify, and hold harmless Amthromax, its parent entities, subsidiaries, officers, directors, employees, and contractors from and against all claims, liabilities, damages, losses, costs, and legal fees arising from your use of the Service, your User Content, your Agentic Actions, or your breach of these Terms.
+              TO THE FULLEST EXTENT PERMITTED BY LAW, THE SERVICE, OUTPUTS, AND AGENTIC ACTIONS ARE PROVIDED ON AN <strong>“AS IS”</strong> AND <strong>“AS AVAILABLE”</strong> BASIS. AMTHROMAX AND ITS AFFILIATES EXPRESSLY DISCLAIM ALL WARRANTIES OF ANY KIND, WHETHER EXPRESS, IMPLIED, OR STATUTORY, INCLUDING IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, ACCURACY, AND NON-INFRINGEMENT.
             </p>
           </section>
 
           {/* Section 10 */}
           <section id="section-10">
-            <h2>10. Dispute Resolution & Binding Arbitration</h2>
-            
-            <h3>Class Action & Jury Trial Waiver</h3>
+            <h2>10. Limitation of Liability</h2>
             <p>
-              TO THE FULLEST EXTENT PERMITTED BY LAW, YOU AND AMTHROMAX AGREE THAT ALL DISPUTES MUST BE RESOLVED ON AN INDIVIDUAL BASIS AND EXPRESSLY WAIVE ANY RIGHT TO TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION, COLLECTIVE PROCEEDING, OR REPRESENTATIVE LAWSUIT.
+              TO THE MAXIMUM EXTENT PERMITTED BY LAW, IN NO EVENT SHALL AMTHROMAX OR ITS INDEMNITEES BE LIABLE FOR INDIRECT, INCIDENTAL, CONSEQUENTIAL, SPECIAL, PUNITIVE, OR EXEMPLARY DAMAGES (INCLUDING LOSS OF PROFITS, DATA LOSS, BUSINESS INTERRUPTION, OR REPUTATIONAL DAMAGE) ARISING OUT OF OR RELATING TO YOUR USE OF THE SERVICE.
             </p>
-
-            <h3>Governing Law & Venue</h3>
             <p>
-              These Terms and any dispute arising hereunder shall be governed by the laws of the State of Delaware (or Texas, where mandated for specific state operations), excluding choice of law rules. Exclusive jurisdiction and venue for any judicial proceedings shall rest in the federal or state courts located in the United States.
+              OUR TOTAL AGGREGATE LIABILITY FOR ALL CLAIMS ARISING UNDER THESE TERMS SHALL NOT EXCEED THE GREATER OF ONE HUNDRED U.S. DOLLARS ($100.00) OR THE TOTAL FEES PAID BY YOU TO AMTHROMAX IN THE TWELVE (12) MONTHS PRECEDING THE EVENT GIVING RISE TO LIABILITY.
             </p>
           </section>
 
           {/* Section 11 */}
           <section id="section-11">
-            <h2>11. Regional & Jurisdiction-Specific Terms</h2>
-
-            <h3>Australian Residents (Online Safety Terms)</h3>
+            <h2>11. Indemnification</h2>
             <p>
-              Australian users must comply with the Australian Online Safety Act. You may not use the Service to generate child sexual abuse material, terrorism content, or illegal violence instructions. Concerns or violations may be reported to our safety desk or to the Australian eSafety Commissioner at <a href="https://www.esafety.gov.au" target="_blank" rel="noopener noreferrer">esafety.gov.au</a>.
-            </p>
-
-            <h3>California Residents</h3>
-            <p>
-              Under Cal. Civ. Code §1789.3, California users are entitled to the following consumer rights notice: Complaint reports may be directed in writing to the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by phone at (800) 952-5210.
-            </p>
-
-            <h3>European Economic Area (EEA), UK & Switzerland Residents (EST)</h3>
-            <p>
-              If you are a European Consumer, you benefit from mandatory consumer protection laws of your country of residence. 
-            </p>
-            <p>
-              <strong>14-Day Right of Withdrawal:</strong> You have the statutory right to withdraw from this subscription contract within 14 days of registration without giving any reason. To exercise your right of withdrawal, notify us via email at <a href="mailto:support@amthromax.com">support@amthromax.com</a> stating your legal name, username, and withdrawal request. Refunds for paid subscriptions will be processed within 14 days using your original payment method.
-            </p>
-            <p>
-              <strong>EU Digital Services Act (DSA) Representative:</strong> Pursuant to Article 13 of the EU DSA, our designated EU point of contact for member state authorities and users is <a href="mailto:dsa@amthromax.com">dsa@amthromax.com</a>.
+              You agree to defend, indemnify, and hold harmless Amthromax, its parents, subsidiaries, officers, directors, employees, contractors, and agents from any claims, damages, liabilities, losses, costs, or legal fees arising from your use of the Service, User Content, Agentic Actions, or violation of these Terms.
             </p>
           </section>
 
           {/* Section 12 */}
           <section id="section-12">
-            <h2>12. Contact Legal Department & Regional Representatives</h2>
+            <h2>12. Dispute Resolution & Binding Individual Arbitration</h2>
+            
+            <h3>Class Action & Jury Trial Waiver</h3>
             <p>
-              For formal legal notices, compliance requests, or inquiries regarding these Terms of Service, please reach out to our legal department:
+              YOU AND AMTHROMAX AGREE THAT ALL DISPUTES MUST BE RESOLVED ON AN INDIVIDUAL BASIS AND EXPRESSLY WAIVE ANY RIGHT TO TRIAL BY JURY OR TO PARTICIPATE IN A CLASS ACTION, COLLECTIVE PROCEEDING, OR REPRESENTATIVE LAWSUIT.
+            </p>
+
+            <h3>Pre-Arbitration Informal Resolution</h3>
+            <p>
+              Before initiating arbitration, both parties agree to attempt to resolve disputes informally by providing written notice to <a href="mailto:legal@amthromax.com">legal@amthromax.com</a> and engaging in good-faith negotiations for 30 days.
+            </p>
+
+            <h3>Governing Law & Venue</h3>
+            <p>
+              These Terms are governed by the laws of the State of Delaware (or Texas, for specific operational mandates), without regard to choice of law rules. Exclusive jurisdiction for non-arbitrable matters rests in the state or federal courts located in the United States.
+            </p>
+          </section>
+
+          {/* Section 13 */}
+          <section id="section-13">
+            <h2>13. Trade Sanctions & Export Control</h2>
+            <p>
+              You agree to comply with all applicable export controls and trade sanctions laws, including regulations administered by the U.S. Department of Commerce (EAR) and U.S. Department of the Treasury (OFAC). You represent that you are not located in, or a resident of, any country subject to comprehensive U.S. trade embargoes.
+            </p>
+          </section>
+
+          {/* Section 14 */}
+          <section id="section-14">
+            <h2>14. Regional & Jurisdiction-Specific Addenda</h2>
+
+            <h3>Australian Residents (Online Safety Terms)</h3>
+            <p>
+              Australian users must comply with the Online Safety Act. Generating child sexual abuse material, terrorism content, or extreme violence instruction is strictly prohibited. Violations may be reported to our safety desk or to the eSafety Commissioner at <a href="https://www.esafety.gov.au" target="_blank" rel="noopener noreferrer">esafety.gov.au</a>.
+            </p>
+
+            <h3>California Residents</h3>
+            <p>
+              Under Cal. Civ. Code §1789.3, California users may contact the Complaint Assistance Unit of the Division of Consumer Services of the California Department of Consumer Affairs at 1625 North Market Blvd., Suite N 112, Sacramento, CA 95834, or by phone at (800) 952-5210.
+            </p>
+
+            <h3>European Economic Area (EEA), UK & Switzerland Residents (EST)</h3>
+            <p>
+              European Consumers benefit from mandatory consumer protection laws of their country of residence.
+            </p>
+            <p>
+              <strong>14-Day Right of Withdrawal:</strong> You have the statutory right to cancel your subscription within 14 days of registration without giving any reason. To exercise withdrawal, email <a href="mailto:support@amthromax.com">support@amthromax.com</a> with your username and withdrawal request. Refunds will be issued within 14 days using your original payment method.
+            </p>
+            <p>
+              <strong>EU Digital Services Act (DSA) Representative:</strong> Designated EU point of contact pursuant to Article 13 of the DSA is <a href="mailto:dsa@amthromax.com">dsa@amthromax.com</a>.
+            </p>
+          </section>
+
+          {/* Section 15 */}
+          <section id="section-15">
+            <h2>15. Contact Legal Department & Regional Representatives</h2>
+            <p>
+              For legal notices, contract inquiries, or privacy compliance requests, contact our global legal teams:
             </p>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-y-6 gap-x-10 pt-4">
@@ -297,7 +336,7 @@ const TermsOfServicePage: React.FC = () => {
             </div>
 
             <p className="pt-4 text-xs text-gray-500 dark:text-zinc-400">
-              Child safety concerns or illegal content abuse may be reported directly to our Trust & Safety team at <a href="mailto:safety@amthromax.com" className="font-medium underline">safety@amthromax.com</a>.
+              Child safety concerns or abuse reports can be sent directly to Trust & Safety at <a href="mailto:safety@amthromax.com" className="font-medium underline">safety@amthromax.com</a>.
             </p>
           </section>
 
