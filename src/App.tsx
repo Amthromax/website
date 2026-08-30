@@ -266,59 +266,58 @@ const App: React.FC = () => {
           className="sticky top-0 z-50 bg-white/80 dark:bg-[#000000]/80 backdrop-blur-md border-b border-gray-200/60 dark:border-white/[0.08] text-gray-900 dark:text-white transition-colors duration-200"
           onMouseLeave={handleMouseLeave}
         >
-          <div className="max-w-[1420px] mx-auto px-8 sm:px-12 lg:px-16">
-            <div className="flex justify-between items-center h-13 sm:h-14">
-              {/* Left Logo */}
-              <div className="flex-shrink-0 flex items-center">
-                <Link to="/" className="flex items-center gap-2 text-base md:text-[18px] font-bold text-gray-900 dark:text-white tracking-tight hover:opacity-80 transition-all select-none group">
-                  <span>Amthromax</span>
-                </Link>
-              </div>
+          <div className="privacy-header max-w-full">
+            {/* Left Logo */}
+            <div className="flex-shrink-0 flex items-center">
+              <Link to="/" className="flex items-center gap-2 text-base md:text-[18px] font-bold text-gray-900 dark:text-white tracking-tight hover:opacity-80 transition-all select-none group">
+                <span>Amthromax</span>
+              </Link>
+            </div>
 
-              {/* Center Navigation Links (Desktop only) */}
-              <div className="hidden lg:flex items-center justify-center space-x-8 flex-1">
-                <button
-                  type="button"
-                  onMouseEnter={() => handleMouseEnter('research')}
-                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-[14px] sm:text-[15px] font-medium py-2 cursor-pointer"
-                >
-                  Intelligence
-                </button>
-                <button
-                  type="button"
-                  onMouseEnter={() => handleMouseEnter('products')}
-                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-[14px] sm:text-[15px] font-medium py-2 cursor-pointer"
-                >
-                  Products
-                </button>
-                <button
-                  type="button"
-                  onMouseEnter={() => handleMouseEnter('business')}
-                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-[14px] sm:text-[15px] font-medium py-2 cursor-pointer"
-                >
-                  Business
-                </button>
-                <button
-                  type="button"
-                  onMouseEnter={() => handleMouseEnter('developers')}
-                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-[14px] sm:text-[15px] font-medium py-2 cursor-pointer"
-                >
-                  Developers
-                </button>
-                <button
-                  type="button"
-                  onMouseEnter={() => handleMouseEnter('company')}
-                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-[14px] sm:text-[15px] font-medium py-2 cursor-pointer"
-                >
-                  Company
-                </button>
-                <Link
-                  to="/foundation"
-                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white transition-colors duration-200 text-[14px] sm:text-[15px] font-medium py-2"
-                >
-                  Ai Intelli Hub
-                </Link>
-              </div>
+            {/* Center Navigation Links (Desktop only) */}
+            <nav className="hidden lg:flex items-center justify-center gap-[34px] flex-1">
+              <button
+                type="button"
+                onMouseEnter={() => handleMouseEnter('research')}
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+              >
+                Intelligence
+              </button>
+              <button
+                type="button"
+                onMouseEnter={() => handleMouseEnter('products')}
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+              >
+                Products
+              </button>
+              <button
+                type="button"
+                onMouseEnter={() => handleMouseEnter('business')}
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+              >
+                Business
+              </button>
+              <button
+                type="button"
+                onMouseEnter={() => handleMouseEnter('developers')}
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+              >
+                Developers
+              </button>
+              <button
+                type="button"
+                onMouseEnter={() => handleMouseEnter('company')}
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+              >
+                Company
+              </button>
+              <Link
+                to="/foundation"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 leading-none"
+              >
+                Ai Intelli Hub
+              </Link>
+            </nav>
 
               {/* Action Buttons & Menu Toggles (Right) */}
               <div className="flex items-center justify-end space-x-4">
@@ -415,8 +414,6 @@ const App: React.FC = () => {
               </div>
             </div>
           </div>
-
-
 
           {/* Unified MegaDropdown */}
           <AnimatePresence>

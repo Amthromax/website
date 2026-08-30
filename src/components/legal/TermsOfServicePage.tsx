@@ -4,28 +4,27 @@ import Footer from "../footer/Footer";
 
 const TermsOfServicePage: React.FC = () => {
   return (
-    <div className="bg-white dark:bg-black text-gray-900 dark:text-zinc-200 min-h-screen transition-colors duration-300 antialiased font-sans">
+    <div className="privacy-page font-sans antialiased">
       <SEO
         title="Amthromax Terms of Service | Amthromax"
         description="Amthromax Terms of Service governing subscription agreements, platform usage, licensing, data processing, and user obligations."
       />
 
       {/* Clean Document Reading Layout Container */}
-      {/* Clean Document Reading Layout Container */}
-      <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 pt-[60px] pb-24">
+      <div className="privacy-container">
         
         {/* Main Document Header */}
-        <header className="mb-10">
-          <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
+        <header>
+          <h1 className="privacy-title text-gray-950 dark:text-[#f5f5f5]">
             Amthromax Terms of Service
           </h1>
-          <p className="text-base italic text-gray-500 dark:text-zinc-400 mt-3 font-normal">
+          <p className="privacy-effective text-gray-600 dark:text-[#9b9b9b]">
             Effective: August 24, 2026 (previous version)
           </p>
         </header>
 
         {/* Introductory Preamble */}
-        <div className="max-w-[1300px] space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
+        <div>
           <p>
             These Terms of Service (<strong>"Terms of Service"</strong> or <strong>"Terms"</strong>) are a legally binding agreement between you (<strong>"you"</strong> or <strong>"your"</strong>) and Amthromax Inc. (<strong>"Amthromax"</strong>, <strong>"we"</strong>, <strong>"our"</strong>, or <strong>"us"</strong>) governing your use of the Service and your relationship with us.
           </p>
@@ -46,15 +45,15 @@ const TermsOfServicePage: React.FC = () => {
 
           <p>
             <strong>Important:</strong> Please note{" "}
-            <a href="#section-6" className="underline text-gray-950 dark:text-white hover:text-zinc-400 font-medium transition-colors">
+            <a href="#section-6" className="hover:text-zinc-400 font-medium transition-colors">
               Sections 6
             </a>{" "}
             and{" "}
-            <a href="#section-12" className="underline text-gray-950 dark:text-white hover:text-zinc-400 font-medium transition-colors">
+            <a href="#section-12" className="hover:text-zinc-400 font-medium transition-colors">
               12
             </a>{" "}
             of these Terms which include important information regarding Personal Information you provide to us or receive from us. Please also note{" "}
-            <a href="#section-7" className="underline text-gray-950 dark:text-white hover:text-zinc-400 font-medium transition-colors">
+            <a href="#section-7" className="hover:text-zinc-400 font-medium transition-colors">
               Section 7
             </a>
             , which contains arbitration provisions that impact certain rights you might otherwise have regarding disputes.

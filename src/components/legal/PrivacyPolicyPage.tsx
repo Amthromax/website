@@ -22,21 +22,21 @@ const PrivacyPolicyPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-black text-gray-900 dark:text-zinc-200 min-h-screen transition-colors duration-300 antialiased font-sans">
+    <div className="privacy-page font-sans antialiased">
       <SEO
         title="Amthromax Privacy Policy | Amthromax"
         description="Amthromax Privacy Policy explaining data collection, automated telemetry, AI usage, privacy rights, and compliance options."
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 pt-[60px] pb-24">
+      <div className="privacy-container">
         
         {/* Main Document Header */}
-        <header className="mb-10">
-          <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
+        <header>
+          <h1 className="privacy-title text-gray-950 dark:text-[#f5f5f5]">
             Amthromax Privacy Policy
           </h1>
-          <p className="text-base italic text-gray-500 dark:text-zinc-400 mt-3 font-normal">
+          <p className="privacy-effective text-gray-600 dark:text-[#9b9b9b]">
             Effective: August 24, 2026 (
             <button 
               type="button" 
@@ -50,10 +50,10 @@ const PrivacyPolicyPage: React.FC = () => {
         </header>
 
         {/* Clean Preamble & Introductory Text */}
-        <div className="max-w-[1300px] space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
+        <div>
           <p>
             At Amthromax LLC (<strong>"Amthromax"</strong>, <strong>"our"</strong>, <strong>"us"</strong> or <strong>"we"</strong>), we value your privacy and are committed to being fair, accountable, and transparent in how we collect, process, secure, and disclose your personal information. This Privacy Policy applies to personal information collected when you access or use our websites (including{" "}
-            <a href="/" className="underline text-gray-950 dark:text-white hover:text-zinc-400 transition-colors font-medium">
+            <a href="/" className="hover:text-zinc-400 transition-colors font-medium">
               Amthromax.com
             </a>
             ), mobile applications, developer portals, enterprise workspaces, or connected developer APIs (collectively, our <strong>"Service"</strong>).
@@ -65,11 +65,11 @@ const PrivacyPolicyPage: React.FC = () => {
         </div>
 
         {/* 12 Numbered Detailed Sections */}
-        <div className="max-w-[1300px] space-y-[48px] mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
+        <div>
           
           {/* Section 1 */}
-          <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+          <section className="privacy-section">
+            <h2>
               1. About Amthromax and Amthromax AI
             </h2>
             <p>
@@ -81,8 +81,8 @@ const PrivacyPolicyPage: React.FC = () => {
           </section>
 
           {/* Section 2 */}
-          <section className="space-y-6">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+          <section className="privacy-section">
+            <h2>
               2. Personal Information We Collect (Notice at Collection)
             </h2>
             <p>
