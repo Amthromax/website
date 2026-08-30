@@ -39,9 +39,9 @@ const TermsOfServicePage: React.FC = () => {
             This Agreement is entered into between you (<strong>“you”</strong> or <strong>“User”</strong>) and <strong>Amthromax LLC</strong>, a Delaware corporate entity (<strong>“Amthromax,” “we,” “our,”</strong> or <strong>“us”</strong>). By registering an account, clicking to accept, or accessing or using any portion of the Service, you confirm that you have read, understood, and agreed to be bound by these Terms, our <a href="/privacy">Privacy Policy</a>, our <a href="/cookie-policy">Cookie Policy</a>, and our Acceptable Use Policy.
           </p>
 
-          <div className="bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-xl p-5 my-6 space-y-2 text-sm text-gray-800 dark:text-zinc-300">
-            <p className="font-semibold text-gray-950 dark:text-white text-base">Key Summary Notices & Navigation:</p>
-            <ul className="list-disc pl-5 space-y-1">
+          <div className="bg-zinc-50 dark:bg-zinc-900/60 border border-zinc-200 dark:border-zinc-800 rounded-xl p-6 sm:p-7 my-10 space-y-3 text-sm sm:text-base text-gray-800 dark:text-zinc-300">
+            <p className="font-semibold text-gray-950 dark:text-white text-base sm:text-lg">Key Summary Notices & Navigation:</p>
+            <ul className="list-disc pl-5 space-y-2">
               <li><strong>Modifications:</strong> We reserve the right to update these Terms to reflect product improvements, new AI capabilities, or changing legal mandates.</li>
               <li><strong>Enterprise Workspaces:</strong> Separate Enterprise Terms govern corporate contracts, dedicated model instances, and custom API SLAs.</li>
               <li><strong>Agentic Execution:</strong> You are responsible for directing autonomous actions executed by Amthromax models on your behalf.</li>
