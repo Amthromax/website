@@ -11,11 +11,11 @@ const CookiePolicyPage: React.FC = () => {
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="max-w-6xl md:max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-12 pb-24">
+      <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 pt-[60px] pb-24">
         
         {/* Main Document Header */}
         <header className="mb-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-[46px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
             Amthromax Cookie Policy
           </h1>
           <p className="text-base italic text-gray-500 dark:text-zinc-400 mt-3 font-normal">
@@ -24,17 +24,17 @@ const CookiePolicyPage: React.FC = () => {
         </header>
 
         {/* Clean Preamble & Introductory Text */}
-        <div className="space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.8] font-normal">
+        <div className="max-w-[1300px] space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
           <p>
             At Amthromax LLC (<strong>"Amthromax"</strong>, <strong>"our"</strong>, <strong>"us"</strong> or <strong>"we"</strong>), we use cookies, web beacons, pixels, and local storage technologies to provide, secure, and improve our services (our <strong>"Service"</strong>). This Cookie Policy explains what these technologies are, why we use them, and your options for controlling their deployment.
           </p>
         </div>
 
         {/* Numbered Sections */}
-        <div className="space-y-12 mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.8] font-normal">
+        <div className="max-w-[1300px] space-y-[48px] mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
           
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               1. What Are Cookies and Web Telemetry?
             </h2>
             <p>
@@ -43,7 +43,7 @@ const CookiePolicyPage: React.FC = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               2. How We Use Cookies
             </h2>
             <p>
@@ -58,7 +58,7 @@ const CookiePolicyPage: React.FC = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               3. Managing Your Cookie Preferences
             </h2>
             <p>

@@ -17,9 +17,9 @@ const DataProtectionPage: React.FC = () => {
         description="Amthromax data protection principles, Data Principal rights, Data Fiduciary responsibilities, and Digital Personal Data Protection (DPDP) alignment framework."
       />
 
-      {/* Hero Header - Compact Editorial Spacing */}
-      <section className="relative pt-24 pb-10 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-black">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8">
+      {/* Hero Header */}
+      <section className="relative pt-[60px] pb-10 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-black">
+        <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16">
           <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4 font-sans">
             <Link to="/" className="hover:text-black dark:hover:text-white transition-colors">
               Home
@@ -34,21 +34,21 @@ const DataProtectionPage: React.FC = () => {
             transition={{ duration: 0.35 }}
             className="space-y-3.5"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-950 dark:text-white leading-tight font-sans">
+            <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal tracking-tight text-gray-950 dark:text-white leading-tight font-sans">
               Data Protection & Privacy Governance
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-normal">
+            <p className="text-[17px] sm:text-lg text-gray-600 dark:text-gray-300 max-w-[1300px] leading-[1.75] font-normal">
               Establishing transparent data processing practices, strict Data Subject rights, and robust security controls for enterprise AI workflows under US (CCPA/CPRA), EU GDPR, and international data protection standards.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Main Content - Compact Spacing & Typography */}
-      <main className="max-w-5xl mx-auto px-6 sm:px-8 py-10 space-y-8 font-sans">
+      {/* Main Content */}
+      <main className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 py-10 space-y-[48px] font-sans">
         
         {/* Notice Alert - Compact Apple Box */}
-        <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-2">
+        <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-2 max-w-[1300px]">
           <div className="flex items-center gap-2 font-bold text-gray-950 dark:text-white text-sm">
             <span className="w-5 h-5 rounded-full bg-amber-500/10 text-amber-700 dark:text-amber-400 flex items-center justify-center text-[10px] font-bold">
               i
@@ -64,8 +64,8 @@ const DataProtectionPage: React.FC = () => {
         </div>
 
         {/* Core DPDP Pillars */}
-        <section className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-950 dark:text-white tracking-tight">
+        <section className="space-y-4 max-w-[1300px]">
+          <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
             1. Core Data Protection Principles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
@@ -112,7 +112,7 @@ const DataProtectionPage: React.FC = () => {
 
         {/* Data Principal Rights Table */}
         <section className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-950 dark:text-white tracking-tight">
+          <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
             2. Data Principal Rights & Self-Service Tools
           </h2>
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm">
@@ -168,7 +168,7 @@ const DataProtectionPage: React.FC = () => {
 
         {/* Data Inventory Matrix */}
         <section className="space-y-4">
-          <h2 className="text-lg sm:text-xl font-semibold text-gray-950 dark:text-white tracking-tight">
+          <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
             3. Amthromax Data Inventory Matrix
           </h2>
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-sm overflow-hidden">
@@ -202,7 +202,7 @@ const DataProtectionPage: React.FC = () => {
         {/* Grievance Redressal Mechanism */}
         <section className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
           <div className="space-y-1">
-            <h2 className="text-lg sm:text-xl font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               4. Grievance Redressal & Contact
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">

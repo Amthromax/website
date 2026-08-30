@@ -58,8 +58,8 @@ const GlobalPrivacyCenterPage: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="relative pt-24 pb-10 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-black">
-        <div className="max-w-5xl mx-auto px-6 sm:px-8">
+      <section className="relative pt-[60px] pb-10 border-b border-gray-200 dark:border-white/10 bg-white dark:bg-black">
+        <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16">
           <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-gray-500 dark:text-gray-400 mb-4 font-sans">
             <Link to="/" className="hover:text-black dark:hover:text-white transition-colors">
               Home
@@ -74,10 +74,10 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             transition={{ duration: 0.35 }}
             className="space-y-4"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-semibold tracking-tight text-gray-950 dark:text-white leading-tight font-sans">
+            <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal tracking-tight text-gray-950 dark:text-white leading-tight font-sans">
               Global Privacy Center & Rights Portal
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-300 max-w-2xl leading-relaxed font-normal">
+            <p className="text-[17px] sm:text-lg text-gray-600 dark:text-gray-300 max-w-[1300px] leading-[1.75] font-normal">
               Manage your personal data preferences, submit Data Subject requests under GDPR, CCPA/CPRA, DPDP, or LGPD, inspect subprocessor transfers, and configure privacy-preserving defaults.
             </p>
           </motion.div>
@@ -85,7 +85,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-5xl mx-auto px-6 sm:px-8 py-10 space-y-8 font-sans">
+      <main className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 py-10 space-y-[48px] font-sans">
         
         {/* Jurisdiction & GPC Signal Banner */}
         <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">

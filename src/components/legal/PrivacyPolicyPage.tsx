@@ -29,11 +29,11 @@ const PrivacyPolicyPage: React.FC = () => {
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="max-w-6xl md:max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-12 pb-24">
+      <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 pt-[60px] pb-24">
         
         {/* Main Document Header */}
         <header className="mb-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-[46px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
             Amthromax Privacy Policy
           </h1>
           <p className="text-base italic text-gray-500 dark:text-zinc-400 mt-3 font-normal">
@@ -50,7 +50,7 @@ const PrivacyPolicyPage: React.FC = () => {
         </header>
 
         {/* Clean Preamble & Introductory Text */}
-        <div className="space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.8] font-normal">
+        <div className="max-w-[1300px] space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
           <p>
             At Amthromax LLC (<strong>"Amthromax"</strong>, <strong>"our"</strong>, <strong>"us"</strong> or <strong>"we"</strong>), we value your privacy and are committed to being fair, accountable, and transparent in how we collect, process, secure, and disclose your personal information. This Privacy Policy applies to personal information collected when you access or use our websites (including{" "}
             <a href="/" className="underline text-gray-950 dark:text-white hover:text-zinc-400 transition-colors font-medium">
@@ -65,11 +65,11 @@ const PrivacyPolicyPage: React.FC = () => {
         </div>
 
         {/* 12 Numbered Detailed Sections */}
-        <div className="space-y-12 mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.8] font-normal">
+        <div className="max-w-[1300px] space-y-[48px] mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
           
           {/* Section 1 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               1. About Amthromax and Amthromax AI
             </h2>
             <p>
@@ -82,7 +82,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 2 */}
           <section className="space-y-6">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               2. Personal Information We Collect (Notice at Collection)
             </h2>
             <p>
@@ -194,7 +194,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 3 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               3. How We May Use Personal Information
             </h2>
             <p>
@@ -215,7 +215,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 4 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               4. How We May Disclose Personal Information
             </h2>
             <p>
@@ -231,7 +231,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 5 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               5. Retention of Personal Information
             </h2>
             <p>
@@ -244,7 +244,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 6 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               6. Security of Personal Information
             </h2>
             <p>
@@ -257,7 +257,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 7 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               7. Links to Third-Party Websites
             </h2>
             <p>
@@ -267,7 +267,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 8 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               8. Children Under the Age of 13
             </h2>
             <p>
@@ -284,7 +284,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 9 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               9. Privacy Rights, Choices, and Appeals
             </h2>
             <p>
@@ -317,7 +317,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 10 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               10. Changes to This Privacy Policy
             </h2>
             <p>
@@ -327,7 +327,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 11 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               11. Child Safety & Harm Reporting
             </h2>
             <p>
@@ -341,7 +341,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 12 */}
           <section className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               12. How to Contact Us About Privacy Requests
             </h2>
             <p>

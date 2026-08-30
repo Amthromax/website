@@ -73,8 +73,8 @@ const PrivacyRequestPortalPage: React.FC = () => {
       />
 
       {/* Hero Header */}
-      <section className="relative pt-24 pb-10 border-b border-black/[0.06] bg-[#f5f5f7]">
-        <div className="max-w-4xl mx-auto px-6 sm:px-8">
+      <section className="relative pt-[60px] pb-10 border-b border-black/[0.06] bg-[#f5f5f7]">
+        <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16">
           <div className="flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-widest text-gray-500 mb-4 font-inter">
             <Link to="/privacy-center" className="hover:text-black transition-colors">
               Privacy Center
@@ -89,10 +89,10 @@ const PrivacyRequestPortalPage: React.FC = () => {
             transition={{ duration: 0.35 }}
             className="space-y-3"
           >
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight text-gray-950 leading-tight font-inter">
+            <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal tracking-tight text-gray-950 leading-tight font-inter">
               Privacy Subject Request Portal (DSAR)
             </h1>
-            <p className="text-sm sm:text-base text-gray-600 max-w-2xl leading-relaxed font-normal">
+            <p className="text-[17px] sm:text-lg text-gray-600 max-w-[1300px] leading-[1.75] font-normal">
               Exercise your legal rights under GDPR, CCPA/CPRA, India DPDP, Brazil LGPD, or PIPEDA. Every request undergoes automated identity verification and compliance auditing.
             </p>
           </motion.div>
@@ -100,7 +100,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
       </section>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-6 sm:px-8 py-10 space-y-8 font-inter">
+      <main className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 py-10 space-y-[48px] font-inter">
         
         {submittedRequest ? (
           <div className="bg-white border border-black/[0.06] rounded-2xl p-8 shadow-sm space-y-6 text-center">

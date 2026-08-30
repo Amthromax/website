@@ -11,11 +11,12 @@ const TermsOfServicePage: React.FC = () => {
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="max-w-6xl md:max-w-7xl mx-auto px-6 sm:px-12 lg:px-16 pt-12 pb-24">
+      {/* Clean Document Reading Layout Container */}
+      <div className="max-w-[1420px] mx-auto px-6 sm:px-12 lg:px-16 pt-[60px] pb-24">
         
         {/* Main Document Header */}
         <header className="mb-10">
-          <h1 className="text-4xl sm:text-5xl lg:text-[46px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
+          <h1 className="text-3xl sm:text-[38px] lg:text-[40px] font-normal text-gray-950 dark:text-white tracking-tight leading-tight">
             Amthromax Terms of Service
           </h1>
           <p className="text-base italic text-gray-500 dark:text-zinc-400 mt-3 font-normal">
@@ -24,7 +25,7 @@ const TermsOfServicePage: React.FC = () => {
         </header>
 
         {/* Introductory Preamble */}
-        <div className="space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.8] font-normal">
+        <div className="max-w-[1300px] space-y-6 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
           <p>
             These Terms of Service (<strong>"Terms of Service"</strong> or <strong>"Terms"</strong>) are a legally binding agreement between you (<strong>"you"</strong> or <strong>"your"</strong>) and Amthromax Inc. (<strong>"Amthromax"</strong>, <strong>"we"</strong>, <strong>"our"</strong>, or <strong>"us"</strong>) governing your use of the Service and your relationship with us.
           </p>
@@ -69,11 +70,11 @@ const TermsOfServicePage: React.FC = () => {
         </div>
 
         {/* Detailed Terms Sections */}
-        <div className="space-y-12 mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.8] font-normal">
+        <div className="max-w-[1300px] space-y-[48px] mt-12 text-[17px] sm:text-lg text-gray-800 dark:text-zinc-300 leading-[1.75] font-normal">
           
           {/* 1. DEFINITIONS */}
           <section id="section-1" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               1. Definitions
             </h2>
             
@@ -114,7 +115,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 2. GRANT OF LICENSE; OWNERSHIP; SUPPORT */}
           <section id="section-2" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               2. Grant of License, Ownership, and Support
             </h2>
 
@@ -155,7 +156,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 3. AUTHORIZED USE / LICENSE RESTRICTIONS */}
           <section id="section-3" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               3. Authorized Use and License Restrictions
             </h2>
 
@@ -172,7 +173,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 4. FEES AND PAYMENT TERMS */}
           <section id="section-4" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               4. Fees and Payment Terms
             </h2>
 
@@ -183,7 +184,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 5. TERM AND TERMINATION */}
           <section id="section-5" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               5. Term and Termination
             </h2>
 
@@ -194,7 +195,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 6. REPRESENTATIONS AND WARRANTIES */}
           <section id="section-6" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               6. Representations, Warranties, and Disclaimers
             </h2>
 
@@ -205,7 +206,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 7. ARBITRATION AND GOVERNING LAW */}
           <section id="section-7" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               7. Binding Arbitration and Governing Law
             </h2>
 
@@ -216,7 +217,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 8. LIMITATION OF LIABILITY */}
           <section id="section-8" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               8. Limitation of Liability
             </h2>
 
@@ -227,7 +228,7 @@ const TermsOfServicePage: React.FC = () => {
 
           {/* 9. CONTACT LEGAL DEPARTMENT & REGIONAL REPRESENTATIVES */}
           <section id="section-9" className="space-y-4">
-            <h2 className="text-2xl sm:text-[26px] font-normal text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
               9. Contact Legal Department & Regional Representatives
             </h2>
 
