@@ -11,10 +11,10 @@ const TermsOfServicePage: React.FC = () => {
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="legal-container pt-[48px]">
+      <div className="legal-container pt-[72px]">
         
         {/* Main Document Header */}
-        <header className="mb-8">
+        <header className="mb-10">
           <h1 className="privacy-title text-gray-950 dark:text-[#f5f5f5]">
             Amthromax Terms of Service — Consumer & Platform Usage
           </h1>

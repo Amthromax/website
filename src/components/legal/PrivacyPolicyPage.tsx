@@ -29,7 +29,7 @@ const PrivacyPolicyPage: React.FC = () => {
       />
 
       {/* Clean Document Reading Layout Container */}
-      <div className="legal-container pt-[48px]">
+      <div className="legal-container pt-[72px]">
         
         {/* Main Document Header */}
         <header>
