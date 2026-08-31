@@ -432,3 +432,17 @@
     margin-bottom: 36px;
   }
 }
+
+/* ── MAIN HEADER GUARD ───────────────────────────────────────────────
+   The main site header reuses .privacy-header for its 76px/152px layout,
+   so the unlayered `.privacy-header nav { display: flex }` rule above was
+   defeating Tailwind@4's layered `.hidden` utility on the desktop-only
+   nav (unlayered CSS always beats layered CSS). That forced the 417px
+   desktop nav to render at 375px, overflowing the page and pushing the
+   mobile hamburger off-screen. Restore `hidden` below Tailwind lg only,
+   so desktop rendering is unchanged. */
+@media (width < 64rem) {
+  .privacy-header nav.hidden {
+    display: none;
+  }
+}
