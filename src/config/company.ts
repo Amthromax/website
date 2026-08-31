@@ -36,7 +36,7 @@ export const COMPANY_CONFIG: CompanyConfig = {
   url: "https://amthromax.com",
   category: "AI Software Company",
   description:
-    "Amthromax is an artificial intelligence and software company developing advanced AI products, autonomous agents, developer tools, and intelligent software systems.",
+    "Amthromax is an artificial intelligence and software company developing AI products, autonomous agents, developer tools, automation platforms, and intelligent software systems.",
   tagline: "Enterprise AI Platforms & Intelligent Automation Systems",
   logo: "https://amthromax.com/images/logo.png",
   ogImage: "https://amthromax.com/og-image.png",

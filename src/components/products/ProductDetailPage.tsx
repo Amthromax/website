@@ -34,20 +34,17 @@ const ProductDetailPage: React.FC = () => {
 
   const productSchema = {
     "@type": "SoftwareApplication",
-    "@id": `${product.url}/#software`,
+    "@id": `${product.url}#software`,
     "name": product.name,
     "url": product.url,
     "description": product.description,
     "applicationCategory": product.category,
     "operatingSystem": "Cloud Infrastructure / Cross-Platform",
-    "provider": {
-      "@id": "https://amthromax.com/#organization"
+    "creator": {
+      "@id": `${COMPANY_CONFIG.url}/#organization`
     },
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD",
-      "availability": "https://schema.org/InStock"
+    "publisher": {
+      "@id": `${COMPANY_CONFIG.url}/#organization`
     }
   };
 

@@ -5,17 +5,31 @@
     {
       "src": "/favicon.png",
       "type": "image/png",
-      "sizes": "192x192"
+      "sizes": "32x32",
+      "purpose": "any"
     },
     {
       "src": "/apple-touch-icon.png",
       "type": "image/png",
-      "sizes": "512x512"
+      "sizes": "180x180",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-192.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon-512.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any"
     }
   ],
   "start_url": "/",
   "background_color": "#000000",
   "theme_color": "#000000",
   "display": "standalone",
-  "description": "Amthromax is an artificial intelligence and software company developing advanced AI products, autonomous agents, developer tools, and intelligent software systems."
+  "description": "Amthromax is an artificial intelligence and software company developing AI products, autonomous agents, developer tools, automation platforms, and intelligent software systems."
 }

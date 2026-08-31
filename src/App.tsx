@@ -809,7 +809,7 @@ const App: React.FC = () => {
           <Routes location={location}>
             <Route path="/" element={
               <div>
-                <SEO title="Amthromax — Artificial Intelligence Company" description="Amthromax is an artificial intelligence and software company developing advanced AI products, autonomous agents, developer tools, and intelligent software systems." />
+                <SEO title="Amthromax — Artificial Intelligence Company" description="Amthromax is an artificial intelligence and software company developing AI products, autonomous agents, developer tools, automation platforms, and intelligent software systems." />
                 <HeroSection />
                 <FeaturesSection />
 

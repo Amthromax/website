@@ -95,43 +95,14 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag("name", "twitter:image", image);
 
     // 6. JSON-LD Knowledge Graph Generation
-    const organizationEntity = {
-      "@type": "Organization",
-      "@id": `${COMPANY_CONFIG.url}/#organization`,
-      "name": COMPANY_CONFIG.name,
-      "legalName": COMPANY_CONFIG.legalName,
-      "url": `${COMPANY_CONFIG.url}/`,
-      "logo": {
-        "@type": "ImageObject",
-        "@id": `${COMPANY_CONFIG.url}/#logo`,
-        "url": COMPANY_CONFIG.logo,
-        "caption": COMPANY_CONFIG.name
-      },
-      "description": "Amthromax is an artificial intelligence and software company.",
-      "email": COMPANY_CONFIG.email,
-      "sameAs": COMPANY_CONFIG.socialProfiles,
-      "brand": [
-        { "@id": `${COMPANY_CONFIG.url}/codehoomer#software` },
-        { "@id": `${COMPANY_CONFIG.url}/helleious#software` },
-        { "@id": `${COMPANY_CONFIG.url}/orarqlow#software` }
-      ]
-    };
-
-    const websiteEntity = {
-      "@type": "WebSite",
-      "@id": `${COMPANY_CONFIG.url}/#website`,
-      "url": `${COMPANY_CONFIG.url}/`,
-      "name": COMPANY_CONFIG.name,
-      "alternateName": "Amthromax AI",
-      "description": COMPANY_CONFIG.description,
-      "publisher": {
-        "@id": `${COMPANY_CONFIG.url}/#organization`
-      }
-    };
+    // The canonical Organization and WebSite entities are declared once, statically,
+    // in index.html (served on every SPA route). They are deliberately NOT re-emitted
+    // here; this runtime graph only adds page-level entities that reference them by @id.
+    const entityBase = canonicalUrl.replace(/\/+$/, "");
 
     const webpageEntity = {
       "@type": "WebPage",
-      "@id": `${canonicalUrl}/#webpage`,
+      "@id": `${entityBase}/#webpage`,
       "url": canonicalUrl,
       "name": formattedTitle,
       "description": description,
@@ -143,13 +114,13 @@ const SEO: React.FC<SEOProps> = ({
       }
     };
 
-    const jsonLdGraph: any[] = [organizationEntity, websiteEntity, webpageEntity];
+    const jsonLdGraph: any[] = [webpageEntity];
 
     // Add Breadcrumbs if provided
     if (breadcrumbs && breadcrumbs.length > 0) {
       jsonLdGraph.push({
         "@type": "BreadcrumbList",
-        "@id": `${canonicalUrl}/#breadcrumb`,
+        "@id": `${entityBase}/#breadcrumb`,
         "itemListElement": breadcrumbs.map((crumb, idx) => ({
           "@type": "ListItem",
           "position": idx + 1,
