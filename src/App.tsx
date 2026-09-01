@@ -38,6 +38,7 @@ import ProductsPage from "./components/products/ProductsPage";
 import DocsPage from "./components/docs/DocsPage";
 import PricingPage from "./components/pricing/PricingPage";
 import CareersPage from "./components/careers/CareersPage";
+import AmthromaxLogo from "./components/common/AmthromaxLogo";
 import SecurityPage from "./components/security/SecurityPage";
 import AboutPage from "./components/about/AboutPage";
 import ProductDetailPage from "./components/products/ProductDetailPage";
@@ -269,8 +270,8 @@ const App: React.FC = () => {
           <div className="privacy-header max-w-full">
             {/* Left Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="flex items-center gap-2 text-[15px] md:text-[16.5px] font-medium text-gray-900 dark:text-white uppercase tracking-[0.2em] hover:opacity-80 transition-all select-none group">
-                <span>Amthromax</span>
+              <Link to="/" className="flex items-center hover:opacity-80 transition-all select-none group">
+                <AmthromaxLogo size="custom" className="text-[17px] md:text-[19.5px]" />
               </Link>
             </div>
 
@@ -671,9 +672,9 @@ const App: React.FC = () => {
               <Link
                 to="/"
                 onClick={() => setIsMobileMenuOpen(false)}
-                className="text-xl sm:text-2xl font-bold text-white tracking-tighter"
+                className="hover:opacity-80 transition-all select-none"
               >
-                Amthromax
+                <AmthromaxLogo size="lg" />
               </Link>
               <button
                 type="button"

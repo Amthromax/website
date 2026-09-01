@@ -2,7 +2,7 @@ import React from "react";
 
 interface AmthromaxLogoProps {
   className?: string;
-  size?: "sm" | "md" | "lg" | "xl";
+  size?: "sm" | "md" | "lg" | "xl" | "custom";
 }
 
 export const AmthromaxLogo: React.FC<AmthromaxLogoProps> = ({
@@ -14,6 +14,7 @@ export const AmthromaxLogo: React.FC<AmthromaxLogoProps> = ({
     md: "text-[18px]",
     lg: "text-[22px]",
     xl: "text-[28px]",
+    custom: "",
   };
 
   return (
