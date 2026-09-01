@@ -30,6 +30,7 @@ export default {
         ring: 'hsl(var(--ring))',
       },
       fontFamily: {
+        'nevan': ['Nevan', 'Outfit', 'Inter', 'sans-serif'],
         'sans': ['Inter', 'Plus Jakarta Sans', 'SF Pro Display', 'SF Pro Text', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
         'serif': ['Inter', 'Plus Jakarta Sans', 'sans-serif'],
         'display': ['Inter', 'Plus Jakarta Sans', 'sans-serif'],

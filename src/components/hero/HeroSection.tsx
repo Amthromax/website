@@ -1383,23 +1383,6 @@ const StIcon: React.FC<{ k: string; className?: string }> = ({ k, className }) =
   );
 };
 
-/* 3D Glass Asterisk Core Emblem without outer black box container */
-const StudioBot: React.FC<{ blink?: boolean; look?: number }> = () => (
-  <div className="relative group shrink-0 select-none">
-    {/* Ambient Glow behind 3D Asterisk */}
-    <div className="absolute inset-0 rounded-full bg-white/10 blur-xl group-hover:opacity-100 opacity-50 transition-opacity duration-500 amx-blip" />
-    
-    {/* Floating 3D Emblem Image ONLY - Seamless integration */}
-    <div className="amx-bob relative h-[62px] w-[62px] md:h-[74px] md:w-[74px] flex items-center justify-center transition-transform duration-300 group-hover:scale-110 drop-shadow-[0_8px_16px_rgba(0,0,0,0.4)]">
-      <img
-        src="/images/asterisk_3d_transparent.png"
-        alt="Amthromax 3D Core Emblem"
-        className="w-full h-full object-contain filter drop-shadow-[0_6px_12px_rgba(0,0,0,0.3)]"
-      />
-    </div>
-  </div>
-);
-
 const AMTHROMAX_MODELS = [
   { name: "Simifig", tag: "Flagship", desc: "Frontier reasoning & code synthesis" },
   { name: "Ligivor", tag: "Multimodal", desc: "Real-time UI & spatial generation" },
@@ -1472,16 +1455,6 @@ const DesignStudio: React.FC = () => {
     [reduced],
   );
 
-  const resetRun = React.useCallback(() => {
-    pickRef.current = -1;
-    setPick(null);
-    setMf(null);
-  }, []);
-
-  const againRun = React.useCallback(() => {
-    if (pick !== null) startRun(pick);
-  }, [pick, startRun]);
-
   const run = ST_RUNS[f.run];
 
   /* One view object, so every readout below reports whichever timeline is
@@ -1512,14 +1485,6 @@ const DesignStudio: React.FC = () => {
         : f.phase === "send"
           ? "Sending to the model"
           : "Waiting for a prompt";
-
-  /* What the popup quotes: the layer being written now, then what is queued. */
-  const vQueue = [...vRun.layers, "Finalising the layout", "Handing off to preview"];
-  const li = mf ? Math.max(0, Math.min(vRun.layers.length - 1, mf.layers - 1)) : 0;
-  const popLines =
-    mf && mf.phase === "done"
-      ? [vRun.host, `${vRun.layers.length} layers, ${nodes} nodes`, `${vRun.tok.toLocaleString()} tokens`]
-      : [vQueue[li], vQueue[li + 1], vQueue[li + 2]];
 
   return (
     <div className="bg-black rounded-2xl border border-white/10 shadow-sm flex flex-col md:h-[390px] group hover:border-white/20 transition-all duration-300 relative">
@@ -1569,12 +1534,11 @@ const DesignStudio: React.FC = () => {
       <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
         {/* ---- prompt side ---- */}
         <div className="flex min-h-0 flex-col justify-center gap-3 bg-black p-4 md:p-5">
-          <div className="flex items-start justify-between gap-3">
+          <div className="flex items-start gap-3">
             <h3 className="font-sans text-[20px] leading-[1.25] tracking-tight text-white md:text-[25px]">
               Turn your <span className="font-semibold text-white">ideas</span> into{" "}
               <span className="font-semibold text-white">interfaces</span>
             </h3>
-            <StudioBot blink={f.blink} look={f.look} />
           </div>
 
           <div className="relative rounded-2xl bg-black border border-white/15 p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-white/30 group/glass">
@@ -1787,67 +1751,6 @@ const DesignStudio: React.FC = () => {
               </div>
             )}
 
-            {/* Live report of the run the visitor started. */}
-            {mf && mf.phase !== "spin" && (
-              <div className="amx-rise absolute inset-0 z-10 flex items-center">
-                <div className="w-full rounded-2xl border border-white/[0.12] bg-[#141519] p-3 shadow-[0_16px_44px_rgba(0,0,0,0.6)]">
-                  <div className="flex items-center justify-between gap-2">
-                    <span className="truncate font-sans text-[10px] font-medium uppercase tracking-[0.14em] text-purple-300">
-                      {mf.phase === "run" ? "Running your prompt" : "Build complete"}
-                    </span>
-                    {mf.phase === "run" ? (
-                      <span className="amx-spin size-3.5 shrink-0 rounded-full border-[1.6px] border-purple-400/20 border-t-purple-400" />
-                    ) : (
-                      <span className="flex size-3.5 shrink-0 items-center justify-center rounded-full bg-purple-500/20 font-sans text-[8px] leading-none text-purple-300">
-                        &#10003;
-                      </span>
-                    )}
-                  </div>
-
-                  <div className="mt-2.5 flex items-start gap-2.5">
-                    <span
-                      className="size-9 shrink-0 rounded-lg ring-1 ring-white/20 transition-all duration-500 shadow-sm"
-                      style={{
-                        background: `linear-gradient(135deg, ${vRun.pal[1]} 0%, ${vRun.pal[2]} 100%)`,
-                        opacity: 0.45 + (vPct / 100) * 0.55,
-                      }}
-                    />
-                    <div className="min-w-0 flex-1 space-y-[3px]">
-                      <p className="truncate font-sans text-[12.5px] font-semibold leading-tight text-white tracking-tight">
-                        &ldquo;{popLines[0]}&rdquo;
-                      </p>
-                      <p className="truncate font-sans text-[11.5px] font-medium leading-tight text-gray-200">
-                        &ldquo;{popLines[1]}&rdquo;
-                      </p>
-                      <p className="truncate font-sans text-[11.5px] font-medium leading-tight text-gray-300">
-                        &ldquo;{popLines[2]}&rdquo;
-                      </p>
-                    </div>
-                  </div>
-
-                  <div className="mt-2.5 flex items-center gap-2">
-                    <button
-                      type="button"
-                      onClick={resetRun}
-                      className="cursor-pointer rounded-full bg-white/15 hover:bg-white/25 backdrop-blur-md px-4 py-1.5 font-sans text-[12.5px] font-bold text-white shadow-md hover:scale-105 active:scale-95 transition-all duration-200"
-                    >
-                      Start over
-                    </button>
-                    <button
-                      type="button"
-                      onClick={againRun}
-                      disabled={mf.phase === "run"}
-                      className="cursor-pointer rounded-full bg-white text-black hover:bg-gray-200 px-4.5 py-1.5 font-sans text-[12.5px] font-bold shadow-md hover:scale-105 active:scale-95 transition-all duration-200 disabled:cursor-default disabled:opacity-50"
-                    >
-                      {mf.phase === "run" ? `Building ${mf.pct}%` : "Build again"}
-                    </button>
-                    <span className="ml-auto shrink-0 font-mono text-[10.5px] font-medium text-gray-300">
-                      {(mf.elapsed / 1000).toFixed(1)}s
-                    </span>
-                  </div>
-                </div>
-              </div>
-            )}
           </div>
 
           <div className="mt-auto rounded-2xl bg-black border border-white/10 px-4 py-3.5 shadow-lg">

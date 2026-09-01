@@ -1,6 +1,11 @@
 @import "tailwindcss";
+@import url('https://fonts.cdnfonts.com/css/nevan');
 @import url('https://fonts.cdnfonts.com/css/sf-pro-display');
 @custom-variant dark (&:where(.dark, .dark *));
+
+.font-nevan {
+  font-family: 'Nevan', 'Outfit', 'Inter', system-ui, sans-serif !important;
+}
 
 @theme {
   --color-border: hsl(var(--border));

@@ -269,150 +269,150 @@ const App: React.FC = () => {
           <div className="privacy-header max-w-full">
             {/* Left Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="flex items-center gap-2 text-base md:text-[18px] font-bold text-gray-900 dark:text-white tracking-tight hover:opacity-80 transition-all select-none group">
-                <span>Amthromax</span>
+              <Link to="/" className="flex items-center text-[16px] md:text-[18.5px] font-black font-nevan text-gray-900 dark:text-white uppercase tracking-[0.22em] hover:opacity-80 transition-all select-none group">
+                <span style={{ fontFamily: "'Nevan', 'Outfit', 'Inter', system-ui, sans-serif" }}>&#581;MTHROM&#581;X</span>
               </Link>
             </div>
 
             {/* Center Navigation Links (Desktop only) */}
-            <nav className="hidden lg:flex items-center justify-center gap-[34px] flex-1">
+            <nav className="hidden lg:flex items-center justify-center gap-[26px] flex-1">
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('research')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
               >
                 Intelligence
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('products')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
               >
                 Products
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('business')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
               >
                 Business
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('developers')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
               >
                 Developers
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('company')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
               >
                 Company
               </button>
               <Link
                 to="/foundation"
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 leading-none"
               >
                 Ai Intelli Hub
               </Link>
             </nav>
 
-              {/* Action Buttons & Menu Toggles (Right) */}
-              <div className="flex items-center justify-end space-x-4">
-                {/* Desktop Log In / Profile & Try Button (Desktop only) */}
-                <div className="hidden lg:flex items-center space-x-4">
-                  {authLoading ? (
-                    <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
-                  ) : (
-                    <>
-                      {user ? (
-                        <div className="relative group">
-                          <button
-                            type="button"
-                            className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
-                          >
-                            {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
-                              <img
-                                src={user.user_metadata.avatar_url || user.user_metadata.picture}
-                                alt="Profile"
-                                className="w-full h-full object-cover"
-                                referrerPolicy="no-referrer"
-                              />
-                            ) : (
-                              <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
-                                {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
-                              </span>
-                            )}
-                          </button>
-                          {/* Hover Dropdown menu */}
-                          <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-                            <div className="p-3 border-b border-white/[0.08]">
-                              {user.user_metadata?.full_name || user.user_metadata?.name ? (
-                                <p className="text-xs font-bold text-white truncate mb-1">
-                                  {user.user_metadata.full_name || user.user_metadata.name}
-                                </p>
-                              ) : null}
-                              <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
-                              <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
-                            </div>
-                            <div className="p-2 space-y-1">
-                              <Link
-                                to="/profile"
-                                className="block text-left px-3 py-2 text-xs font-bold text-white hover:bg-white/5 rounded-xl transition-all"
-                              >
-                                Settings
-                              </Link>
-                              <button
-                                type="button"
-                                onClick={async () => {
-                                  await signOut();
-                                }}
-                                className="w-full text-left px-3 py-2 text-xs font-bold text-white/80 hover:bg-white/10 hover:text-white rounded-xl transition-all cursor-pointer"
-                              >
-                                Sign Out
-                              </button>
-                            </div>
+            {/* Action Buttons & Menu Toggles (Right) */}
+            <div className="flex items-center justify-end space-x-4">
+              {/* Desktop Log In / Profile & Try Button (Desktop only) */}
+              <div className="hidden lg:flex items-center space-x-4">
+                {authLoading ? (
+                  <span className="w-5 h-5 border-2 border-white/20 border-t-white rounded-full animate-spin" />
+                ) : (
+                  <>
+                    {user ? (
+                      <div className="relative group">
+                        <button
+                          type="button"
+                          className="w-8 h-8 rounded-full overflow-hidden flex items-center justify-center border border-white/10 shadow-sm focus:outline-none hover:opacity-90 transition-all select-none"
+                        >
+                          {user.user_metadata?.avatar_url || user.user_metadata?.picture ? (
+                            <img
+                              src={user.user_metadata.avatar_url || user.user_metadata.picture}
+                              alt="Profile"
+                              className="w-full h-full object-cover"
+                              referrerPolicy="no-referrer"
+                            />
+                          ) : (
+                            <span className="w-full h-full font-black text-xs bg-white text-black flex items-center justify-center">
+                              {(user.user_metadata?.full_name || user.user_metadata?.name || user.email || "?")[0].toUpperCase()}
+                            </span>
+                          )}
+                        </button>
+                        {/* Hover Dropdown menu */}
+                        <div className="absolute right-0 mt-0 pt-2 w-48 bg-[#0b0b0c] border border-white/[0.08] rounded-2xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                          <div className="p-3 border-b border-white/[0.08]">
+                            {user.user_metadata?.full_name || user.user_metadata?.name ? (
+                              <p className="text-xs font-bold text-white truncate mb-1">
+                                {user.user_metadata.full_name || user.user_metadata.name}
+                              </p>
+                            ) : null}
+                            <p className="text-[10px] font-bold text-white/45 uppercase tracking-wider">Signed in as</p>
+                            <p className="text-xs font-medium text-white/60 truncate">{user.email}</p>
+                          </div>
+                          <div className="p-2 space-y-1">
+                            <Link
+                              to="/profile"
+                              className="block text-left px-3 py-2 text-xs font-bold text-white hover:bg-white/5 rounded-xl transition-all"
+                            >
+                              Settings
+                            </Link>
+                            <button
+                              type="button"
+                              onClick={async () => {
+                                await signOut();
+                              }}
+                              className="w-full text-left px-3 py-2 text-xs font-bold text-white/80 hover:bg-white/10 hover:text-white rounded-xl transition-all cursor-pointer"
+                            >
+                              Sign Out
+                            </button>
                           </div>
                         </div>
-                      ) : (
-                        <LoginDropdownButton />
-                      )}
-                      <TryDropdownButton
-                        onTryClick={() => {
-                          setShowComingSoonModal(true);
-                          setIsSubmittedWaitlist(false);
-                        }}
-                      />
-                    </>
-                  )}
-                </div>
-
-                {/* Mobile Hamburger Toggle (Mobile only) */}
-                <div className="lg:hidden flex items-center space-x-2">
-                  <button
-                    type="button"
-                    onClick={() => {
-                      setIsMobileMenuOpen(!isMobileMenuOpen);
-                      setIsSearchOpen(false);
-                    }}
-                    className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
-                    aria-label="Toggle mobile menu"
-                  >
-                    {isMobileMenuOpen ? (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                      </svg>
+                      </div>
                     ) : (
-                      <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                      </svg>
+                      <LoginDropdownButton />
                     )}
-                  </button>
-                </div>
+                    <TryDropdownButton
+                      onTryClick={() => {
+                        setShowComingSoonModal(true);
+                        setIsSubmittedWaitlist(false);
+                      }}
+                    />
+                  </>
+                )}
+              </div>
+
+              {/* Mobile Hamburger Toggle (Mobile only) */}
+              <div className="lg:hidden flex items-center space-x-2">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsMobileMenuOpen(!isMobileMenuOpen);
+                    setIsSearchOpen(false);
+                  }}
+                  className="text-gray-700 hover:text-black dark:text-white/80 dark:hover:text-white p-2 transition-colors duration-200 focus:outline-none flex items-center justify-center animate-none"
+                  aria-label="Toggle mobile menu"
+                >
+                  {isMobileMenuOpen ? (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  ) : (
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" strokeWidth="2.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+                    </svg>
+                  )}
+                </button>
               </div>
             </div>
+          </div>
 
           {/* Unified MegaDropdown */}
           <AnimatePresence>
