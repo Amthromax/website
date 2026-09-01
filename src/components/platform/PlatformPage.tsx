@@ -135,10 +135,10 @@ const PlatformPage: React.FC = () => {
         {/* Live Metrics & Telemetry Bar (Minimalist List) */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {[
-            { label: "AVG CACHE LATENCY", value: "12 ms", sub: "vs 1,450ms raw model", highlight: "text-emerald-600 dark:text-emerald-400" },
-            { label: "CACHE HIT RATIO", value: "88.4%", sub: "Semantic intent matching", highlight: "text-blue-600 dark:text-blue-400" },
-            { label: "ESTIMATED COST SAVED", value: `$${(14290 + history.length * 1.42).toFixed(2)}`, sub: "Calculated @ $0.002/1k tokens", highlight: "text-amber-600 dark:text-amber-400" },
-            { label: "EXECUTION AUDIT TRAIL", value: "100%", sub: "Immutable SOC2 ledger", highlight: "text-purple-600 dark:text-purple-400" }
+            { label: "AVG CACHE LATENCY", value: "12 ms", sub: "vs 1,450ms raw model" },
+            { label: "CACHE HIT RATIO", value: "88.4%", sub: "Semantic intent matching" },
+            { label: "ESTIMATED COST SAVED", value: `$${(14290 + history.length * 1.42).toFixed(2)}`, sub: "Calculated @ $0.002/1k tokens" },
+            { label: "EXECUTION AUDIT TRAIL", value: "100%", sub: "Immutable SOC2 ledger" }
           ].map((kpi, idx) => (
             <motion.div
               key={idx}
@@ -148,9 +148,9 @@ const PlatformPage: React.FC = () => {
               transition={{ delay: idx * 0.1 }}
               className="border-t border-gray-200 dark:border-white/10 pt-4 pb-2 space-y-1 text-left"
             >
-              <span className="text-[10px] font-bold tracking-wider text-gray-400 dark:text-gray-500 block uppercase">{kpi.label}</span>
-              <span className={`text-2xl md:text-3xl font-black tracking-tight ${kpi.highlight}`}>{kpi.value}</span>
-              <span className="text-[10px] font-medium text-gray-500 dark:text-gray-400 block">{kpi.sub}</span>
+              <span className="text-[10px] font-medium tracking-wider text-gray-500 dark:text-gray-400 block uppercase">{kpi.label}</span>
+              <span className="text-2xl md:text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">{kpi.value}</span>
+              <span className="text-[10px] font-normal text-gray-500 dark:text-gray-400 block">{kpi.sub}</span>
             </motion.div>
           ))}
         </div>
@@ -277,7 +277,7 @@ const PlatformPage: React.FC = () => {
               {/* Telemetry Header */}
               <div className="bg-gray-100 dark:bg-black px-4 py-3 border-b border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div className="flex items-center space-x-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-400 inline-block" />
+                  <span className="w-2.5 h-2.5 rounded-full bg-gray-400 dark:bg-gray-500 inline-block" />
                   <span className="text-xs text-gray-700 dark:text-gray-300 font-semibold">real-time-core-orchestrator</span>
                 </div>
                 <span className="text-xs font-sans font-semibold text-gray-700 dark:text-gray-300">
@@ -290,7 +290,7 @@ const PlatformPage: React.FC = () => {
                 <div className="space-y-3">
                   <div className="flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 border-b border-gray-200 dark:border-white/10 pb-2 font-semibold">
                     <span>EXECUTION FLOW LOG</span>
-                    <span className="animate-pulse text-emerald-500 dark:text-emerald-400 font-bold">● ONLINE</span>
+                    <span className="animate-pulse text-gray-700 dark:text-gray-300 font-semibold">● ONLINE</span>
                   </div>
 
                   {/* Execution Progress */}

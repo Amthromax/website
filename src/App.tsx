@@ -269,51 +269,51 @@ const App: React.FC = () => {
           <div className="privacy-header max-w-full">
             {/* Left Logo */}
             <div className="flex-shrink-0 flex items-center">
-              <Link to="/" className="flex items-center text-[16px] md:text-[18.5px] font-black font-nevan text-gray-900 dark:text-white uppercase tracking-[0.22em] hover:opacity-80 transition-all select-none group">
-                <span style={{ fontFamily: "'Nevan', 'Outfit', 'Inter', system-ui, sans-serif" }}>&#581;MTHROM&#581;X</span>
+              <Link to="/" className="flex items-center gap-2 text-[15px] md:text-[16.5px] font-medium text-gray-900 dark:text-white uppercase tracking-[0.2em] hover:opacity-80 transition-all select-none group">
+                <span>Amthromax</span>
               </Link>
             </div>
 
             {/* Center Navigation Links (Desktop only) */}
-            <nav className="hidden lg:flex items-center justify-center gap-[26px] flex-1">
+            <nav className="hidden lg:flex items-center justify-center gap-[34px] flex-1">
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('research')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
               >
                 Intelligence
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('products')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
               >
                 Products
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('business')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
               >
                 Business
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('developers')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
               >
                 Developers
               </button>
               <button
                 type="button"
                 onMouseEnter={() => handleMouseEnter('company')}
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 cursor-pointer leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 cursor-pointer leading-none"
               >
                 Company
               </button>
               <Link
                 to="/foundation"
-                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[20px] font-medium py-2 leading-none"
+                className="text-[#6b7280] dark:text-[#9b9b9b] hover:text-black dark:hover:text-white transition-colors duration-200 text-[14px] font-medium py-2 leading-none"
               >
                 Ai Intelli Hub
               </Link>
