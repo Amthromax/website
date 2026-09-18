@@ -1068,7 +1068,7 @@ const ST_RUNS: StudioRun[] = [
     layers: ["Nav + logo lockup", "Hero headline", "Live timer widget", "Pricing table", "Footer"],
     spans: [3, 5, 2, 4, 2],
     pal: ["#18181b", "#2563eb", "#a855f7", "#e4e4e7"],
-    host: "amthromax.design/timeflow",
+    host: "openrower.design/timeflow",
     tok: 1840,
   },
   {
@@ -1078,7 +1078,7 @@ const ST_RUNS: StudioRun[] = [
     layers: ["Sidebar rail", "Project grid", "Case study", "Contact form"],
     spans: [2, 5, 4, 3],
     pal: ["#0b0c0e", "#a855f7", "#f59e0b", "#e4e4e7"],
-    host: "amthromax.design/folio",
+    host: "openrower.design/folio",
     tok: 1265,
   },
   {
@@ -1088,7 +1088,7 @@ const ST_RUNS: StudioRun[] = [
     layers: ["Sticky header", "Product carousel", "Bundle offer", "Reviews", "Footer + links"],
     spans: [2, 5, 3, 4, 2],
     pal: ["#1c1917", "#f472b6", "#fb923c", "#e7e5e4"],
-    host: "amthromax.design/lumen",
+    host: "openrower.design/lumen",
     tok: 2110,
   },
 ];
@@ -1497,7 +1497,7 @@ const DesignStudio: React.FC = () => {
           <span className="size-3 rounded-full bg-[#ffbd2e] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
           <span className="size-3 rounded-full bg-[#27c93f] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
-        <span className="font-mono text-[11.5px] font-semibold text-gray-300 tracking-wider">amthromax.design / studio</span>
+        <span className="font-mono text-[11.5px] font-semibold text-gray-300 tracking-wider">openrower.design / studio</span>
         <div className="flex items-center gap-1.5 sm:gap-2">
           {/* Terminal button (>_) */}
           <button
