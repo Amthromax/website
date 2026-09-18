@@ -77,7 +77,7 @@ const SEO: React.FC<SEOProps> = ({
     updateMetaTag(
       "name",
       "robots",
-      noindex ? "noindex, nofollow" : "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+      noindex ? "noindex, nofollow" : "index, follow, max-image-preview:none, max-snippet:-1, max-video-preview:-1"
     );
 
     // 4. OpenGraph Tags

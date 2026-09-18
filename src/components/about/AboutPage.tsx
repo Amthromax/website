@@ -94,7 +94,7 @@ const AboutPage: React.FC = () => {
                       </filter>
                     </defs>
                     <rect width="100%" height="100%" fill="url(#skyGrad)" />
-                    
+
                     {/* Impressionist Painterly Layers */}
                     <g filter="url(#oilPaint)" opacity="0.92">
                       <circle cx="400" cy="200" r="280" fill="#fde047" opacity="0.65" />

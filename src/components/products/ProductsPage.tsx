@@ -154,30 +154,30 @@ const ProductsPage: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-[#1d1d1f] dark:text-gray-50 font-sans transition-colors duration-300 antialiased">
-      <SEO 
-        title="Amthromax Products | Enterprise AI & Software Systems" 
-        description="Browse the suite of Amthromax products: custom software engineering, cloud pipelines, Atlas AI agents, cybersecurity tools, and analytics." 
+      <SEO
+        title="Amthromax Products | Enterprise AI & Software Systems"
+        description="Browse the suite of Amthromax products: custom software engineering, cloud pipelines, Atlas AI agents, cybersecurity tools, and analytics."
       />
 
       {/* Hero Header */}
       <div className="relative py-20 md:py-28 overflow-hidden flex flex-col items-center justify-center text-center bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
-        
+
         {/* Top Header Label Bar */}
         <div className="relative z-10 max-w-7xl mx-auto px-6 pb-6 w-full flex justify-between items-center text-xs text-gray-500 dark:text-gray-400 font-sans">
-          <a 
-            href="/overview" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="/overview"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors cursor-pointer group"
           >
             <span>Overview</span>
             <span className="text-sm font-bold leading-none group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform">↗</span>
           </a>
 
-          <a 
-            href="/contact" 
-            target="_blank" 
-            rel="noopener noreferrer" 
+          <a
+            href="/contact"
+            target="_blank"
+            rel="noopener noreferrer"
             className="flex items-center gap-1 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white font-medium transition-colors cursor-pointer group"
           >
             <span>Contact Sales</span>
@@ -231,10 +231,10 @@ const ProductsPage: React.FC = () => {
           {/* Card 1 */}
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
-              <img 
-                src="/images/model_simifig.jpg" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="SIMIFIG 4.0" 
+              <img
+                src="/images/model_simifig.jpg"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="SIMIFIG 4.0"
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
@@ -247,14 +247,14 @@ const ProductsPage: React.FC = () => {
               </p>
             </div>
           </div>
-          
+
           {/* Card 2 */}
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
-              <img 
-                src="/images/model_ligivor.jpg" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="LIGIVOR 5.5" 
+              <img
+                src="/images/model_ligivor.jpg"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="LIGIVOR 5.5"
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
@@ -271,10 +271,10 @@ const ProductsPage: React.FC = () => {
           {/* Card 3 */}
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
-              <img 
-                src="/images/model_favlon.jpg" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="FAVLON 5.4 THINKING" 
+              <img
+                src="/images/model_favlon.jpg"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="FAVLON 5.4 THINKING"
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
@@ -291,10 +291,10 @@ const ProductsPage: React.FC = () => {
           {/* Card 4 */}
           <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
-              <img 
-                src="/images/model_roqlow.jpg" 
-                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" 
-                alt="ROQLOW INSTANT" 
+              <img
+                src="/images/model_roqlow.jpg"
+                className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                alt="ROQLOW INSTANT"
               />
             </div>
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
@@ -320,11 +320,11 @@ const ProductsPage: React.FC = () => {
             Browse our core APIs, platform suites, and custom automation infrastructure deployed at scale.
           </p>
         </div>
-        
+
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 sm:gap-10">
           {products.map((prod) => (
-            <div 
-              key={prod.id} 
+            <div
+              key={prod.id}
               className="group flex flex-col justify-between border-t border-gray-200 dark:border-white/10 pt-6 pb-2 min-h-[260px] h-full transition-all"
             >
               <div className="space-y-4">
@@ -338,10 +338,10 @@ const ProductsPage: React.FC = () => {
                   {prod.desc}
                 </p>
               </div>
-              
+
               <div className="pt-6 mt-6 border-t border-gray-100 dark:border-white/5">
-                <Link 
-                  to={prod.link} 
+                <Link
+                  to={prod.link}
                   className="text-sm font-normal text-gray-800 dark:text-gray-200 hover:text-black dark:hover:text-white group-hover:text-gray-600 dark:group-hover:text-gray-300 flex items-center gap-1.5 transition-colors"
                 >
                   <span>Explore Capabilities</span>
