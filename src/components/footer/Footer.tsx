@@ -1,8 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
-import { Sun, Moon, Globe, ChevronDown, Check } from "lucide-react";
+import { Sun, Moon, Globe } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -23,22 +23,7 @@ const Footer: React.FC = () => {
     threshold: 0.05,
   });
   const { isDark, setTheme } = useTheme();
-  const { currentLanguage, setLanguage, languages, t } = useLanguage();
-
-  const [isLangOpen, setIsLangOpen] = useState(false);
-  const langRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (langRef.current && !langRef.current.contains(event.target as Node)) {
-        setIsLangOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
+  const { currentLanguage, t } = useLanguage();
 
   const footerColumns: FooterColumn[] = [
     {
@@ -361,60 +346,10 @@ const Footer: React.FC = () => {
               </button>
             </div>
 
-            {/* Language Selector Dropdown */}
-            <div className="relative notranslate" translate="no" ref={langRef}>
-              <button
-                type="button"
-                onClick={() => setIsLangOpen(!isLangOpen)}
-                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-[#1c1c1e] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/15 transition-all text-xs font-semibold cursor-pointer shadow-xs select-none notranslate"
-                translate="no"
-              >
-                <Globe className="w-4 h-4 text-gray-600 dark:text-gray-300" />
-                <span className="notranslate" translate="no">{currentLanguage.nativeName}</span>
-                <ChevronDown className={`w-3.5 h-3.5 text-gray-500 dark:text-gray-400 transition-transform duration-200 ${isLangOpen ? "rotate-180" : ""}`} />
-              </button>
-
-              <AnimatePresence>
-                {isLangOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, scale: 0.95, y: 8 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.95, y: 8 }}
-                    transition={{ duration: 0.15 }}
-                    className="absolute bottom-full right-0 mb-2 w-48 bg-[#1c1c1e] border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-50 p-1.5 font-sans notranslate"
-                    translate="no"
-                  >
-                    <div className="space-y-0.5 max-h-64 overflow-y-auto scrollbar-none notranslate" translate="no">
-                      {languages.map((lang) => (
-                        <button
-                          key={lang.code}
-                          type="button"
-                          onClick={() => {
-                            setLanguage(lang.code);
-                            setIsLangOpen(false);
-                          }}
-                          className={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-colors flex items-center justify-between cursor-pointer notranslate ${
-                            currentLanguage.code === lang.code
-                              ? "bg-white/20 text-white font-semibold"
-                              : "text-gray-300 hover:bg-white/10 hover:text-white"
-                          }`}
-                          translate="no"
-                        >
-                          <span className="flex items-center gap-2 notranslate" translate="no">
-                            <span className="notranslate" translate="no">{lang.nativeName}</span>
-                            {lang.nativeName !== lang.name && (
-                              <span className="text-[10px] text-gray-400 notranslate" translate="no">({lang.name})</span>
-                            )}
-                          </span>
-                          {currentLanguage.code === lang.code && (
-                            <Check className="w-3.5 h-3.5 text-blue-400 shrink-0" />
-                          )}
-                        </button>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
+            {/* Language Indicator */}
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-[#1c1c1e] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-white/10 text-xs font-semibold select-none">
+              <Globe className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+              <span>{currentLanguage.nativeName}</span>
             </div>
 
 
