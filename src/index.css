@@ -187,9 +187,10 @@
   animation: marquee 40s linear infinite;
 }
 
-/* Lenis smooth scrolling rules */
+/* Lenis 120Hz ultra-smooth scrolling & GPU hardware acceleration rules */
 html.lenis, html.lenis body {
   height: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .lenis-smooth {
@@ -206,6 +207,13 @@ html.lenis, html.lenis body {
 
 .lenis-scrolling iframe {
   pointer-events: none;
+}
+
+/* 120Hz ProMotion GPU Compositing Acceleration */
+html.lenis body {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
 }
 
 /* Custom sleek dark scrollbar */

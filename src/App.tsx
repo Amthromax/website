@@ -118,16 +118,17 @@ const App: React.FC = () => {
   const navigate = useNavigate();
   const { user, authLoading, signOut } = useAuth();
 
-  // Initialize Lenis smooth scroll
+  // Initialize Lenis 120Hz ultra-smooth scroll engine
   useEffect(() => {
     const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      duration: 0.9, // Ultra-responsive inertia curve for 120Hz ProMotion displays
+      easing: (t) => (t === 1 ? 1 : 1 - Math.pow(2, -10 * t)), // Exponential 120fps smooth deceleration
       orientation: 'vertical',
       gestureOrientation: 'vertical',
       smoothWheel: true,
-      wheelMultiplier: 1.0,
-      touchMultiplier: 1.5,
+      wheelMultiplier: 1.1,
+      touchMultiplier: 1.6,
+      syncTouch: false,
     });
 
     let rafId: number;
