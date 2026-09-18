@@ -1,8 +1,8 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useState, useEffect, useRef } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
-import { Sun, Moon } from "lucide-react";
+import { Sun, Moon, Globe, ChevronDown, Check } from "lucide-react";
 import { useTheme } from "../../context/ThemeContext";
 
 interface FooterLink {
@@ -22,6 +22,32 @@ const Footer: React.FC = () => {
     threshold: 0.05,
   });
   const { isDark, setTheme } = useTheme();
+
+  const [selectedLang, setSelectedLang] = useState({ code: "en", name: "English" });
+  const [isLangOpen, setIsLangOpen] = useState(false);
+  const langRef = useRef<HTMLDivElement>(null);
+
+  const languages = [
+    { code: "en", name: "English" },
+    { code: "ja", name: "日本語" },
+    { code: "de", name: "Deutsch" },
+    { code: "fr", name: "Français" },
+    { code: "ko", name: "한국어" },
+    { code: "it", name: "Italiano" },
+    { code: "es", name: "Español" },
+  ];
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (langRef.current && !langRef.current.contains(event.target as Node)) {
+        setIsLangOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   const footerColumns: FooterColumn[] = [
     {
@@ -342,6 +368,54 @@ const Footer: React.FC = () => {
               >
                 <Moon className="w-4 h-4" />
               </button>
+            </div>
+
+            {/* Language Selector Dropdown */}
+            <div className="relative" ref={langRef}>
+              <button
+                type="button"
+                onClick={() => setIsLangOpen(!isLangOpen)}
+                className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-[#1c1c1e] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-white/10 hover:bg-gray-200 dark:hover:bg-white/15 transition-all text-xs font-semibold cursor-pointer shadow-xs"
+              >
+                <Globe className="w-4 h-4 text-gray-600 dark:text-gray-300" />
+                <span>{selectedLang.name}</span>
+                <ChevronDown className={`w-3.5 h-3.5 text-gray-500 dark:text-gray-400 transition-transform duration-200 ${isLangOpen ? "rotate-180" : ""}`} />
+              </button>
+
+              <AnimatePresence>
+                {isLangOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.95, y: 8 }}
+                    animate={{ opacity: 1, scale: 1, y: 0 }}
+                    exit={{ opacity: 0, scale: 0.95, y: 8 }}
+                    transition={{ duration: 0.15 }}
+                    className="absolute bottom-full right-0 mb-2 w-40 bg-[#1c1c1e] border border-white/15 rounded-2xl shadow-2xl overflow-hidden z-50 p-1.5 font-sans"
+                  >
+                    <div className="space-y-0.5 max-h-56 overflow-y-auto scrollbar-none">
+                      {languages.map((lang) => (
+                        <button
+                          key={lang.code}
+                          type="button"
+                          onClick={() => {
+                            setSelectedLang(lang);
+                            setIsLangOpen(false);
+                          }}
+                          className={`w-full text-left px-3 py-2 rounded-xl text-xs font-medium transition-colors flex items-center justify-between cursor-pointer ${
+                            selectedLang.code === lang.code
+                              ? "bg-white/20 text-white font-semibold"
+                              : "text-gray-300 hover:bg-white/10 hover:text-white"
+                          }`}
+                        >
+                          <span>{lang.name}</span>
+                          {selectedLang.code === lang.code && (
+                            <Check className="w-3.5 h-3.5 text-blue-400" />
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
             </div>
 
 
