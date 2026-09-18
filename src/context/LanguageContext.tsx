@@ -147,6 +147,36 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
+  // Suppress top banner iframe and keep body top position clean
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    const killBanner = () => {
+      if (document.body.style.top && document.body.style.top !== '0px') {
+        document.body.style.top = '0px';
+      }
+      if (document.documentElement.style.top && document.documentElement.style.top !== '0px') {
+        document.documentElement.style.top = '0px';
+      }
+
+      const elements = document.querySelectorAll(
+        '.goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"], .VIpgJd-ZGain-xl0ndc-O2Twf, .skiptranslate'
+      );
+      elements.forEach((el) => {
+        if (el.id !== 'google_translate_element') {
+          (el as HTMLElement).style.display = 'none';
+          (el as HTMLElement).style.visibility = 'hidden';
+          (el as HTMLElement).style.height = '0px';
+          (el as HTMLElement).style.opacity = '0';
+        }
+      });
+    };
+
+    killBanner();
+    const interval = setInterval(killBanner, 250);
+    return () => clearInterval(interval);
+  }, []);
+
   // Update HTML attributes & trigger translation engine
   useEffect(() => {
     if (typeof window === 'undefined') return;

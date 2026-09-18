@@ -236,20 +236,43 @@ html.lenis body {
   scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.03);
 }
 
-/* Hide default Google Translate top bar & tooltips */
+/* Completely block and hide Google Translate top banner, iframe, and body shifting */
 #google_translate_element,
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
-.goog-te-balloon-frame,
+iframe.goog-te-banner-frame,
+iframe[id*=":1.container"],
+iframe[id*=":2.container"],
+iframe[id*="google"],
+iframe[class*="goog-te-banner"],
+.VIpgJd-ZGain-xl0ndc-O2Twf,
+.VIpgJd-ZGain-xl0ndc-x3G5ab,
 #goog-gt-tt,
-.goog-te-spinner-pos {
+.goog-te-balloon-frame,
+.goog-te-spinner-pos,
+body > .skiptranslate {
   display: none !important;
   visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  height: 0 !important;
+  width: 0 !important;
+  max-height: 0 !important;
+  max-width: 0 !important;
+  position: absolute !important;
+  top: -9999px !important;
+  left: -9999px !important;
+}
+
+html {
+  top: 0px !important;
+  margin-top: 0px !important;
 }
 
 body {
   top: 0px !important;
-  position: static !important;
+  margin-top: 0px !important;
+  position: relative !important;
 }
 
 .goog-text-highlight {
