@@ -265,10 +265,7 @@ const Footer: React.FC = () => {
               </button>
             </div>
 
-            <div className="flex items-center gap-2.5 text-[#1a1815] dark:text-white font-bold text-sm sm:text-base select-none">
-              <span className="w-2.5 h-2.5 rounded-full bg-[#1a1815] dark:bg-white shrink-0 animate-pulse" />
-              <span>All Systems Operational</span>
-            </div>
+
           </div>
         </div>
       </div>
