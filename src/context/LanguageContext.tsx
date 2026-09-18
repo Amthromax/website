@@ -32,7 +32,7 @@ type LanguageContextType = {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Core translation dictionary for UI elements
+// Core translation dictionary for UI fallbacks
 const TRANSLATIONS: Record<string, Record<string, string>> = {
   en: {
     'footer.privacy_center': 'Privacy Center',
@@ -41,10 +41,6 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': 'Cookie Policy',
     'footer.manage_cookies': 'Manage Cookies',
     'footer.all_rights_reserved': 'All rights reserved.',
-    'nav.products': 'Products',
-    'nav.research': 'Research',
-    'nav.about': 'About',
-    'nav.contact': 'Contact',
   },
   ja: {
     'footer.privacy_center': 'プライバシーセンター',
@@ -53,10 +49,6 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': 'クッキーポリシー',
     'footer.manage_cookies': 'クッキー管理',
     'footer.all_rights_reserved': '全著作権所有。',
-    'nav.products': '製品',
-    'nav.research': '研究',
-    'nav.about': '会社概要',
-    'nav.contact': 'お問い合わせ',
   },
   de: {
     'footer.privacy_center': 'Datenschutz-Center',
@@ -65,10 +57,6 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': 'Cookie-Richtlinie',
     'footer.manage_cookies': 'Cookies verwalten',
     'footer.all_rights_reserved': 'Alle Rechte vorbehalten.',
-    'nav.products': 'Produkte',
-    'nav.research': 'Forschung',
-    'nav.about': 'Über uns',
-    'nav.contact': 'Kontakt',
   },
   fr: {
     'footer.privacy_center': 'Centre de confidentialité',
@@ -77,10 +65,6 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': 'Politique de cookies',
     'footer.manage_cookies': 'Gérer les cookies',
     'footer.all_rights_reserved': 'Tous droits réservés.',
-    'nav.products': 'Produits',
-    'nav.research': 'Recherche',
-    'nav.about': 'À propos',
-    'nav.contact': 'Contact',
   },
   ko: {
     'footer.privacy_center': '개인정보 보호 센터',
@@ -89,10 +73,6 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': '쿠키 정책',
     'footer.manage_cookies': '쿠키 관리',
     'footer.all_rights_reserved': '모든 권리 보유.',
-    'nav.products': '제품',
-    'nav.research': '연구',
-    'nav.about': '회사 소개',
-    'nav.contact': '문의하기',
   },
   it: {
     'footer.privacy_center': 'Centro Privacy',
@@ -101,10 +81,6 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': 'Informativa sui Cookie',
     'footer.manage_cookies': 'Gestisci Cookie',
     'footer.all_rights_reserved': 'Tutti i diritti riservati.',
-    'nav.products': 'Prodotti',
-    'nav.research': 'Ricerca',
-    'nav.about': 'Chi siamo',
-    'nav.contact': 'Contatti',
   },
   es: {
     'footer.privacy_center': 'Centro de Privacidad',
@@ -113,84 +89,16 @@ const TRANSLATIONS: Record<string, Record<string, string>> = {
     'footer.cookie_policy': 'Política de Cookies',
     'footer.manage_cookies': 'Gestionar Cookies',
     'footer.all_rights_reserved': 'Todos los derechos reservados.',
-    'nav.products': 'Productos',
-    'nav.research': 'Investigación',
-    'nav.about': 'Sobre nosotros',
-    'nav.contact': 'Contacto',
-  },
-  'zh-CN': {
-    'footer.privacy_center': '隐私中心',
-    'footer.privacy_policy': '隐私政策',
-    'footer.terms_of_use': '使用条款',
-    'footer.cookie_policy': 'Cookie 政策',
-    'footer.manage_cookies': '管理 Cookie',
-    'footer.all_rights_reserved': '保留所有权利。',
-    'nav.products': '产品',
-    'nav.research': '研究',
-    'nav.about': '关于我们',
-    'nav.contact': '联系我们',
-  },
-  'zh-TW': {
-    'footer.privacy_center': '隱私中心',
-    'footer.privacy_policy': '隱私政策',
-    'footer.terms_of_use': '使用條款',
-    'footer.cookie_policy': 'Cookie 政策',
-    'footer.manage_cookies': '管理 Cookie',
-    'footer.all_rights_reserved': '保留所有權利。',
-    'nav.products': '產品',
-    'nav.research': '研究',
-    'nav.about': '關於我們',
-    'nav.contact': '聯絡我們',
-  },
-  pt: {
-    'footer.privacy_center': 'Centro de Privacidade',
-    'footer.privacy_policy': 'Política de Privacidade',
-    'footer.terms_of_use': 'Termos de Uso',
-    'footer.cookie_policy': 'Política de Cookies',
-    'footer.manage_cookies': 'Gerenciar Cookies',
-    'footer.all_rights_reserved': 'Todos os direitos reservados.',
-    'nav.products': 'Produtos',
-    'nav.research': 'Pesquisa',
-    'nav.about': 'Sobre nós',
-    'nav.contact': 'Contato',
-  },
-  ru: {
-    'footer.privacy_center': 'Центр конфиденциальности',
-    'footer.privacy_policy': 'Политика конфиденциальности',
-    'footer.terms_of_use': 'Условия использования',
-    'footer.cookie_policy': 'Политика использования файлов cookie',
-    'footer.manage_cookies': 'Управление файлами cookie',
-    'footer.all_rights_reserved': 'Все права защищены.',
-    'nav.products': 'Продукты',
-    'nav.research': 'Исследования',
-    'nav.about': 'О нас',
-    'nav.contact': 'Контакты',
-  },
-  ar: {
-    'footer.privacy_center': 'مركز الخصوصية',
-    'footer.privacy_policy': 'سياسة الخصوصية',
-    'footer.terms_of_use': 'شروط الاستخدام',
-    'footer.cookie_policy': 'سياسة ملفات تعريف الارتباط',
-    'footer.manage_cookies': 'إدارة ملفات تعريف الارتباط',
-    'footer.all_rights_reserved': 'جميع الحقوق محفوظة.',
-    'nav.products': 'المنتجات',
-    'nav.research': 'الأبحاث',
-    'nav.about': 'عن الشركة',
-    'nav.contact': 'اتصل بنا',
-  },
-  hi: {
-    'footer.privacy_center': 'गोपनीयता केंद्र',
-    'footer.privacy_policy': 'गोपनीयता नीति',
-    'footer.terms_of_use': 'उपयोग की शर्तें',
-    'footer.cookie_policy': 'कुकी नीति',
-    'footer.manage_cookies': 'कुकीज़ प्रबंधित करें',
-    'footer.all_rights_reserved': 'सर्वाधिकार सुरक्षित।',
-    'nav.products': 'उत्पाद',
-    'nav.research': 'अनुसंधान',
-    'nav.about': 'हमारे बारे में',
-    'nav.contact': 'संपर्क करें',
   },
 };
+
+// Global type declaration for Google Translate
+declare global {
+  interface Window {
+    googleTranslateElementInit?: () => void;
+    google?: any;
+  }
+}
 
 export const LanguageProvider = ({ children }: { children: ReactNode }) => {
   const [currentLanguage, setCurrentLanguage] = useState<Language>(() => {
@@ -204,22 +112,77 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     return SUPPORTED_LANGUAGES[0]; // English default
   });
 
+  // Inject Google Translate hidden widget once
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('amthromax-language', currentLanguage.code);
-      document.documentElement.lang = currentLanguage.code;
-      if (currentLanguage.dir) {
-        document.documentElement.dir = currentLanguage.dir;
-      } else {
-        document.documentElement.dir = 'ltr';
-      }
+    if (typeof window === 'undefined') return;
+
+    // Create container if not present
+    if (!document.getElementById('google_translate_element')) {
+      const div = document.createElement('div');
+      div.id = 'google_translate_element';
+      div.style.display = 'none';
+      document.body.appendChild(div);
     }
+
+    window.googleTranslateElementInit = () => {
+      if (window.google && window.google.translate) {
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            autoDisplay: false,
+            includedLanguages: 'en,ja,de,fr,ko,it,es,zh-CN,zh-TW,pt,ru,ar,hi',
+          },
+          'google_translate_element'
+        );
+      }
+    };
+
+    if (!document.getElementById('google-translate-script')) {
+      const script = document.createElement('script');
+      script.id = 'google-translate-script';
+      script.type = 'text/javascript';
+      script.src = '//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit';
+      script.async = true;
+      document.head.appendChild(script);
+    }
+  }, []);
+
+  // Update HTML attributes & trigger translation engine
+  useEffect(() => {
+    if (typeof window === 'undefined') return;
+
+    localStorage.setItem('amthromax-language', currentLanguage.code);
+    document.documentElement.lang = currentLanguage.code;
+    document.documentElement.dir = currentLanguage.dir || 'ltr';
   }, [currentLanguage]);
 
   const setLanguage = (code: string) => {
     const target = SUPPORTED_LANGUAGES.find((l) => l.code === code);
-    if (target) {
-      setCurrentLanguage(target);
+    if (!target) return;
+
+    const previousCode = currentLanguage.code;
+    setCurrentLanguage(target);
+    localStorage.setItem('amthromax-language', code);
+
+    if (typeof window === 'undefined') return;
+
+    const targetVal = code === 'en' ? '' : code;
+    const cookieVal = targetVal ? `/en/${targetVal}` : '';
+
+    // Set cookie for root and domain
+    document.cookie = `googtrans=${cookieVal}; path=/;`;
+    if (window.location.hostname) {
+      document.cookie = `googtrans=${cookieVal}; path=/; domain=${window.location.hostname}`;
+    }
+
+    // Attempt to update Google Translate widget select element dynamically
+    const select = document.querySelector('.goog-te-combo') as HTMLSelectElement;
+    if (select) {
+      select.value = targetVal || 'en';
+      select.dispatchEvent(new Event('change'));
+    } else if (previousCode !== code) {
+      // Reload page if combo box not present so cookie takes effect automatically
+      window.location.reload();
     }
   };
 
@@ -228,7 +191,6 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     if (langDict && langDict[key]) {
       return langDict[key];
     }
-    // Fallback to English
     return TRANSLATIONS.en[key] || key;
   };
 
