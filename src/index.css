@@ -236,7 +236,7 @@ html.lenis body {
   scrollbar-color: rgba(255, 255, 255, 0.2) rgba(255, 255, 255, 0.03);
 }
 
-/* Completely block and hide Google Translate top banner, iframe, and body shifting */
+/* Completely block and hide Google Translate top banner, iframe, spinner, logo icon, and body shifting */
 #google_translate_element,
 .goog-te-banner-frame,
 .goog-te-banner-frame.skiptranslate,
@@ -247,10 +247,21 @@ iframe[id*="google"],
 iframe[class*="goog-te-banner"],
 .VIpgJd-ZGain-xl0ndc-O2Twf,
 .VIpgJd-ZGain-xl0ndc-x3G5ab,
-#goog-gt-tt,
-.goog-te-balloon-frame,
+.VIpgJd-yfvT2b-hT1uef,
+.VIpgJd-yfvT2b-hT1uef-aria-live,
+.VIpgJd-LgApbd-O2Twf-aigxbc,
 .goog-te-spinner-pos,
-body > .skiptranslate {
+.goog-te-spinner,
+.goog-te-spinner-animation,
+.goog-te-gadget-icon,
+.goog-te-balloon-frame,
+#goog-gt-tt,
+.goog-gt-tt,
+#goog-gt-vt,
+.goog-tooltip,
+.goog-tooltip:hover,
+body > .skiptranslate,
+div.skiptranslate {
   display: none !important;
   visibility: hidden !important;
   opacity: 0 !important;
@@ -262,6 +273,7 @@ body > .skiptranslate {
   position: absolute !important;
   top: -9999px !important;
   left: -9999px !important;
+  z-index: -9999 !important;
 }
 
 html {

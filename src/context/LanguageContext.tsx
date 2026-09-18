@@ -147,7 +147,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
     }
   }, []);
 
-  // Suppress top banner iframe and keep body top position clean
+  // Suppress top banner iframe, loading spinner, logo badge and keep body top position clean
   useEffect(() => {
     if (typeof window === 'undefined') return;
 
@@ -160,7 +160,7 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
       }
 
       const elements = document.querySelectorAll(
-        '.goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"], .VIpgJd-ZGain-xl0ndc-O2Twf, .skiptranslate'
+        '.goog-te-banner-frame, iframe[id*=":1.container"], iframe[id*=":2.container"], .VIpgJd-ZGain-xl0ndc-O2Twf, .VIpgJd-yfvT2b-hT1uef, .goog-te-spinner-pos, .goog-te-spinner, .goog-te-gadget-icon, .skiptranslate, #goog-gt-tt, .goog-gt-tt'
       );
       elements.forEach((el) => {
         if (el.id !== 'google_translate_element') {
@@ -168,12 +168,13 @@ export const LanguageProvider = ({ children }: { children: ReactNode }) => {
           (el as HTMLElement).style.visibility = 'hidden';
           (el as HTMLElement).style.height = '0px';
           (el as HTMLElement).style.opacity = '0';
+          (el as HTMLElement).style.pointerEvents = 'none';
         }
       });
     };
 
     killBanner();
-    const interval = setInterval(killBanner, 250);
+    const interval = setInterval(killBanner, 200);
     return () => clearInterval(interval);
   }, []);
 
