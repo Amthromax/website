@@ -270,10 +270,6 @@ const LoginSection: React.FC = () => {
                         and acknowledge the{" "}
                         <Link to="/privacy" className="underline hover:text-black">
                           Privacy Policy
-                        </Link>{" "}
-                        &{" "}
-                        <Link to="/data-protection" className="underline hover:text-black">
-                          Data Protection Framework
                         </Link>.
                       </span>
                     </label>

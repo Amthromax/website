@@ -139,9 +139,6 @@ const Footer: React.FC = () => {
               <Link to="/cookie-policy" className="hover:text-black dark:hover:text-white transition-colors">
                 Cookie Policy
               </Link>
-              <Link to="/data-protection" className="hover:text-black dark:hover:text-white transition-colors">
-                Data Protection Framework
-              </Link>
               <button
                 onClick={handleManageCookies}
                 className="hover:text-black dark:hover:text-white transition-colors cursor-pointer text-center"

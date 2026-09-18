@@ -133,13 +133,6 @@ const CookieConsent: React.FC = () => {
                     className="underline hover:text-white transition-colors"
                   >
                     Cookie Policy
-                  </Link>{" "}
-                  and{" "}
-                  <Link
-                    to="/data-protection"
-                    className="underline hover:text-white transition-colors"
-                  >
-                    Data Protection Framework
                   </Link>.
                 </p>
               </div>
