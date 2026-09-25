@@ -50,7 +50,6 @@ import ContactSalesPage from "./components/contact/ContactSalesPage";
 import OverviewPage from "./components/overview/OverviewPage";
 import PartnerNetworkPage from "./components/partners/PartnerNetworkPage";
 import CharterPage from "./components/charter/CharterPage";
-import DemoModal from "./components/modals/DemoModal";
 import AnnouncementBanner from "./components/layout/AnnouncementBanner";
 import RegisterLandingPage from "./components/register/RegisterLandingPage";
 import TryDropdownButton from "./components/layout/TryDropdownButton";
@@ -148,23 +147,9 @@ const App: React.FC = () => {
   const [activeMenu, setActiveMenu] = useState<'research' | 'products' | 'business' | 'company' | 'developers' | null>(null);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showComingSoonModal, setShowComingSoonModal] = useState(false);
-  const [showDemoModal, setShowDemoModal] = useState(false);
   const [waitlistEmail, setWaitlistEmail] = useState("");
   const [isSubmittedWaitlist, setIsSubmittedWaitlist] = useState(false);
   const timeoutRef = useRef<number | null>(null);
-
-  // Trigger demo popup modal 10 seconds after user enters the website
-  useEffect(() => {
-    const alreadyShown = sessionStorage.getItem("amthromax_demo_modal_shown");
-    if (alreadyShown) return;
-
-    const timer = setTimeout(() => {
-      setShowDemoModal(true);
-      sessionStorage.setItem("amthromax_demo_modal_shown", "true");
-    }, 10000);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   const handleMouseEnter = (menu: 'research' | 'products' | 'business' | 'company' | 'developers') => {
     if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
@@ -1023,8 +1008,6 @@ const App: React.FC = () => {
         )}
       </AnimatePresence>
 
-      {/* 10-second Lead Demo Modal */}
-      <DemoModal isOpen={showDemoModal} onClose={() => setShowDemoModal(false)} />
     </div>
   );
 };
