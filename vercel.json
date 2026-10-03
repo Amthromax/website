@@ -32,14 +32,7 @@
   ],
   "rewrites": [
     {
-      "source": "/(.*)",
-      "has": [
-        {
-          "type": "header",
-          "key": "Accept",
-          "value": "(?i).*text/html.*"
-        }
-      ],
+      "source": "/((?!.*\\.).*)",
       "destination": "/index.html"
     }
   ]
