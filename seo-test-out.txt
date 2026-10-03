@@ -1,0 +1,74 @@
+﻿--- STARTING AMTHROMAX TECHNICAL SEO AUDIT ---
+[PASS] index.html exists
+[PASS] index.html has title tag
+[PASS] index.html has canonical link
+[PASS] index.html has manifest link
+[PASS] index.html includes Organization @id schema
+[PASS] index.html includes WebSite @id schema
+[PASS] index.html includes WebPage @id schema
+[PASS] index.html does not contain placeholder "localhost"
+[PASS] index.html does not contain placeholder "TODO"
+[PASS] index.html does not contain placeholder "example.com"
+[PASS] index.html does not contain placeholder "BING_VALIDATION_CODE_PLACEHOLDER"
+[PASS] manifest.json exists
+[PASS] manifest.json short_name is Amthromax
+[PASS] robots.txt exists
+[PASS] robots.txt points to sitemap.xml
+[PASS] sitemap.xml exists
+[PASS] sitemap includes /about
+[PASS] sitemap includes /products/ai-platform
+[PASS] sitemap includes /products/ai-agents
+[PASS] sitemap includes /docs/getting-started
+[PASS] index.html declares exactly one JSON-LD block
+[PASS] index.html JSON-LD parses as valid JSON
+[PASS] exactly one Organization entity in the canonical graph
+[PASS] exactly one WebSite entity in the canonical graph
+[PASS] Organization @id is canonical
+[PASS] Organization name is Amthromax
+[PASS] Organization logo has canonical @id
+[PASS] Organization logo URL is canonical
+[PASS] Organization logo caption is Amthromax
+[PASS] Organization description carries the full identity sentence
+[PASS] WebSite @id is canonical
+[PASS] WebSite alternateName is Amthromax AI
+[PASS] WebSite publisher references the Organization @id
+[PASS] SEO.tsx exists
+[PASS] SEO.tsx does not duplicate the Organization entity
+[PASS] SEO.tsx does not duplicate the WebSite entity
+[PASS] SEO.tsx builds page @ids without a double slash
+[PASS] src/components/codehoomer/CodeHoomerPage.tsx exists
+[PASS] src/components/codehoomer/CodeHoomerPage.tsx declares product @id https://amthromax.com/codehoomer#software
+[PASS] src/components/codehoomer/CodeHoomerPage.tsx links creator and publisher to the Organization
+[PASS] Organization brand references https://amthromax.com/codehoomer#software
+[PASS] src/components/helleious/HelleiousPage.tsx exists
+[PASS] src/components/helleious/HelleiousPage.tsx declares product @id https://amthromax.com/helleious#software
+[PASS] src/components/helleious/HelleiousPage.tsx links creator and publisher to the Organization
+[PASS] Organization brand references https://amthromax.com/helleious#software
+[PASS] src/components/orarqlow/OrarQlowPage.tsx exists
+[PASS] src/components/orarqlow/OrarQlowPage.tsx declares product @id https://amthromax.com/orarqlow#software
+[PASS] src/components/orarqlow/OrarQlowPage.tsx links creator and publisher to the Organization
+[PASS] Organization brand references https://amthromax.com/orarqlow#software
+[PASS] public/favicon.ico exists
+[PASS] public/favicon.png exists
+[PASS] public/favicon.png is 32x32 (found 32x32)
+[PASS] public/apple-touch-icon.png exists
+[PASS] public/apple-touch-icon.png is 180x180 (found 180x180)
+[PASS] public/icon-192.png exists
+[PASS] public/icon-192.png is 192x192 (found 192x192)
+[PASS] public/icon-512.png exists
+[PASS] public/icon-512.png is 512x512 (found 512x512)
+[PASS] public/images/logo.png exists
+[PASS] public/images/logo.png is 512x512 (found 512x512)
+[PASS] manifest.json name is Amthromax
+[PASS] manifest.json start_url is /
+[PASS] manifest icon /favicon.png exists
+[PASS] manifest icon /favicon.png really is 32x32 (found 32x32)
+[PASS] manifest icon /apple-touch-icon.png exists
+[PASS] manifest icon /apple-touch-icon.png really is 180x180 (found 180x180)
+[PASS] manifest icon /icon-192.png exists
+[PASS] manifest icon /icon-192.png really is 192x192 (found 192x192)
+[PASS] manifest icon /icon-512.png exists
+[PASS] manifest icon /icon-512.png really is 512x512 (found 512x512)
+[PASS] company.ts config exists
+--------------------------------------------------
+SEO Audit Complete: 71 PASSED, 2 FAILED.
