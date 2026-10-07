@@ -22,7 +22,7 @@ const solutionsList: SolutionItem[] = [
     category: "AI Intelligence",
     description: "Orchestrate specialized AI agents to solve complex multi-step tasks autonomously with closed-loop feedback and reflection.",
     longText: "Our Agentic Workflows engine leverages advanced Large Language Models configured as autonomous specialists. Each agent decomposes goals, drafts plans, writes code or handles data retrieval, and reviews output. A secondary supervisor agent evaluates results to guarantee reliability before routing responses to production databases.",
-    image: "/images/man_at_desk.jpg",
+    image: "/images/open_rower_deep_engine.jpg",
     features: [
       "Dynamic Goal Decomposition",
       "Self-Correction & Code Execution",

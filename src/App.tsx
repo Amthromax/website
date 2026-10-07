@@ -804,15 +804,15 @@ const App: React.FC = () => {
                   <div className="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
                     <div className="overflow-hidden rounded-[28px] border border-gray-200 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#141517] shadow-sm hover:shadow-xl transition-all duration-500 group flex items-center justify-center">
                       <img
-                        src="/images/amthromax_lab_workspace.jpg"
-                        alt="Amthromax Lab Autonomous Workspace"
+                        src="/images/open_rower_deep_engine.jpg"
+                        alt="Open Rower Deep Engine"
                         className="w-full h-full object-cover rounded-[28px] group-hover:scale-[1.02] transition-transform duration-500"
                       />
                     </div>
                     <div className="overflow-hidden rounded-[28px] border border-gray-200 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#141517] shadow-sm hover:shadow-xl transition-all duration-500 group flex items-center justify-center">
                       <img
-                        src="/images/amthromax_laptop_workspace.png"
-                        alt="Amthromax Platform Executive Dashboard"
+                        src="/images/open_rower_deep_engine.jpg"
+                        alt="Open Rower Deep Engine"
                         className="w-full h-full object-cover rounded-[28px] group-hover:scale-[1.02] transition-transform duration-500"
                       />
                     </div>
