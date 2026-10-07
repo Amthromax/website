@@ -578,7 +578,7 @@ const BlogPostDetail: React.FC = () => {
                   </button>
                   <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-2.5 px-3 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    X
+                    Twitter
                   </button>
                   <button onClick={handleNativeShare} title="Copy Link" className="w-full py-2.5 px-4 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
                     <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
