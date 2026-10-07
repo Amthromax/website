@@ -189,6 +189,25 @@ const CodeHoomerPage: React.FC = () => {
         </motion.div>
       </section>
 
+      {/* Dashboard UI Showcase */}
+      <section className="pb-24 px-6 sm:px-12 max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0, y: 40 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl relative bg-black"
+        >
+          {/* Subtle glow effect behind the image */}
+          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 opacity-50 blur-3xl pointer-events-none" />
+          
+          <img 
+            src="/images/support-dashboard.png" 
+            alt="CodeHoomer Support Dashboard UI" 
+            className="w-full h-auto relative z-10 object-cover"
+          />
+        </motion.div>
+      </section>
+
       {/* Section 1: Developer Blueprints */}
       <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="mb-12">
