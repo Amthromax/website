@@ -547,51 +547,55 @@ const BlogPostDetail: React.FC = () => {
           <aside className="hidden xl:block w-80 shrink-0">
             <div className="sticky top-28 space-y-6">
               {/* Author Card */}
-              <div className="p-6 rounded-[28px] bg-[#f5f5f7]/90 dark:bg-[#1c1c1e]/90 backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all duration-300 space-y-5">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">Written by</p>
-                <div className="flex items-center space-x-3.5">
-                  <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center shadow-sm border border-black/10 dark:border-white/10 shrink-0">
+              <div className="relative group p-6 rounded-[32px] bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-6">
+                <div className="absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Written by</p>
+                <div className="flex items-center space-x-4">
+                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black font-black text-base flex items-center justify-center shadow-lg border border-black/10 dark:border-white/10 shrink-0 relative">
                     {post.author.avatar}
+                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-[#1c1c1e] rounded-full shadow-sm" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-black dark:text-white leading-snug">{post.author.name}</h4>
-                    <p className="text-xs text-zinc-400 dark:text-zinc-500">{post.author.role}</p>
+                    <h4 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">{post.author.name}</h4>
+                    <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{post.author.role}</p>
                   </div>
                 </div>
-                <div className="pt-4 border-t border-black/[0.05] dark:border-white/[0.08] flex justify-between text-xs">
-                  <span className="text-zinc-400 dark:text-zinc-500 font-medium">Published</span>
-                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">{post.date}</span>
+                <div className="pt-5 border-t border-black/[0.04] dark:border-white/[0.06] flex justify-between items-center text-xs">
+                  <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide">Published</span>
+                  <span className="font-bold text-gray-900 dark:text-gray-100">{post.date}</span>
                 </div>
-                <div className="flex justify-between text-xs">
-                  <span className="text-zinc-400 dark:text-zinc-500 font-medium">Read time</span>
-                  <span className="font-semibold text-zinc-800 dark:text-zinc-200">{post.readTime}</span>
+                <div className="flex justify-between items-center text-xs">
+                  <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide">Read time</span>
+                  <span className="font-bold text-gray-900 dark:text-gray-100">{post.readTime}</span>
                 </div>
               </div>
 
               {/* Share Card */}
-              <div className="p-6 rounded-[28px] bg-[#f5f5f7]/90 dark:bg-[#1c1c1e]/90 backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all duration-300 space-y-4">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">Share this post</p>
-                <div className="flex flex-wrap gap-2.5">
-                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[80px] py-2.5 px-3 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
+              <div className="relative group p-6 rounded-[32px] bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-5">
+                <div className="absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Share this post</p>
+                <div className="flex flex-wrap gap-3">
+                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[80px] py-3 px-3 rounded-[14px] border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                   </button>
-                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-2.5 px-3 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
+                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-3 px-3 rounded-[14px] border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     Twitter
                   </button>
-                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-2.5 px-4 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-white dark:bg-zinc-800/80 text-zinc-700 dark:text-zinc-300 hover:bg-black hover:text-white dark:hover:bg-white dark:hover:text-black transition-all duration-300 text-xs font-semibold flex items-center justify-center gap-2 shadow-xs cursor-pointer">
-                    <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
+                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-3 px-4 rounded-[14px] border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
                     Copy Link
                   </button>
                 </div>
               </div>
 
               {/* Category Tag */}
-              <div className="p-6 rounded-[28px] bg-[#f5f5f7]/90 dark:bg-[#1c1c1e]/90 backdrop-blur-xl border border-black/[0.05] dark:border-white/[0.08] shadow-sm hover:shadow-md transition-all duration-300 space-y-3.5">
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.18em] text-zinc-400 dark:text-zinc-500">Category</p>
+              <div className="relative group p-6 rounded-[32px] bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-4">
+                <div className="absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
+                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Category</p>
                 <div className="flex">
-                  <span className="inline-flex items-center px-4 py-1.5 rounded-full bg-black text-white dark:bg-white dark:text-black text-xs font-bold tracking-tight shadow-sm">
+                  <span className="inline-flex items-center px-5 py-2 rounded-xl bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black text-[13px] font-bold tracking-tight shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
                     {post.category}
                   </span>
                 </div>
