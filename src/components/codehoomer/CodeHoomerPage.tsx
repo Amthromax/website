@@ -195,16 +195,24 @@ const CodeHoomerPage: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden border border-gray-200 dark:border-white/10 shadow-2xl relative bg-black"
+          className="w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden shadow-2xl relative p-3 sm:p-6 md:p-8"
         >
-          {/* Subtle glow effect behind the image */}
-          <div className="absolute inset-0 bg-gradient-to-tr from-purple-500/20 to-blue-500/20 opacity-50 blur-3xl pointer-events-none" />
-          
-          <img 
-            src="/images/support-dashboard.png" 
-            alt="CodeHoomer Support Dashboard UI" 
-            className="w-full h-auto relative z-10 object-cover"
+          {/* Framed Texture Background */}
+          <div 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
+            style={{ backgroundImage: "url('/images/glass-texture.png')" }} 
           />
+          {/* Subtle overly to ensure focus remains on dashboard */}
+          <div className="absolute inset-0 bg-black/20 z-0 mix-blend-overlay pointer-events-none" />
+          
+          {/* Inner Dashboard Container */}
+          <div className="relative z-10 w-full rounded-xl sm:rounded-2xl overflow-hidden shadow-2xl border border-white/20 bg-[#0b0c10]">
+            <img 
+              src="/images/support-dashboard.png" 
+              alt="CodeHoomer Support Dashboard UI" 
+              className="w-full h-auto object-cover"
+            />
+          </div>
         </motion.div>
       </section>
 
