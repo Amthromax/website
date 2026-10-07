@@ -197,9 +197,9 @@ const CodeHoomerPage: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
           className="w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden shadow-2xl relative p-3 sm:p-6 md:p-8"
         >
-          {/* Framed Texture Background */}
+          {/* Framed Texture Background - scaled up to hide any baked-in image borders/bezels */}
           <div 
-            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0" 
+            className="absolute inset-0 bg-cover bg-center bg-no-repeat z-0 scale-[1.05] sm:scale-110" 
             style={{ backgroundImage: "url('/images/glass-texture.png')" }} 
           />
           {/* Subtle overly to ensure focus remains on dashboard */}
