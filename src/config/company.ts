@@ -46,7 +46,7 @@ export const COMPANY_CONFIG: CompanyConfig = {
     "https://github.com/amthromax",
     "https://x.com/amthromax"
   ],
-  founder: "Kishore Kanth",
+  founder: "Kanth K Maglaire",
   foundingDate: "2024",
   headquarters: {
     addressCountry: "US",

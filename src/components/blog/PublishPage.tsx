@@ -30,7 +30,7 @@ const PublishPage: React.FC = () => {
   const [excerpt, setExcerpt] = useState("How autonomous cognitive entities are reshaping standard industrial workflows.");
   const [category, setCategory] = useState("AI Agents");
   const [readTime, setReadTime] = useState("5 min read");
-  const [authorName, setAuthorName] = useState("Kishore Kanth");
+  const [authorName, setAuthorName] = useState("Kanth K Maglaire");
   const [authorRole, setAuthorRole] = useState("Founder, Amthromax");
   const [authorAvatar, setAuthorAvatar] = useState("K");
   const [image, setImage] = useState("/images/desktop_setup.png");

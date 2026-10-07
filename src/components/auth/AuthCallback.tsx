@@ -32,7 +32,7 @@ export default function AuthCallback() {
           console.warn("Supabase PKCE exchange fallback:", error?.message);
           localStorage.setItem("amthromax-user", "kishorekanth@gmail.com");
           localStorage.setItem("amthromax-profile", JSON.stringify({
-            full_name: "KISHOREKANTH"
+            full_name: "Kanth K Maglaire"
           }));
           window.dispatchEvent(new Event("storage"));
           window.dispatchEvent(new Event("auth-change"));
@@ -47,7 +47,7 @@ export default function AuthCallback() {
         console.warn("AuthCallback exception, using fallback session:", e);
         localStorage.setItem("amthromax-user", "kishorekanth@gmail.com");
         localStorage.setItem("amthromax-profile", JSON.stringify({
-          full_name: "KISHOREKANTH"
+          full_name: "Kanth K Maglaire"
         }));
         window.dispatchEvent(new Event("storage"));
         window.dispatchEvent(new Event("auth-change"));

@@ -86,7 +86,7 @@ informs them, and the documentation engineers need to build on top.
 - [Helleious: views on safety and governance](https://amthromax.com/blog/helleious-ai-core-views-on-safety-and-governance): How safety and governance are built into the core system.
 - [Helleious: the most powerful AI operating system](https://amthromax.com/blog/helleious-ai-most-powerful-ai-operating-system): Design and capabilities of the Helleious OS.
 - [How news organizations use AI](https://amthromax.com/blog/how-news-organizations-use-ai): Applied AI patterns in newsrooms.
-- [Kishore Kanth — founder profile](https://amthromax.com/blog/kishore-kanth-founder-profile): Background on the founder and the origin of the company.
+- [Kanth K Maglaire — founder profile](https://amthromax.com/blog/kanth-k-maglaire-founder-profile): Background on the founder and the origin of the company.
 - [The next AI future: strategic roadmap](https://amthromax.com/blog/the-next-ai-future-strategic-roadmap): Where Amthromax believes the field is heading.
 - [Building the next era of AI](https://amthromax.com/blog/building-the-next-era-of-ai): The engineering thesis behind the platform.
 - [The future of enterprise AI](https://amthromax.com/blog/future-of-enterprise-ai): How enterprise adoption is changing.

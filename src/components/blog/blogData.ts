@@ -174,8 +174,8 @@ export const blogPosts: BlogPost[] = [
     ]
   },
   {
-    id: "kishore-kanth-founder-profile",
-    title: "Kishore Kanth: The Founder Behind AMTHROMAX's Next AI Future",
+    id: "kanth-k-maglaire-founder-profile",
+    title: "Kanth K Maglaire: The Founder Behind AMTHROMAX's Next AI Future",
     excerpt: "How one engineer's frustration with \"AI that talks but doesn't finish\" became the founding idea of AMTHROMAX.",
     category: "Leadership",
     date: "July 20, 2026",
@@ -185,29 +185,29 @@ export const blogPosts: BlogPost[] = [
       role: "Editorial & Press Office",
       avatar: "A"
     },
-    image: "/images/kishore-kanth-portrait.jpg",
+    image: "/images/kanth-k-maglaire-portrait.jpg",
     content: [
-      "Every founder story has a moment where the idea clicks into focus. For Kishore Kanth, founder and CEO of AMTHROMAX, it wasn't a single breakthrough — it was a pattern he kept running into across teams, tools, and companies: AI that could describe a solution beautifully, but couldn't be trusted to actually carry it out.",
-      "\"I kept watching brilliant models produce brilliant answers, and then watching a human quietly redo the work anyway, because nobody wanted to be the one who let an AI touch production data unsupervised,\" Kanth has said of the company's early days. \"That gap — between an AI that talks and an AI that finishes — was the whole business plan.\"",
+      "Every founder story has a moment where the idea clicks into focus. For Kanth K Maglaire, founder and CEO of AMTHROMAX, it wasn't a single breakthrough — it was a pattern he kept running into across teams, tools, and companies: AI that could describe a solution beautifully, but couldn't be trusted to actually carry it out.",
+      "\"I kept watching brilliant models produce brilliant answers, and then watching a human quietly redo the work anyway, because nobody wanted to be the one who let an AI touch production data unsupervised,\" Maglaire has said of the company's early days. \"That gap — between an AI that talks and an AI that finishes — was the whole business plan.\"",
       "That observation became the founding thesis of AMTHROMAX: that the next competitive advantage in enterprise software wouldn't come from a bigger model, but from building the layer of trust, orchestration, and accountability around whichever models already existed. It's the same thesis that now drives the company's flagship architecture, the AMTHROMAX Cognition Mesh, and its \"Next AI Future\" positioning at the center of the AMTHROMAX event.",
       "## Background and Path to Founding AMTHROMAX",
-      "Kanth's path into AI wasn't a straight line from a single elite lab — it was shaped by time spent on both sides of the enterprise software divide: building systems that had to survive contact with real operations, and watching how often promising AI pilots stalled the moment they left the sandbox.",
-      "That dual vantage point shows up constantly in how Kanth talks about the company today. Rather than chasing the industry's fascination with ever-larger foundation models, Kanth has consistently steered AMTHROMAX toward the less glamorous, more durable problem: governance, orchestration, and proof of outcome. It's a founder instinct that runs against the grain of an industry often obsessed with model size — and it's the instinct that shaped AMTHROMAX's decision to build the orchestration layer rather than compete head-on for the biggest model.",
+      "Maglaire's path into AI wasn't a straight line from a single elite lab — it was shaped by time spent on both sides of the enterprise software divide: building systems that had to survive contact with real operations, and watching how often promising AI pilots stalled the moment they left the sandbox.",
+      "That dual vantage point shows up constantly in how Maglaire talks about the company today. Rather than chasing the industry's fascination with ever-larger foundation models, Maglaire has consistently steered AMTHROMAX toward the less glamorous, more durable problem: governance, orchestration, and proof of outcome. It's a founder instinct that runs against the grain of an industry often obsessed with model size — and it's the instinct that shaped AMTHROMAX's decision to build the orchestration layer rather than compete head-on for the biggest model.",
       "## Leadership Philosophy",
-      "Colleagues describe Kanth's management style as allergic to \"activity theater\" — the internal habit of celebrating AI pilots, demos, and prompt counts instead of measurable outcomes. Internally at AMTHROMAX, the standing rule attributed to Kanth is simple: if a project can't point to a number that changed because of it, it isn't done.",
-      "![Kishore Kanth, Founder & CEO of AMTHROMAX](/images/kishore-kanth-black-suit.png)",
-      "That philosophy extends to how AMTHROMAX builds its own products. Every team is expected to answer three questions before shipping anything: What outcome does this change, not just what output does it produce? What happens when it's wrong, and who finds out first? And could a regulator, not just a customer, follow the decision trail after the fact? It's a rigorous, sometimes uncomfortable bar — but it's the same bar Kanth has said the entire AI industry will eventually be held to, whether or not it's ready.",
+      "Colleagues describe Maglaire's management style as allergic to \"activity theater\" — the internal habit of celebrating AI pilots, demos, and prompt counts instead of measurable outcomes. Internally at AMTHROMAX, the standing rule attributed to Maglaire is simple: if a project can't point to a number that changed because of it, it isn't done.",
+      "![Kanth K Maglaire, Founder & CEO of AMTHROMAX](/images/kanth-k-maglaire-black-suit.png)",
+      "That philosophy extends to how AMTHROMAX builds its own products. Every team is expected to answer three questions before shipping anything: What outcome does this change, not just what output does it produce? What happens when it's wrong, and who finds out first? And could a regulator, not just a customer, follow the decision trail after the fact? It's a rigorous, sometimes uncomfortable bar — but it's the same bar Maglaire has said the entire AI industry will eventually be held to, whether or not it's ready.",
       "## Vision for AMTHROMAX",
-      "Kanth's public vision for the company centers on a single reframing: that the AI industry has spent several years proving models can be impressive, and the next several years will be about proving systems can be dependable. Under that vision, AMTHROMAX isn't positioned as a lab racing to build the smartest model — it's positioned as the company building the accountable coordination layer that makes any model, from any vendor, safe to hand real work to.",
-      "That vision is also why Kanth pushed for AMTHROMAX to host its own global event rather than simply sponsor others. \"If we're asking the industry to change how it builds AI,\" Kanth has said, \"we should be the ones hosting the room where that conversation happens — not just showing up to someone else's stage.\"",
+      "Maglaire's public vision for the company centers on a single reframing: that the AI industry has spent several years proving models can be impressive, and the next several years will be about proving systems can be dependable. Under that vision, AMTHROMAX isn't positioned as a lab racing to build the smartest model — it's positioned as the company building the accountable coordination layer that makes any model, from any vendor, safe to hand real work to.",
+      "That vision is also why Maglaire pushed for AMTHROMAX to host its own global event rather than simply sponsor others. \"If we're asking the industry to change how it builds AI,\" Maglaire has said, \"we should be the ones hosting the room where that conversation happens — not just showing up to someone else's stage.\"",
       "## What's Next",
-      "Under Kanth's leadership, AMTHROMAX's near-term roadmap is deliberately narrow: prove the Cognition Mesh works in a small number of industries end to end — support operations, developer workflows, and financial operations — before expanding horizontally. It's a founder betting the company's credibility on depth over breadth, in an industry that often rewards the opposite.",
-      "As Kanth put it in one internal address to the company: \"We don't need to win the whole industry's attention this year. We need three customers who can prove, with a straight face, that our mesh made their AI trustworthy enough to stop supervising. That's the whole company, for now.\"",
-      "## The Next Build: A Massive New Project Coming Out of Kanth's Team",
-      "Beyond the near-term roadmap, Kanth and his core engineering team are now heads-down on what's being described internally as AMTHROMAX's largest build to date — a full-scale AI software production, developed end-to-end inside Kanth's own team, expected to launch in the coming months.",
-      "![Kishore Kanth leading strategic direction for AMTHROMAX Next AI Future](/images/kishore-kanth-yellow-jacket.jpg)",
-      "Details are still tightly held ahead of launch, but the shape of it is consistent with everything Kanth has pushed the company toward: not another narrow feature, but a complete, production-grade AI software system meant to operate across multiple apps and platforms at once, rather than living inside a single tool. People close to the project describe it as the first release built entirely on top of the Cognition Mesh from day one, rather than retrofitted onto it — a proof point, in Kanth's own words, that \"the architecture isn't just a slide, it's a foundation you can actually build a real product on.\"",
-      "Kanth's reputation inside the company is as a founder who still writes code and reviews architecture personally rather than managing purely from a distance — colleagues point to this as the reason he's been able to move a project of this size through his own team so quickly, staying hands-on across the app layer, the backend systems, and the AI logic that ties them together. That hands-on style is expected to define this release the same way it's defined AMTHROMAX's earlier products: fewer handoffs, tighter iteration loops, and a founder who can speak to the details of the software as fluently as he speaks to the vision behind it.",
+      "Under Maglaire's leadership, AMTHROMAX's near-term roadmap is deliberately narrow: prove the Cognition Mesh works in a small number of industries end to end — support operations, developer workflows, and financial operations — before expanding horizontally. It's a founder betting the company's credibility on depth over breadth, in an industry that often rewards the opposite.",
+      "As Maglaire put it in one internal address to the company: \"We don't need to win the whole industry's attention this year. We need three customers who can prove, with a straight face, that our mesh made their AI trustworthy enough to stop supervising. That's the whole company, for now.\"",
+      "## The Next Build: A Massive New Project Coming Out of Maglaire's Team",
+      "Beyond the near-term roadmap, Maglaire and his core engineering team are now heads-down on what's being described internally as AMTHROMAX's largest build to date — a full-scale AI software production, developed end-to-end inside Maglaire's own team, expected to launch in the coming months.",
+      "![Kanth K Maglaire leading strategic direction for AMTHROMAX Next AI Future](/images/kanth-k-maglaire-yellow-jacket.jpg)",
+      "Details are still tightly held ahead of launch, but the shape of it is consistent with everything Maglaire has pushed the company toward: not another narrow feature, but a complete, production-grade AI software system meant to operate across multiple apps and platforms at once, rather than living inside a single tool. People close to the project describe it as the first release built entirely on top of the Cognition Mesh from day one, rather than retrofitted onto it — a proof point, in Maglaire's own words, that \"the architecture isn't just a slide, it's a foundation you can actually build a real product on.\"",
+      "Maglaire's reputation inside the company is as a founder who still writes code and reviews architecture personally rather than managing purely from a distance — colleagues point to this as the reason he's been able to move a project of this size through his own team so quickly, staying hands-on across the app layer, the backend systems, and the AI logic that ties them together. That hands-on style is expected to define this release the same way it's defined AMTHROMAX's earlier products: fewer handoffs, tighter iteration loops, and a founder who can speak to the details of the software as fluently as he speaks to the vision behind it.",
       "What is public so far: the project is being positioned as a flagship, world-class AI software release — the clearest expression yet of AMTHROMAX's \"Next AI Future\" ambitions — with more details expected to be shared as launch approaches.",
       "> **Editorial Note:** This profile was prepared as part of AMTHROMAX's official editorial and press materials."
     ]
@@ -220,7 +220,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 20, 2026",
     readTime: "10 min read",
     author: {
-      name: "Kishore Kanth",
+      name: "Kanth K Maglaire",
       role: "Founder, Amthromax",
       avatar: "K"
     },
@@ -277,7 +277,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 20, 2026",
     readTime: "4 min read",
     author: {
-      name: "Kishore Kanth",
+      name: "Kanth K Maglaire",
       role: "Founder, Amthromax",
       avatar: "K"
     },
@@ -306,7 +306,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 19, 2026",
     readTime: "8 min read",
     author: {
-      name: "Kishore Kanth",
+      name: "Kanth K Maglaire",
       role: "Founder, Amthromax",
       avatar: "K"
     },
@@ -367,7 +367,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 16, 2026",
     readTime: "5 min read",
     author: {
-      name: "Kishore Kanth",
+      name: "Kanth K Maglaire",
       role: "Founder, Amthromax",
       avatar: "K"
     },
@@ -396,13 +396,13 @@ export const blogPosts: BlogPost[] = [
     date: "July 13, 2026",
     readTime: "5 min read",
     author: {
-      name: "Kishore Kanth",
+      name: "Kanth K Maglaire",
       role: "Founder, Amthromax",
       avatar: "K"
     },
     image: "/images/desktop_setup.png",
     content: [
-      "AMTHROMAX is officially entering the enterprise AI landscape, specializing in autonomous cognitive agents, workflow automation platforms, and highly integrated custom software. Founded in 2026 by Kishore Kanth and headquartered in San Francisco, CA, USA, the company is built with a clear vision: to make state-of-the-art artificial intelligence accessible, practical, and highly performant for organizations of all sizes—ranging from agile startups to global scale operations. Driven by a founder-led mission, AMTHROMAX focuses on removing operational friction, delivering practical, real-world solutions rather than theoretical consulting.",
+      "AMTHROMAX is officially entering the enterprise AI landscape, specializing in autonomous cognitive agents, workflow automation platforms, and highly integrated custom software. Founded in 2026 by Kanth K Maglaire and headquartered in San Francisco, CA, USA, the company is built with a clear vision: to make state-of-the-art artificial intelligence accessible, practical, and highly performant for organizations of all sizes—ranging from agile startups to global scale operations. Driven by a founder-led mission, AMTHROMAX focuses on removing operational friction, delivering practical, real-world solutions rather than theoretical consulting.",
       "Our comprehensive suite of services covers autonomous task-oriented AI Agents, end-to-end Workflow Automation Platforms, AI Voice Agents for customer interaction, and specialized AI Trading Analytics Platforms. By combining Robotic Process Automation (RPA) with cognitive models, we build systems that handle complex operations such as intelligent document processing, form validation, and multi-step business logic. These products integrate seamlessly with a client's existing software ecosystem through API integration services, reducing manual efforts in repetitive, high-stakes operational tasks.",
       "Technically, AMTHROMAX is engineered for maximum flexibility and performance. Our solutions are powered by a modern developer stack spanning Python, JavaScript/Node.js, Java, and Go, using frameworks like FastAPI, Express.js, TensorFlow, PyTorch, and LangChain. For data management and retrieval, we leverage PostgreSQL, MongoDB, Redis, and Elasticsearch. To facilitate low-latency scaling and robust deployment, our engineering teams construct cloud-native infrastructures on AWS, Google Cloud, and Microsoft Azure, automated through Docker, Kubernetes, and continuous integration (CI/CD) pipelines.",
       "A key pillar of our design philosophy is LLM agnosticism. Our systems integrate with multiple large language models—including proprietary APIs like OpenAI GPT and Anthropic Claude, as well as state-of-the-art open-source models like LLaMA and Mistral. This safeguards our clients from vendor lock-in, enabling them to route queries dynamically to the most cost-effective and highest-performing model for their specific task. The entire system is built on an API-first architecture, ensuring compatibility with legacy enterprise stacks like Salesforce, SAP, and Oracle.",
@@ -419,7 +419,7 @@ export const blogPosts: BlogPost[] = [
     date: "July 10, 2026",
     readTime: "6 min read",
     author: {
-      name: "Kishore Kanth K",
+      name: "Kanth K Maglaire",
       role: "Founder, Amthromax",
       avatar: "K"
     },
@@ -577,17 +577,17 @@ export const newsItems: NewsItem[] = [
     ]
   },
   {
-    id: "kishore-kanth-founder-profile",
-    title: "Kishore Kanth: The Founder Behind AMTHROMAX's Next AI Future",
+    id: "kanth-k-maglaire-founder-profile",
+    title: "Kanth K Maglaire: The Founder Behind AMTHROMAX's Next AI Future",
     category: "Announcement",
     date: "July 20, 2026",
     summary: "How one engineer's frustration with \"AI that talks but doesn't finish\" became the founding idea of AMTHROMAX and inspired the company's largest build to date.",
     content: [
-      "AMTHROMAX Editorial & Press Office has released an official profile on Founder and CEO Kishore Kanth.",
+      "AMTHROMAX Editorial & Press Office has released an official profile on Founder and CEO Kanth K Maglaire.",
       "1. The Problem That Started It: Bridging the gap between AI that talks and AI that finishes through orchestration, trust, and accountable execution.",
       "2. Leadership Philosophy: Eliminating 'activity theater' and holding every project accountable to measurable business outcomes and regulatory decision trails.",
       "3. Vision for AMTHROMAX: Shifting from impressive models to dependable systems powered by the AMTHROMAX Cognition Mesh.",
-      "4. The Next Build: Kanth's core engineering team is currently heads-down on AMTHROMAX's largest production build to date — a multi-platform flagship AI software release built natively on the Cognition Mesh from day one.",
+      "4. The Next Build: Maglaire's core engineering team is currently heads-down on AMTHROMAX's largest production build to date — a multi-platform flagship AI software release built natively on the Cognition Mesh from day one.",
       "Read the full founder profile and press release on the Amthromax Blog."
     ]
   },
@@ -664,7 +664,7 @@ export const newsItems: NewsItem[] = [
       "Amthromax has successfully raised $8.5 million in seed funding to support our mission of building secure, reliable, and lightning-fast AI agent infrastructure for the enterprise.",
       "The funding round was led by Apex Ventures, with additional participation from prominent tech leaders, cloud infrastructure executives, and strategic enterprise partners.",
       "Since our founding, we have focused on solving the hard engineering problems behind AI adoption: latency, security, and integration. This capital infusion will allow us to double our engineering and research teams, expand our developer advocacy program, and accelerate onboarding for our growing pipeline of enterprise customers.",
-      "\"We believe the next decade of software will be defined by autonomous, collaborative agents,\" said Kishore Kanth K, Founder of Amthromax. \"This funding validates our architectural approach and gives us the resources to deliver next-generation automation systems to businesses globally.\""
+      "\"We believe the next decade of software will be defined by autonomous, collaborative agents,\" said Kanth K Maglaire, Founder of Amthromax. \"This funding validates our architectural approach and gives us the resources to deliver next-generation automation systems to businesses globally.\""
     ]
   },
   {
