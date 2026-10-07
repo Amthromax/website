@@ -268,17 +268,18 @@ const BlogPostDetail: React.FC = () => {
           {/* Featured Image */}
           <div 
             onClick={() => setLightboxImg(post.image)}
-            className="aspect-[21/7] w-full overflow-hidden rounded-[32px] border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900 cursor-zoom-in group/heroimg"
+            className="relative aspect-[16/9] md:aspect-[21/7] w-full overflow-hidden rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.05] cursor-zoom-in group/heroimg"
           >
+            <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 animate-pulse -z-10" />
             <img 
               src={post.image} 
               alt={post.title} 
-              className="w-full h-full object-cover object-center transition-transform duration-500 group-hover/heroimg:scale-[1.03]" 
+              className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover/heroimg:scale-[1.03]" 
             />
           </div>
 
           {/* Article Body + Sidebar Two-Column Layout */}
-          <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 pt-4">
+          <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 pt-6">
           {/* Main Article Content */}
           <div className="flex-1 min-w-0 space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
             {post.content.map((paragraph, index) => {
@@ -290,13 +291,15 @@ const BlogPostDetail: React.FC = () => {
                     <div 
                       key={index} 
                       onClick={() => setLightboxImg(match[2])}
-                      className="my-8 max-w-xl mx-auto rounded-[24px] overflow-hidden border border-gray-150 dark:border-white/[0.04] shadow-md bg-gray-50 dark:bg-gray-900 cursor-zoom-in group/inlineimg"
+                      className="my-12 flex justify-center group/inlineimg cursor-zoom-in"
                     >
-                      <img 
-                        src={match[2]} 
-                        alt={match[1]} 
-                        className="w-full max-h-[500px] object-cover object-top transition-transform duration-500 group-hover/inlineimg:scale-[1.02]" 
-                      />
+                      <div className="relative overflow-hidden rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.05]">
+                        <img 
+                          src={match[2]} 
+                          alt={match[1]} 
+                          className="max-w-full lg:max-w-3xl max-h-[600px] object-cover block transition-transform duration-700 ease-out group-hover/inlineimg:scale-[1.02]" 
+                        />
+                      </div>
                     </div>
                   );
                 }
