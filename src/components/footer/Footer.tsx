@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import { Sun, Moon, Globe } from "lucide-react";
-import { FaLinkedin, FaXTwitter, FaYoutube, FaDiscord, FaReddit } from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter, FaYoutube, FaDiscord, FaReddit, FaGithub } from "react-icons/fa6";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -240,7 +240,7 @@ const Footer: React.FC = () => {
               title="LinkedIn"
               className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
             >
-              <FaLinkedin className="w-5 h-5" />
+              <FaLinkedin className="w-6 h-6" />
             </a>
 
             {/* X (Twitter) */}
@@ -252,7 +252,7 @@ const Footer: React.FC = () => {
               title="X (Twitter)"
               className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
             >
-              <FaXTwitter className="w-5 h-5" />
+              <FaXTwitter className="w-6 h-6" />
             </a>
 
             {/* YouTube */}
@@ -264,7 +264,7 @@ const Footer: React.FC = () => {
               title="YouTube"
               className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
             >
-              <FaYoutube className="w-5 h-5" />
+              <FaYoutube className="w-6 h-6" />
             </a>
 
             {/* Discord */}
@@ -276,7 +276,7 @@ const Footer: React.FC = () => {
               title="Discord"
               className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
             >
-              <FaDiscord className="w-5 h-5" />
+              <FaDiscord className="w-6 h-6" />
             </a>
 
             {/* Reddit */}
@@ -288,7 +288,19 @@ const Footer: React.FC = () => {
               title="Reddit"
               className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
             >
-              <FaReddit className="w-5 h-5" />
+              <FaReddit className="w-6 h-6" />
+            </a>
+
+            {/* GitHub */}
+            <a
+              href="https://github.com/Amthromax"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Amthromax on GitHub"
+              title="GitHub"
+              className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
+            >
+              <FaGithub className="w-6 h-6" />
             </a>
           </div>
 
