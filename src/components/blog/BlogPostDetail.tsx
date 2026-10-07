@@ -22,7 +22,7 @@ const BlogPostDetail: React.FC = () => {
   }, []);
 
   const [posts] = useState<BlogPost[]>(() => {
-    const stored = localStorage.getItem("amthromax_blog_posts");
+    const stored = localStorage.getItem("amthromax_posts_v2");
     if (stored) {
       try {
         const parsed = JSON.parse(stored) as BlogPost[];

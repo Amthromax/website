@@ -144,7 +144,7 @@ const PublishPage: React.FC = () => {
     };
 
     // Load existing posts from localStorage, fallback to blogData.ts
-    const stored = localStorage.getItem("amthromax_blog_posts");
+    const stored = localStorage.getItem("amthromax_posts_v2");
     let currentPosts: BlogPost[] = [];
     if (stored) {
       try {
@@ -158,7 +158,7 @@ const PublishPage: React.FC = () => {
 
     // Prepend new post
     const updatedPosts = [newPost, ...currentPosts];
-    localStorage.setItem("amthromax_blog_posts", JSON.stringify(updatedPosts));
+    localStorage.setItem("amthromax_posts_v2", JSON.stringify(updatedPosts));
 
     // Redirect to blog index
     navigate("/blog");

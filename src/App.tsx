@@ -65,13 +65,13 @@ import './App.css';
 // Clean up testing post from localStorage
 try {
   if (typeof window !== "undefined" && window.localStorage) {
-    const stored = localStorage.getItem("amthromax_blog_posts");
+    const stored = localStorage.getItem("amthromax_posts_v2");
     if (stored) {
       let parsed = JSON.parse(stored) as any[];
       const originalLength = parsed.length;
       parsed = parsed.filter((p) => p.id !== "testing-the-autonomous-agent-runtime");
       if (parsed.length !== originalLength) {
-        localStorage.setItem("amthromax_blog_posts", JSON.stringify(parsed));
+        localStorage.setItem("amthromax_posts_v2", JSON.stringify(parsed));
       }
     }
   }
