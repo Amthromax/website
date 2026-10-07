@@ -536,7 +536,6 @@ const App: React.FC = () => {
                           <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Blog</Link>
                           <Link to="/news" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Newsroom</Link>
                           <Link to="/foundation" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">AI Foundation</Link>
-                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></a>
                         </div>
                       </div>
                     </>
