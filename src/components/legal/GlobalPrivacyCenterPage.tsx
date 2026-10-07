@@ -144,7 +144,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                           }}
                           className={`w-full text-left px-3.5 py-2.5 rounded-xl text-xs font-medium transition-all flex items-center justify-between cursor-pointer ${
                             isSelected
-                              ? "bg-black dark:bg-white text-white dark:text-black font-bold shadow-sm"
+                              ? "bg-black dark:bg-white !text-white dark:!text-black font-bold shadow-sm"
                               : "text-gray-800 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 hover:text-black dark:hover:text-white"
                           }`}
                         >
@@ -153,7 +153,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                             <span className={`text-[10px] ${isSelected ? "text-gray-300 dark:text-gray-600 font-mono" : "text-gray-400 dark:text-gray-500 font-mono"}`}>{fw.id}</span>
                           </div>
                           {isSelected && (
-                            <span className="w-5 h-5 rounded-full bg-white/20 dark:bg-black/20 text-white dark:text-black text-[11px] font-bold flex items-center justify-center">
+                            <span className="w-5 h-5 rounded-full bg-white/20 dark:bg-black/20 !text-white dark:!text-black text-[11px] font-bold flex items-center justify-center">
                               ✓
                             </span>
                           )}
@@ -189,7 +189,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             onClick={() => setActiveTab("overview")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeTab === "overview"
-                ? "bg-black dark:bg-white text-white dark:text-black shadow-sm"
+                ? "bg-black dark:bg-white !text-white dark:!text-black shadow-sm"
                 : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-white/10"
             }`}
           >
@@ -199,7 +199,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             onClick={() => setActiveTab("rights")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeTab === "rights"
-                ? "bg-black dark:bg-white text-white dark:text-black shadow-sm"
+                ? "bg-black dark:bg-white !text-white dark:!text-black shadow-sm"
                 : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-white/10"
             }`}
           >
@@ -209,7 +209,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             onClick={() => setActiveTab("cookies")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeTab === "cookies"
-                ? "bg-black dark:bg-white text-white dark:text-black shadow-sm"
+                ? "bg-black dark:bg-white !text-white dark:!text-black shadow-sm"
                 : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-white/10"
             }`}
           >
@@ -219,7 +219,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             onClick={() => setActiveTab("processors")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeTab === "processors"
-                ? "bg-black dark:bg-white text-white dark:text-black shadow-sm"
+                ? "bg-black dark:bg-white !text-white dark:!text-black shadow-sm"
                 : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-white/10"
             }`}
           >
@@ -229,7 +229,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             onClick={() => setActiveTab("activities")}
             className={`px-4 py-2 rounded-xl text-xs font-bold transition-all cursor-pointer whitespace-nowrap ${
               activeTab === "activities"
-                ? "bg-black dark:bg-white text-white dark:text-black shadow-sm"
+                ? "bg-black dark:bg-white !text-white dark:!text-black shadow-sm"
                 : "bg-white dark:bg-white/5 text-gray-600 dark:text-gray-300 hover:text-black dark:hover:text-white border border-gray-200 dark:border-white/10"
             }`}
           >
@@ -277,7 +277,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                 <p className="text-xs text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
                   Submit a verified Data Subject Access Request for personal data access, correction, restriction, or erasure under GDPR, CCPA, DPDP, or LGPD.
                 </p>
-                <Link to="/privacy/request" className="inline-block px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-white dark:text-black text-xs font-bold transition-all shadow-sm">
+                <Link to="/privacy/request" className="inline-block px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm">
                   Launch Request Portal
                 </Link>
               </div>
@@ -287,7 +287,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                 <p className="text-xs text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
                   Download a machine-readable JSON archive containing profile data, workspace memberships, AI agent configurations, and consent logs.
                 </p>
-                <Link to="/profile" className="inline-block px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-white dark:text-black text-xs font-bold transition-all shadow-sm">
+                <Link to="/profile" className="inline-block px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm">
                   Go to Settings Export
                 </Link>
               </div>
@@ -309,7 +309,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                   <h4 className="text-sm font-bold text-gray-950 dark:text-white">Right of Access (DSAR)</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Obtain confirmation of personal data processing and receive a summary copy.</p>
                 </div>
-                <Link to="/privacy/request?type=ACCESS" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-white dark:text-black text-xs font-bold transition-all shadow-sm shrink-0">
+                <Link to="/privacy/request?type=ACCESS" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm shrink-0">
                   Request Access
                 </Link>
               </div>
@@ -319,7 +319,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                   <h4 className="text-sm font-bold text-gray-950 dark:text-white">Right to Rectification & Correction</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Correct inaccurate, incomplete, or outdated personal information stored in your account.</p>
                 </div>
-                <Link to="/privacy/request?type=RECTIFICATION" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-white dark:text-black text-xs font-bold transition-all shadow-sm shrink-0">
+                <Link to="/privacy/request?type=RECTIFICATION" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm shrink-0">
                   Request Correction
                 </Link>
               </div>
@@ -339,7 +339,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                   <h4 className="text-sm font-bold text-gray-950 dark:text-white">CCPA / CPRA Do Not Sell or Share My Info</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Opt out of cross-context behavioral advertising and personal information transfer.</p>
                 </div>
-                <Link to="/privacy/request?type=CCPA_OPT_OUT_SALE_SHARE" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-white dark:text-black text-xs font-bold transition-all shadow-sm shrink-0">
+                <Link to="/privacy/request?type=CCPA_OPT_OUT_SALE_SHARE" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm shrink-0">
                   Opt Out Now
                 </Link>
               </div>
@@ -355,7 +355,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                 <h3 className="text-base font-bold text-gray-950 dark:text-white tracking-tight">Cookie & Tracker Categories</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Configure category consent for essential, performance, and marketing cookie technologies.</p>
               </div>
-              <button onClick={handleManageCookiesModal} className="px-4 py-2 rounded-xl bg-black dark:bg-white text-white dark:text-black text-xs font-bold hover:bg-zinc-800 dark:hover:bg-gray-200 cursor-pointer shadow-sm">
+              <button onClick={handleManageCookiesModal} className="px-4 py-2 rounded-xl bg-black dark:bg-white !text-white dark:!text-black text-xs font-bold hover:bg-zinc-800 dark:hover:bg-gray-200 cursor-pointer shadow-sm">
                 Open Consent Banner
               </button>
             </div>
