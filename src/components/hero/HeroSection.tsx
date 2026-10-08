@@ -1530,7 +1530,7 @@ const DesignStudio: React.FC = () => {
           <span className="size-3 rounded-full bg-[#ffbd2e] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
           <span className="size-3 rounded-full bg-[#27c93f] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
-        <span className="font-mono text-[11.5px] font-semibold text-gray-300 tracking-wider">openrower.design / studio</span>
+        <span className="font-sans text-[12px] font-semibold text-gray-300 tracking-wide">Open Rower Platform</span>
         <div className="flex items-center gap-1.5 sm:gap-2">
           {/* Terminal button (>_) */}
           <button
@@ -1553,13 +1553,6 @@ const DesignStudio: React.FC = () => {
               <circle cx="8" cy="8" r="5.5" />
               <path d="M2.5 8h11M8 2.5a8.5 8.5 0 0 1 0 11 8.5 8.5 0 0 1 0-11z" />
             </svg>
-          </button>
-
-          <button
-            type="button"
-            className="flex items-center px-3.5 py-1 rounded-full bg-white hover:bg-gray-200 text-black font-sans text-[11px] font-bold shadow-xs hover:scale-105 active:scale-95 transition-all duration-200 cursor-pointer ml-1"
-          >
-            <span>Deploy</span>
           </button>
         </div>
       </div>
