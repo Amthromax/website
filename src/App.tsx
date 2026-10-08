@@ -635,7 +635,7 @@ const App: React.FC = () => {
                 exit={{ opacity: 0 }}
                 transition={{ duration: 0.15 }}
                 onClick={() => setActiveMenu(null)}
-                className="fixed inset-0 top-16 bg-[#000000]/40 backdrop-blur-[8px] z-30 cursor-pointer"
+                className="absolute top-full left-0 right-0 h-screen bg-[#000000]/40 backdrop-blur-[8px] z-30 cursor-pointer"
               />
             )}
           </AnimatePresence>
