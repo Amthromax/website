@@ -803,7 +803,7 @@ const App: React.FC = () => {
                 <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
                   <div className="max-w-[1440px] mx-auto px-5 sm:px-7 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
                     <div
-                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow,transform] duration-700 ease-out hover:-translate-y-1 group flex items-center justify-center"
+                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
                       style={{
                         background:
                           "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
@@ -829,6 +829,15 @@ const App: React.FC = () => {
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)'/%3E%3C/svg%3E\")",
                           backgroundSize: "140px 140px",
+                        }}
+                      />
+                      {/* white grain speckle */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-70 mix-blend-screen"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.2' intercept='-1.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23w)'/%3E%3C/svg%3E\")",
+                          backgroundSize: "180px 180px",
                         }}
                       />
                       {/* soft vignette + top sheen for depth */}
@@ -866,7 +875,7 @@ const App: React.FC = () => {
                       </Link>
                     </div>
                     <div
-                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow,transform] duration-700 ease-out hover:-translate-y-1 group flex items-center justify-center"
+                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
                       style={{
                         background:
                           "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
@@ -892,6 +901,15 @@ const App: React.FC = () => {
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)'/%3E%3C/svg%3E\")",
                           backgroundSize: "140px 140px",
+                        }}
+                      />
+                      {/* white grain speckle */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-70 mix-blend-screen"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.2' intercept='-1.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23w)'/%3E%3C/svg%3E\")",
+                          backgroundSize: "180px 180px",
                         }}
                       />
                       {/* soft vignette + top sheen for depth */}
