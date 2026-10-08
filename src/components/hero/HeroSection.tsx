@@ -362,7 +362,7 @@ const AgentSession: React.FC = () => {
             <span className="w-[7px] h-[7px] rounded-full bg-[#28c840] inline-block" />
           </span>
           <span className="rounded-md bg-gray-900/[0.05] dark:bg-white/[0.07] px-1.5 py-px text-gray-700 dark:text-[#d4d4d8] font-medium text-xs truncate ring-1 ring-black/[0.04] dark:ring-white/10">
-            amthromax/neural-core
+            Amthromax/Neural-Hoomer
           </span>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
