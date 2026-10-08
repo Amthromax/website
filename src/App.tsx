@@ -857,6 +857,13 @@ const App: React.FC = () => {
                         decoding="async"
                         className="relative z-[1] w-full h-full object-cover rounded-[20px] ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                       />
+                      <Link
+                        to="/solutions"
+                        className="absolute bottom-2 left-7 sm:bottom-3 sm:left-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
+                      >
+                        Explore
+                        <span className="transition-transform duration-300 group-hover:translate-x-0.5">&#8594;</span>
+                      </Link>
                     </div>
                     <div
                       className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow,transform] duration-700 ease-out hover:-translate-y-1 group flex items-center justify-center"
@@ -913,6 +920,13 @@ const App: React.FC = () => {
                         decoding="async"
                         className="relative z-[1] w-full h-full object-cover rounded-[20px] ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                       />
+                      <Link
+                        to="/solutions"
+                        className="absolute bottom-2 right-7 sm:bottom-3 sm:right-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
+                      >
+                        Explore
+                        <span className="transition-transform duration-300 group-hover:translate-x-0.5">&#8594;</span>
+                      </Link>
                     </div>
                   </div>
                 </section>
