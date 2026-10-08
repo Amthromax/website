@@ -1,4 +1,5 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -80,20 +81,20 @@ const productIdeasData: ProductIdeaItem[] = [
   {
     id: "idea-4",
     badge: "Product 04",
-    title: "Roqlow 0.4 Instant Lattice Encryption",
-    specs: "NIST Quantum Standard · Hardware Isolation",
-    location: "Amthromax Cyber Lab, San Francisco, CA",
-    type: "Post-Quantum Security",
+    title: "Open Rower Ai Deep Engine",
+    specs: "Deep Reasoning Core · Extended Context Windows",
+    location: "Amthromax Research Lab, San Francisco, CA",
+    type: "Deep Reasoning System",
     link: "/products",
-    category: "Post-Quantum Security",
-    modalTitle: "Next-generation CRYSTALS-Kyber post-quantum security",
-    description: "Roqlow 0.4 integrates NIST-standard lattice encryption protocols to protect high-volume enterprise telemetry against future quantum computing decryption.",
+    category: "Deep Reasoning Systems",
+    modalTitle: "Sustained multi-step reasoning over long-running context",
+    description: "Open Rower Ai is the deep reasoning core behind Amthromax agents. It holds a problem open across many steps, revisits its own intermediate work, and keeps a traceable record of how an answer was reached.",
     bullets: [
-      { title: "Encrypt", desc: "Instant post-quantum key exchanges safeguard confidential enterprise payload streams in real time." },
-      { title: "Isolate", desc: "Zero-trust Hardware Security Modules (HSM) store private cryptographic keys in air-gapped enclaves." },
-      { title: "Verify", desc: "Continuous packet verification validates payload integrity before agent execution occurs." }
+      { title: "Reason", desc: "Multi-step chains are planned, executed and revised in place, so a later step can correct an earlier one instead of compounding the error." },
+      { title: "Remember", desc: "Extended context windows carry the full working state of a task, letting long investigations continue without losing earlier findings." },
+      { title: "Explain", desc: "Every conclusion keeps the reasoning trace that produced it, so the path from input to answer stays open to review." }
     ],
-    icon: "shield"
+    icon: "mesh"
   },
   {
     id: "idea-5",
@@ -179,6 +180,23 @@ const EventsSection: React.FC = () => {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [selectedIdea, setSelectedIdea] = useState<ProductIdeaItem | null>(null);
 
+  /* The modal is portalled to <body>: an ancestor of this section carries a
+     transform, which would otherwise make `position: fixed` resolve against
+     that ancestor instead of the viewport and push the dialog off-screen. */
+  useEffect(() => {
+    if (!selectedIdea) return;
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") setSelectedIdea(null);
+    };
+    const prev = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    window.addEventListener("keydown", onKey);
+    return () => {
+      document.body.style.overflow = prev;
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [selectedIdea]);
+
   const scroll = (direction: "left" | "right") => {
     if (scrollContainerRef.current) {
       const scrollAmount = direction === "left" ? -360 : 360;
@@ -203,12 +221,14 @@ const EventsSection: React.FC = () => {
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {productIdeasData.map((idea) => (
-            <motion.div
+            <motion.button
               key={idea.id}
+              type="button"
               onClick={() => setSelectedIdea(idea)}
+              aria-label={`View details for ${idea.title}`}
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
-              className="w-[270px] sm:w-[300px] shrink-0 bg-white dark:bg-[#161617] rounded-[24px] border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[250px] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] transition-all duration-300 cursor-pointer group"
+              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 w-[270px] sm:w-[300px] shrink-0 bg-white dark:bg-[#161617] rounded-[24px] border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[250px] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] transition-all duration-300 cursor-pointer group"
             >
               {/* Badge & Title Block */}
               <div className="space-y-4">
@@ -232,7 +252,7 @@ const EventsSection: React.FC = () => {
                   <p className="text-[#86868b] dark:text-gray-400">{idea.type}</p>
                 </div>
               </div>
-            </motion.div>
+            </motion.button>
           ))}
           {/* Trailing spacer so the last card displays completely without clipping */}
           <div className="w-6 sm:w-10 lg:w-12 shrink-0" aria-hidden="true" />
@@ -276,8 +296,9 @@ const EventsSection: React.FC = () => {
       </div>
 
       {/* Full-Screen Dark Detail Modal matching Image 1 */}
-      <AnimatePresence>
-        {selectedIdea && (
+      {createPortal(
+        <AnimatePresence>
+          {selectedIdea && (
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -342,8 +363,10 @@ const EventsSection: React.FC = () => {
               </ul>
             </motion.div>
           </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>,
+        document.body,
+      )}
     </section>
   );
 };

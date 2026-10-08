@@ -209,11 +209,12 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* 120Hz ProMotion GPU Compositing Acceleration */
+/* 120Hz ProMotion GPU Compositing Acceleration.
+   NOTE: no `transform` or `will-change: transform` here. Either one turns
+   <body> into the containing block for every `position: fixed` descendant,
+   which silently breaks modals, drawers and the bottom banner site-wide. */
 html.lenis body {
-  transform: translateZ(0);
   backface-visibility: hidden;
-  will-change: transform;
 }
 
 /* Custom sleek dark scrollbar */
