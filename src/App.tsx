@@ -801,7 +801,7 @@ const App: React.FC = () => {
 
                 {/* Showcase Images Section */}
                 <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
-                  <div className="max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
+                  <div className="max-w-[1440px] mx-auto px-5 sm:px-7 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
                     <div
                       className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow,transform] duration-700 ease-out hover:-translate-y-1 group flex items-center justify-center"
                       style={{
