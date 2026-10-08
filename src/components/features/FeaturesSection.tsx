@@ -171,7 +171,7 @@ const FeaturesSection: React.FC = () => {
           variants={{
             visible: { transition: { staggerChildren: 0.1 } }
           }}
-          className="-mx-6 flex snap-x snap-mandatory gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:gap-8 sm:overflow-x-visible sm:px-0 sm:pb-0 sm:grid-cols-2 lg:grid-cols-3"
+          className="-mx-6 flex snap-x snap-mandatory scroll-pl-6 gap-5 overflow-x-auto px-6 pb-4 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden sm:mx-0 sm:grid sm:gap-8 sm:overflow-x-visible sm:px-0 sm:pb-0 sm:grid-cols-2 lg:grid-cols-3"
         >
           {features.map((feature, index) => (
             <FeatureCard key={feature.title} feature={feature} index={index} />
