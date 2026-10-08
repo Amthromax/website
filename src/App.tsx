@@ -801,19 +801,117 @@ const App: React.FC = () => {
 
                 {/* Showcase Images Section */}
                 <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
-                  <div className="max-w-7xl mx-auto px-6 sm:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-                    <div className="overflow-hidden rounded-[28px] border border-gray-200 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#141517] shadow-sm hover:shadow-xl transition-all duration-500 group flex items-center justify-center">
+                  <div className="max-w-[1600px] mx-auto px-4 sm:px-6 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
+                    <div
+                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow,transform] duration-700 ease-out hover:-translate-y-1 group flex items-center justify-center"
+                      style={{
+                        background:
+                          "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
+                      }}
+                    >
+                      {/* grain gradient */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-100 mix-blend-soft-light"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.4' intercept='-0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E\")",
+                          backgroundSize: "220px 220px",
+                          maskImage:
+                            "radial-gradient(115% 100% at 50% 50%, rgba(0,0,0,0.55) 18%, rgba(0,0,0,0.88) 56%, #000 100%)",
+                          WebkitMaskImage:
+                            "radial-gradient(115% 100% at 50% 50%, rgba(0,0,0,0.55) 18%, rgba(0,0,0,0.88) 56%, #000 100%)",
+                        }}
+                      />
+                      {/* fine grain pass */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-45 mix-blend-multiply"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)'/%3E%3C/svg%3E\")",
+                          backgroundSize: "140px 140px",
+                        }}
+                      />
+                      {/* soft vignette + top sheen for depth */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px]"
+                        style={{
+                          background:
+                            "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 45%, rgba(74,32,16,0.38) 100%)",
+                        }}
+                      />
+                      {/* inner bevel */}
+                      <span className="pointer-events-none absolute inset-0 rounded-[28px] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.18)]" />
+                      {/* sheen sweep on hover */}
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px]">
+                        <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
+                      </span>
+                      {/* corner register marks */}
+                      <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 bg-white" />
+                      <span className="pointer-events-none absolute right-0 top-0 h-5 w-5 bg-white" />
+                      <span className="pointer-events-none absolute bottom-0 left-0 h-5 w-5 bg-white" />
+                      <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 bg-white" />
                       <img
-                        src="/images/open_rower_deep_engine.jpg"
-                        alt="Open Rower Deep Engine"
-                        className="w-full h-full object-cover rounded-[28px] group-hover:scale-[1.02] transition-transform duration-500"
+                        src="/images/code_hoomer_core_engine.webp"
+                        alt="Code Hoomer Core Engine"
+                        loading="lazy"
+                        decoding="async"
+                        className="relative z-[1] w-full h-full object-cover rounded-[20px] ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                       />
                     </div>
-                    <div className="overflow-hidden rounded-[28px] border border-gray-200 dark:border-white/10 bg-[#f5f5f7] dark:bg-[#141517] shadow-sm hover:shadow-xl transition-all duration-500 group flex items-center justify-center">
+                    <div
+                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow,transform] duration-700 ease-out hover:-translate-y-1 group flex items-center justify-center"
+                      style={{
+                        background:
+                          "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
+                      }}
+                    >
+                      {/* grain gradient */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-100 mix-blend-soft-light"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.4' intercept='-0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E\")",
+                          backgroundSize: "220px 220px",
+                          maskImage:
+                            "radial-gradient(115% 100% at 50% 50%, rgba(0,0,0,0.55) 18%, rgba(0,0,0,0.88) 56%, #000 100%)",
+                          WebkitMaskImage:
+                            "radial-gradient(115% 100% at 50% 50%, rgba(0,0,0,0.55) 18%, rgba(0,0,0,0.88) 56%, #000 100%)",
+                        }}
+                      />
+                      {/* fine grain pass */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-45 mix-blend-multiply"
+                        style={{
+                          backgroundImage:
+                            "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)'/%3E%3C/svg%3E\")",
+                          backgroundSize: "140px 140px",
+                        }}
+                      />
+                      {/* soft vignette + top sheen for depth */}
+                      <span
+                        className="pointer-events-none absolute inset-0 rounded-[28px]"
+                        style={{
+                          background:
+                            "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 45%, rgba(74,32,16,0.38) 100%)",
+                        }}
+                      />
+                      {/* inner bevel */}
+                      <span className="pointer-events-none absolute inset-0 rounded-[28px] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.18)]" />
+                      {/* sheen sweep on hover */}
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px]">
+                        <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
+                      </span>
+                      {/* corner register marks */}
+                      <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 bg-white" />
+                      <span className="pointer-events-none absolute right-0 top-0 h-5 w-5 bg-white" />
+                      <span className="pointer-events-none absolute bottom-0 left-0 h-5 w-5 bg-white" />
+                      <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 bg-white" />
                       <img
                         src="/images/open_rower_deep_engine.jpg"
                         alt="Open Rower Deep Engine"
-                        className="w-full h-full object-cover rounded-[28px] group-hover:scale-[1.02] transition-transform duration-500"
+                        loading="lazy"
+                        decoding="async"
+                        className="relative z-[1] w-full h-full object-cover rounded-[20px] ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                       />
                     </div>
                   </div>
