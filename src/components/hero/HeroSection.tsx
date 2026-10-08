@@ -124,8 +124,8 @@ const DIFF_NUM: Record<Tone, string> = {
 };
 
 const DIFF_ROW: Record<Tone, string> = {
-  add: "bg-[#202916] text-[#e8e8e8]",
-  del: "bg-[#301719] text-[#fca5a5]",
+  add: "bg-[#202916] text-[#e8e8e8] shadow-[inset_2px_0_0_rgba(74,222,128,0.55),inset_0_1px_0_rgba(255,255,255,0.05),0_1px_3px_rgba(0,0,0,0.45)]",
+  del: "bg-[#301719] text-[#fca5a5] shadow-[inset_2px_0_0_rgba(248,113,113,0.55),inset_0_1px_0_rgba(255,255,255,0.04),0_1px_3px_rgba(0,0,0,0.45)]",
   ctx: "text-[#d4d4d8]",
 };
 
@@ -136,7 +136,7 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
     case "prompt": {
       const typing = item.typed < item.text.length;
       return (
-        <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-gray-100 dark:bg-[#1f1f1f] flex items-baseline gap-2 min-w-0">
+        <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-gray-100 dark:bg-[#1f1f1f] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_-2px_rgba(15,23,42,0.25)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_2px_8px_-2px_rgba(0,0,0,0.7)] flex items-baseline gap-2 min-w-0">
           <span className="text-[#2563eb] dark:text-[#3b82f6] shrink-0">&rsaquo;</span>
           <span className="text-gray-900 dark:text-white font-semibold truncate">
             {item.text.slice(0, item.typed)}
