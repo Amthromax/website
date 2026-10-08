@@ -187,28 +187,6 @@ const Footer: React.FC = () => {
               ))}
             </div>
 
-            {/* Company Emails — bottom of nav columns */}
-            <div className="pt-5 border-t border-[#cecac1] dark:border-white/10">
-              <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3">Contact</p>
-              <div className="flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-8">
-                <a href="mailto:contact@amthromax.com" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
-                  <span className="text-[#5c5850] dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">General</span>
-                  <span className="text-[#5c5850] dark:text-gray-500">·</span>
-                  <span className="underline underline-offset-2">contact@amthromax.com</span>
-                </a>
-                <a href="mailto:support@amthromax.com" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
-                  <span className="text-[#5c5850] dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Support</span>
-                  <span className="text-[#5c5850] dark:text-gray-500">·</span>
-                  <span className="underline underline-offset-2">support@amthromax.com</span>
-                </a>
-                <a href="mailto:press@amthromax.com" className="flex items-center gap-2 text-xs sm:text-sm font-medium text-[#1a1815] dark:text-white hover:opacity-70 transition-opacity">
-                  <span className="text-[#5c5850] dark:text-gray-400 text-xs font-semibold uppercase tracking-wider">Press</span>
-                  <span className="text-[#5c5850] dark:text-gray-500">·</span>
-                  <span className="underline underline-offset-2">press@amthromax.com</span>
-                </a>
-              </div>
-            </div>
-
             {/* AI Models — below Contact */}
             <div className="pt-5 border-t border-[#cecac1] dark:border-white/10">
               <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3">Models</p>

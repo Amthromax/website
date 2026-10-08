@@ -432,10 +432,10 @@ const App: React.FC = () => {
                       <div className="space-y-6">
                         <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Latest Advancements</span>
                         <div className="space-y-2.5">
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">MORFIX 0.1</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">INTOX 0.2</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">COTISES 0.5 MAX</Link>
-                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">VERKOX 0.4 INSTANT</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Simifig 4.0</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Ligivor 5.5</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Favlon 5.4 Thinking</Link>
+                          <Link to="/blog" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Roqlow Instant</Link>
                         </div>
                       </div>
                     </>
