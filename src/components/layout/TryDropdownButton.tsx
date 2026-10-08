@@ -31,7 +31,7 @@ const TryDropdownButton: React.FC<TryDropdownButtonProps> = ({ onTryClick }) => 
           onClick={onTryClick}
           className="h-8 px-3.5 text-xs font-normal text-white dark:text-black hover:opacity-85 transition-opacity flex items-center gap-1.5 cursor-pointer"
         >
-          <span>Try for free</span>
+          <span>Get started</span>
         </button>
 
         {/* Vertical Divider */}
