@@ -193,14 +193,14 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
         <div className="flex items-center gap-2 min-w-0">
           <span
             className={`w-[2px] h-[14px] shrink-0 ${
-              item.done ? "bg-emerald-500 dark:bg-[#22c55e]" : "bg-blue-500 dark:bg-[#3b82f6] animate-pulse"
+              item.done ? "bg-purple-500 dark:bg-[#a855f7]" : "bg-purple-300 dark:bg-[#6d28d9] animate-pulse"
             }`}
           />
           <span className="text-gray-700 dark:text-[#d4d4d8] truncate">{item.title}</span>
           <span className="text-gray-400 dark:text-[#6b7280] truncate">{item.agent}</span>
           <span
             className={`ml-auto pl-2 shrink-0 ${
-              item.done ? "text-emerald-600 dark:text-[#4ade80]" : "text-blue-600 dark:text-[#60a5fa] animate-pulse"
+              item.done ? "text-purple-600 dark:text-[#c4b5fd]" : "text-purple-400 dark:text-[#8b5cf6] animate-pulse"
             }`}
           >
             {item.done ? "[done]" : "[running]"}
@@ -353,22 +353,23 @@ const AgentSession: React.FC = () => {
   return (
     <div className="space-y-1.5 overflow-hidden">
       <style>{SESSION_CSS}</style>
-      <div className="flex items-center justify-between border-b border-gray-200/50 dark:border-white/10 pb-2 text-[11px] text-gray-500 dark:text-gray-400">
+      <div className="relative flex items-center justify-between border-b border-gray-200/50 dark:border-white/10 pb-2 text-[11px] text-gray-500 dark:text-gray-400">
+        <span className="pointer-events-none absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-purple-400/50 via-transparent to-transparent" />
         <div className="flex items-center gap-2 min-w-0">
           <span className="flex items-center gap-1 shrink-0">
             <span className="w-[7px] h-[7px] rounded-full bg-[#fd5f57] inline-block" />
             <span className="w-[7px] h-[7px] rounded-full bg-[#febc30] inline-block" />
             <span className="w-[7px] h-[7px] rounded-full bg-[#28c840] inline-block" />
           </span>
-          <span className="text-gray-600 dark:text-[#a1a1aa] font-medium text-xs truncate">
+          <span className="rounded-md bg-gray-900/[0.05] dark:bg-white/[0.07] px-1.5 py-px text-gray-700 dark:text-[#d4d4d8] font-medium text-xs truncate ring-1 ring-black/[0.04] dark:ring-white/10">
             amthromax/neural-core
           </span>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="text-gray-300 dark:text-[#4b4b52]">|</span>
-          <span className="w-7 h-[5px] rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden inline-block">
+          <span className="w-12 h-[5px] rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden inline-block ring-1 ring-black/[0.04] dark:ring-white/10">
             <span
-              className="block h-full rounded-full bg-gray-600 dark:bg-white/60 transition-[width] duration-500 ease-linear"
+              className="block h-full rounded-full bg-gradient-to-r from-purple-400 to-purple-600 shadow-[0_0_8px_rgba(168,85,247,0.6)] transition-[width] duration-500 ease-linear"
               style={{ width: `${pct}%` }}
             />
           </span>
@@ -411,10 +412,10 @@ type ChatStep =
   | {
       k: "result";
       title: string;
-      items: { key: string; text: string; note: string }[];
+      items: { key: string; text: string; note: string; tag: string }[];
     }
   | { k: "trace"; lines: string[] }
-  | { k: "agents"; items: { name: string; task: string }[] }
+  | { k: "agents"; items: { name: string; task: string; meta: string }[] }
   | { k: "think"; label: string; ms: number };
 
 const CHAT: ChatStep[] = [
@@ -436,9 +437,9 @@ const CHAT: ChatStep[] = [
   {
     k: "agents",
     items: [
-      { name: "planner", task: "cutting the task graph" },
-      { name: "dispatch", task: "placing shards, 6 regions" },
-      { name: "sentinel", task: "watching quorum" },
+      { name: "planner", task: "cutting the task graph", meta: "412k to 4,096" },
+      { name: "dispatch", task: "placing shards, 6 regions", meta: "us-east +5" },
+      { name: "sentinel", task: "watching quorum", meta: "3-of-5 at 0.2ms" },
     ],
   },
   {
@@ -447,21 +448,25 @@ const CHAT: ChatStep[] = [
     items: [
       {
         key: "Agents",
+        tag: "6 regions",
         text: "1,024 online across 6 regions",
         note: "512 in us-east, 256 in eu-west, the rest spread over four fallback zones",
       },
       {
         key: "Consensus",
+        tag: "0.2 ms",
         text: "3-of-5 quorum at 0.2ms",
         note: "every write is acknowledged by a majority before it is committed",
       },
       {
         key: "Shards",
+        tag: "4,096",
         text: "4,096 placed, none orphaned",
         note: "each one replicated three times, so losing a node costs nothing",
       },
       {
         key: "Flagged",
+        tag: "2 shards",
         text: "2 shards, node-17 dropped twice",
         note: "both replicas are healthy, so nothing is at risk yet",
       },
@@ -499,9 +504,9 @@ const CHAT: ChatStep[] = [
   {
     k: "agents",
     items: [
-      { name: "prover", task: "building 1,024 proofs" },
-      { name: "verifier", task: "checking every proof" },
-      { name: "notary", task: "signing the attestation" },
+      { name: "prover", task: "building 1,024 proofs", meta: "groth16, 1.1ms" },
+      { name: "verifier", task: "checking every proof", meta: "0 rejected" },
+      { name: "notary", task: "signing the attestation", meta: "ed25519 ledger" },
     ],
   },
   {
@@ -510,21 +515,25 @@ const CHAT: ChatStep[] = [
     items: [
       {
         key: "Proofs",
+        tag: "1,024",
         text: "1,024 verified, none rejected",
         note: "one zero-knowledge proof per agent, all checked in 3.4 seconds",
       },
       {
         key: "Attestation",
+        tag: "signed",
         text: "signed and archived",
         note: "notarised to the ledger and retained for seven years",
       },
       {
         key: "Drift",
+        tag: "none",
         text: "none across 6 regions",
         note: "model weights and policy hashes match the release build exactly",
       },
       {
         key: "Cost",
+        tag: "$41.20",
         text: "$41.20 for the whole sweep",
         note: "18 percent under last night, most of it saved on the early drain",
       },
@@ -544,13 +553,13 @@ type ChatRow =
   | {
       k: "result";
       title: string;
-      items: { key: string; text: string; note: string }[];
+      items: { key: string; text: string; note: string; tag: string }[];
       shown: number;
     }
   | { k: "trace"; lines: string[]; shown: number; typed: number }
   | {
       k: "agents";
-      items: { name: string; task: string }[];
+      items: { name: string; task: string; meta: string }[];
       at: number;
       done: number;
     }
@@ -781,10 +790,14 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
     // task text catches a sheen; finished ones settle into a check.
     case "agents":
       return (
-        <div className="amx-pop rounded-xl border border-purple-300/50 dark:border-purple-400/20 bg-purple-50/70 dark:bg-purple-500/[0.07] px-3 py-2 space-y-1">
+        <div className="amx-pop relative overflow-hidden rounded-xl border border-purple-300/60 dark:border-purple-400/25 bg-gradient-to-br from-purple-50 via-white to-purple-50/40 dark:from-purple-500/[0.12] dark:via-white/[0.02] dark:to-purple-500/[0.05] px-3 py-2 space-y-1 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-10px_rgba(126,34,206,0.45)]">
+          <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent" />
           <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-purple-600/80 dark:text-purple-300/70">
-            <span>Agents at work</span>
-            <span className="tabular-nums">
+            <span className="flex items-center gap-1.5">
+              <i className="amx-ring" />
+              Agents at work
+            </span>
+            <span className="rounded-full bg-purple-500/10 px-1.5 py-px tabular-nums text-purple-600 dark:text-purple-300">
               {item.done}/{item.items.length}
             </span>
           </div>
@@ -801,7 +814,12 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
               taskCls = "amx-sheen text-gray-500 dark:text-gray-400";
             }
             return (
-              <div key={i} className="flex items-baseline gap-1.5 min-w-0">
+              <div
+                key={i}
+                className={`flex items-baseline gap-1.5 min-w-0 rounded-md px-1 -mx-1 transition-colors duration-300 ${
+                  live ? "bg-purple-500/[0.08]" : ""
+                }`}
+              >
                 <span className="w-3 shrink-0 text-center">
                   {done && <span className="text-purple-500">&#10003;</span>}
                   {!done && live && <i className="amx-ring" />}
@@ -811,6 +829,17 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
                   {a.name}
                 </span>
                 <span className={`truncate ${taskCls}`}>{a.task}</span>
+                <span
+                  className={`ml-auto shrink-0 font-mono text-[10px] tabular-nums ${
+                    done
+                      ? "text-purple-500/80 dark:text-purple-300/70"
+                      : live
+                        ? "text-purple-600 dark:text-purple-300"
+                        : "text-gray-300 dark:text-gray-700"
+                  }`}
+                >
+                  {a.meta}
+                </span>
               </div>
             );
           })}
@@ -819,10 +848,11 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
 
     case "result":
       return (
-        <div className="amx-pop rounded-xl bg-gray-100/80 dark:bg-white/[0.05] border border-gray-200/70 dark:border-white/10 px-3 py-1 space-y-1">
+        <div className="amx-pop relative overflow-hidden rounded-xl border border-gray-200/80 dark:border-white/10 bg-gradient-to-br from-gray-50 via-white to-gray-100/70 dark:from-white/[0.07] dark:via-white/[0.02] dark:to-white/[0.05] px-3 py-1.5 space-y-1 shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_22px_-14px_rgba(15,23,42,0.5)]">
+          <span className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-purple-400/70 via-purple-500/40 to-transparent" />
           <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-purple-600/80 dark:text-purple-300/70">
             <span>{item.title}</span>
-            <span className="tabular-nums">
+            <span className="rounded-full bg-purple-500/10 px-1.5 py-px tabular-nums text-purple-600 dark:text-purple-300">
               {item.shown}/{item.items.length} checks
             </span>
           </div>
@@ -838,6 +868,9 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
                 </span>
                 <span className="text-gray-600 dark:text-gray-400 truncate">
                   {r.text}
+                </span>
+                <span className="ml-auto shrink-0 rounded-md bg-gray-900/[0.06] dark:bg-white/10 px-1.5 font-mono text-[10px] tabular-nums text-gray-700 dark:text-gray-200">
+                  {r.tag}
                 </span>
               </div>
               <div className="pl-[18px] text-gray-400 dark:text-gray-500 text-[11px] leading-[14px]">
@@ -1886,12 +1919,12 @@ const HeroSection: React.FC = () => {
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6, delay: 0.3, ease: "easeOut" }}
-        className="max-w-7xl mx-auto mt-14 space-y-4 md:space-y-5"
+        className="amx-hud max-w-7xl mx-auto mt-14 space-y-4 md:space-y-5"
       >
         {/* Top Row: 2 Equal-Sized Premium Bento Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Equal Box 1: Neural Reasoning & Agentic Build */}
-          <div className="bg-white dark:bg-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-sm font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
+          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <AgentSession />
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
@@ -1903,7 +1936,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Equal Box 2: Autonomous Swarm Mesh */}
-          <div className="bg-white dark:bg-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-sm overflow-hidden h-[240px] relative group hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
+          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <SwarmChat />
 
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">

@@ -291,3 +291,21 @@ body {
   background-color: transparent !important;
   box-shadow: none !important;
 }
+/* Hero HUD cards: crisp letterforms, true monospace for the code/metric
+   readouts, and figures that line up column to column. */
+.amx-hud,
+.amx-hud * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum" 1, "calt" 1, "liga" 1;
+}
+
+.amx-hud .font-mono,
+.amx-hud .font-mono * {
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, "SF Mono",
+    Menlo, Consolas, monospace;
+  letter-spacing: -0.012em;
+  font-feature-settings: "tnum" 1, "calt" 1, "zero" 1;
+}
