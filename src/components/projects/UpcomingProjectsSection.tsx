@@ -243,7 +243,7 @@ const UpcomingProjectsSection: React.FC = () => {
             >
               {/* Premium Box with Pure CSS Silk Gradient Mesh or Image */}
               <div
-                className={`w-full aspect-[4/3] rounded-[20px] relative overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1 ${project.image ? "bg-[#0f0f11]" : project.bgStyle.base}`}
+                className={`w-full aspect-[4/3] rounded-[10px] relative overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1 ${project.image ? "bg-[#0f0f11]" : project.bgStyle.base}`}
               >
                 {project.image ? (
                   <img

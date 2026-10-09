@@ -217,7 +217,7 @@ const EventsSection: React.FC = () => {
         {/* Scrollable Product Ideas Carousel in Original Apple Box Styling */}
         <div
           ref={scrollContainerRef}
-          className="flex gap-5 overflow-x-auto scrollbar-none pb-4 pt-2 -mx-6 px-6 sm:-mx-10 sm:px-10 lg:-mx-12 lg:px-12 scroll-smooth"
+          className="flex gap-5 overflow-x-auto overflow-y-hidden scrollbar-none pb-4 pt-2 -mx-6 px-6 sm:-mx-10 sm:px-10 lg:-mx-12 lg:px-12 scroll-smooth"
           style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
         >
           {productIdeasData.map((idea) => (
@@ -228,7 +228,7 @@ const EventsSection: React.FC = () => {
               aria-label={`View details for ${idea.title}`}
               whileHover={{ y: -3 }}
               transition={{ duration: 0.2 }}
-              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 w-[270px] sm:w-[300px] shrink-0 bg-white dark:bg-[#161617] rounded-[24px] border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[250px] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] transition-all duration-300 cursor-pointer group"
+              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 w-[270px] sm:w-[300px] shrink-0 bg-white dark:bg-[#161617] rounded-[10px] border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[250px] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] transition-all duration-300 cursor-pointer group"
             >
               {/* Badge & Title Block */}
               <div className="space-y-4">

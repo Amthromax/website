@@ -209,13 +209,12 @@ html.lenis, html.lenis body {
   pointer-events: none;
 }
 
-/* 120Hz ProMotion GPU Compositing Acceleration.
-   NOTE: no `transform` or `will-change: transform` here. Either one turns
-   <body> into the containing block for every `position: fixed` descendant,
-   which silently breaks modals, drawers and the bottom banner site-wide. */
-html.lenis body {
-  backface-visibility: hidden;
-}
+/* NOTE: do not add `transform`, `will-change: transform` or
+   `backface-visibility` to <body>. Each one promotes it to its own
+   compositing layer, which (a) makes <body> the containing block for every
+   `position: fixed` descendant, breaking modals, drawers and the bottom
+   banner site-wide, and (b) causes paint tearing at section boundaries
+   during Lenis smooth scroll. */
 
 /* Custom sleek dark scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
