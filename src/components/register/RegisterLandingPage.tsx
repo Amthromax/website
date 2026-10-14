@@ -33,6 +33,39 @@ const FAQS = [
 
 
 
+/* Scoped to this landing page only - nothing here touches the main site. */
+const REGISTER_CSS = `
+.amx-reg {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-variant-numeric: tabular-nums;
+}
+.amx-reg .amx-display {
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-weight: 400;
+  letter-spacing: -0.025em;
+}
+.amx-reg .amx-balance { text-wrap: balance; }
+.amx-reg .amx-pretty { text-wrap: pretty; }
+/* One elevation scale, so every raised surface on the page agrees. */
+.amx-reg .amx-lift {
+  box-shadow:
+    0 1px 1px rgba(26, 24, 21, 0.04),
+    0 8px 24px -12px rgba(26, 24, 21, 0.18),
+    0 24px 48px -24px rgba(26, 24, 21, 0.22);
+}
+.amx-reg .amx-lift-lg {
+  box-shadow:
+    0 1px 1px rgba(26, 24, 21, 0.05),
+    0 18px 40px -18px rgba(26, 24, 21, 0.22),
+    0 48px 90px -40px rgba(26, 24, 21, 0.28);
+}
+@media (prefers-reduced-motion: reduce) {
+  .amx-reg * { scroll-behavior: auto; }
+}
+`;
+
 const RegisterLandingPage: React.FC = () => {
   const { user, isAuthenticated } = useAuth();
 
@@ -61,7 +94,8 @@ const RegisterLandingPage: React.FC = () => {
   const [hasRunAudio, setHasRunAudio] = useState<boolean>(false);
 
   return (
-    <div className="min-h-screen bg-[#F7F4ED] text-[#1A1815] font-sans antialiased selection:bg-[#1A1815] selection:text-white scroll-smooth">
+    <div className="amx-reg min-h-screen bg-[#F7F4ED] text-[#1A1815] font-sans antialiased selection:bg-[#1A1815] selection:text-white scroll-smooth">
+      <style>{REGISTER_CSS}</style>
       <SEO
         title="Register — Early Access & Product Announcement | Amthromax"
         description="Book a free consultation call with Amthromax. Discover how our autonomous AI agents and enterprise reasoning systems accelerate your business."
@@ -76,7 +110,7 @@ const RegisterLandingPage: React.FC = () => {
       </svg>
 
       {/* Header Navigation - Exact Claura Style */}
-      <header className="sticky top-0 z-50 bg-[#F7F4ED]/90 backdrop-blur-md border-b border-[#E8E4DB] px-6 py-4">
+      <header className="sticky top-0 z-50 bg-[#F7F4ED]/85 backdrop-blur-xl border-b border-[#E0DBD0] shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_6px_24px_-18px_rgba(26,24,21,0.5)] px-4 sm:px-6 py-3 sm:py-4">
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div className="flex items-center gap-8">
             <nav className="hidden md:flex items-center gap-6 text-base font-bold text-[#1A1815]">
@@ -86,8 +120,8 @@ const RegisterLandingPage: React.FC = () => {
             </nav>
           </div>
 
-          <Link to="/" className="flex items-center gap-2 group">
-            <span className="text-2xl sm:text-3xl font-serif tracking-tight text-[#1A1815] font-bold">
+          <Link to="/" className="flex shrink-0 items-center gap-2 group">
+            <span className="amx-display text-[22px] sm:text-3xl text-[#1A1815]">
               Amthromax
             </span>
           </Link>
@@ -116,7 +150,7 @@ const RegisterLandingPage: React.FC = () => {
             ) : (
               <Link
                 to="/login"
-                className="bg-[#1A1815] hover:bg-[#332E29] text-white font-bold text-xs sm:text-sm px-5 py-2.5 rounded-full transition-all transform hover:scale-105 active:scale-95 shadow-sm"
+                className="bg-[#1A1815] hover:bg-[#332E29] text-white font-semibold text-xs sm:text-sm px-5 py-2.5 rounded-full ring-1 ring-black/10 shadow-[0_1px_2px_rgba(26,24,21,0.25),0_8px_18px_-10px_rgba(26,24,21,0.6)] transition-all duration-300 active:scale-95"
               >
                 Sign up
               </Link>
@@ -134,7 +168,7 @@ const RegisterLandingPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-6xl md:text-7xl font-serif text-[#1A1815] tracking-tight leading-[1.12] mb-6 max-w-4xl font-semibold"
+            className="amx-display amx-balance text-[2.35rem] sm:text-6xl md:text-7xl text-[#1A1815] leading-[1.08] mb-5 sm:mb-6 max-w-4xl"
           >
             From raw complexity to autonomous clarity.
           </motion.h1>
@@ -144,7 +178,7 @@ const RegisterLandingPage: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-lg sm:text-xl md:text-2xl text-[#1A1815] max-w-3xl leading-relaxed mb-9 font-semibold"
+            className="amx-pretty text-[15px] sm:text-xl md:text-[22px] text-[#55504A] max-w-2xl sm:max-w-3xl leading-[1.65] mb-8 sm:mb-9 font-medium"
           >
             We transform enterprise workflows into high-speed autonomous AI systems—delivering zero-latency inference, auditable reasoning, and effortless operational scale.
           </motion.p>
@@ -158,14 +192,14 @@ const RegisterLandingPage: React.FC = () => {
           >
             <a
               href="#showcase"
-              className="bg-[#1A1815] hover:bg-[#332E29] text-white font-bold text-sm px-8 py-4 rounded-full transition-all shadow-md flex items-center gap-2 cursor-pointer transform hover:scale-105 active:scale-95 border border-black"
+              className="bg-[#1A1815] hover:bg-[#332E29] text-white font-semibold text-sm px-7 sm:px-8 py-3.5 sm:py-4 rounded-full transition-all duration-300 shadow-[0_1px_2px_rgba(26,24,21,0.3),0_14px_30px_-14px_rgba(26,24,21,0.75)] hover:shadow-[0_1px_2px_rgba(26,24,21,0.3),0_20px_40px_-14px_rgba(26,24,21,0.85)] flex items-center gap-2 cursor-pointer active:scale-[0.98] ring-1 ring-black/20"
             >
               <span>AMX Console</span>
             </a>
 
             <a
               href="/docs"
-              className="bg-[#EFECE6] hover:bg-[#E4E0D7] text-[#1A1815] font-bold text-sm px-7 py-4 rounded-full transition-all flex items-center gap-2.5 cursor-pointer transform hover:scale-105 active:scale-95 shadow-sm border border-[#D8D3C8]"
+              className="bg-white/70 hover:bg-white text-[#1A1815] font-semibold text-sm px-6 sm:px-7 py-3.5 sm:py-4 rounded-full transition-all duration-300 flex items-center gap-2.5 cursor-pointer active:scale-[0.98] shadow-[0_1px_1px_rgba(26,24,21,0.04),0_10px_24px_-16px_rgba(26,24,21,0.4)] ring-1 ring-[#1A1815]/10 backdrop-blur-sm"
             >
               <span>View Platform Specs</span>
             </a>
@@ -176,7 +210,7 @@ const RegisterLandingPage: React.FC = () => {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="w-full max-w-6xl md:max-w-7xl mx-auto rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_20px_60px_rgba(0,0,0,0.05)] relative p-4 sm:p-6 md:p-8 mb-8 bg-[#F2F1ED] flex flex-col justify-between items-center"
+            className="amx-lift-lg w-full max-w-6xl md:max-w-7xl mx-auto rounded-[22px] sm:rounded-[32px] overflow-hidden ring-1 ring-[#1A1815]/[0.07] relative p-3.5 sm:p-6 md:p-8 mb-8 bg-gradient-to-b from-[#F6F5F1] to-[#EFEDE7] flex flex-col justify-between items-center"
           >
             {/* Top Segmented Header Tabs */}
             <div className="flex items-center justify-between w-full max-w-xl mx-auto bg-[#E6E4DD]/90 p-1 sm:p-1.5 rounded-full border border-white/60 shadow-inner mb-4 sm:mb-6 overflow-x-auto no-scrollbar gap-1">
@@ -1505,7 +1539,7 @@ const RegisterLandingPage: React.FC = () => {
           <section className="py-24 border-t border-[#E5E0D6] overflow-hidden">
             {/* Header */}
             <div className="text-center mb-12">
-              <h2 className="text-4xl sm:text-5xl font-bold text-[#1A1815] tracking-tight">How it works</h2>
+              <h2 className="text-[2rem] sm:text-5xl font-bold text-[#1A1815] tracking-tight">How it works</h2>
             </div>
 
             {/* Carousel */}
@@ -1586,8 +1620,8 @@ const RegisterLandingPage: React.FC = () => {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-end">
           <div>
-            <h2 className="text-4xl sm:text-5xl font-bold text-[#1A1815] leading-[1.1] tracking-tight">
-              AI works better when<br />everything stays connected.
+            <h2 className="amx-balance text-[2rem] sm:text-5xl font-bold text-[#1A1815] leading-[1.12] tracking-tight">
+              AI works better when<br className="hidden sm:block" /> everything stays connected.
             </h2>
           </div>
           <div className="lg:pb-1">
@@ -1616,7 +1650,7 @@ const RegisterLandingPage: React.FC = () => {
 
             {/* Visual Area */}
             <div className="relative z-10 flex-1 p-8 flex items-center justify-center min-h-[280px]">
-              <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/30 p-5 w-full max-w-[330px] transform hover:-translate-y-1 transition-transform duration-300">
+              <div className="amx-lift bg-white/95 backdrop-blur-md rounded-xl ring-1 ring-black/[0.06] border border-white/40 p-4 sm:p-5 w-full max-w-[330px] transition-transform duration-300">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center gap-2">
                     <span className="text-xs font-bold text-[#1A1815]">Agent Tasks</span>
@@ -1732,7 +1766,7 @@ const RegisterLandingPage: React.FC = () => {
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#E5E0D6]">
         {/* Top Row: Heading */}
         <div className="mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-[#1A1815] leading-[1.1] tracking-tight max-w-xl">
+          <h2 className="amx-balance text-[2rem] sm:text-5xl font-bold text-[#1A1815] leading-[1.12] tracking-tight max-w-xl">
             Purpose-built for enterprise AI performance
           </h2>
         </div>
@@ -1864,7 +1898,7 @@ const RegisterLandingPage: React.FC = () => {
                     initial={{ opacity: 0, y: 10 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3 }}
-                    className="bg-white/95 backdrop-blur-md rounded-2xl px-5 py-4 shadow-xl border border-white/40 max-w-[300px] flex items-center gap-4"
+                    className="amx-lift bg-white/95 backdrop-blur-md rounded-xl px-4 sm:px-5 py-3.5 sm:py-4 ring-1 ring-black/[0.06] border border-white/40 max-w-[300px] flex items-center gap-3 sm:gap-4"
                   >
                     <div className={`w-14 h-14 rounded-2xl ${activeItem.iconBg} text-white flex items-center justify-center flex-shrink-0 shadow-md`}>
                       {activeItem.icon}
@@ -1880,7 +1914,7 @@ const RegisterLandingPage: React.FC = () => {
                     initial={{ opacity: 0, y: 15 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.3, delay: 0.1 }}
-                    className="bg-white/95 backdrop-blur-md rounded-2xl px-5 py-4 shadow-xl border border-white/40 max-w-[320px] self-end flex items-center gap-4"
+                    className="amx-lift bg-white/95 backdrop-blur-md rounded-xl px-4 sm:px-5 py-3.5 sm:py-4 ring-1 ring-black/[0.06] border border-white/40 max-w-[320px] self-end flex items-center gap-3 sm:gap-4"
                   >
                     <div className="flex-1">
                       <div className="mb-1.5">
@@ -1903,7 +1937,7 @@ const RegisterLandingPage: React.FC = () => {
       {/* Our Values — Kanmon-Style 3×2 Grid */}
       <section className="bg-[#EDE9E0] border-t border-[#D8D3C8]">
         <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y divide-x divide-[#C8C3B8] border border-[#C8C3B8]">
+          <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-x divide-[#C8C3B8] border-y sm:border border-[#C8C3B8]">
 
             {/* Cell 1 — Brand + Label */}
             <div className="group p-10 sm:p-12 flex flex-col justify-between min-h-[280px] sm:min-h-[320px] cursor-default transition-colors duration-300 hover:bg-[#E3DED4]">
@@ -2195,10 +2229,10 @@ const RegisterLandingPage: React.FC = () => {
       </AnimatePresence>
 
       {/* Refined Luxury Footer */}
-      <footer className="border-t border-[#E5E0D6] py-12 px-6 text-center text-xs text-[#7A736B] bg-[#F7F4ED]">
+      <footer className="border-t border-[#E5E0D6] py-10 sm:py-12 px-5 sm:px-6 text-center text-xs text-[#7A736B] bg-[#F7F4ED]">
         <div className="max-w-4xl mx-auto space-y-4">
           <p>© 2026 Amthromax Inc. All rights reserved. Amthromax AI is a registered trademark of Amthromax Inc.</p>
-          <div className="flex items-center justify-center gap-6 text-[11px] text-[#403B35]">
+          <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[11px] text-[#403B35]">
             <Link to="/about" className="hover:underline">About Amthromax</Link>
             <span>•</span>
             <Link to="/news" className="hover:underline">News</Link>

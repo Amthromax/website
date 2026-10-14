@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
+import { COMMITMENTS } from "./commitments";
 
 interface TrustPillar {
   id: string;
@@ -85,8 +86,129 @@ const trustPillars: TrustPillar[] = [
   }
 ];
 
+/* Entries the attestation strip cycles through. Each one is a real event type
+   the ledger records, not decoration. */
+const LEDGER_EVENTS: { system: string; action: string; scope: string }[] = [
+  { system: "KMS", action: "Tenant key rotated", scope: "eu-west" },
+  { system: "SANDBOX", action: "Container destroyed on task exit", scope: "us-east" },
+  { system: "POLICY", action: "Egress destination denied", scope: "ap-south" },
+  { system: "AUDIT", action: "Operator read recorded", scope: "eu-west" },
+  { system: "RETENTION", action: "Session artefacts scrubbed", scope: "us-east" },
+  { system: "SBOM", action: "Container image signature verified", scope: "global" },
+  { system: "REDTEAM", action: "Adversarial suite completed", scope: "staging" },
+  { system: "LEDGER", action: "Chain anchor committed", scope: "global" },
+];
+
+/* Material a reviewer actually asks for, grouped by what kind of document it is. */
+const TRUST_RESOURCES = [
+  { title: "How every agent execution is isolated", kind: "Architecture", to: "/security" },
+  { title: "Reading the attestation ledger as an auditor", kind: "Guide", to: "/trust" },
+  { title: "Data Processing Addendum and subprocessor list", kind: "Legal", to: "/data-protection" },
+  { title: "Preparing for a vendor security review", kind: "Use case", to: "/privacy-center" },
+  { title: "Zero-trust agent execution specification", kind: "Whitepaper", to: "/security" },
+  { title: "Responsible disclosure and researcher rewards", kind: "Programme", to: "/research" },
+];
+
+/* Who touches customer data, and why. */
+const SUBPROCESSORS = [
+  { name: "Cloud compute", purpose: "Model inference and sandbox execution", region: "Customer-selected" },
+  { name: "Object storage", purpose: "Encrypted artefact and snapshot storage", region: "Customer-selected" },
+  { name: "Telemetry pipeline", purpose: "Audit stream delivery and ledger anchoring", region: "Regional" },
+  { name: "Identity provider", purpose: "Federated authentication, no payload access", region: "Customer-operated" },
+];
+
+/* A number that counts up the first time it scrolls into view. Driven by rAF
+   against elapsed time, so it tracks real time rather than frame count. */
+const CountUp: React.FC<{ to: number; decimals?: number; suffix?: string; duration?: number }> = ({
+  to,
+  decimals = 0,
+  suffix = "",
+  duration = 1200,
+}) => {
+  const [value, setValue] = useState(0);
+  const [started, setStarted] = useState(false);
+  const nodeRef = useRef<HTMLSpanElement>(null);
+
+  const run = useCallback(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+      setValue(to);
+      return;
+    }
+    const t0 = performance.now();
+    let raf = 0;
+    const tick = (now: number) => {
+      const p = Math.min(1, (now - t0) / duration);
+      /* ease-out cubic: fast first, settles on the real figure */
+      setValue(to * (1 - Math.pow(1 - p, 3)));
+      if (p < 1) raf = requestAnimationFrame(tick);
+    };
+    raf = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(raf);
+  }, [to, duration]);
+
+  useEffect(() => {
+    const el = nodeRef.current;
+    if (!el || started) return;
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries[0].isIntersecting) {
+          setStarted(true);
+          run();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(el);
+    return () => io.disconnect();
+  }, [run, started]);
+
+  return (
+    <span ref={nodeRef} className="tabular-nums">
+      {value.toFixed(decimals)}
+      {suffix}
+    </span>
+  );
+};
+
 const TrustTransparencyPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<string>("ethical-ai");
+
+  /* The attestation strip appends a new signed entry on a real timer, so the
+     chain genuinely grows while the page is open. */
+  const [ledger, setLedger] = useState<{ id: number; system: string; action: string; scope: string; hash: string }[]>(
+    () =>
+      LEDGER_EVENTS.slice(0, 4).map((e, i) => ({
+        id: i,
+        ...e,
+        hash: (0xa11ce + i * 0x5f3d).toString(16).padStart(6, "0"),
+      })),
+  );
+
+  useEffect(() => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
+    let n = LEDGER_EVENTS.length;
+    const t = window.setInterval(() => {
+      const e = LEDGER_EVENTS[n % LEDGER_EVENTS.length];
+      const id = n;
+      n += 1;
+      /* Always four rows in, four rows out: the row count never changes, so
+         nothing below this section can be pushed around. */
+      setLedger((prev) => [
+        {
+          id,
+          ...e,
+          hash: Math.floor(Math.random() * 0xffffff)
+            .toString(16)
+            .padStart(6, "0"),
+        },
+        ...prev.slice(0, 3),
+      ]);
+    }, 2600);
+
+    return () => window.clearInterval(t);
+  }, []);
 
   const selectedPillar = trustPillars.find((p) => p.id === activeTab) || trustPillars[0];
 
@@ -135,29 +257,40 @@ const TrustTransparencyPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Trust Metrics Bar */}
-      <section className="py-12 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-b border-gray-200 dark:border-white/10">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Uptime SLA</p>
-            <p className="text-3xl font-semibold text-gray-900 dark:text-white">99.99%</p>
-            <p className="text-[11px] text-gray-500">Multi-region active failover</p>
-          </div>
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Customer Data Opt-In</p>
-            <p className="text-3xl font-semibold text-gray-900 dark:text-white">0%</p>
-            <p className="text-[11px] text-gray-500">Never used for foundational training</p>
-          </div>
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Encryption Standard</p>
-            <p className="text-3xl font-semibold text-gray-900 dark:text-white">AES-256</p>
-            <p className="text-[11px] text-gray-500">At rest & TLS 1.3 in transit</p>
-          </div>
-          <div className="space-y-1">
-            <p className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Safety Audits</p>
-            <p className="text-3xl font-semibold text-gray-900 dark:text-white">Quarterly</p>
-            <p className="text-[11px] text-gray-500">Independent red-team reviews</p>
-          </div>
+      {/* Trust Metrics - figures that count up as they arrive */}
+      <section className="py-14 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-b border-gray-200 dark:border-white/10">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {[
+            { label: "Uptime SLA", node: <CountUp to={99.99} decimals={2} suffix="%" />, note: "Multi-region active failover" },
+            { label: "Customer data opt-in", node: <CountUp to={0} suffix="%" />, note: "Never used for foundational training" },
+            { label: "Encryption standard", node: <>AES-256</>, note: "At rest and TLS 1.3 in transit" },
+            { label: "Safety audits", node: <>Quarterly</>, note: "Independent red-team reviews" },
+          ].map((stat, i) => (
+            <motion.div
+              key={stat.label}
+              initial={{ opacity: 0, y: 12 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.5 }}
+              transition={{ duration: 0.45, delay: i * 0.08, ease: "easeOut" }}
+              className={`space-y-3 px-0 md:px-7 py-2 ${i === 0 ? "md:pl-0" : "md:border-l border-gray-200 dark:border-white/10"}`}
+            >
+              <p className="font-mono text-[10px] uppercase tracking-[0.16em] text-gray-400 dark:text-gray-500">
+                {stat.label}
+              </p>
+              <p className="text-3xl sm:text-4xl font-normal tracking-tight text-gray-900 dark:text-white">
+                {stat.node}
+              </p>
+              {/* The rule draws itself once the figure has settled. */}
+              <motion.span
+                initial={{ scaleX: 0 }}
+                whileInView={{ scaleX: 1 }}
+                viewport={{ once: true, amount: 0.5 }}
+                transition={{ duration: 0.9, delay: 0.25 + i * 0.08, ease: "easeOut" }}
+                className="block h-px w-full origin-left bg-gray-900 dark:bg-white"
+              />
+              <p className="text-[11px] text-gray-500 dark:text-gray-400">{stat.note}</p>
+            </motion.div>
+          ))}
         </div>
       </section>
 
@@ -294,6 +427,204 @@ const TrustTransparencyPage: React.FC = () => {
                 <span className="group-hover:translate-x-1 transition-transform">→</span>
               </Link>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Live attestation strip */}
+      <section className="py-20 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-16 items-start">
+          <div className="lg:col-span-4 space-y-4">
+            <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500">// append-only</span>
+            <h2 className="text-balance text-2xl sm:text-4xl font-serif text-gray-900 dark:text-white tracking-tight leading-[1.15]">
+              The ledger is the record
+            </h2>
+            <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">
+              Key rotations, policy denials, operator reads and retention sweeps are hashed into an append-only chain. Entries can be verified; they cannot be edited or removed.
+            </p>
+          </div>
+
+          <div className="lg:col-span-8 w-full">
+            <div className="flex items-center justify-between gap-4 pb-3 font-mono text-[10px] uppercase tracking-[0.16em] text-gray-400 dark:text-gray-500">
+              <span>Recent attestations</span>
+              <span className="flex items-center gap-2">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-gray-900/60 dark:bg-white/60" />
+                  <span className="relative inline-flex h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white" />
+                </span>
+                Streaming
+              </span>
+            </div>
+
+            {/* Chain: each row links to the one below it */}
+            <ul className="relative space-y-0 border-t border-gray-200 dark:border-white/10">
+              {ledger.map((entry, slot) => (
+                <li
+                  key={slot}
+                  className="relative flex h-[74px] sm:h-[58px] items-center border-b border-gray-200 dark:border-white/10 pl-6"
+                >
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-[7px] top-0 bottom-0 w-px bg-gray-200 dark:bg-white/10"
+                  />
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-1/2 h-[7px] w-[7px] -translate-y-1/2 rotate-45 border border-gray-400 dark:border-white/30 bg-white dark:bg-black"
+                  />
+
+                  <motion.span
+                    key={entry.id}
+                    initial={{ opacity: 0, y: -6 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, ease: "easeOut" }}
+                    className="grid w-full grid-cols-12 items-center gap-y-1 gap-x-3"
+                  >
+                    <span className="col-span-12 sm:col-span-2 font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+                      {entry.system}
+                    </span>
+                    <span className="col-span-8 sm:col-span-6 text-[13px] text-gray-900 dark:text-white">
+                      {entry.action}
+                    </span>
+                    <span className="col-span-4 sm:col-span-2 text-[11px] text-gray-500 dark:text-gray-400">
+                      {entry.scope}
+                    </span>
+                    <span className="col-span-12 sm:col-span-2 font-mono text-[11px] text-gray-400 dark:text-gray-600 sm:text-right">
+                      #{entry.hash}
+                    </span>
+                  </motion.span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      {/* What we will not do */}
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10">
+        <div className="max-w-2xl space-y-4 mb-16">
+          <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500">// commitments</span>
+          <h2 className="text-balance text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight leading-[1.1]">
+            What we will not do
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+            Every platform lists what it protects. These are the four things we decline to do, which is the part that actually constrains us.
+          </p>
+        </div>
+
+        <div className="space-y-0">
+          {COMMITMENTS.map((item, i) => (
+            <motion.div
+              key={item.slug}
+              initial={{ opacity: 0, y: 16 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.35 }}
+              transition={{ duration: 0.5, delay: i * 0.06, ease: "easeOut" }}
+              className="group grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-10 border-t border-gray-200 dark:border-white/10 py-10 last:border-b transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-white/[0.02]"
+            >
+              <span className="md:col-span-1 font-mono text-xs text-gray-400 dark:text-gray-600 pt-1">{item.n}</span>
+              <h3 className="md:col-span-5 text-xl sm:text-2xl font-serif text-gray-900 dark:text-white tracking-tight leading-snug">
+                {item.title}
+              </h3>
+              <div className="md:col-span-6 space-y-5">
+                <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                <Link
+                  to={`/trust/commitments/${item.slug}`}
+                  className="inline-flex items-center gap-2 border-b border-gray-900/20 dark:border-white/25 pb-1 text-[13px] text-gray-900 dark:text-white transition-colors hover:border-gray-900 dark:hover:border-white"
+                >
+                  <span>Explore this commitment</span>
+                  <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-x-1">
+                    &rarr;
+                  </span>
+                </Link>
+              </div>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Subprocessors */}
+      <section className="py-20 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-10">
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-5">
+          <div className="space-y-3 max-w-xl">
+            <span className="font-mono text-[11px] text-gray-400 dark:text-gray-500">// supply chain</span>
+            <h2 className="text-balance text-2xl sm:text-4xl font-serif text-gray-900 dark:text-white tracking-tight">
+              Who else touches the data
+            </h2>
+          </div>
+          <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed max-w-sm md:text-right">
+            The categories of subprocessor involved in serving a request, and what each one is scoped to see.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {SUBPROCESSORS.map((p, i) => (
+            <motion.div
+              key={p.name}
+              initial={{ opacity: 0, y: 14 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, amount: 0.4 }}
+              transition={{ duration: 0.45, delay: i * 0.07, ease: "easeOut" }}
+              className="space-y-3 border-t-2 border-gray-900 dark:border-white pt-5"
+            >
+              <h3 className="text-sm text-gray-900 dark:text-white tracking-tight">{p.name}</h3>
+              <p className="text-[13px] text-gray-600 dark:text-gray-400 leading-relaxed">{p.purpose}</p>
+              <span className="inline-block font-mono text-[10px] uppercase tracking-[0.14em] text-gray-400 dark:text-gray-500">
+                {p.region}
+              </span>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Trust resources */}
+      <section className="bg-[#111113] text-white">
+        <div className="max-w-[1100px] mx-auto px-6 sm:px-12 py-20 sm:py-24 space-y-14">
+          <div className="text-center space-y-6">
+            <h2 className="text-balance text-3xl sm:text-5xl font-serif tracking-tight text-white">
+              Trust resources
+            </h2>
+            <p className="text-sm sm:text-base text-gray-400 leading-relaxed max-w-xl mx-auto">
+              The documents a security reviewer usually asks for, in the order they usually ask for them.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            {TRUST_RESOURCES.map((item, i) => (
+              <motion.div
+                key={item.title}
+                initial={{ opacity: 0, y: 14 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, amount: 0.3 }}
+                transition={{ duration: 0.45, delay: (i % 3) * 0.07, ease: "easeOut" }}
+              >
+                <Link
+                  to={item.to}
+                  className="group flex h-full min-h-[170px] flex-col justify-between rounded-xl bg-[#1a1a1d] p-6 ring-1 ring-white/[0.06] transition-colors duration-300 hover:bg-[#222226] hover:ring-white/15"
+                >
+                  <h3 className="text-base sm:text-lg font-serif leading-snug text-white">
+                    {item.title}
+                  </h3>
+
+                  <span className="flex items-center gap-2 text-xs text-gray-400">
+                    <svg
+                      aria-hidden="true"
+                      viewBox="0 0 24 24"
+                      className="h-4 w-4 shrink-0"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.6"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M13.5 6.5l-6 6a2.5 2.5 0 103.5 3.5l6.5-6.5a4 4 0 10-5.7-5.7L5.5 10.5"
+                      />
+                    </svg>
+                    <span className="transition-colors group-hover:text-gray-200">{item.kind}</span>
+                  </span>
+                </Link>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

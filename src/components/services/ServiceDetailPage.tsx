@@ -127,8 +127,8 @@ const ServiceDetailPage: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-black font-sans">
         <div className="py-24 text-center">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Service not found</h2>
-          <Link to="/services" className="text-indigo-600 dark:text-indigo-400 underline mt-4 inline-block">
+          <h2 className="text-2xl font-medium text-gray-900 dark:text-white">Service not found</h2>
+          <Link to="/services" className="text-gray-900 dark:text-white underline mt-4 inline-block">
             Back to Services
           </Link>
         </div>
@@ -140,22 +140,43 @@ const ServiceDetailPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-gray-50 font-sans transition-colors duration-300">
       {/* Hero Header */}
-      <div className="relative py-24 md:py-36 overflow-hidden flex items-center justify-center text-center text-white bg-black">
-        <div
-          className="absolute inset-0 bg-cover bg-center opacity-40 transition-transform duration-[10s] hover:scale-105"
-          style={{ backgroundImage: `url(${service.bgImage})` }}
-        />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/50 to-black z-0" />
+      <header className="relative overflow-hidden bg-gradient-to-b from-gray-50 to-white dark:from-[#0b0b0c] dark:to-black">
+        {/* A single soft wash instead of a photographic backdrop, so the
+            headline carries the section on its own. */}
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-72 bg-[radial-gradient(60%_100%_at_50%_100%,rgba(15,23,42,0.07),transparent_70%)] dark:bg-[radial-gradient(60%_100%_at_50%_100%,rgba(255,255,255,0.09),transparent_70%)]" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 space-y-8 mt-8 md:mt-12">
-          <h1 className="text-5xl md:text-7xl font-black tracking-tighter leading-tight drop-shadow-lg">
+        <div className="relative z-10 mx-auto max-w-5xl px-6 py-20 md:py-28 text-center">
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-6 flex items-center justify-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400"
+          >
+            <Link to="/services" className="transition-colors hover:text-gray-900 dark:hover:text-white">
+              Services
+            </Link>
+            <span aria-hidden="true" className="text-gray-300 dark:text-gray-600">/</span>
+            <span className="text-gray-900 dark:text-white">{service.title}</span>
+          </nav>
+
+          <h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.08] text-gray-900 dark:text-white">
             {service.title}
           </h1>
-          <p className="text-lg md:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed font-medium">
+
+          <p className="text-pretty mx-auto mt-6 max-w-2xl text-base sm:text-lg md:text-xl leading-relaxed text-gray-600 dark:text-gray-400">
             {service.tagline}
           </p>
+
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-2">
+            {service.tech.slice(0, 5).map((t) => (
+              <span
+                key={t}
+                className="rounded-full border border-gray-200 bg-white/70 px-3 py-1 text-xs font-semibold text-gray-700 shadow-[0_1px_2px_rgba(15,23,42,0.04)] backdrop-blur-sm dark:border-white/10 dark:bg-white/[0.06] dark:text-gray-300"
+              >
+                {t}
+              </span>
+            ))}
+          </div>
         </div>
-      </div>
+      </header>
 
       {/* Main Content Sections */}
       <div className="max-w-7xl mx-auto px-6 py-20 md:py-32 grid lg:grid-cols-12 gap-16 md:gap-24">
@@ -163,14 +184,14 @@ const ServiceDetailPage: React.FC = () => {
         {/* Left Side: Overview & Features */}
         <div className="lg:col-span-8 space-y-24">
           <section className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
               Service Overview
             </h2>
             <div className="space-y-6">
               <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl leading-relaxed font-medium">
                 {service.overview}
               </p>
-              <div className="w-16 h-1 bg-blue-600 dark:bg-blue-500 rounded-full my-6"></div>
+              <div className="w-16 h-1 bg-gray-900 dark:bg-white rounded-full my-6"></div>
               <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed">
                 {service.detailedContent}
               </p>
@@ -178,7 +199,7 @@ const ServiceDetailPage: React.FC = () => {
           </section>
 
           <section className="space-y-12">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
               Key Capabilities
             </h2>
             <div className="grid sm:grid-cols-2 gap-8">
@@ -187,11 +208,11 @@ const ServiceDetailPage: React.FC = () => {
                   key={i}
                   className="group p-8 bg-gray-50 dark:bg-[#161617] rounded-[28px] border border-gray-150 dark:border-white/[0.04] shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 space-y-6"
                 >
-                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white dark:bg-gray-800/80 text-blue-600 dark:text-blue-400 border border-gray-200/50 dark:border-gray-700/50 shadow-inner text-lg font-black tracking-tighter">
+                  <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white dark:bg-gray-800/80 text-gray-900 dark:text-white border border-gray-200/50 dark:border-gray-700/50 shadow-inner text-lg font-semibold tracking-tighter">
                     0{i + 1}
                   </span>
                   <div className="space-y-3">
-                    <h4 className="text-xl font-bold text-gray-900 dark:text-gray-100 tracking-tight">{feature.title}</h4>
+                    <h4 className="text-xl font-medium text-gray-900 dark:text-gray-100 tracking-tight">{feature.title}</h4>
                     <p className="text-sm font-medium text-gray-500 dark:text-gray-400 leading-relaxed">{feature.description}</p>
                   </div>
                 </div>
@@ -205,9 +226,9 @@ const ServiceDetailPage: React.FC = () => {
           
           {/* Tech Stack widget */}
           <div className="bg-gray-50 dark:bg-[#121213] rounded-[32px] p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
-            <div className="flex items-center gap-4 border-b border-gray-200 dark:border-white/10 pb-6">
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-pulse"></div>
-              <h3 className="text-sm font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
+            <div className="flex items-center gap-4 pb-2">
+              <div className="w-2 h-2 bg-gray-900 dark:bg-white rounded-full animate-pulse"></div>
+              <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
                 Technology Stack
               </h3>
             </div>
@@ -215,7 +236,7 @@ const ServiceDetailPage: React.FC = () => {
               {service.tech.map((t) => (
                 <span
                   key={t}
-                  className="text-xs text-gray-700 dark:text-gray-300 font-bold"
+                  className="text-xs text-gray-700 dark:text-gray-300 font-medium"
                 >
                   {t}
                 </span>
@@ -225,16 +246,16 @@ const ServiceDetailPage: React.FC = () => {
 
            {/* Deliverables widget */}
            <div className="bg-gray-50 dark:bg-[#121213] rounded-[32px] p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
-            <div className="flex items-center gap-4 border-b border-gray-200 dark:border-white/10 pb-6">
+            <div className="flex items-center gap-4 pb-2">
               <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <h3 className="text-sm font-black uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
+              <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
                 Project Deliverables
               </h3>
             </div>
             <ul className="space-y-4">
               {service.deliverables.map((item, idx) => (
                 <li key={idx} className="flex gap-3 items-start">
-                  <span className="text-blue-500 font-bold text-lg leading-none mt-0.5">•</span>
+                  <span className="text-gray-900 dark:text-white font-medium text-lg leading-none mt-0.5">•</span>
                   <span className="text-sm font-medium text-gray-600 dark:text-gray-400 leading-relaxed">{item}</span>
                 </li>
               ))}
@@ -242,19 +263,19 @@ const ServiceDetailPage: React.FC = () => {
           </div>
 
           {/* CTA widget */}
-          <div className="bg-blue-600 rounded-[32px] p-8 md:p-10 space-y-8 shadow-xl text-white relative overflow-hidden group">
+          <div className="bg-gray-900 dark:bg-white rounded-[32px] p-8 md:p-10 space-y-8 shadow-xl text-white dark:text-gray-900 relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-8 opacity-20 transform translate-x-1/4 -translate-y-1/4 transition-transform duration-500 group-hover:scale-110">
                <svg width="120" height="120" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <div className="relative z-10 space-y-4">
-              <h3 className="text-2xl font-extrabold tracking-tight">Ready to build?</h3>
-              <p className="text-sm text-blue-100 leading-relaxed font-medium">
+              <h3 className="text-2xl font-semibold tracking-tight">Ready to build?</h3>
+              <p className="text-sm text-gray-300 dark:text-gray-600 leading-relaxed font-medium">
                 Partner with our team of elite engineers to design, scale, and deploy your next-generation technical product securely.
               </p>
             </div>
             <Link
               to="/contact"
-              className="relative z-10 block w-full text-center py-4 bg-white text-blue-600 hover:bg-gray-50 rounded-2xl text-sm font-black transition-all shadow-md"
+              className="relative z-10 block w-full text-center py-4 bg-white text-gray-900 hover:bg-gray-100 dark:bg-gray-900 dark:text-white dark:hover:bg-black rounded-2xl text-sm font-semibold transition-all shadow-md"
             >
               Contact Engineering
             </Link>
@@ -264,11 +285,11 @@ const ServiceDetailPage: React.FC = () => {
       </div>
 
       {/* Universal Methodology Section */}
-      <div className="bg-gray-50 dark:bg-[#09090a] border-y border-gray-200 dark:border-white/[0.03] py-24 md:py-32">
+      <div className="bg-gray-50 dark:bg-[#09090a] py-24 md:py-32">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
                 Our Implementation Methodology
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed">
@@ -277,7 +298,7 @@ const ServiceDetailPage: React.FC = () => {
             </div>
             
             <div className="relative group lg:ml-auto w-full max-w-md mx-auto lg:mx-0">
-               <div className="absolute inset-0 bg-blue-600 rounded-[32px] transform translate-x-4 translate-y-4 lg:translate-x-6 lg:translate-y-6 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 opacity-15 dark:opacity-30"></div>
+               <div className="absolute inset-0 bg-gray-900 dark:bg-white rounded-[32px] transform translate-x-4 translate-y-4 lg:translate-x-6 lg:translate-y-6 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 opacity-15 dark:opacity-30"></div>
                <img src={service.methodologyImage || "/images/4288b43b-4cf5-4ca3-8452-f9f3e85c8dc4.png"} alt="Engineering Leadership" className="relative z-10 w-full h-[320px] md:h-[400px] object-cover object-top rounded-[32px] shadow-xl group-hover:shadow-2xl transition-all duration-500" />
             </div>
           </div>
@@ -294,11 +315,11 @@ const ServiceDetailPage: React.FC = () => {
               { step: "05", title: "Production Release", desc: "Zero-downtime CI/CD deployment via canary releases, backed by continuous post-launch monitoring." }
             ].map((phase, i) => (
               <div key={i} className="relative z-10 flex flex-row md:flex-col items-start gap-6 md:gap-0 group">
-                <div className="flex-shrink-0 w-14 h-14 bg-white dark:bg-[#121213] border-[3px] border-gray-150 dark:border-gray-800 rounded-full flex items-center justify-center text-lg font-black text-gray-900 dark:text-white shadow-sm group-hover:border-blue-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-500 md:mb-6">
+                <div className="flex-shrink-0 w-14 h-14 bg-white dark:bg-[#121213] border-[3px] border-gray-150 dark:border-gray-800 rounded-full flex items-center justify-center text-lg font-semibold text-gray-900 dark:text-white shadow-sm group-hover:border-gray-900 group-hover:text-gray-900 dark:group-hover:border-white dark:group-hover:text-white transition-colors duration-500 md:mb-6">
                   {phase.step}
                 </div>
                 <div className="space-y-3 pt-2 md:pt-0">
-                  <h4 className="text-xl md:text-lg font-extrabold text-gray-900 dark:text-white tracking-tight">{phase.title}</h4>
+                  <h4 className="text-xl md:text-lg font-semibold text-gray-900 dark:text-white tracking-tight">{phase.title}</h4>
                   <p className="text-sm font-medium text-gray-600 dark:text-gray-400 leading-relaxed md:max-w-[90%]">{phase.desc}</p>
                 </div>
               </div>
@@ -309,27 +330,30 @@ const ServiceDetailPage: React.FC = () => {
 
       {/* Enterprise Standards Guarantee */}
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <div className="bg-gradient-to-br from-blue-700 to-blue-900 rounded-[32px] p-6 sm:p-8 md:p-10 lg:p-12 text-white overflow-hidden relative shadow-2xl">
-           <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-white opacity-5 rounded-full blur-3xl transform translate-x-1/2 -translate-y-1/2 pointer-events-none"></div>
-           <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-black opacity-20 rounded-full blur-3xl transform -translate-x-1/2 translate-y-1/2 pointer-events-none"></div>
+        <div className="relative overflow-hidden rounded-[28px] border border-gray-200 bg-gray-50 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-28px_rgba(15,23,42,0.4)] dark:border-white/10 dark:bg-[#0d0d0f] dark:shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_18px_44px_-28px_rgba(0,0,0,0.8)]">
+           <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-900/30 to-transparent dark:via-white/30" />
            
            <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
              <div className="space-y-4 md:space-y-5">
-               <h2 className="text-3xl md:text-4xl lg:text-5xl font-black tracking-tight leading-tight">The Amthromax Enterprise Guarantee.</h2>
-               <p className="text-blue-100 text-base md:text-lg leading-relaxed font-medium">
+               <span className="inline-flex items-center gap-2 text-[11px] font-medium uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
+                 <span className="h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white" />
+                 Enterprise Standards
+               </span>
+               <h2 className="text-balance text-3xl md:text-4xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.1] text-gray-900 dark:text-white">The Amthromax Enterprise Guarantee.</h2>
+               <p className="text-pretty text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-400">
                  When you partner with our engineering teams, you gain more than just code. You acquire a resilient technological foundation designed to scale exponentially, protected by military-grade security parameters, and backed by contractually enforced continuous support.
                </p>
              </div>
-             <div className="grid sm:grid-cols-2 gap-4">
+             <div className="grid sm:grid-cols-2 gap-3 sm:gap-4">
                 {[
                   { value: "99.99%", label: "Uptime SLA Guarantee" },
                   { value: "<25ms", label: "Average Response Latency" },
                   { value: "AES-256", label: "Payload Encryption Standard" },
                   { value: "24/7/365", label: "Priority Live Support" }
                 ].map((stat, idx) => (
-                  <div key={idx} className="bg-white/10 backdrop-blur-md border border-white/20 p-5 sm:p-6 rounded-[20px] space-y-1.5 hover:bg-white/20 transition-colors duration-300">
-                    <div className="text-3xl md:text-4xl font-black tracking-tighter shadow-sm">{stat.value}</div>
-                    <div className="text-xs font-bold text-blue-200 uppercase tracking-wider">{stat.label}</div>
+                  <div key={idx} className="rounded-[18px] border border-gray-200 bg-white p-5 sm:p-6 space-y-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-colors duration-300 hover:border-gray-900 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-white/40">
+                    <div className="text-3xl md:text-[2rem] font-semibold tracking-tight tabular-nums text-gray-900 dark:text-white">{stat.value}</div>
+                    <div className="text-[11px] font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">{stat.label}</div>
                   </div>
                 ))}
              </div>

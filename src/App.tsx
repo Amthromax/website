@@ -59,6 +59,7 @@ import HelleiousPage from "./components/helleious/HelleiousPage";
 import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
 import OrarQlowPage from "./components/orarqlow/OrarQlowPage";
 import TrustTransparencyPage from "./components/trust/TrustTransparencyPage";
+import TrustCommitmentPage from "./components/trust/TrustCommitmentPage";
 import NotFoundPage from "./components/common/NotFoundPage";
 import './App.css';
 
@@ -977,6 +978,7 @@ const App: React.FC = () => {
             <Route path="/research/safety" element={<SafetyArchitecturePage />} />
             <Route path="/safety" element={<SafetyArchitecturePage />} />
             <Route path="/trust" element={<TrustTransparencyPage />} />
+            <Route path="/trust/commitments/:commitmentId" element={<TrustCommitmentPage />} />
             <Route path="/transparency" element={<TrustTransparencyPage />} />
             <Route path="/trust-transparency" element={<TrustTransparencyPage />} />
             <Route path="/research/publications" element={<PublicationsPage />} />

@@ -43,56 +43,56 @@ const useCases: UseCaseData[] = [
         {
           gene: "Sub-10ms Latency",
           values: [
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
           ]
         },
         {
           gene: "Fault Isolation",
           values: [
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "restrains", bg: "bg-violet-500/12 ring-1 ring-inset ring-violet-500/40 dark:bg-violet-400/15 dark:ring-violet-400/40", color: "text-violet-700 dark:text-violet-200" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
           ]
         },
         {
           gene: "Zero-Copy SerDe",
           values: [
-            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
-            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "restrains", bg: "bg-violet-500/12 ring-1 ring-inset ring-violet-500/40 dark:bg-violet-400/15 dark:ring-violet-400/40", color: "text-violet-700 dark:text-violet-200" },
+            { text: "restrains", bg: "bg-violet-500/12 ring-1 ring-inset ring-violet-500/40 dark:bg-violet-400/15 dark:ring-violet-400/40", color: "text-violet-700 dark:text-violet-200" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
           ]
         },
         {
           gene: "Auto-Failover",
           values: [
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
           ]
         },
         {
           gene: "Cross-Cloud Mesh",
           values: [
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "restrains", bg: "bg-emerald-100 dark:bg-emerald-900/90", color: "text-emerald-900 dark:text-emerald-200" },
-            { text: "context", bg: "bg-rose-100 dark:bg-rose-900/90", color: "text-rose-900 dark:text-rose-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
-            { text: "achieved", bg: "bg-indigo-100 dark:bg-indigo-900/90", color: "text-indigo-900 dark:text-indigo-200" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "restrains", bg: "bg-violet-500/12 ring-1 ring-inset ring-violet-500/40 dark:bg-violet-400/15 dark:ring-violet-400/40", color: "text-violet-700 dark:text-violet-200" },
+            { text: "context", bg: "bg-transparent ring-1 ring-inset ring-gray-300 dark:ring-white/20", color: "text-gray-400 dark:text-gray-500" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
+            { text: "achieved", bg: "bg-[#1b1b22] dark:bg-white", color: "text-white dark:text-[#1b1b22]" },
           ]
         }
       ]
@@ -139,11 +139,11 @@ class AmthromaxMoERouter(nn.Module):
     chartData: {
       title: "Top Performance Optimizations (Target: > 3.0x Speedup)",
       bars: [
-        { label: "Vector Index Lookup", value: 95, color: "#818cf8", displayValue: "+5.12x Speedup" },
-        { label: "Agent Tool Execution", value: 88, color: "#34d399", displayValue: "+4.40x Speedup" },
-        { label: "Zero-Copy State Sync", value: 76, color: "#f472b6", displayValue: "+3.85x Speedup" },
-        { label: "LLM Context Compression", value: 64, color: "#fbbf24", displayValue: "+3.10x Speedup" },
-        { label: "Unoptimized Baseline", value: 28, color: "#a78bfa", displayValue: "1.00x Baseline" }
+        { label: "Vector Index Lookup", value: 95, color: "#2e1065", displayValue: "+5.12x Speedup" },
+        { label: "Agent Tool Execution", value: 88, color: "#5b21b6", displayValue: "+4.40x Speedup" },
+        { label: "Zero-Copy State Sync", value: 76, color: "#7c3aed", displayValue: "+3.85x Speedup" },
+        { label: "LLM Context Compression", value: 64, color: "#a78bfa", displayValue: "+3.10x Speedup" },
+        { label: "Unoptimized Baseline", value: 28, color: "#c7c5cf", displayValue: "1.00x Baseline" }
       ]
     }
   },
@@ -158,13 +158,87 @@ class AmthromaxMoERouter(nn.Module):
     chartData: {
       title: "State Fidelity Preservation Metric (Target: > 99.9%)",
       bars: [
-        { label: "Lattice Depth L=16 (Zero Noise)", value: 99, color: "#34d399", displayValue: "99.94% Fidelity" },
-        { label: "Lattice Depth L=16 (Thermal Noise)", value: 94, color: "#60a5fa", displayValue: "94.82% Fidelity" },
-        { label: "Lattice Depth L=32 (Surface Code)", value: 98, color: "#818cf8", displayValue: "98.71% Fidelity" },
-        { label: "Uncorrected Baseline", value: 42, color: "#f87171", displayValue: "42.10% Fidelity" }
+        { label: "Lattice Depth L=16 (Zero Noise)", value: 99, color: "#2e1065", displayValue: "99.94% Fidelity" },
+        { label: "Lattice Depth L=32 (Surface Code)", value: 98, color: "#5b21b6", displayValue: "98.71% Fidelity" },
+        { label: "Lattice Depth L=16 (Thermal Noise)", value: 94, color: "#8b5cf6", displayValue: "94.82% Fidelity" },
+        { label: "Uncorrected Baseline", value: 42, color: "#c7c5cf", displayValue: "42.10% Fidelity" }
       ]
     }
   }
+];
+
+/* Platform metrics shown in the hero and the figures band. */
+const RESEARCH_STATS = [
+  { value: "1,024", label: "Agents per swarm", note: "Concurrent reasoning agents in a single orchestrated run" },
+  { value: "34", label: "Benchmark suites", note: "Internal and peer-reviewed suites tracked in the index" },
+  { value: "6", label: "Regions", note: "Compute regions available for distributed experiments" },
+  { value: "<10ms", label: "Consensus latency", note: "Median agreement time across the Amthromax Mesh" },
+];
+
+/* The disciplines Amthromax research is organised around. */
+const RESEARCH_AREAS = [
+  {
+    id: "agents",
+    tag: "01",
+    title: "Autonomous agent systems",
+    body: "Planning, tool use and self-correction across long-running tasks. We study how agent swarms divide work, reach consensus and recover when individual agents fail mid-run.",
+    points: ["Multi-agent orchestration", "Task graph decomposition", "Failure recovery and replay"],
+  },
+  {
+    id: "distributed",
+    tag: "02",
+    title: "Distributed inference",
+    body: "Serving large models across heterogeneous clusters without sacrificing determinism. Our work covers scheduling, zero-copy serialisation and cross-region state synchronisation.",
+    points: ["Mixture-of-Experts routing", "Zero-copy SerDe", "Cross-cloud mesh topology"],
+  },
+  {
+    id: "reasoning",
+    tag: "03",
+    title: "Reasoning and evaluation",
+    body: "Measuring whether a model actually reasoned, not just whether it answered. We build evaluation harnesses that score intermediate steps, citations and reproducibility.",
+    points: ["Step-level scoring", "Citation grounding", "Reproducible eval harnesses"],
+  },
+  {
+    id: "retrieval",
+    tag: "04",
+    title: "Retrieval and knowledge",
+    body: "Grounding generation in private corpora. We research vector index design, hybrid retrieval and provenance tracking so every claim can be traced to a source document.",
+    points: ["Hybrid dense and sparse retrieval", "Index compaction", "Provenance tracking"],
+  },
+  {
+    id: "safety",
+    tag: "05",
+    title: "Safety and governance",
+    body: "Policy enforcement that survives contact with production. We study guardrail architectures, red-teaming methodology and audit trails that hold up under review.",
+    points: ["Policy guardrails", "Adversarial red-teaming", "Immutable audit trails"],
+  },
+  {
+    id: "systems",
+    tag: "06",
+    title: "Research infrastructure",
+    body: "The substrate the rest of the work runs on: experiment tracking, dataset versioning and compute scheduling built so a result from last quarter can be re-run today.",
+    points: ["Experiment tracking", "Dataset versioning", "Deterministic re-runs"],
+  },
+];
+
+/* Ways labs and institutions work with us. */
+const COLLABORATIONS = [
+  {
+    title: "Academic partnerships",
+    body: "Joint research programmes with university labs, including compute allocations and co-authored publications.",
+  },
+  {
+    title: "Research residency",
+    body: "A fixed-term placement for researchers and PhD candidates working alongside the Amthromax engineering teams.",
+  },
+  {
+    title: "Compute grants",
+    body: "Allocated cluster time for independent researchers running reproducible, publishable experiments.",
+  },
+  {
+    title: "Enterprise lab programme",
+    body: "Dedicated environments for corporate R&D groups, with private model hosting inside your own VPC.",
+  },
 ];
 
 const ResearchSection: React.FC = () => {
@@ -175,25 +249,72 @@ const ResearchSection: React.FC = () => {
     <div className="bg-white dark:bg-black text-gray-900 dark:text-white font-sans min-h-screen transition-colors duration-300 antialiased">
       
       {/* SECTION 1: HERO HEADER */}
-      <section className="relative pt-24 sm:pt-32 pb-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto overflow-hidden">
-        <div className="max-w-4xl space-y-8 z-10">
-          <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-gray-900 dark:text-white tracking-tight leading-[1.08]">
-            Amthromax R&D Platform <br />
-            for research labs
-          </h1>
+      <section className="relative pt-20 sm:pt-28 pb-16 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto overflow-hidden">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-2xl">
-            A reasoning partner for engineering teams, academic institutions, and enterprise labs to advance scientific discovery and autonomous AI systems.
-          </p>
+          <div className="lg:col-span-7 space-y-7 z-10">
+            <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
+              <span className="h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white" />
+              Amthromax Research
+            </span>
 
-          <div>
-            <Link
-              to="/contact-sales"
-              className="inline-flex items-center justify-center px-6 py-3.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-semibold text-sm rounded-lg transition-all cursor-pointer shadow-lg"
-            >
-              Get started
-            </Link>
+            <h1 className="text-4xl sm:text-6xl md:text-7xl font-serif text-gray-900 dark:text-white tracking-tight leading-[1.08]">
+              Amthromax R&D Platform <br />
+              for research labs
+            </h1>
+
+            <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-2xl">
+              A reasoning partner for engineering teams, academic institutions, and enterprise labs to advance scientific discovery and autonomous AI systems.
+            </p>
+
+            <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 font-normal leading-relaxed max-w-2xl">
+              The platform brings experiment tracking, distributed compute, agent orchestration and evaluation into one workspace, so a result produced today can be reproduced, cited and audited months later.
+            </p>
+
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                to="/contact-sales"
+                className="inline-flex items-center justify-center px-6 py-3.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-semibold text-sm rounded-lg transition-all cursor-pointer shadow-lg"
+              >
+                Get started
+              </Link>
+              <Link
+                to="/research/publications"
+                className="inline-flex items-center justify-center gap-1.5 px-6 py-3.5 border border-gray-300 dark:border-white/20 text-gray-900 dark:text-white hover:bg-gray-100 dark:hover:bg-white/10 font-semibold text-sm rounded-lg transition-all cursor-pointer"
+              >
+                <span>Read the publications</span>
+                <span aria-hidden="true">&rsaquo;</span>
+              </Link>
+            </div>
           </div>
+
+          {/* Hero visual */}
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/15 bg-gray-50 dark:bg-[#0d0d0f] shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-28px_rgba(15,23,42,0.4)]">
+              <img
+                src="/images/amthromax_lab_workspace.jpg"
+                alt="A researcher working in the Amthromax Lab workspace"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/[0.04] dark:ring-white/10 rounded-3xl" />
+            </div>
+          </div>
+
+        </div>
+
+        {/* Figures band */}
+        <div className="mt-16 grid grid-cols-2 lg:grid-cols-4 gap-px bg-gray-200 dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
+          {RESEARCH_STATS.map((stat) => (
+            <div key={stat.label} className="bg-white dark:bg-black p-5 sm:p-7 space-y-1.5">
+              <div className="text-2xl sm:text-4xl font-serif text-gray-900 dark:text-white tracking-tight tabular-nums">
+                {stat.value}
+              </div>
+              <div className="text-xs sm:text-sm font-semibold text-gray-900 dark:text-white">{stat.label}</div>
+              <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{stat.note}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -331,11 +452,11 @@ const ResearchSection: React.FC = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -16 }}
               transition={{ duration: 0.25 }}
-              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center"
+              className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start"
             >
               
               {/* Left Display Card: Literature Synthesis Table or Code/Chart */}
-              <div className="lg:col-span-8 bg-white dark:bg-[#121214] text-gray-900 dark:text-white rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl border border-gray-200 dark:border-white/20">
+              <div className="lg:col-span-8 lg:min-h-[640px] bg-white dark:bg-[#121214] text-gray-900 dark:text-white rounded-2xl p-6 sm:p-8 space-y-6 shadow-xl border border-gray-200 dark:border-white/20">
                 
                 {/* Header */}
                 <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
@@ -365,7 +486,7 @@ const ResearchSection: React.FC = () => {
                             <td className="py-2.5 px-3 font-bold text-gray-900 dark:text-white font-mono text-xs">{row.gene}</td>
                             {row.values.map((v, valIdx) => (
                               <td key={valIdx} className="py-2 px-1 text-center">
-                                <span className={`inline-block px-2 py-0.5 rounded text-[11px] font-semibold ${v.bg} ${v.color}`}>
+                                <span className={`inline-block px-2 py-0.5 rounded-[4px] text-[10px] font-semibold uppercase tracking-[0.06em] ${v.bg} ${v.color}`}>
                                   {v.text}
                                 </span>
                               </td>
@@ -379,10 +500,14 @@ const ResearchSection: React.FC = () => {
 
                 {/* Code Render for Research Code */}
                 {activeUseCase.codeData && (
-                  <div className="bg-gray-900 dark:bg-[#18181b] text-gray-100 rounded-xl overflow-hidden text-xs font-mono border border-gray-800 dark:border-transparent">
-                    <div className="px-4 py-2 bg-gray-950 dark:bg-zinc-900 text-gray-400 dark:text-zinc-400 flex justify-between border-b border-gray-800 dark:border-zinc-800">
-                      <span>{activeUseCase.codeData.filename}</span>
-                      <span className="uppercase text-[10px] bg-gray-800 dark:bg-zinc-800 px-2 py-0.5 rounded text-gray-300 dark:text-zinc-300">
+                  <div className="relative bg-[#0d0c12] text-gray-100 rounded-xl overflow-hidden text-xs font-mono ring-1 ring-violet-400/15">
+                    <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-violet-400/50 to-transparent" />
+                    <div className="px-4 py-2.5 bg-black/40 text-gray-400 flex items-center justify-between border-b border-white/[0.06]">
+                      <span className="flex items-center gap-2">
+                        <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
+                        {activeUseCase.codeData.filename}
+                      </span>
+                      <span className="uppercase text-[9px] tracking-[0.14em] border border-violet-400/30 text-violet-200 px-2 py-0.5 rounded-[4px]">
                         {activeUseCase.codeData.language}
                       </span>
                     </div>
@@ -395,22 +520,34 @@ const ResearchSection: React.FC = () => {
                 {/* Chart Render for Data Analysis & Numerical Experiments */}
                 {activeUseCase.chartData && (
                   <div className="space-y-4 py-2 font-sans">
-                    <h4 className="text-xs font-bold text-gray-700 dark:text-gray-300 uppercase tracking-wide">
+                    <h4 className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-[0.18em]">
                       {activeUseCase.chartData.title}
                     </h4>
-                    <div className="space-y-3">
+                    <div className="divide-y divide-gray-100 dark:divide-white/5 border-t border-gray-100 dark:border-white/5">
                       {activeUseCase.chartData.bars.map((bar, i) => (
-                        <div key={i} className="space-y-1">
-                          <div className="flex justify-between text-xs font-semibold text-gray-800 dark:text-gray-200">
-                            <span>{bar.label}</span>
-                            <span style={{ color: bar.color }}>{bar.displayValue}</span>
-                          </div>
-                          <div className="w-full bg-gray-100 dark:bg-white/10 h-3 rounded-full overflow-hidden border border-gray-200 dark:border-white/10">
-                            <div
-                              className="h-full rounded-full transition-all duration-500"
-                              style={{ width: `${bar.value}%`, backgroundColor: bar.color }}
-                            />
-                          </div>
+                        <div key={i} className="grid grid-cols-12 items-center gap-3 py-3">
+                          <span className="col-span-12 sm:col-span-4 flex items-center gap-2 text-[11px] sm:text-xs font-semibold text-gray-800 dark:text-gray-200">
+                            <span className="font-mono text-[10px] text-gray-400 dark:text-gray-600 tabular-nums">
+                              {String(i + 1).padStart(2, "0")}
+                            </span>
+                            <span className="truncate">{bar.label}</span>
+                          </span>
+
+                          <span className="col-span-8 sm:col-span-5">
+                            {/* Square-ended rule on a ruled track: reads as a measurement,
+                                not a progress bar. */}
+                            <span className="relative block h-[7px] w-full bg-gray-100 dark:bg-white/[0.07]">
+                              <span
+                                className="absolute inset-y-0 left-0 transition-all duration-700 ease-out"
+                                style={{ width: `${bar.value}%`, backgroundColor: bar.color }}
+                              />
+                              <span className="pointer-events-none absolute inset-y-[-3px] right-0 w-px bg-gray-300 dark:bg-white/20" />
+                            </span>
+                          </span>
+
+                          <span className="col-span-4 sm:col-span-3 text-right font-mono text-[11px] sm:text-xs font-semibold tabular-nums text-gray-900 dark:text-white">
+                            {bar.displayValue}
+                          </span>
                         </div>
                       ))}
                     </div>
@@ -438,6 +575,131 @@ const ResearchSection: React.FC = () => {
 
             </motion.div>
           </AnimatePresence>
+
+        </div>
+      </section>
+
+      {/* SECTION 3.5: RESEARCH AREAS */}
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-12">
+        <div className="max-w-3xl space-y-4">
+          <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight">
+            What we research
+          </h2>
+          <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed">
+            Amthromax research runs across six disciplines. Each one feeds the platform directly, so the methods described here are the methods the product ships with.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-gray-200 dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
+          {RESEARCH_AREAS.map((area) => (
+            <div
+              key={area.id}
+              className="group bg-white dark:bg-black p-7 sm:p-9 space-y-4 transition-colors duration-300 hover:bg-gray-50 dark:hover:bg-white/[0.03]"
+            >
+              <span className="block font-mono text-xs text-gray-400 dark:text-gray-600">{area.tag}</span>
+              <h3 className="text-lg sm:text-xl font-serif text-gray-900 dark:text-white tracking-tight leading-snug">
+                {area.title}
+              </h3>
+              <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{area.body}</p>
+              <ul className="pt-1 space-y-1.5">
+                {area.points.map((point) => (
+                  <li key={point} className="flex items-start gap-2 text-[11px] sm:text-xs text-gray-500 dark:text-gray-400">
+                    <span aria-hidden="true" className="mt-[7px] h-1 w-1 shrink-0 rounded-full bg-gray-400 dark:bg-gray-600" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* SECTION 3.6: INSIDE THE LAB */}
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <div className="lg:col-span-6 order-2 lg:order-1 space-y-8">
+            <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight leading-snug">
+              Inside the research stack
+            </h2>
+            <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
+              Every experiment runs on the same substrate: versioned datasets, pinned model weights and a scheduler that records exactly which hardware produced which number. Nothing is reconstructed from memory.
+            </p>
+
+            <dl className="divide-y divide-gray-200 dark:divide-white/10 border-t border-b border-gray-200 dark:border-white/10">
+              {[
+                { term: "Compute", desc: "Distributed GPU clusters across six regions, with reserved capacity for long-running training and evaluation jobs." },
+                { term: "Datasets", desc: "Content-addressed dataset versioning, so a run always resolves the exact snapshot it was launched against." },
+                { term: "Reproducibility", desc: "Pinned weights, recorded seeds and captured environments. Any published figure can be re-executed from its manifest." },
+                { term: "Privacy", desc: "Private corpora stay inside your own VPC. Proprietary research data is never used to train shared models." },
+              ].map((row) => (
+                <div key={row.term} className="py-6 grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6">
+                  <dt className="sm:col-span-4 text-sm font-semibold text-gray-900 dark:text-white tracking-tight">{row.term}</dt>
+                  <dd className="sm:col-span-8 text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed">{row.desc}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
+
+          <div className="lg:col-span-6 order-1 lg:order-2">
+            <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/15 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-28px_rgba(15,23,42,0.45)]">
+              <img
+                src="/images/cognitive_knowledge_mining.png"
+                alt="Visualisation of a neural knowledge graph drawing on indexed research documents"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[320px] sm:h-[460px] object-cover"
+              />
+              <div className="pointer-events-none absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/10" />
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      {/* SECTION 3.7: COLLABORATE */}
+      <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+
+          <div className="lg:col-span-5">
+            <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/15 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-28px_rgba(15,23,42,0.4)]">
+              <img
+                src="/images/agi_mission_team.png"
+                alt="Researchers discussing a model architecture at a whiteboard in the AI research hub"
+                loading="lazy"
+                decoding="async"
+                className="w-full h-[300px] sm:h-[420px] object-cover"
+              />
+            </div>
+          </div>
+
+          <div className="lg:col-span-7 space-y-8">
+            <div className="space-y-4">
+              <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight leading-snug">
+                Work with Amthromax Labs
+              </h2>
+              <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 leading-relaxed max-w-xl">
+                We run a small number of collaborations at a time, chosen for the questions they answer rather than their size. Each one gets compute, engineering time and a named research contact.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-200 dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
+              {COLLABORATIONS.map((item) => (
+                <div key={item.title} className="bg-white dark:bg-black p-6 sm:p-7 space-y-2">
+                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
+                  <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{item.body}</p>
+                </div>
+              ))}
+            </div>
+
+            <Link
+              to="/contact-sales"
+              className="inline-flex items-center justify-center gap-1.5 px-6 py-3.5 bg-black hover:bg-gray-800 text-white dark:bg-white dark:hover:bg-gray-200 dark:text-black font-semibold text-sm rounded-lg transition-all cursor-pointer shadow-lg"
+            >
+              <span>Talk to the research team</span>
+              <span aria-hidden="true">&rsaquo;</span>
+            </Link>
+          </div>
 
         </div>
       </section>

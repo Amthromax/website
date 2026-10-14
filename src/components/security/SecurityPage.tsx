@@ -11,6 +11,113 @@ interface LogEntry {
   message: string;
 }
 
+/* What happens to a single agent request, from edge to ledger. */
+const REQUEST_LIFECYCLE = [
+  {
+    stage: "01",
+    phase: "Admission",
+    title: "Identity before payload",
+    body: "The request is authenticated against your identity provider over SAML or OIDC before its body is parsed. An unauthenticated request never reaches a model, a tool or a log line.",
+  },
+  {
+    stage: "02",
+    phase: "Inspection",
+    title: "Prompt and tool-call screening",
+    body: "Inbound content is screened for indirect injection and unsafe tool arguments. Anything that would widen the request's own permissions is rejected rather than sanitised and passed along.",
+  },
+  {
+    stage: "03",
+    phase: "Execution",
+    title: "Disposable sandbox",
+    body: "Code and tool calls run in a micro-container with a fixed memory and CPU ceiling, no inbound network and an outbound deny-by-default policy. The container is destroyed when the task ends.",
+  },
+  {
+    stage: "04",
+    phase: "Egress",
+    title: "Outbound policy check",
+    body: "Responses leaving the sandbox are checked against the egress policy for the calling tenant. Destinations that were not declared up front are blocked, not logged-and-allowed.",
+  },
+  {
+    stage: "05",
+    phase: "Attestation",
+    title: "Write to the ledger",
+    body: "The request, the policy decisions taken against it and the resulting artefacts are hashed into an append-only telemetry ledger. Entries can be read and verified, never edited.",
+  },
+];
+
+/* Who owns which control. The honest version of a security page. */
+const RESPONSIBILITY = [
+  {
+    area: "Identity and access",
+    amthromax: "Federation, session handling, per-agent scoping and the enforcement point itself.",
+    customer: "Your directory, your group membership, and who you grant which scope to.",
+  },
+  {
+    area: "Data residency",
+    amthromax: "Region-pinned storage and processing, with no silent cross-region failover.",
+    customer: "Choosing the region, and the classification of what you send to it.",
+  },
+  {
+    area: "Model and tool access",
+    amthromax: "Sandbox isolation, egress policy enforcement and tool permission checks.",
+    customer: "Declaring which tools an agent may call and what each one is allowed to reach.",
+  },
+  {
+    area: "Retention",
+    amthromax: "Honouring the retention window you set, and deleting on schedule.",
+    customer: "Setting the window, and issuing deletion requests for records you no longer need.",
+  },
+  {
+    area: "Monitoring",
+    amthromax: "Emitting the audit stream and keeping the ledger verifiable.",
+    customer: "Routing that stream into your SIEM and acting on what it reports.",
+  },
+];
+
+/* What we commit to when something goes wrong. */
+const INCIDENT_FLOW = [
+  {
+    window: "Immediate",
+    title: "Contain",
+    body: "Affected sandboxes are drained and credentials rotated. Containment is automated, so it does not wait on a human being awake.",
+  },
+  {
+    window: "Within hours",
+    title: "Assess",
+    body: "We reconstruct the sequence from the ledger rather than from memory, and establish exactly which tenants and records were in scope.",
+  },
+  {
+    window: "During",
+    title: "Notify",
+    body: "Affected customers receive a named contact and a running account of what is known, including what is still unconfirmed.",
+  },
+  {
+    window: "After",
+    title: "Publish the post-mortem",
+    body: "A written analysis goes to affected customers with the root cause, the timeline and the specific changes made so the same path closes.",
+  },
+];
+
+/* Plain answers about what is kept. */
+const DATA_HANDLING = [
+  {
+    term: "What is stored",
+    desc: "Request metadata, policy decisions and output artefacts. Prompt and response bodies are retained only while your configured window allows it.",
+  },
+  {
+    term: "What is never used for training",
+    desc: "Customer prompts, documents, embeddings and tool outputs. Private corpora stay inside your own environment and do not train shared models.",
+  },
+  {
+    term: "Who can read it",
+    desc: "Access is scoped per tenant and per agent. Operator access is itself an audited event, recorded in the same ledger as everything else.",
+  },
+  {
+    term: "How deletion works",
+    desc: "Deletion removes the record and its derived indexes, including vector embeddings, rather than hiding it behind a flag.",
+  },
+];
+
 const SecurityPage: React.FC = () => {
   // Console state
   const [logs, setLogs] = useState<LogEntry[]>([
@@ -189,11 +296,14 @@ const SecurityPage: React.FC = () => {
       {/* Hero Section */}
       <section className="relative pt-24 pb-16 md:py-32 overflow-hidden flex flex-col items-center justify-center bg-white dark:bg-black text-gray-900 dark:text-white transition-colors duration-300">
         <div className="max-w-7xl mx-auto px-6 relative z-10 text-center space-y-6">
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-semibold tracking-tighter leading-tight text-gray-900 dark:text-white">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-normal tracking-tighter leading-tight text-gray-900 dark:text-white">
             Industrial Scale. Certified Security.
           </h1>
-          <p className="text-base md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-medium">
+          <p className="text-pretty text-base md:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed font-normal">
             Unify your systems with high-throughput automation engines, zero-trust cloud network frameworks, and dedicated support pipelines.
+          </p>
+          <p className="text-pretty text-sm md:text-base text-gray-500 dark:text-gray-500 max-w-2xl mx-auto leading-relaxed font-normal">
+            Autonomous agents hold credentials, call tools and write to systems of record. This page sets out how a single request is admitted, isolated and attested, and where our responsibility ends and yours begins.
           </p>
         </div>
       </section>
@@ -286,7 +396,7 @@ const SecurityPage: React.FC = () => {
             <div className="lg:col-span-4 space-y-8">
               {/* Stat 1 */}
               <div className="space-y-2">
-                <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">62%</span>
+                <span className="text-4xl sm:text-5xl font-normal text-gray-900 dark:text-white tracking-tight">62%</span>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
                   Enterprise AI Deployments Vulnerable To Indirect Prompt Injection & Unsanitized Tool Inputs.
                 </p>
@@ -299,7 +409,7 @@ const SecurityPage: React.FC = () => {
 
               {/* Stat 2 */}
               <div className="space-y-2">
-                <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">48%</span>
+                <span className="text-4xl sm:text-5xl font-normal text-gray-900 dark:text-white tracking-tight">48%</span>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
                   Unencrypted Inter-Agent Communication Routes Exposing Sensitive Session Credentials.
                 </p>
@@ -312,7 +422,7 @@ const SecurityPage: React.FC = () => {
 
               {/* Stat 3 */}
               <div className="space-y-2">
-                <span className="text-4xl sm:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">57%</span>
+                <span className="text-4xl sm:text-5xl font-normal text-gray-900 dark:text-white tracking-tight">57%</span>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal max-w-xs">
                   Security Engineering Time Wasted Manually Auditing Unverified Execution Traces Across Clusters.
                 </p>
@@ -389,10 +499,10 @@ const SecurityPage: React.FC = () => {
               {/* Card 1 */}
               <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                <span className="text-sm font-normal text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Prompt Injection Attack
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-medium">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                   </svg>
@@ -402,10 +512,10 @@ const SecurityPage: React.FC = () => {
               {/* Card 2 */}
               <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                <span className="text-sm font-normal text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Credential Exposure
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-medium">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
                   </svg>
@@ -415,10 +525,10 @@ const SecurityPage: React.FC = () => {
               {/* Card 3 */}
               <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                <span className="text-sm font-normal text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Unverified Trace Logs
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-medium">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
@@ -428,10 +538,10 @@ const SecurityPage: React.FC = () => {
               {/* Card 4 */}
               <div className="relative p-5 bg-white dark:bg-black rounded-3xl border border-gray-150 dark:border-white/10 shadow-sm hover:shadow-md transition-all flex items-center justify-between group overflow-hidden">
                 <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-zinc-200/30 dark:from-zinc-800/30 to-transparent pointer-events-none" />
-                <span className="text-sm font-semibold text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
+                <span className="text-sm font-normal text-gray-800 dark:text-gray-200 leading-snug max-w-[130px]">
                   Execution Latency Risk
                 </span>
-                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-bold">
+                <div className="w-11 h-11 rounded-2xl bg-zinc-900 dark:bg-white text-white dark:text-zinc-900 flex items-center justify-center shadow-md shrink-0 z-10 font-medium">
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                   </svg>
@@ -448,7 +558,7 @@ const SecurityPage: React.FC = () => {
         {/* Infrastructure Pillars (4 Cards Grid) */}
         <div className="space-y-6">
           <div className="space-y-2">
-            <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white">Security Infrastructure</h2>
+            <h2 className="text-2xl md:text-3xl font-normal text-gray-900 dark:text-white">Security Infrastructure</h2>
             <p className="text-gray-500 dark:text-gray-450 text-sm">Four foundational defense systems guarding your agent network.</p>
           </div>
 
@@ -461,7 +571,7 @@ const SecurityPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white">1. Ephemeral Sandbox</h3>
+              <h3 className="text-base font-medium text-gray-900 dark:text-white">1. Ephemeral Sandbox</h3>
               <p className="text-xs text-gray-550 dark:text-gray-400 leading-relaxed mt-2">
                 All custom code executions trigger isolated micro-containers configured with restricted memory boundaries, destroyed instantly upon task completion.
               </p>
@@ -474,7 +584,7 @@ const SecurityPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white">2. Lattice Encryption</h3>
+              <h3 className="text-base font-medium text-gray-900 dark:text-white">2. Lattice Encryption</h3>
               <p className="text-xs text-gray-550 dark:text-gray-400 leading-relaxed mt-2">
                 Securing data routes with CRYSTALS-Kyber (ML-KEM) lattice key exchange, mitigating potential future decryption risks from quantum computation.
               </p>
@@ -487,7 +597,7 @@ const SecurityPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white">3. Immutable Ledger</h3>
+              <h3 className="text-base font-medium text-gray-900 dark:text-white">3. Immutable Ledger</h3>
               <p className="text-xs text-gray-550 dark:text-gray-400 leading-relaxed mt-2">
                 Reasoning traces, database connections, and tool logs are signed and recorded into cryptographically chained ledgers to prevent data tampering.
               </p>
@@ -500,7 +610,7 @@ const SecurityPage: React.FC = () => {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>
               </div>
-              <h3 className="text-base font-bold text-gray-900 dark:text-white">4. Compliance Ready</h3>
+              <h3 className="text-base font-medium text-gray-900 dark:text-white">4. Compliance Ready</h3>
               <p className="text-xs text-gray-550 dark:text-gray-400 leading-relaxed mt-2">
                 Certified SOC2 Type II standards, ISO 27001 policies, and full GDPR compliance ensuring customer control over localization and data residency.
               </p>
@@ -513,7 +623,7 @@ const SecurityPage: React.FC = () => {
         <div className="space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
             <div className="space-y-1">
-              <h2 className="text-2xl md:text-3xl font-extrabold text-gray-900 dark:text-white">Security Command Console</h2>
+              <h2 className="text-2xl md:text-3xl font-normal text-gray-900 dark:text-white">Security Command Console</h2>
               <p className="text-gray-500 dark:text-gray-450 text-sm">Simulate active threats, verify sandbox integrity, and monitor real-time telemetry logs.</p>
             </div>
           </div>
@@ -526,10 +636,10 @@ const SecurityPage: React.FC = () => {
                 <span className="w-3 h-3 rounded-full bg-rose-500/80 inline-block shadow-sm" />
                 <span className="w-3 h-3 rounded-full bg-amber-500/80 inline-block shadow-sm" />
                 <span className="w-3 h-3 rounded-full bg-emerald-500/80 inline-block shadow-sm" />
-                <span className="text-xs text-zinc-400 font-bold ml-2 tracking-wide font-mono">secure-telemetry-daemon v2.4.0-quantum</span>
+                <span className="text-xs text-zinc-400 font-medium ml-2 tracking-wide font-mono">secure-telemetry-daemon v2.4.0-quantum</span>
               </div>
               <div className="flex items-center gap-4">
-                <span className="inline-flex items-center gap-2 text-xs text-emerald-400 font-bold tracking-wider">
+                <span className="inline-flex items-center gap-2 text-xs text-emerald-400 font-medium tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
                   {activeScenario ? `SIMULATING: ${activeScenario.toUpperCase()}` : "PROD-NODE-ACTIVE"}
                 </span>
@@ -549,7 +659,7 @@ const SecurityPage: React.FC = () => {
                 <div key={index} className="flex gap-4 items-start leading-relaxed group hover:bg-white/[0.02] -mx-2 px-2 py-0.5 rounded transition-colors">
                   <span className="text-zinc-600 select-none text-[11px] min-w-[28px] text-right font-mono">{index + 1}</span>
                   <span className="text-zinc-500 select-none font-mono text-xs">[{log.timestamp}]</span>
-                  <span className={`font-bold select-none min-w-[80px] font-mono text-xs ${
+                  <span className={`font-medium select-none min-w-[80px] font-mono text-xs ${
                     log.system === "SYSTEM" ? "text-zinc-300" :
                     log.system === "SHIELD" ? "text-zinc-200" :
                     log.system === "CRYPTO" ? "text-zinc-400" :
@@ -564,7 +674,7 @@ const SecurityPage: React.FC = () => {
                     {log.system}:
                   </span>
                   <span className={`font-mono text-xs ${
-                    log.level === "error" ? "text-rose-300 font-semibold" :
+                    log.level === "error" ? "text-rose-300 font-normal" :
                     log.level === "warning" ? "text-amber-300" :
                     log.level === "success" ? "text-zinc-200" : "text-zinc-300"
                   }`}>
@@ -622,12 +732,190 @@ const SecurityPage: React.FC = () => {
 
       </section>
 
+      {/* Request Lifecycle - horizontal pipeline */}
+      <section className="bg-white dark:bg-black py-16 md:py-24 border-t border-gray-100 dark:border-white/10 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 space-y-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+            <div className="space-y-3 max-w-xl">
+              <span className="font-mono text-[11px] text-gray-400 dark:text-gray-600">// request path</span>
+              <h2 className="text-balance text-2xl md:text-4xl font-normal tracking-tight text-gray-900 dark:text-white leading-[1.15]">
+                What happens to one request
+              </h2>
+            </div>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed max-w-sm md:text-right">
+              Five checkpoints, applied to every call regardless of which agent made it or how trusted the caller believes itself to be.
+            </p>
+          </div>
+
+          {/* The pipeline: a rail with a node per stage, laid out left to right on
+              desktop and top to bottom on small screens. */}
+          <div className="relative">
+            <span
+              aria-hidden="true"
+              className="absolute left-[15px] top-2 bottom-2 w-px bg-gray-200 dark:bg-white/10 lg:left-0 lg:right-0 lg:top-[15px] lg:bottom-auto lg:h-px lg:w-auto"
+            />
+
+            <ol className="relative grid grid-cols-1 lg:grid-cols-5 gap-10 lg:gap-6">
+              {REQUEST_LIFECYCLE.map((step) => (
+                <li key={step.stage} className="relative pl-12 lg:pl-0">
+                  <span className="absolute left-0 top-0 lg:relative lg:left-auto lg:top-auto flex h-8 w-8 items-center justify-center rounded-full border border-gray-300 dark:border-white/20 bg-white dark:bg-black font-mono text-[11px] text-gray-900 dark:text-white">
+                    {step.stage}
+                  </span>
+
+                  <div className="space-y-2 lg:pt-6">
+                    <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400 dark:text-gray-600">
+                      {step.phase}
+                    </span>
+                    <h3 className="text-base font-normal text-gray-900 dark:text-white tracking-tight leading-snug">
+                      {step.title}
+                    </h3>
+                    <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed">{step.body}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </div>
+      </section>
+
+      {/* Shared Responsibility - a ledger split down the middle */}
+      <section className="bg-white dark:bg-black py-16 md:py-24 border-t border-gray-100 dark:border-white/10 transition-colors duration-300">
+        <div className="max-w-5xl mx-auto px-6 space-y-10">
+          <div className="text-center space-y-3 max-w-2xl mx-auto">
+            <span className="font-mono text-[11px] text-gray-400 dark:text-gray-600">// division of duties</span>
+            <h2 className="text-balance text-2xl md:text-4xl font-normal tracking-tight text-gray-900 dark:text-white leading-[1.15]">
+              Where our responsibility ends
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              A platform cannot secure decisions it does not make. This is the split, stated plainly, so there is no gap either side assumed the other was covering.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* The spine that the two sides balance against */}
+            <span
+              aria-hidden="true"
+              className="pointer-events-none absolute left-1/2 top-0 bottom-0 hidden w-px -translate-x-1/2 bg-gray-900/15 dark:bg-white/15 md:block"
+            />
+
+            <div className="hidden md:grid grid-cols-2 gap-10 pb-5">
+              <span className="text-right font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400 dark:text-gray-600">
+                Amthromax
+              </span>
+              <span className="font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400 dark:text-gray-600">
+                You
+              </span>
+            </div>
+
+            <div className="space-y-10">
+              {RESPONSIBILITY.map((row) => (
+                <div key={row.area} className="space-y-4">
+                  {/* Area label sits on the spine itself */}
+                  <div className="relative flex justify-center">
+                    <span className="relative z-10 bg-white dark:bg-black px-4 text-[11px] uppercase tracking-[0.16em] text-gray-900 dark:text-white">
+                      {row.area}
+                    </span>
+                  </div>
+
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5 md:gap-10">
+                    <p className="text-[13px] leading-relaxed text-gray-500 dark:text-gray-400 md:text-right md:pr-1">
+                      {row.amthromax}
+                    </p>
+                    <p className="text-[13px] leading-relaxed text-gray-500 dark:text-gray-400 md:pl-1">
+                      {row.customer}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Incident Response - a time axis */}
+      <section className="bg-white dark:bg-black py-16 md:py-24 border-t border-gray-100 dark:border-white/10 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6 space-y-14">
+          <div className="max-w-xl space-y-3">
+            <span className="font-mono text-[11px] text-gray-400 dark:text-gray-600">// when it goes wrong</span>
+            <h2 className="text-balance text-2xl md:text-4xl font-normal tracking-tight text-gray-900 dark:text-white leading-[1.15]">
+              Incident response
+            </h2>
+            <p className="text-sm text-gray-500 dark:text-gray-400 leading-relaxed">
+              No platform is incident-free. What distinguishes them is how quickly the blast radius is bounded and how honestly it is reported afterwards.
+            </p>
+          </div>
+
+          <div className="relative">
+            {/* Axis with a tick under every entry */}
+            <span aria-hidden="true" className="absolute inset-x-0 top-0 hidden h-px bg-gray-900 dark:bg-white md:block" />
+
+            <div className="grid grid-cols-1 md:grid-cols-4">
+              {INCIDENT_FLOW.map((item, i) => (
+                <div
+                  key={item.title}
+                  className={`relative space-y-3 pt-0 pb-8 md:pt-8 md:pb-0 md:pr-8 ${
+                    i === 0 ? "" : "border-t border-gray-200 dark:border-white/10 md:border-t-0"
+                  } ${i === 0 ? "pt-0" : "pt-8 md:pt-8"}`}
+                >
+                  <span
+                    aria-hidden="true"
+                    className="absolute left-0 top-0 hidden h-3 w-px bg-gray-900 dark:bg-white md:block"
+                  />
+                  <span className="block font-mono text-[10px] uppercase tracking-[0.18em] text-gray-400 dark:text-gray-600">
+                    {item.window}
+                  </span>
+                  <h3 className="text-lg font-normal text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
+                  <p className="text-[13px] text-gray-500 dark:text-gray-400 leading-relaxed md:max-w-[90%]">{item.body}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Data Handling - spec sheet, matching the console on this page */}
+      <section className="bg-white dark:bg-black pb-16 md:pb-24 transition-colors duration-300">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="overflow-hidden rounded-2xl bg-[#0b0b0d] text-gray-200 ring-1 ring-white/10">
+            <div className="flex items-center justify-between gap-4 border-b border-white/[0.07] px-5 py-3 font-mono text-[11px] text-gray-400">
+              <span className="flex items-center gap-2">
+                <span className="h-1.5 w-1.5 rounded-full bg-gray-500" />
+                data-handling.policy
+              </span>
+              <span className="uppercase tracking-[0.14em] text-gray-500">read only</span>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-3">
+              <div className="space-y-3 p-7 sm:p-9 lg:border-r border-white/[0.07]">
+                <h2 className="text-balance text-2xl md:text-3xl font-normal tracking-tight text-white leading-[1.15]">
+                  What we keep, and for how long
+                </h2>
+                <p className="text-[13px] text-gray-400 leading-relaxed">
+                  Four questions every security review asks, answered without hedging.
+                </p>
+              </div>
+
+              <dl className="lg:col-span-2 divide-y divide-white/[0.07]">
+                {DATA_HANDLING.map((row) => (
+                  <div key={row.term} className="grid grid-cols-1 sm:grid-cols-12 gap-2 sm:gap-6 px-7 sm:px-9 py-6">
+                    <dt className="sm:col-span-4 font-mono text-[11px] uppercase tracking-[0.12em] text-gray-500">
+                      {row.term}
+                    </dt>
+                    <dd className="sm:col-span-8 text-[13px] text-gray-300 leading-relaxed">{row.desc}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Accordion FAQ Section */}
       <section className="bg-white dark:bg-black py-16 md:py-24 transition-colors duration-300">
         <div className="max-w-4xl mx-auto px-6 space-y-12">
           
           <div className="text-center space-y-3">
-            <h2 className="text-3xl font-extrabold text-gray-900 dark:text-white">Security & Auditing FAQ</h2>
+            <h2 className="text-3xl font-normal text-gray-900 dark:text-white">Security & Auditing FAQ</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm max-w-xl mx-auto">
               Answers to technical questions regarding local encryption parameters, sandbox isolation thresholds, and data localization.
             </p>
@@ -643,7 +931,7 @@ const SecurityPage: React.FC = () => {
                 >
                   <button
                     onClick={() => setOpenFaqIndex(isOpen ? null : index)}
-                    className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-bold text-sm md:text-base text-gray-900 dark:text-white hover:opacity-90 select-none cursor-pointer"
+                    className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-medium text-sm md:text-base text-gray-900 dark:text-white hover:opacity-90 select-none cursor-pointer"
                   >
                     <span>{item.q}</span>
                     <span className={`text-lg text-gray-450 transform transition-transform duration-200 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
