@@ -118,7 +118,7 @@ function runSeoAudit() {
   }
   const iconExpectations = [
     ['public/favicon.ico', null],
-    ['public/favicon.png', 96],
+    ['public/favicon.png', 64],
     ['public/icon.png', 512],
     ['public/apple-touch-icon.png', 180],
     ['public/icon-192.png', 192],
