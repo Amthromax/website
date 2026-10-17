@@ -1085,43 +1085,70 @@ type StudioRun = {
   tok: number;
 };
 
-const ST_TABS = ["Suggested", "Wireframe", "Apps", "Websites", "Prototype"];
+/* The three places a visitor can actually go from the studio card. */
+const ST_ENTRYPOINTS: { icon: "chat" | "api" | "desktop"; label: string; to: string }[] = [
+  { icon: "chat", label: "Chat with Amthromax", to: "/products" },
+  { icon: "api", label: "API Platform", to: "/docs" },
+  { icon: "desktop", label: "Amthromax Desktop", to: "/platform" },
+];
+
+const StEntryIcon: React.FC<{ k: "chat" | "api" | "desktop" }> = ({ k }) => (
+  <svg
+    viewBox="0 0 16 16"
+    aria-hidden="true"
+    className="size-3.5 shrink-0 fill-none stroke-current stroke-[1.5] stroke-linecap-round stroke-linejoin-round"
+  >
+    {k === "chat" && <path d="M13.5 8.2c0 2.6-2.4 4.7-5.4 4.7-.7 0-1.4-.1-2-.3L3 13.8l.9-2.3c-.9-.8-1.4-1.9-1.4-3.3 0-2.6 2.4-4.7 5.4-4.7s5.6 2.1 5.6 4.7z" />}
+    {k === "api" && (
+      <>
+        <rect x="2.2" y="3.2" width="11.6" height="9.6" rx="2" />
+        <path d="M5.4 6.6l2 1.6-2 1.6M8.6 10h2.4" />
+      </>
+    )}
+    {k === "desktop" && (
+      <>
+        <rect x="2.2" y="3.4" width="11.6" height="7.4" rx="1.6" />
+        <path d="M6 13.2h4" />
+      </>
+    )}
+  </svg>
+);
 
 const ST_SUGGESTS: { icon: "grid" | "clock" | "bag"; text: string }[] = [
-  { icon: "grid", text: "A developer portfolio with dark theme, project cards, and contact form." },
-  { icon: "clock", text: "A modern SaaS landing page for a time-tracking app." },
-  { icon: "bag", text: "An e-commerce homepage for a skincare brand." },
+  { icon: "grid", text: "A support assistant that answers from our own documentation." },
+  { icon: "clock", text: "An agent that triages incoming tickets and routes the urgent ones." },
+  { icon: "bag", text: "A research assistant that reads papers and cites every claim." },
 ];
 
 const ST_RUNS: StudioRun[] = [
   {
-    prompt: "A modern SaaS landing page for a time-tracking app.",
+    prompt: "An agent that triages incoming tickets and routes the urgent ones.",
     tab: 3,
     pick: 1,
-    layers: ["Nav + logo lockup", "Hero headline", "Live timer widget", "Pricing table", "Footer"],
+    layers: ["Reading the queue", "Classifying intent", "Scoring urgency", "Choosing a route", "Writing the handoff"],
     spans: [3, 5, 2, 4, 2],
     pal: ["#18181b", "#2563eb", "#a855f7", "#e4e4e7"],
-    host: "openrower.design/timeflow",
+    host: "openrower.ai/triage",
     tok: 1840,
   },
   {
-    prompt: "A developer portfolio with dark theme and project cards.",
+    prompt: "A support assistant that answers from our own documentation.",
     tab: 1,
     pick: 0,
-    layers: ["Sidebar rail", "Project grid", "Case study", "Contact form"],
+    layers: ["Indexing the corpus", "Resolving the question", "Grounding the answer", "Attaching sources"],
     spans: [2, 5, 4, 3],
     pal: ["#0b0c0e", "#a855f7", "#f59e0b", "#e4e4e7"],
-    host: "openrower.design/folio",
+    host: "openrower.ai/assistant",
     tok: 1265,
   },
   {
-    prompt: "An e-commerce homepage for a skincare brand.",
+    prompt: "A research assistant that reads papers and cites every claim.",
     tab: 2,
     pick: 2,
-    layers: ["Sticky header", "Product carousel", "Bundle offer", "Reviews", "Footer + links"],
+    layers: ["Gathering the papers", "Extracting the claims", "Checking the evidence", "Resolving conflicts", "Writing the citations"],
     spans: [2, 5, 3, 4, 2],
     pal: ["#1c1917", "#f472b6", "#fb923c", "#e7e5e4"],
-    host: "openrower.design/lumen",
+    host: "openrower.ai/research",
     tok: 2110,
   },
 ];
@@ -1265,12 +1292,6 @@ const sameStudio = (a: StudioFrame, b: StudioFrame) =>
 const ST_SPIN_MS = 950;
 const ST_MAN_LAYER_MS = 620;
 
-/* suggestion row -> the run that actually builds that prompt */
-const ST_SUG_RUN = ST_SUGGESTS.map((_, i) => {
-  const k = ST_RUNS.findIndex((r) => r.pick === i);
-  return k < 0 ? 0 : k;
-});
-
 type StManPhase = "spin" | "run" | "done";
 
 type StManFrame = {
@@ -1348,6 +1369,16 @@ const sameMan = (a: StManFrame, b: StManFrame) =>
   a.swatch === b.swatch;
 
 const STUDIO_CSS = `
+/* Grayscale smoothing: on pure black, subpixel rendering thickens the stems
+   and the small UI text stops looking crisp. */
+.amx-studio, .amx-studio * {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+}
+.amx-studio .tabular-nums, .amx-studio .font-mono { font-variant-numeric: tabular-nums; }
+
 @keyframes amx-bob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-5px); } }
 @keyframes amx-blip { 0%, 100% { opacity: .35; } 50% { opacity: 1; } }
 .amx-bob { animation: amx-bob 3.6s ease-in-out infinite; }
@@ -1429,15 +1460,16 @@ const DesignStudio: React.FC = () => {
   const [selectedModel, setSelectedModel] = React.useState("Simifig");
   const [modelDropdownOpen, setModelDropdownOpen] = React.useState(false);
   const [attachedFile, setAttachedFile] = React.useState<string | null>(null);
+  /* Prompt modes, toggled independently. */
+  const [deepThink, setDeepThink] = React.useState(false);
+  const [webSearch, setWebSearch] = React.useState(false);
   
   const dropdownRef = React.useRef<HTMLDivElement>(null);
   const fileInputRef = React.useRef<HTMLInputElement>(null);
 
   /* A visitor-started run lives beside the autonomous demo. pick is the row
      they clicked; the ref mirrors it so the rAF loop below never restarts. */
-  const [pick, setPick] = React.useState<number | null>(null);
   const [mf, setMf] = React.useState<StManFrame | null>(null);
-  const [hover, setHover] = React.useState(-1);
   const pickRef = React.useRef(-1);
   const pickT0 = React.useRef(0);
 
@@ -1471,56 +1503,16 @@ const DesignStudio: React.FC = () => {
     return () => cancelAnimationFrame(raf);
   }, [reduced]);
 
-  const startRun = React.useCallback(
-    (i: number) => {
-      const rx = ST_SUG_RUN[i];
-      setPick(i);
-      setHover(-1);
-      if (reduced) {
-        pickRef.current = -1;
-        setMf(sampleMan(rx, ST_SPIN_MS + ST_RUNS[rx].layers.length * ST_MAN_LAYER_MS));
-        return;
-      }
-      pickT0.current = performance.now();
-      pickRef.current = rx;
-      setMf(sampleMan(rx, 0));
-    },
-    [reduced],
-  );
-
   const run = ST_RUNS[f.run];
 
   /* One view object, so every readout below reports whichever timeline is
      really driving: the autonomous demo, or the run the visitor just started. */
   const vRun = mf ? ST_RUNS[mf.run] : run;
-  const vTab = mf ? vRun.tab : f.tab;
   const vText = mf ? vRun.prompt : run.prompt.slice(0, f.typed);
   const vCaret = mf ? false : f.caret;
-  const vLayers = mf ? mf.layers : f.layers;
-  const vPct = mf ? mf.pct : f.pct;
-  const vTokens = mf ? mf.tokens : f.tokens;
-  const vElapsed = mf ? mf.elapsed : f.elapsed;
-  const vSwatch = mf ? mf.swatch : f.swatch;
-  const vBusy = mf ? mf.phase !== "done" : f.phase === "build";
-  const vDone = mf ? mf.phase === "done" : f.phase === "done";
-  const nodes = vRun.spans.slice(0, vLayers).reduce((a, b) => a + b, 0) * 3;
-
-  const status = mf
-    ? mf.phase === "spin"
-      ? "Warming the model"
-      : mf.phase === "run"
-        ? `Generating ${vRun.layers[Math.max(0, mf.layers - 1)]}`
-        : "Interface ready"
-    : f.phase === "build"
-      ? `Generating ${run.layers[Math.max(0, f.layers - 1)]}`
-      : f.phase === "done"
-        ? "Interface ready"
-        : f.phase === "send"
-          ? "Sending to the model"
-          : "Waiting for a prompt";
 
   return (
-    <div className="bg-black rounded-2xl border border-white/10 shadow-sm flex flex-col md:h-[390px] group hover:border-white/20 transition-all duration-300 relative">
+    <div className="amx-studio bg-black rounded-2xl border border-white/10 shadow-sm flex flex-col md:h-[390px] group hover:border-white/20 transition-all duration-300 relative">
       <style>{STUDIO_CSS}</style>
 
       {/* Top macOS Window Control Bar */}
@@ -1557,23 +1549,23 @@ const DesignStudio: React.FC = () => {
         </div>
       </div>
 
-      <div className="grid min-h-0 flex-1 grid-cols-1 md:grid-cols-2">
+      <div className="grid min-h-0 flex-1 grid-cols-1">
         {/* ---- prompt side ---- */}
-        <div className="flex min-h-0 flex-col justify-center gap-3 bg-black p-4 md:p-5">
+        <div className="mx-auto flex w-full min-h-0 max-w-2xl flex-col justify-center gap-3 bg-black p-4 md:p-5">
           <div className="flex items-start gap-3">
             <h3 className="font-sans text-[20px] leading-[1.25] tracking-tight text-white md:text-[25px]">
               Turn your <span className="font-semibold text-white">ideas</span> into{" "}
-              <span className="font-semibold text-white">interfaces</span>
+              <span className="font-semibold text-white">agents</span>
             </h3>
           </div>
 
           <div className="relative rounded-2xl bg-black border border-white/15 p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-white/30 group/glass">
-            <div className="relative z-10 min-h-[38px] font-sans text-[14px] font-semibold leading-relaxed text-white">
+            <div className="relative z-10 min-h-[38px] font-sans text-[15px] font-medium leading-[1.55] tracking-[0.005em] text-white">
               {vCaret && <span className="mr-1 inline-block h-[17px] w-[2.5px] -mb-[2px] bg-blue-400 align-middle shadow-[0_0_10px_#60a5fa]" />}
               {vText ? (
-                <span className="tracking-tight text-white drop-shadow-sm font-semibold">{vText}</span>
+                <span className="text-white">{vText}</span>
               ) : (
-                <span className="text-gray-200 font-medium">What do you want to design?</span>
+                <span className="text-gray-400">What do you want to build?</span>
               )}
             </div>
 
@@ -1602,6 +1594,42 @@ const DesignStudio: React.FC = () => {
                   )}
                 </button>
 
+                {/* Prompt modes. Each is a real toggle, lit when it is on. */}
+                <button
+                  type="button"
+                  onClick={() => setDeepThink((v) => !v)}
+                  aria-pressed={deepThink}
+                  title="Reason for longer before answering"
+                  className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-sans text-[12.5px] font-medium tracking-[0.01em] transition-all duration-200 cursor-pointer active:scale-95 ${
+                    deepThink
+                      ? "border-white/40 bg-white/15 text-white shadow-[0_0_18px_rgba(255,255,255,0.18)]"
+                      : "border-white/15 bg-white/[0.06] text-gray-200 hover:border-white/30 hover:text-white"
+                  }`}
+                >
+                  <svg viewBox="0 0 16 16" className="size-3.5 shrink-0 fill-none stroke-current stroke-[1.5]">
+                    <circle cx="8" cy="8" r="5.6" />
+                    <path d="M8 2.4v11.2M2.4 8h11.2M4 4l8 8M12 4l-8 8" />
+                  </svg>
+                  <span className="hidden sm:inline">DeepThink</span>
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setWebSearch((v) => !v)}
+                  aria-pressed={webSearch}
+                  title="Ground the answer in live web results"
+                  className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-sans text-[12.5px] font-medium tracking-[0.01em] transition-all duration-200 cursor-pointer active:scale-95 ${
+                    webSearch
+                      ? "border-blue-400/60 bg-blue-500/20 text-blue-200 shadow-[0_0_18px_rgba(96,165,250,0.3)]"
+                      : "border-white/15 bg-white/[0.06] text-gray-200 hover:border-blue-400/40 hover:text-blue-200"
+                  }`}
+                >
+                  <svg viewBox="0 0 16 16" className="size-3.5 shrink-0 fill-none stroke-current stroke-[1.5]">
+                    <circle cx="8" cy="8" r="5.6" />
+                    <path d="M2.4 8h11.2M8 2.4a9 9 0 0 1 0 11.2 9 9 0 0 1 0-11.2z" />
+                  </svg>
+                  <span className="hidden sm:inline">Search</span>
+                </button>
               </div>
 
               <div className="flex shrink-0 items-center gap-2">
@@ -1610,9 +1638,9 @@ const DesignStudio: React.FC = () => {
                   <button
                     type="button"
                     onClick={() => setModelDropdownOpen((prev) => !prev)}
-                    className="flex items-center gap-1 font-sans text-[12.5px] font-bold text-white/90 hover:text-white px-1.5 py-1 hover:scale-105 active:scale-95 transition-all duration-200 select-none cursor-pointer"
+                    className="flex items-center gap-1 font-sans text-[13px] font-semibold tracking-[0.01em] text-white/90 hover:text-white px-1.5 py-1 hover:scale-105 active:scale-95 transition-all duration-200 select-none cursor-pointer"
                   >
-                    <span className="font-bold text-white tracking-wide">{selectedModel}</span>
+                    <span className="font-semibold text-white">{selectedModel}</span>
                     <StIcon k="chev" className={`size-3.5 text-white/90 transition-transform duration-200 ${modelDropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
@@ -1678,159 +1706,32 @@ const DesignStudio: React.FC = () => {
               </div>
             </div>
           </div>
-        </div>
 
-        {/* ---- suggestions + build side ---- */}
-        <div className="flex min-h-0 flex-col gap-2 border-t border-white/10 bg-black p-4 md:border-l md:border-t-0 md:p-5">
-          <div className="flex items-center gap-3 overflow-hidden">
-            {ST_TABS.map((t, i) => (
-              <span
-                key={t}
-                className={`flex shrink-0 items-center gap-1.5 px-1 py-1 font-sans text-[12.5px] transition-all duration-200 select-none cursor-pointer ${
-                  i === vTab
-                    ? "text-white font-bold"
-                    : "text-gray-400 font-medium hover:text-white"
-                } ${i > 2 ? "hidden lg:flex" : ""}`}
+          {/* Where to go next, once the prompt has done its demo. */}
+          <div className="mt-4 flex flex-wrap items-center justify-center gap-2.5">
+            {ST_ENTRYPOINTS.map((e) => (
+              <Link
+                key={e.label}
+                to={e.to}
+                className="group/ep flex items-center gap-2 rounded-full border border-white/12 bg-white/[0.06] px-4 py-2 font-sans text-[13px] font-medium tracking-[0.01em] text-gray-100 shadow-[0_1px_0_rgba(255,255,255,0.06)_inset,0_10px_24px_-16px_rgba(0,0,0,0.9)] transition-all duration-300 hover:border-white/35 hover:bg-white/[0.10] hover:text-white hover:shadow-[0_1px_0_rgba(255,255,255,0.1)_inset,0_14px_30px_-14px_rgba(0,0,0,1)]"
               >
-                {i === 0 && <StIcon k="bulb" className="size-3.5 text-white" />}
-                <span>{t}</span>
-              </span>
+                <StEntryIcon k={e.icon} />
+                <span>{e.label}</span>
+                <span
+                  aria-hidden="true"
+                  className="ml-0.5 translate-x-0 text-gray-500 transition-all duration-300 group-hover/ep:translate-x-0.5 group-hover/ep:text-white"
+                >
+                  &rarr;
+                </span>
+              </Link>
             ))}
           </div>
-
-          {/* Real buttons. Click one and the demo hands over: the pick lifts out of
-              the stack, the core spins up, then the popup reports the run itself. */}
-          <div className="relative min-h-[120px] flex-1">
-            <div
-              className={`space-y-1.5 transition-opacity duration-300 ${
-                mf && mf.phase !== "spin" ? "pointer-events-none opacity-0" : "opacity-100"
-              }`}
-            >
-              {ST_SUGGESTS.map((s, i) => {
-                const lifted = pick === i;
-                const sunk = pick !== null && pick !== i;
-                const on = pick === null && (hover === i || (hover === -1 && i === f.hover));
-                const chosen = pick === null && f.picked && i === run.pick;
-                return (
-                  <button
-                    key={s.text}
-                    type="button"
-                    onClick={() => startRun(i)}
-                    onMouseEnter={() => setHover(i)}
-                    onMouseLeave={() => setHover(-1)}
-                    className={`flex w-full cursor-pointer items-center gap-3 rounded-xl px-3 py-2.5 text-left transition-all duration-300 ${
-                      lifted
-                        ? "bg-white/[0.15] text-white ring-1 ring-white/30 shadow-[0_10px_28px_rgba(0,0,0,0.55)]"
-                        : sunk
-                          ? "text-gray-400 opacity-40"
-                          : chosen
-                            ? "bg-white/15 text-white font-semibold"
-                            : on
-                              ? "bg-white/10 text-white font-medium"
-                              : "text-gray-200 hover:text-white"
-                    }`}
-                    style={{ transform: lifted ? "scale(1.02)" : sunk ? "scale(0.96)" : "none" }}
-                  >
-                    <StIcon
-                      k={s.icon}
-                      className={`size-4 shrink-0 transition-colors duration-300 ${
-                        lifted ? "text-purple-300" : "text-gray-300"
-                      }`}
-                    />
-                    <span
-                      className={`min-w-0 flex-1 font-sans text-[12.5px] font-semibold leading-[1.35] line-clamp-2 ${
-                        lifted ? "text-white" : "text-gray-100"
-                      }`}
-                    >
-                      {s.text}
-                    </span>
-                    {chosen ? (
-                      <span className="shrink-0 font-sans text-[13px] font-bold text-white">→</span>
-                    ) : on ? (
-                      <svg viewBox="0 0 16 16" className="size-[18px] shrink-0 fill-black stroke-white stroke-[1.5] drop-shadow-md">
-                        <path d="M2.5 2.5l4.5 11 2.2-4.4 4.4-2.2L2.5 2.5z" />
-                      </svg>
-                    ) : null}
-                  </button>
-                );
-              })}
-            </div>
-
-            {/* The core spins while the request is still on the wire. */}
-            {mf && mf.phase === "spin" && (
-              <div className="amx-rise pointer-events-none absolute inset-0 z-10 flex items-center justify-center">
-                <div className="flex items-center gap-2.5 rounded-full border border-white/10 bg-[#101114]/90 py-2 pl-2 pr-4 shadow-[0_12px_34px_rgba(0,0,0,0.6)] backdrop-blur-sm">
-                  <span className="relative flex size-8 items-center justify-center">
-                    <span className="amx-spin absolute inset-0 rounded-full border-[1.6px] border-purple-400/20 border-t-purple-400" />
-                    <span className="amx-halo absolute inset-0 rounded-full border border-purple-400/40" />
-                    <img
-                      src="/images/asterisk_3d_transparent.png"
-                      alt=""
-                      className="size-[17px] object-contain"
-                      style={{ transform: `rotate(${mf.spin * 3.6}deg)` }}
-                    />
-                  </span>
-                  <span className="font-sans text-[11px] text-gray-200">
-                    Spinning up the core{".".repeat(mf.dots)}
-                  </span>
-                </div>
-              </div>
-            )}
-
-          </div>
-
-          <div className="mt-auto rounded-2xl bg-black border border-white/10 px-4 py-3.5 shadow-lg">
-            <div className="flex items-center justify-between gap-2 font-sans text-[12px]">
-              <span className="flex min-w-0 items-center gap-2 truncate text-white font-semibold">
-                <span
-                  className={`size-2.5 shrink-0 rounded-full ${
-                    vBusy
-                      ? "bg-white"
-                      : vDone
-                        ? "bg-white"
-                        : "bg-gray-400"
-                  }`}
-                />
-                <span className="truncate text-white font-bold tracking-tight">{status}</span>
-              </span>
-              <span className="flex shrink-0 items-center gap-2.5">
-                <span className="hidden items-center gap-[4px] sm:flex">
-                  {vRun.pal.map((c, i) => (
-                    <span
-                      key={c}
-                      className="size-2.5 rounded-full transition-all duration-300"
-                      style={{
-                        background: c,
-                        opacity: i < vSwatch ? 0.9 : 0.25,
-                        transform: i < vSwatch ? "none" : "scale(0.75)",
-                      }}
-                    />
-                  ))}
-                </span>
-                <span className="font-mono text-white font-bold text-[11.5px] tracking-wide">
-                  {vLayers}/{vRun.layers.length} layers
-                </span>
-              </span>
-            </div>
-
-            <div className="mt-3 h-1.5 overflow-hidden rounded-full bg-white/10 p-[1px]">
-              <div
-                className="h-full rounded-full bg-white transition-[width] duration-150 ease-linear"
-                style={{ width: `${vPct}%` }}
-              />
-            </div>
-
-            <div className="mt-3 flex items-center justify-between font-mono text-[11px] font-bold text-white">
-              <span className="text-white bg-white/10 px-2 py-0.5 rounded-md">{vTokens.toLocaleString()} tok</span>
-              <span className="text-white bg-white/10 px-2 py-0.5 rounded-md">{nodes} nodes</span>
-              <span className="text-white bg-white/10 px-2 py-0.5 rounded-md">{(vElapsed / 1000).toFixed(1)}s</span>
-            </div>
-          </div>
         </div>
+
       </div>
 
       <div className="flex shrink-0 items-center justify-between border-t border-white/10 bg-black px-5 py-3 font-sans text-xs rounded-b-2xl">
-        <span className="font-sans font-semibold text-white tracking-wide">Interface Synthesis</span>
+        <span className="font-sans text-[12.5px] font-semibold tracking-[0.01em] text-white">Agent Synthesis</span>
         <Link
           to="/products"
           className="flex items-center gap-1.5 text-gray-300 font-medium transition-colors hover:text-white"
