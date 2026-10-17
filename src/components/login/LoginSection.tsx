@@ -260,7 +260,7 @@ const LoginSection: React.FC = () => {
                         type="checkbox"
                         required
                         defaultChecked
-                        className="mt-0.5 rounded border-gray-300 bg-[#f5f5f7] text-black focus:ring-0 accent-black shrink-0"
+                        className="mt-0.5 rounded-2xl border-gray-300 bg-[#f5f5f7] text-black focus:ring-0 accent-black shrink-0"
                       />
                       <span>
                         I agree to the{" "}
@@ -278,7 +278,7 @@ const LoginSection: React.FC = () => {
                       <input
                         type="checkbox"
                         defaultChecked={false}
-                        className="mt-0.5 rounded border-gray-300 bg-[#f5f5f7] text-black focus:ring-0 accent-black shrink-0"
+                        className="mt-0.5 rounded-2xl border-gray-300 bg-[#f5f5f7] text-black focus:ring-0 accent-black shrink-0"
                       />
                       <span>
                         I would like to receive product updates and security advisories from Amthromax (Optional).

@@ -210,7 +210,7 @@ const RegisterLandingPage: React.FC = () => {
             initial={{ opacity: 0, scale: 0.97 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="amx-lift-lg w-full max-w-6xl md:max-w-7xl mx-auto rounded-[22px] sm:rounded-[32px] overflow-hidden ring-1 ring-[#1A1815]/[0.07] relative p-3.5 sm:p-6 md:p-8 mb-8 bg-gradient-to-b from-[#F6F5F1] to-[#EFEDE7] flex flex-col justify-between items-center"
+            className="amx-lift-lg w-full max-w-6xl md:max-w-7xl mx-auto rounded-2xl sm:rounded-2xl overflow-hidden ring-1 ring-[#1A1815]/[0.07] relative p-3.5 sm:p-6 md:p-8 mb-8 bg-gradient-to-b from-[#F6F5F1] to-[#EFEDE7] flex flex-col justify-between items-center"
           >
             {/* Top Segmented Header Tabs */}
             <div className="flex items-center justify-between w-full max-w-xl mx-auto bg-[#E6E4DD]/90 p-1 sm:p-1.5 rounded-full border border-white/60 shadow-inner mb-4 sm:mb-6 overflow-x-auto no-scrollbar gap-1">
@@ -270,7 +270,7 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="w-full rounded-[24px] sm:rounded-[32px] bg-white shadow-[0_16px_48px_rgba(0,0,0,0.04)] p-6 sm:p-8 text-[#1A1815] font-mono text-sm sm:text-base select-text flex flex-col justify-between text-left items-start"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-white shadow-[0_16px_48px_rgba(0,0,0,0.04)] p-6 sm:p-8 text-[#1A1815] font-mono text-sm sm:text-base select-text flex flex-col justify-between text-left items-start"
                 >
                   {/* Code Block Content */}
                   <div className="w-full text-left font-mono text-sm sm:text-base font-medium space-y-3 overflow-x-auto leading-relaxed">
@@ -554,7 +554,7 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="w-full rounded-[24px] sm:rounded-[32px] bg-white shadow-[0_16px_48px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-white shadow-[0_16px_48px_rgba(0,0,0,0.04)] overflow-hidden flex flex-col"
                 >
                   {/* Top IDE Header / File Tabs Bar */}
                   <div className="w-full bg-[#F7F6F2] border-b border-black/[0.06] px-4 py-3 flex items-center justify-between gap-4">
@@ -806,7 +806,7 @@ const RegisterLandingPage: React.FC = () => {
                           <span className="text-sm font-bold text-[#1A1815] font-sans font-inter uppercase tracking-wider">
                             Agent Live Logs
                           </span>
-                          <span className="text-xs font-sans font-inter bg-[#E0DDD5] text-[#1A1815] px-2.5 py-1 rounded font-bold tracking-wide">
+                          <span className="text-xs font-sans font-inter bg-[#E0DDD5] text-[#1A1815] px-2.5 py-1 rounded-2xl font-bold tracking-wide">
                             STREAMING
                           </span>
                         </div>
@@ -878,11 +878,11 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 12 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, ease: "easeOut" }}
-                  className="w-full rounded-[28px] sm:rounded-[36px] bg-[#F7F2EC] shadow-[0_16px_48px_rgba(0,0,0,0.04)] p-2.5 sm:p-3 text-[#1A1815] font-sans overflow-hidden"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-[#F7F2EC] shadow-[0_16px_48px_rgba(0,0,0,0.04)] p-2.5 sm:p-3 text-[#1A1815] font-sans overflow-hidden"
                 >
                   <div className="grid grid-cols-1 lg:grid-cols-12 gap-3 sm:gap-4 items-stretch">
                     {/* LEFT PANE: Context & Specification Notes */}
-                    <div className="lg:col-span-5 bg-white rounded-[22px] sm:rounded-[28px] p-5 sm:p-6 shadow-sm flex flex-col justify-between">
+                    <div className="lg:col-span-5 bg-white rounded-2xl sm:rounded-2xl p-5 sm:p-6 shadow-sm flex flex-col justify-between">
                       <div className="space-y-4">
                         {/* Top Bar Controls */}
                         <div className="flex items-center justify-between gap-2 border-b border-[#F5F0EA] pb-3">
@@ -951,7 +951,7 @@ const RegisterLandingPage: React.FC = () => {
                     </div>
 
                     {/* RIGHT PANE: Interactive AI Collaboration Studio */}
-                    <div className="lg:col-span-7 bg-[#F7F2EC] rounded-[22px] sm:rounded-[28px] p-4 sm:p-5 flex flex-col justify-between space-y-4">
+                    <div className="lg:col-span-7 bg-[#F7F2EC] rounded-2xl sm:rounded-2xl p-4 sm:p-5 flex flex-col justify-between space-y-4">
                       {/* Top Header Bar */}
                       <div className="flex items-center justify-between pb-2 border-b border-[#EAE3DA]">
                         <div className="flex items-center gap-2.5">
@@ -1097,7 +1097,7 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-full rounded-[24px] sm:rounded-[30px] bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between pb-3 border-b border-[#F0EEE6] mb-4">
                     <div className="flex items-center gap-2">
@@ -1140,7 +1140,7 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-full rounded-[24px] sm:rounded-[30px] bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between pb-3 border-b border-[#F0EEE6] mb-4">
                     <div className="flex items-center gap-2">
@@ -1173,7 +1173,7 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-full rounded-[24px] sm:rounded-[30px] bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between pb-3 border-b border-[#F0EEE6] mb-4">
                     <div className="flex items-center gap-2">
@@ -1206,7 +1206,7 @@ const RegisterLandingPage: React.FC = () => {
                   initial={{ opacity: 0, y: 10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.4, ease: "easeOut" }}
-                  className="w-full rounded-[24px] sm:rounded-[30px] bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
+                  className="w-full rounded-2xl sm:rounded-2xl bg-white border border-[#E5E2D9] shadow-[0_12px_40px_rgba(0,0,0,0.04)] p-5 sm:p-6 text-[#1A1815] font-sans flex flex-col justify-between"
                 >
                   <div className="flex items-center justify-between pb-3 border-b border-[#F0EEE6] mb-4">
                     <div className="flex items-center gap-2">
@@ -2050,7 +2050,7 @@ const RegisterLandingPage: React.FC = () => {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: "easeOut" }}
-          className="mb-14 w-full rounded-[20px] sm:rounded-[28px] bg-[#CCFF00] border-[3px] border-black shadow-[6px_6px_0px_0px_#000] overflow-hidden"
+          className="mb-14 w-full rounded-2xl sm:rounded-2xl bg-[#CCFF00] border-[3px] border-black shadow-[6px_6px_0px_0px_#000] overflow-hidden"
         >
           <div className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[480px]">
             {/* Left: Heading */}

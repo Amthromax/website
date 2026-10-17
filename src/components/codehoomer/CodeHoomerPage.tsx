@@ -195,7 +195,7 @@ const CodeHoomerPage: React.FC = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-          className="w-full rounded-2xl sm:rounded-3xl lg:rounded-[32px] overflow-hidden shadow-2xl relative p-3 sm:p-6 md:p-8"
+          className="w-full rounded-2xl sm:rounded-3xl lg:rounded-2xl overflow-hidden shadow-2xl relative p-3 sm:p-6 md:p-8"
         >
           {/* Framed Texture Background - scaled up to hide any baked-in image borders/bezels */}
           <div 

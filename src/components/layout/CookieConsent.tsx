@@ -109,11 +109,11 @@ const CookieConsent: React.FC = () => {
                   <h4 className="text-sm font-semibold text-white tracking-wide">
                     Your privacy matters
                   </h4>
-                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-white/10 text-white/70">
+                  <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-2xl bg-white/10 text-white/70">
                     DPDP & GDPR Aligned
                   </span>
                   {gpcActive && (
-                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-2xl bg-blue-500/20 text-blue-300 border border-blue-500/30">
                       GPC Active
                     </span>
                   )}

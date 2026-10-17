@@ -79,7 +79,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.94, y: 16 }}
             transition={{ duration: 0.3, ease: [0.16, 1, 0.3, 1] }}
-            className="relative w-full max-w-[460px] bg-white dark:bg-black text-gray-900 dark:text-white rounded-[28px] p-7 sm:p-9 shadow-2xl z-10 border border-gray-200 dark:border-white/10 overflow-hidden backdrop-blur-2xl"
+            className="relative w-full max-w-[460px] bg-white dark:bg-black text-gray-900 dark:text-white rounded-2xl p-7 sm:p-9 shadow-2xl z-10 border border-gray-200 dark:border-white/10 overflow-hidden backdrop-blur-2xl"
           >
             {/* Top Light Ambient Highlight */}
             <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-black/10 dark:via-white/10 to-transparent pointer-events-none" />

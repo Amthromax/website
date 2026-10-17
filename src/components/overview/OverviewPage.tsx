@@ -295,7 +295,7 @@ export const OverviewPage: React.FC = () => {
 
           {/* Right Bento Card with Dark/Light Glass + 4 Floating Squares */}
           <div className="lg:col-span-7">
-            <div className="w-full aspect-[16/9] rounded-[28px] sm:rounded-[36px] bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-zinc-900 dark:via-zinc-950 dark:to-black border border-gray-200 dark:border-white/10 p-8 sm:p-12 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+            <div className="w-full aspect-[16/9] rounded-2xl sm:rounded-2xl bg-gradient-to-br from-gray-100 via-gray-200 to-gray-300 dark:from-zinc-900 dark:via-zinc-950 dark:to-black border border-gray-200 dark:border-white/10 p-8 sm:p-12 flex items-center justify-center shadow-2xl relative overflow-hidden group">
               {/* Subtle background glow highlights */}
               <div className="absolute inset-0 bg-white/5 opacity-50 pointer-events-none group-hover:opacity-75 transition-opacity" />
               

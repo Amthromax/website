@@ -812,7 +812,7 @@ const ResearchDetailPage: React.FC = () => {
             <div className="bg-gray-900 dark:bg-[#161618] border border-gray-800 dark:border-gray-800 rounded-xl overflow-hidden shadow-xl">
               <div className="flex items-center justify-between px-5 py-3 bg-gray-950 dark:bg-white/5 border-b border-gray-800 text-xs font-mono text-gray-400">
                 <span>{paper.codeSnippet.filename}</span>
-                <span className="uppercase text-[10px] bg-gray-800 dark:bg-white/10 px-2 py-0.5 rounded text-gray-300">
+                <span className="uppercase text-[10px] bg-gray-800 dark:bg-white/10 px-2 py-0.5 rounded-2xl text-gray-300">
                   {paper.codeSnippet.language}
                 </span>
               </div>

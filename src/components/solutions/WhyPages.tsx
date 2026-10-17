@@ -44,7 +44,7 @@ export const EnterprisesPage: React.FC = () => {
               { label: "Data Encryption", value: "AES-256" },
               { label: "Compliance Standard", value: "SOC2 Type II" }
             ].map((stat, idx) => (
-              <div key={idx} className="p-8 bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[24px] text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
+              <div key={idx} className="p-8 bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
                 <span className="text-[10px] md:text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider">{stat.label}</span>
                 <h3 className={`font-black text-gray-900 dark:text-white tracking-tight ${stat.value.length > 8 ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'}`}>
                   {stat.value}
@@ -58,7 +58,7 @@ export const EnterprisesPage: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
           {/* Card 1 */}
-          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/4581a46a-71af-4f57-9755-37895b033f91.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Zero-Trust" />
             </div>
@@ -72,7 +72,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/5080718a-31ec-4965-9f36-6489a855c841.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Pipeline Scaling" />
             </div>
@@ -86,7 +86,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/6dedb3e9-0f1b-4588-be70-9a0f66e58485.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="SLA Commitments" />
             </div>
@@ -100,7 +100,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/71330e1b-6cbc-4d5f-b41a-4bd952642667.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Dedicated Compute" />
             </div>
@@ -114,7 +114,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 5 */}
-          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/f52c3acd-0fed-4dc2-a531-a577ef8aa5e6.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Quantum Crypto" />
             </div>
@@ -128,7 +128,7 @@ export const EnterprisesPage: React.FC = () => {
           </div>
 
           {/* Card 6 */}
-          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
+          <div className="group bg-gray-50 dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col">
             <div className="aspect-[4/3] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/5a420a98-3f97-4888-a234-70f644008d80.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Global Sync" />
             </div>
@@ -172,7 +172,7 @@ export const SmallBusinessesPage: React.FC = () => {
         {/* Feature Grid with Images */}
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Card 1 */}
-          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Customer Sync" />
             </div>
@@ -185,7 +185,7 @@ export const SmallBusinessesPage: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Low Overhead" />
             </div>
@@ -198,7 +198,7 @@ export const SmallBusinessesPage: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Marketing Triggers" />
             </div>
@@ -211,7 +211,7 @@ export const SmallBusinessesPage: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-[32px] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
+          <div className="group bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300">
             <div className="aspect-[16/9] w-full overflow-hidden bg-gray-100 dark:bg-gray-800">
               <img src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Smart Financials" />
             </div>
@@ -258,7 +258,7 @@ export const DevelopersPage: React.FC = () => {
               { title: "Isolated Sandbox Environments", desc: "Develop securely with isolated sandbox API keys, comprehensive real-time query trace logs, and staging webhooks." },
               { title: "Post-Quantum Cryptography Libraries", desc: "Install our open-source CRYSTALS-Kyber key-agreement library directly from npm or pip to secure payload transmission." }
             ].map((feat, idx) => (
-              <div key={idx} className="p-8 bg-black border border-white/20 rounded-[28px] space-y-4 shadow-2xl transition-all flex flex-col justify-start text-left text-white">
+              <div key={idx} className="p-8 bg-black border border-white/20 rounded-2xl space-y-4 shadow-2xl transition-all flex flex-col justify-start text-left text-white">
                 <span className="text-2xl font-black text-blue-400">0{idx + 1}</span>
                 <h4 className="text-xl font-bold text-white tracking-tight">{feat.title}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed font-medium">{feat.desc}</p>
@@ -268,8 +268,8 @@ export const DevelopersPage: React.FC = () => {
 
           {/* Big Code Snippet Box (Moved to Bottom) */}
           <div className="relative group w-full">
-            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-[2.5rem] blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
-            <div className="relative bg-[#0d0d0f] text-gray-100 rounded-[2rem] p-8 md:p-12 border border-white/[0.08] shadow-2xl font-mono text-sm overflow-x-auto space-y-6">
+            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
+            <div className="relative bg-[#0d0d0f] text-gray-100 rounded-2xl p-8 md:p-12 border border-white/[0.08] shadow-2xl font-mono text-sm overflow-x-auto space-y-6">
               <div className="flex items-center justify-between pb-6 border-b border-white/[0.08]">
                 <span className="text-gray-400 font-sans text-xs font-semibold tracking-wider bg-white/[0.05] px-4 py-2 rounded-full">app.ts</span>
                 <div className="flex space-x-2">
@@ -352,7 +352,7 @@ export const DevelopersPage: React.FC = () => {
                 icon: <svg className="w-7 h-7" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="1.75"><path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
               }
             ].map((box, i) => (
-              <div key={i} className="group bg-black p-8 rounded-[28px] border border-white/20 shadow-2xl hover:border-white/40 transition-all duration-300 space-y-5 text-left">
+              <div key={i} className="group bg-black p-8 rounded-2xl border border-white/20 shadow-2xl hover:border-white/40 transition-all duration-300 space-y-5 text-left">
                 <div className="text-white transition-transform duration-300 group-hover:scale-110">
                   {box.icon}
                 </div>

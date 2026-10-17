@@ -74,7 +74,7 @@ const AboutPage: React.FC = () => {
 
               {/* Right Illustration */}
               <div className="lg:col-span-7 space-y-3">
-                <div className="relative rounded-[32px] overflow-hidden border border-gray-200 dark:border-white/15 shadow-2xl w-full h-[520px] sm:h-[620px] lg:h-[700px]">
+                <div className="relative rounded-2xl overflow-hidden border border-gray-200 dark:border-white/15 shadow-2xl w-full h-[520px] sm:h-[620px] lg:h-[700px]">
                   <svg className="w-full h-full object-cover" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -123,7 +123,7 @@ const AboutPage: React.FC = () => {
               { label: "Global Region Deployments", value: "40+" },
               { label: "Enterprise Partners & Clients", value: "500+" }
             ].map((stat, idx) => (
-              <div key={idx} className="p-6 sm:p-8 bg-gray-50 dark:bg-white/5 rounded-[24px] sm:rounded-[28px] border border-gray-200 dark:border-white/10 text-center space-y-2 shadow-sm dark:shadow-xl hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
+              <div key={idx} className="p-6 sm:p-8 bg-gray-50 dark:bg-white/5 rounded-2xl sm:rounded-2xl border border-gray-200 dark:border-white/10 text-center space-y-2 shadow-sm dark:shadow-xl hover:border-gray-300 dark:hover:border-white/20 transition-all duration-300">
                 <span className="text-xs text-gray-500 dark:text-gray-400 font-normal uppercase tracking-wider block">
                   {stat.label}
                 </span>
@@ -167,7 +167,7 @@ const AboutPage: React.FC = () => {
               </ul>
             </div>
 
-            <div className="space-y-6 bg-gray-50 dark:bg-white/5 p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[36px] border border-gray-200 dark:border-white/10 shadow-sm">
+            <div className="space-y-6 bg-gray-50 dark:bg-white/5 p-8 sm:p-10 lg:p-12 rounded-2xl sm:rounded-2xl border border-gray-200 dark:border-white/10 shadow-sm">
               <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                 Engineering Computational Autonomy
               </h2>
@@ -201,7 +201,7 @@ const AboutPage: React.FC = () => {
             <h2 className="text-2xl sm:text-3xl lg:text-4xl font-normal tracking-tight text-gray-900 dark:text-white leading-snug max-w-4xl mx-auto font-sans">
               We are building safe, resilient enterprise AI platforms and autonomous intelligence systems, empowering global organizations to achieve complete computational autonomy.
             </h2>
-            <div className="relative rounded-[28px] sm:rounded-[36px] overflow-hidden border border-gray-200 dark:border-white/15 shadow-2xl w-full h-[400px] sm:h-[520px] lg:h-[600px] max-w-5xl mx-auto">
+            <div className="relative rounded-2xl sm:rounded-2xl overflow-hidden border border-gray-200 dark:border-white/15 shadow-2xl w-full h-[400px] sm:h-[520px] lg:h-[600px] max-w-5xl mx-auto">
               <img
                 src="/images/agi_mission_team.png"
                 alt="Amthromax AI Research Team"
@@ -288,7 +288,7 @@ const AboutPage: React.FC = () => {
               </div>
             </div>
 
-            <div className="p-10 sm:p-12 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-[32px] sm:rounded-[36px] border border-gray-200 dark:border-white/10 space-y-6 shadow-sm dark:shadow-2xl">
+            <div className="p-10 sm:p-12 bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-2xl sm:rounded-2xl border border-gray-200 dark:border-white/10 space-y-6 shadow-sm dark:shadow-2xl">
               <h3 className="text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
                 Enterprise &amp; Engineering Contact
               </h3>
@@ -318,7 +318,7 @@ const AboutPage: React.FC = () => {
 
         {/* Careers CTA Banner */}
         <section className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-20 md:pb-28">
-          <div className="p-12 sm:p-16 md:p-20 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] text-center space-y-6 shadow-sm dark:shadow-2xl">
+          <div className="p-12 sm:p-16 md:p-20 bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-2xl text-center space-y-6 shadow-sm dark:shadow-2xl">
             <h2 className="text-2xl sm:text-4xl lg:text-5xl font-normal tracking-tight text-gray-900 dark:text-white leading-tight max-w-4xl mx-auto font-sans">
               Join us in shaping the future of Enterprise AI
             </h2>

@@ -268,7 +268,7 @@ const BlogPostDetail: React.FC = () => {
           {/* Featured Image */}
           <div 
             onClick={() => setLightboxImg(post.image)}
-            className="relative aspect-[16/9] md:aspect-[21/7] w-full overflow-hidden rounded-[32px] shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.05] cursor-zoom-in group/heroimg"
+            className="relative aspect-[16/9] md:aspect-[21/7] w-full overflow-hidden rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.05] cursor-zoom-in group/heroimg"
           >
             <div className="absolute inset-0 bg-gray-100 dark:bg-gray-900 animate-pulse -z-10" />
             <img 
@@ -293,7 +293,7 @@ const BlogPostDetail: React.FC = () => {
                       onClick={() => setLightboxImg(match[2])}
                       className="my-12 flex justify-center group/inlineimg cursor-zoom-in"
                     >
-                      <div className="relative overflow-hidden rounded-[24px] shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.05]">
+                      <div className="relative overflow-hidden rounded-2xl shadow-[0_8px_30px_rgba(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgba(0,0,0,0.4)] ring-1 ring-inset ring-black/[0.04] dark:ring-white/[0.05]">
                         <img 
                           src={match[2]} 
                           alt={match[1]} 
@@ -366,7 +366,7 @@ const BlogPostDetail: React.FC = () => {
                 };
 
                 return (
-                  <div key={index} className="my-10 overflow-hidden rounded-[24px] border border-gray-150 dark:border-white/[0.04] bg-white dark:bg-[#161617] shadow-lg">
+                  <div key={index} className="my-10 overflow-hidden rounded-2xl border border-gray-150 dark:border-white/[0.04] bg-white dark:bg-[#161617] shadow-lg">
                     <div className="overflow-x-auto">
                       <table className="w-full text-left border-collapse text-[13px] md:text-sm">
                         <thead>
@@ -504,7 +504,7 @@ const BlogPostDetail: React.FC = () => {
             })}
 
           {/* Bottom Call to Action */}
-          <div className="mt-16 p-8 md:p-10 rounded-[32px] bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-100/50 dark:border-blue-900/10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-16 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-100/50 dark:border-blue-900/10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">Interested in AI automation?</h3>
               <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm">Learn how Amthromax custom systems and agents can transform your workflows.</p>
@@ -550,8 +550,8 @@ const BlogPostDetail: React.FC = () => {
           <aside className="hidden xl:block w-80 shrink-0">
             <div className="sticky top-28 space-y-6">
               {/* Author Card */}
-              <div className="relative group p-6 rounded-[32px] bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-6">
-                <div className="absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
+              <div className="relative group p-6 rounded-2xl bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-6">
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Written by</p>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black font-black text-base flex items-center justify-center shadow-lg border border-black/10 dark:border-white/10 shrink-0 relative">
@@ -574,19 +574,19 @@ const BlogPostDetail: React.FC = () => {
               </div>
 
               {/* Share Card */}
-              <div className="relative group p-6 rounded-[32px] bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-5">
-                <div className="absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
+              <div className="relative group p-6 rounded-2xl bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-5">
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Share this post</p>
                 <div className="flex flex-wrap gap-3">
-                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[80px] py-3 px-3 rounded-[14px] border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
+                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[80px] py-3 px-3 rounded-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
                     <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                     LinkedIn
                   </button>
-                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-3 px-3 rounded-[14px] border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
+                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-3 px-3 rounded-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
                     <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
                     Twitter
                   </button>
-                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-3 px-4 rounded-[14px] border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
+                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-3 px-4 rounded-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
                     Copy Link
                   </button>
@@ -594,8 +594,8 @@ const BlogPostDetail: React.FC = () => {
               </div>
 
               {/* Category Tag */}
-              <div className="relative group p-6 rounded-[32px] bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-4">
-                <div className="absolute inset-0 rounded-[32px] ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
+              <div className="relative group p-6 rounded-2xl bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-4">
+                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Category</p>
                 <div className="flex">
                   <span className="inline-flex items-center px-5 py-2 rounded-xl bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black text-[13px] font-bold tracking-tight shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">

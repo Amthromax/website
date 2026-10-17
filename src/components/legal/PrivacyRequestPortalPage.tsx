@@ -110,7 +110,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
             <div className="space-y-2">
               <h2 className="text-xl font-bold text-gray-950 tracking-tight">Privacy Request Submitted Successfully</h2>
               <p className="text-xs text-gray-600 font-medium max-w-md mx-auto">
-                Your request ID is <span className="font-mono font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded">{submittedRequest.id}</span>. An email verification link has been dispatched to your email address.
+                Your request ID is <span className="font-mono font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded-2xl">{submittedRequest.id}</span>. An email verification link has been dispatched to your email address.
               </p>
             </div>
 

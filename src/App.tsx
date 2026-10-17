@@ -804,7 +804,7 @@ const App: React.FC = () => {
                 <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
                   <div className="max-w-[1440px] mx-auto px-5 sm:px-7 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
                     <div
-                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
+                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
                       style={{
                         background:
                           "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
@@ -812,7 +812,7 @@ const App: React.FC = () => {
                     >
                       {/* grain gradient */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-100 mix-blend-soft-light"
+                        className="pointer-events-none absolute inset-0 rounded-2xl opacity-100 mix-blend-soft-light"
                         style={{
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.4' intercept='-0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E\")",
@@ -825,7 +825,7 @@ const App: React.FC = () => {
                       />
                       {/* fine grain pass */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-45 mix-blend-multiply"
+                        className="pointer-events-none absolute inset-0 rounded-2xl opacity-45 mix-blend-multiply"
                         style={{
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)'/%3E%3C/svg%3E\")",
@@ -834,7 +834,7 @@ const App: React.FC = () => {
                       />
                       {/* white grain speckle */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-70 mix-blend-screen"
+                        className="pointer-events-none absolute inset-0 rounded-2xl opacity-70 mix-blend-screen"
                         style={{
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.2' intercept='-1.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23w)'/%3E%3C/svg%3E\")",
@@ -843,16 +843,16 @@ const App: React.FC = () => {
                       />
                       {/* soft vignette + top sheen for depth */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px]"
+                        className="pointer-events-none absolute inset-0 rounded-2xl"
                         style={{
                           background:
                             "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 45%, rgba(74,32,16,0.38) 100%)",
                         }}
                       />
                       {/* inner bevel */}
-                      <span className="pointer-events-none absolute inset-0 rounded-[28px] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.18)]" />
+                      <span className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.18)]" />
                       {/* sheen sweep on hover */}
-                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px]">
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                         <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
                       </span>
                       {/* corner register marks */}
@@ -865,7 +865,7 @@ const App: React.FC = () => {
                         alt="Code Hoomer Core Engine"
                         loading="lazy"
                         decoding="async"
-                        className="relative z-[1] w-full h-full object-cover rounded-[20px] ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                        className="relative z-[1] w-full h-full object-cover rounded-2xl ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                       />
                       <Link
                         to="/solutions"
@@ -876,7 +876,7 @@ const App: React.FC = () => {
                       </Link>
                     </div>
                     <div
-                      className="relative isolate rounded-[28px] p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
+                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
                       style={{
                         background:
                           "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
@@ -884,7 +884,7 @@ const App: React.FC = () => {
                     >
                       {/* grain gradient */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-100 mix-blend-soft-light"
+                        className="pointer-events-none absolute inset-0 rounded-2xl opacity-100 mix-blend-soft-light"
                         style={{
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 220 220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.62' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.4' intercept='-0.5'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E\")",
@@ -897,7 +897,7 @@ const App: React.FC = () => {
                       />
                       {/* fine grain pass */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-45 mix-blend-multiply"
+                        className="pointer-events-none absolute inset-0 rounded-2xl opacity-45 mix-blend-multiply"
                         style={{
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 140'%3E%3Cfilter id='f'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.1' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='2' intercept='-0.55'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23f)'/%3E%3C/svg%3E\")",
@@ -906,7 +906,7 @@ const App: React.FC = () => {
                       />
                       {/* white grain speckle */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px] opacity-70 mix-blend-screen"
+                        className="pointer-events-none absolute inset-0 rounded-2xl opacity-70 mix-blend-screen"
                         style={{
                           backgroundImage:
                             "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Cfilter id='w'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='3.2' intercept='-1.45'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23w)'/%3E%3C/svg%3E\")",
@@ -915,16 +915,16 @@ const App: React.FC = () => {
                       />
                       {/* soft vignette + top sheen for depth */}
                       <span
-                        className="pointer-events-none absolute inset-0 rounded-[28px]"
+                        className="pointer-events-none absolute inset-0 rounded-2xl"
                         style={{
                           background:
                             "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 45%, rgba(74,32,16,0.38) 100%)",
                         }}
                       />
                       {/* inner bevel */}
-                      <span className="pointer-events-none absolute inset-0 rounded-[28px] shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.18)]" />
+                      <span className="pointer-events-none absolute inset-0 rounded-2xl shadow-[inset_0_1px_0_rgba(255,255,255,0.3),inset_0_-1px_0_rgba(0,0,0,0.18)]" />
                       {/* sheen sweep on hover */}
-                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-[28px]">
+                      <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                         <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
                       </span>
                       {/* corner register marks */}
@@ -937,7 +937,7 @@ const App: React.FC = () => {
                         alt="Open Rower Deep Engine"
                         loading="lazy"
                         decoding="async"
-                        className="relative z-[1] w-full h-full object-cover rounded-[20px] ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                        className="relative z-[1] w-full h-full object-cover rounded-2xl ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
                       />
                       <Link
                         to="/solutions"

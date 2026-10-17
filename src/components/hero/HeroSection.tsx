@@ -1644,7 +1644,7 @@ const DesignStudio: React.FC = () => {
                               <div className="flex items-center gap-2">
                                 <span className="font-semibold text-white">{m.name}</span>
                                 {m.tag && (
-                                  <span className="text-[10px] px-1.5 py-0.5 rounded bg-white/10 text-zinc-400 font-normal">
+                                  <span className="text-[10px] px-1.5 py-0.5 rounded-2xl bg-white/10 text-zinc-400 font-normal">
                                     {m.tag}
                                   </span>
                                 )}

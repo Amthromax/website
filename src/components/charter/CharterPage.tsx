@@ -631,7 +631,7 @@ const CharterPage: React.FC = () => {
 
       {/* 7. Bottom Action CTA Section */}
       <section className="py-24 max-w-[1440px] mx-auto px-6 md:px-12 lg:px-16">
-        <div className="bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-[32px] p-8 md:p-14 border border-gray-200 dark:border-white/15 shadow-sm dark:shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="bg-gray-50 dark:bg-white/5 text-gray-900 dark:text-white rounded-2xl p-8 md:p-14 border border-gray-200 dark:border-white/15 shadow-sm dark:shadow-2xl flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="space-y-3 max-w-2xl text-center md:text-left">
             <h3 className="text-3xl md:text-4xl font-normal tracking-tight text-gray-900 dark:text-white font-sans">
               Join Us in Building Responsible AI

@@ -206,7 +206,7 @@ const ServiceDetailPage: React.FC = () => {
               {service.features.map((feature, i) => (
                 <div
                   key={i}
-                  className="group p-8 bg-gray-50 dark:bg-[#161617] rounded-[28px] border border-gray-150 dark:border-white/[0.04] shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 space-y-6"
+                  className="group p-8 bg-gray-50 dark:bg-[#161617] rounded-2xl border border-gray-150 dark:border-white/[0.04] shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-300 space-y-6"
                 >
                   <span className="inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-white dark:bg-gray-800/80 text-gray-900 dark:text-white border border-gray-200/50 dark:border-gray-700/50 shadow-inner text-lg font-semibold tracking-tighter">
                     0{i + 1}
@@ -225,7 +225,7 @@ const ServiceDetailPage: React.FC = () => {
         <div className="lg:col-span-4 space-y-8">
           
           {/* Tech Stack widget */}
-          <div className="bg-gray-50 dark:bg-[#121213] rounded-[32px] p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
+          <div className="bg-gray-50 dark:bg-[#121213] rounded-2xl p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
             <div className="flex items-center gap-4 pb-2">
               <div className="w-2 h-2 bg-gray-900 dark:bg-white rounded-full animate-pulse"></div>
               <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
@@ -245,7 +245,7 @@ const ServiceDetailPage: React.FC = () => {
           </div>
 
            {/* Deliverables widget */}
-           <div className="bg-gray-50 dark:bg-[#121213] rounded-[32px] p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
+           <div className="bg-gray-50 dark:bg-[#121213] rounded-2xl p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
             <div className="flex items-center gap-4 pb-2">
               <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
               <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
@@ -263,7 +263,7 @@ const ServiceDetailPage: React.FC = () => {
           </div>
 
           {/* CTA widget */}
-          <div className="bg-gray-900 dark:bg-white rounded-[32px] p-8 md:p-10 space-y-8 shadow-xl text-white dark:text-gray-900 relative overflow-hidden group">
+          <div className="bg-gray-900 dark:bg-white rounded-2xl p-8 md:p-10 space-y-8 shadow-xl text-white dark:text-gray-900 relative overflow-hidden group">
             <div className="absolute top-0 right-0 p-8 opacity-20 transform translate-x-1/4 -translate-y-1/4 transition-transform duration-500 group-hover:scale-110">
                <svg width="120" height="120" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
@@ -298,8 +298,8 @@ const ServiceDetailPage: React.FC = () => {
             </div>
             
             <div className="relative group lg:ml-auto w-full max-w-md mx-auto lg:mx-0">
-               <div className="absolute inset-0 bg-gray-900 dark:bg-white rounded-[32px] transform translate-x-4 translate-y-4 lg:translate-x-6 lg:translate-y-6 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 opacity-15 dark:opacity-30"></div>
-               <img src={service.methodologyImage || "/images/4288b43b-4cf5-4ca3-8452-f9f3e85c8dc4.png"} alt="Engineering Leadership" className="relative z-10 w-full h-[320px] md:h-[400px] object-cover object-top rounded-[32px] shadow-xl group-hover:shadow-2xl transition-all duration-500" />
+               <div className="absolute inset-0 bg-gray-900 dark:bg-white rounded-2xl transform translate-x-4 translate-y-4 lg:translate-x-6 lg:translate-y-6 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 opacity-15 dark:opacity-30"></div>
+               <img src={service.methodologyImage || "/images/4288b43b-4cf5-4ca3-8452-f9f3e85c8dc4.png"} alt="Engineering Leadership" className="relative z-10 w-full h-[320px] md:h-[400px] object-cover object-top rounded-2xl shadow-xl group-hover:shadow-2xl transition-all duration-500" />
             </div>
           </div>
 
@@ -330,7 +330,7 @@ const ServiceDetailPage: React.FC = () => {
 
       {/* Enterprise Standards Guarantee */}
       <div className="max-w-7xl mx-auto px-6 py-12 md:py-16">
-        <div className="relative overflow-hidden rounded-[28px] border border-gray-200 bg-gray-50 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-28px_rgba(15,23,42,0.4)] dark:border-white/10 dark:bg-[#0d0d0f] dark:shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_18px_44px_-28px_rgba(0,0,0,0.8)]">
+        <div className="relative overflow-hidden rounded-2xl border border-gray-200 bg-gray-50 p-6 sm:p-8 md:p-10 lg:p-12 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-28px_rgba(15,23,42,0.4)] dark:border-white/10 dark:bg-[#0d0d0f] dark:shadow-[0_1px_0_rgba(255,255,255,0.04)_inset,0_18px_44px_-28px_rgba(0,0,0,0.8)]">
            <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-900/30 to-transparent dark:via-white/30" />
            
            <div className="relative z-10 grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
@@ -351,7 +351,7 @@ const ServiceDetailPage: React.FC = () => {
                   { value: "AES-256", label: "Payload Encryption Standard" },
                   { value: "24/7/365", label: "Priority Live Support" }
                 ].map((stat, idx) => (
-                  <div key={idx} className="rounded-[18px] border border-gray-200 bg-white p-5 sm:p-6 space-y-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-colors duration-300 hover:border-gray-900 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-white/40">
+                  <div key={idx} className="rounded-2xl border border-gray-200 bg-white p-5 sm:p-6 space-y-1.5 shadow-[0_1px_2px_rgba(15,23,42,0.05)] transition-colors duration-300 hover:border-gray-900 dark:border-white/10 dark:bg-white/[0.04] dark:hover:border-white/40">
                     <div className="text-3xl md:text-[2rem] font-semibold tracking-tight tabular-nums text-gray-900 dark:text-white">{stat.value}</div>
                     <div className="text-[11px] font-medium uppercase tracking-wider text-gray-500 dark:text-gray-400">{stat.label}</div>
                   </div>

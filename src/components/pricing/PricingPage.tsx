@@ -142,7 +142,7 @@ const PricingPage: React.FC = () => {
               viewport={{ once: true, margin: "-100px" }}
               transition={{ duration: 0.5, delay: idx * 0.12 }}
               whileHover={{ y: -4 }}
-              className="p-8 sm:p-10 lg:p-12 rounded-[28px] sm:rounded-[32px] border border-gray-200 dark:border-white/10 bg-white dark:bg-black flex flex-col justify-between space-y-8 transition-all duration-300 relative h-full shadow-sm hover:shadow-md"
+              className="p-8 sm:p-10 lg:p-12 rounded-2xl sm:rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-black flex flex-col justify-between space-y-8 transition-all duration-300 relative h-full shadow-sm hover:shadow-md"
             >
               {plan.highlighted && (
                 <span className="absolute top-0 right-8 -translate-y-1/2 bg-[#0066cc] dark:bg-[#2997ff] text-white px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm">
@@ -207,7 +207,7 @@ const PricingPage: React.FC = () => {
         </div>
 
         {/* Pricing Accordion FAQ Section */}
-        <section className="bg-white dark:bg-black rounded-[28px] sm:rounded-[32px] p-8 sm:p-10 lg:p-12 border border-gray-200 dark:border-white/10 shadow-sm mt-20">
+        <section className="bg-white dark:bg-black rounded-2xl sm:rounded-2xl p-8 sm:p-10 lg:p-12 border border-gray-200 dark:border-white/10 shadow-sm mt-20">
           <div className="max-w-4xl mx-auto space-y-10">
             <div className="text-center space-y-3">
               <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Pricing & License FAQ</h2>
@@ -222,7 +222,7 @@ const PricingPage: React.FC = () => {
                 return (
                   <div 
                     key={index} 
-                    className="bg-gray-50 dark:bg-black rounded-[20px] border border-gray-200 dark:border-white/10 overflow-hidden transition-colors"
+                    className="bg-gray-50 dark:bg-black rounded-2xl border border-gray-200 dark:border-white/10 overflow-hidden transition-colors"
                   >
                     <button
                       type="button"

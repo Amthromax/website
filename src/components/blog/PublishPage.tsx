@@ -182,7 +182,7 @@ const PublishPage: React.FC = () => {
           title="Admin Verification | Amthromax"
           description="Secure gate to verify administrative access to Amthromax publishing utilities."
         />
-        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-[32px] p-8 md:p-10 shadow-2xl border border-gray-105 dark:border-gray-800 space-y-6 text-center animate-fade-in">
+        <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl p-8 md:p-10 shadow-2xl border border-gray-105 dark:border-gray-800 space-y-6 text-center animate-fade-in">
           <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center border border-blue-100 dark:border-blue-900/30 text-xl font-bold">
             🔒
           </div>
@@ -463,7 +463,7 @@ const PublishPage: React.FC = () => {
               activeTab === "preview" ? "block" : "hidden md:block"
             }`}
           >
-            <div className="sticky top-28 bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-[32px] p-6 md:p-8 space-y-6 shadow-sm max-h-[80vh] overflow-y-auto">
+            <div className="sticky top-28 bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-2xl p-6 md:p-8 space-y-6 shadow-sm max-h-[80vh] overflow-y-auto">
               <div className="flex items-center justify-between pb-3 border-b border-gray-250 dark:border-white/[0.04]">
                 <h2 className="text-xs font-bold uppercase tracking-wider text-gray-400">Live Preview</h2>
                 <span className="text-[9px] font-bold text-green-500 bg-green-50 dark:bg-green-950/20 px-2 py-0.5 rounded-full border border-green-200 dark:border-green-900/30">

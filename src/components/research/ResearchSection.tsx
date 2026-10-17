@@ -443,7 +443,7 @@ const ResearchSection: React.FC = () => {
         </div>
 
         {/* Main Canvas Display Container */}
-        <div className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 rounded-[32px] sm:rounded-[40px] p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
+        <div className="bg-gray-50 dark:bg-black border border-gray-200 dark:border-white/20 rounded-2xl sm:rounded-2xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
           
           <AnimatePresence mode="wait">
             <motion.div
@@ -486,7 +486,7 @@ const ResearchSection: React.FC = () => {
                             <td className="py-2.5 px-3 font-bold text-gray-900 dark:text-white font-mono text-xs">{row.gene}</td>
                             {row.values.map((v, valIdx) => (
                               <td key={valIdx} className="py-2 px-1 text-center">
-                                <span className={`inline-block px-2 py-0.5 rounded-[4px] text-[10px] font-semibold uppercase tracking-[0.06em] ${v.bg} ${v.color}`}>
+                                <span className={`inline-block px-2 py-0.5 rounded-2xl text-[10px] font-semibold uppercase tracking-[0.06em] ${v.bg} ${v.color}`}>
                                   {v.text}
                                 </span>
                               </td>
@@ -507,7 +507,7 @@ const ResearchSection: React.FC = () => {
                         <span className="h-1.5 w-1.5 rounded-full bg-violet-400" />
                         {activeUseCase.codeData.filename}
                       </span>
-                      <span className="uppercase text-[9px] tracking-[0.14em] border border-violet-400/30 text-violet-200 px-2 py-0.5 rounded-[4px]">
+                      <span className="uppercase text-[9px] tracking-[0.14em] border border-violet-400/30 text-violet-200 px-2 py-0.5 rounded-2xl">
                         {activeUseCase.codeData.language}
                       </span>
                     </div>

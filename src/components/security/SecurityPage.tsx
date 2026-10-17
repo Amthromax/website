@@ -656,7 +656,7 @@ const SecurityPage: React.FC = () => {
             {/* Console Screen (Loaded with Codes & Streamed Log Lines) */}
             <div className="flex-1 p-6 overflow-y-auto space-y-2.5 select-text custom-scrollbar bg-[#09090a]">
               {logs.map((log, index) => (
-                <div key={index} className="flex gap-4 items-start leading-relaxed group hover:bg-white/[0.02] -mx-2 px-2 py-0.5 rounded transition-colors">
+                <div key={index} className="flex gap-4 items-start leading-relaxed group hover:bg-white/[0.02] -mx-2 px-2 py-0.5 rounded-2xl transition-colors">
                   <span className="text-zinc-600 select-none text-[11px] min-w-[28px] text-right font-mono">{index + 1}</span>
                   <span className="text-zinc-500 select-none font-mono text-xs">[{log.timestamp}]</span>
                   <span className={`font-medium select-none min-w-[80px] font-mono text-xs ${

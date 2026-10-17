@@ -139,7 +139,7 @@ const ProductDetailPage: React.FC = () => {
           </div>
 
           {/* Code Integration Preview */}
-          <div className="bg-[#0d0d0f] text-gray-100 rounded-[32px] p-8 md:p-12 border border-white/10 space-y-6 shadow-2xl font-mono text-sm overflow-x-auto">
+          <div className="bg-[#0d0d0f] text-gray-100 rounded-2xl p-8 md:p-12 border border-white/10 space-y-6 shadow-2xl font-mono text-sm overflow-x-auto">
             <div className="flex items-center justify-between border-b border-white/10 pb-4 font-sans text-xs">
               <span className="font-normal text-gray-400 uppercase tracking-widest">
                 Integration Example (SDK / API)
@@ -170,7 +170,7 @@ console.log('Product Execution Response:', result);`}
           </div>
 
           {/* Internal Linking & Next Steps */}
-          <div className="p-10 rounded-[32px] bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
+          <div className="p-10 rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-8">
             <div className="space-y-2 text-center md:text-left">
               <h3 className="text-2xl font-normal font-sans text-gray-900 dark:text-white">
                 Ready to deploy {product.name}?

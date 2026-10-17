@@ -126,7 +126,7 @@ const NewsPage: React.FC = () => {
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className="group rounded-[28px] bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-8 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
+              className="group rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-8 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
             >
               <div className="space-y-4">
                 {/* Category Header */}

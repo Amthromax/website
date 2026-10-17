@@ -191,8 +191,8 @@ const PublicationsPage: React.FC = () => {
             <div className="relative w-full max-w-2xl lg:max-w-3xl min-h-[380px] sm:min-h-[460px] flex flex-col">
               
               {/* Stacked Backing Cards for 3D Depth */}
-              <div className="absolute inset-0 bg-blue-900/30 rounded-[36px] translate-x-5 -translate-y-5 scale-[0.92] border border-white/10 blur-[1px]" />
-              <div className="absolute inset-0 bg-indigo-900/40 rounded-[36px] translate-x-2.5 -translate-y-2.5 scale-[0.96] border border-white/10" />
+              <div className="absolute inset-0 bg-blue-900/30 rounded-2xl translate-x-5 -translate-y-5 scale-[0.92] border border-white/10 blur-[1px]" />
+              <div className="absolute inset-0 bg-indigo-900/40 rounded-2xl translate-x-2.5 -translate-y-2.5 scale-[0.96] border border-white/10" />
 
               {/* Active Hero Slide Card */}
               <AnimatePresence mode="wait">
@@ -202,7 +202,7 @@ const PublicationsPage: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`relative w-full min-h-[380px] sm:min-h-[460px] rounded-[36px] p-8 sm:p-12 md:p-16 bg-gradient-to-br ${activeHeroPaper.heroGradient || "from-blue-600 to-indigo-800"} flex flex-col justify-between shadow-2xl border border-white/20 overflow-hidden group`}
+                  className={`relative w-full min-h-[380px] sm:min-h-[460px] rounded-2xl p-8 sm:p-12 md:p-16 bg-gradient-to-br ${activeHeroPaper.heroGradient || "from-blue-600 to-indigo-800"} flex flex-col justify-between shadow-2xl border border-white/20 overflow-hidden group`}
                 >
                   {/* Subtle Shimmer Overlay */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.25),transparent_65%)] pointer-events-none" />
@@ -453,7 +453,7 @@ const PublicationsPage: React.FC = () => {
 
           {/* Right Visual Video Side */}
           <div className="lg:col-span-6 flex justify-center lg:justify-end">
-            <div className="relative aspect-square w-full max-w-md lg:max-w-lg rounded-[32px] overflow-hidden bg-black/5 dark:bg-white/5 shadow-2xl border border-gray-200 dark:border-white/10 group">
+            <div className="relative aspect-square w-full max-w-md lg:max-w-lg rounded-2xl overflow-hidden bg-black/5 dark:bg-white/5 shadow-2xl border border-gray-200 dark:border-white/10 group">
               <video
                 src="/video/c8294fa6ad33fbabdb1d5d9ed86f3749_720w.mp4"
                 autoPlay
@@ -477,7 +477,7 @@ const PublicationsPage: React.FC = () => {
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
-              className="bg-white dark:bg-[#121214] w-full max-w-xl rounded-[28px] p-8 border border-gray-200 dark:border-white/15 shadow-2xl space-y-5 text-gray-900 dark:text-white relative"
+              className="bg-white dark:bg-[#121214] w-full max-w-xl rounded-2xl p-8 border border-gray-200 dark:border-white/15 shadow-2xl space-y-5 text-gray-900 dark:text-white relative"
             >
               <div className="flex justify-between items-center">
                 <h3 className="text-lg font-bold text-gray-900 dark:text-white">BibTeX Citation</h3>

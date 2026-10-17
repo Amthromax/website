@@ -125,7 +125,7 @@ const BlogPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="group overflow-hidden rounded-[24px] sm:rounded-[28px] bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 grid md:grid-cols-12 gap-0 md:max-h-[340px]"
+              className="group overflow-hidden rounded-2xl sm:rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 grid md:grid-cols-12 gap-0 md:max-h-[340px]"
             >
               <div className="md:col-span-6 min-h-[220px] md:h-full overflow-hidden relative">
                 <img
@@ -201,7 +201,7 @@ const BlogPage: React.FC = () => {
               <motion.article
                 key={post.id}
                 variants={cardVariants}
-                className="group flex flex-col justify-between overflow-hidden rounded-[28px] bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
               >
                 <div className="space-y-5">
                   {/* Card Image */}
@@ -261,7 +261,7 @@ const BlogPage: React.FC = () => {
               onClick={() => setActiveModal("principles")}
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
-              <div className="aspect-[4/3] rounded-[22px] overflow-hidden bg-[#161617] border border-white/10 relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
                 <div className="w-full h-full bg-gradient-to-tr from-[#00A3FF] via-[#0066FF] to-[#9900FF] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(192,38,211,0.6),transparent_60%)]" />
                 </div>
@@ -279,7 +279,7 @@ const BlogPage: React.FC = () => {
               onClick={() => setActiveModal("careers")}
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
-              <div className="aspect-[4/3] rounded-[22px] overflow-hidden bg-[#161617] border border-white/10 relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
                 <img
                   src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop"
                   alt="Careers & Engineering"
@@ -299,7 +299,7 @@ const BlogPage: React.FC = () => {
               onClick={() => setActiveModal("overview")}
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
-              <div className="aspect-[4/3] rounded-[22px] overflow-hidden bg-[#161617] border border-white/10 relative">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
                 <div className="w-full h-full bg-gradient-to-b from-[#6A89A7] via-[#C5D5E4] to-[#E8A87C] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(235,140,90,0.5),transparent_70%)]" />
                 </div>

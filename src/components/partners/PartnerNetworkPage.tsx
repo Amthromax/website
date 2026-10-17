@@ -205,7 +205,7 @@ const PartnerNetworkPage: React.FC = () => {
               initial={{ opacity: 0, y: 30 }}
               animate={programsInView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.6, delay: idx * 0.1 }}
-              className="p-8 md:p-10 rounded-[28px] sm:rounded-[32px] bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/10 space-y-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
+              className="p-8 md:p-10 rounded-2xl sm:rounded-2xl bg-gray-50 dark:bg-white/[0.03] border border-gray-200 dark:border-white/10 space-y-6 shadow-sm hover:shadow-md transition-all duration-300 relative overflow-hidden group flex flex-col justify-between"
             >
               <div className="space-y-6">
                 <div className="flex justify-between items-start">
@@ -300,7 +300,7 @@ const PartnerNetworkPage: React.FC = () => {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.96, y: 12 }}
               transition={{ duration: 0.3, ease: "easeOut" }}
-              className="w-full max-w-lg bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[32px] sm:rounded-[36px] p-8 md:p-10 space-y-6 shadow-2xl relative overflow-hidden text-gray-900 dark:text-white"
+              className="w-full max-w-lg bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-2xl p-8 md:p-10 space-y-6 shadow-2xl relative overflow-hidden text-gray-900 dark:text-white"
             >
               <button
                 type="button"

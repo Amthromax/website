@@ -91,12 +91,12 @@ const SolutionsPage: React.FC = () => {
             initial={{ opacity: 0, y: 30 }}
             animate={inView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6, delay: index * 0.1 }}
-            className={`bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-[28px] sm:rounded-[36px] p-8 sm:p-10 lg:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center ${
+            className={`bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-2xl sm:rounded-2xl p-8 sm:p-10 lg:p-12 shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col lg:flex-row gap-10 lg:gap-12 items-center ${
               index % 2 === 1 ? "lg:flex-row-reverse" : ""
             }`}
           >
             {/* Visual Media (Image) */}
-            <div className="w-full lg:w-1/2 aspect-video lg:aspect-[4/3] rounded-[20px] sm:rounded-[24px] overflow-hidden border border-[#e5e5e7]/80 dark:border-white/10 relative bg-[#f5f5f7] dark:bg-white/5 shrink-0">
+            <div className="w-full lg:w-1/2 aspect-video lg:aspect-[4/3] rounded-2xl sm:rounded-2xl overflow-hidden border border-[#e5e5e7]/80 dark:border-white/10 relative bg-[#f5f5f7] dark:bg-white/5 shrink-0">
               <img
                 src={sol.image}
                 alt={sol.title}
@@ -139,7 +139,7 @@ const SolutionsPage: React.FC = () => {
 
       {/* CTA Footer card */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-24">
-        <div className="bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-[28px] sm:rounded-[36px] p-10 sm:p-14 text-center space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
+        <div className="bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-2xl sm:rounded-2xl p-10 sm:p-14 text-center space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
           <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
             Need a custom integration?
           </h3>

@@ -41,6 +41,18 @@
   --shadow-apple-xl: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
   --radius-apple: 12px;
+
+  /* One corner radius for every box on the site. Pills and circles keep
+     `rounded-full`; everything else resolves to this single curve, so a small
+     card and a full-width panel read as the same family. */
+  --radius-xs: 16px;
+  --radius-sm: 16px;
+  --radius-md: 16px;
+  --radius-lg: 16px;
+  --radius-xl: 16px;
+  --radius-2xl: 16px;
+  --radius-3xl: 16px;
+  --radius-4xl: 16px;
 }
 @layer base {
   :root {

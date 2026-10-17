@@ -68,7 +68,7 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
             }
           }
         }}
-        className="relative rounded-[10px] p-8 border border-gray-200/50 dark:border-gray-800/50 overflow-hidden min-h-[360px] flex flex-col justify-end shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        className="relative rounded-2xl p-8 border border-gray-200/50 dark:border-gray-800/50 overflow-hidden min-h-[360px] flex flex-col justify-end shadow-lg hover:shadow-2xl transition-shadow duration-300"
       >
         {/* Background Image */}
         <div 

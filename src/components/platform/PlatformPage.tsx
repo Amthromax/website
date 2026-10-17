@@ -375,7 +375,7 @@ const PlatformPage: React.FC = () => {
               </div>
             </div>
           </div>
-          <div className="overflow-hidden rounded-[32px] bg-gray-50 dark:bg-gray-900 border border-gray-150 dark:border-white/[0.04] aspect-[4/3] relative shadow-md">
+          <div className="overflow-hidden rounded-2xl bg-gray-50 dark:bg-gray-900 border border-gray-150 dark:border-white/[0.04] aspect-[4/3] relative shadow-md">
             <img 
               src="/images/open_rower_deep_engine.jpg" 
               alt="Engineering Platform Metrics" 

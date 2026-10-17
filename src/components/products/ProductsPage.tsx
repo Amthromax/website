@@ -229,7 +229,7 @@ const ProductsPage: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8 lg:gap-12">
           {/* Card 1 */}
-          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img
                 src="/images/model_simifig.jpg"
@@ -249,7 +249,7 @@ const ProductsPage: React.FC = () => {
           </div>
 
           {/* Card 2 */}
-          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img
                 src="/images/model_ligivor.jpg"
@@ -269,7 +269,7 @@ const ProductsPage: React.FC = () => {
           </div>
 
           {/* Card 3 */}
-          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img
                 src="/images/model_favlon.jpg"
@@ -289,7 +289,7 @@ const ProductsPage: React.FC = () => {
           </div>
 
           {/* Card 4 */}
-          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-[28px] sm:rounded-[36px] overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
+          <div className="group bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl sm:rounded-2xl overflow-hidden shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 flex flex-col justify-between">
             <div className="aspect-[16/9] w-full overflow-hidden bg-[#f5f5f7] dark:bg-white/5">
               <img
                 src="/images/model_roqlow.jpg"

@@ -251,10 +251,10 @@ const FoundationSection: React.FC = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.08 }}
-                className="flex flex-col space-y-5 p-6 rounded-[28px] border border-[#e5e5e7] dark:border-white/[0.08] bg-white dark:bg-[#161617] shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
+                className="flex flex-col space-y-5 p-6 rounded-2xl border border-[#e5e5e7] dark:border-white/[0.08] bg-white dark:bg-[#161617] shadow-[0_4px_16px_rgba(0,0,0,0.03)] dark:shadow-none hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
               >
                 {/* Image Container */}
-                <div className="rounded-[20px] overflow-hidden aspect-[16/10] bg-[#f5f5f7] dark:bg-white/5 relative">
+                <div className="rounded-2xl overflow-hidden aspect-[16/10] bg-[#f5f5f7] dark:bg-white/5 relative">
                   <img
                     src={item.image}
                     alt={item.title}

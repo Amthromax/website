@@ -479,7 +479,7 @@ const ResearchOverviewPage: React.FC = () => {
       <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20 border-t border-gray-100 dark:border-white/10 bg-white dark:bg-black transition-colors duration-300">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {/* Card 1: Coral Red */}
-          <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#e05244] via-[#ea5845] to-[#c83b2d] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer border border-white/10">
+          <div className="h-[420px] sm:h-[460px] rounded-2xl bg-gradient-to-br from-[#e05244] via-[#ea5845] to-[#c83b2d] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer border border-white/10">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
             {/* Top Icon */}
@@ -513,7 +513,7 @@ const ResearchOverviewPage: React.FC = () => {
           </div>
 
           {/* Card 2: Accel (Forest / Emerald Green) */}
-          <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#2d5a44] via-[#3a6b52] to-[#1f4231] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer border border-white/10">
+          <div className="h-[420px] sm:h-[460px] rounded-2xl bg-gradient-to-br from-[#2d5a44] via-[#3a6b52] to-[#1f4231] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer border border-white/10">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
             <div className="z-10 flex items-center">
@@ -545,7 +545,7 @@ const ResearchOverviewPage: React.FC = () => {
           </div>
 
           {/* Card 3: Emergence (Warm Taupe / Muted Olive) */}
-          <div className="h-[420px] sm:h-[460px] rounded-[28px] bg-gradient-to-br from-[#6b6758] via-[#7d7867] to-[#545144] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer border border-white/10">
+          <div className="h-[420px] sm:h-[460px] rounded-2xl bg-gradient-to-br from-[#6b6758] via-[#7d7867] to-[#545144] relative overflow-hidden p-8 sm:p-10 flex flex-col justify-between shadow-lg group cursor-pointer border border-white/10">
             <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent pointer-events-none" />
 
             <div className="z-10 flex items-center">
