@@ -1087,9 +1087,9 @@ type StudioRun = {
 
 /* The three places a visitor can actually go from the studio card. */
 const ST_ENTRYPOINTS: { icon: "chat" | "api" | "desktop"; label: string; to: string }[] = [
-  { icon: "chat", label: "Chat with Amthromax", to: "/products" },
-  { icon: "api", label: "API Platform", to: "/docs" },
-  { icon: "desktop", label: "Amthromax Desktop", to: "/platform" },
+  { icon: "chat", label: "Open Rower Chat", to: "/products" },
+  { icon: "api", label: "Agent API", to: "/docs" },
+  { icon: "desktop", label: "Open Rower Desktop", to: "/platform" },
 ];
 
 const StEntryIcon: React.FC<{ k: "chat" | "api" | "desktop" }> = ({ k }) => (
@@ -1610,7 +1610,7 @@ const DesignStudio: React.FC = () => {
                     <circle cx="8" cy="8" r="5.6" />
                     <path d="M8 2.4v11.2M2.4 8h11.2M4 4l8 8M12 4l-8 8" />
                   </svg>
-                  <span className="hidden sm:inline">DeepThink</span>
+                  <span className="hidden sm:inline">Reason</span>
                 </button>
 
                 <button
@@ -1628,7 +1628,7 @@ const DesignStudio: React.FC = () => {
                     <circle cx="8" cy="8" r="5.6" />
                     <path d="M2.4 8h11.2M8 2.4a9 9 0 0 1 0 11.2 9 9 0 0 1 0-11.2z" />
                   </svg>
-                  <span className="hidden sm:inline">Search</span>
+                  <span className="hidden sm:inline">Web Search</span>
                 </button>
               </div>
 
