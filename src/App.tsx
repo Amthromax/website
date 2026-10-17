@@ -450,9 +450,6 @@ const App: React.FC = () => {
                         <div className="space-y-3">
                           <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Product Index</Link>
                           <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Platform Core</Link>
-                          <Link to="/orarqlow" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-amber-500 dark:text-amber-400 hover:text-amber-600 dark:hover:text-amber-300 transition-colors">OrarQlow.Ai</Link>
-                          <Link to="/helleious" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-orange-500 dark:text-orange-400 hover:text-orange-600 dark:hover:text-orange-300 transition-colors">Helleious.Ai</Link>
-                          <Link to="/codehoomer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-purple-600 dark:text-purple-400 hover:text-purple-500 dark:hover:text-purple-300 transition-colors">CodeHoomer.Ai</Link>
                         </div>
                       </div>
                       {/* Right Column */}
