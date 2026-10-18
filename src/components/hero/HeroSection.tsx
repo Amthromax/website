@@ -1369,6 +1369,45 @@ const sameMan = (a: StManFrame, b: StManFrame) =>
   a.swatch === b.swatch;
 
 const STUDIO_CSS = `
+/* ---- prompt slab -------------------------------------------------------
+   A dark crystal: near-black body, a starfield of fine specks, and edges
+   that catch the light. All of it is ambient texture, not state.          */
+.amx-slab {
+  background:
+    radial-gradient(120% 140% at 50% -20%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 55%),
+    linear-gradient(180deg, #121216 0%, #0a0a0d 60%, #08080a 100%);
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.10) inset,
+    0 18px 48px rgba(0,0,0,0.85),
+    0 0 44px -22px rgba(255,255,255,0.22);
+}
+.amx-slab:hover {
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.18) inset,
+    0 20px 54px rgba(0,0,0,0.9),
+    0 0 60px -20px rgba(255,255,255,0.35);
+}
+
+.amx-slab-stars {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 260 260'%3E%3Cfilter id='s'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='1' stitchTiles='stitch'/%3E%3CfeColorMatrix type='matrix' values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 1 0 0 0 0'/%3E%3CfeComponentTransfer%3E%3CfeFuncA type='linear' slope='6' intercept='-4.4'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='260' height='260' filter='url(%23s)'/%3E%3C/svg%3E");
+  background-size: 260px 260px;
+  opacity: 0.55;
+  mix-blend-mode: screen;
+  animation: amx-drift 42s linear infinite;
+}
+
+.amx-slab-face {
+  background: linear-gradient(115deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0) 42%);
+}
+
+@keyframes amx-drift {
+  from { background-position: 0 0; }
+  to   { background-position: 260px 130px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .amx-slab-stars { animation: none; }
+}
+
 /* Grayscale smoothing: on pure black, subpixel rendering thickens the stems
    and the small UI text stops looking crisp. */
 .amx-studio, .amx-studio * {
@@ -1509,7 +1548,6 @@ const DesignStudio: React.FC = () => {
      really driving: the autonomous demo, or the run the visitor just started. */
   const vRun = mf ? ST_RUNS[mf.run] : run;
   const vText = mf ? vRun.prompt : run.prompt.slice(0, f.typed);
-  const vCaret = mf ? false : f.caret;
 
   return (
     <div className="amx-studio bg-black rounded-2xl border border-white/10 shadow-sm flex flex-col md:h-[390px] group hover:border-white/20 transition-all duration-300 relative">
@@ -1559,9 +1597,12 @@ const DesignStudio: React.FC = () => {
             </h3>
           </div>
 
-          <div className="relative rounded-2xl bg-black border border-white/15 p-3.5 shadow-[0_12px_40px_rgba(0,0,0,0.8)] transition-all duration-300 hover:border-white/30 group/glass">
+          <div className="amx-slab group/glass relative overflow-hidden rounded-2xl p-3.5 transition-all duration-500">
+            {/* particle field */}
+            <span aria-hidden="true" className="amx-slab-stars pointer-events-none absolute inset-0" />
+            {/* soft sheen across the face */}
+            <span aria-hidden="true" className="amx-slab-face pointer-events-none absolute inset-0 rounded-2xl" />
             <div className="relative z-10 min-h-[38px] font-sans text-[15px] font-medium leading-[1.55] tracking-[0.005em] text-white">
-              {vCaret && <span className="mr-1 inline-block h-[17px] w-[2.5px] -mb-[2px] bg-blue-400 align-middle shadow-[0_0_10px_#60a5fa]" />}
               {vText ? (
                 <span className="text-white">{vText}</span>
               ) : (
