@@ -1597,9 +1597,9 @@ const DesignStudio: React.FC = () => {
             </h3>
           </div>
 
-          <div className="amx-slab group/glass relative overflow-hidden rounded-2xl p-3.5 transition-all duration-500">
+          <div className="amx-slab group/glass relative rounded-2xl p-3.5 transition-all duration-500">
             {/* particle field */}
-            <span aria-hidden="true" className="amx-slab-stars pointer-events-none absolute inset-0" />
+            <span aria-hidden="true" className="amx-slab-stars pointer-events-none absolute inset-0 rounded-2xl" />
             {/* soft sheen across the face */}
             <span aria-hidden="true" className="amx-slab-face pointer-events-none absolute inset-0 rounded-2xl" />
             <div className="relative z-10 min-h-[38px] font-sans text-[15px] font-medium leading-[1.55] tracking-[0.005em] text-white">

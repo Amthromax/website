@@ -221,7 +221,7 @@ const UpcomingProjectsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
         {/* Header Block */}
         <div className="space-y-3">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight text-gray-900 dark:text-white max-w-3xl leading-tight">
+          <h2 className="text-4xl md:text-5xl font-normal tracking-tight text-gray-900 dark:text-white max-w-3xl leading-tight">
             Next-Gen Platforms & Core Projects
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base max-w-2xl leading-relaxed">
@@ -268,7 +268,7 @@ const UpcomingProjectsSection: React.FC = () => {
                     </div>
                   )}
 
-                  <h3 className="text-xl sm:text-2xl font-extrabold text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
+                  <h3 className="text-xl sm:text-2xl font-normal text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
                     {project.centerTitle || project.title}
                   </h3>
                 </div>
@@ -279,13 +279,13 @@ const UpcomingProjectsSection: React.FC = () => {
 
               {/* Typography below box (Matching reference look) */}
               <div className="space-y-1.5 pt-1">
-                <h3 className="text-lg md:text-xl font-bold tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                <h3 className="text-lg md:text-xl font-medium tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
                   {project.title}
                 </h3>
                 <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                   {project.subtitle}
                 </p>
-                <span className="block text-[11px] font-semibold text-gray-400 dark:text-gray-500 uppercase tracking-wider pt-1">
+                <span className="block text-[11px] font-normal text-gray-400 dark:text-gray-500 uppercase tracking-wider pt-1">
                   {project.date}
                 </span>
               </div>
@@ -312,7 +312,7 @@ const UpcomingProjectsSection: React.FC = () => {
                 e.stopPropagation();
                 setSelectedProject(null);
               }}
-              className="fixed top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer z-50"
+              className="fixed top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-medium transition-all cursor-pointer z-50"
               aria-label="Close modal"
             >
               ✕
@@ -335,12 +335,12 @@ const UpcomingProjectsSection: React.FC = () => {
               )}
 
               {/* Subtitle / Category Label */}
-              <span className="text-xs font-bold text-white/60 uppercase tracking-widest block">
+              <span className="text-xs font-medium text-white/60 uppercase tracking-widest block">
                 {selectedProject.category}
               </span>
 
               {/* Headline / Title */}
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-snug">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white leading-snug">
                 {selectedProject.modalHeading}
               </h2>
 
@@ -355,7 +355,7 @@ const UpcomingProjectsSection: React.FC = () => {
                   <li key={idx} className="flex items-start gap-2.5">
                     <span className="text-white/60 text-lg leading-none mt-0.5">•</span>
                     <div className="leading-relaxed">
-                      <span className="font-bold italic text-white mr-1.5">{bullet.title}:</span>
+                      <span className="font-medium italic text-white mr-1.5">{bullet.title}:</span>
                       <span className="text-white/80">{bullet.desc}</span>
                     </div>
                   </li>

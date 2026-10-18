@@ -852,11 +852,6 @@ const App: React.FC = () => {
                       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                         <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
                       </span>
-                      {/* corner register marks */}
-                      <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 bg-white" />
-                      <span className="pointer-events-none absolute right-0 top-0 h-5 w-5 bg-white" />
-                      <span className="pointer-events-none absolute bottom-0 left-0 h-5 w-5 bg-white" />
-                      <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 bg-white" />
                       <img
                         src="/images/code_hoomer_core_engine.webp"
                         alt="Code Hoomer Core Engine"
@@ -924,11 +919,6 @@ const App: React.FC = () => {
                       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                         <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
                       </span>
-                      {/* corner register marks */}
-                      <span className="pointer-events-none absolute left-0 top-0 h-5 w-5 bg-white" />
-                      <span className="pointer-events-none absolute right-0 top-0 h-5 w-5 bg-white" />
-                      <span className="pointer-events-none absolute bottom-0 left-0 h-5 w-5 bg-white" />
-                      <span className="pointer-events-none absolute bottom-0 right-0 h-5 w-5 bg-white" />
                       <img
                         src="/images/open_rower_deep_engine.jpg"
                         alt="Open Rower Deep Engine"
