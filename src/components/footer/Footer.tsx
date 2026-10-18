@@ -153,13 +153,13 @@ const Footer: React.FC = () => {
 
           {/* Right Columns: Multi-Column Links Grid + Emails */}
           <div className="lg:col-span-8 flex flex-col gap-6 pt-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4 sm:gap-6 lg:gap-4 xl:gap-6">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-7 lg:gap-6 xl:gap-8">
               {footerColumns.map((column) => (
-                <div key={column.title} className="space-y-2.5 sm:space-y-3">
-                  <h4 className="font-extrabold text-xs sm:text-sm uppercase tracking-wider text-[#1a1815] dark:text-white whitespace-nowrap">
+                <div key={column.title} className="space-y-3 sm:space-y-4">
+                  <h4 className="font-extrabold text-sm sm:text-[15px] uppercase tracking-wider text-[#1a1815] dark:text-white whitespace-nowrap">
                     {column.title}
                   </h4>
-                  <ul className="space-y-2 sm:space-y-2.5 text-xs sm:text-sm font-medium text-[#5c5850] dark:text-gray-400">
+                  <ul className="space-y-2.5 sm:space-y-3 text-sm sm:text-[15px] font-medium text-[#5c5850] dark:text-gray-400">
                     {column.items.map((item, idx) => (
                       <li key={idx}>
                         {item.isExternal ? (
@@ -189,13 +189,13 @@ const Footer: React.FC = () => {
 
             {/* AI Models — below Contact */}
             <div className="pt-5 border-t border-[#cecac1] dark:border-white/10">
-              <p className="text-[10px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3">Models</p>
+              <p className="text-[11px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3.5">Models</p>
               <div className="flex flex-row flex-wrap gap-x-8 gap-y-2">
                 {["Simifig", "Ligivor", "Favlon", "Roqlow"].map((model) => (
                   <a
                     key={model}
                     href="/blog"
-                    className="text-xs sm:text-sm font-medium text-[#5c5850] dark:text-gray-400 hover:text-[#1a1815] dark:hover:text-white transition-colors"
+                    className="text-sm sm:text-[15px] font-medium text-[#5c5850] dark:text-gray-400 hover:text-[#1a1815] dark:hover:text-white transition-colors"
                   >
                     {model}
                   </a>
