@@ -30,6 +30,7 @@ function generateSitemap() {
     { loc: 'https://amthromax.com/pricing', changefreq: 'monthly', priority: '0.8' },
     { loc: 'https://amthromax.com/careers', changefreq: 'monthly', priority: '0.7' },
     { loc: 'https://amthromax.com/security', changefreq: 'monthly', priority: '0.7' },
+    { loc: 'https://amthromax.com/services/all', changefreq: 'monthly', priority: '0.7' },
     { loc: 'https://amthromax.com/trust/commitments/no-training-on-your-data', changefreq: 'monthly', priority: '0.5' },
     { loc: 'https://amthromax.com/trust/commitments/no-silent-region-failover', changefreq: 'monthly', priority: '0.5' },
     { loc: 'https://amthromax.com/trust/commitments/no-silent-operator-access', changefreq: 'monthly', priority: '0.5' },

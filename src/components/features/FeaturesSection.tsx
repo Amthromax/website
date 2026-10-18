@@ -3,7 +3,7 @@ import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import React from "react";
 
-const features = [
+export const features = [
   {
     title: "Custom Software Development",
     description: "Tailored applications built to solve your unique business requirements.",
@@ -48,7 +48,7 @@ const features = [
   },
 ];
 
-const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index }) => {
+export const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index }) => {
   return (
     <Link
       to={`/services/${feature.slug}`}
@@ -180,8 +180,8 @@ const FeaturesSection: React.FC = () => {
 
         <div className="mt-12 flex justify-center">
           <Link
-            to="/services"
-            className="group inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3 text-sm font-medium text-gray-900 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_26px_-16px_rgba(15,23,42,0.5)] transition-all duration-300 hover:border-gray-400 hover:shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_16px_34px_-16px_rgba(15,23,42,0.6)] active:scale-[0.98] cursor-pointer dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/15"
+            to="/services/all"
+            className="group inline-flex items-center gap-2 rounded-full bg-black px-7 py-3 text-sm font-medium text-white ring-1 ring-white/10 shadow-[0_1px_2px_rgba(0,0,0,0.4),0_14px_30px_-16px_rgba(0,0,0,0.85)] transition-all duration-300 hover:bg-[#0d0d0d] hover:shadow-[0_1px_2px_rgba(0,0,0,0.45),0_20px_40px_-16px_rgba(0,0,0,0.95)] active:scale-[0.98] cursor-pointer dark:bg-white dark:text-gray-900 dark:ring-white/20 dark:hover:bg-gray-100"
           >
             <span>Load more</span>
             <span

@@ -60,6 +60,7 @@ import CodeHoomerPage from "./components/codehoomer/CodeHoomerPage";
 import OrarQlowPage from "./components/orarqlow/OrarQlowPage";
 import TrustTransparencyPage from "./components/trust/TrustTransparencyPage";
 import TrustCommitmentPage from "./components/trust/TrustCommitmentPage";
+import AllServicesPage from "./components/features/AllServicesPage";
 import NotFoundPage from "./components/common/NotFoundPage";
 import './App.css';
 
@@ -953,6 +954,7 @@ const App: React.FC = () => {
                 <Footer />
               </div>
             } />
+            <Route path="/services/all" element={<AllServicesPage />} />
             <Route path="/services/:serviceId" element={<ServiceDetailPage />} />
             <Route path="/research" element={
               <div>
