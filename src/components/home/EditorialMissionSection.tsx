@@ -51,7 +51,7 @@ const EditorialMissionSection: React.FC = () => {
             transition={{ duration: 0.6 }}
             className="lg:col-span-5"
           >
-            <h2 className="text-lg sm:text-xl lg:text-2xl font-bold tracking-tight text-white leading-snug">
+            <h2 className="text-lg sm:text-xl lg:text-2xl font-medium tracking-tight text-white leading-snug">
               At Amthromax, we build enterprise AI systems and intelligent technology to power the next era of software.
             </h2>
           </motion.div>
@@ -73,7 +73,7 @@ const EditorialMissionSection: React.FC = () => {
                 className="py-5 flex items-center justify-between group transition-colors duration-200"
               >
                 <div className="flex items-center gap-2">
-                  <span className="text-base sm:text-lg font-bold text-white group-hover:text-zinc-300 transition-colors">
+                  <span className="text-base sm:text-lg font-medium text-white group-hover:text-zinc-300 transition-colors">
                     {item.title}
                   </span>
                   <span className="text-xs text-zinc-400 opacity-0 group-hover:opacity-100 transition-all duration-200 transform group-hover:translate-x-0.5">

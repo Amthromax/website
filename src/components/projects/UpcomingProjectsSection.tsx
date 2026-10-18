@@ -221,7 +221,7 @@ const UpcomingProjectsSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-12">
         {/* Header Block */}
         <div className="space-y-3">
-          <h2 className="text-4xl md:text-5xl font-normal tracking-tight text-gray-900 dark:text-white max-w-3xl leading-tight">
+          <h2 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-white max-w-3xl leading-tight">
             Next-Gen Platforms & Core Projects
           </h2>
           <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base max-w-2xl leading-relaxed">
@@ -279,7 +279,7 @@ const UpcomingProjectsSection: React.FC = () => {
 
               {/* Typography below box (Matching reference look) */}
               <div className="space-y-1.5 pt-1">
-                <h3 className="text-lg md:text-xl font-medium tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                <h3 className="text-lg md:text-xl font-medium tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-gray-200 transition-colors duration-200">
                   {project.title}
                 </h3>
                 <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal">

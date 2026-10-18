@@ -209,7 +209,7 @@ const EventsSection: React.FC = () => {
       <div className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-12 space-y-8">
         {/* Section Heading */}
         <div className="space-y-2">
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
             Explore Amthromax Product Ideas
           </h2>
         </div>
@@ -232,11 +232,11 @@ const EventsSection: React.FC = () => {
             >
               {/* Badge & Title Block */}
               <div className="space-y-4">
-                <span className="inline-block px-2.5 py-1 rounded-md bg-[#e8e8ed] dark:bg-white/10 text-[11px] font-semibold text-[#1d1d1f] dark:text-gray-200 group-hover:bg-[#1d1d1f] group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors">
+                <span className="inline-block px-2.5 py-1 rounded-md bg-[#e8e8ed] dark:bg-white/10 text-[11px] font-medium text-[#1d1d1f] dark:text-gray-200 group-hover:bg-[#1d1d1f] group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors">
                   {idea.badge}
                 </span>
 
-                <h3 className="text-base sm:text-lg font-semibold tracking-tight text-[#1d1d1f] dark:text-white leading-snug group-hover:text-black dark:group-hover:text-gray-200">
+                <h3 className="text-base sm:text-lg font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-snug group-hover:text-black dark:group-hover:text-gray-200">
                   {idea.title}
                 </h3>
               </div>
@@ -263,7 +263,7 @@ const EventsSection: React.FC = () => {
           {/* Left Action Button */}
           <Link
             to="/products"
-            className="px-6 py-2.5 bg-[#1d1d1f] hover:bg-[#333336] dark:bg-white dark:text-black dark:hover:bg-gray-200 text-white rounded-full text-xs font-semibold transition-all duration-200 shadow-xs inline-block"
+            className="px-6 py-2.5 bg-[#1d1d1f] hover:bg-[#333336] dark:bg-white dark:text-black dark:hover:bg-gray-200 text-white rounded-full text-xs font-medium transition-all duration-200 shadow-xs inline-block"
           >
             View all product ideas
           </Link>
@@ -314,7 +314,7 @@ const EventsSection: React.FC = () => {
                 e.stopPropagation();
                 setSelectedIdea(null);
               }}
-              className="fixed top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-bold transition-all cursor-pointer z-50"
+              className="fixed top-6 right-6 sm:top-10 sm:right-10 w-10 h-10 rounded-full bg-white/10 hover:bg-white/20 text-white flex items-center justify-center text-sm font-medium transition-all cursor-pointer z-50"
               aria-label="Close modal"
             >
               ✕
@@ -335,12 +335,12 @@ const EventsSection: React.FC = () => {
               </div>
 
               {/* Subtitle / Category Label */}
-              <span className="text-xs font-bold text-white/60 uppercase tracking-widest block">
+              <span className="text-xs font-medium text-white/60 uppercase tracking-widest block">
                 {selectedIdea.category}
               </span>
 
               {/* Headline / Title */}
-              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-white leading-snug">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-medium tracking-tight text-white leading-snug">
                 {selectedIdea.modalTitle}
               </h2>
 
@@ -355,7 +355,7 @@ const EventsSection: React.FC = () => {
                   <li key={idx} className="flex items-start gap-2.5">
                     <span className="text-white/60 text-lg leading-none mt-0.5">•</span>
                     <div className="leading-relaxed">
-                      <span className="font-bold italic text-white mr-1.5">{bullet.title}:</span>
+                      <span className="font-medium italic text-white mr-1.5">{bullet.title}:</span>
                       <span className="text-white/80">{bullet.desc}</span>
                     </div>
                   </li>

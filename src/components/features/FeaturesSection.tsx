@@ -81,7 +81,7 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
 
         {/* Content */}
         <div className="relative z-20 space-y-4 text-white">
-          <h3 className="text-3xl font-bold font-sans text-white tracking-tight leading-tight mb-2 drop-shadow-md">
+          <h3 className="text-3xl font-medium font-sans text-white tracking-tight leading-tight mb-2 drop-shadow-md">
             {feature.title}
           </h3>
           <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2">
@@ -92,7 +92,7 @@ const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature, index
               {feature.technology?.slice(0, 3).map((tech: string) => (
                 <span
                   key={tech}
-                  className="text-xs text-white/80 font-semibold tracking-wide"
+                  className="text-xs text-white/80 font-medium tracking-wide"
                 >
                   {tech}
                 </span>
@@ -126,7 +126,7 @@ const FeaturesSection: React.FC = () => {
           href="/helleious"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
+          className="text-sm font-sans font-medium tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           HELLEIOUS.AI
@@ -139,7 +139,7 @@ const FeaturesSection: React.FC = () => {
       <div className="absolute top-8 right-6 sm:right-10 md:right-14 z-20">
         <Link
           to="/codehoomer"
-          className="text-sm font-sans font-black tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
+          className="text-sm font-sans font-medium tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           CODEHOOMER.AI
@@ -157,7 +157,7 @@ const FeaturesSection: React.FC = () => {
           transition={{ duration: 0.8, ease: "easeOut" }}
           className="text-center mb-20 relative"
         >
-          <h2 className="text-5xl md:text-6xl font-bold font-sans text-gray-900 dark:text-gray-50 tracking-tight mb-6">
+          <h2 className="text-5xl md:text-6xl font-medium font-sans text-gray-900 dark:text-gray-50 tracking-tight mb-6">
             Our Core Competencies
           </h2>
           <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto font-medium">
