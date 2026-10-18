@@ -118,7 +118,7 @@ const FeaturesSection: React.FC = () => {
 
   return (
     <section
-      className="py-32 bg-white dark:bg-black relative overflow-hidden"
+      className="pt-32 pb-20 bg-white dark:bg-black relative overflow-hidden"
     >
       {/* Corner Text - Inter font in solid Black / White */}
       <div className="absolute top-8 left-6 sm:left-10 md:left-14 z-20">
@@ -177,6 +177,21 @@ const FeaturesSection: React.FC = () => {
             <FeatureCard key={feature.title} feature={feature} index={index} />
           ))}
         </motion.div>
+
+        <div className="mt-12 flex justify-center">
+          <Link
+            to="/services"
+            className="group inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3 text-sm font-medium text-gray-900 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_26px_-16px_rgba(15,23,42,0.5)] transition-all duration-300 hover:border-gray-400 hover:shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_16px_34px_-16px_rgba(15,23,42,0.6)] active:scale-[0.98] cursor-pointer dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/15"
+          >
+            <span>Load more</span>
+            <span
+              aria-hidden="true"
+              className="transition-transform duration-300 group-hover:translate-y-0.5"
+            >
+              &darr;
+            </span>
+          </Link>
+        </div>
       </div>
       
     </section>
