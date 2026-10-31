@@ -79,7 +79,7 @@ const UpcomingProjectsSection: React.FC = () => {
         { title: "Shield", desc: "Hardware isolation modules protect proprietary trading algorithms and private order book depth." },
         { title: "Optimize", desc: "Sub-millisecond order routing minimizes market slippage and maximizes execution liquidity." }
       ],
-      image: "/new_img/0c78426b-279f-454c-9d59-60e1f1480d72.png",
+      image: "/new_img/institutional-trade-engine-foil.png",
       icon: (
         <svg className="w-8 h-8 md:w-10 md:h-10 text-white drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
           <path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" />

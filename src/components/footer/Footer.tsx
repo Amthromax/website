@@ -95,6 +95,15 @@ const Footer: React.FC = () => {
     },
   ];
 
+  /* Render groups, stacked two-per-column where the lists are short. This is
+     what stops every label wrapping onto a second line. */
+  const footerGroups: FooterColumn[][] = [
+    [footerColumns[0]],
+    [footerColumns[1]],
+    [footerColumns[2], footerColumns[3]],
+    [footerColumns[4], footerColumns[5]],
+  ];
+
   const handleManageCookies = () => {
     window.dispatchEvent(new Event("open-cookie-consent"));
   };
@@ -112,7 +121,7 @@ const Footer: React.FC = () => {
           className="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-12 lg:gap-16 items-start"
         >
           {/* Left Column: 3D Asterisk Logo + Copyright + Legal Links */}
-          <div className="lg:col-span-4 space-y-4 sm:space-y-6 flex flex-col items-center text-center">
+          <div className="lg:col-span-3 space-y-4 sm:space-y-6 flex flex-col items-center text-center">
             {/* Amthromax interlocking hexagon mark */}
             <Link to="/" className="block mx-auto w-fit group">
               <img
@@ -152,50 +161,54 @@ const Footer: React.FC = () => {
           </div>
 
           {/* Right Columns: Multi-Column Links Grid + Emails */}
-          <div className="lg:col-span-8 flex flex-col gap-6 pt-2">
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6 sm:gap-7 lg:gap-6 xl:gap-8">
-              {footerColumns.map((column) => (
-                <div key={column.title} className="space-y-3 sm:space-y-4">
-                  <h4 className="font-extrabold text-sm sm:text-[15px] uppercase tracking-wider text-[#1a1815] dark:text-white whitespace-nowrap">
-                    {column.title}
-                  </h4>
-                  <ul className="space-y-2.5 sm:space-y-3 text-sm sm:text-[15px] font-medium text-[#5c5850] dark:text-gray-400">
-                    {column.items.map((item, idx) => (
-                      <li key={idx}>
-                        {item.isExternal ? (
-                          <a
-                            href={item.href}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="hover:text-black dark:hover:text-white transition-colors inline-flex items-center gap-1 group/link"
-                          >
-                            <span>{item.name}</span>
-                            <span className="text-[10px] opacity-70 group-hover/link:translate-x-0.5 transition-transform">↗</span>
-                          </a>
-                        ) : (
-                          <Link
-                            to={item.href}
-                            className="hover:text-black dark:hover:text-white transition-colors block"
-                          >
-                            {item.name}
-                          </Link>
-                        )}
-                      </li>
-                    ))}
-                  </ul>
+          <div className="lg:col-span-9 flex flex-col gap-6 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-x-6 gap-y-10 sm:gap-x-8">
+              {footerGroups.map((group, gi) => (
+                <div key={gi} className="space-y-9">
+                  {group.map((column) => (
+                    <div key={column.title} className="space-y-3.5">
+                      <h4 className="text-[13px] font-medium tracking-[0.01em] text-[#8a847a] dark:text-gray-500 whitespace-nowrap">
+                        {column.title}
+                      </h4>
+                      <ul className="space-y-2.5 text-[14.5px] font-medium text-[#1a1815] dark:text-gray-200">
+                        {column.items.map((item, idx) => (
+                          <li key={idx}>
+                            {item.isExternal ? (
+                              <a
+                                href={item.href}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="inline-flex items-baseline gap-1 whitespace-nowrap text-[#1a1815] dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors group/link"
+                              >
+                                <span>{item.name}</span>
+                                <span className="text-[10px] opacity-60 group-hover/link:translate-x-0.5 transition-transform">↗</span>
+                              </a>
+                            ) : (
+                              <Link
+                                to={item.href}
+                                className="block whitespace-nowrap text-[#1a1815] dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors"
+                              >
+                                {item.name}
+                              </Link>
+                            )}
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
                 </div>
               ))}
             </div>
 
             {/* AI Models — below Contact */}
             <div className="pt-5 border-t border-[#cecac1] dark:border-white/10">
-              <p className="text-[11px] font-bold text-[#5c5850] dark:text-gray-500 uppercase tracking-widest mb-3.5">Models</p>
+              <p className="text-[13px] font-medium tracking-[0.01em] text-[#8a847a] dark:text-gray-500 mb-3.5">Models</p>
               <div className="flex flex-row flex-wrap gap-x-8 gap-y-2">
                 {["Simifig", "Ligivor", "Favlon", "Roqlow"].map((model) => (
                   <a
                     key={model}
                     href="/blog"
-                    className="text-sm sm:text-[15px] font-medium text-[#5c5850] dark:text-gray-400 hover:text-[#1a1815] dark:hover:text-white transition-colors"
+                    className="text-[14.5px] font-medium whitespace-nowrap text-[#1a1815] dark:text-gray-200 hover:text-black dark:hover:text-white transition-colors"
                   >
                     {model}
                   </a>
