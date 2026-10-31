@@ -1394,10 +1394,18 @@ const STUDIO_CSS = `
   opacity: 0.55;
   mix-blend-mode: screen;
   animation: amx-drift 42s linear infinite;
+  transition: opacity 0.4s ease;
 }
 
 .amx-slab-face {
   background: linear-gradient(115deg, rgba(255,255,255,0.055) 0%, rgba(255,255,255,0) 42%);
+}
+
+/* Hovering the slab speeds the particle field up sharply, so the surface
+   reacts to the pointer instead of drifting at one rate. */
+.amx-slab:hover .amx-slab-stars {
+  animation-duration: 4.5s;
+  opacity: 0.8;
 }
 
 @keyframes amx-drift {
