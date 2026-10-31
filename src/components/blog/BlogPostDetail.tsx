@@ -3,6 +3,7 @@ import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts, type BlogPost } from "./blogData";
 import SEO from "../layout/SEO";
+import { isHouseAuthor, HouseMark } from "./AuthorAvatar";
 import Footer from "../footer/Footer";
 
 const BlogPostDetail: React.FC = () => {
@@ -183,8 +184,8 @@ const BlogPostDetail: React.FC = () => {
           {/* Author Block */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-black/[0.06] dark:border-white/[0.08]">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-black/10 dark:border-white/10 shadow-sm">
-                {post.author.avatar}
+              <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-black/10 dark:border-white/10 shadow-sm overflow-hidden">
+                {isHouseAuthor(post.author.name) ? <HouseMark /> : post.author.avatar}
               </div>
               <div>
                 <h4 className="text-sm font-bold text-black dark:text-white">{post.author.name}</h4>
@@ -555,7 +556,7 @@ const BlogPostDetail: React.FC = () => {
                 <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Written by</p>
                 <div className="flex items-center space-x-4">
                   <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black font-black text-base flex items-center justify-center shadow-lg border border-black/10 dark:border-white/10 shrink-0 relative">
-                    {post.author.avatar}
+                    {isHouseAuthor(post.author.name) ? <HouseMark /> : post.author.avatar}
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-[#1c1c1e] rounded-full shadow-sm" />
                   </div>
                   <div>

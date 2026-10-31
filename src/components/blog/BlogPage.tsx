@@ -5,6 +5,7 @@ import { blogPosts, type BlogPost } from "./blogData";
 import BlogMarquee from "./BlogMarquee";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
+import AuthorAvatar from "./AuthorAvatar";
 
 const BlogPage: React.FC = () => {
   const [activeModal, setActiveModal] = useState<"principles" | "careers" | "overview" | null>(null);
@@ -174,9 +175,7 @@ const BlogPage: React.FC = () => {
                 </div>
 
                 <div className="flex items-center space-x-3 pt-4 border-t border-[#e5e5e7]/80 dark:border-white/10">
-                  <div className="w-8 h-8 rounded-full bg-[#1d1d1f] text-white dark:bg-white dark:text-black font-semibold text-xs flex items-center justify-center border border-[#e5e5e7] dark:border-white/10 shadow-xs">
-                    {featuredPost.author.avatar}
-                  </div>
+                  <AuthorAvatar name={featuredPost.author.name} initial={featuredPost.author.avatar} />
                   <div>
                     <h4 className="text-xs font-semibold text-[#1d1d1f] dark:text-white">{featuredPost.author.name}</h4>
                     <p className="text-[10px] text-[#86868b] dark:text-gray-500">{featuredPost.author.role}</p>
@@ -201,7 +200,7 @@ const BlogPage: React.FC = () => {
               <motion.article
                 key={post.id}
                 variants={cardVariants}
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] hover:-translate-y-1 transition-all duration-300 h-full"
+                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-shadow duration-300 h-full"
               >
                 <div className="space-y-5">
                   {/* Card Image */}
@@ -219,7 +218,7 @@ const BlogPage: React.FC = () => {
                   {/* Content Info */}
                   <div className="px-6 pb-2 space-y-3">
                     <Link to={`/blog/${post.id}`} className="block">
-                      <h3 className="text-lg md:text-xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors leading-snug">
+                      <h3 className="text-[15px] md:text-base font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors leading-snug">
                         {post.title}
                       </h3>
                     </Link>
@@ -228,9 +227,7 @@ const BlogPage: React.FC = () => {
 
                 {/* Author Info */}
                 <div className="px-6 py-5 mt-4 border-t border-[#e5e5e7]/80 dark:border-white/10 flex items-center space-x-3">
-                  <div className="w-8 h-8 rounded-full bg-[#1d1d1f] text-white dark:bg-white dark:text-black font-semibold text-xs flex items-center justify-center border border-[#e5e5e7] dark:border-white/10 shadow-xs">
-                    {post.author.avatar}
-                  </div>
+                  <AuthorAvatar name={post.author.name} initial={post.author.avatar} />
                   <div>
                     <h4 className="text-xs font-semibold text-[#1d1d1f] dark:text-white">{post.author.name}</h4>
                     <p className="text-[10px] text-[#86868b] dark:text-gray-500">{post.author.role}</p>
