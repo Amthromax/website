@@ -1568,7 +1568,7 @@ const DesignStudio: React.FC = () => {
           <span className="size-3 rounded-full bg-[#ffbd2e] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
           <span className="size-3 rounded-full bg-[#27c93f] shadow-xs cursor-pointer hover:opacity-80 transition-opacity" />
         </div>
-        <span className="font-sans text-[12px] font-semibold text-gray-300 tracking-wide">Open Rower Platform</span>
+        <span className="font-sans text-[12px] font-semibold text-gray-300 tracking-wide amx-shimmer [--amx-shimmer-base:#8b8b93] [--amx-shimmer-peak:#ffffff]">Open Rower Platform</span>
         <div className="flex items-center gap-1.5 sm:gap-2">
           {/* Terminal button (>_) */}
           <button
@@ -1599,9 +1599,9 @@ const DesignStudio: React.FC = () => {
         {/* ---- prompt side ---- */}
         <div className="mx-auto flex w-full min-h-0 max-w-2xl flex-col justify-center gap-3 bg-black p-4 md:p-5">
           <div className="flex items-start gap-3">
-            <h3 className="font-sans text-[20px] leading-[1.25] tracking-tight text-white md:text-[25px]">
-              Turn your <span className="font-semibold text-white">ideas</span> into{" "}
-              <span className="font-semibold text-white">agents</span>
+            <h3 className="font-sans text-[20px] leading-[1.25] tracking-tight text-white md:text-[25px] amx-shimmer [--amx-shimmer-base:#b4b4bb] [--amx-shimmer-peak:#ffffff]">
+              Turn your <span className="font-semibold">ideas</span> into{" "}
+              <span className="font-semibold">agents</span>
             </h3>
           </div>
 
@@ -1780,12 +1780,12 @@ const DesignStudio: React.FC = () => {
       </div>
 
       <div className="flex shrink-0 items-center justify-between border-t border-white/10 bg-black px-5 py-3 font-sans text-xs rounded-b-2xl">
-        <span className="font-sans text-[12.5px] font-semibold tracking-[0.01em] text-white">Agent Synthesis</span>
+        <span className="font-sans text-[12.5px] font-semibold tracking-[0.01em] text-white amx-shimmer [--amx-shimmer-base:#d4d4d8] [--amx-shimmer-peak:#ffffff]">Agent Synthesis</span>
         <Link
           to="/products"
           className="flex items-center gap-1.5 text-gray-300 font-medium transition-colors hover:text-white"
         >
-          <span>Explore</span>
+          <span className="amx-shimmer [--amx-shimmer-base:#8b8b93] [--amx-shimmer-peak:#ffffff]">Explore</span>
           <span>→</span>
         </Link>
       </div>
@@ -1870,9 +1870,9 @@ const HeroSection: React.FC = () => {
           <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <AgentSession />
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
-              <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
+              <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold amx-shimmer [--amx-shimmer-base:#4b5563] [--amx-shimmer-peak:#09090b] dark:[--amx-shimmer-base:#9ca3af] dark:[--amx-shimmer-peak:#ffffff]">Neural Reasoning &amp; Build</span>
               <Link to="/products" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
-                <span>Learn More</span>
+                <span className="amx-shimmer [--amx-shimmer-base:#9ca3af] [--amx-shimmer-peak:#111827] dark:[--amx-shimmer-base:#6b7280] dark:[--amx-shimmer-peak:#ffffff]">Learn More</span>
                 <span>→</span>
               </Link>
             </div>
@@ -1883,9 +1883,9 @@ const HeroSection: React.FC = () => {
             <SwarmChat />
 
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">
-              <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Autonomous Swarm</span>
+              <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold amx-shimmer [--amx-shimmer-base:#4b5563] [--amx-shimmer-peak:#09090b] dark:[--amx-shimmer-base:#9ca3af] dark:[--amx-shimmer-peak:#ffffff]">Autonomous Swarm</span>
               <Link to="/platform" className="text-gray-400 hover:text-black dark:hover:text-white transition-colors flex items-center gap-1">
-                <span>View Architecture</span>
+                <span className="amx-shimmer [--amx-shimmer-base:#9ca3af] [--amx-shimmer-peak:#111827] dark:[--amx-shimmer-base:#6b7280] dark:[--amx-shimmer-peak:#ffffff]">View Architecture</span>
                 <span>→</span>
               </Link>
             </div>

@@ -321,3 +321,46 @@ body {
   letter-spacing: -0.012em;
   font-feature-settings: "tnum" 1, "calt" 1, "zero" 1;
 }
+
+/* A band of light that travels left to right across the lettering, the way a
+   status line reads while something is still running. The two colours are set
+   per usage so the sweep works on a pale card and on the black footer alike:
+   on light the peak is darker than the base, on dark it is brighter. */
+.amx-shimmer {
+  background-image: linear-gradient(
+    100deg,
+    var(--amx-shimmer-base, currentColor) 0%,
+    var(--amx-shimmer-base, currentColor) 42%,
+    var(--amx-shimmer-peak, #ffffff) 50%,
+    var(--amx-shimmer-base, currentColor) 58%,
+    var(--amx-shimmer-base, currentColor) 100%
+  );
+  background-size: 250% 100%;
+  background-repeat: repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  animation: amx-shimmer 2.4s linear infinite;
+}
+
+@keyframes amx-shimmer {
+  from { background-position: 150% 0; }
+  to   { background-position: -150% 0; }
+}
+
+/* Clipping the text to a gradient overrides its own colour, which would eat
+   a link's hover state. Hovering hands the colour back. */
+a:hover .amx-shimmer,
+.amx-shimmer:hover {
+  animation: none;
+  background-image: none;
+  color: inherit;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .amx-shimmer {
+    animation: none;
+    background-image: none;
+    color: inherit;
+  }
+}
