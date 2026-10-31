@@ -1859,7 +1859,7 @@ const HeroSection: React.FC = () => {
         {/* Top Row: 2 Equal-Sized Premium Bento Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Equal Box 1: Neural Reasoning & Agentic Build */}
-          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
+          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <AgentSession />
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold">Neural Reasoning &amp; Build</span>
@@ -1871,7 +1871,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Equal Box 2: Autonomous Swarm Mesh */}
-          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_1px_0_rgba(255,255,255,0.8)_inset,0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
+          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <SwarmChat />
 
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">
