@@ -155,14 +155,14 @@ const BlogPage: React.FC = () => {
               </div>
               <div className="md:col-span-6 p-6 md:p-7 flex flex-col justify-between space-y-4">
                 <div className="space-y-2.5">
-                  <div className="flex items-center space-x-2 text-xs font-semibold text-[#1a1815] dark:text-[#2997ff] uppercase tracking-wider">
+                  <div className="flex items-center space-x-2 text-xs font-semibold text-[#1a1815] dark:text-white uppercase tracking-wider">
                     <span>{featuredPost.category}</span>
                     <span>•</span>
                     <span className="text-[#86868b] dark:text-gray-500">{featuredPost.readTime}</span>
                   </div>
                   <Link
                     to={`/blog/${featuredPost.id}`}
-                    className="block group-hover:text-[#1a1815] dark:group-hover:text-[#2997ff] transition-colors"
+                    className="block group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors"
                   >
                     <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
                       {featuredPost.title}
@@ -218,15 +218,11 @@ const BlogPage: React.FC = () => {
 
                   {/* Content Info */}
                   <div className="px-6 pb-2 space-y-3">
-                    <span className="text-xs font-medium text-[#86868b] dark:text-gray-500">{post.readTime}</span>
                     <Link to={`/blog/${post.id}`} className="block">
-                      <h3 className="text-lg md:text-xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-[#2997ff] transition-colors leading-snug">
+                      <h3 className="text-lg md:text-xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors leading-snug">
                         {post.title}
                       </h3>
                     </Link>
-                    <p className="text-[#515154] dark:text-gray-300 text-sm leading-relaxed font-normal line-clamp-3">
-                      {post.excerpt}
-                    </p>
                   </div>
                 </div>
 

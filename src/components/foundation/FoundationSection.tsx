@@ -267,12 +267,12 @@ const FoundationSection: React.FC = () => {
                     <span className="text-xs font-medium text-[#86868b] dark:text-gray-500 uppercase tracking-wider block">
                       {item.date}
                     </span>
-                    <h4 className="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-[#2997ff] transition-colors duration-200 leading-snug">
+                    <h4 className="text-lg font-semibold text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors duration-200 leading-snug">
                       {item.title}
                     </h4>
                   </div>
                   
-                  <div className="pt-4 flex items-center justify-between text-[15px] font-medium text-[#1a1815] dark:text-[#2997ff] border-t border-[#e5e5e7]/80 dark:border-white/10">
+                  <div className="pt-4 flex items-center justify-between text-[15px] font-medium text-[#1a1815] dark:text-white border-t border-[#e5e5e7]/80 dark:border-white/10">
                     <span>Read Article</span>
                     <span className="transform group-hover:translate-x-1 transition-transform duration-200">›</span>
                   </div>
