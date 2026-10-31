@@ -4,16 +4,34 @@ import { motion } from "framer-motion";
 import { newsItems } from "../blog/blogData";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
+import ListControls, { sortItems, type SortKey, type LayoutKey } from "../common/ListControls";
+
+/** How many cards the feed opens with; Load more reveals the rest. */
+const INITIAL_VISIBLE = 9;
 
 const NewsPage: React.FC = () => {
   const [selectedFilter, setSelectedFilter] = useState("All");
+  const [sortBy, setSortBy] = useState<SortKey>("newest");
+  const [layout, setLayout] = useState<LayoutKey>("grid");
+  const [visible, setVisible] = useState(INITIAL_VISIBLE);
 
   const filters = ["All", "SALES", "Release", "Announcement", "Roadmap", "Partnership"];
 
-  const filteredItems =
+  const filteredItems = sortItems(
     selectedFilter === "All"
       ? newsItems
-      : newsItems.filter((item) => item.category.toUpperCase() === selectedFilter.toUpperCase());
+      : newsItems.filter((item) => item.category.toUpperCase() === selectedFilter.toUpperCase()),
+    sortBy
+  );
+
+  const shownItems = filteredItems.slice(0, visible);
+  const selectFilter = (f: string) => {
+    setSelectedFilter(f);
+    setVisible(INITIAL_VISIBLE);
+  };
+
+  /* The chips read "Releases" where the value is "Release"; the menu follows. */
+  const filterLabel = (f: string) => (f === "All" || f === "SALES" ? f : `${f}s`);
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -102,16 +120,28 @@ const NewsPage: React.FC = () => {
               <button
                 key={filter}
                 type="button"
-                onClick={() => setSelectedFilter(filter)}
+                onClick={() => selectFilter(filter)}
                 className={`px-4 py-2 rounded-full text-xs font-normal transition-all duration-300 select-none cursor-pointer ${
                   selectedFilter.toUpperCase() === filter.toUpperCase()
                     ? "bg-black text-white dark:bg-white dark:text-black shadow-sm"
                     : "bg-gray-100 text-gray-600 hover:bg-gray-200 dark:bg-white/5 dark:text-gray-400 dark:hover:bg-white/10"
                 }`}
               >
-                {filter === "All" || filter === "SALES" ? filter : `${filter}s`}
+                {filterLabel(filter)}
               </button>
             ))}
+
+            <ListControls
+              categories={filters}
+              selectedCategory={selectedFilter}
+              onSelectCategory={selectFilter}
+              sortBy={sortBy}
+              onSortBy={setSortBy}
+              layout={layout}
+              onLayout={setLayout}
+              labelFor={filterLabel}
+              className="ml-1"
+            />
           </div>
         </div>
 
@@ -120,15 +150,24 @@ const NewsPage: React.FC = () => {
           variants={containerVariants}
           initial="hidden"
           animate="visible"
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+          key={layout}
+          className={
+            layout === "grid"
+              ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
+              : "flex flex-col gap-4"
+          }
         >
-          {filteredItems.map((item) => (
+          {shownItems.map((item) => (
             <motion.div
               key={item.id}
               variants={itemVariants}
-              className="group rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-8 hover:shadow-md transition-all duration-300 flex flex-col justify-between h-full"
+              className={`group rounded-2xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 p-8 hover:shadow-md transition-shadow duration-300 ${
+                layout === "grid"
+                  ? "flex flex-col justify-between h-full"
+                  : "flex flex-col gap-4 md:flex-row md:items-center md:gap-10"
+              }`}
             >
-              <div className="space-y-4">
+              <div className={layout === "grid" ? "space-y-4" : "space-y-3 md:flex-1"}>
                 {/* Category Header */}
                 <span className="text-xs font-normal uppercase tracking-wider text-gray-500 dark:text-gray-400 block">
                   {item.category}
@@ -149,7 +188,11 @@ const NewsPage: React.FC = () => {
               </div>
 
               {/* Article Footer Link */}
-              <div className="pt-6 mt-6 border-t border-gray-200 dark:border-white/10 flex items-center justify-between">
+              <div className={`flex items-center justify-between ${
+                layout === "grid"
+                  ? "pt-6 mt-6 border-t border-gray-200 dark:border-white/10"
+                  : "md:w-60 md:shrink-0 md:justify-end md:gap-6 pt-4 mt-0 border-t border-gray-200 dark:border-white/10 md:border-t-0"
+              }`}>
                 <span className="text-xs font-normal text-gray-500 dark:text-gray-400">
                   {item.date}
                 </span>
@@ -164,6 +207,21 @@ const NewsPage: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
+
+        {visible < filteredItems.length && (
+          <div className="flex justify-center pt-2">
+            <button
+              type="button"
+              onClick={() => setVisible((v) => v + INITIAL_VISIBLE)}
+              className="group inline-flex items-center gap-2 rounded-full border border-gray-300 bg-white px-7 py-3 text-sm font-medium text-gray-900 shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_10px_26px_-16px_rgba(15,23,42,0.5)] transition-all duration-300 hover:border-gray-400 hover:shadow-[0_1px_0_rgba(255,255,255,0.9)_inset,0_16px_34px_-16px_rgba(15,23,42,0.6)] active:scale-[0.98] cursor-pointer dark:border-white/20 dark:bg-white/10 dark:text-white dark:hover:border-white/40 dark:hover:bg-white/15"
+            >
+              <span>Load more</span>
+              <span aria-hidden="true" className="transition-transform duration-300 group-hover:translate-y-0.5">
+                &darr;
+              </span>
+            </button>
+          </div>
+        )}
       </main>
 
       <Footer />

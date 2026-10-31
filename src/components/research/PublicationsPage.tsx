@@ -3,6 +3,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
 import SEO from "../layout/SEO";
+import ListControls, { sortItems, type SortKey, type LayoutKey } from "../common/ListControls";
 
 // Define Types
 export interface Paper {
@@ -114,6 +115,8 @@ const PublicationsPage: React.FC = () => {
   const [subscribeSubmitted, setSubscribeSubmitted] = useState(false);
 
   const [activeTypeFilter, setActiveTypeFilter] = useState("All");
+  const [sortBy, setSortBy] = useState<SortKey>("newest");
+  const [layout, setLayout] = useState<LayoutKey>("rows");
   const typeFilters = ["All", "Overview", "Publication", "Research", "Release"];
 
   const categories = ["All", "Artificial Intelligence", "Cybersecurity", "Cloud Architecture", "Quantum Security"];
@@ -140,6 +143,8 @@ const PublicationsPage: React.FC = () => {
 
       return matchesSearch && matchesCategory && matchesType;
     });
+
+  const sortedPapers = sortItems(filteredPapers, sortBy);
 
   const getBibtex = (paper: Paper) => {
     return `@article{amthromax_${paper.slug.replace(/-/g, "_")},
@@ -306,9 +311,24 @@ const PublicationsPage: React.FC = () => {
         <div className="space-y-8">
           
           {/* Main Title Header */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-white">
-            Research
-          </h2>
+          <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-white">
+              Research
+            </h2>
+
+            <ListControls
+              categories={typeFilters}
+              selectedCategory={activeTypeFilter}
+              onSelectCategory={setActiveTypeFilter}
+              sortBy={sortBy}
+              onSortBy={setSortBy}
+              layout={layout}
+              onLayout={setLayout}
+              count={sortedPapers.length}
+              noun="paper"
+              className="sm:justify-end"
+            />
+          </div>
 
           {/* Filter Type Tabs Row */}
           <div className="flex flex-wrap items-center gap-6 sm:gap-10 pb-4">
@@ -330,14 +350,24 @@ const PublicationsPage: React.FC = () => {
 
           {/* Publication List Items */}
           {filteredPapers.length > 0 ? (
-            <div className="divide-y divide-gray-200 dark:divide-white/10 border-t border-gray-200 dark:border-white/10">
-              {filteredPapers.map((paper) => (
+            <div
+              className={
+                layout === "rows"
+                  ? "divide-y divide-gray-200 dark:divide-white/10 border-t border-gray-200 dark:border-white/10"
+                  : "grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 pt-2"
+              }
+            >
+              {sortedPapers.map((paper) => (
                 <div 
                   key={paper.slug}
-                  className="py-10 group flex flex-col md:flex-row md:items-start justify-between gap-8 sm:gap-16 transition-all"
+                  className={`group transition-all ${
+                    layout === "rows"
+                      ? "py-10 flex flex-col md:flex-row md:items-start justify-between gap-8 sm:gap-16"
+                      : "flex flex-col gap-4 rounded-2xl border border-gray-200 dark:border-white/10 bg-gray-50 dark:bg-white/5 p-7 hover:shadow-md transition-shadow"
+                  }`}
                 >
                   {/* Left Column: Type & Date */}
-                  <div className="w-40 sm:w-52 shrink-0 space-y-2">
+                  <div className={layout === "rows" ? "w-40 sm:w-52 shrink-0 space-y-2" : "space-y-1"}>
                     <h4 className="text-sm font-semibold text-gray-900 dark:text-white tracking-tight">
                       {paper.type || "Publication"}
                     </h4>
@@ -347,8 +377,10 @@ const PublicationsPage: React.FC = () => {
                   </div>
 
                   {/* Right Column: Title & Abstract */}
-                  <div className="space-y-3 flex-1 max-w-4xl">
-                    <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                  <div className={layout === "rows" ? "space-y-3 flex-1 max-w-4xl" : "space-y-3"}>
+                    <h3 className={`font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug ${
+                      layout === "rows" ? "text-xl sm:text-2xl" : "text-lg"
+                    }`}>
                       <Link to={`/research/${paper.slug}`}>
                         {paper.title}
                       </Link>
