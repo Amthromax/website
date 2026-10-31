@@ -424,10 +424,10 @@ const App: React.FC = () => {
                       <div className="space-y-6">
                         <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Explore Intelligence</span>
                         <div className="space-y-3">
-                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Intelligence Index</Link>
-                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Intelligence Overview</Link>
-                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Intelligence Residency</Link>
-                          <Link to="/security" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Safety</Link>
+                          <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Intelligence Index</Link>
+                          <Link to="/research/overview" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Intelligence Overview</Link>
+                          <Link to="/research/publications" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Intelligence Residency</Link>
+                          <Link to="/security" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Safety</Link>
                         </div>
                       </div>
                       {/* Right Column */}
@@ -449,8 +449,8 @@ const App: React.FC = () => {
                       <div className="space-y-6">
                         <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Explore Products</span>
                         <div className="space-y-3">
-                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Product Index</Link>
-                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Platform Core</Link>
+                          <Link to="/products" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Product Index</Link>
+                          <Link to="/platform" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Platform Core</Link>
                         </div>
                       </div>
                       {/* Right Column */}
@@ -519,10 +519,10 @@ const App: React.FC = () => {
                       <div className="space-y-6">
                         <span className="text-xs font-extrabold text-gray-500 dark:text-white/50 uppercase tracking-widest block">Explore Corporate</span>
                         <div className="space-y-3">
-                          <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">About Us</Link>
-                          <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Careers</Link>
-                          <Link to="/team" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors">Team</Link>
-                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-xl md:text-2xl font-bold text-gray-900 dark:text-white hover:text-gray-600 dark:hover:text-white/80 transition-colors flex items-center gap-2"><span>Contact Sales</span><span className="text-lg font-normal opacity-70">↗</span></a>
+                          <Link to="/about" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">About Us</Link>
+                          <Link to="/careers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Careers</Link>
+                          <Link to="/team" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Team</Link>
+                          <a href="/contact" target="_blank" rel="noopener noreferrer" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center gap-2"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></a>
                         </div>
                       </div>
                       {/* Right Column */}
