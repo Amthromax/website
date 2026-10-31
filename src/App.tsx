@@ -799,7 +799,7 @@ const App: React.FC = () => {
                 <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
                   <div className="max-w-[1440px] mx-auto px-5 sm:px-7 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
                     <div
-                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
+                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
                       style={{
                         background:
                           "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
@@ -850,13 +850,15 @@ const App: React.FC = () => {
                       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                         <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
                       </span>
-                      <img
-                        src="/images/code_hoomer_core_engine.webp"
-                        alt="Code Hoomer Core Engine"
-                        loading="lazy"
-                        decoding="async"
-                        className="relative z-[1] w-full h-full object-cover rounded-2xl ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
-                      />
+                      <div className="relative z-[1] w-full aspect-[16/9] rounded-2xl">
+                        <img
+                          src="/images/code_hoomer_core_engine.webp"
+                          alt="Code Hoomer Core Engine"
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 w-full h-full object-cover rounded-2xl ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                        />
+                      </div>
                       <Link
                         to="/solutions"
                         className="absolute bottom-2 left-7 sm:bottom-3 sm:left-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
@@ -866,7 +868,7 @@ const App: React.FC = () => {
                       </Link>
                     </div>
                     <div
-                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex items-center justify-center"
+                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
                       style={{
                         background:
                           "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
@@ -917,13 +919,15 @@ const App: React.FC = () => {
                       <span className="pointer-events-none absolute inset-0 overflow-hidden rounded-2xl">
                         <span className="absolute -inset-y-8 -left-1/2 w-1/2 -translate-x-full rotate-12 bg-gradient-to-r from-transparent via-white/25 to-transparent opacity-0 transition-all duration-[1100ms] ease-out group-hover:translate-x-[320%] group-hover:opacity-100" />
                       </span>
-                      <img
-                        src="/images/open_rower_deep_engine.jpg"
-                        alt="Open Rower Deep Engine"
-                        loading="lazy"
-                        decoding="async"
-                        className="relative z-[1] w-full h-full object-cover rounded-2xl ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
-                      />
+                      <div className="relative z-[1] w-full aspect-[16/9] rounded-2xl">
+                        <img
+                          src="/images/open_rower_deep_engine.jpg"
+                          alt="Open Rower Deep Engine"
+                          loading="lazy"
+                          decoding="async"
+                          className="absolute inset-0 w-full h-full object-cover rounded-2xl ring-1 ring-white/20 shadow-[0_2px_0_rgba(255,255,255,0.14),0_30px_64px_-16px_rgba(0,0,0,0.7)] group-hover:scale-[1.025] transition-transform duration-700 ease-out"
+                        />
+                      </div>
                       <Link
                         to="/solutions"
                         className="absolute bottom-2 right-7 sm:bottom-3 sm:right-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"

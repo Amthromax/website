@@ -59,8 +59,8 @@ const UpcomingProjectsSection: React.FC = () => {
       ),
       bgStyle: {
         base: "bg-gradient-to-tr from-[#d4d4d8] via-[#d4d4d8] to-[#bfdbfe]",
-        layer1: "absolute -top-12 -left-12 w-4/5 h-4/5 bg-[#e4e4e7] rounded-full blur-3xl opacity-80 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#1a1815] rounded-full blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700",
+        layer1: "absolute -top-12 -left-12 w-4/5 h-4/5 bg-[#e4e4e7] rounded-full blur-3xl opacity-80",
+        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#1a1815] rounded-full blur-3xl opacity-60",
         layer3: "absolute top-1/3 left-1/4 w-1/2 h-1/2 bg-[#e0f2fe] rounded-full blur-xl opacity-90 group-hover:rotate-45 transition-transform duration-1000",
       },
     },
@@ -89,8 +89,8 @@ const UpcomingProjectsSection: React.FC = () => {
       ),
       bgStyle: {
         base: "bg-gradient-to-br from-[#1a1815] via-[#1a1815] to-[#e4e4e7]",
-        layer1: "absolute top-0 right-0 w-4/5 h-4/5 bg-[#d4d4d8] rounded-full blur-3xl opacity-85 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#1a1815] rounded-full blur-2xl opacity-80 group-hover:scale-110 transition-transform duration-700",
+        layer1: "absolute top-0 right-0 w-4/5 h-4/5 bg-[#d4d4d8] rounded-full blur-3xl opacity-85",
+        layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#1a1815] rounded-full blur-2xl opacity-80",
         layer3: "absolute top-1/2 left-1/3 w-2/3 h-1/2 bg-[#d4d4d8] rounded-full blur-2xl opacity-70",
       },
     },
@@ -119,8 +119,8 @@ const UpcomingProjectsSection: React.FC = () => {
       ),
       bgStyle: {
         base: "bg-gradient-to-tr from-[#10b981] via-[#34d399] to-[#a3e635]",
-        layer1: "absolute -top-12 -right-12 w-4/5 h-4/5 bg-[#bef264] rounded-full blur-3xl opacity-85 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-10 -left-10 w-3/4 h-3/4 bg-[#047857] rounded-full blur-2xl opacity-70 group-hover:scale-110 transition-transform duration-700",
+        layer1: "absolute -top-12 -right-12 w-4/5 h-4/5 bg-[#bef264] rounded-full blur-3xl opacity-85",
+        layer2: "absolute -bottom-10 -left-10 w-3/4 h-3/4 bg-[#047857] rounded-full blur-2xl opacity-70",
         layer3: "absolute top-1/4 left-1/3 w-1/2 h-1/2 bg-[#ecfccb] rounded-full blur-xl opacity-90",
       },
     },
@@ -149,8 +149,8 @@ const UpcomingProjectsSection: React.FC = () => {
       ),
       bgStyle: {
         base: "bg-gradient-to-br from-[#7c3aed] via-[#a855f7] to-[#f472b6]",
-        layer1: "absolute -top-10 -left-10 w-4/5 h-4/5 bg-[#e879f9] rounded-full blur-3xl opacity-80 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#581c87] rounded-full blur-2xl opacity-80 group-hover:scale-110 transition-transform duration-700",
+        layer1: "absolute -top-10 -left-10 w-4/5 h-4/5 bg-[#e879f9] rounded-full blur-3xl opacity-80",
+        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#581c87] rounded-full blur-2xl opacity-80",
         layer3: "absolute top-1/3 right-1/4 w-1/2 h-1/2 bg-[#fbcfe8] rounded-full blur-xl opacity-85",
       },
     },
@@ -179,8 +179,8 @@ const UpcomingProjectsSection: React.FC = () => {
       ),
       bgStyle: {
         base: "bg-gradient-to-tr from-[#ea580c] via-[#f59e0b] to-[#fde047]",
-        layer1: "absolute -top-12 -left-12 w-4/5 h-4/5 bg-[#fef08a] rounded-full blur-3xl opacity-90 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#c2410c] rounded-full blur-2xl opacity-75 group-hover:scale-110 transition-transform duration-700",
+        layer1: "absolute -top-12 -left-12 w-4/5 h-4/5 bg-[#fef08a] rounded-full blur-3xl opacity-90",
+        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#c2410c] rounded-full blur-2xl opacity-75",
         layer3: "absolute top-1/4 right-1/3 w-1/2 h-1/2 bg-[#f43f5e] rounded-full blur-xl opacity-75",
       },
     },
@@ -209,8 +209,8 @@ const UpcomingProjectsSection: React.FC = () => {
       ),
       bgStyle: {
         base: "bg-gradient-to-br from-[#4b4b4f] via-[#6b6b70] to-[#c9c9cd]",
-        layer1: "absolute -top-10 -right-10 w-4/5 h-4/5 bg-[#a5f3fc] rounded-full blur-3xl opacity-85 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#0f172a] rounded-full blur-2xl opacity-70 group-hover:scale-110 transition-transform duration-700",
+        layer1: "absolute -top-10 -right-10 w-4/5 h-4/5 bg-[#a5f3fc] rounded-full blur-3xl opacity-85",
+        layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#0f172a] rounded-full blur-2xl opacity-70",
         layer3: "absolute top-1/3 left-1/4 w-1/2 h-1/2 bg-[#d4d4d8] rounded-full blur-xl opacity-80",
       },
     },
@@ -243,13 +243,13 @@ const UpcomingProjectsSection: React.FC = () => {
             >
               {/* Premium Box with Pure CSS Silk Gradient Mesh or Image */}
               <div
-                className={`w-full aspect-[4/3] rounded-2xl relative overflow-hidden shadow-sm group-hover:shadow-xl transition-all duration-500 group-hover:-translate-y-1 ${project.image ? "bg-[#0f0f11]" : project.bgStyle.base}`}
+                className={`w-full aspect-[4/3] rounded-2xl relative overflow-hidden shadow-sm group-hover:shadow-xl transition-shadow duration-500 ${project.image ? "bg-[#0f0f11]" : project.bgStyle.base}`}
               >
                 {project.image ? (
                   <img
                     src={project.image}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-all duration-700 ease-out"
+                    className="w-full h-full object-cover"
                   />
                 ) : (
                   <>
@@ -263,12 +263,12 @@ const UpcomingProjectsSection: React.FC = () => {
                 {/* Center Overlay Content (Icon + Text) */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-5 text-center z-20 pointer-events-none">
                   {project.icon && (
-                    <div className="mb-2 group-hover:scale-110 transition-transform duration-500">
+                    <div className="mb-2">
                       {project.icon}
                     </div>
                   )}
 
-                  <h3 className="text-xl sm:text-2xl font-normal text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line group-hover:scale-105 transition-transform duration-500">
+                  <h3 className="text-xl sm:text-2xl font-normal text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line">
                     {project.centerTitle || project.title}
                   </h3>
                 </div>
