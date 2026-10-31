@@ -7,6 +7,47 @@ import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
 import AuthorAvatar from "./AuthorAvatar";
 
+
+type SortKey = "newest" | "oldest" | "title";
+
+const SORT_LABELS: Record<SortKey, string> = {
+  newest: "Newest first",
+  oldest: "Oldest first",
+  title: "Title A\u2013Z",
+};
+
+/* Deliberately not the reference's sliders-and-chevron set: a funnel for the
+   filter, stacked bars for the sort, and squares against stacked lines for
+   the two layouts. */
+const IconFunnel = () => (
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="w-3.5 h-3.5">
+    <path d="M2 3h12l-4.6 5.2v4.2l-2.8 1.4V8.2z" />
+  </svg>
+);
+
+const IconSort = () => (
+  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" className="w-3.5 h-3.5">
+    <path d="M2.5 4h11M2.5 8h7M2.5 12h3.5" />
+  </svg>
+);
+
+const IconGrid = () => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
+    <rect x="1.5" y="1.5" width="5.6" height="5.6" rx="1.4" />
+    <rect x="8.9" y="1.5" width="5.6" height="5.6" rx="1.4" />
+    <rect x="1.5" y="8.9" width="5.6" height="5.6" rx="1.4" />
+    <rect x="8.9" y="8.9" width="5.6" height="5.6" rx="1.4" />
+  </svg>
+);
+
+const IconRows = () => (
+  <svg viewBox="0 0 16 16" fill="currentColor" className="w-3.5 h-3.5">
+    <rect x="1.5" y="2.4" width="13" height="2.6" rx="1.3" />
+    <rect x="1.5" y="6.7" width="13" height="2.6" rx="1.3" />
+    <rect x="1.5" y="11" width="13" height="2.6" rx="1.3" />
+  </svg>
+);
+
 const BlogPage: React.FC = () => {
   const [activeModal, setActiveModal] = useState<"principles" | "careers" | "overview" | null>(null);
 
@@ -43,6 +84,22 @@ const BlogPage: React.FC = () => {
   });
 
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [sortBy, setSortBy] = useState<SortKey>("newest");
+  const [layout, setLayout] = useState<"grid" | "rows">("grid");
+  const [openMenu, setOpenMenu] = useState<"filter" | "sort" | null>(null);
+
+  // One click anywhere else closes whichever menu is open; Escape does too.
+  useEffect(() => {
+    if (openMenu === null) return;
+    const close = () => setOpenMenu(null);
+    const onKey = (e: KeyboardEvent) => e.key === "Escape" && close();
+    window.addEventListener("click", close);
+    window.addEventListener("keydown", onKey);
+    return () => {
+      window.removeEventListener("click", close);
+      window.removeEventListener("keydown", onKey);
+    };
+  }, [openMenu]);
 
   const categories = ["All", ...Array.from(new Set(posts.map((p) => p.category)))];
 
@@ -53,9 +110,15 @@ const BlogPage: React.FC = () => {
 
   // Highlight the designated featured post (or first post) when "All" is selected
   const featuredPost = posts.find((p) => p.featured) || posts.find((p) => p.id === "building-the-next-era-of-ai") || posts[0];
-  const gridPosts = selectedCategory === "All"
+  const visiblePosts = selectedCategory === "All"
     ? filteredPosts.filter((p) => p.id !== featuredPost?.id)
     : filteredPosts;
+
+  const gridPosts = [...visiblePosts].sort((a, b) => {
+    if (sortBy === "title") return a.title.localeCompare(b.title);
+    const diff = new Date(b.date).getTime() - new Date(a.date).getTime();
+    return sortBy === "oldest" ? -diff : diff;
+  });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -189,22 +252,161 @@ const BlogPage: React.FC = () => {
           {/* Marquee Ticker */}
           <BlogMarquee />
 
+          {/* Grid controls */}
+          <div className="flex items-center justify-end gap-2">
+            <span className="mr-auto text-xs font-medium text-[#86868b] dark:text-gray-500 tabular-nums">
+              {gridPosts.length} {gridPosts.length === 1 ? "article" : "articles"}
+            </span>
+
+            {/* Filter */}
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={openMenu === "filter"}
+                onClick={() => setOpenMenu(openMenu === "filter" ? null : "filter")}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-medium transition-all duration-300 cursor-pointer ${
+                  openMenu === "filter" || selectedCategory !== "All"
+                    ? "border-[#1d1d1f] bg-[#1d1d1f] text-white dark:border-white dark:bg-white dark:text-black"
+                    : "border-[#e5e5e7] bg-white text-[#1d1d1f] hover:bg-[#f5f5f7] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                }`}
+              >
+                <IconFunnel />
+                <span>{selectedCategory === "All" ? "Filter" : selectedCategory}</span>
+              </button>
+
+              <AnimatePresence>
+                {openMenu === "filter" && (
+                  <motion.div
+                    role="menu"
+                    initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    className="absolute right-0 z-30 mt-2 max-h-72 w-52 origin-top-right overflow-y-auto rounded-2xl border border-[#e5e5e7] bg-white p-1.5 shadow-[0_18px_44px_-20px_rgba(0,0,0,0.35)] dark:border-white/10 dark:bg-[#161617]"
+                  >
+                    {categories.map((cat) => (
+                      <button
+                        key={cat}
+                        type="button"
+                        role="menuitemradio"
+                        aria-checked={selectedCategory === cat}
+                        onClick={() => { setSelectedCategory(cat); setOpenMenu(null); }}
+                        className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
+                          selectedCategory === cat
+                            ? "bg-[#f5f5f7] text-[#1d1d1f] dark:bg-white/10 dark:text-white"
+                            : "text-[#6e6e73] hover:bg-[#f5f5f7] hover:text-[#1d1d1f] dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white"
+                        }`}
+                      >
+                        <span>{cat}</span>
+                        {selectedCategory === cat && <span aria-hidden="true">&#10003;</span>}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Sort */}
+            <div className="relative" onClick={(e) => e.stopPropagation()}>
+              <button
+                type="button"
+                aria-haspopup="menu"
+                aria-expanded={openMenu === "sort"}
+                onClick={() => setOpenMenu(openMenu === "sort" ? null : "sort")}
+                className={`inline-flex items-center gap-1.5 rounded-full border px-3.5 py-2 text-xs font-medium transition-all duration-300 cursor-pointer ${
+                  openMenu === "sort"
+                    ? "border-[#1d1d1f] bg-[#1d1d1f] text-white dark:border-white dark:bg-white dark:text-black"
+                    : "border-[#e5e5e7] bg-white text-[#1d1d1f] hover:bg-[#f5f5f7] dark:border-white/10 dark:bg-white/5 dark:text-white dark:hover:bg-white/10"
+                }`}
+              >
+                <IconSort />
+                <span>Sort</span>
+              </button>
+
+              <AnimatePresence>
+                {openMenu === "sort" && (
+                  <motion.div
+                    role="menu"
+                    initial={{ opacity: 0, y: -6, scale: 0.97 }}
+                    animate={{ opacity: 1, y: 0, scale: 1 }}
+                    exit={{ opacity: 0, y: -6, scale: 0.97 }}
+                    transition={{ duration: 0.18, ease: "easeOut" }}
+                    className="absolute right-0 z-30 mt-2 w-48 origin-top-right rounded-2xl border border-[#e5e5e7] bg-white p-1.5 shadow-[0_18px_44px_-20px_rgba(0,0,0,0.35)] dark:border-white/10 dark:bg-[#161617]"
+                  >
+                    {(Object.keys(SORT_LABELS) as SortKey[]).map((key) => (
+                      <button
+                        key={key}
+                        type="button"
+                        role="menuitemradio"
+                        aria-checked={sortBy === key}
+                        onClick={() => { setSortBy(key); setOpenMenu(null); }}
+                        className={`flex w-full items-center justify-between rounded-xl px-3 py-2 text-left text-xs font-medium transition-colors cursor-pointer ${
+                          sortBy === key
+                            ? "bg-[#f5f5f7] text-[#1d1d1f] dark:bg-white/10 dark:text-white"
+                            : "text-[#6e6e73] hover:bg-[#f5f5f7] hover:text-[#1d1d1f] dark:text-gray-400 dark:hover:bg-white/5 dark:hover:text-white"
+                        }`}
+                      >
+                        <span>{SORT_LABELS[key]}</span>
+                        {sortBy === key && <span aria-hidden="true">&#10003;</span>}
+                      </button>
+                    ))}
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Layout */}
+            <div className="flex items-center gap-0.5 rounded-full border border-[#e5e5e7] bg-white p-0.5 dark:border-white/10 dark:bg-white/5">
+              {([["grid", IconGrid, "Grid view"], ["rows", IconRows, "List view"]] as const).map(
+                ([key, Icon, label]) => (
+                  <button
+                    key={key}
+                    type="button"
+                    aria-pressed={layout === key}
+                    aria-label={label}
+                    title={label}
+                    onClick={() => setLayout(key)}
+                    className={`rounded-full p-2 transition-all duration-300 cursor-pointer ${
+                      layout === key
+                        ? "bg-[#1d1d1f] text-white dark:bg-white dark:text-black"
+                        : "text-[#86868b] hover:text-[#1d1d1f] dark:text-gray-500 dark:hover:text-white"
+                    }`}
+                  >
+                    <Icon />
+                  </button>
+                )
+              )}
+            </div>
+          </div>
+
           {/* Grid Posts */}
           <motion.div
+            key={layout}
             variants={containerVariants}
             initial="hidden"
             animate="visible"
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+            className={
+              layout === "grid"
+                ? "grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8"
+                : "flex flex-col gap-4"
+            }
           >
             {gridPosts.map((post) => (
               <motion.article
                 key={post.id}
                 variants={cardVariants}
-                className="group flex flex-col justify-between overflow-hidden rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-shadow duration-300 h-full"
+                className={`group overflow-hidden rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-shadow duration-300 ${
+                  layout === "grid"
+                    ? "flex flex-col justify-between h-full"
+                    : "flex flex-col sm:flex-row sm:items-stretch"
+                }`}
               >
-                <div className="space-y-5">
+                <div className={layout === "grid" ? "space-y-5" : "space-y-5 sm:flex sm:w-full sm:items-center sm:gap-6 sm:space-y-0"}>
                   {/* Card Image */}
-                  <div className="aspect-[16/10] overflow-hidden relative bg-[#f5f5f7] dark:bg-white/5">
+                  <div className={`aspect-[16/10] overflow-hidden relative bg-[#f5f5f7] dark:bg-white/5 ${
+                    layout === "grid" ? "" : "sm:w-56 sm:shrink-0 sm:aspect-[4/3] sm:rounded-2xl sm:m-3"
+                  }`}>
                     <img
                       src={post.image}
                       alt={post.title}
@@ -216,7 +418,7 @@ const BlogPage: React.FC = () => {
                   </div>
 
                   {/* Content Info */}
-                  <div className="px-6 pb-2 space-y-3">
+                  <div className={`px-6 pb-2 space-y-3 ${layout === "grid" ? "" : "sm:flex-1 sm:pl-0 sm:py-5"}`}>
                     <Link to={`/blog/${post.id}`} className="block">
                       <h3 className="text-[15px] md:text-base font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors leading-snug">
                         {post.title}
@@ -226,7 +428,11 @@ const BlogPage: React.FC = () => {
                 </div>
 
                 {/* Author Info */}
-                <div className="px-6 py-5 mt-4 border-t border-[#e5e5e7]/80 dark:border-white/10 flex items-center space-x-3">
+                <div className={`px-6 py-5 flex items-center space-x-3 ${
+                  layout === "grid"
+                    ? "mt-4 border-t border-[#e5e5e7]/80 dark:border-white/10"
+                    : "border-t border-[#e5e5e7]/80 dark:border-white/10 sm:mt-0 sm:w-72 sm:shrink-0 sm:border-t-0 sm:border-l"
+                }`}>
                   <AuthorAvatar name={post.author.name} initial={post.author.avatar} />
                   <div>
                     <h4 className="text-xs font-semibold text-[#1d1d1f] dark:text-white">{post.author.name}</h4>
