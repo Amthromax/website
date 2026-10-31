@@ -411,7 +411,7 @@ const App: React.FC = () => {
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -8 }}
                 transition={{ duration: 0.18, ease: "easeOut" }}
-                className="absolute top-full left-0 right-0 bg-white dark:bg-[#0b0b0c] border-b border-gray-200 dark:border-white/[0.08] text-gray-900 dark:text-white z-45 py-8 px-6 sm:px-12 md:px-24 transition-colors duration-200"
+                className="absolute top-full left-0 right-0 bg-white dark:bg-black border-b border-gray-200 dark:border-white/[0.08] text-gray-900 dark:text-white z-45 py-8 px-6 sm:px-12 md:px-24 transition-colors duration-200"
                 onMouseEnter={() => {
                   if (timeoutRef.current) window.clearTimeout(timeoutRef.current);
                 }}
@@ -475,9 +475,6 @@ const App: React.FC = () => {
                           <Link to="/solutions" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Solutions</span><span className="text-sm font-normal opacity-70">↗</span></Link>
                           <Link to="/research" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Resources</span><span className="text-sm font-normal opacity-70">↗</span></Link>
                           <Link to="/partners" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Partner Network</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/contact" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>Contact Sales</span><span className="text-sm font-normal opacity-70">↗</span></Link>
-                          <Link to="/developers" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors">Developer Hub</Link>
-                          <Link to="/docs" onClick={() => setActiveMenu(null)} className="block text-base md:text-lg font-semibold text-gray-700 dark:text-white/90 hover:text-black dark:hover:text-white transition-colors flex items-center justify-between"><span>API Docs</span><span className="text-sm font-normal opacity-70">↗</span></Link>
                         </div>
                       </div>
                       {/* Right Column - API Platform */}

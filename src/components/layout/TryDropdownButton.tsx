@@ -73,7 +73,7 @@ const TryDropdownButton: React.FC<TryDropdownButtonProps> = ({ onTryClick }) => 
                   onClick={() => setIsOpen(false)}
                   className="flex items-center justify-between text-xs font-normal text-gray-700 hover:text-black dark:text-gray-200 dark:hover:text-white py-1 transition-colors group"
                 >
-                  <span>OrarQlow.Ai</span>
+                  <span>Open Rower.Ai</span>
                   <span className="text-[10px] text-gray-400 group-hover:text-black dark:text-gray-500 dark:group-hover:text-white transition-colors">↗</span>
                 </Link>
                 <Link

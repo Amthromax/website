@@ -314,7 +314,7 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Language Indicator */}
-            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-gray-100 dark:bg-[#1c1c1e] text-gray-800 dark:text-gray-200 border border-gray-200 dark:border-white/10 text-xs font-semibold select-none">
+            <div className="flex items-center gap-2 text-gray-800 dark:text-gray-200 text-xs font-semibold select-none">
               <Globe className="w-4 h-4 text-gray-600 dark:text-gray-300" />
               <span>{currentLanguage.nativeName}</span>
             </div>
