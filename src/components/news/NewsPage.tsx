@@ -74,11 +74,11 @@ const NewsPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Right Side 3D Isometric Asterisk Logo Container */}
+            {/* Amthromax mark */}
             <div className="lg:col-span-5 flex justify-center lg:justify-end items-center">
               <img
                 src="/images/amthromax_asterisk_logo.png"
-                alt="Amthromax 3D Asterisk Logo"
+                alt="Amthromax logo"
                 className="w-full h-auto max-w-[280px] sm:max-w-[340px] lg:max-w-[400px] object-contain transition-transform duration-300 hover:scale-105 dark:invert dark:brightness-125"
               />
             </div>

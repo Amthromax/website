@@ -133,7 +133,7 @@ const NewsDetailPage: React.FC = () => {
                 <div className="w-8 h-8 rounded-lg bg-gray-50 dark:bg-white/10 p-1.5 flex items-center justify-center border border-gray-200 dark:border-white/10 shadow-xs shrink-0">
                   <img
                     src="/images/amthromax_asterisk_logo.png"
-                    alt="Amthromax Logo"
+                    alt="Amthromax logo"
                     className="w-full h-full object-contain dark:invert"
                   />
                 </div>

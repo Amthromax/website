@@ -113,11 +113,11 @@ const Footer: React.FC = () => {
         >
           {/* Left Column: 3D Asterisk Logo + Copyright + Legal Links */}
           <div className="lg:col-span-4 space-y-4 sm:space-y-6 flex flex-col items-center text-center">
-            {/* 3D Isometric 6-Pointed Asterisk Logo */}
+            {/* Amthromax interlocking hexagon mark */}
             <Link to="/" className="block mx-auto w-fit group">
               <img
                 src="/images/amthromax_asterisk_logo.png"
-                alt="Amthromax 3D Asterisk Logo"
+                alt="Amthromax logo"
                 className="w-40 h-40 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 object-contain transition-transform duration-300 group-hover:scale-105 dark:invert dark:brightness-125"
               />
             </Link>
