@@ -84,7 +84,7 @@ const BlogPage: React.FC = () => {
         <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-16 space-y-16">
           {/* Header */}
           <div className="text-center max-w-3xl mx-auto space-y-4">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
               The Amthromax Blog
             </h1>
             <p className="text-base sm:text-lg text-[#515154] dark:text-gray-300 leading-relaxed font-normal">
@@ -262,9 +262,13 @@ const BlogPage: React.FC = () => {
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
-                <div className="w-full h-full bg-gradient-to-tr from-[#3f3f46] via-[#1a1815] to-[#6b6b70] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(192,38,211,0.6),transparent_60%)]" />
-                </div>
+                <img
+                  src="/images/resource_principles.jpg"
+                  alt="Amthromax Principles"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="space-y-1 pt-1">
                 <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
@@ -281,13 +285,15 @@ const BlogPage: React.FC = () => {
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
                 <img
-                  src="https://images.unsplash.com/photo-1541701494587-cb58502866ab?q=80&w=800&auto=format&fit=crop"
-                  alt="Careers & Engineering"
-                  className="w-full h-full object-cover blur-[10px] scale-110 group-hover:scale-115 transition-all duration-500"
+                  src="/images/resource_careers.jpg"
+                  alt="Careers &amp; Engineering"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div className="space-y-1 pt-1">
-                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-purple-400 transition-colors">
+                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
                   Careers &amp; Engineering
                 </h3>
               </div>
@@ -300,12 +306,16 @@ const BlogPage: React.FC = () => {
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
-                <div className="w-full h-full bg-gradient-to-b from-[#8a847a] via-[#d8d4cd] to-[#E8A87C] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
-                  <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(235,140,90,0.5),transparent_70%)]" />
-                </div>
+                <img
+                  src="/images/resource_overview.jpg"
+                  alt="Company Overview"
+                  loading="lazy"
+                  decoding="async"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="space-y-1 pt-1">
-                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-amber-400 transition-colors">
+                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
                   Company Overview
                 </h3>
               </div>
@@ -322,6 +332,7 @@ const BlogPage: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 h-[100dvh] w-screen bg-black/95 backdrop-blur-md overflow-y-scroll scroll-smooth overscroll-contain select-text"
+            data-lenis-prevent="true"
             onClick={() => setActiveModal(null)}
           >
             {/* Fixed Close Button */}
@@ -446,6 +457,7 @@ const BlogPage: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 h-[100dvh] w-screen bg-black/95 backdrop-blur-md overflow-y-scroll scroll-smooth overscroll-contain select-text"
+            data-lenis-prevent="true"
             onClick={() => setActiveModal(null)}
           >
             {/* Fixed Close Button */}
@@ -558,6 +570,7 @@ const BlogPage: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-50 h-[100dvh] w-screen bg-black/95 backdrop-blur-md overflow-y-scroll scroll-smooth overscroll-contain select-text"
+            data-lenis-prevent="true"
             onClick={() => setActiveModal(null)}
           >
             {/* Fixed Close Button */}
