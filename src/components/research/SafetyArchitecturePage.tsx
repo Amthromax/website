@@ -589,7 +589,7 @@ const SafetyArchitecturePage: React.FC = () => {
             {activeWheelSlice !== null ? (
               <div className="space-y-4">
                 <div className="flex items-baseline justify-between">
-                  <h3 className="text-3xl font-black text-gray-900 dark:text-white">
+                  <h3 className="text-3xl font-medium text-gray-900 dark:text-white">
                     {wheelSectors[activeWheelSlice].label}
                   </h3>
                   <div className="flex items-baseline gap-1">
@@ -813,7 +813,7 @@ const SafetyArchitecturePage: React.FC = () => {
             >
               <div className="space-y-4">
                 {item.icon}
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
 
                 {item.subtitle && (
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">{item.subtitle}</p>
@@ -847,7 +847,7 @@ const SafetyArchitecturePage: React.FC = () => {
             >
               <div className="space-y-4">
                 {item.icon}
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
 
                 {item.subtitle && (
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">{item.subtitle}</p>
@@ -929,7 +929,7 @@ const SafetyArchitecturePage: React.FC = () => {
               </span>
 
               {/* Main Modal Title */}
-              <h2 className="text-2xl sm:text-4xl font-semibold text-white tracking-tight leading-tight">
+              <h2 className="text-2xl sm:text-4xl font-medium text-white tracking-tight leading-tight">
                 {activeModalItem.modalHeading}
               </h2>
 

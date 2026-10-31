@@ -65,7 +65,7 @@ const DataProtectionPage: React.FC = () => {
 
         {/* Core DPDP Pillars */}
         <section className="space-y-4 max-w-[1300px]">
-          <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+          <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
             1. Core Data Protection Principles
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
@@ -75,7 +75,7 @@ const DataProtectionPage: React.FC = () => {
                 1
               </div>
               <div className="space-y-1">
-                <h3 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Purpose Limitation</h3>
+                <h3 className="text-sm font-medium text-gray-950 dark:text-white tracking-tight">Purpose Limitation</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                   Personal data is processed strictly for the explicit purpose authorized by the Data Principal (user) upon signup or service interaction.
                 </p>
@@ -88,7 +88,7 @@ const DataProtectionPage: React.FC = () => {
                 2
               </div>
               <div className="space-y-1">
-                <h3 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Data Minimization</h3>
+                <h3 className="text-sm font-medium text-gray-950 dark:text-white tracking-tight">Data Minimization</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                   Amthromax collects only the minimum personal data points necessary to deliver secure enterprise AI execution and workspace collaboration.
                 </p>
@@ -101,7 +101,7 @@ const DataProtectionPage: React.FC = () => {
                 3
               </div>
               <div className="space-y-1">
-                <h3 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Zero Secret Leakage</h3>
+                <h3 className="text-sm font-medium text-gray-950 dark:text-white tracking-tight">Zero Secret Leakage</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
                   API keys, passwords, and private tokens are automatically redacted by our privacy engine before prompts reach third-party AI models.
                 </p>
@@ -112,7 +112,7 @@ const DataProtectionPage: React.FC = () => {
 
         {/* Data Principal Rights Table */}
         <section className="space-y-4">
-          <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+          <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
             2. Data Principal Rights & Self-Service Tools
           </h2>
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm">
@@ -121,7 +121,7 @@ const DataProtectionPage: React.FC = () => {
               {/* Row 1 */}
               <div className="py-4 first:pt-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Right to Access Summary & Information</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white tracking-tight">Right to Access Summary & Information</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">View stored personal data, workspace memberships, and active consents in your profile settings.</p>
                 </div>
                 <Link to="/profile" className="px-4 py-2 rounded-full bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-[11px] font-bold text-white dark:text-black transition-all shadow-sm shrink-0">
@@ -132,7 +132,7 @@ const DataProtectionPage: React.FC = () => {
               {/* Row 2 */}
               <div className="py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Right to Data Portability & Export</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white tracking-tight">Right to Data Portability & Export</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Generate a machine-readable JSON archive containing profile data, agent configs, and consent logs.</p>
                 </div>
                 <Link to="/profile" className="px-4 py-2 rounded-full bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-[11px] font-bold text-white dark:text-black transition-all shadow-sm shrink-0">
@@ -143,7 +143,7 @@ const DataProtectionPage: React.FC = () => {
               {/* Row 3 */}
               <div className="py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Right to Erasure & Account Deletion</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white tracking-tight">Right to Erasure & Account Deletion</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Request complete account removal subject to 30-day statutory grace period and security retention safety rules.</p>
                 </div>
                 <Link to="/profile" className="px-4 py-2 rounded-full bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-[11px] font-bold text-white dark:text-black transition-all shadow-sm shrink-0">
@@ -154,7 +154,7 @@ const DataProtectionPage: React.FC = () => {
               {/* Row 4 */}
               <div className="py-4 last:pb-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white tracking-tight">Right to Withdraw Consent</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white tracking-tight">Right to Withdraw Consent</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium">Withdraw optional consent for analytics, marketing, or automated communications anytime.</p>
                 </div>
                 <button onClick={handleManageCookies} className="px-4 py-2 rounded-full bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 text-[11px] font-bold text-white dark:text-black transition-all shadow-sm cursor-pointer shrink-0">
@@ -168,7 +168,7 @@ const DataProtectionPage: React.FC = () => {
 
         {/* Data Inventory Matrix */}
         <section className="space-y-4">
-          <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+          <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
             3. Amthromax Data Inventory Matrix
           </h2>
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-4 shadow-sm overflow-hidden">
@@ -202,7 +202,7 @@ const DataProtectionPage: React.FC = () => {
         {/* Grievance Redressal Mechanism */}
         <section className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
           <div className="space-y-1">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               4. Grievance Redressal & Contact
             </h2>
             <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">

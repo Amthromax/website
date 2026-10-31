@@ -186,7 +186,7 @@ const ProductsPage: React.FC = () => {
         </div>
 
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-gray-900 dark:text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-gray-900 dark:text-white">
             Intelligent Products & APIs
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-gray-600 dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
@@ -219,7 +219,7 @@ const ProductsPage: React.FC = () => {
       {/* Core AI Models Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pt-24 pb-12 space-y-12">
         <div className="max-w-3xl space-y-3 text-center md:text-left">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
             Core AI Models & Systems
           </h2>
           <p className="text-base sm:text-lg text-[#515154] dark:text-gray-300 font-normal leading-relaxed">
@@ -240,7 +240,7 @@ const ProductsPage: React.FC = () => {
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">1. Instant Customer Sync</span>
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">SIMIFIG 4.0</h3>
+                <h3 className="text-2xl sm:text-3xl font-medium text-[#1d1d1f] dark:text-white tracking-tight uppercase">SIMIFIG 4.0</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Automatically capture incoming emails, intelligently categorize support requests, and push prioritized contact data directly to your local tracking CRM dashboards without a single keystroke of manual copy-pasting.
@@ -260,7 +260,7 @@ const ProductsPage: React.FC = () => {
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">2. Low Operational Overhead</span>
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">LIGIVOR 5.5</h3>
+                <h3 className="text-2xl sm:text-3xl font-medium text-[#1d1d1f] dark:text-white tracking-tight uppercase">LIGIVOR 5.5</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Our lightweight code designs run inside autonomous micro-instances on the edge network, ensuring that you only pay for exactly the compute cycles you use, eliminating expensive flat hosting rates and server maintenance constraints.
@@ -280,7 +280,7 @@ const ProductsPage: React.FC = () => {
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">3. Automated Marketing Triggers</span>
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">FAVLON 5.4 THINKING</h3>
+                <h3 className="text-2xl sm:text-3xl font-medium text-[#1d1d1f] dark:text-white tracking-tight uppercase">FAVLON 5.4 THINKING</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Set up dynamic event triggers that launch highly personalized outreach campaigns based on user behavior inside your website. Nurture leads continuously without requiring dedicated marketing bandwidth to expand your customer base.
@@ -300,7 +300,7 @@ const ProductsPage: React.FC = () => {
             <div className="p-8 sm:p-10 lg:p-12 space-y-4">
               <div className="space-y-1">
                 <span className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">4. Smart Logistics & Tracking</span>
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#1d1d1f] dark:text-white tracking-tight uppercase">ROQLOW INSTANT</h3>
+                <h3 className="text-2xl sm:text-3xl font-medium text-[#1d1d1f] dark:text-white tracking-tight uppercase">ROQLOW INSTANT</h3>
               </div>
               <p className="text-[#515154] dark:text-gray-300 leading-relaxed text-sm sm:text-[15px] font-normal pt-1">
                 Maintain complete oversight of your small business supply chain. Agents parse receipts, forecast inventory needs, and automatically flag accounting anomalies by correlating data across your spreadsheet tools in real-time.
@@ -313,7 +313,7 @@ const ProductsPage: React.FC = () => {
       {/* Product List Grid */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 py-20 space-y-12">
         <div className="max-w-3xl space-y-3 text-center md:text-left">
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
             Enterprise Solutions Portfolio
           </h2>
           <p className="text-base sm:text-lg text-[#515154] dark:text-gray-300 font-normal">

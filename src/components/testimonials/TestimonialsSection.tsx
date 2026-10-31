@@ -46,7 +46,7 @@ const TestimonialsSection: React.FC = () => {
           transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
           className="text-center mb-16"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+          <h2 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-gray-50 mb-6">
             What Our Clients Say
           </h2>
           <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
@@ -77,7 +77,7 @@ const TestimonialsSection: React.FC = () => {
                   />
                 )}
                 <div>
-                  <h3 className="font-semibold text-gray-900 dark:text-gray-50">{testimonial.name}</h3>
+                  <h3 className="font-medium text-gray-900 dark:text-gray-50">{testimonial.name}</h3>
                   <p className="text-sm text-gray-500 dark:text-gray-400">{testimonial.title}</p>
                 </div>
               </div>

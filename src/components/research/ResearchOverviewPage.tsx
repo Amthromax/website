@@ -435,7 +435,7 @@ const ResearchOverviewPage: React.FC = () => {
 
             {/* Typography & Meta below Card 1 */}
             <div className="space-y-2 pt-1">
-              <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+              <h3 className="text-lg sm:text-xl font-medium tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                 A state-of-the-art model that makes precise, immediately usable visuals
               </h3>
               <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 font-medium">
@@ -460,7 +460,7 @@ const ResearchOverviewPage: React.FC = () => {
 
             {/* Typography & Meta below Card 2 */}
             <div className="space-y-2 pt-1">
-              <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+              <h3 className="text-lg sm:text-xl font-medium tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                 A natively multimodal model capable of precise, accurate, photorealistic outputs
               </h3>
               <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 font-medium">
@@ -705,7 +705,7 @@ const ResearchOverviewPage: React.FC = () => {
                   </span>
                   <span>{paper.date}</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   {paper.title}
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">

@@ -460,7 +460,7 @@ const ResearchSection: React.FC = () => {
                 
                 {/* Header */}
                 <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
-                  <h3 className="text-xl sm:text-2xl font-serif font-bold text-gray-900 dark:text-white leading-snug">
+                  <h3 className="text-xl sm:text-2xl font-serif font-medium text-gray-900 dark:text-white leading-snug">
                     {activeUseCase.title}
                   </h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-normal">
@@ -520,7 +520,7 @@ const ResearchSection: React.FC = () => {
                 {/* Chart Render for Data Analysis & Numerical Experiments */}
                 {activeUseCase.chartData && (
                   <div className="space-y-4 py-2 font-sans">
-                    <h4 className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-[0.18em]">
+                    <h4 className="text-[10px] font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-[0.18em]">
                       {activeUseCase.chartData.title}
                     </h4>
                     <div className="divide-y divide-gray-100 dark:divide-white/5 border-t border-gray-100 dark:border-white/5">
@@ -686,7 +686,7 @@ const ResearchSection: React.FC = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-px bg-gray-200 dark:bg-white/10 border border-gray-200 dark:border-white/10 rounded-2xl overflow-hidden">
               {COLLABORATIONS.map((item) => (
                 <div key={item.title} className="bg-white dark:bg-black p-6 sm:p-7 space-y-2">
-                  <h3 className="text-sm font-semibold text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white tracking-tight">{item.title}</h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">{item.body}</p>
                 </div>
               ))}
@@ -734,7 +734,7 @@ const ResearchSection: React.FC = () => {
                   <span>Publication</span>
                   <span>Aug 1, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   Predictive Autoscaling in Kubernetes via Deep LSTM Networks
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
@@ -755,7 +755,7 @@ const ResearchSection: React.FC = () => {
                   <span>Research</span>
                   <span>Jul 29, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   Zero-Trust Protocol and Edge Identity Authentication
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
@@ -776,7 +776,7 @@ const ResearchSection: React.FC = () => {
                   <span>Overview</span>
                   <span>Jul 15, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   Distributed Query Execution Across Hybrid Multi-Cloud Clusters
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">

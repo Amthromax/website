@@ -90,7 +90,7 @@ const DocsPage: React.FC = () => {
             <span className="text-[10px] font-bold uppercase tracking-wider text-gray-900 dark:text-white">
               AMTHROMAX DEVELOPER DOCS
             </span>
-            <h2 className="text-xl font-black text-gray-900 dark:text-white">API Reference</h2>
+            <h2 className="text-xl font-medium text-gray-900 dark:text-white">API Reference</h2>
           </div>
           <nav className="flex flex-col space-y-1.5" aria-label="Documentation Navigation">
             {sidebarItems.map((item) => (
@@ -113,7 +113,7 @@ const DocsPage: React.FC = () => {
         <section className="md:col-span-9 p-8 md:p-10 bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-3xl space-y-8 min-h-[60vh] transition-colors duration-300">
           {activeTab === "getting-started" && (
             <div className="space-y-6">
-              <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                 Quickstart Guide
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed font-medium">
@@ -122,14 +122,14 @@ const DocsPage: React.FC = () => {
 
               <div className="space-y-5">
                 <div className="space-y-2">
-                  <h3 className="text-sm font-bold text-gray-900 dark:text-white">1. Install the SDK package</h3>
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white">1. Install the SDK package</h3>
                   <div className="bg-[#1e1e24] text-gray-100 rounded-xl p-4 font-mono text-xs overflow-x-auto border border-zinc-800">
                     <span className="text-gray-300">npm</span> install @amthromax/sdk
                   </div>
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-sm font-bold text-gray-900 dark:text-white">2. Set Environment Variables</h3>
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white">2. Set Environment Variables</h3>
                   <div className="bg-[#1e1e24] text-gray-100 rounded-xl p-4 font-mono text-xs overflow-x-auto border border-zinc-800 space-y-1">
                     <div className="text-zinc-500"># Set your private Amthromax API key</div>
                     <div>
@@ -140,7 +140,7 @@ const DocsPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-2">
-                  <h3 className="text-sm font-bold text-gray-900 dark:text-white">3. Initialize &amp; Execute</h3>
+                  <h3 className="text-sm font-medium text-gray-900 dark:text-white">3. Initialize &amp; Execute</h3>
                   <div className="bg-[#1e1e24] text-gray-100 rounded-xl p-4 font-mono text-xs overflow-x-auto border border-zinc-800">
                     <pre className="leading-relaxed">
 {`import { AmthromaxClient } from '@amthromax/sdk';
@@ -164,7 +164,7 @@ console.log('Execution Status:', response.status);`}
 
           {activeTab === "authentication" && (
             <div className="space-y-6">
-              <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                 Authentication &amp; Security
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed font-medium">
@@ -181,7 +181,7 @@ console.log('Execution Status:', response.status);`}
 
           {activeTab === "api" && (
             <div className="space-y-6">
-              <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                 Workflows &amp; REST API
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed font-medium">
@@ -200,7 +200,7 @@ console.log('Execution Status:', response.status);`}
 
           {activeTab === "sdks" && (
             <div className="space-y-6">
-              <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                 SDK Packages
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed font-medium">
@@ -222,7 +222,7 @@ console.log('Execution Status:', response.status);`}
 
           {activeTab === "guides" && (
             <div className="space-y-6">
-              <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                 Enterprise Integration Guides
               </h1>
               <p className="text-gray-600 dark:text-gray-300 text-xs md:text-sm leading-relaxed font-medium">
@@ -230,11 +230,11 @@ console.log('Execution Status:', response.status);`}
               </p>
               <div className="grid sm:grid-cols-2 gap-4">
                 <div className="p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 space-y-2">
-                  <h4 className="font-bold text-gray-900 dark:text-white text-sm">Multi-Tenant Agent Swarms</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Multi-Tenant Agent Swarms</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Isolate customer memory states using encrypted tenant IDs.</p>
                 </div>
                 <div className="p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 space-y-2">
-                  <h4 className="font-bold text-gray-900 dark:text-white text-sm">Zero-Trust KMS Setup</h4>
+                  <h4 className="font-semibold text-gray-900 dark:text-white text-sm">Zero-Trust KMS Setup</h4>
                   <p className="text-xs text-gray-500 dark:text-gray-400">Integrate AWS KMS and HashiCorp Vault key rotation.</p>
                 </div>
               </div>
@@ -243,7 +243,7 @@ console.log('Execution Status:', response.status);`}
 
           {activeTab === "changelog" && (
             <div className="space-y-6">
-              <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white">
+              <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
                 Platform Changelog &amp; Releases
               </h1>
               <div className="space-y-4">

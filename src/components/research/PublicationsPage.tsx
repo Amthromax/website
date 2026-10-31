@@ -171,7 +171,7 @@ const PublicationsPage: React.FC = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.05]"
+              className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-medium tracking-tight text-gray-900 dark:text-white leading-[1.05]"
             >
               Amthromax <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-white">Core</span>
             </motion.h1>
@@ -214,7 +214,7 @@ const PublicationsPage: React.FC = () => {
                   </div>
 
                   <div className="space-y-6 relative z-10">
-                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-extrabold text-white leading-[1.2] tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-[1.2] tracking-tight">
                       <Link to={`/research/${activeHeroPaper.slug}`} className="hover:underline">
                         {activeHeroPaper.title}
                       </Link>
@@ -252,7 +252,7 @@ const PublicationsPage: React.FC = () => {
       {/* SECTION 2: Technical Publications Header & Filters */}
       <section className="max-w-[1550px] mx-auto px-8 sm:px-12 md:px-16 lg:px-20 pt-20 pb-12">
         <div className="text-center space-y-4 max-w-3xl mx-auto mb-12">
-          <h2 className="text-4xl sm:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="text-4xl sm:text-5xl font-medium tracking-tight text-gray-900 dark:text-white">
             Technical Publications
           </h2>
           <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -306,7 +306,7 @@ const PublicationsPage: React.FC = () => {
         <div className="space-y-8">
           
           {/* Main Title Header */}
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-white">
             Research
           </h2>
 
@@ -338,7 +338,7 @@ const PublicationsPage: React.FC = () => {
                 >
                   {/* Left Column: Type & Date */}
                   <div className="w-40 sm:w-52 shrink-0 space-y-2">
-                    <h4 className="text-sm font-bold text-gray-900 dark:text-white tracking-tight">
+                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white tracking-tight">
                       {paper.type || "Publication"}
                     </h4>
                     <p className="text-xs text-gray-500 dark:text-gray-400 font-normal">
@@ -348,7 +348,7 @@ const PublicationsPage: React.FC = () => {
 
                   {/* Right Column: Title & Abstract */}
                   <div className="space-y-3 flex-1 max-w-4xl">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                       <Link to={`/research/${paper.slug}`}>
                         {paper.title}
                       </Link>
@@ -364,7 +364,7 @@ const PublicationsPage: React.FC = () => {
             </div>
           ) : (
             <div className="text-center py-20 space-y-2">
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white">No research publications matched your selection</h3>
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white">No research publications matched your selection</h3>
               <p className="text-sm text-gray-500 dark:text-gray-400">Try selecting "All" to view all publications.</p>
             </div>
           )}
@@ -379,7 +379,7 @@ const PublicationsPage: React.FC = () => {
           {/* Left Form Side */}
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3">
-              <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight text-gray-900 dark:text-white">
+              <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-white">
                 Stay updated
               </h2>
               <p className="text-sm sm:text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed max-w-lg">
@@ -389,7 +389,7 @@ const PublicationsPage: React.FC = () => {
 
             {subscribeSubmitted ? (
               <div className="p-6 bg-gray-100 dark:bg-white/5 border border-gray-200 dark:border-white/15 rounded-2xl space-y-2">
-                <h4 className="text-base font-bold text-gray-900 dark:text-white">Thank you for subscribing!</h4>
+                <h4 className="text-base font-semibold text-gray-900 dark:text-white">Thank you for subscribing!</h4>
                 <p className="text-xs text-gray-600 dark:text-gray-400">You will receive future Amthromax technical publications and dataset releases directly in your inbox.</p>
               </div>
             ) : (
@@ -480,7 +480,7 @@ const PublicationsPage: React.FC = () => {
               className="bg-white dark:bg-[#121214] w-full max-w-xl rounded-2xl p-8 border border-gray-200 dark:border-white/15 shadow-2xl space-y-5 text-gray-900 dark:text-white relative"
             >
               <div className="flex justify-between items-center">
-                <h3 className="text-lg font-bold text-gray-900 dark:text-white">BibTeX Citation</h3>
+                <h3 className="text-lg font-medium text-gray-900 dark:text-white">BibTeX Citation</h3>
                 <button
                   onClick={() => setSelectedCitationPaper(null)}
                   className="w-8 h-8 rounded-full bg-gray-100 dark:bg-white/10 hover:bg-gray-200 dark:hover:bg-white/20 flex items-center justify-center text-gray-500 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-all cursor-pointer"

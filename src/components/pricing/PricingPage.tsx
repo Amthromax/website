@@ -93,7 +93,7 @@ const PricingPage: React.FC = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight text-gray-900 dark:text-white"
+            className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight leading-tight text-gray-900 dark:text-white"
           >
             Plans That Scale With You
           </motion.h1>
@@ -152,7 +152,7 @@ const PricingPage: React.FC = () => {
               
               <div className="space-y-6">
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{plan.name}</h3>
+                  <h3 className="text-2xl font-medium tracking-tight text-gray-900 dark:text-white">{plan.name}</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
                     {plan.desc}
                   </p>
@@ -210,7 +210,7 @@ const PricingPage: React.FC = () => {
         <section className="bg-white dark:bg-black rounded-2xl sm:rounded-2xl p-8 sm:p-10 lg:p-12 border border-gray-200 dark:border-white/10 shadow-sm mt-20">
           <div className="max-w-4xl mx-auto space-y-10">
             <div className="text-center space-y-3">
-              <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white">Pricing & License FAQ</h2>
+              <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900 dark:text-white">Pricing & License FAQ</h2>
               <p className="text-gray-600 dark:text-gray-400 text-base leading-relaxed font-normal">
                 Get answers to common inquiries regarding quotas, custom optimizations, and multi-user configurations.
               </p>

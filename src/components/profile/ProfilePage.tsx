@@ -146,7 +146,7 @@ export const ProfilePage: React.FC = () => {
       <div className="max-w-4xl mx-auto px-6 py-12 space-y-12">
         {/* Header Title Section */}
         <div className="space-y-2">
-          <h1 className="text-4xl md:text-5xl font-black tracking-tight text-gray-900 dark:text-white font-inter">Security & Privacy Settings</h1>
+          <h1 className="text-4xl md:text-5xl font-medium tracking-tight text-gray-900 dark:text-white font-inter">Security & Privacy Settings</h1>
         </div>
 
         {/* Global Alert Notices */}
@@ -183,7 +183,7 @@ export const ProfilePage: React.FC = () => {
               </div>
 
               <div className="space-y-1 w-full flex flex-col items-center">
-                <h2 className="text-lg font-extrabold text-gray-900 dark:text-white truncate max-w-[220px] font-inter">
+                <h2 className="text-lg font-medium text-gray-900 dark:text-white truncate max-w-[220px] font-inter">
                   {fullName || "User Account"}
                 </h2>
                 <p className="text-xs text-gray-500 dark:text-gray-300 font-medium truncate max-w-[220px] font-inter">{user.email}</p>
@@ -298,7 +298,7 @@ export const ProfilePage: React.FC = () => {
         <div className="p-8 rounded-3xl bg-white dark:bg-black border border-gray-200 dark:border-white/15 space-y-8 shadow-xl dark:shadow-2xl font-inter transition-colors duration-300">
           <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div>
-              <h3 className="text-2xl font-black text-gray-900 dark:text-white font-inter">Privacy, Data Protection & Rights</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-inter">Privacy, Data Protection & Rights</h3>
             </div>
             <div className="flex items-center gap-3 text-xs font-semibold font-inter">
               <span className="text-gray-500 dark:text-white/60">
@@ -312,11 +312,11 @@ export const ProfilePage: React.FC = () => {
 
           {/* Privacy & Consent Controls */}
           <div className="space-y-6">
-            <h4 className="text-base font-bold text-gray-900 dark:text-white tracking-tight">1. Preference & Consent Management</h4>
+            <h4 className="text-base font-semibold text-gray-900 dark:text-white tracking-tight">1. Preference & Consent Management</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-5 rounded-2xl bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-sm font-bold text-gray-900 dark:text-white">Performance Telemetry</h5>
+                  <h5 className="text-sm font-semibold text-gray-900 dark:text-white">Performance Telemetry</h5>
                   <p className="text-xs text-gray-500 dark:text-zinc-400">Anonymous operational system analytics</p>
                 </div>
                 <button
@@ -330,7 +330,7 @@ export const ProfilePage: React.FC = () => {
 
               <div className="p-5 rounded-2xl bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-sm font-bold text-gray-900 dark:text-white">Product Communications</h5>
+                  <h5 className="text-sm font-semibold text-gray-900 dark:text-white">Product Communications</h5>
                   <p className="text-xs text-gray-500 dark:text-zinc-400">Feature updates and technical announcements</p>
                 </div>
                 <button
@@ -346,11 +346,11 @@ export const ProfilePage: React.FC = () => {
 
           {/* AI Data Safeguards & Secret Redaction (Phase 10) */}
           <div className="space-y-6 pt-4 border-t border-gray-200 dark:border-white/10">
-            <h4 className="text-base font-bold text-gray-900 dark:text-white tracking-tight">2. AI Data Safeguards & Model Training Opt-Out</h4>
+            <h4 className="text-base font-semibold text-gray-900 dark:text-white tracking-tight">2. AI Data Safeguards & Model Training Opt-Out</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="p-5 rounded-2xl bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-sm font-bold text-gray-900 dark:text-white">Automatic Secret Redaction</h5>
+                  <h5 className="text-sm font-semibold text-gray-900 dark:text-white">Automatic Secret Redaction</h5>
                   <p className="text-xs text-gray-500 dark:text-zinc-400">Sanitizes API keys & passwords in AI prompts</p>
                 </div>
                 <button
@@ -364,7 +364,7 @@ export const ProfilePage: React.FC = () => {
 
               <div className="p-5 rounded-2xl bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-sm font-bold text-gray-900 dark:text-white">Provider Training Opt-Out</h5>
+                  <h5 className="text-sm font-semibold text-gray-900 dark:text-white">Provider Training Opt-Out</h5>
                   <p className="text-xs text-gray-500 dark:text-zinc-400">Disables data usage for third-party AI training</p>
                 </div>
                 <button
@@ -380,7 +380,7 @@ export const ProfilePage: React.FC = () => {
 
           {/* Data Retention Schedule Summary */}
           <div className="space-y-4 pt-4 border-t border-gray-200 dark:border-white/10">
-            <h4 className="text-base font-bold text-gray-900 dark:text-white tracking-tight">3. Data Lifecycle & Retention Safeguards</h4>
+            <h4 className="text-base font-semibold text-gray-900 dark:text-white tracking-tight">3. Data Lifecycle & Retention Safeguards</h4>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 text-xs font-inter">
               <div className="p-4 rounded-xl bg-gray-50 dark:bg-zinc-950 border border-gray-200 dark:border-white/10 space-y-1">
                 <span className="text-gray-500 dark:text-zinc-400 font-medium">API Execution Logs</span>
@@ -403,7 +403,7 @@ export const ProfilePage: React.FC = () => {
           {/* Data Export & Account Deletion Actions (Phases 7 & 8) */}
           <div className="pt-6 border-t border-gray-200 dark:border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <div className="space-y-1">
-              <h4 className="text-sm font-bold text-gray-900 dark:text-white font-inter">Data Subject Rights Actions</h4>
+              <h4 className="text-sm font-semibold text-gray-900 dark:text-white font-inter">Data Subject Rights Actions</h4>
               <p className="text-xs text-gray-500 dark:text-zinc-400 font-inter">Download a full archive of your profile and data, or request account erasure.</p>
             </div>
             <div className="flex flex-row items-center gap-2 sm:gap-3 shrink-0">
@@ -428,7 +428,7 @@ export const ProfilePage: React.FC = () => {
         {/* Workspace Inference Resource Panel */}
         <div className="p-8 rounded-3xl bg-white dark:bg-black border border-gray-200 dark:border-white/15 space-y-6 shadow-xl dark:shadow-2xl transition-colors duration-300">
           <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
-            <h3 className="text-xl font-extrabold text-gray-900 dark:text-white font-inter">Workspace Compute & Endpoints</h3>
+            <h3 className="text-xl font-medium text-gray-900 dark:text-white font-inter">Workspace Compute & Endpoints</h3>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

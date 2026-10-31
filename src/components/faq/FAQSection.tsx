@@ -50,7 +50,7 @@ const FAQSection: React.FC = () => {
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 text-xs font-semibold text-gray-300 uppercase tracking-widest mb-4">
             <span>Help Center</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-white tracking-tight">
             Frequently Asked Questions
           </h2>
           <p className="mt-3 text-sm sm:text-base text-gray-400 max-w-xl mx-auto">

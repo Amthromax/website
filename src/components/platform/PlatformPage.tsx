@@ -81,7 +81,7 @@ const PlatformPage: React.FC = () => {
           <motion.h1 
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-4xl md:text-6xl font-semibold tracking-tight leading-tight text-gray-900 dark:text-white"
+            className="text-4xl md:text-6xl font-medium tracking-tight leading-tight text-gray-900 dark:text-white"
           >
             The Agent Execution Engine
           </motion.h1>
@@ -126,7 +126,7 @@ const PlatformPage: React.FC = () => {
               className="border-t border-gray-200 dark:border-white/10 pt-6 pb-2 space-y-3 transition-all group"
             >
               <span className="text-xs font-extrabold text-gray-400 dark:text-gray-500 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">{item.title}</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">{item.title}</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-normal">{item.desc}</p>
             </motion.div>
           ))}
@@ -158,7 +158,7 @@ const PlatformPage: React.FC = () => {
         {/* Interactive Orchestrator Playground */}
         <div className="space-y-6">
           <div className="space-y-2 text-center max-w-2xl mx-auto">
-            <h2 className="text-3xl font-semibold text-gray-900 dark:text-white tracking-tight">Orchestrator Performance Playground</h2>
+            <h2 className="text-3xl font-medium text-gray-900 dark:text-white tracking-tight">Orchestrator Performance Playground</h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
               Toggle the Semantic Cache option and trigger model queries to observe the execution pipeline's latency, vector memory retrieval, and token conservation in real time.
             </p>
@@ -354,7 +354,7 @@ const PlatformPage: React.FC = () => {
         {/* Feature Detail Showcase */}
         <div className="grid md:grid-cols-2 gap-12 items-center pt-8">
           <div className="space-y-6">
-            <h2 className="text-3xl font-semibold tracking-tight text-gray-900 dark:text-white">
+            <h2 className="text-3xl font-medium tracking-tight text-gray-900 dark:text-white">
               Built for Scale & Continuous Autonomy
             </h2>
             <p className="text-gray-600 dark:text-gray-300 text-sm md:text-base leading-relaxed">

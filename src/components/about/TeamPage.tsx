@@ -19,7 +19,7 @@ const TeamPage: React.FC = () => {
             <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#1a1815] font-bold">
               AMTHROMAX PEOPLE
             </span>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">The Team</h2>
+            <h2 className="text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">The Team</h2>
             <p className="text-base md:text-lg text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
               We're a team of researchers, engineers, policy experts and operational leaders, with experience spanning a variety of disciplines, all working together to build reliable and understandable AI systems.
             </p>
@@ -33,7 +33,7 @@ const TeamPage: React.FC = () => {
               <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100 dark:bg-gray-900 shadow-sm border border-gray-150 dark:border-white/[0.04]">
                 <img src="/images/640e3cf4-fdca-454f-94f2-c7f0b3e6e2fb.png" alt="Research Team" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Research</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Research</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 We conduct frontier AI research across a variety of modalities, and explore novel and emerging safety research areas from interpretability to RL from human feedback to policy and societal impacts analysis.
               </p>
@@ -44,7 +44,7 @@ const TeamPage: React.FC = () => {
               <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100 dark:bg-gray-900 shadow-sm border border-gray-150 dark:border-white/[0.04]">
                 <img src="/images/fe804857-0af4-43e4-874d-4ed7f3dd6185.png" alt="Policy Team" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Policy</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Policy</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 We think about the impacts of our work and strive to communicate what we're seeing at the frontier to policymakers and civil society in the US and abroad to help promote safe and reliable AI.
               </p>
@@ -55,7 +55,7 @@ const TeamPage: React.FC = () => {
               <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100 dark:bg-gray-900 shadow-sm border border-gray-150 dark:border-white/[0.04]">
                 <img src="/images/0be174a2-c311-4bdd-abba-9a98efbcedb7.png" alt="Product Team" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Product</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Product</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 We translate our research into tangible, practical tools like Amthromax that benefit businesses, nonprofits and civil society groups and their clients and people around the globe.
               </p>
@@ -66,7 +66,7 @@ const TeamPage: React.FC = () => {
               <div className="relative overflow-hidden rounded-3xl aspect-[4/3] bg-gray-100 dark:bg-gray-900 shadow-sm border border-gray-150 dark:border-white/[0.04]">
                 <img src="/images/150460d3-f8ae-4b7a-9282-12cae6edc5df.png" alt="Operations Team" className="object-cover w-full h-full transition-transform duration-500 group-hover:scale-105" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white">Operations</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white">Operations</h3>
               <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 Our people, finance, legal, and recruiting teams are the human engines that make Amthromax go. We've had previous careers at NASA, startups, and the armed forces and our diverse experiences help make our algorithms better.
               </p>

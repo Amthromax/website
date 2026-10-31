@@ -159,7 +159,7 @@ const CodeHoomerPage: React.FC = () => {
           className="relative z-10 max-w-4xl mx-auto space-y-6"
         >
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight">
             Put CodeHoomer.AI to work<br />across your codebase
           </h1>
 
@@ -219,7 +219,7 @@ const CodeHoomerPage: React.FC = () => {
       {/* Section 1: Developer Blueprints */}
       <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">
             Developer Blueprints
           </h2>
         </div>
@@ -362,7 +362,7 @@ const CodeHoomerPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors">
                 AI Code Refactoring Engine
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -450,7 +450,7 @@ const CodeHoomerPage: React.FC = () => {
                     <p className="text-xs font-bold text-gray-800 truncate">
                       security_scan.log
                     </p>
-                    <h5 className="text-xs font-black text-gray-900 leading-tight">
+                    <h5 className="text-xs font-semibold text-gray-900 leading-tight">
                       Zero Trust Guardrails
                     </h5>
                     <div className="pt-1">
@@ -472,7 +472,7 @@ const CodeHoomerPage: React.FC = () => {
                     <p className="text-xs font-bold text-gray-800 truncate">
                       PR #1420 Passed
                     </p>
-                    <h5 className="text-xs font-black text-gray-900 leading-tight">
+                    <h5 className="text-xs font-semibold text-gray-900 leading-tight">
                       Ready to Merge
                     </h5>
                     <div className="pt-1">
@@ -489,7 +489,7 @@ const CodeHoomerPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                 Automated Code Review & Guardrails
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -504,7 +504,7 @@ const CodeHoomerPage: React.FC = () => {
       {/* Section 2: AI Engineering with Confidence */}
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
             AI engineering built for scale
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
@@ -515,7 +515,7 @@ const CodeHoomerPage: React.FC = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
           
           <div className="lg:col-span-5 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white tracking-tight leading-tight">
               Connect your repositories
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
@@ -605,7 +605,7 @@ const CodeHoomerPage: React.FC = () => {
       {/* Section: And much more */}
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="max-w-4xl mb-16 space-y-3">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
             And much more
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
@@ -627,7 +627,7 @@ const CodeHoomerPage: React.FC = () => {
                 <item.icon className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-white leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -648,7 +648,7 @@ const CodeHoomerPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="w-full text-center space-y-6 max-w-4xl mx-auto py-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
             Accelerate your engineering speed with CodeHoomer.AI
           </h2>
 

@@ -1076,7 +1076,7 @@ const App: React.FC = () => {
               </div>
 
               {/* Title & Subtitle */}
-              <h3 className="text-2xl font-bold text-white tracking-tight mb-2">
+              <h3 className="text-2xl font-medium text-white tracking-tight mb-2">
                 Amthromax Console
               </h3>
               <p className="text-xs text-gray-400 leading-relaxed mb-6">

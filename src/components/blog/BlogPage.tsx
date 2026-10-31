@@ -228,7 +228,7 @@ const BlogPage: React.FC = () => {
                     to={`/blog/${featuredPost.id}`}
                     className="block group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors"
                   >
-                    <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
+                    <h2 className="text-xl md:text-2xl font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
                       {featuredPost.title}
                     </h2>
                   </Link>
@@ -420,7 +420,7 @@ const BlogPage: React.FC = () => {
                   {/* Content Info */}
                   <div className={`px-6 pb-2 space-y-3 ${layout === "grid" ? "" : "sm:flex-1 sm:pl-0 sm:py-5"}`}>
                     <Link to={`/blog/${post.id}`} className="block">
-                      <h3 className="text-[15px] md:text-base font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors leading-snug">
+                      <h3 className="text-[15px] md:text-base font-medium tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors leading-snug">
                         {post.title}
                       </h3>
                     </Link>
@@ -449,7 +449,7 @@ const BlogPage: React.FC = () => {
       {/* Resources Section */}
       <section className="bg-black text-white py-20 px-6 md:px-10 lg:px-16 border-t border-white/10">
         <div className="max-w-7xl mx-auto space-y-12">
-          <h2 className="text-xl sm:text-2xl font-semibold text-center text-white tracking-tight">
+          <h2 className="text-xl sm:text-2xl font-medium text-center text-white tracking-tight">
             Resources
           </h2>
 
@@ -470,7 +470,7 @@ const BlogPage: React.FC = () => {
                 />
               </div>
               <div className="space-y-1 pt-1">
-                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
+                <h3 className="text-base font-medium text-white tracking-tight group-hover:text-gray-300 transition-colors">
                   Amthromax Principles
                 </h3>
               </div>
@@ -492,7 +492,7 @@ const BlogPage: React.FC = () => {
                 />
               </div>
               <div className="space-y-1 pt-1">
-                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
+                <h3 className="text-base font-medium text-white tracking-tight group-hover:text-gray-300 transition-colors">
                   Careers &amp; Engineering
                 </h3>
               </div>
@@ -514,7 +514,7 @@ const BlogPage: React.FC = () => {
                 />
               </div>
               <div className="space-y-1 pt-1">
-                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
+                <h3 className="text-base font-medium text-white tracking-tight group-hover:text-gray-300 transition-colors">
                   Company Overview
                 </h3>
               </div>
@@ -556,7 +556,7 @@ const BlogPage: React.FC = () => {
               >
                 {/* Document Header */}
                 <div className="text-center space-y-4 pt-4">
-                  <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                  <h2 className="text-3xl sm:text-5xl font-medium text-white tracking-tight">
                     Amthromax Principles
                   </h2>
                   <p className="text-gray-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-medium">
@@ -580,7 +580,7 @@ const BlogPage: React.FC = () => {
                   <div className="space-y-12">
                     {/* Broadly distributed benefits */}
                     <div className="space-y-4">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                         Broadly distributed benefits
                       </h3>
                       <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
@@ -593,7 +593,7 @@ const BlogPage: React.FC = () => {
 
                     {/* Long-term safety */}
                     <div className="space-y-4">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                         Long-term safety
                       </h3>
                       <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
@@ -606,7 +606,7 @@ const BlogPage: React.FC = () => {
 
                     {/* Technical leadership */}
                     <div className="space-y-4">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                         Technical leadership
                       </h3>
                       <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
@@ -619,7 +619,7 @@ const BlogPage: React.FC = () => {
 
                     {/* Cooperative orientation */}
                     <div className="space-y-4">
-                      <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                      <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                         Cooperative orientation
                       </h3>
                       <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
@@ -681,7 +681,7 @@ const BlogPage: React.FC = () => {
               >
                 {/* Document Header */}
                 <div className="text-center space-y-4 pt-4">
-                  <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                  <h2 className="text-3xl sm:text-5xl font-medium text-white tracking-tight">
                     Careers &amp; Engineering
                   </h2>
                   <p className="text-gray-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-medium">
@@ -693,7 +693,7 @@ const BlogPage: React.FC = () => {
                 <div className="space-y-12 border-t border-white/10 pt-8">
                   {/* Philosophy */}
                   <div className="space-y-4">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                       Engineering Culture
                     </h3>
                     <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
@@ -706,13 +706,13 @@ const BlogPage: React.FC = () => {
 
                   {/* Open Roles */}
                   <div className="space-y-8">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                       Open Positions
                     </h3>
 
                     <div className="space-y-8">
                       <div className="space-y-2 border-b border-white/10 pb-6">
-                        <h4 className="text-xl font-bold text-white">Principal Alignment Researcher</h4>
+                        <h4 className="text-xl font-semibold text-white">Principal Alignment Researcher</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           Lead cutting-edge alignment verification frameworks and automated safety veto circuits for multi-agent autonomous deployments.
                         </p>
@@ -720,7 +720,7 @@ const BlogPage: React.FC = () => {
                       </div>
 
                       <div className="space-y-2 border-b border-white/10 pb-6">
-                        <h4 className="text-xl font-bold text-white">Distributed Systems Architect</h4>
+                        <h4 className="text-xl font-semibold text-white">Distributed Systems Architect</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           Architect sub-10ms inferencing meshes across 40+ sovereign cloud regions with fault-tolerant state synchronization.
                         </p>
@@ -728,7 +728,7 @@ const BlogPage: React.FC = () => {
                       </div>
 
                       <div className="space-y-2 pb-2">
-                        <h4 className="text-xl font-bold text-white">Senior UI/UX Product Engineer</h4>
+                        <h4 className="text-xl font-semibold text-white">Senior UI/UX Product Engineer</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           Craft next-generation, glassmorphic obsidian interfaces for complex multi-agent workflows and real-time observability canvases.
                         </p>
@@ -794,7 +794,7 @@ const BlogPage: React.FC = () => {
               >
                 {/* Document Header */}
                 <div className="text-center space-y-4 pt-4">
-                  <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
+                  <h2 className="text-3xl sm:text-5xl font-medium text-white tracking-tight">
                     Company Overview
                   </h2>
                   <p className="text-gray-300 text-base sm:text-lg max-w-xl mx-auto leading-relaxed font-medium">
@@ -806,7 +806,7 @@ const BlogPage: React.FC = () => {
                 <div className="space-y-12 border-t border-white/10 pt-8">
                   {/* Mission */}
                   <div className="space-y-4">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                       Enterprise Mandate
                     </h3>
                     <p className="text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
@@ -819,34 +819,34 @@ const BlogPage: React.FC = () => {
 
                   {/* Core Platforms */}
                   <div className="space-y-6">
-                    <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight">
+                    <h3 className="text-2xl sm:text-3xl font-medium text-white tracking-tight">
                       Core Platform Stack
                     </h3>
 
                     <div className="space-y-8">
                       <div className="space-y-2 border-b border-white/10 pb-6">
-                        <h4 className="text-xl font-bold text-white">AmthroOS</h4>
+                        <h4 className="text-xl font-semibold text-white">AmthroOS</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           The AI-native enterprise operating system enabling multi-agent orchestration and automated governance.
                         </p>
                       </div>
 
                       <div className="space-y-2 border-b border-white/10 pb-6">
-                        <h4 className="text-xl font-bold text-white">Neural Mesh</h4>
+                        <h4 className="text-xl font-semibold text-white">Neural Mesh</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           Ultra-low latency inference network across 40+ sovereign cloud regions with 99.999% SLA availability.
                         </p>
                       </div>
 
                       <div className="space-y-2 border-b border-white/10 pb-6">
-                        <h4 className="text-xl font-bold text-white">Action Firewall</h4>
+                        <h4 className="text-xl font-semibold text-white">Action Firewall</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           Deterministic safety controls ensuring all agent executions abide strictly by institutional policies.
                         </p>
                       </div>
 
                       <div className="space-y-2 pb-2">
-                        <h4 className="text-xl font-bold text-white">Lattice Encryption</h4>
+                        <h4 className="text-xl font-semibold text-white">Lattice Encryption</h4>
                         <p className="text-gray-300 text-base leading-relaxed">
                           Post-quantum cryptographic channels guaranteeing complete confidentiality for enterprise data.
                         </p>

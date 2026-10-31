@@ -19,7 +19,7 @@ const CTASection: React.FC = () => {
           transition={{ type: "spring", stiffness: 300, damping: 20, delay: 0.2 }}
           className="mb-12"
         >
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-gray-50 mb-6">
+          <h1 className="text-4xl md:text-5xl font-medium text-gray-900 dark:text-gray-50 mb-6">
             Ready to Transform Your Business?
           </h1>
           <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto mb-8">

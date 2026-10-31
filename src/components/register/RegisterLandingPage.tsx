@@ -920,7 +920,7 @@ const RegisterLandingPage: React.FC = () => {
                         </div>
 
                         {/* Current Understanding Title */}
-                        <h4 className="text-base font-bold text-[#1A1815] pt-1">
+                        <h4 className="text-base font-semibold text-[#1A1815] pt-1">
                           Current Understanding
                         </h4>
 
@@ -1539,7 +1539,7 @@ const RegisterLandingPage: React.FC = () => {
           <section className="py-24 border-t border-[#E5E0D6] overflow-hidden">
             {/* Header */}
             <div className="text-center mb-12">
-              <h2 className="text-[2rem] sm:text-5xl font-bold text-[#1A1815] tracking-tight">How it works</h2>
+              <h2 className="text-[2rem] sm:text-5xl font-medium text-[#1A1815] tracking-tight">How it works</h2>
             </div>
 
             {/* Carousel */}
@@ -1595,7 +1595,7 @@ const RegisterLandingPage: React.FC = () => {
                   <svg width="14" height="14" fill="none" viewBox="0 0 14 14"><path d="M3 7l3 3 5-5" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>
                 </div>
                 <div>
-                  <h3 className="text-lg font-bold text-[#1A1815] mb-1">{steps[activeStep].label}</h3>
+                  <h3 className="text-lg font-medium text-[#1A1815] mb-1">{steps[activeStep].label}</h3>
                   <p className="text-sm text-[#666057] leading-relaxed max-w-lg">{steps[activeStep].desc}</p>
                   <div className="flex gap-2 mt-4">
                     {steps.map((_, i) => (
@@ -1620,7 +1620,7 @@ const RegisterLandingPage: React.FC = () => {
         {/* Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-end">
           <div>
-            <h2 className="amx-balance text-[2rem] sm:text-5xl font-bold text-[#1A1815] leading-[1.12] tracking-tight">
+            <h2 className="amx-balance text-[2rem] sm:text-5xl font-medium text-[#1A1815] leading-[1.12] tracking-tight">
               AI works better when<br className="hidden sm:block" /> everything stays connected.
             </h2>
           </div>
@@ -1766,7 +1766,7 @@ const RegisterLandingPage: React.FC = () => {
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-[#E5E0D6]">
         {/* Top Row: Heading */}
         <div className="mb-16">
-          <h2 className="amx-balance text-[2rem] sm:text-5xl font-bold text-[#1A1815] leading-[1.12] tracking-tight max-w-xl">
+          <h2 className="amx-balance text-[2rem] sm:text-5xl font-medium text-[#1A1815] leading-[1.12] tracking-tight max-w-xl">
             Purpose-built for enterprise AI performance
           </h2>
         </div>
@@ -1951,7 +1951,7 @@ const RegisterLandingPage: React.FC = () => {
               </div>
               {/* Label */}
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold text-[#1A1815] leading-tight tracking-tight transition-colors duration-300 group-hover:text-black">Our values</h2>
+                <h2 className="text-3xl sm:text-4xl font-medium text-[#1A1815] leading-tight tracking-tight transition-colors duration-300 group-hover:text-black">Our values</h2>
               </div>
             </div>
 
@@ -2055,7 +2055,7 @@ const RegisterLandingPage: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 h-auto md:h-[480px]">
             {/* Left: Heading */}
             <div className="flex flex-col justify-center p-10 sm:p-14 lg:p-20 border-b md:border-b-0 md:border-r border-black">
-              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-black text-black leading-[1.0] tracking-tight">
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium text-black leading-[1.0] tracking-tight">
                 AMTHROMAX'S<br />Next AI
               </h2>
             </div>
@@ -2107,7 +2107,7 @@ const RegisterLandingPage: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10 lg:gap-16 items-start">
           {/* Left Column: Heading */}
           <div className="md:col-span-5 lg:col-span-4 sticky top-24">
-            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-bold text-[#1A1815] tracking-tight leading-[1.15]">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-sans font-medium text-[#1A1815] tracking-tight leading-[1.15]">
               Frequently Asked Questions
             </h2>
           </div>
@@ -2128,7 +2128,7 @@ const RegisterLandingPage: React.FC = () => {
                     {/* Content Container */}
                     <div className="flex-1 space-y-3">
                       <div className="flex items-center justify-between gap-4">
-                        <h3 className={`text-xl sm:text-2xl font-sans font-semibold tracking-tight transition-colors duration-200 ${isOpen ? 'text-[#1A1815]' : 'text-[#1A1815]/90 group-hover:text-[#000000]'}`}>
+                        <h3 className={`text-xl sm:text-2xl font-sans font-medium tracking-tight transition-colors duration-200 ${isOpen ? 'text-[#1A1815]' : 'text-[#1A1815]/90 group-hover:text-[#000000]'}`}>
                           {faq.question}
                         </h3>
                       </div>
@@ -2195,7 +2195,7 @@ const RegisterLandingPage: React.FC = () => {
               </div>
 
               <div>
-                <h3 className="text-2xl font-black text-white mb-2">Registration Confirmed!</h3>
+                <h3 className="text-2xl font-medium text-white mb-2">Registration Confirmed!</h3>
                 <p className="text-xs text-gray-300 leading-relaxed">
                   Thank you! Your early access slot for the <strong className="text-[#ccff00]">Amthromax Announcement</strong> has been reserved. Check your inbox for access credentials & API keys.
                 </p>

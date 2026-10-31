@@ -15,12 +15,12 @@ const NotFoundPage: React.FC = () => {
         {/* Glow Halo Background */}
         <div className="relative mb-8">
           <div className="absolute inset-0 rounded-full bg-gradient-to-r from-purple-600/30 via-gray-700/30 to-gray-900/30 blur-3xl" />
-          <h1 className="relative text-8xl md:text-9xl font-black text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-600 tracking-tighter">
+          <h1 className="relative text-8xl md:text-9xl font-medium text-transparent bg-clip-text bg-gradient-to-b from-white via-gray-200 to-gray-600 tracking-tighter">
             404
           </h1>
         </div>
 
-        <h2 className="text-2xl md:text-3xl font-bold tracking-tight text-white mb-3">
+        <h2 className="text-2xl md:text-3xl font-medium tracking-tight text-white mb-3">
           Page Not Found
         </h2>
         

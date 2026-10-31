@@ -113,7 +113,7 @@ export const OverviewPage: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="relative max-w-5xl mx-auto px-6 text-center space-y-8"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white font-inter leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-gray-900 dark:text-white font-inter leading-tight">
             Enterprise Architecture & Platform Overview
           </h1>
 
@@ -175,7 +175,7 @@ export const OverviewPage: React.FC = () => {
       {/* Four Core Architectural Pillars */}
       <div ref={archRef} className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight font-inter">
+          <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight font-inter">
             The Amthromax Infrastructure Stack
           </h2>
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium font-inter">
@@ -205,7 +205,7 @@ export const OverviewPage: React.FC = () => {
                 <span className="text-[10px] font-bold text-gray-500 dark:text-gray-400 uppercase tracking-widest block font-inter">
                   {pillar.tag}
                 </span>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white font-inter tracking-tight group-hover:opacity-75 transition-opacity">
+                <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-inter tracking-tight group-hover:opacity-75 transition-opacity">
                   {pillar.title}
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal font-inter">
@@ -221,7 +221,7 @@ export const OverviewPage: React.FC = () => {
       <div ref={modelsRef} className="py-24 bg-gray-50/50 dark:bg-black">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight font-inter">
+            <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight font-inter">
               Model & Agent Suite Overview
             </h2>
             <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium font-inter">
@@ -246,7 +246,7 @@ export const OverviewPage: React.FC = () => {
                     <span className="w-2 h-2 rounded-full bg-zinc-800 dark:bg-zinc-300 shadow-[0_0_8px_rgba(255,255,255,0.8)]" />
                   </div>
 
-                  <h4 className="text-lg font-bold text-gray-900 dark:text-white font-inter tracking-tight group-hover:opacity-75 transition-opacity">
+                  <h4 className="text-lg font-semibold text-gray-900 dark:text-white font-inter tracking-tight group-hover:opacity-75 transition-opacity">
                     {model.name}
                   </h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 font-medium font-inter">
@@ -276,7 +276,7 @@ export const OverviewPage: React.FC = () => {
           
           {/* Left Text Column */}
           <div className="lg:col-span-5 space-y-6">
-            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white leading-tight font-sans">
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight font-sans">
               Deployment Safety & Governance
             </h2>
             <p className="text-base sm:text-lg text-gray-600 dark:text-gray-300 font-normal leading-relaxed max-w-lg font-sans">
@@ -326,7 +326,7 @@ export const OverviewPage: React.FC = () => {
       {/* Operational Workflow Execution Steps */}
       <div className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight font-inter">
+          <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight font-inter">
             Agent Operational Lifecycle
           </h2>
         </div>
@@ -342,7 +342,7 @@ export const OverviewPage: React.FC = () => {
               <span className="text-2xl font-black text-gray-400 dark:text-gray-500 font-sans tracking-tight block">
                 {item.step}
               </span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white font-inter">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white font-inter">
                 {item.title}
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-inter">
@@ -356,7 +356,7 @@ export const OverviewPage: React.FC = () => {
       {/* Bottom CTA Banner */}
       <div className="max-w-6xl mx-auto px-6 pb-24 text-center">
         <div className="border-t border-gray-200 dark:border-white/10 py-16 space-y-8">
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white font-inter tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white font-inter tracking-tight">
             Ready to Build on Amthromax?
           </h2>
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-300 max-w-2xl mx-auto font-medium font-inter">

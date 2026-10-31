@@ -158,7 +158,7 @@ const OrarQlowPage: React.FC = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10 max-w-4xl mx-auto space-y-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight">
             Deploy & Orchestrate AI Swarms<br />with Sub-15ms Latency
           </h1>
 
@@ -191,7 +191,7 @@ const OrarQlowPage: React.FC = () => {
       {/* Section 1: Swarm Blueprints */}
       <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">
             Swarm Orchestration Blueprints
           </h2>
         </div>
@@ -320,7 +320,7 @@ const OrarQlowPage: React.FC = () => {
             </div>
 
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                 Adaptive Swarm Mesh
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -432,7 +432,7 @@ const OrarQlowPage: React.FC = () => {
             </div>
 
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-semibold text-gray-900 dark:text-white tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                 Zero-Latency Distributed Telemetry
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -446,7 +446,7 @@ const OrarQlowPage: React.FC = () => {
       {/* Section: And much more */}
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="max-w-4xl mb-16 space-y-3">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
             And much more
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
@@ -468,7 +468,7 @@ const OrarQlowPage: React.FC = () => {
                 <item.icon className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-white leading-snug group-hover:text-emerald-600 dark:group-hover:text-emerald-400 transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -489,7 +489,7 @@ const OrarQlowPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="w-full text-center space-y-6 max-w-4xl mx-auto py-12"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
             Accelerate your multi-agent infrastructure with OrarQlow.AI
           </h2>
 

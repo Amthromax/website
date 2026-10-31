@@ -157,7 +157,7 @@ const HelleiousPage: React.FC = () => {
           transition={{ duration: 0.7, ease: "easeOut" }}
           className="relative z-10 max-w-4xl mx-auto space-y-6"
         >
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight">
             Put AI to work across<br />your enterprise
           </h1>
 
@@ -191,7 +191,7 @@ const HelleiousPage: React.FC = () => {
       {/* Section 2: Blueprints */}
       <section className="py-20 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">
             Enterprise Blueprints
           </h2>
         </div>
@@ -249,7 +249,7 @@ const HelleiousPage: React.FC = () => {
                 <div className="space-y-3.5">
                   <div className="flex items-center gap-2 pb-2.5 border-b border-gray-100">
                     <span className="text-lg">📈</span>
-                    <h4 className="text-base font-bold text-gray-900">Executive Summary & Revenue Intelligence</h4>
+                    <h4 className="text-base font-semibold text-gray-900">Executive Summary & Revenue Intelligence</h4>
                   </div>
 
                   <ul className="space-y-2 text-xs sm:text-sm text-gray-700 font-medium">
@@ -300,7 +300,7 @@ const HelleiousPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors">
                 Enterprise Data Protocol
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -388,7 +388,7 @@ const HelleiousPage: React.FC = () => {
                     <p className="text-xs font-bold text-gray-800 truncate">
                       01_ai_privacy_framework.pdf
                     </p>
-                    <h5 className="text-xs font-black text-gray-900 leading-tight">
+                    <h5 className="text-xs font-semibold text-gray-900 leading-tight">
                       Enterprise Privacy Policy
                     </h5>
                     <div className="pt-1">
@@ -410,7 +410,7 @@ const HelleiousPage: React.FC = () => {
                     <p className="text-xs font-bold text-gray-800 truncate">
                       02_soc2_type_ii_audit.pdf
                     </p>
-                    <h5 className="text-xs font-black text-gray-900 leading-tight">
+                    <h5 className="text-xs font-semibold text-gray-900 leading-tight">
                       SOC2 Type II Audit
                     </h5>
                     <div className="pt-1">
@@ -427,7 +427,7 @@ const HelleiousPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight group-hover:text-purple-600 dark:group-hover:text-purple-400 transition-colors">
                 Autonomous Knowledge Engine
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -442,7 +442,7 @@ const HelleiousPage: React.FC = () => {
       {/* Section 3: AI you can deploy with confidence */}
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="text-center max-w-3xl mx-auto mb-16 space-y-4">
-          <h2 className="text-4xl sm:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-4xl sm:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
             AI you can deploy with confidence
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
@@ -455,7 +455,7 @@ const HelleiousPage: React.FC = () => {
           
           {/* Left Column Text & Buttons */}
           <div className="lg:col-span-5 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white tracking-tight leading-tight">
               Connect your data
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
@@ -645,7 +645,7 @@ const HelleiousPage: React.FC = () => {
 
           {/* Right Column Security Text */}
           <div className="lg:col-span-6 space-y-6">
-            <h3 className="text-3xl sm:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight leading-tight">
+            <h3 className="text-3xl sm:text-4xl font-medium text-gray-900 dark:text-white tracking-tight leading-tight">
               Built-in enterprise security
             </h3>
             <p className="text-gray-600 dark:text-gray-400 text-base font-normal leading-relaxed">
@@ -666,7 +666,7 @@ const HelleiousPage: React.FC = () => {
       {/* Section: And much more */}
       <section className="py-24 px-6 sm:px-12 max-w-7xl mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="max-w-4xl mb-16 space-y-3">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
             And much more
           </h2>
           <p className="text-gray-600 dark:text-gray-400 text-base sm:text-lg font-medium">
@@ -688,7 +688,7 @@ const HelleiousPage: React.FC = () => {
                 <item.icon className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-black dark:group-hover:text-white transition-colors">
+                <h3 className="text-base sm:text-lg font-medium text-gray-900 dark:text-white leading-snug group-hover:text-black dark:group-hover:text-white transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -708,7 +708,7 @@ const HelleiousPage: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="w-full text-center space-y-6 py-12 relative overflow-hidden"
         >
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight max-w-3xl mx-auto leading-tight">
             Transform your organization with intelligent solutions
           </h2>
 

@@ -173,7 +173,7 @@ const LoginSection: React.FC = () => {
         >
           {/* Header Title & Subtitle */}
           <div className="space-y-3">
-            <h1 className="text-3xl sm:text-4xl font-extrabold tracking-tight text-[#1d1d1f] leading-tight">
+            <h1 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1d1d1f] leading-tight">
               Build on the <span className="text-[#1d1d1f]">Amthromax Platform</span>
             </h1>
             <p className="text-sm text-[#515154] max-w-sm mx-auto leading-relaxed font-normal">
@@ -193,7 +193,7 @@ const LoginSection: React.FC = () => {
                 <div className="w-12 h-12 rounded-full bg-emerald-50 border border-emerald-200 text-emerald-600 flex items-center justify-center mx-auto text-xl font-bold">
                   ✓
                 </div>
-                <h3 className="text-lg font-bold text-[#1d1d1f]">Successfully Authenticated</h3>
+                <h3 className="text-lg font-medium text-[#1d1d1f]">Successfully Authenticated</h3>
                 <p className="text-xs text-[#515154] leading-relaxed">
                   Welcome to the Amthromax Platform. Redirecting you to your developer dashboard...
                 </p>
@@ -415,7 +415,7 @@ const LoginSection: React.FC = () => {
                     <path fill="#34A853" d="M12 23c3.24 0 5.97-1.07 7.96-2.91l-3.7-2.87c-1.12.75-2.55 1.19-4.26 1.19-3.13 0-5.77-2.33-6.68-5.48l-3.8 2.95C3.39 20.33 7.35 23 12 23z" />
                   </svg>
                 </div>
-                <h3 className="text-base font-bold text-[#1d1d1f]">Sign in with Google</h3>
+                <h3 className="text-base font-medium text-[#1d1d1f]">Sign in with Google</h3>
                 <p className="text-xs text-gray-500">to continue to Amthromax Platform</p>
               </div>
 

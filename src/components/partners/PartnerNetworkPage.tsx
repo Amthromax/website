@@ -126,7 +126,7 @@ const PartnerNetworkPage: React.FC = () => {
           transition={{ duration: 0.7 }}
           className="relative z-10 max-w-5xl mx-auto px-6 text-center space-y-8"
         >
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-black tracking-tight text-gray-900 dark:text-white font-sans leading-tight">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-gray-900 dark:text-white font-sans leading-tight">
             Amthromax Global Partner Network
           </h1>
 
@@ -190,7 +190,7 @@ const PartnerNetworkPage: React.FC = () => {
       {/* Partner Programs Section */}
       <div ref={programsRef} className="max-w-7xl mx-auto px-6 py-24 space-y-16">
         <div className="text-center space-y-4 max-w-3xl mx-auto">
-          <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight font-sans">
+          <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight font-sans">
             Programs Tailored for Scale
           </h2>
           <p className="text-sm md:text-base text-gray-600 dark:text-gray-400 font-medium font-sans">
@@ -218,7 +218,7 @@ const PartnerNetworkPage: React.FC = () => {
                 </div>
 
                 <div className="space-y-3">
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white font-sans tracking-tight">
+                  <h3 className="text-2xl font-medium text-gray-900 dark:text-white font-sans tracking-tight">
                     {prog.title}
                   </h3>
                   <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-normal font-sans">
@@ -262,7 +262,7 @@ const PartnerNetworkPage: React.FC = () => {
       <div className="bg-gray-50/50 dark:bg-black py-24">
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="text-center space-y-4 max-w-3xl mx-auto">
-            <h2 className="text-3xl md:text-5xl font-black text-gray-900 dark:text-white tracking-tight font-sans">
+            <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight font-sans">
               Partner Network Advantages
             </h2>
           </div>
@@ -283,7 +283,7 @@ const PartnerNetworkPage: React.FC = () => {
               }
             ].map((adv, idx) => (
               <div key={idx} className="p-8 rounded-2xl bg-white dark:bg-black border border-gray-200 dark:border-white/15 space-y-4 shadow-sm dark:shadow-xl">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white font-sans tracking-tight">{adv.title}</h3>
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white font-sans tracking-tight">{adv.title}</h3>
                 <p className="text-xs md:text-sm text-gray-600 dark:text-gray-400 leading-relaxed font-sans">{adv.desc}</p>
               </div>
             ))}
@@ -317,7 +317,7 @@ const PartnerNetworkPage: React.FC = () => {
                   <div className="w-16 h-16 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400 text-2xl font-bold shadow-inner">
                     ✓
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">Application Received</h3>
+                  <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight">Application Received</h3>
                   <p className="text-sm text-gray-600 dark:text-gray-300 max-w-sm mx-auto leading-relaxed font-normal">
                     Thank you for applying to the Amthromax Partner Network. Our Alliance Management team will review your organization details and reach out within 24 hours.
                   </p>
@@ -332,7 +332,7 @@ const PartnerNetworkPage: React.FC = () => {
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-5 relative z-10">
                   <div className="space-y-1">
-                    <h3 className="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white tracking-tight">Join Partner Ecosystem</h3>
+                    <h3 className="text-2xl md:text-3xl font-medium text-gray-900 dark:text-white tracking-tight">Join Partner Ecosystem</h3>
                   </div>
 
                   <div className="space-y-4 pt-1">

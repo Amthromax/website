@@ -43,7 +43,7 @@ const CookiePolicyPage: React.FC = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               2. How We Use Cookies
             </h2>
             <p>
@@ -58,7 +58,7 @@ const CookiePolicyPage: React.FC = () => {
           </section>
 
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               3. Managing Your Cookie Preferences
             </h2>
             <p>

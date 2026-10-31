@@ -106,7 +106,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
                 <div className="w-14 h-14 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-600 dark:text-emerald-400 rounded-full flex items-center justify-center mx-auto text-2xl font-bold border border-emerald-200 dark:border-emerald-800 shadow-sm">
                   ✓
                 </div>
-                <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">
+                <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight">
                   Walkthrough Requested!
                 </h3>
                 <p className="text-sm text-gray-600 dark:text-gray-300 max-w-sm mx-auto leading-relaxed">
@@ -123,7 +123,7 @@ export const DemoModal: React.FC<DemoModalProps> = ({ isOpen, onClose }) => {
             ) : (
               <div>
                 {/* Heading */}
-                <h2 className="text-[28px] sm:text-[32px] font-extrabold text-gray-900 dark:text-white tracking-tight leading-[1.15] pr-4 mb-2.5">
+                <h2 className="text-[28px] sm:text-[32px] font-medium text-gray-900 dark:text-white tracking-tight leading-[1.15] pr-4 mb-2.5">
                   Skip the pitch. See Amthromax on your pipeline.
                 </h2>
 

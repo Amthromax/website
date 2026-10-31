@@ -56,7 +56,7 @@ const BlogPostDetail: React.FC = () => {
       <div className="py-32 text-center bg-white dark:bg-black min-h-[90vh] font-sans">
         <SEO title="Post Not Found | Amthromax" description="The requested blog post could not be found." />
         <div className="max-w-md mx-auto space-y-6 px-6">
-          <h1 className="text-3xl font-black text-gray-900 dark:text-white">Blog Post Not Found</h1>
+          <h1 className="text-3xl font-medium text-gray-900 dark:text-white">Blog Post Not Found</h1>
           <p className="text-gray-500 dark:text-gray-400 text-sm">The article you are looking for does not exist or has been moved.</p>
           <button
             onClick={() => navigate("/blog")}
@@ -173,7 +173,7 @@ const BlogPostDetail: React.FC = () => {
               <span>•</span>
               <span className="text-zinc-400 dark:text-zinc-500">{post.readTime}</span>
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-black tracking-tight text-black dark:text-white leading-[1.1]">
+            <h1 className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight text-black dark:text-white leading-[1.1]">
               {post.title}
             </h1>
             <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 font-normal leading-relaxed italic border-l-2 border-black dark:border-white pl-6 py-2">
@@ -188,7 +188,7 @@ const BlogPostDetail: React.FC = () => {
                 {isHouseAuthor(post.author.name) ? <HouseMark /> : post.author.avatar}
               </div>
               <div>
-                <h4 className="text-sm font-bold text-black dark:text-white">{post.author.name}</h4>
+                <h4 className="text-sm font-semibold text-black dark:text-white">{post.author.name}</h4>
                 <p className="text-xs text-zinc-400 dark:text-zinc-500">{post.author.role}</p>
               </div>
             </div>
@@ -405,14 +405,14 @@ const BlogPostDetail: React.FC = () => {
               // Headers
               if (paragraph.startsWith("## ")) {
                 return (
-                  <h2 key={index} className="text-2xl md:text-3xl font-extrabold tracking-tight mt-10 mb-4 text-gray-900 dark:text-white">
+                  <h2 key={index} className="text-2xl md:text-3xl font-medium tracking-tight mt-10 mb-4 text-gray-900 dark:text-white">
                     {paragraph.replace("## ", "")}
                   </h2>
                 );
               }
               if (paragraph.startsWith("### ")) {
                 return (
-                  <h3 key={index} className="text-xl md:text-2xl font-bold mt-8 mb-3 text-gray-900 dark:text-white">
+                  <h3 key={index} className="text-xl md:text-2xl font-medium mt-8 mb-3 text-gray-900 dark:text-white">
                     {paragraph.replace("### ", "")}
                   </h3>
                 );
@@ -507,7 +507,7 @@ const BlogPostDetail: React.FC = () => {
           {/* Bottom Call to Action */}
           <div className="mt-16 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-white/[0.05] dark:to-white/[0.03] border border-gray-200/50 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
-              <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">Interested in AI automation?</h3>
+              <h3 className="text-lg md:text-xl font-medium text-gray-900 dark:text-white">Interested in AI automation?</h3>
               <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm">Learn how Amthromax custom systems and agents can transform your workflows.</p>
             </div>
             <Link
@@ -521,7 +521,7 @@ const BlogPostDetail: React.FC = () => {
           {/* Related Articles section */}
           {recommendations.length > 0 && (
             <div className="pt-16 border-t border-gray-100 dark:border-gray-900 space-y-8">
-              <h3 className="text-xl md:text-2xl font-bold text-gray-900 dark:text-white">Recommended Reading</h3>
+              <h3 className="text-xl md:text-2xl font-medium text-gray-900 dark:text-white">Recommended Reading</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 {recommendations.map((rec) => (
                   <Link
@@ -533,7 +533,7 @@ const BlogPostDetail: React.FC = () => {
                       <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">
                         {rec.category}
                       </span>
-                      <h4 className="text-base font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
+                      <h4 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                         {rec.title}
                       </h4>
                       <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed line-clamp-2">
@@ -560,7 +560,7 @@ const BlogPostDetail: React.FC = () => {
                     <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-[#1c1c1e] rounded-full shadow-sm" />
                   </div>
                   <div>
-                    <h4 className="text-sm font-bold text-gray-900 dark:text-white leading-snug">{post.author.name}</h4>
+                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">{post.author.name}</h4>
                     <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{post.author.role}</p>
                   </div>
                 </div>

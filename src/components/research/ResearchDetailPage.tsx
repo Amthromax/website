@@ -553,7 +553,7 @@ const ResearchDetailPage: React.FC = () => {
         
         {/* Abstract Box */}
         <section className="bg-gray-50 dark:bg-[#121214] border border-gray-200 dark:border-white/15 rounded-2xl p-8 sm:p-10 space-y-3 shadow-sm">
-          <h2 className="text-xs font-sans uppercase tracking-widest text-gray-500 dark:text-gray-400 font-semibold">
+          <h2 className="text-xs font-sans uppercase tracking-widest text-gray-500 dark:text-gray-400 font-medium">
             Abstract
           </h2>
           <p className="text-gray-900 dark:text-gray-100 text-base sm:text-lg leading-relaxed italic font-sans">
@@ -753,7 +753,7 @@ const ResearchDetailPage: React.FC = () => {
           {/* Mathematical Formulation Display if present */}
           {paper.mathematicalFormulation && (
             <div className="bg-gray-50 dark:bg-[#121214] border border-gray-200 dark:border-white/15 rounded-xl p-6 sm:p-8 space-y-4 font-sans text-sm">
-              <h3 className="text-gray-900 dark:text-white font-sans text-lg font-semibold">
+              <h3 className="text-gray-900 dark:text-white font-sans text-lg font-medium">
                 {paper.mathematicalFormulation.title}
               </h3>
               <p className="text-gray-600 dark:text-gray-400 font-sans text-xs sm:text-sm">

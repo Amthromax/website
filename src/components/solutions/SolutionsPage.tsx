@@ -74,7 +74,7 @@ const SolutionsPage: React.FC = () => {
       {/* Hero */}
       <div className="relative py-20 md:py-28 overflow-hidden flex items-center justify-center text-center">
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-bold tracking-tight leading-tight text-[#1d1d1f] dark:text-white">
+          <h1 className="text-4xl sm:text-5xl lg:text-7xl font-medium tracking-tight leading-tight text-[#1d1d1f] dark:text-white">
             Tailored Intelligent Systems
           </h1>
           <p className="text-base sm:text-lg lg:text-xl text-[#515154] dark:text-gray-300 max-w-2xl mx-auto leading-relaxed font-normal">
@@ -109,7 +109,7 @@ const SolutionsPage: React.FC = () => {
             {/* Description Block */}
             <div className="w-full lg:w-1/2 space-y-6">
               <div>
-                <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
+                <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
                   {sol.title}
                 </h2>
               </div>
@@ -140,7 +140,7 @@ const SolutionsPage: React.FC = () => {
       {/* CTA Footer card */}
       <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 pb-24">
         <div className="bg-white dark:bg-black border border-[#e5e5e7] dark:border-white/10 rounded-2xl sm:rounded-2xl p-10 sm:p-14 text-center space-y-6 shadow-[0_4px_20px_rgba(0,0,0,0.03)]">
-          <h3 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+          <h3 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
             Need a custom integration?
           </h3>
           <p className="text-[#515154] dark:text-gray-300 max-w-xl mx-auto text-base leading-relaxed font-normal">

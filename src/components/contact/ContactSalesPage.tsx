@@ -166,7 +166,7 @@ export const ContactSalesPage: React.FC = () => {
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4 }}
-          className="text-5xl md:text-7xl font-sans text-gray-900 dark:text-white tracking-tight font-extrabold"
+          className="text-5xl md:text-7xl font-sans text-gray-900 dark:text-white tracking-tight font-medium"
         >
           Contact sales
         </motion.h1>
@@ -187,7 +187,7 @@ export const ContactSalesPage: React.FC = () => {
           
           {/* Left Text (3 Columns) */}
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-3xl md:text-5xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-sans text-gray-900 dark:text-white font-medium tracking-tight">
               For quick results
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm md:text-base leading-relaxed">
@@ -208,7 +208,7 @@ export const ContactSalesPage: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">Get the Enterprise plan</h3>
+                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-medium tracking-tight">Get the Enterprise plan</h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     Buy or upgrade to Enterprise yourself. Check out in minutes with a credit card.
                   </p>
@@ -238,7 +238,7 @@ export const ContactSalesPage: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">Chat with buying agent</h3>
+                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-medium tracking-tight">Chat with buying agent</h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     Ask any questions you have, get a personalized quote, and check out today. Our buying agent can escalate to the sales team when needed.
                   </p>
@@ -268,7 +268,7 @@ export const ContactSalesPage: React.FC = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 012.25-2.25h13.5A2.25 2.25 0 0121 7.5v11.25m-18 0A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75m-18 0v-7.5A2.25 2.25 0 015.25 9h13.5A2.25 2.25 0 0121 11.25v7.5m-9-6h.008v.008H12v-.008zM12 15h.008v.008H12V15zm0 2.25h.008v.008H12v-.008zM9.75 15h.008v.008H9.75V15zm0 2.25h.008v.008H9.75V15zm0 2.25h.008v.008H9.75v-.008zM7.5 15h.008v.008H7.5V15zm0 2.25h.008v.008H7.5v-.008zM14.25 15h.008v.008H14.25V15zm0 2.25h.008v.008H14.25v-.008zM16.5 15h.008v.008H16.5V15zm0 2.25h.008v.008H16.5v-.008z" />
                     </svg>
                   </div>
-                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">Schedule technical demo</h3>
+                  <h3 className="text-2xl font-sans text-gray-900 dark:text-white font-medium tracking-tight">Schedule technical demo</h3>
                   <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
                     Book a 1-on-1 walkthrough with an AI solution architect to explore custom GPU clusters & models.
                   </p>
@@ -315,7 +315,7 @@ export const ContactSalesPage: React.FC = () => {
           
           {/* Left Text (3 Columns) */}
           <div className="lg:col-span-3 space-y-3">
-            <h2 className="text-3xl md:text-5xl font-sans text-gray-900 dark:text-white font-bold tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-sans text-gray-900 dark:text-white font-medium tracking-tight">
               For complex needs
             </h2>
             <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -432,7 +432,7 @@ export const ContactSalesPage: React.FC = () => {
                         <div className="w-12 h-12 bg-emerald-500/10 border border-emerald-500/20 rounded-full flex items-center justify-center mx-auto text-emerald-600 dark:text-emerald-400 text-xl font-bold">
                           ✓
                         </div>
-                        <h4 className="text-xl font-bold text-gray-900 dark:text-white">Inquiry Received</h4>
+                        <h4 className="text-xl font-semibold text-gray-900 dark:text-white">Inquiry Received</h4>
                         <p className="text-xs text-gray-600 dark:text-gray-300">
                           Thank you, <span className="text-gray-900 dark:text-white font-semibold">{formData.firstName}</span>. An Amthromax Enterprise Specialist will review your request for <span className="text-gray-900 dark:text-white font-semibold">{inquiryType}</span> and contact <span className="text-gray-900 dark:text-white font-semibold">{formData.workEmail}</span>.
                         </p>
@@ -540,7 +540,7 @@ export const ContactSalesPage: React.FC = () => {
 
       {/* SECTION 3: Transform Banner */}
       <section className="max-w-7xl mx-auto px-6 py-28 text-center space-y-8">
-        <h2 className="text-4xl md:text-6xl font-sans text-gray-900 dark:text-white font-extrabold tracking-tight max-w-4xl mx-auto leading-tight">
+        <h2 className="text-4xl md:text-6xl font-sans text-gray-900 dark:text-white font-medium tracking-tight max-w-4xl mx-auto leading-tight">
           Transform how your organization operates with Amthromax
         </h2>
         
@@ -579,7 +579,7 @@ export const ContactSalesPage: React.FC = () => {
                     A
                   </div>
                   <div>
-                    <h3 className="text-sm font-bold text-gray-900 dark:text-white">Amthromax Buying Agent</h3>
+                    <h3 className="text-sm font-medium text-gray-900 dark:text-white">Amthromax Buying Agent</h3>
                     <p className="text-[10px] text-emerald-600 dark:text-emerald-400 flex items-center gap-1">
                       <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" />
                       Active & ready to quote

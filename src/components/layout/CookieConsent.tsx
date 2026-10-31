@@ -176,7 +176,7 @@ const CookieConsent: React.FC = () => {
               className="bg-[#0f0f10] border border-white/[0.08] rounded-3xl max-w-lg w-full p-6 md:p-8 text-white font-sans space-y-6 max-h-[90vh] overflow-y-auto relative scrollbar-none"
             >
               <div className="space-y-2">
-                <h3 className="text-xl font-bold text-white tracking-tight">Privacy & Technology Preferences</h3>
+                <h3 className="text-xl font-medium text-white tracking-tight">Privacy & Technology Preferences</h3>
                 <p className="text-xs text-white/60 leading-relaxed">
                   Manage technology preferences and consent categories. Necessary technologies are required for core security and functionality. Optional analytics technologies help us improve system performance under the DPDP framework.{" "}
                   <Link to="/data-protection" className="underline hover:text-white transition-colors">

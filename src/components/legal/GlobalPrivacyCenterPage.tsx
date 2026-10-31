@@ -241,7 +241,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
         {activeTab === "overview" && (
           <div className="space-y-6">
             <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">
-              <h3 className="text-base font-bold text-gray-950 dark:text-white tracking-tight">Active Jurisdiction Rights Summary</h3>
+              <h3 className="text-base font-medium text-gray-950 dark:text-white tracking-tight">Active Jurisdiction Rights Summary</h3>
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                 <div className="p-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10">
                   <span className="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase">Right of Access</span>
@@ -273,7 +273,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
             {/* Quick Actions Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-3">
-                <h4 className="text-sm font-bold text-gray-950 dark:text-white">Submit Privacy Request (DSAR)</h4>
+                <h4 className="text-sm font-semibold text-gray-950 dark:text-white">Submit Privacy Request (DSAR)</h4>
                 <p className="text-xs text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
                   Submit a verified Data Subject Access Request for personal data access, correction, restriction, or erasure under GDPR, CCPA, DPDP, or LGPD.
                 </p>
@@ -283,7 +283,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
               </div>
 
               <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-3">
-                <h4 className="text-sm font-bold text-gray-950 dark:text-white">Export Data Archive</h4>
+                <h4 className="text-sm font-semibold text-gray-950 dark:text-white">Export Data Archive</h4>
                 <p className="text-xs text-gray-600 dark:text-gray-300 font-medium leading-relaxed">
                   Download a machine-readable JSON archive containing profile data, workspace memberships, AI agent configurations, and consent logs.
                 </p>
@@ -299,14 +299,14 @@ const GlobalPrivacyCenterPage: React.FC = () => {
         {activeTab === "rights" && (
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-6">
             <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
-              <h3 className="text-base font-bold text-gray-950 dark:text-white tracking-tight">Data Principal & Subject Rights Router</h3>
+              <h3 className="text-base font-medium text-gray-950 dark:text-white tracking-tight">Data Principal & Subject Rights Router</h3>
               <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Select your desired privacy action to proceed to automated verification and processing.</p>
             </div>
 
             <div className="divide-y divide-gray-200 dark:divide-white/10">
               <div className="py-4 first:pt-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white">Right of Access (DSAR)</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white">Right of Access (DSAR)</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Obtain confirmation of personal data processing and receive a summary copy.</p>
                 </div>
                 <Link to="/privacy/request?type=ACCESS" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm shrink-0">
@@ -316,7 +316,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
 
               <div className="py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white">Right to Rectification & Correction</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white">Right to Rectification & Correction</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Correct inaccurate, incomplete, or outdated personal information stored in your account.</p>
                 </div>
                 <Link to="/privacy/request?type=RECTIFICATION" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm shrink-0">
@@ -326,7 +326,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
 
               <div className="py-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white">Right to Erasure / Account Deletion</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white">Right to Erasure / Account Deletion</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Request complete erasure of personal data subject to statutory financial retention rules.</p>
                 </div>
                 <Link to="/privacy/request?type=ERASURE" className="px-4 py-2 rounded-xl bg-white dark:bg-transparent border border-red-200 dark:border-red-800/60 text-red-600 dark:text-red-400 hover:bg-red-50 dark:hover:bg-red-950/30 text-xs font-bold transition-all shadow-sm shrink-0">
@@ -336,7 +336,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
 
               <div className="py-4 last:pb-0 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                 <div className="space-y-0.5">
-                  <h4 className="text-sm font-bold text-gray-950 dark:text-white">CCPA / CPRA Do Not Sell or Share My Info</h4>
+                  <h4 className="text-sm font-semibold text-gray-950 dark:text-white">CCPA / CPRA Do Not Sell or Share My Info</h4>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Opt out of cross-context behavioral advertising and personal information transfer.</p>
                 </div>
                 <Link to="/privacy/request?type=CCPA_OPT_OUT_SALE_SHARE" className="px-4 py-2 rounded-xl bg-black dark:bg-white hover:bg-zinc-800 dark:hover:bg-gray-200 !text-white dark:!text-black text-xs font-bold transition-all shadow-sm shrink-0">
@@ -352,7 +352,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-6">
             <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 border-b border-gray-200 dark:border-white/10 pb-4">
               <div className="space-y-0.5">
-                <h3 className="text-base font-bold text-gray-950 dark:text-white tracking-tight">Cookie & Tracker Categories</h3>
+                <h3 className="text-base font-medium text-gray-950 dark:text-white tracking-tight">Cookie & Tracker Categories</h3>
                 <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Configure category consent for essential, performance, and marketing cookie technologies.</p>
               </div>
               <button onClick={handleManageCookiesModal} className="px-4 py-2 rounded-xl bg-black dark:bg-white !text-white dark:!text-black text-xs font-bold hover:bg-zinc-800 dark:hover:bg-gray-200 cursor-pointer shadow-sm">
@@ -364,7 +364,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
               {/* Strictly Necessary */}
               <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-xs font-bold text-gray-950 dark:text-white">Strictly Necessary Cookies</h5>
+                  <h5 className="text-xs font-semibold text-gray-950 dark:text-white">Strictly Necessary Cookies</h5>
                   <p className="text-[11px] text-gray-600 dark:text-gray-300 font-medium">Essential for security, authentication, and session persistence.</p>
                 </div>
                 <span className="px-3 py-1 rounded-full bg-gray-200 dark:bg-white/10 text-gray-800 dark:text-gray-200 text-[10px] font-bold">Always Active</span>
@@ -373,7 +373,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
               {/* Analytics */}
               <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-xs font-bold text-gray-950 dark:text-white">Analytics & Performance</h5>
+                  <h5 className="text-xs font-semibold text-gray-950 dark:text-white">Analytics & Performance</h5>
                   <p className="text-[11px] text-gray-600 dark:text-gray-300 font-medium">Anonymous operational metrics to optimize feature response latencies.</p>
                 </div>
                 <button
@@ -387,7 +387,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
               {/* Marketing */}
               <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 flex items-center justify-between">
                 <div>
-                  <h5 className="text-xs font-bold text-gray-950 dark:text-white">Marketing & Product Updates</h5>
+                  <h5 className="text-xs font-semibold text-gray-950 dark:text-white">Marketing & Product Updates</h5>
                   <p className="text-[11px] text-gray-600 dark:text-gray-300 font-medium">Product announcements and technical feature release emails.</p>
                 </div>
                 <button
@@ -405,7 +405,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
         {activeTab === "processors" && (
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">
             <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
-              <h3 className="text-base font-bold text-gray-950 dark:text-white tracking-tight">Third-Party Subprocessor Registry</h3>
+              <h3 className="text-base font-medium text-gray-950 dark:text-white tracking-tight">Third-Party Subprocessor Registry</h3>
               <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Verified technical service providers, processing purposes, and international transfer mechanisms.</p>
             </div>
 
@@ -444,7 +444,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
         {activeTab === "activities" && (
           <div className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 shadow-sm space-y-4">
             <div className="space-y-1 border-b border-gray-200 dark:border-white/10 pb-4">
-              <h3 className="text-base font-bold text-gray-950 dark:text-white tracking-tight">Data Processing Register & Legal Basis</h3>
+              <h3 className="text-base font-medium text-gray-950 dark:text-white tracking-tight">Data Processing Register & Legal Basis</h3>
               <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Lawful processing bases under EU GDPR Article 6, UK GDPR, and retention policies.</p>
             </div>
 
@@ -452,7 +452,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
               {PROCESSING_ACTIVITIES.map((pa) => (
                 <div key={pa.id} className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-2">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
-                    <h5 className="text-xs font-bold text-gray-950 dark:text-white">{pa.name}</h5>
+                    <h5 className="text-xs font-semibold text-gray-950 dark:text-white">{pa.name}</h5>
                     <span className="px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-gray-300 font-mono text-[10px] font-bold">
                       Legal Basis: {pa.legalBasisGDPR}
                     </span>
@@ -472,7 +472,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
         {/* Legal Disclaimer & Grievance Contact */}
         <section className="bg-white dark:bg-black border border-gray-200 dark:border-white/10 rounded-2xl p-6 sm:p-8 shadow-sm space-y-6">
           <div className="space-y-1">
-            <h3 className="text-base sm:text-lg font-bold text-gray-950 dark:text-white tracking-tight">Data Protection Contact & Grievance Desk</h3>
+            <h3 className="text-base sm:text-lg font-medium text-gray-950 dark:text-white tracking-tight">Data Protection Contact & Grievance Desk</h3>
             <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">Direct inquiries regarding international privacy rights or data protection officers.</p>
           </div>
 

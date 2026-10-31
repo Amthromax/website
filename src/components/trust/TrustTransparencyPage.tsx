@@ -354,7 +354,7 @@ const TrustTransparencyPage: React.FC = () => {
 
           {/* Right Checklist */}
           <div className="lg:col-span-6 space-y-4 border-l border-gray-200 dark:border-white/10 pl-6 lg:pl-10">
-            <h4 className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
+            <h4 className="text-xs font-semibold text-gray-500 dark:text-gray-400 uppercase tracking-wider mb-6">
               Key Safeguards & Protocol Enforcements
             </h4>
             <div className="space-y-4">
@@ -391,7 +391,7 @@ const TrustTransparencyPage: React.FC = () => {
           {/* Content Details Inside Box */}
           <div className="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             <div className="lg:col-span-8 space-y-4">
-              <h3 className="text-2xl sm:text-4xl font-serif font-bold text-white tracking-tight leading-snug drop-shadow-lg">
+              <h3 className="text-2xl sm:text-4xl font-serif font-medium text-white tracking-tight leading-snug drop-shadow-lg">
                 Enterprise Assurance & Continuous Alignment Verification
               </h3>
               <p className="text-xs sm:text-sm text-gray-100 font-normal leading-relaxed max-w-2xl drop-shadow-md">
@@ -646,7 +646,7 @@ const TrustTransparencyPage: React.FC = () => {
           <Link to="/privacy-center" className="group block border-t border-gray-200 dark:border-white/10 pt-6 pb-4 hover:border-gray-400 dark:hover:border-white/30 transition-all">
             <div className="space-y-3">
               <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Compliance Report</span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                 SOC 2 Type II Security Report Summary ›
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
@@ -658,7 +658,7 @@ const TrustTransparencyPage: React.FC = () => {
           <Link to="/security" className="group block border-t border-gray-200 dark:border-white/10 pt-6 pb-4 hover:border-gray-400 dark:hover:border-white/30 transition-all">
             <div className="space-y-3">
               <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Architecture Whitepaper</span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                 Zero-Trust AI Agent Execution Specs ›
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
@@ -670,7 +670,7 @@ const TrustTransparencyPage: React.FC = () => {
           <Link to="/data-protection" className="group block border-t border-gray-200 dark:border-white/10 pt-6 pb-4 hover:border-gray-400 dark:hover:border-white/30 transition-all">
             <div className="space-y-3">
               <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Legal Framework</span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
+              <h3 className="text-lg font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                 Data Processing Addendum (DPA) ›
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
@@ -684,7 +684,7 @@ const TrustTransparencyPage: React.FC = () => {
       {/* SECTION: Security Compliance & Accreditation */}
       <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 border-t border-gray-200 dark:border-white/10 bg-white dark:bg-black text-gray-900 dark:text-white text-center">
         <div className="max-w-4xl mx-auto space-y-10 sm:space-y-12">
-          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight">
             Security compliance &<br className="hidden sm:inline" /> accreditation
           </h2>
 

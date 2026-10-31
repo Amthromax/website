@@ -108,7 +108,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
               ✓
             </div>
             <div className="space-y-2">
-              <h2 className="text-xl font-bold text-gray-950 tracking-tight">Privacy Request Submitted Successfully</h2>
+              <h2 className="text-xl font-medium text-gray-950 tracking-tight">Privacy Request Submitted Successfully</h2>
               <p className="text-xs text-gray-600 font-medium max-w-md mx-auto">
                 Your request ID is <span className="font-mono font-bold text-gray-900 bg-gray-100 px-2 py-0.5 rounded-2xl">{submittedRequest.id}</span>. An email verification link has been dispatched to your email address.
               </p>
@@ -141,7 +141,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
             {/* Left 2 Cols: Submission Form */}
             <div className="md:col-span-2 bg-white border border-black/[0.06] rounded-2xl p-6 shadow-sm space-y-6">
               <div className="space-y-1 border-b border-black/[0.06] pb-4">
-                <h3 className="text-base font-bold text-gray-950 tracking-tight">Submit New Privacy Request</h3>
+                <h3 className="text-base font-medium text-gray-950 tracking-tight">Submit New Privacy Request</h3>
                 <p className="text-xs text-gray-600 font-medium">Complete all required identity details to initiate formal processing.</p>
               </div>
 
@@ -213,7 +213,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
             {/* Right 1 Col: Status Tracker */}
             <div className="md:col-span-1 bg-white border border-black/[0.06] rounded-2xl p-6 shadow-sm space-y-4 h-fit">
               <div className="space-y-1 border-b border-black/[0.06] pb-3">
-                <h4 className="text-sm font-bold text-gray-950">Track Existing Request</h4>
+                <h4 className="text-sm font-semibold text-gray-950">Track Existing Request</h4>
                 <p className="text-xs text-gray-600 font-medium">Enter your Request ID to check status.</p>
               </div>
 

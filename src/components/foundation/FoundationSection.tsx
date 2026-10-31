@@ -67,9 +67,9 @@ const FoundationSection: React.FC = () => {
           {/* Brand Logo representing Amthromax */}
           <div className="w-16 h-16 flex items-center justify-center">
             <img 
-              src="/images/logo.png" 
+              src="/images/amthromax_asterisk_logo.png" 
               alt="Amthromax Brand Logo" 
-              className="w-14 h-14 object-contain dark:invert transition-all duration-300"
+              className="w-14 h-14 object-contain dark:invert dark:brightness-125 transition-all duration-300"
             />
           </div>
         </motion.div>
@@ -78,7 +78,7 @@ const FoundationSection: React.FC = () => {
           initial={{ opacity: 0, y: 25 }}
           animate={heroInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-gray-900 dark:text-white"
+          className="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-gray-900 dark:text-white"
         >
           Amthromax Intelligence Hub
         </motion.h1>
@@ -140,7 +140,7 @@ const FoundationSection: React.FC = () => {
           transition={{ duration: 0.6 }}
           className="text-center max-w-3xl mx-auto"
         >
-          <h2 className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white leading-tight">
+          <h2 className="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight">
             Powering Next-Generation Neural Compute &amp; Autonomous Intelligence
           </h2>
         </motion.div>
@@ -161,7 +161,7 @@ const FoundationSection: React.FC = () => {
               />
             </div>
             <div className="space-y-2">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white">
                 Autonomous Intelligence &amp; Economic Systems
               </h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
@@ -185,7 +185,7 @@ const FoundationSection: React.FC = () => {
               />
             </div>
             <div className="space-y-2">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white">
                 Frontier Safety &amp; Alignment Systems
               </h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed">
@@ -203,7 +203,7 @@ const FoundationSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={fundInView ? { opacity: 1, y: 0 } : {}}
             transition={{ duration: 0.6 }}
-            className="text-3xl md:text-4xl font-semibold tracking-tight text-gray-900 dark:text-white"
+            className="text-3xl md:text-4xl font-medium tracking-tight text-gray-900 dark:text-white"
           >
             People-First AI Fund
           </motion.h2>
@@ -234,7 +234,7 @@ const FoundationSection: React.FC = () => {
       <section className="py-20 max-w-screen-2xl mx-auto px-6 md:px-12 xl:px-20 space-y-12 bg-white dark:bg-black transition-colors duration-300">
         <div className="space-y-2 text-center md:text-left">
           <span className="text-xs font-semibold uppercase tracking-[0.15em] text-[#6e6e73] dark:text-gray-400">Intelligence Insights</span>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-[#1d1d1f] dark:text-white">
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
             Resources & Initiatives
           </h2>
         </div>

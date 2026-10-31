@@ -187,7 +187,7 @@ const PublishPage: React.FC = () => {
             🔒
           </div>
           <div className="space-y-2">
-            <h1 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">Admin Verification</h1>
+            <h1 className="text-2xl font-medium tracking-tight text-gray-900 dark:text-white">Admin Verification</h1>
             <p className="text-xs text-gray-500 dark:text-gray-400 leading-relaxed">
               Please enter the master password to access the publishing dashboard.
             </p>
@@ -292,7 +292,7 @@ const PublishPage: React.FC = () => {
           >
             <div className="bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-3xl p-6 md:p-8 space-y-6 shadow-sm">
               <div className="flex justify-between items-center">
-                <h2 className="text-xl font-bold tracking-tight text-gray-900 dark:text-white">Compose Article</h2>
+                <h2 className="text-xl font-medium tracking-tight text-gray-900 dark:text-white">Compose Article</h2>
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
@@ -465,7 +465,7 @@ const PublishPage: React.FC = () => {
           >
             <div className="sticky top-28 bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] rounded-2xl p-6 md:p-8 space-y-6 shadow-sm max-h-[80vh] overflow-y-auto">
               <div className="flex items-center justify-between pb-3 border-b border-gray-250 dark:border-white/[0.04]">
-                <h2 className="text-xs font-bold uppercase tracking-wider text-gray-400">Live Preview</h2>
+                <h2 className="text-xs font-medium uppercase tracking-wider text-gray-400">Live Preview</h2>
                 <span className="text-[9px] font-bold text-green-500 bg-green-50 dark:bg-green-950/20 px-2 py-0.5 rounded-full border border-green-200 dark:border-green-900/30">
                   Rendering Live
                 </span>
@@ -479,7 +479,7 @@ const PublishPage: React.FC = () => {
                     <span>•</span>
                     <span className="text-gray-400">{readTime || "5 min read"}</span>
                   </div>
-                  <h1 className="text-2xl md:text-3xl font-black tracking-tight text-gray-900 dark:text-white leading-tight">
+                  <h1 className="text-2xl md:text-3xl font-medium tracking-tight text-gray-900 dark:text-white leading-tight">
                     {title || "Untitled Article"}
                   </h1>
                   {excerpt && (
@@ -494,7 +494,7 @@ const PublishPage: React.FC = () => {
                     {(authorAvatar || authorName?.[0] || "A").toUpperCase()}
                   </div>
                   <div>
-                    <h4 className="text-xs font-bold text-gray-900 dark:text-white">{authorName || "Anonymous"}</h4>
+                    <h4 className="text-xs font-semibold text-gray-900 dark:text-white">{authorName || "Anonymous"}</h4>
                     <p className="text-[10px] text-gray-400 dark:text-gray-500">{authorRole || "Contributor"}</p>
                   </div>
                   <div className="ml-auto text-right">
@@ -629,14 +629,14 @@ const PublishPage: React.FC = () => {
                     // Headers
                     if (paragraph.startsWith("## ")) {
                       return (
-                        <h2 key={index} className="text-xl md:text-2xl font-bold tracking-tight mt-6 mb-3 text-gray-900 dark:text-white">
+                        <h2 key={index} className="text-xl md:text-2xl font-medium tracking-tight mt-6 mb-3 text-gray-900 dark:text-white">
                           {paragraph.replace("## ", "")}
                         </h2>
                       );
                     }
                     if (paragraph.startsWith("### ")) {
                       return (
-                        <h3 key={index} className="text-lg md:text-xl font-bold mt-5 mb-2 text-gray-900 dark:text-white">
+                        <h3 key={index} className="text-lg md:text-xl font-medium mt-5 mb-2 text-gray-900 dark:text-white">
                           {paragraph.replace("### ", "")}
                         </h3>
                       );

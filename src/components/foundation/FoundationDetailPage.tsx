@@ -106,7 +106,7 @@ const FoundationDetailPage: React.FC = () => {
     return (
       <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-black font-sans">
         <div className="py-24 text-center space-y-4">
-          <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Article not found</h2>
+          <h2 className="text-2xl font-medium text-gray-900 dark:text-white">Article not found</h2>
           <Link to="/foundation" className="text-gray-900 dark:text-white underline mt-4 inline-block">
             Back to Foundation
           </Link>
@@ -134,7 +134,7 @@ const FoundationDetailPage: React.FC = () => {
           <span className="text-xs uppercase tracking-widest text-gray-300 font-bold bg-white/[0.06] border border-white/10 px-3.5 py-1.5 rounded-full">
             {article.category} &bull; {article.readTime}
           </span>
-          <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-inside text-white">
+          <h1 className="text-4xl md:text-6xl font-medium tracking-tight leading-inside text-white">
             {article.title}
           </h1>
           <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed font-light">
@@ -149,7 +149,7 @@ const FoundationDetailPage: React.FC = () => {
         
         {/* Article Summary (Large Text Callout) */}
         <section className="space-y-4">
-          <h2 className="text-2xl font-black text-gray-900 dark:text-white pb-3 border-b border-gray-150 dark:border-white/[0.04]">
+          <h2 className="text-2xl font-medium text-gray-900 dark:text-white pb-3 border-b border-gray-150 dark:border-white/[0.04]">
             Overview
           </h2>
           <p className="text-gray-700 dark:text-gray-300 text-lg md:text-xl leading-relaxed font-light italic">
@@ -159,7 +159,7 @@ const FoundationDetailPage: React.FC = () => {
 
         {/* Challenge Section */}
         <section className="space-y-4">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white pb-2 border-b border-gray-150 dark:border-white/[0.04]">
+          <h3 className="text-xl font-medium text-gray-900 dark:text-white pb-2 border-b border-gray-150 dark:border-white/[0.04]">
             The Challenge
           </h3>
           <p className="text-gray-600 dark:text-gray-305 text-sm md:text-base leading-relaxed">
@@ -169,7 +169,7 @@ const FoundationDetailPage: React.FC = () => {
 
         {/* Initiative Section */}
         <section className="space-y-4">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white pb-2 border-b border-gray-150 dark:border-white/[0.04]">
+          <h3 className="text-xl font-medium text-gray-900 dark:text-white pb-2 border-b border-gray-150 dark:border-white/[0.04]">
             Our Initiative
           </h3>
           <p className="text-gray-600 dark:text-gray-350 text-sm md:text-base leading-relaxed">
@@ -179,7 +179,7 @@ const FoundationDetailPage: React.FC = () => {
 
         {/* Impact Section */}
         <section className="space-y-4">
-          <h3 className="text-xl font-bold text-gray-900 dark:text-white pb-2 border-b border-gray-150 dark:border-white/[0.04]">
+          <h3 className="text-xl font-medium text-gray-900 dark:text-white pb-2 border-b border-gray-150 dark:border-white/[0.04]">
             Measurable Impact & Future Work
           </h3>
           <p className="text-gray-600 dark:text-gray-350 text-sm md:text-base leading-relaxed">

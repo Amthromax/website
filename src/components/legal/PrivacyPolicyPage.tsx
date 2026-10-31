@@ -194,7 +194,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 3 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               3. How We May Use Personal Information
             </h2>
             <p>
@@ -215,7 +215,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 4 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               4. How We May Disclose Personal Information
             </h2>
             <p>
@@ -231,7 +231,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 5 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               5. Retention of Personal Information
             </h2>
             <p>
@@ -244,7 +244,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 6 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               6. Security of Personal Information
             </h2>
             <p>
@@ -257,7 +257,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 7 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               7. Links to Third-Party Websites
             </h2>
             <p>
@@ -267,7 +267,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 8 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               8. Children Under the Age of 13
             </h2>
             <p>
@@ -284,7 +284,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 9 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               9. Privacy Rights, Choices, and Appeals
             </h2>
             <p>
@@ -317,7 +317,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 10 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               10. Changes to This Privacy Policy
             </h2>
             <p>
@@ -327,7 +327,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 11 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               11. Child Safety & Harm Reporting
             </h2>
             <p>
@@ -341,7 +341,7 @@ const PrivacyPolicyPage: React.FC = () => {
 
           {/* Section 12 */}
           <section className="space-y-4">
-            <h2 className="text-xl sm:text-[22px] font-semibold text-gray-950 dark:text-white tracking-tight">
+            <h2 className="text-xl sm:text-[22px] font-medium text-gray-950 dark:text-white tracking-tight">
               12. How to Contact Us About Privacy Requests
             </h2>
             <p>
@@ -405,7 +405,7 @@ const PrivacyPolicyPage: React.FC = () => {
               </button>
 
               <div className="mb-5">
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">
+                <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">
                   {activeModal === "optout" && "Privacy Request & Opt-Out"}
                   {activeModal === "access" && "Request Data Export"}
                   {activeModal === "delete" && "Request Data Erasure"}
@@ -420,7 +420,7 @@ const PrivacyPolicyPage: React.FC = () => {
                   <div className="w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-400 text-xl flex items-center justify-center mx-auto">
                     ✓
                   </div>
-                  <h4 className="text-base font-bold text-white">Verification Sent</h4>
+                  <h4 className="text-base font-semibold text-white">Verification Sent</h4>
                   <p className="text-xs text-zinc-300">
                     We have dispatched a confirmation email to <span className="font-semibold text-white">{requestEmail}</span>.
                   </p>

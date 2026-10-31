@@ -6,7 +6,7 @@ const PageHeader: React.FC<{ category?: string; title: string; subtitle: string 
   return (
     <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
       <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-        <h1 className="text-4xl md:text-6xl font-black tracking-tighter leading-tight">
+        <h1 className="text-4xl md:text-6xl font-medium tracking-tighter leading-tight">
           {title}
         </h1>
         <p className="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto leading-relaxed">
@@ -31,7 +31,7 @@ export const EnterprisesPage: React.FC = () => {
         {/* Intro & Stats Grid */}
         <div className="space-y-16">
           <div className="max-w-4xl mx-auto text-center space-y-6">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Enterprise Infrastructure</h2>
+            <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">Enterprise Infrastructure</h2>
             <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed font-medium">
               Amthromax is engineered to handle the demands of massive scale. We provide an uncompromising foundation of security, dedicated compute allocation, and strictly enforced SLAs so your critical workflows never halt.
             </p>
@@ -46,7 +46,7 @@ export const EnterprisesPage: React.FC = () => {
             ].map((stat, idx) => (
               <div key={idx} className="p-8 bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
                 <span className="text-[10px] md:text-xs text-gray-900 dark:text-white font-bold uppercase tracking-wider">{stat.label}</span>
-                <h3 className={`font-black text-gray-900 dark:text-white tracking-tight ${stat.value.length > 8 ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'}`}>
+                <h3 className={`font-medium text-gray-900 dark:text-white tracking-tight ${stat.value.length > 8 ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'}`}>
                   {stat.value}
                 </h3>
               </div>
@@ -64,7 +64,7 @@ export const EnterprisesPage: React.FC = () => {
             </div>
             <div className="p-8 flex-1 space-y-4">
               <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">01 / INTEGRITY</span>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Zero-Trust Network Models</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">Zero-Trust Network Models</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Enforce granular access logs, identity federation (SAML/OIDC), and hardware-isolated key storage across every agent deployment. Prevent credential hijacking at the network root with continuous verification.
               </p>
@@ -78,7 +78,7 @@ export const EnterprisesPage: React.FC = () => {
             </div>
             <div className="p-8 flex-1 space-y-4">
               <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">02 / VELOCITY</span>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Automated Pipeline Scaling</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">Automated Pipeline Scaling</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Distribute analytical requests dynamically through load-balanced Kubernetes clusters. Experience automatic compute scaling during periods of extreme workflow traffic seamlessly.
               </p>
@@ -92,7 +92,7 @@ export const EnterprisesPage: React.FC = () => {
             </div>
             <div className="p-8 flex-1 space-y-4">
               <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">03 / CONTINUITY</span>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Dedicated SLA Commitments</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">Dedicated SLA Commitments</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Access around-the-clock enterprise engineers via direct Slack channels and priority ticketing, backed by contractually enforced support response times and compensation guarantees.
               </p>
@@ -106,7 +106,7 @@ export const EnterprisesPage: React.FC = () => {
             </div>
             <div className="p-8 flex-1 space-y-4">
               <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">04 / ISOLATION</span>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Dedicated Compute Clusters</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">Dedicated Compute Clusters</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Ensure your processes never compete for resources. Leverage physically separate bare-metal servers designed specifically for your organization's heavy ML inference requirements.
               </p>
@@ -120,7 +120,7 @@ export const EnterprisesPage: React.FC = () => {
             </div>
             <div className="p-8 flex-1 space-y-4">
               <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">05 / FUTURE-PROOF</span>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Post-Quantum Cryptography</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">Post-Quantum Cryptography</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Protect sensitive corporate data ahead of time with lattice-based cryptographic tunneling that secures your API traffic from both classical and quantum decryption algorithms.
               </p>
@@ -134,7 +134,7 @@ export const EnterprisesPage: React.FC = () => {
             </div>
             <div className="p-8 flex-1 space-y-4">
               <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">06 / RESILIENCE</span>
-              <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Global State Redundancy</h3>
+              <h3 className="text-xl font-medium text-gray-900 dark:text-white tracking-tight">Global State Redundancy</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Achieve disaster recovery instantly. Your data and agent memory states are continuously replicated across 3 independent geographical zones for ultimate redundancy.
               </p>
@@ -163,7 +163,7 @@ export const SmallBusinessesPage: React.FC = () => {
 
         {/* Intro Section */}
         <div className="max-w-4xl mx-auto text-center space-y-6">
-          <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Automation Built for Small Teams</h2>
+          <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">Automation Built for Small Teams</h2>
           <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed font-medium">
             You don't need a dedicated development staff or deep technical expertise to start running intelligent software. Amthromax deploys serverless workflow triggers that connect directly into tools you already use—democratizing access to enterprise-grade AI algorithms so you can focus on building your business, not wrangling software.
           </p>
@@ -177,7 +177,7 @@ export const SmallBusinessesPage: React.FC = () => {
               <img src="/images/0c3a15fc-04e8-46bf-8892-2693e8e64a01.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Customer Sync" />
             </div>
             <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">1. Instant Customer Sync</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight">1. Instant Customer Sync</h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 Automatically capture incoming emails, intelligently categorize support requests, and push prioritized contact data directly to your local tracking CRM dashboards without a single keystroke of manual copy-pasting.
               </p>
@@ -190,7 +190,7 @@ export const SmallBusinessesPage: React.FC = () => {
               <img src="/images/51d4fd10-875a-4a4c-8891-6349ef1919da.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Low Overhead" />
             </div>
             <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">2. Low Operational Overhead</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight">2. Low Operational Overhead</h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 Our lightweight code designs run inside autonomous micro-instances on the edge network, ensuring that you only pay for exactly the compute cycles you use, eliminating expensive flat hosting rates and server maintenance constraints.
               </p>
@@ -203,7 +203,7 @@ export const SmallBusinessesPage: React.FC = () => {
               <img src="/images/818f256b-7d9a-4246-95b7-df2a884df162.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Marketing Triggers" />
             </div>
             <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">3. Automated Marketing Triggers</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight">3. Automated Marketing Triggers</h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 Set up dynamic event triggers that launch highly personalized outreach campaigns based on user behavior inside your website. Nurture leads continuously without requiring dedicated marketing bandwidth to expand your customer base.
               </p>
@@ -216,7 +216,7 @@ export const SmallBusinessesPage: React.FC = () => {
               <img src="/images/9ea0fcc0-1dac-4578-8919-75e82976b010.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Smart Financials" />
             </div>
             <div className="p-8 md:p-10 space-y-4">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight">4. Smart Logistics & Tracking</h3>
+              <h3 className="text-2xl font-medium text-gray-900 dark:text-white tracking-tight">4. Smart Logistics & Tracking</h3>
               <p className="text-gray-600 dark:text-gray-400 leading-relaxed font-medium">
                 Maintain complete oversight of your small business supply chain. Agents parse receipts, forecast inventory needs, and automatically flag accounting anomalies by correlating data across your spreadsheet tools in real-time.
               </p>
@@ -245,7 +245,7 @@ export const DevelopersPage: React.FC = () => {
         <div className="space-y-16">
           {/* Features Header */}
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">Build with Amthromax SDK</h2>
+            <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">Build with Amthromax SDK</h2>
             <p className="text-gray-600 dark:text-gray-400 text-base md:text-lg leading-relaxed font-medium">
               Initialize our client SDK in Node.js, Python, or Go to instantly query advanced models, configure post-quantum tunnels, or spin up powerful autonomous microservices in a fully typed environment.
             </p>
@@ -260,7 +260,7 @@ export const DevelopersPage: React.FC = () => {
             ].map((feat, idx) => (
               <div key={idx} className="p-8 bg-black border border-white/20 rounded-2xl space-y-4 shadow-2xl transition-all flex flex-col justify-start text-left text-white">
                 <span className="text-2xl font-black text-gray-300">0{idx + 1}</span>
-                <h4 className="text-xl font-bold text-white tracking-tight">{feat.title}</h4>
+                <h4 className="text-xl font-semibold text-white tracking-tight">{feat.title}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed font-medium">{feat.desc}</p>
               </div>
             ))}
@@ -315,7 +315,7 @@ export const DevelopersPage: React.FC = () => {
         {/* Feature Grid */}
         <div className="space-y-12 border-t border-gray-150 dark:border-white/[0.04] pt-24">
           <div className="max-w-3xl space-y-4">
-            <h2 className="text-3xl md:text-4xl font-extrabold text-gray-900 dark:text-white tracking-tight">Enterprise-Grade Infrastructure</h2>
+            <h2 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">Enterprise-Grade Infrastructure</h2>
             <p className="text-gray-500 dark:text-gray-400 text-lg font-medium">Build on top of the same scalable infrastructure that powers Amthromax's internal platform.</p>
           </div>
 
@@ -357,7 +357,7 @@ export const DevelopersPage: React.FC = () => {
                   {box.icon}
                 </div>
                 <div>
-                  <h3 className="text-xl font-bold text-white mb-2 tracking-tight">{box.title}</h3>
+                  <h3 className="text-xl font-medium text-white mb-2 tracking-tight">{box.title}</h3>
                   <p className="text-sm font-medium text-gray-400 leading-relaxed">{box.desc}</p>
                 </div>
               </div>

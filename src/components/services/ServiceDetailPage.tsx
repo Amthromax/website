@@ -157,7 +157,7 @@ const ServiceDetailPage: React.FC = () => {
             <span className="text-gray-900 dark:text-white">{service.title}</span>
           </nav>
 
-          <h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight leading-[1.08] text-gray-900 dark:text-white">
+          <h1 className="text-balance text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight leading-[1.08] text-gray-900 dark:text-white">
             {service.title}
           </h1>
 
@@ -184,7 +184,7 @@ const ServiceDetailPage: React.FC = () => {
         {/* Left Side: Overview & Features */}
         <div className="lg:col-span-8 space-y-24">
           <section className="space-y-8">
-            <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
               Service Overview
             </h2>
             <div className="space-y-6">
@@ -199,7 +199,7 @@ const ServiceDetailPage: React.FC = () => {
           </section>
 
           <section className="space-y-12">
-            <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 dark:text-white tracking-tight">
+            <h2 className="text-3xl md:text-4xl font-medium text-gray-900 dark:text-white tracking-tight">
               Key Capabilities
             </h2>
             <div className="grid sm:grid-cols-2 gap-8">
@@ -228,7 +228,7 @@ const ServiceDetailPage: React.FC = () => {
           <div className="bg-gray-50 dark:bg-[#121213] rounded-2xl p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
             <div className="flex items-center gap-4 pb-2">
               <div className="w-2 h-2 bg-gray-900 dark:bg-white rounded-full animate-pulse"></div>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
+              <h3 className="text-sm font-medium uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
                 Technology Stack
               </h3>
             </div>
@@ -248,7 +248,7 @@ const ServiceDetailPage: React.FC = () => {
            <div className="bg-gray-50 dark:bg-[#121213] rounded-2xl p-8 md:p-10 border border-gray-200/60 dark:border-white/[0.05] shadow-sm space-y-8">
             <div className="flex items-center gap-4 pb-2">
               <svg className="w-5 h-5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" /></svg>
-              <h3 className="text-sm font-semibold uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
+              <h3 className="text-sm font-medium uppercase tracking-[0.15em] text-gray-900 dark:text-gray-100">
                 Project Deliverables
               </h3>
             </div>
@@ -268,7 +268,7 @@ const ServiceDetailPage: React.FC = () => {
                <svg width="120" height="120" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
             </div>
             <div className="relative z-10 space-y-4">
-              <h3 className="text-2xl font-semibold tracking-tight">Ready to build?</h3>
+              <h3 className="text-2xl font-medium tracking-tight">Ready to build?</h3>
               <p className="text-sm text-gray-300 dark:text-gray-600 leading-relaxed font-medium">
                 Partner with our team of elite engineers to design, scale, and deploy your next-generation technical product securely.
               </p>
@@ -289,7 +289,7 @@ const ServiceDetailPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 space-y-16">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6 max-w-2xl">
-              <h2 className="text-3xl md:text-5xl font-semibold text-gray-900 dark:text-white tracking-tight">
+              <h2 className="text-3xl md:text-5xl font-medium text-gray-900 dark:text-white tracking-tight">
                 Our Implementation Methodology
               </h2>
               <p className="text-gray-600 dark:text-gray-400 text-lg md:text-xl font-medium leading-relaxed">
@@ -339,7 +339,7 @@ const ServiceDetailPage: React.FC = () => {
                  <span className="h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white" />
                  Enterprise Standards
                </span>
-               <h2 className="text-balance text-3xl md:text-4xl lg:text-[2.75rem] font-semibold tracking-tight leading-[1.1] text-gray-900 dark:text-white">The Amthromax Enterprise Guarantee.</h2>
+               <h2 className="text-balance text-3xl md:text-4xl lg:text-[2.75rem] font-medium tracking-tight leading-[1.1] text-gray-900 dark:text-white">The Amthromax Enterprise Guarantee.</h2>
                <p className="text-pretty text-base md:text-lg leading-relaxed text-gray-600 dark:text-gray-400">
                  When you partner with our engineering teams, you gain more than just code. You acquire a resilient technological foundation designed to scale exponentially, protected by military-grade security parameters, and backed by contractually enforced continuous support.
                </p>

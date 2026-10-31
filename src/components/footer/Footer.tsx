@@ -132,7 +132,7 @@ const Footer: React.FC = () => {
             </Link>
 
             <div className="space-y-1">
-              <h3 className="text-base sm:text-lg lg:text-xl font-extrabold text-[#1a1815] dark:text-white tracking-tight">
+              <h3 className="text-base sm:text-lg lg:text-xl font-medium text-[#1a1815] dark:text-white tracking-tight">
                 Amthromax © {new Date().getFullYear()}
               </h3>
             </div>

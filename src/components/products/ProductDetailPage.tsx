@@ -17,7 +17,7 @@ const ProductDetailPage: React.FC = () => {
       <div className="py-32 text-center bg-white dark:bg-black min-h-[85vh] font-sans">
         <SEO title="Product Not Found | Amthromax" description="The requested product could not be found." />
         <div className="max-w-md mx-auto space-y-6 px-6">
-          <h1 className="text-3xl font-black text-gray-900 dark:text-white">Product Not Found</h1>
+          <h1 className="text-3xl font-medium text-gray-900 dark:text-white">Product Not Found</h1>
           <p className="text-gray-500 dark:text-gray-400 text-sm">
             The product architecture page you requested does not exist or has been relocated.
           </p>
