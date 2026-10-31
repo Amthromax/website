@@ -220,7 +220,7 @@ const PublicationsPage: React.FC = () => {
 
                   <div className="space-y-6 relative z-10">
                     <h3 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium text-white leading-[1.2] tracking-tight">
-                      <Link to={`/research/${activeHeroPaper.slug}`} className="hover:underline">
+                      <Link to={`/research/${activeHeroPaper.slug}`} className="transition-opacity duration-300 hover:opacity-80">
                         {activeHeroPaper.title}
                       </Link>
                     </h3>
