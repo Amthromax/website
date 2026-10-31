@@ -388,7 +388,7 @@ const ResearchOverviewPage: React.FC = () => {
 
               {/* Card Info Details */}
               <div className="space-y-2 pt-1">
-                <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h4 className="text-lg font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                   {model.title}
                 </h4>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
@@ -435,7 +435,7 @@ const ResearchOverviewPage: React.FC = () => {
 
             {/* Typography & Meta below Card 1 */}
             <div className="space-y-2 pt-1">
-              <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+              <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                 A state-of-the-art model that makes precise, immediately usable visuals
               </h3>
               <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 font-medium">
@@ -460,7 +460,7 @@ const ResearchOverviewPage: React.FC = () => {
 
             {/* Typography & Meta below Card 2 */}
             <div className="space-y-2 pt-1">
-              <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+              <h3 className="text-lg sm:text-xl font-semibold tracking-tight text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                 A natively multimodal model capable of precise, accurate, photorealistic outputs
               </h3>
               <div className="flex items-center gap-3 text-xs text-gray-500 dark:text-gray-400 font-medium">
@@ -671,7 +671,7 @@ const ResearchOverviewPage: React.FC = () => {
         <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-14">
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-gray-200 dark:border-white/10 pb-8">
             <div className="space-y-3">
-              <span className="text-xs uppercase tracking-[0.2em] text-blue-600 dark:text-blue-400 font-semibold block">
+              <span className="text-xs uppercase tracking-[0.2em] text-gray-900 dark:text-white font-semibold block">
                 Publications Index
               </span>
               <h2 className="text-3xl sm:text-4xl font-normal tracking-[-0.02em] text-gray-900 dark:text-white">
@@ -680,7 +680,7 @@ const ResearchOverviewPage: React.FC = () => {
             </div>
             <Link
               to="/research/publications"
-              className="text-sm font-semibold text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 flex items-center gap-1.5 cursor-pointer"
+              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-black dark:hover:text-white flex items-center gap-1.5 cursor-pointer"
             >
               <span>View full archive (140+ papers)</span>
               <span>→</span>
@@ -700,12 +700,12 @@ const ResearchOverviewPage: React.FC = () => {
                 className="text-left cursor-pointer bg-white dark:bg-black border border-gray-200/80 dark:border-white/10 rounded-lg p-7 sm:p-8 space-y-4 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-white/20 transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:focus-visible:ring-white focus-visible:ring-offset-2"
               >
                 <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 font-medium">
-                  <span className="px-3 py-1 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800 text-blue-700 dark:text-blue-300 font-semibold">
+                  <span className="px-3 py-1 rounded-full bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/15 text-gray-900 dark:text-gray-300 font-semibold">
                     {paper.category}
                   </span>
                   <span>{paper.date}</span>
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   {paper.title}
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">

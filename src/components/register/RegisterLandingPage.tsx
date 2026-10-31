@@ -278,42 +278,42 @@ const RegisterLandingPage: React.FC = () => {
                       <div className="text-left space-y-2 font-mono text-sm sm:text-base font-medium">
                         <div>
                           <span className="text-[#DC2626] font-semibold">from </span>
-                          <span className="text-[#2563EB]">amthromax </span>
+                          <span className="text-[#1A1815]">amthromax </span>
                           <span className="text-[#DC2626] font-semibold">import </span>
-                          <span className="text-[#2563EB] font-bold">AmthromaxClient</span>
+                          <span className="text-[#1A1815] font-bold">AmthromaxClient</span>
                         </div>
                         <div className="h-1" />
                         <div>
-                          <span className="text-[#2563EB] font-bold">client </span>
+                          <span className="text-[#1A1815] font-bold">client </span>
                           <span className="text-[#1A1815]">= </span>
-                          <span className="text-[#2563EB] font-bold">AmthromaxClient</span>
+                          <span className="text-[#1A1815] font-bold">AmthromaxClient</span>
                           <span className="text-[#1A1815]">(api_key=</span>
                           <span className="text-[#DC2626] font-semibold">"amx_live_9983x"</span>
                           <span className="text-[#1A1815]">)</span>
                         </div>
                         <div className="h-1" />
                         <div>
-                          <span className="text-[#2563EB] font-bold">audio_bytes </span>
+                          <span className="text-[#1A1815] font-bold">audio_bytes </span>
                           <span className="text-[#1A1815]">= </span>
                           <span className="text-[#DC2626] font-semibold">await </span>
-                          <span className="text-[#2563EB] font-bold">client.text_to_speech.convert</span>
+                          <span className="text-[#1A1815] font-bold">client.text_to_speech.convert</span>
                           <span className="text-[#1A1815]">(</span>
                         </div>
                         <div className="pl-6 space-y-1.5">
                           <div>
-                            <span className="text-[#2563EB]">voice_id</span>
+                            <span className="text-[#1A1815]">voice_id</span>
                             <span className="text-[#1A1815]">=</span>
                             <span className="text-[#DC2626] font-semibold">"NOpB1nGIn09m6vDvFkFC"</span>
                             <span className="text-[#1A1815]">,</span>
                           </div>
                           <div>
-                            <span className="text-[#2563EB]">text</span>
+                            <span className="text-[#1A1815]">text</span>
                             <span className="text-[#1A1815]">=</span>
                             <span className="text-[#DC2626] font-semibold">"In the ancient land of Eldoria, where skies shimmered and fores"</span>
                             <span className="text-[#1A1815]">,</span>
                           </div>
                           <div>
-                            <span className="text-[#2563EB]">model_id</span>
+                            <span className="text-[#1A1815]">model_id</span>
                             <span className="text-[#1A1815]">=</span>
                             <span className="text-[#DC2626] font-semibold">"amx_v3"</span>
                           </div>
@@ -351,7 +351,7 @@ const RegisterLandingPage: React.FC = () => {
                         <div className="text-left">
                           <span className="text-[#DC2626] font-bold">import </span>
                           <span className="text-[#1A1815]">{`{ `}</span>
-                          <span className="text-[#2563EB] font-bold">AmthromaxClient</span>
+                          <span className="text-[#1A1815] font-bold">AmthromaxClient</span>
                           <span className="text-[#1A1815]">{` }`}</span>
                           <span className="text-[#DC2626] font-bold"> from </span>
                           <span className="text-[#DC2626] font-bold">"@amthromax/amx-js"</span>
@@ -363,27 +363,27 @@ const RegisterLandingPage: React.FC = () => {
                         {/* Instantiation Line */}
                         <div className="text-left">
                           <span className="text-[#DC2626] font-bold">const </span>
-                          <span className="text-[#2563EB] font-bold">amthromax </span>
+                          <span className="text-[#1A1815] font-bold">amthromax </span>
                           <span className="text-[#1A1815]">= </span>
                           <span className="text-[#DC2626] font-bold">new </span>
-                          <span className="text-[#2563EB] font-bold">AmthromaxClient</span>
+                          <span className="text-[#1A1815] font-bold">AmthromaxClient</span>
                           <span className="text-[#1A1815]">();</span>
                         </div>
 
                         {/* Method Execution Line */}
                         <div className="text-left">
                           <span className="text-[#DC2626] font-bold">const </span>
-                          <span className="text-[#2563EB] font-bold">audio </span>
+                          <span className="text-[#1A1815] font-bold">audio </span>
                           <span className="text-[#1A1815]">= </span>
                           <span className="text-[#DC2626] font-bold">await </span>
-                          <span className="text-[#2563EB] font-bold">amthromax</span>
+                          <span className="text-[#1A1815] font-bold">amthromax</span>
                         </div>
 
                         {/* Method Details */}
                         <div className="pl-6 space-y-2.5 text-left">
                           <div className="flex items-center flex-wrap gap-1.5 text-left">
                             <span className="text-[#1A1815] font-semibold">.textToSpeech.convert(</span>
-                            <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] text-[#1E40AF] border border-[#BFDBFE] px-3 py-1 rounded-md font-sans text-xs sm:text-sm font-bold shadow-2xs">
+                            <span className="inline-flex items-center gap-1.5 bg-[#f4f4f5] text-[#1a1815] border border-[#e4e4e7] px-3 py-1 rounded-md font-sans text-xs sm:text-sm font-bold shadow-2xs">
                               <span>NOpB1nGIn09m6vDvFkFC</span>
                               <svg className="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
@@ -393,25 +393,25 @@ const RegisterLandingPage: React.FC = () => {
                           </div>
 
                           <div className="pl-6 flex items-center flex-wrap gap-1.5 text-left">
-                            <span className="text-[#2563EB] font-bold">text</span>
+                            <span className="text-[#1A1815] font-bold">text</span>
                             <span className="text-[#1A1815] font-semibold">: "</span>
-                            <span className="inline-flex items-center bg-[#EFF6FF] text-[#1E40AF] border border-[#BFDBFE] px-3 py-1 rounded-md font-sans text-xs sm:text-sm font-medium shadow-2xs">
+                            <span className="inline-flex items-center bg-[#f4f4f5] text-[#1a1815] border border-[#e4e4e7] px-3 py-1 rounded-md font-sans text-xs sm:text-sm font-medium shadow-2xs">
                               In the ancient land of Eldoria, where skies shimmered and fores
                             </span>
                             <span className="text-[#1A1815] font-semibold">",</span>
                           </div>
 
                           <div className="pl-6 flex items-center gap-1.5 text-left">
-                            <span className="text-[#2563EB] font-bold">modelId</span>
+                            <span className="text-[#1A1815] font-bold">modelId</span>
                             <span className="text-[#1A1815] font-semibold">: "</span>
                             <span className="text-[#DC2626] font-bold">amx_v3</span>
                             <span className="text-[#1A1815] font-semibold">",</span>
                           </div>
 
                           <div className="pl-6 flex items-center gap-1.5 text-left">
-                            <span className="text-[#2563EB] font-bold">languageCode</span>
+                            <span className="text-[#1A1815] font-bold">languageCode</span>
                             <span className="text-[#1A1815] font-semibold">: "</span>
-                            <span className="inline-flex items-center gap-1.5 bg-[#EFF6FF] text-[#1E40AF] border border-[#BFDBFE] px-2.5 py-1 rounded-md font-sans text-xs sm:text-sm font-bold shadow-2xs">
+                            <span className="inline-flex items-center gap-1.5 bg-[#f4f4f5] text-[#1a1815] border border-[#e4e4e7] px-2.5 py-1 rounded-md font-sans text-xs sm:text-sm font-bold shadow-2xs">
                               <span>en</span>
                               <svg className="w-3.5 h-3.5 stroke-current" fill="none" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M19 9l-7 7-7-7" />
@@ -606,9 +606,9 @@ const RegisterLandingPage: React.FC = () => {
                             <div>
                               <span className="text-[#DC2626] font-bold">import </span>
                               <span className="text-[#1A1815]">{`{ `}</span>
-                              <span className="text-[#2563EB] font-bold">AgentRunner</span>
+                              <span className="text-[#1A1815] font-bold">AgentRunner</span>
                               <span className="text-[#1A1815]">, </span>
-                              <span className="text-[#2563EB] font-bold">Telemetry</span>
+                              <span className="text-[#1A1815] font-bold">Telemetry</span>
                               <span className="text-[#1A1815]">{` }`}</span>
                               <span className="text-[#DC2626] font-bold"> from </span>
                               <span className="text-[#DC2626] font-bold">"@amthromax/runner"</span>
@@ -622,19 +622,19 @@ const RegisterLandingPage: React.FC = () => {
                             </div>
                             <div>
                               <span className="text-[#DC2626] font-bold">export class </span>
-                              <span className="text-[#2563EB] font-bold">ProductionAgentRunner</span>
+                              <span className="text-[#1A1815] font-bold">ProductionAgentRunner</span>
                               <span className="text-[#1A1815] font-semibold"> {"{"}</span>
                             </div>
 
                             <div className="pl-6 space-y-1.5">
                               <div>
                                 <span className="text-[#DC2626] font-bold">private </span>
-                                <span className="text-[#2563EB] font-bold">runner </span>
+                                <span className="text-[#1A1815] font-bold">runner </span>
                                 <span className="text-[#1A1815]">= </span>
                                 <span className="text-[#DC2626] font-bold">new </span>
-                                <span className="text-[#2563EB] font-bold">AgentRunner</span>
+                                <span className="text-[#1A1815] font-bold">AgentRunner</span>
                                 <span className="text-[#1A1815]">({`{ `}</span>
-                                <span className="text-[#2563EB] font-bold">timeoutMs</span>
+                                <span className="text-[#1A1815] font-bold">timeoutMs</span>
                                 <span className="text-[#1A1815]">: </span>
                                 <span className="text-[#059669] font-bold">30000</span>
                                 <span className="text-[#1A1815]">{` });`}</span>
@@ -644,25 +644,25 @@ const RegisterLandingPage: React.FC = () => {
 
                               <div>
                                 <span className="text-[#DC2626] font-bold">async </span>
-                                <span className="text-[#2563EB] font-bold">executeTask</span>
+                                <span className="text-[#1A1815] font-bold">executeTask</span>
                                 <span className="text-[#1A1815]">(task: TaskPayload) {"{"}</span>
                               </div>
                               <div className="pl-6">
                                 <span className="text-[#DC2626] font-bold">const </span>
-                                <span className="text-[#2563EB] font-bold">session </span>
+                                <span className="text-[#1A1815] font-bold">session </span>
                                 <span className="text-[#1A1815]">= </span>
                                 <span className="text-[#DC2626] font-bold">await </span>
                                 <span className="text-[#1A1815] font-semibold">this.runner.initialize(task);</span>
                               </div>
                               <div className="pl-6">
-                                <span className="text-[#2563EB] font-bold">Telemetry</span>
+                                <span className="text-[#1A1815] font-bold">Telemetry</span>
                                 <span className="text-[#1A1815] font-semibold">.track(</span>
                                 <span className="text-[#DC2626] font-semibold">"agent_started"</span>
                                 <span className="text-[#1A1815]">, {`{ `}id: session.id{` });`}</span>
                               </div>
                               <div className="pl-6">
                                 <span className="text-[#DC2626] font-bold">return </span>
-                                <span className="text-[#2563EB] font-bold">session</span>
+                                <span className="text-[#1A1815] font-bold">session</span>
                                 <span className="text-[#1A1815]">.streamResults();</span>
                               </div>
                               <div>
@@ -680,17 +680,17 @@ const RegisterLandingPage: React.FC = () => {
                             </div>
                             <div>
                               <span className="text-[#DC2626] font-bold">datasource </span>
-                              <span className="text-[#2563EB] font-bold">db </span>
+                              <span className="text-[#1A1815] font-bold">db </span>
                               <span className="text-[#1A1815]">{"{"}</span>
                             </div>
                             <div className="pl-6 space-y-1.5">
                               <div>
-                                <span className="text-[#2563EB] font-bold">provider </span>
+                                <span className="text-[#1A1815] font-bold">provider </span>
                                 <span className="text-[#1A1815]">= </span>
                                 <span className="text-[#DC2626] font-semibold">"postgresql"</span>
                               </div>
                               <div>
-                                <span className="text-[#2563EB] font-bold">url </span>
+                                <span className="text-[#1A1815] font-bold">url </span>
                                 <span className="text-[#1A1815]">= </span>
                                 <span className="text-[#1A1815]">env(</span>
                                 <span className="text-[#DC2626] font-semibold">"DATABASE_URL"</span>
@@ -705,20 +705,20 @@ const RegisterLandingPage: React.FC = () => {
 
                             <div>
                               <span className="text-[#DC2626] font-bold">model </span>
-                              <span className="text-[#2563EB] font-bold">AgentExecution </span>
+                              <span className="text-[#1A1815] font-bold">AgentExecution </span>
                               <span className="text-[#1A1815]">{"{"}</span>
                             </div>
                             <div className="pl-6 space-y-1.5">
                               <div>
-                                <span className="text-[#2563EB] font-bold">id </span>
+                                <span className="text-[#1A1815] font-bold">id </span>
                                 <span className="text-[#1A1815]">String @id @default(uuid())</span>
                               </div>
                               <div>
-                                <span className="text-[#2563EB] font-bold">status </span>
+                                <span className="text-[#1A1815] font-bold">status </span>
                                 <span className="text-[#1A1815]">ExecutionStatus @default(PENDING)</span>
                               </div>
                               <div>
-                                <span className="text-[#2563EB] font-bold">createdAt </span>
+                                <span className="text-[#1A1815] font-bold">createdAt </span>
                                 <span className="text-[#1A1815]">DateTime @default(now())</span>
                               </div>
                             </div>
@@ -731,7 +731,7 @@ const RegisterLandingPage: React.FC = () => {
                             <div>
                               <span className="text-[#DC2626] font-bold">import </span>
                               <span className="text-[#1A1815]">{`{ `}</span>
-                              <span className="text-[#2563EB] font-bold">CodeHoomerEngine</span>
+                              <span className="text-[#1A1815] font-bold">CodeHoomerEngine</span>
                               <span className="text-[#1A1815]">{` }`}</span>
                               <span className="text-[#DC2626] font-bold"> from </span>
                               <span className="text-[#DC2626] font-bold">"@amthromax/codehoomer"</span>
@@ -745,33 +745,33 @@ const RegisterLandingPage: React.FC = () => {
                             </div>
                             <div>
                               <span className="text-[#DC2626] font-bold">export async function </span>
-                              <span className="text-[#2563EB] font-bold">buildNextGenApp</span>
+                              <span className="text-[#1A1815] font-bold">buildNextGenApp</span>
                               <span className="text-[#1A1815]">(spec: ProjectSpec) {"{"}</span>
                             </div>
 
                             <div className="pl-6 space-y-2">
                               <div>
                                 <span className="text-[#DC2626] font-bold">const </span>
-                                <span className="text-[#2563EB] font-bold">agent </span>
+                                <span className="text-[#1A1815] font-bold">agent </span>
                                 <span className="text-[#1A1815]">= </span>
                                 <span className="text-[#DC2626] font-bold">new </span>
-                                <span className="text-[#2563EB] font-bold">CodeHoomerEngine</span>
+                                <span className="text-[#1A1815] font-bold">CodeHoomerEngine</span>
                                 <span className="text-[#1A1815]">({`{`}</span>
                               </div>
                               <div className="pl-6">
-                                <span className="text-[#2563EB] font-bold">autonomy</span>
+                                <span className="text-[#1A1815] font-bold">autonomy</span>
                                 <span className="text-[#1A1815]">: </span>
                                 <span className="text-[#DC2626] font-semibold">"full_engineer"</span>
                                 <span className="text-[#1A1815]">,</span>
                               </div>
                               <div className="pl-6">
-                                <span className="text-[#2563EB] font-bold">model</span>
+                                <span className="text-[#1A1815] font-bold">model</span>
                                 <span className="text-[#1A1815]">: </span>
                                 <span className="text-[#DC2626] font-semibold">"amx-coder-v4"</span>
                                 <span className="text-[#1A1815]">,</span>
                               </div>
                               <div className="pl-6">
-                                <span className="text-[#2563EB] font-bold">capabilities</span>
+                                <span className="text-[#1A1815] font-bold">capabilities</span>
                                 <span className="text-[#1A1815]">: [</span>
                                 <span className="text-[#DC2626] font-semibold">"fullstack"</span>
                                 <span className="text-[#1A1815]">, </span>
@@ -786,7 +786,7 @@ const RegisterLandingPage: React.FC = () => {
 
                               <div>
                                 <span className="text-[#DC2626] font-bold">return await </span>
-                                <span className="text-[#2563EB] font-bold">agent</span>
+                                <span className="text-[#1A1815] font-bold">agent</span>
                                 <span className="text-[#1A1815] font-semibold">.deployToProduction(spec);</span>
                               </div>
                             </div>
@@ -1101,12 +1101,12 @@ const RegisterLandingPage: React.FC = () => {
                 >
                   <div className="flex items-center justify-between pb-3 border-b border-[#F0EEE6] mb-4">
                     <div className="flex items-center gap-2">
-                      <span className="w-2.5 h-2.5 rounded-full bg-[#2563EB] animate-pulse" />
+                      <span className="w-2.5 h-2.5 rounded-full bg-[#1A1815] animate-pulse" />
                       <span className="text-xs font-mono font-bold text-[#1A1815] uppercase tracking-wider">
                         Real-Time Ingestion Pipeline Node
                       </span>
                     </div>
-                    <span className="text-[10px] font-mono font-semibold bg-[#EFF6FF] text-[#1D4ED8] border border-[#DBEAFE] px-2 py-0.5 rounded-full">
+                    <span className="text-[10px] font-mono font-semibold bg-[#f4f4f5] text-[#1a1815] border border-[#e4e4e7] px-2 py-0.5 rounded-full">
                       STATUS: ACTIVE (4.82 GB/s)
                     </span>
                   </div>
@@ -1128,7 +1128,7 @@ const RegisterLandingPage: React.FC = () => {
 
                   <div className="p-3 rounded-xl bg-[#FAF9F6] border border-[#EBE8E0] font-mono text-xs flex items-center justify-between gap-2 overflow-x-auto">
                     <span className="text-[#666057] shrink-0">Kafka Event Stream ➔</span>
-                    <span className="text-[#2563EB] font-bold shrink-0">Helleious Stream ETL</span>
+                    <span className="text-[#1A1815] font-bold shrink-0">Helleious Stream ETL</span>
                     <span className="text-[#666057] shrink-0">➔ Snowflake & VectorDB</span>
                   </div>
                 </motion.div>
@@ -1468,7 +1468,7 @@ const RegisterLandingPage: React.FC = () => {
                   <svg className="flex-shrink-0" width="18" height="18" fill="none" viewBox="0 0 14 14"><circle cx="7" cy="7" r="6" stroke="#22c55e" strokeWidth="1.6"/><path d="M4.5 7l2 2 3-3" stroke="#22c55e" strokeWidth="1.6" strokeLinecap="round"/></svg>
                 </div>
                 <div className="bg-white/95 backdrop-blur-md rounded-2xl shadow-xl border border-white/40 px-5 py-4 flex items-center gap-4">
-                  <div className="w-14 h-14 rounded-2xl bg-[#1d6bf3] flex items-center justify-center flex-shrink-0 shadow-md">
+                  <div className="w-14 h-14 rounded-2xl bg-[#1a1815] flex items-center justify-center flex-shrink-0 shadow-md">
                     <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                     </svg>
@@ -1476,7 +1476,7 @@ const RegisterLandingPage: React.FC = () => {
                   <div className="flex-1">
                     <p className="text-xs font-bold text-[#1A1815] leading-snug">Connecting to Vector Store…</p>
                   </div>
-                  <div className="flex-shrink-0 w-4 h-4 rounded-full border-2 border-blue-500 border-t-transparent animate-spin"/>
+                  <div className="flex-shrink-0 w-4 h-4 rounded-full border-2 border-gray-900 border-t-transparent animate-spin"/>
                 </div>
               </div>
             ),
@@ -1516,7 +1516,7 @@ const RegisterLandingPage: React.FC = () => {
                   <p className="text-base font-bold text-[#1A1815] mb-4">System Health</p>
                   {[
                     { label: "Throughput", val: "99.8%", w: "w-[99%]", color: "bg-emerald-500" },
-                    { label: "Latency P95", val: "12ms", w: "w-[85%]", color: "bg-blue-500" },
+                    { label: "Latency P95", val: "12ms", w: "w-[85%]", color: "bg-gray-900" },
                     { label: "Error Rate", val: "0.02%", w: "w-[4%]", color: "bg-amber-500" },
                   ].map((m, i) => (
                     <div key={i} className="mb-3.5 last:mb-0">
@@ -1793,7 +1793,7 @@ const RegisterLandingPage: React.FC = () => {
               cardTitle: "Enterprise Audit Log",
               cardSubtext: "Amthromax Core v2.1",
               badge: "100% Guardrail Coverage",
-              iconBg: "bg-[#1d6bf3]",
+              iconBg: "bg-[#1a1815]",
               icon: (
                 <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2.2">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />

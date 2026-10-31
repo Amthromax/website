@@ -81,7 +81,7 @@ export default function AuthCallback() {
   return (
     <main className="min-h-screen bg-gray-50 dark:bg-black flex flex-col items-center justify-center p-4 text-center font-sans">
       <section className="flex flex-col items-center space-y-4">
-        <span className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin" />
+        <span className="w-8 h-8 border-2 border-gray-900 border-t-transparent rounded-full animate-spin" />
         <h1 className="text-sm font-semibold text-gray-900 dark:text-white">Signing you in</h1>
         <p className="text-xs text-gray-500 dark:text-gray-400">Please wait while we connect your Google account.</p>
       </section>

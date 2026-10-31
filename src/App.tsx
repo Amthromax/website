@@ -1053,7 +1053,7 @@ const App: React.FC = () => {
               className="relative w-full max-w-md bg-[#161617] border border-white/10 rounded-3xl p-6 sm:p-8 shadow-2xl overflow-hidden text-center"
             >
               {/* Glow backdrop decoration */}
-              <div className="absolute -top-24 -left-24 w-48 h-48 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" />
+              <div className="absolute -top-24 -left-24 w-48 h-48 bg-gray-900/20 rounded-full blur-3xl pointer-events-none" />
               <div className="absolute -bottom-24 -right-24 w-48 h-48 bg-purple-600/20 rounded-full blur-3xl pointer-events-none" />
 
               {/* Close Button */}
@@ -1066,8 +1066,8 @@ const App: React.FC = () => {
               </button>
 
               {/* Badge */}
-              <div className="inline-flex items-center gap-1.5 text-blue-400 text-[11px] font-bold tracking-wider uppercase mb-4">
-                <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-pulse" />
+              <div className="inline-flex items-center gap-1.5 text-gray-300 text-[11px] font-bold tracking-wider uppercase mb-4">
+                <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                 Coming Soon
               </div>
 
@@ -1108,7 +1108,7 @@ const App: React.FC = () => {
                       value={waitlistEmail}
                       onChange={(e) => setWaitlistEmail(e.target.value)}
                       required
-                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-xs text-white placeholder-gray-500 focus:outline-none focus:border-gray-900 transition-colors"
                     />
                   </div>
                   <button

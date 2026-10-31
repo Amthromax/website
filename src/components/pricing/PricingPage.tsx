@@ -120,7 +120,7 @@ const PricingPage: React.FC = () => {
             <motion.span 
               layout
               transition={{ type: "spring", stiffness: 500, damping: 30 }}
-              className="w-5 h-5 bg-[#0066cc] dark:bg-[#2997ff] rounded-full block shadow-sm" 
+              className="w-5 h-5 bg-[#1a1815] dark:bg-[#2997ff] rounded-full block shadow-sm" 
               style={{
                 marginLeft: billingCycle === "annually" ? "24px" : "0px"
               }}
@@ -128,7 +128,7 @@ const PricingPage: React.FC = () => {
           </button>
           <span className={`text-xs font-semibold ${billingCycle === "annually" ? "text-gray-900 dark:text-white" : "text-gray-500"} flex items-center gap-2`}>
             <span>Annually billing</span>
-            <span className="px-2.5 py-0.5 bg-blue-50 text-[#0066cc] dark:bg-[#2997ff]/20 dark:text-[#2997ff] text-[10px] font-semibold rounded-full uppercase tracking-wider">Save 20%</span>
+            <span className="px-2.5 py-0.5 bg-gray-50 text-[#1a1815] dark:bg-[#2997ff]/20 dark:text-[#2997ff] text-[10px] font-semibold rounded-full uppercase tracking-wider">Save 20%</span>
           </span>
         </div>
 
@@ -145,7 +145,7 @@ const PricingPage: React.FC = () => {
               className="p-8 sm:p-10 lg:p-12 rounded-2xl sm:rounded-2xl border border-gray-200 dark:border-white/10 bg-white dark:bg-black flex flex-col justify-between space-y-8 transition-all duration-300 relative h-full shadow-sm hover:shadow-md"
             >
               {plan.highlighted && (
-                <span className="absolute top-0 right-8 -translate-y-1/2 bg-[#0066cc] dark:bg-[#2997ff] text-white px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm">
+                <span className="absolute top-0 right-8 -translate-y-1/2 bg-[#1a1815] dark:bg-[#2997ff] text-white px-3.5 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shadow-sm">
                   Recommended
                 </span>
               )}
@@ -166,7 +166,7 @@ const PricingPage: React.FC = () => {
                 <ul className="space-y-3.5 pt-6 border-t border-gray-200 dark:border-white/10 text-sm">
                   {plan.features.map((feat, idx) => (
                     <li key={idx} className="flex items-start gap-3">
-                      <svg className="w-5 h-5 text-[#0066cc] dark:text-[#2997ff] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <svg className="w-5 h-5 text-[#1a1815] dark:text-[#2997ff] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                       </svg>
                       <span className="text-gray-700 dark:text-gray-300 font-normal leading-snug">{feat}</span>
@@ -183,7 +183,7 @@ const PricingPage: React.FC = () => {
                     rel="noopener noreferrer"
                     className={`w-full block text-center py-3.5 rounded-full text-sm font-semibold transition-all shadow-xs ${
                       plan.highlighted
-                        ? "bg-[#0066cc] hover:bg-[#0052a3] text-white"
+                        ? "bg-[#1a1815] hover:bg-[#0052a3] text-white"
                         : "bg-gray-900 hover:bg-black text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
                     }`}
                   >
@@ -194,7 +194,7 @@ const PricingPage: React.FC = () => {
                     to={plan.link}
                     className={`w-full block text-center py-3.5 rounded-full text-sm font-semibold transition-all shadow-xs ${
                       plan.highlighted
-                        ? "bg-[#0066cc] hover:bg-[#0052a3] text-white"
+                        ? "bg-[#1a1815] hover:bg-[#0052a3] text-white"
                         : "bg-gray-900 hover:bg-black text-white dark:bg-white dark:hover:bg-gray-100 dark:text-black"
                     }`}
                   >
@@ -230,7 +230,7 @@ const PricingPage: React.FC = () => {
                       className="w-full px-6 py-5 text-left flex items-center justify-between gap-4 font-semibold text-base text-gray-900 dark:text-white hover:opacity-90 select-none cursor-pointer"
                     >
                       <span>{faq.q}</span>
-                      <span className={`text-xl text-[#0066cc] dark:text-[#2997ff] transform transition-transform duration-200 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
+                      <span className={`text-xl text-[#1a1815] dark:text-[#2997ff] transform transition-transform duration-200 ${isOpen ? 'rotate-45' : 'rotate-0'}`}>
                         ＋
                       </span>
                     </button>

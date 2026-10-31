@@ -78,15 +78,15 @@ const AboutPage: React.FC = () => {
                   <svg className="w-full h-full object-cover" viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
                     <defs>
                       <linearGradient id="skyGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" stopColor="#38bdf8" />
+                        <stop offset="0%" stopColor="#d4d4d8" />
                         <stop offset="35%" stopColor="#fef08a" />
                         <stop offset="65%" stopColor="#f472b6" />
-                        <stop offset="100%" stopColor="#60a5fa" />
+                        <stop offset="100%" stopColor="#d4d4d8" />
                       </linearGradient>
                       <linearGradient id="hillGrad" x1="0%" y1="100%" x2="100%" y2="0%">
                         <stop offset="0%" stopColor="#059669" />
                         <stop offset="50%" stopColor="#fbbf24" />
-                        <stop offset="100%" stopColor="#2563eb" />
+                        <stop offset="100%" stopColor="#1a1815" />
                       </linearGradient>
                       <filter id="oilPaint" x="-20%" y="-20%" width="140%" height="140%">
                         <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="4" result="noise" />
@@ -102,7 +102,7 @@ const AboutPage: React.FC = () => {
                       <path d="M-50 420 C 200 320, 400 480, 650 360 C 800 280, 900 450, 950 420 L 950 700 L -50 700 Z" fill="#0284c7" opacity="0.75" />
                       <path d="M-50 480 C 100 400, 300 520, 500 440 C 700 360, 850 500, 950 460 L 950 700 L -50 700 Z" fill="#eab308" opacity="0.65" />
                       <circle cx="200" cy="180" r="140" fill="#a855f7" opacity="0.45" />
-                      <circle cx="650" cy="150" r="160" fill="#38bdf8" opacity="0.55" />
+                      <circle cx="650" cy="150" r="160" fill="#d4d4d8" opacity="0.55" />
                     </g>
 
                     {/* Canvas Texture Overlay */}

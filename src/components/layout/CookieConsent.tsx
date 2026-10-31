@@ -113,7 +113,7 @@ const CookieConsent: React.FC = () => {
                     DPDP & GDPR Aligned
                   </span>
                   {gpcActive && (
-                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-2xl bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                    <span className="text-[10px] uppercase font-mono px-2 py-0.5 rounded-2xl bg-gray-900/15 text-gray-300 border border-gray-900/20">
                       GPC Active
                     </span>
                   )}

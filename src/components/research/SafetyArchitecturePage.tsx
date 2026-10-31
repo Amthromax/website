@@ -38,7 +38,7 @@ const scatterParticles = (() => {
     for (let i = 0; i < 34; i++) {
       const offsetX = colX + Math.sin(i * 4 + colIndex) * 3.5;
       const y = 30 + ((i * 11 + colIndex * 23) % 320);
-      const colors = ["#818cf8", "#34d399", "#f472b6", "#fbbf24", "#a78bfa", "#60a5fa"];
+      const colors = ["#a1a1aa", "#34d399", "#f472b6", "#fbbf24", "#a78bfa", "#d4d4d8"];
       const color = colors[i % colors.length];
       const r = i % 4 === 0 ? 3.2 : i % 3 === 0 ? 2.5 : 2.0;
       particles.push({

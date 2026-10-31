@@ -284,13 +284,13 @@ const OrarQlowPage: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         className="space-y-1"
                       >
-                        <p className="text-purple-600 dark:text-purple-400 font-semibold">import <span className="text-gray-900 dark:text-white font-bold">&#123; SwarmCluster &#125;</span> from <span className="text-blue-600 dark:text-blue-400">"@amthromax/orarqlow"</span>;</p>
+                        <p className="text-purple-600 dark:text-purple-400 font-semibold">import <span className="text-gray-900 dark:text-white font-bold">&#123; SwarmCluster &#125;</span> from <span className="text-gray-900 dark:text-white">"@amthromax/orarqlow"</span>;</p>
                         <p className="text-gray-400 italic">// Initialize low-latency agent mesh</p>
-                        <p className="text-blue-600 dark:text-blue-400 font-semibold">export const <span className="text-amber-600 dark:text-amber-400 font-bold">mesh</span> = new SwarmCluster(&#123;</p>
+                        <p className="text-gray-900 dark:text-white font-semibold">export const <span className="text-amber-600 dark:text-amber-400 font-bold">mesh</span> = new SwarmCluster(&#123;</p>
                         <p className="pl-4 text-gray-900 dark:text-gray-100 font-medium">concurrency: <span className="text-amber-600 dark:text-amber-400 font-bold">500</span>,</p>
                         <p className="pl-4 text-gray-900 dark:text-gray-100 font-medium">autoHealing: <span className="text-purple-600 dark:text-purple-400 font-semibold">true</span>,</p>
-                        <p className="pl-4 text-gray-900 dark:text-gray-100 font-medium">consensusProtocol: <span className="text-blue-600 dark:text-blue-400 font-semibold">"Raft-Instant"</span>,</p>
-                        <p className="text-blue-600 dark:text-blue-400 font-semibold">&#125;);</p>
+                        <p className="pl-4 text-gray-900 dark:text-gray-100 font-medium">consensusProtocol: <span className="text-gray-900 dark:text-white font-semibold">"Raft-Instant"</span>,</p>
+                        <p className="text-gray-900 dark:text-white font-semibold">&#125;);</p>
                       </motion.div>
                     ) : (
                       <motion.div
@@ -301,11 +301,11 @@ const OrarQlowPage: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         className="space-y-1"
                       >
-                        <p className="text-purple-600 dark:text-purple-400 font-semibold">pub async fn <span className="text-blue-600 dark:text-blue-400 font-bold">route_swarm_payload</span>(msg: &Payload) -&gt; Result&lt;()&gt; &#123;</p>
+                        <p className="text-purple-600 dark:text-purple-400 font-semibold">pub async fn <span className="text-gray-900 dark:text-white font-bold">route_swarm_payload</span>(msg: &Payload) -&gt; Result&lt;()&gt; &#123;</p>
                         <p className="pl-4 text-gray-400 italic">// Rust low-overhead swarm router</p>
                         <p className="pl-4 text-gray-900 dark:text-gray-100 font-medium">let agent = mesh.select_idle_agent().await?;</p>
                         <p className="pl-4 text-gray-900 dark:text-gray-100 font-medium">agent.dispatch(msg).await?;</p>
-                        <p className="pl-4 text-blue-600 dark:text-blue-400 font-bold">Ok(())</p>
+                        <p className="pl-4 text-gray-900 dark:text-white font-bold">Ok(())</p>
                         <p className="text-purple-600 dark:text-purple-400 font-semibold">&#125;</p>
                       </motion.div>
                     )}

@@ -169,14 +169,14 @@ const GlobalPrivacyCenterPage: React.FC = () => {
           {/* GPC Signal Detection Box */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 pt-1 text-xs">
             <div className="flex items-center gap-2">
-              <span className={`w-2.5 h-2.5 rounded-full ${gpcStatus.isGpcDetected ? "bg-blue-600 dark:bg-blue-400 animate-pulse" : "bg-zinc-400 dark:bg-zinc-600"}`} />
+              <span className={`w-2.5 h-2.5 rounded-full ${gpcStatus.isGpcDetected ? "bg-gray-900 dark:bg-white animate-pulse" : "bg-zinc-400 dark:bg-zinc-600"}`} />
               <span className="font-bold text-gray-950 dark:text-white">Global Privacy Control (GPC):</span>
               <span className="text-gray-600 dark:text-gray-300 font-medium">
                 {gpcStatus.isGpcDetected ? "Active Opt-Out Signal Transmitted by Browser" : "No GPC Opt-Out Signal Detected"}
               </span>
             </div>
             {gpcStatus.isGpcDetected && (
-              <span className="px-2.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/40 text-blue-800 dark:text-blue-300 text-[11px] font-bold">
+              <span className="px-2.5 py-0.5 rounded-full bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-gray-300 text-[11px] font-bold">
                 Auto-Opt-Out Active
               </span>
             )}
@@ -245,25 +245,25 @@ const GlobalPrivacyCenterPage: React.FC = () => {
               <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs">
                 <div className="p-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10">
                   <span className="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase">Right of Access</span>
-                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.access ? "text-blue-600 dark:text-blue-400" : "text-gray-400 dark:text-gray-500"}`}>
+                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.access ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"}`}>
                     {jurisdiction.rights.access ? "Supported" : "N/A"}
                   </p>
                 </div>
                 <div className="p-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10">
                   <span className="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase">Right to Erasure</span>
-                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.erasure ? "text-blue-600 dark:text-blue-400" : "text-gray-400 dark:text-gray-500"}`}>
+                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.erasure ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"}`}>
                     {jurisdiction.rights.erasure ? "Supported" : "N/A"}
                   </p>
                 </div>
                 <div className="p-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10">
                   <span className="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase">Data Portability</span>
-                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.portability ? "text-blue-600 dark:text-blue-400" : "text-gray-400 dark:text-gray-500"}`}>
+                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.portability ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"}`}>
                     {jurisdiction.rights.portability ? "Supported" : "N/A"}
                   </p>
                 </div>
                 <div className="p-3 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10">
                   <span className="text-gray-500 dark:text-gray-400 text-[10px] font-bold uppercase">Opt-Out Sale/Share</span>
-                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.optOutSaleShare ? "text-blue-600 dark:text-blue-400" : "text-gray-400 dark:text-gray-500"}`}>
+                  <p className={`font-bold mt-0.5 ${jurisdiction.rights.optOutSaleShare ? "text-gray-900 dark:text-white" : "text-gray-400 dark:text-gray-500"}`}>
                     {jurisdiction.rights.optOutSaleShare ? "Supported (CCPA)" : "N/A"}
                   </p>
                 </div>
@@ -424,7 +424,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                   {SUBPROCESSORS.map((sp) => (
                     <tr key={sp.id} className="hover:bg-gray-50 dark:hover:bg-white/5 transition-colors">
                       <td className="p-3 font-bold text-gray-950 dark:text-white">
-                        <a href={sp.privacyPolicyUrl} target="_blank" rel="noopener noreferrer" className="hover:underline text-blue-600 dark:text-blue-400">
+                        <a href={sp.privacyPolicyUrl} target="_blank" rel="noopener noreferrer" className="hover:underline text-gray-900 dark:text-white">
                           {sp.name}
                         </a>
                       </td>
@@ -453,7 +453,7 @@ const GlobalPrivacyCenterPage: React.FC = () => {
                 <div key={pa.id} className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-2">
                   <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
                     <h5 className="text-xs font-bold text-gray-950 dark:text-white">{pa.name}</h5>
-                    <span className="px-2.5 py-0.5 rounded-full bg-blue-100 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/40 text-blue-800 dark:text-blue-300 font-mono text-[10px] font-bold">
+                    <span className="px-2.5 py-0.5 rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/10 text-gray-900 dark:text-gray-300 font-mono text-[10px] font-bold">
                       Legal Basis: {pa.legalBasisGDPR}
                     </span>
                   </div>
@@ -478,14 +478,14 @@ const GlobalPrivacyCenterPage: React.FC = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
             <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-0.5">
-              <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 tracking-wider">Data Fiduciary / Controller</span>
+              <span className="text-[10px] uppercase font-bold text-gray-900 dark:text-white tracking-wider">Data Fiduciary / Controller</span>
               <p className="text-gray-950 dark:text-white font-bold text-sm">{LEGAL_CONFIG.dataFiduciaryName}</p>
             </div>
 
             <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-0.5">
-              <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 tracking-wider">Privacy Email</span>
+              <span className="text-[10px] uppercase font-bold text-gray-900 dark:text-white tracking-wider">Privacy Email</span>
               <p className="text-gray-950 dark:text-white font-bold text-sm">
-                <a href={`mailto:${LEGAL_CONFIG.privacyContactEmail}`} className="underline hover:text-blue-600 dark:hover:text-blue-400">
+                <a href={`mailto:${LEGAL_CONFIG.privacyContactEmail}`} className="underline hover:text-black dark:hover:text-white">
                   {LEGAL_CONFIG.privacyContactEmail}
                 </a>
               </p>

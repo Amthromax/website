@@ -212,26 +212,26 @@ const DataProtectionPage: React.FC = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
             <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-0.5">
-              <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 tracking-wider">Data Fiduciary</span>
+              <span className="text-[10px] uppercase font-bold text-gray-900 dark:text-white tracking-wider">Data Fiduciary</span>
               <p className="text-gray-950 dark:text-white font-bold text-sm">{LEGAL_CONFIG.dataFiduciaryName}</p>
             </div>
 
             <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-0.5">
-              <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 tracking-wider">Grievance Desk</span>
+              <span className="text-[10px] uppercase font-bold text-gray-900 dark:text-white tracking-wider">Grievance Desk</span>
               <p className="text-gray-950 dark:text-white font-bold text-sm">{LEGAL_CONFIG.grievanceOfficerName}</p>
             </div>
 
             <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-0.5">
-              <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 tracking-wider">Email Contact</span>
+              <span className="text-[10px] uppercase font-bold text-gray-900 dark:text-white tracking-wider">Email Contact</span>
               <p className="text-gray-950 dark:text-white font-bold text-sm">
-                <a href={`mailto:${LEGAL_CONFIG.grievanceOfficerEmail}`} className="underline hover:text-blue-600 dark:hover:text-blue-400 transition-colors">
+                <a href={`mailto:${LEGAL_CONFIG.grievanceOfficerEmail}`} className="underline hover:text-black dark:hover:text-white transition-colors">
                   {LEGAL_CONFIG.grievanceOfficerEmail}
                 </a>
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-gray-50 dark:bg-white/5 border border-gray-200 dark:border-white/10 space-y-0.5">
-              <span className="text-[10px] uppercase font-bold text-blue-600 dark:text-blue-400 tracking-wider">Office Location</span>
+              <span className="text-[10px] uppercase font-bold text-gray-900 dark:text-white tracking-wider">Office Location</span>
               <p className="text-gray-700 dark:text-gray-300 font-semibold text-xs leading-snug">{LEGAL_CONFIG.grievanceOfficerAddress}</p>
             </div>
           </div>

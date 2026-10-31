@@ -125,7 +125,7 @@ const SolutionsPage: React.FC = () => {
               <ul className="grid grid-cols-1 sm:grid-cols-2 gap-3.5 pt-4 border-t border-[#e5e5e7]/80 dark:border-white/10">
                 {sol.features.map((feat) => (
                   <li key={feat} className="flex items-start text-xs sm:text-sm font-medium text-[#1d1d1f] dark:text-gray-200">
-                    <svg className="w-4 h-4 text-[#0066cc] dark:text-[#2997ff] mr-2 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <svg className="w-4 h-4 text-[#1a1815] dark:text-[#2997ff] mr-2 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M5 13l4 4L19 7" />
                     </svg>
                     <span>{feat}</span>
@@ -149,7 +149,7 @@ const SolutionsPage: React.FC = () => {
           <div className="pt-2">
             <Link
               to="/login"
-              className="inline-block px-8 py-3.5 bg-[#0066cc] hover:bg-[#0052a3] text-white font-medium rounded-full transition-all shadow-xs text-sm"
+              className="inline-block px-8 py-3.5 bg-[#1a1815] hover:bg-[#0052a3] text-white font-medium rounded-full transition-all shadow-xs text-sm"
             >
               Consult Our Engineers
             </Link>

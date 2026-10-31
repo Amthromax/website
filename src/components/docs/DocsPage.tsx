@@ -87,7 +87,7 @@ const DocsPage: React.FC = () => {
         {/* Left Sidebar Navigation */}
         <aside className="md:col-span-3 space-y-6">
           <div className="space-y-1">
-            <span className="text-[10px] font-bold uppercase tracking-wider text-blue-600 dark:text-blue-400">
+            <span className="text-[10px] font-bold uppercase tracking-wider text-gray-900 dark:text-white">
               AMTHROMAX DEVELOPER DOCS
             </span>
             <h2 className="text-xl font-black text-gray-900 dark:text-white">API Reference</h2>
@@ -124,7 +124,7 @@ const DocsPage: React.FC = () => {
                 <div className="space-y-2">
                   <h3 className="text-sm font-bold text-gray-900 dark:text-white">1. Install the SDK package</h3>
                   <div className="bg-[#1e1e24] text-gray-100 rounded-xl p-4 font-mono text-xs overflow-x-auto border border-zinc-800">
-                    <span className="text-blue-400">npm</span> install @amthromax/sdk
+                    <span className="text-gray-300">npm</span> install @amthromax/sdk
                   </div>
                 </div>
 
@@ -192,7 +192,7 @@ console.log('Execution Status:', response.status);`}
                   <span className="text-emerald-400 font-bold">POST</span> https://api.amthromax.com/v1/workflows/run
                 </div>
                 <div className="p-4 bg-[#1e1e24] rounded-xl border border-zinc-800 text-xs font-mono">
-                  <span className="text-blue-400 font-bold">GET</span> https://api.amthromax.com/v1/workflows/:id/status
+                  <span className="text-gray-300 font-bold">GET</span> https://api.amthromax.com/v1/workflows/:id/status
                 </div>
               </div>
             </div>
@@ -208,13 +208,13 @@ console.log('Execution Status:', response.status);`}
               </p>
               <ul className="space-y-3 text-xs md:text-sm text-gray-600 dark:text-gray-300 font-medium">
                 <li className="p-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
-                  <strong className="text-gray-900 dark:text-white">Node.js / TypeScript:</strong> <code className="text-blue-500">npm i @amthromax/sdk</code>
+                  <strong className="text-gray-900 dark:text-white">Node.js / TypeScript:</strong> <code className="text-gray-900">npm i @amthromax/sdk</code>
                 </li>
                 <li className="p-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
-                  <strong className="text-gray-900 dark:text-white">Python:</strong> <code className="text-blue-500">pip install amthromax-sdk</code>
+                  <strong className="text-gray-900 dark:text-white">Python:</strong> <code className="text-gray-900">pip install amthromax-sdk</code>
                 </li>
                 <li className="p-3 bg-white dark:bg-gray-900 rounded-xl border border-gray-200 dark:border-gray-800">
-                  <strong className="text-gray-900 dark:text-white">Go:</strong> <code className="text-blue-500">go get github.com/amthromax/amthromax-go</code>
+                  <strong className="text-gray-900 dark:text-white">Go:</strong> <code className="text-gray-900">go get github.com/amthromax/amthromax-go</code>
                 </li>
               </ul>
             </div>
@@ -249,7 +249,7 @@ console.log('Execution Status:', response.status);`}
               <div className="space-y-4">
                 <div className="p-5 bg-white dark:bg-gray-900 rounded-2xl border border-gray-200 dark:border-gray-800 space-y-2">
                   <div className="flex justify-between text-xs font-bold">
-                    <span className="text-blue-500">v2.4.0 — Production Release</span>
+                    <span className="text-gray-900">v2.4.0 — Production Release</span>
                     <span className="text-gray-400">August 2026</span>
                   </div>
                   <p className="text-xs text-gray-600 dark:text-gray-300 font-medium">

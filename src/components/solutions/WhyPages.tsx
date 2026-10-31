@@ -45,7 +45,7 @@ export const EnterprisesPage: React.FC = () => {
               { label: "Compliance Standard", value: "SOC2 Type II" }
             ].map((stat, idx) => (
               <div key={idx} className="p-8 bg-white dark:bg-black border border-gray-150 dark:border-white/10 rounded-2xl text-center space-y-3 shadow-sm hover:shadow-md transition-all flex flex-col justify-center">
-                <span className="text-[10px] md:text-xs text-blue-600 dark:text-blue-400 font-bold uppercase tracking-wider">{stat.label}</span>
+                <span className="text-[10px] md:text-xs text-gray-900 dark:text-white font-bold uppercase tracking-wider">{stat.label}</span>
                 <h3 className={`font-black text-gray-900 dark:text-white tracking-tight ${stat.value.length > 8 ? 'text-2xl lg:text-3xl' : 'text-3xl lg:text-4xl'}`}>
                   {stat.value}
                 </h3>
@@ -63,7 +63,7 @@ export const EnterprisesPage: React.FC = () => {
               <img src="/images/4581a46a-71af-4f57-9755-37895b033f91.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Zero-Trust" />
             </div>
             <div className="p-8 flex-1 space-y-4">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">01 / INTEGRITY</span>
+              <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">01 / INTEGRITY</span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Zero-Trust Network Models</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Enforce granular access logs, identity federation (SAML/OIDC), and hardware-isolated key storage across every agent deployment. Prevent credential hijacking at the network root with continuous verification.
@@ -77,7 +77,7 @@ export const EnterprisesPage: React.FC = () => {
               <img src="/images/5080718a-31ec-4965-9f36-6489a855c841.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Pipeline Scaling" />
             </div>
             <div className="p-8 flex-1 space-y-4">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">02 / VELOCITY</span>
+              <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">02 / VELOCITY</span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Automated Pipeline Scaling</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Distribute analytical requests dynamically through load-balanced Kubernetes clusters. Experience automatic compute scaling during periods of extreme workflow traffic seamlessly.
@@ -91,7 +91,7 @@ export const EnterprisesPage: React.FC = () => {
               <img src="/images/6dedb3e9-0f1b-4588-be70-9a0f66e58485.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="SLA Commitments" />
             </div>
             <div className="p-8 flex-1 space-y-4">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">03 / CONTINUITY</span>
+              <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">03 / CONTINUITY</span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Dedicated SLA Commitments</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Access around-the-clock enterprise engineers via direct Slack channels and priority ticketing, backed by contractually enforced support response times and compensation guarantees.
@@ -105,7 +105,7 @@ export const EnterprisesPage: React.FC = () => {
               <img src="/images/71330e1b-6cbc-4d5f-b41a-4bd952642667.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Dedicated Compute" />
             </div>
             <div className="p-8 flex-1 space-y-4">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">04 / ISOLATION</span>
+              <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">04 / ISOLATION</span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Dedicated Compute Clusters</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Ensure your processes never compete for resources. Leverage physically separate bare-metal servers designed specifically for your organization's heavy ML inference requirements.
@@ -119,7 +119,7 @@ export const EnterprisesPage: React.FC = () => {
               <img src="/images/f52c3acd-0fed-4dc2-a531-a577ef8aa5e6.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Quantum Crypto" />
             </div>
             <div className="p-8 flex-1 space-y-4">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">05 / FUTURE-PROOF</span>
+              <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">05 / FUTURE-PROOF</span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Post-Quantum Cryptography</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Protect sensitive corporate data ahead of time with lattice-based cryptographic tunneling that secures your API traffic from both classical and quantum decryption algorithms.
@@ -133,7 +133,7 @@ export const EnterprisesPage: React.FC = () => {
               <img src="/images/5a420a98-3f97-4888-a234-70f644008d80.png" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" alt="Global Sync" />
             </div>
             <div className="p-8 flex-1 space-y-4">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">06 / RESILIENCE</span>
+              <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">06 / RESILIENCE</span>
               <h3 className="text-xl font-bold text-gray-900 dark:text-white tracking-tight">Global State Redundancy</h3>
               <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed font-medium">
                 Achieve disaster recovery instantly. Your data and agent memory states are continuously replicated across 3 independent geographical zones for ultimate redundancy.
@@ -259,7 +259,7 @@ export const DevelopersPage: React.FC = () => {
               { title: "Post-Quantum Cryptography Libraries", desc: "Install our open-source CRYSTALS-Kyber key-agreement library directly from npm or pip to secure payload transmission." }
             ].map((feat, idx) => (
               <div key={idx} className="p-8 bg-black border border-white/20 rounded-2xl space-y-4 shadow-2xl transition-all flex flex-col justify-start text-left text-white">
-                <span className="text-2xl font-black text-blue-400">0{idx + 1}</span>
+                <span className="text-2xl font-black text-gray-300">0{idx + 1}</span>
                 <h4 className="text-xl font-bold text-white tracking-tight">{feat.title}</h4>
                 <p className="text-gray-400 text-sm leading-relaxed font-medium">{feat.desc}</p>
               </div>
@@ -268,7 +268,7 @@ export const DevelopersPage: React.FC = () => {
 
           {/* Big Code Snippet Box (Moved to Bottom) */}
           <div className="relative group w-full">
-            <div className="absolute -inset-1 bg-gradient-to-br from-blue-500/20 to-purple-600/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
+            <div className="absolute -inset-1 bg-gradient-to-br from-gray-500/20 to-purple-600/20 rounded-2xl blur-xl opacity-50 group-hover:opacity-100 transition duration-500"></div>
             <div className="relative bg-[#0d0d0f] text-gray-100 rounded-2xl p-8 md:p-12 border border-white/[0.08] shadow-2xl font-mono text-sm overflow-x-auto space-y-6">
               <div className="flex items-center justify-between pb-6 border-b border-white/[0.08]">
                 <span className="text-gray-400 font-sans text-xs font-semibold tracking-wider bg-white/[0.05] px-4 py-2 rounded-full">app.ts</span>
@@ -281,32 +281,32 @@ export const DevelopersPage: React.FC = () => {
               <pre className="leading-loose text-[13px] md:text-sm text-gray-300 w-full overflow-x-auto">
                 <span className="text-purple-400 font-medium">import</span> {'{'} AmthromaxClient, LogLevel {'}'} <span className="text-purple-400 font-medium">from</span> <span className="text-emerald-400">'@amthromax/sdk'</span>;{"\n\n"}
                 <span className="text-gray-500 italic">// Initialize the core client with advanced config</span>{"\n"}
-                <span className="text-blue-400 font-medium">const</span> client = <span className="text-purple-400 font-medium">new</span> <span className="text-amber-200">AmthromaxClient</span>({'{'}{"\n"}
+                <span className="text-gray-300 font-medium">const</span> client = <span className="text-purple-400 font-medium">new</span> <span className="text-amber-200">AmthromaxClient</span>({'{'}{"\n"}
                 {'  '}apiKey: process.env.AMTHROMAX_API_KEY,{"\n"}
                 {'  '}environment: <span className="text-emerald-400">'production'</span>,{"\n"}
                 {'  '}maxRetries: <span className="text-orange-400">3</span>,{"\n"}
                 {'  '}timeoutMs: <span className="text-orange-400">15000</span>,{"\n"}
                 {'  '}logger: {'{'} level: LogLevel.DEBUG {'}'}{"\n"}
                 {'}'});{"\n\n"}
-                <span className="text-purple-400 font-medium">async function</span> <span className="text-blue-300">runAnalysis</span>() {'{'}{"\n"}
+                <span className="text-purple-400 font-medium">async function</span> <span className="text-gray-300">runAnalysis</span>() {'{'}{"\n"}
                 {'  '}<span className="text-purple-400 font-medium">try</span> {'{'}{"\n"}
                 {'    '}<span className="text-gray-500 italic">// Spin up an ephemeral agent session</span>{"\n"}
-                {'    '}<span className="text-blue-400 font-medium">const</span> session = <span className="text-purple-400 font-medium">await</span> client.agents.<span className="text-blue-300">spawn</span>(<span className="text-emerald-400">'logistics-orchestrator-v2'</span>);{"\n\n"}
-                {'    '}console.<span className="text-blue-300">log</span>(<span className="text-emerald-400">{"`Session Active. ID: "}</span><span className="text-blue-400 font-medium">{"${"}</span>session.<span className="text-blue-300">getId</span>()<span className="text-blue-400 font-medium">{"}`"}</span>);{"\n\n"}
+                {'    '}<span className="text-gray-300 font-medium">const</span> session = <span className="text-purple-400 font-medium">await</span> client.agents.<span className="text-gray-300">spawn</span>(<span className="text-emerald-400">'logistics-orchestrator-v2'</span>);{"\n\n"}
+                {'    '}console.<span className="text-gray-300">log</span>(<span className="text-emerald-400">{"`Session Active. ID: "}</span><span className="text-gray-300 font-medium">{"${"}</span>session.<span className="text-gray-300">getId</span>()<span className="text-gray-300 font-medium">{"}`"}</span>);{"\n\n"}
                 {'    '}<span className="text-gray-500 italic">// Stream the workflow execution in real-time</span>{"\n"}
-                {'    '}<span className="text-blue-400 font-medium">const</span> responseStream = <span className="text-purple-400 font-medium">await</span> session.<span className="text-blue-300">executeStream</span>({'{'}{"\n"}
+                {'    '}<span className="text-gray-300 font-medium">const</span> responseStream = <span className="text-purple-400 font-medium">await</span> session.<span className="text-gray-300">executeStream</span>({'{'}{"\n"}
                 {'      '}task: <span className="text-emerald-400">'Analyze Q3 global supply chain anomalies'</span>,{"\n"}
                 {'      '}datasetIds: [<span className="text-emerald-400">'ds_88192A'</span>, <span className="text-emerald-400">'ds_99182B'</span>],{"\n"}
                 {'      '}requireQuantumEncryption: <span className="text-orange-400">true</span>{"\n"}
                 {'    '}{'}'});{"\n\n"}
-                {'    '}<span className="text-purple-400 font-medium">for await</span> (<span className="text-blue-400 font-medium">const</span> chunk <span className="text-purple-400 font-medium">of</span> responseStream) {'{'}{"\n"}
-                {'      '}process.stdout.<span className="text-blue-300">write</span>(chunk.content);{"\n"}
+                {'    '}<span className="text-purple-400 font-medium">for await</span> (<span className="text-gray-300 font-medium">const</span> chunk <span className="text-purple-400 font-medium">of</span> responseStream) {'{'}{"\n"}
+                {'      '}process.stdout.<span className="text-gray-300">write</span>(chunk.content);{"\n"}
                 {'    '}{'}'}{"\n"}
                 {'  '}{'}'} <span className="text-purple-400 font-medium">catch</span> (err) {'{'}{"\n"}
-                {'    '}console.<span className="text-blue-300">error</span>(<span className="text-emerald-400">'Execution failed:'</span>, err.message);{"\n"}
+                {'    '}console.<span className="text-gray-300">error</span>(<span className="text-emerald-400">'Execution failed:'</span>, err.message);{"\n"}
                 {'  '}{'}'}{"\n"}
                 {'}'}{"\n\n"}
-                <span className="text-blue-300">runAnalysis</span>();
+                <span className="text-gray-300">runAnalysis</span>();
               </pre>
             </div>
           </div>

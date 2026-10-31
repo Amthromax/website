@@ -126,7 +126,7 @@ const FeaturesSection: React.FC = () => {
           href="/helleious"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-sm font-sans font-semibold tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
+          className="text-sm font-sans font-semibold tracking-widest uppercase text-black dark:text-white hover:text-black dark:hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           HELLEIOUS.AI
@@ -139,7 +139,7 @@ const FeaturesSection: React.FC = () => {
       <div className="absolute top-8 right-6 sm:right-10 md:right-14 z-20">
         <Link
           to="/codehoomer"
-          className="text-sm font-sans font-semibold tracking-widest uppercase text-black dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
+          className="text-sm font-sans font-semibold tracking-widest uppercase text-black dark:text-white hover:text-black dark:hover:text-white transition-colors duration-200 cursor-pointer flex items-center gap-1.5"
           style={{ fontFamily: "'Inter', sans-serif" }}
         >
           CODEHOOMER.AI

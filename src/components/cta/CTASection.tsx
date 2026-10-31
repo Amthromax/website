@@ -29,14 +29,14 @@ const CTASection: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold rounded-lg text-lg transition-all duration-300 transform shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="px-8 py-4 bg-gradient-to-r from-gray-900 to-black hover:from-black hover:to-black text-white font-semibold rounded-lg text-lg transition-all duration-300 transform shadow-lg hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             >
               Get Started Today
             </motion.button>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              className="px-8 py-4 border border-gray-300 hover:border-gray-400 text-gray-900 dark:text-gray-50 font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2"
+              className="px-8 py-4 border border-gray-300 hover:border-gray-400 text-gray-900 dark:text-gray-50 font-semibold rounded-lg text-lg transition-all duration-300 transform hover:bg-gray-50 dark:hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-900 focus:ring-offset-2"
             >
               Learn More
             </motion.button>

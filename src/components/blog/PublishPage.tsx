@@ -183,7 +183,7 @@ const PublishPage: React.FC = () => {
           description="Secure gate to verify administrative access to Amthromax publishing utilities."
         />
         <div className="w-full max-w-md bg-white dark:bg-gray-900 rounded-2xl p-8 md:p-10 shadow-2xl border border-gray-105 dark:border-gray-800 space-y-6 text-center animate-fade-in">
-          <div className="w-16 h-16 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 mx-auto flex items-center justify-center border border-blue-100 dark:border-blue-900/30 text-xl font-bold">
+          <div className="w-16 h-16 rounded-full bg-gray-50 dark:bg-white/[0.06] text-gray-900 dark:text-white mx-auto flex items-center justify-center border border-gray-200 dark:border-white/10 text-xl font-bold">
             🔒
           </div>
           <div className="space-y-2">
@@ -202,7 +202,7 @@ const PublishPage: React.FC = () => {
                 value={passwordInput}
                 onChange={(e) => setPasswordInput(e.target.value)}
                 placeholder="••••••••"
-                className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-black text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-all font-sans"
+                className="w-full px-4 py-3 text-sm rounded-xl border border-gray-200 dark:border-gray-800 bg-gray-50 dark:bg-black text-gray-900 dark:text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-900 transition-all font-sans"
               />
               {passwordError && (
                 <p className="text-[10px] text-red-500 font-semibold mt-1">
@@ -213,7 +213,7 @@ const PublishPage: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg active:scale-97 cursor-pointer"
+              className="w-full py-3 bg-gray-900 hover:bg-black text-white rounded-xl text-xs font-bold transition-all shadow-md hover:shadow-lg active:scale-97 cursor-pointer"
             >
               Verify and Access
             </button>
@@ -245,7 +245,7 @@ const PublishPage: React.FC = () => {
               <span>←</span> <span className="hidden sm:inline">Back to Blog</span>
             </Link>
             <div className="h-4 w-[1px] bg-gray-200 dark:bg-gray-800"></div>
-            <span className="text-sm font-black tracking-tight text-blue-600 dark:text-blue-400 uppercase">
+            <span className="text-sm font-black tracking-tight text-gray-900 dark:text-white uppercase">
               Creator Dashboard
             </span>
           </div>
@@ -256,7 +256,7 @@ const PublishPage: React.FC = () => {
               <button
                 onClick={() => setActiveTab("edit")}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeTab === "edit" ? "bg-white dark:bg-gray-800 shadow-sm text-blue-600 dark:text-blue-400" : "text-gray-500"
+                  activeTab === "edit" ? "bg-white dark:bg-gray-800 shadow-sm text-gray-900 dark:text-white" : "text-gray-500"
                 }`}
               >
                 Edit
@@ -264,7 +264,7 @@ const PublishPage: React.FC = () => {
               <button
                 onClick={() => setActiveTab("preview")}
                 className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all ${
-                  activeTab === "preview" ? "bg-white dark:bg-gray-800 shadow-sm text-blue-600 dark:text-blue-400" : "text-gray-500"
+                  activeTab === "preview" ? "bg-white dark:bg-gray-800 shadow-sm text-gray-900 dark:text-white" : "text-gray-500"
                 }`}
               >
                 Preview
@@ -273,7 +273,7 @@ const PublishPage: React.FC = () => {
 
             <button
               onClick={handlePublish}
-              className="px-6 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-full text-xs font-bold shadow-md hover:shadow-lg transition-all active:scale-97 cursor-pointer"
+              className="px-6 py-2 bg-gray-900 hover:bg-black text-white rounded-full text-xs font-bold shadow-md hover:shadow-lg transition-all active:scale-97 cursor-pointer"
             >
               Publish Article
             </button>
@@ -296,7 +296,7 @@ const PublishPage: React.FC = () => {
                 <button
                   type="button"
                   onClick={() => fileInputRef.current?.click()}
-                  className="text-xs font-bold text-blue-600 dark:text-blue-400 hover:underline cursor-pointer"
+                  className="text-xs font-bold text-gray-900 dark:text-white hover:underline cursor-pointer"
                 >
                   Import TXT File
                 </button>
@@ -317,7 +317,7 @@ const PublishPage: React.FC = () => {
                 onDrop={handleDrop}
                 className={`border-2 border-dashed rounded-2xl p-4 text-center transition-all ${
                   dragActive
-                    ? "border-blue-500 bg-blue-50/20 dark:bg-blue-950/10"
+                    ? "border-gray-900 bg-gray-50 dark:bg-white/[0.04]"
                     : "border-gray-200 dark:border-gray-800 hover:border-gray-300 dark:hover:border-gray-700"
                 }`}
               >
@@ -334,7 +334,7 @@ const PublishPage: React.FC = () => {
                     value={title}
                     onChange={(e) => setTitle(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white"
                     placeholder="Enter article title..."
                   />
                 </div>
@@ -346,7 +346,7 @@ const PublishPage: React.FC = () => {
                     value={excerpt}
                     onChange={(e) => setExcerpt(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white resize-none"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white resize-none"
                     placeholder="Provide a brief summary of the article..."
                   />
                 </div>
@@ -359,7 +359,7 @@ const PublishPage: React.FC = () => {
                       value={category}
                       onChange={(e) => setCategory(e.target.value)}
                       required
-                      className="w-full px-4 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white"
                       placeholder="e.g. AI Agents, Security"
                     />
                   </div>
@@ -371,7 +371,7 @@ const PublishPage: React.FC = () => {
                       value={readTime}
                       onChange={(e) => setReadTime(e.target.value)}
                       required
-                      className="w-full px-4 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white"
                       placeholder="e.g. 5 min read"
                     />
                   </div>
@@ -384,7 +384,7 @@ const PublishPage: React.FC = () => {
                       type="text"
                       value={authorName}
                       onChange={(e) => setAuthorName(e.target.value)}
-                      className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -393,7 +393,7 @@ const PublishPage: React.FC = () => {
                       type="text"
                       value={authorRole}
                       onChange={(e) => setAuthorRole(e.target.value)}
-                      className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white"
                     />
                   </div>
                   <div className="space-y-1.5">
@@ -403,7 +403,7 @@ const PublishPage: React.FC = () => {
                       maxLength={1}
                       value={authorAvatar}
                       onChange={(e) => setAuthorAvatar(e.target.value.substring(0, 1))}
-                      className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs text-center focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white font-bold"
+                      className="w-full px-3 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs text-center focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white font-bold"
                     />
                   </div>
                 </div>
@@ -421,7 +421,7 @@ const PublishPage: React.FC = () => {
                         }}
                         className={`aspect-video rounded-lg overflow-hidden border-2 relative group transition-all ${
                           image === preset.url && !customImage
-                            ? "border-blue-500 ring-2 ring-blue-500/20"
+                            ? "border-gray-900 ring-2 ring-gray-900/15"
                             : "border-transparent opacity-60 hover:opacity-100"
                         }`}
                         title={preset.label}
@@ -434,7 +434,7 @@ const PublishPage: React.FC = () => {
                     type="text"
                     value={customImage}
                     onChange={(e) => setCustomImage(e.target.value)}
-                    className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white"
+                    className="w-full px-4 py-2 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-xs focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white"
                     placeholder="Or paste a custom image URL..."
                   />
                 </div>
@@ -449,7 +449,7 @@ const PublishPage: React.FC = () => {
                     value={content}
                     onChange={(e) => setContent(e.target.value)}
                     required
-                    className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 text-gray-900 dark:text-white font-mono leading-relaxed"
+                    className="w-full px-4 py-3 bg-white dark:bg-gray-900 border border-gray-200 dark:border-gray-800 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-gray-900 text-gray-900 dark:text-white font-mono leading-relaxed"
                     placeholder="Write the body paragraphs here..."
                   />
                 </div>
@@ -474,7 +474,7 @@ const PublishPage: React.FC = () => {
               {/* Rendering exactly like BlogPostDetail */}
               <div className="space-y-6">
                 <div className="space-y-3">
-                  <div className="flex items-center space-x-2 text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-wider">
+                  <div className="flex items-center space-x-2 text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-wider">
                     <span>{category || "Uncategorized"}</span>
                     <span>•</span>
                     <span className="text-gray-400">{readTime || "5 min read"}</span>
@@ -483,7 +483,7 @@ const PublishPage: React.FC = () => {
                     {title || "Untitled Article"}
                   </h1>
                   {excerpt && (
-                    <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 font-medium leading-relaxed italic border-l-4 border-blue-500 pl-3 py-0.5">
+                    <p className="text-sm md:text-base text-gray-500 dark:text-gray-400 font-medium leading-relaxed italic border-l-4 border-gray-900 pl-3 py-0.5">
                       {excerpt}
                     </p>
                   )}
@@ -568,7 +568,7 @@ const PublishPage: React.FC = () => {
                         }
                         if (val === "Growing library") {
                           return (
-                            <span className="inline-block px-1.5 py-0.5 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 border border-blue-150 dark:border-blue-900/30 text-[9px] font-bold whitespace-nowrap">
+                            <span className="inline-block px-1.5 py-0.5 rounded-full bg-gray-50 dark:bg-white/[0.06] text-gray-900 dark:text-white border border-gray-200 dark:border-white/10 text-[9px] font-bold whitespace-nowrap">
                               Growing library
                             </span>
                           );
@@ -597,9 +597,9 @@ const PublishPage: React.FC = () => {
                               <thead>
                                 <tr className="bg-gray-50 dark:bg-gray-900/80 border-b border-gray-150 dark:border-white/[0.04]">
                                   <th className="p-3 font-extrabold text-gray-900 dark:text-white">Capability</th>
-                                  <th className="p-3 font-extrabold text-gray-900 dark:text-white text-center bg-blue-50/20 dark:bg-blue-900/10">
+                                  <th className="p-3 font-extrabold text-gray-900 dark:text-white text-center bg-gray-50 dark:bg-white/[0.05]">
                                     Helleious.ai<br/>
-                                    <span className="text-[8px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">(planned)</span>
+                                    <span className="text-[8px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">(planned)</span>
                                   </th>
                                   <th className="p-3 font-extrabold text-gray-950 dark:text-white text-center">n8n</th>
                                   <th className="p-3 font-extrabold text-gray-950 dark:text-white text-center">Zapier</th>
@@ -610,7 +610,7 @@ const PublishPage: React.FC = () => {
                                 {Helleious_TABLE_DATA.map((row, idx) => (
                                   <tr key={idx} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/10 transition-colors">
                                     <td className="p-3 font-semibold text-gray-900 dark:text-gray-200 leading-tight">{row.cap}</td>
-                                    <td className="p-3 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.Helleious)}</td>
+                                    <td className="p-3 text-center bg-gray-50 dark:bg-white/[0.04] border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.Helleious)}</td>
                                     <td className="p-4 text-center">{renderValue(row.n8n)}</td>
                                     <td className="p-4 text-center">{renderValue(row.zapier)}</td>
                                     <td className="p-4 text-center">{renderValue(row.make)}</td>
@@ -645,7 +645,7 @@ const PublishPage: React.FC = () => {
                     if (paragraph.startsWith("> ")) {
                       let text = paragraph.replace("> ", "");
                       return (
-                        <blockquote key={index} className="border-l-4 border-blue-500 pl-4 py-1.5 my-6 italic text-sm text-gray-500 dark:text-gray-400 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-xl pr-3">
+                        <blockquote key={index} className="border-l-4 border-gray-900 pl-4 py-1.5 my-6 italic text-sm text-gray-500 dark:text-gray-400 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-xl pr-3">
                           {text}
                         </blockquote>
                       );
@@ -656,7 +656,7 @@ const PublishPage: React.FC = () => {
                       const parts = cleanText.split("**");
                       return (
                         <div key={index} className="flex items-start space-x-2 pl-3 text-xs md:text-sm text-gray-700 dark:text-gray-300">
-                          <span className="text-blue-500 mt-1 shrink-0">•</span>
+                          <span className="text-gray-900 mt-1 shrink-0">•</span>
                           <span>
                             {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
                           </span>
@@ -672,7 +672,7 @@ const PublishPage: React.FC = () => {
                         const parts = text.split("**");
                         return (
                           <div key={index} className="flex items-start space-x-2 pl-1 text-xs md:text-sm text-gray-700 dark:text-gray-300">
-                            <span className="font-bold text-blue-600 dark:text-blue-400 shrink-0">{num}.</span>
+                            <span className="font-bold text-gray-900 dark:text-white shrink-0">{num}.</span>
                             <span>
                               {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
                             </span>

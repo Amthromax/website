@@ -247,7 +247,7 @@ const BlogPostDetail: React.FC = () => {
                 {/* Share/Notes */}
                 <button
                   onClick={handleNativeShare}
-                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-blue-600 hover:border-blue-600 dark:text-gray-400 dark:hover:text-blue-400 dark:hover:border-blue-400 flex items-center justify-center hover:bg-blue-50/10 transition-all select-none cursor-pointer"
+                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-black hover:border-gray-900 dark:text-gray-400 dark:hover:text-white dark:hover:border-white flex items-center justify-center hover:bg-gray-50 transition-all select-none cursor-pointer"
                   title="Share / Save to Notes"
                 >
                   <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
@@ -343,7 +343,7 @@ const BlogPostDetail: React.FC = () => {
                   }
                   if (val === "Growing library") {
                     return (
-                      <span className="inline-block px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-950/20 text-blue-600 dark:text-blue-400 border border-blue-150 dark:border-blue-900/30 text-[10px] font-bold whitespace-nowrap">
+                      <span className="inline-block px-2.5 py-1 rounded-full bg-gray-50 dark:bg-white/[0.06] text-gray-900 dark:text-white border border-gray-200 dark:border-white/10 text-[10px] font-bold whitespace-nowrap">
                         Growing library
                       </span>
                     );
@@ -372,9 +372,9 @@ const BlogPostDetail: React.FC = () => {
                         <thead>
                           <tr className="bg-gray-50 dark:bg-gray-900/80 border-b border-gray-150 dark:border-white/[0.04]">
                             <th className="p-4 font-extrabold text-gray-900 dark:text-white">Capability</th>
-                            <th className="p-4 font-extrabold text-gray-900 dark:text-white text-center bg-blue-50/20 dark:bg-blue-900/10">
+                            <th className="p-4 font-extrabold text-gray-900 dark:text-white text-center bg-gray-50 dark:bg-white/[0.05]">
                               Helleious.ai<br/>
-                              <span className="text-[9px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">(planned)</span>
+                              <span className="text-[9px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">(planned)</span>
                             </th>
                             <th className="p-4 font-extrabold text-gray-950 dark:text-white text-center">n8n</th>
                             <th className="p-4 font-extrabold text-gray-950 dark:text-white text-center">Zapier</th>
@@ -385,7 +385,7 @@ const BlogPostDetail: React.FC = () => {
                           {Helleious_TABLE_DATA.map((row, idx) => (
                             <tr key={idx} className="hover:bg-gray-50/50 dark:hover:bg-gray-900/10 transition-colors">
                               <td className="p-4 font-semibold text-gray-900 dark:text-gray-200 leading-snug">{row.cap}</td>
-                              <td className="p-4 text-center bg-blue-50/10 dark:bg-blue-950/5 border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.Helleious)}</td>
+                              <td className="p-4 text-center bg-gray-50 dark:bg-white/[0.04] border-x border-gray-100 dark:border-white/[0.02]">{renderValue(row.Helleious)}</td>
                               <td className="p-4 text-center">{renderValue(row.n8n)}</td>
                               <td className="p-4 text-center">{renderValue(row.zapier)}</td>
                               <td className="p-4 text-center">{renderValue(row.make)}</td>
@@ -421,7 +421,7 @@ const BlogPostDetail: React.FC = () => {
                 let text = paragraph.replace("> ", "");
                 // check if it starts and ends with quotes
                 return (
-                  <blockquote key={index} className="border-l-4 border-blue-500 pl-5 py-2 my-8 italic text-lg text-gray-600 dark:text-gray-450 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-xl pr-4">
+                  <blockquote key={index} className="border-l-4 border-gray-900 pl-5 py-2 my-8 italic text-lg text-gray-600 dark:text-gray-450 bg-gray-50/50 dark:bg-gray-900/30 rounded-r-xl pr-4">
                     {text}
                   </blockquote>
                 );
@@ -437,7 +437,7 @@ const BlogPostDetail: React.FC = () => {
                         const parts = cleanLine.split("**");
                         return (
                           <div key={li} className="flex items-start space-x-2 pl-4 text-sm md:text-base text-gray-700 dark:text-gray-300">
-                            <span className="text-blue-500 mt-1.5 shrink-0">•</span>
+                            <span className="text-gray-900 mt-1.5 shrink-0">•</span>
                             <span>{parts.map((p, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{p}</strong> : p)}</span>
                           </div>
                         );
@@ -448,7 +448,7 @@ const BlogPostDetail: React.FC = () => {
                           const parts = m[2].split("**");
                           return (
                             <div key={li} className="flex items-start space-x-3 pl-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-                              <span className="font-bold text-blue-600 dark:text-blue-400 mt-0.5 shrink-0">{m[1]}.</span>
+                              <span className="font-bold text-gray-900 dark:text-white mt-0.5 shrink-0">{m[1]}.</span>
                               <span>{parts.map((p, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{p}</strong> : p)}</span>
                             </div>
                           );
@@ -469,7 +469,7 @@ const BlogPostDetail: React.FC = () => {
                 const parts = cleanText.split("**");
                 return (
                   <div key={index} className="flex items-start space-x-2 pl-4 text-sm md:text-base text-gray-700 dark:text-gray-300">
-                    <span className="text-blue-500 mt-1.5 shrink-0">•</span>
+                    <span className="text-gray-900 mt-1.5 shrink-0">•</span>
                     <span>
                       {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
                     </span>
@@ -483,7 +483,7 @@ const BlogPostDetail: React.FC = () => {
                   const parts = match[2].split("**");
                   return (
                     <div key={index} className="flex items-start space-x-3 pl-2 text-sm md:text-base text-gray-700 dark:text-gray-300">
-                      <span className="font-bold text-blue-600 dark:text-blue-400 mt-0.5 shrink-0">{match[1]}.</span>
+                      <span className="font-bold text-gray-900 dark:text-white mt-0.5 shrink-0">{match[1]}.</span>
                       <span>
                         {parts.map((part, i) => i % 2 === 1 ? <strong key={i} className="font-extrabold text-gray-900 dark:text-white">{part}</strong> : part)}
                       </span>
@@ -504,7 +504,7 @@ const BlogPostDetail: React.FC = () => {
             })}
 
           {/* Bottom Call to Action */}
-          <div className="mt-16 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 border border-blue-100/50 dark:border-blue-900/10 flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="mt-16 p-8 md:p-10 rounded-2xl bg-gradient-to-br from-gray-50 to-gray-100 dark:from-white/[0.05] dark:to-white/[0.03] border border-gray-200/50 dark:border-white/10 flex flex-col md:flex-row items-center justify-between gap-6">
             <div className="space-y-2 text-center md:text-left">
               <h3 className="text-lg md:text-xl font-bold text-gray-900 dark:text-white">Interested in AI automation?</h3>
               <p className="text-gray-500 dark:text-gray-400 text-xs md:text-sm">Learn how Amthromax custom systems and agents can transform your workflows.</p>
@@ -529,10 +529,10 @@ const BlogPostDetail: React.FC = () => {
                     className="group block overflow-hidden rounded-2xl bg-gray-50 dark:bg-[#161617] border border-gray-150 dark:border-white/[0.04] p-5 hover:shadow-md transition-all duration-300"
                   >
                     <div className="space-y-3">
-                      <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase tracking-widest">
+                      <span className="text-[10px] font-bold text-gray-900 dark:text-white uppercase tracking-widest">
                         {rec.category}
                       </span>
-                      <h4 className="text-base font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                      <h4 className="text-base font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                         {rec.title}
                       </h4>
                       <p className="text-gray-500 dark:text-gray-400 text-xs leading-relaxed line-clamp-2">

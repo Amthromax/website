@@ -29,7 +29,7 @@ export const publicationsDatabase: Paper[] = [
     readTime: "8 min read",
     tags: ["Machine Learning", "Kubernetes", "DevOps"],
     authors: "Sarah Chen, Elena Rostova, Marcus Vance",
-    heroGradient: "from-blue-600 via-indigo-600 to-sky-400"
+    heroGradient: "from-gray-700 via-gray-800 to-gray-500"
   },
   {
     slug: "zero-trust-protocol",
@@ -41,7 +41,7 @@ export const publicationsDatabase: Paper[] = [
     readTime: "12 min read",
     tags: ["Zero Trust", "Cryptography", "Edge Computing"],
     authors: "Marcus Vance, Sarah Chen",
-    heroGradient: "from-emerald-600 via-teal-600 to-cyan-500"
+    heroGradient: "from-emerald-600 via-teal-600 to-gray-600"
   },
   {
     slug: "distributed-query-execution",
@@ -53,7 +53,7 @@ export const publicationsDatabase: Paper[] = [
     readTime: "10 min read",
     tags: ["Multi-Cloud", "SQL Federation", "Big Data"],
     authors: "Elena Rostova, Marcus Vance",
-    heroGradient: "from-purple-600 via-violet-600 to-indigo-500"
+    heroGradient: "from-purple-600 via-violet-600 to-gray-700"
   },
   {
     slug: "lattice-based-cryptography",
@@ -65,7 +65,7 @@ export const publicationsDatabase: Paper[] = [
     readTime: "15 min read",
     tags: ["Post-Quantum", "Web Security", "API Design"],
     authors: "Marcus Vance, Sarah Chen, Elena Rostova",
-    heroGradient: "from-sky-600 via-blue-700 to-indigo-900"
+    heroGradient: "from-gray-600 via-gray-800 to-black"
   },
   {
     slug: "transformer-networks-automation",
@@ -77,7 +77,7 @@ export const publicationsDatabase: Paper[] = [
     readTime: "14 min read",
     tags: ["LLMs", "Agent Coordination", "Automation"],
     authors: "Sarah Chen, Elena Rostova",
-    heroGradient: "from-blue-500 via-cyan-600 to-teal-700"
+    heroGradient: "from-gray-600 via-gray-700 to-teal-700"
   },
   {
     slug: "federated-edge-learning",
@@ -173,7 +173,7 @@ const PublicationsPage: React.FC = () => {
               transition={{ duration: 0.5 }}
               className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 dark:text-white leading-[1.05]"
             >
-              Amthromax <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 dark:from-blue-400 dark:via-cyan-300 dark:to-indigo-400">Core</span>
+              Amthromax <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-white dark:via-gray-300 dark:to-white">Core</span>
             </motion.h1>
             
             <motion.p 
@@ -191,8 +191,8 @@ const PublicationsPage: React.FC = () => {
             <div className="relative w-full max-w-2xl lg:max-w-3xl min-h-[380px] sm:min-h-[460px] flex flex-col">
               
               {/* Stacked Backing Cards for 3D Depth */}
-              <div className="absolute inset-0 bg-blue-900/30 rounded-2xl translate-x-5 -translate-y-5 scale-[0.92] border border-white/10 blur-[1px]" />
-              <div className="absolute inset-0 bg-indigo-900/40 rounded-2xl translate-x-2.5 -translate-y-2.5 scale-[0.96] border border-white/10" />
+              <div className="absolute inset-0 bg-white/[0.08] rounded-2xl translate-x-5 -translate-y-5 scale-[0.92] border border-white/10 blur-[1px]" />
+              <div className="absolute inset-0 bg-white/[0.06] rounded-2xl translate-x-2.5 -translate-y-2.5 scale-[0.96] border border-white/10" />
 
               {/* Active Hero Slide Card */}
               <AnimatePresence mode="wait">
@@ -202,7 +202,7 @@ const PublicationsPage: React.FC = () => {
                   animate={{ opacity: 1, scale: 1 }}
                   exit={{ opacity: 0, scale: 0.95 }}
                   transition={{ duration: 0.3 }}
-                  className={`relative w-full min-h-[380px] sm:min-h-[460px] rounded-2xl p-8 sm:p-12 md:p-16 bg-gradient-to-br ${activeHeroPaper.heroGradient || "from-blue-600 to-indigo-800"} flex flex-col justify-between shadow-2xl border border-white/20 overflow-hidden group`}
+                  className={`relative w-full min-h-[380px] sm:min-h-[460px] rounded-2xl p-8 sm:p-12 md:p-16 bg-gradient-to-br ${activeHeroPaper.heroGradient || "from-gray-700 to-black"} flex flex-col justify-between shadow-2xl border border-white/20 overflow-hidden group`}
                 >
                   {/* Subtle Shimmer Overlay */}
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(255,255,255,0.25),transparent_65%)] pointer-events-none" />
@@ -348,7 +348,7 @@ const PublicationsPage: React.FC = () => {
 
                   {/* Right Column: Title & Abstract */}
                   <div className="space-y-3 flex-1 max-w-4xl">
-                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                    <h3 className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                       <Link to={`/research/${paper.slug}`}>
                         {paper.title}
                       </Link>

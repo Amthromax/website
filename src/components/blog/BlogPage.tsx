@@ -94,7 +94,7 @@ const BlogPage: React.FC = () => {
               <div className="flex justify-center gap-4 pt-2">
                 <Link
                   to="/blog/publish"
-                  className="px-6 py-2.5 bg-[#0066cc] hover:bg-[#0052a3] text-white rounded-full text-xs font-medium transition-all shadow-xs flex items-center gap-2 cursor-pointer"
+                  className="px-6 py-2.5 bg-[#1a1815] hover:bg-[#0052a3] text-white rounded-full text-xs font-medium transition-all shadow-xs flex items-center gap-2 cursor-pointer"
                 >
                   <span>+</span> Write Article
                 </Link>
@@ -155,14 +155,14 @@ const BlogPage: React.FC = () => {
               </div>
               <div className="md:col-span-6 p-6 md:p-7 flex flex-col justify-between space-y-4">
                 <div className="space-y-2.5">
-                  <div className="flex items-center space-x-2 text-xs font-semibold text-[#0066cc] dark:text-[#2997ff] uppercase tracking-wider">
+                  <div className="flex items-center space-x-2 text-xs font-semibold text-[#1a1815] dark:text-[#2997ff] uppercase tracking-wider">
                     <span>{featuredPost.category}</span>
                     <span>•</span>
                     <span className="text-[#86868b] dark:text-gray-500">{featuredPost.readTime}</span>
                   </div>
                   <Link
                     to={`/blog/${featuredPost.id}`}
-                    className="block group-hover:text-[#0066cc] dark:group-hover:text-[#2997ff] transition-colors"
+                    className="block group-hover:text-[#1a1815] dark:group-hover:text-[#2997ff] transition-colors"
                   >
                     <h2 className="text-xl md:text-2xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
                       {featuredPost.title}
@@ -220,7 +220,7 @@ const BlogPage: React.FC = () => {
                   <div className="px-6 pb-2 space-y-3">
                     <span className="text-xs font-medium text-[#86868b] dark:text-gray-500">{post.readTime}</span>
                     <Link to={`/blog/${post.id}`} className="block">
-                      <h3 className="text-lg md:text-xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#0066cc] dark:group-hover:text-[#2997ff] transition-colors leading-snug">
+                      <h3 className="text-lg md:text-xl font-semibold tracking-tight text-[#1d1d1f] dark:text-white group-hover:text-[#1a1815] dark:group-hover:text-[#2997ff] transition-colors leading-snug">
                         {post.title}
                       </h3>
                     </Link>
@@ -262,12 +262,12 @@ const BlogPage: React.FC = () => {
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
-                <div className="w-full h-full bg-gradient-to-tr from-[#00A3FF] via-[#0066FF] to-[#9900FF] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
+                <div className="w-full h-full bg-gradient-to-tr from-[#3f3f46] via-[#1a1815] to-[#6b6b70] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
                   <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,rgba(192,38,211,0.6),transparent_60%)]" />
                 </div>
               </div>
               <div className="space-y-1 pt-1">
-                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-blue-400 transition-colors">
+                <h3 className="text-base font-bold text-white tracking-tight group-hover:text-gray-300 transition-colors">
                   Amthromax Principles
                 </h3>
               </div>
@@ -300,7 +300,7 @@ const BlogPage: React.FC = () => {
               className="group block text-left space-y-3 w-full cursor-pointer focus:outline-none"
             >
               <div className="aspect-[4/3] rounded-2xl overflow-hidden bg-[#161617] border border-white/10 relative">
-                <div className="w-full h-full bg-gradient-to-b from-[#6A89A7] via-[#C5D5E4] to-[#E8A87C] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
+                <div className="w-full h-full bg-gradient-to-b from-[#8a847a] via-[#d8d4cd] to-[#E8A87C] group-hover:scale-105 transition-transform duration-500 relative flex items-end p-6">
                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,rgba(235,140,90,0.5),transparent_70%)]" />
                 </div>
               </div>

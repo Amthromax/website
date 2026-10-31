@@ -248,14 +248,14 @@ def calculate_target_replicas(predicted_qps: float, qps_per_pod: int = 150) -> i
       subtitle: "Benchmark of signature validation latency across standard protocols vs ZT-TV Ed25519.",
       legend: [
         { label: "Legacy Asymmetric Validation", color: "#6e6e73" },
-        { label: "ZT-TV Protocol (Proposed)", color: "#0066cc" }
+        { label: "ZT-TV Protocol (Proposed)", color: "#1a1815" }
       ],
       xLabels: ["TLS 1.3 RSA-4096", "ECDSA P-256", "JWT HMAC-SHA256", "ZT-TV Ed25519 (eBPF)"],
       yLabel: "Latency (ms)",
       series: [
         {
           name: "Verification Speed",
-          color: "#0066cc",
+          color: "#1a1815",
           values: [95, 48, 22, 5],
           displayValues: ["14.2 ms", "6.8 ms", "2.1 ms", "0.32 ms"]
         }
@@ -510,7 +510,7 @@ const ResearchDetailPage: React.FC = () => {
         <div className="py-32 text-center space-y-4">
           <h2 className="text-3xl font-normal text-gray-900 dark:text-white">Research Paper Not Found</h2>
           <p className="text-gray-600 dark:text-gray-400">The requested publication could not be located in our scientific repository.</p>
-          <Link to="/research" className="text-blue-600 dark:text-blue-400 hover:underline inline-block pt-4">
+          <Link to="/research" className="text-gray-900 dark:text-white hover:underline inline-block pt-4">
             &larr; Back to Scientific Repository
           </Link>
         </div>
@@ -609,7 +609,7 @@ const ResearchDetailPage: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  <h4 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                  <h4 className="text-base font-semibold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                     {node.title}
                   </h4>
                   <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
@@ -839,7 +839,7 @@ const ResearchDetailPage: React.FC = () => {
         <div className="pt-8 border-t border-gray-200 dark:border-white/10 flex items-center justify-between">
           <Link
             to="/research"
-            className="text-xs font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1.5 cursor-pointer"
+            className="text-xs font-semibold text-gray-900 dark:text-white hover:text-black dark:hover:text-white transition-colors flex items-center gap-1.5 cursor-pointer"
           >
             <span>&larr; Back to Research Index</span>
           </Link>

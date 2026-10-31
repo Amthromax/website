@@ -449,7 +449,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.firstName}
                               onChange={handleFormChange}
                               placeholder="First name"
-                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900/20 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
@@ -461,7 +461,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.lastName}
                               onChange={handleFormChange}
                               placeholder="Last name"
-                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900/20 transition-all"
                             />
                           </div>
                         </div>
@@ -476,7 +476,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.workEmail}
                               onChange={handleFormChange}
                               placeholder="name@company.com"
-                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900/20 transition-all"
                             />
                           </div>
                           <div className="space-y-2">
@@ -488,7 +488,7 @@ export const ContactSalesPage: React.FC = () => {
                               value={formData.companyName}
                               onChange={handleFormChange}
                               placeholder="Organization name"
-                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
+                              className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900/20 transition-all"
                             />
                           </div>
                         </div>
@@ -501,7 +501,7 @@ export const ContactSalesPage: React.FC = () => {
                             value={formData.message}
                             onChange={handleFormChange}
                             placeholder="Tell us about your target seat count, architecture requirements, or timeline..."
-                            className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/30 transition-all"
+                            className="w-full px-4 py-3 bg-white dark:bg-black border border-gray-300 dark:border-white/20 rounded-xl text-sm text-gray-900 dark:text-white placeholder:text-gray-400 dark:placeholder:text-gray-500 focus:outline-none focus:border-gray-900 focus:ring-1 focus:ring-gray-900/20 transition-all"
                           />
                         </div>
 

@@ -717,7 +717,7 @@ const ResearchSection: React.FC = () => {
           </div>
           <Link
             to="/research/publications"
-            className="text-xs font-semibold text-gray-900 dark:text-white hover:text-blue-600 dark:hover:text-blue-400 transition-colors flex items-center gap-1 shrink-0"
+            className="text-xs font-semibold text-gray-900 dark:text-white hover:text-black dark:hover:text-white transition-colors flex items-center gap-1 shrink-0"
           >
             <span>View all publications</span>
             <span>›</span>
@@ -734,7 +734,7 @@ const ResearchSection: React.FC = () => {
                   <span>Publication</span>
                   <span>Aug 1, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   Predictive Autoscaling in Kubernetes via Deep LSTM Networks
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
@@ -743,7 +743,7 @@ const ResearchSection: React.FC = () => {
               </div>
               <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                 <span>Cite</span>
-                <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Learn more ›</span>
+                <span className="text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white">Learn more ›</span>
               </div>
             </div>
           </Link>
@@ -755,7 +755,7 @@ const ResearchSection: React.FC = () => {
                   <span>Research</span>
                   <span>Jul 29, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   Zero-Trust Protocol and Edge Identity Authentication
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
@@ -764,7 +764,7 @@ const ResearchSection: React.FC = () => {
               </div>
               <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                 <span>Cite</span>
-                <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Learn more ›</span>
+                <span className="text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white">Learn more ›</span>
               </div>
             </div>
           </Link>
@@ -776,7 +776,7 @@ const ResearchSection: React.FC = () => {
                   <span>Overview</span>
                   <span>Jul 15, 2026</span>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors leading-snug">
+                <h3 className="text-xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
                   Distributed Query Execution Across Hybrid Multi-Cloud Clusters
                 </h3>
                 <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed line-clamp-3 font-normal">
@@ -785,7 +785,7 @@ const ResearchSection: React.FC = () => {
               </div>
               <div className="pt-6 border-t border-gray-100 dark:border-white/5 flex justify-between text-xs text-gray-500 dark:text-gray-400 font-semibold">
                 <span>Cite</span>
-                <span className="text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400">Learn more ›</span>
+                <span className="text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white">Learn more ›</span>
               </div>
             </div>
           </Link>

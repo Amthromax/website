@@ -58,9 +58,9 @@ const UpcomingProjectsSection: React.FC = () => {
         </svg>
       ),
       bgStyle: {
-        base: "bg-gradient-to-tr from-[#38bdf8] via-[#60a5fa] to-[#bfdbfe]",
-        layer1: "absolute -top-12 -left-12 w-4/5 h-4/5 bg-[#93c5fd] rounded-full blur-3xl opacity-80 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#2563eb] rounded-full blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700",
+        base: "bg-gradient-to-tr from-[#d4d4d8] via-[#d4d4d8] to-[#bfdbfe]",
+        layer1: "absolute -top-12 -left-12 w-4/5 h-4/5 bg-[#e4e4e7] rounded-full blur-3xl opacity-80 group-hover:scale-125 transition-transform duration-700",
+        layer2: "absolute -bottom-10 -right-10 w-3/4 h-3/4 bg-[#1a1815] rounded-full blur-3xl opacity-60 group-hover:scale-110 transition-transform duration-700",
         layer3: "absolute top-1/3 left-1/4 w-1/2 h-1/2 bg-[#e0f2fe] rounded-full blur-xl opacity-90 group-hover:rotate-45 transition-transform duration-1000",
       },
     },
@@ -88,10 +88,10 @@ const UpcomingProjectsSection: React.FC = () => {
         </svg>
       ),
       bgStyle: {
-        base: "bg-gradient-to-br from-[#2563eb] via-[#3b82f6] to-[#93c5fd]",
-        layer1: "absolute top-0 right-0 w-4/5 h-4/5 bg-[#38bdf8] rounded-full blur-3xl opacity-85 group-hover:scale-125 transition-transform duration-700",
-        layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#1e3a8a] rounded-full blur-2xl opacity-80 group-hover:scale-110 transition-transform duration-700",
-        layer3: "absolute top-1/2 left-1/3 w-2/3 h-1/2 bg-[#60a5fa] rounded-full blur-2xl opacity-70",
+        base: "bg-gradient-to-br from-[#1a1815] via-[#1a1815] to-[#e4e4e7]",
+        layer1: "absolute top-0 right-0 w-4/5 h-4/5 bg-[#d4d4d8] rounded-full blur-3xl opacity-85 group-hover:scale-125 transition-transform duration-700",
+        layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#1a1815] rounded-full blur-2xl opacity-80 group-hover:scale-110 transition-transform duration-700",
+        layer3: "absolute top-1/2 left-1/3 w-2/3 h-1/2 bg-[#d4d4d8] rounded-full blur-2xl opacity-70",
       },
     },
     {
@@ -208,10 +208,10 @@ const UpcomingProjectsSection: React.FC = () => {
         </svg>
       ),
       bgStyle: {
-        base: "bg-gradient-to-br from-[#0284c7] via-[#06b6d4] to-[#67e8f9]",
+        base: "bg-gradient-to-br from-[#4b4b4f] via-[#6b6b70] to-[#c9c9cd]",
         layer1: "absolute -top-10 -right-10 w-4/5 h-4/5 bg-[#a5f3fc] rounded-full blur-3xl opacity-85 group-hover:scale-125 transition-transform duration-700",
         layer2: "absolute -bottom-12 -left-12 w-3/4 h-3/4 bg-[#0f172a] rounded-full blur-2xl opacity-70 group-hover:scale-110 transition-transform duration-700",
-        layer3: "absolute top-1/3 left-1/4 w-1/2 h-1/2 bg-[#38bdf8] rounded-full blur-xl opacity-80",
+        layer3: "absolute top-1/3 left-1/4 w-1/2 h-1/2 bg-[#d4d4d8] rounded-full blur-xl opacity-80",
       },
     },
   ];

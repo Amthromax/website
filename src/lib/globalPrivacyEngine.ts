@@ -47,7 +47,7 @@ export const PRIVACY_FRAMEWORKS: Record<PrivacyFrameworkId, PrivacyFrameworkRule
     id: "EU_GDPR",
     name: "General Data Protection Regulation (GDPR)",
     regionName: "European Union / EEA",
-    badgeColor: "bg-blue-500/10 text-blue-600 border-blue-500/20",
+    badgeColor: "bg-gray-900/10 text-gray-900 border-gray-900/15",
     rights: {
       access: true,
       rectification: true,
@@ -116,7 +116,7 @@ export const PRIVACY_FRAMEWORKS: Record<PrivacyFrameworkId, PrivacyFrameworkRule
     id: "INDIA_DPDP",
     name: "Digital Personal Data Protection (DPDP) Act",
     regionName: "India",
-    badgeColor: "bg-blue-500/10 text-blue-700 border-blue-500/20",
+    badgeColor: "bg-gray-900/10 text-gray-900 border-gray-900/15",
     rights: {
       access: true,
       rectification: true,
@@ -139,7 +139,7 @@ export const PRIVACY_FRAMEWORKS: Record<PrivacyFrameworkId, PrivacyFrameworkRule
     id: "BRAZIL_LGPD",
     name: "Lei Geral de Proteção de Dados (LGPD)",
     regionName: "Brazil",
-    badgeColor: "bg-blue-500/10 text-blue-700 border-blue-500/20",
+    badgeColor: "bg-gray-900/10 text-gray-900 border-gray-900/15",
     rights: {
       access: true,
       rectification: true,
@@ -185,7 +185,7 @@ export const PRIVACY_FRAMEWORKS: Record<PrivacyFrameworkId, PrivacyFrameworkRule
     id: "AUSTRALIA_PRIVACY_ACT",
     name: "Australia Privacy Act 1988 & APPs",
     regionName: "Australia",
-    badgeColor: "bg-indigo-500/10 text-indigo-700 border-indigo-500/20",
+    badgeColor: "bg-gray-900/10 text-gray-900 border-gray-900/15",
     rights: {
       access: true,
       rectification: true,

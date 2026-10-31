@@ -258,7 +258,7 @@ const CodeHoomerPage: React.FC = () => {
                   </button>
 
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-gray-900 text-xs font-extrabold border border-gray-200">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-gray-900 animate-pulse" />
                     CodeHoomer Agent v4 Active
                   </span>
 
@@ -323,13 +323,13 @@ const CodeHoomerPage: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         className="space-y-1"
                       >
-                        <p className="text-purple-600 font-semibold">import <span className="text-gray-900 font-bold">&#123; CodeHoomerEngine &#125;</span> from <span className="text-blue-600">"@amthromax/codehoomer"</span>;</p>
+                        <p className="text-purple-600 font-semibold">import <span className="text-gray-900 font-bold">&#123; CodeHoomerEngine &#125;</span> from <span className="text-gray-900">"@amthromax/codehoomer"</span>;</p>
                         <p className="text-gray-400 italic">// Initialize autonomous engineering agent</p>
-                        <p className="text-blue-600 font-semibold">export default <span className="text-amber-600 font-bold">CodeHoomerEngine</span>.configure(&#123;</p>
-                        <p className="pl-4 text-gray-900 font-medium">mode: <span className="text-blue-600 font-semibold">"autonomous-refactor"</span>,</p>
+                        <p className="text-gray-900 font-semibold">export default <span className="text-amber-600 font-bold">CodeHoomerEngine</span>.configure(&#123;</p>
+                        <p className="pl-4 text-gray-900 font-medium">mode: <span className="text-gray-900 font-semibold">"autonomous-refactor"</span>,</p>
                         <p className="pl-4 text-gray-900 font-medium">zeroTrustSecurity: <span className="text-purple-600 font-semibold">true</span>,</p>
                         <p className="pl-4 text-gray-900 font-medium">maxParallelWorkers: <span className="text-amber-600 font-bold">64</span>,</p>
-                        <p className="text-blue-600 font-semibold">&#125;);</p>
+                        <p className="text-gray-900 font-semibold">&#125;);</p>
                       </motion.div>
                     ) : (
                       <motion.div
@@ -340,11 +340,11 @@ const CodeHoomerPage: React.FC = () => {
                         transition={{ duration: 0.2 }}
                         className="space-y-1"
                       >
-                        <p className="text-purple-600 font-semibold">pub async fn <span className="text-blue-600 font-bold">run_auth_pipeline</span>(ctx: &Context) -&gt; Result&lt;()&gt; &#123;</p>
+                        <p className="text-purple-600 font-semibold">pub async fn <span className="text-gray-900 font-bold">run_auth_pipeline</span>(ctx: &Context) -&gt; Result&lt;()&gt; &#123;</p>
                         <p className="pl-4 text-gray-400 italic">// Auto-generated high-speed Rust auth handler</p>
                         <p className="pl-4 text-gray-900 font-medium">let token = ctx.verify_jwt_token().await?;</p>
                         <p className="pl-4 text-gray-900 font-medium">let session = CodeHoomer::fetch_session(&token).await?;</p>
-                        <p className="pl-4 text-blue-600 font-bold">Ok(session)</p>
+                        <p className="pl-4 text-gray-900 font-bold">Ok(session)</p>
                         <p className="text-purple-600 font-semibold">&#125;</p>
                       </motion.div>
                     )}
@@ -362,7 +362,7 @@ const CodeHoomerPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors">
                 AI Code Refactoring Engine
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -572,7 +572,7 @@ const CodeHoomerPage: React.FC = () => {
                 >
                   <div className="flex flex-col items-center justify-center">
                     <span className="text-2xl font-bold tracking-tighter text-black">CODE</span>
-                    <span className="text-[10px] font-semibold tracking-widest text-blue-600">HOOMER</span>
+                    <span className="text-[10px] font-semibold tracking-widest text-gray-900">HOOMER</span>
                   </div>
                 </motion.div>
 

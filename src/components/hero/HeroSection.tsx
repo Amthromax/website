@@ -137,7 +137,7 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
       const typing = item.typed < item.text.length;
       return (
         <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-gray-100 dark:bg-[#1f1f1f] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_-2px_rgba(15,23,42,0.25)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_2px_8px_-2px_rgba(0,0,0,0.7)] flex items-baseline gap-2 min-w-0">
-          <span className="text-[#2563eb] dark:text-[#3b82f6] shrink-0">&rsaquo;</span>
+          <span className="text-[#1a1815] dark:text-[#1a1815] shrink-0">&rsaquo;</span>
           <span className="text-gray-900 dark:text-white font-semibold truncate">
             {item.text.slice(0, item.typed)}
             {typing && <Caret />}
@@ -1127,7 +1127,7 @@ const ST_RUNS: StudioRun[] = [
     pick: 1,
     layers: ["Reading the queue", "Classifying intent", "Scoring urgency", "Choosing a route", "Writing the handoff"],
     spans: [3, 5, 2, 4, 2],
-    pal: ["#18181b", "#2563eb", "#a855f7", "#e4e4e7"],
+    pal: ["#18181b", "#1a1815", "#a855f7", "#e4e4e7"],
     host: "openrower.ai/triage",
     tok: 1840,
   },
@@ -1669,8 +1669,8 @@ const DesignStudio: React.FC = () => {
                   title="Ground the answer in live web results"
                   className={`flex shrink-0 items-center gap-1.5 rounded-full border px-3 py-1.5 font-sans text-[12.5px] font-medium tracking-[0.01em] transition-all duration-200 cursor-pointer active:scale-95 ${
                     webSearch
-                      ? "border-blue-400/60 bg-blue-500/20 text-blue-200 shadow-[0_0_18px_rgba(96,165,250,0.3)]"
-                      : "border-white/15 bg-white/[0.06] text-gray-200 hover:border-blue-400/40 hover:text-blue-200"
+                      ? "border-white/30 bg-gray-900/15 text-gray-300 shadow-[0_0_18px_rgba(255,255,255,0.3)]"
+                      : "border-white/15 bg-white/[0.06] text-gray-200 hover:border-white/25 hover:text-gray-300"
                   }`}
                 >
                   <svg viewBox="0 0 16 16" className="size-3.5 shrink-0 fill-none stroke-current stroke-[1.5]">
@@ -1727,7 +1727,7 @@ const DesignStudio: React.FC = () => {
                                 )}
                               </div>
                               <div className="flex items-center gap-2 text-zinc-400 font-mono text-[11px]">
-                                {isSelected && <span className="text-blue-500 font-bold text-[13px]">✓</span>}
+                                {isSelected && <span className="text-gray-900 font-bold text-[13px]">✓</span>}
                                 <span>{idx + 1}</span>
                               </div>
                             </button>

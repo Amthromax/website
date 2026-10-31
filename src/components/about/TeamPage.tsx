@@ -16,7 +16,7 @@ const TeamPage: React.FC = () => {
           
           {/* Left Side: Title and Intro */}
           <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-4">
-            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#3b82f6] font-bold">
+            <span className="inline-flex items-center gap-1.5 text-xs uppercase tracking-widest text-[#1a1815] font-bold">
               AMTHROMAX PEOPLE
             </span>
             <h2 className="text-4xl md:text-5xl font-extrabold text-gray-900 dark:text-white tracking-tight">The Team</h2>

@@ -76,7 +76,7 @@ const BlogMarquee: React.FC = () => {
             to={item.link}
             className="flex flex-col justify-between px-8 sm:px-12 border-r border-white/10 min-w-[300px] sm:min-w-[380px] max-w-[440px] group/item hover:opacity-90 transition-opacity shrink-0"
           >
-            <h3 className="text-base sm:text-lg font-serif font-medium text-white tracking-tight leading-snug group-hover/item:text-blue-400 transition-colors">
+            <h3 className="text-base sm:text-lg font-serif font-medium text-white tracking-tight leading-snug group-hover/item:text-gray-300 transition-colors">
               {item.title}
             </h3>
             <p className="text-xs font-sans text-gray-400 font-normal mt-5">

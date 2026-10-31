@@ -126,7 +126,7 @@ const PlatformPage: React.FC = () => {
               className="border-t border-gray-200 dark:border-white/10 pt-6 pb-2 space-y-3 transition-all group"
             >
               <span className="text-xs font-extrabold text-gray-400 dark:text-gray-500 uppercase tracking-widest transition-transform group-hover:translate-x-1 inline-block">{item.num} / Engine</span>
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{item.title}</h3>
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">{item.title}</h3>
               <p className="text-gray-500 dark:text-gray-400 text-sm leading-relaxed font-normal">{item.desc}</p>
             </motion.div>
           ))}
@@ -178,13 +178,13 @@ const PlatformPage: React.FC = () => {
                   key={idx} 
                   className={`p-4 rounded-2xl border transition-all ${
                     node.active 
-                      ? "border-blue-500 bg-blue-50/20 dark:bg-blue-950/20 shadow-md ring-2 ring-blue-500/20" 
+                      ? "border-gray-900 bg-gray-50 dark:bg-white/[0.06] shadow-md ring-2 ring-gray-900/15" 
                       : "border-gray-200 dark:border-white/10 bg-gray-50/50 dark:bg-black"
                   }`}
                 >
                   <div className="flex items-center justify-between mb-1">
                     <span className="text-xs font-semibold text-gray-600 dark:text-gray-400">{node.step}</span>
-                    <span className={`w-2 h-2 rounded-full ${node.active ? "bg-blue-500 animate-ping" : "bg-gray-400 dark:bg-gray-600"}`} />
+                    <span className={`w-2 h-2 rounded-full ${node.active ? "bg-gray-900 animate-ping" : "bg-gray-400 dark:bg-gray-600"}`} />
                   </div>
                   <h4 className="text-xs font-semibold text-gray-900 dark:text-white">{node.name}</h4>
                   <p className="text-xs font-sans text-gray-600 dark:text-gray-300 mt-0.5">{node.detail}</p>
@@ -304,7 +304,7 @@ const PlatformPage: React.FC = () => {
                           exit={{ opacity: 0, x: 10 }}
                           className="text-gray-900 dark:text-white font-semibold flex items-center gap-3 text-xs"
                         >
-                          <span className="w-2 h-2 bg-blue-500 rounded-full animate-ping" />
+                          <span className="w-2 h-2 bg-gray-900 rounded-full animate-ping" />
                           <span>{currentStep}</span>
                         </motion.div>
                       ) : (

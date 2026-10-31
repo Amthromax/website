@@ -104,7 +104,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
         
         {submittedRequest ? (
           <div className="bg-white border border-black/[0.06] rounded-2xl p-8 shadow-sm space-y-6 text-center">
-            <div className="w-12 h-12 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center mx-auto text-xl font-bold">
+            <div className="w-12 h-12 rounded-full bg-gray-100 text-gray-900 flex items-center justify-center mx-auto text-xl font-bold">
               ✓
             </div>
             <div className="space-y-2">
@@ -125,7 +125,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-500">Status:</span>
-                <span className="font-bold text-blue-600">{submittedRequest.status}</span>
+                <span className="font-bold text-gray-900">{submittedRequest.status}</span>
               </div>
             </div>
 
@@ -245,7 +245,7 @@ const PrivacyRequestPortalPage: React.FC = () => {
                   <div className="font-bold text-gray-950">{foundRequest.type}</div>
                   <div className="text-[11px] text-gray-500 font-mono">ID: {foundRequest.id}</div>
                   <div className="text-[11px]">
-                    Status: <span className="font-bold text-blue-600">{foundRequest.status}</span>
+                    Status: <span className="font-bold text-gray-900">{foundRequest.status}</span>
                   </div>
                 </div>
               )}

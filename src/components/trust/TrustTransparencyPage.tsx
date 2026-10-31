@@ -399,7 +399,7 @@ const TrustTransparencyPage: React.FC = () => {
               </p>
               
               <div className="pt-2 grid grid-cols-2 sm:grid-cols-4 gap-4">
-                <div className="space-y-1 border-l-2 border-blue-500 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                <div className="space-y-1 border-l-2 border-gray-900 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
                   <span className="text-[11px] text-gray-300 font-medium block">Action Firewalls</span>
                   <span className="text-xs font-bold text-white">Deterministic</span>
                 </div>
@@ -407,11 +407,11 @@ const TrustTransparencyPage: React.FC = () => {
                   <span className="text-[11px] text-gray-300 font-medium block">Data Retention</span>
                   <span className="text-xs font-bold text-white">0% Storage</span>
                 </div>
-                <div className="space-y-1 border-l-2 border-indigo-400 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                <div className="space-y-1 border-l-2 border-white/30 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
                   <span className="text-[11px] text-gray-300 font-medium block">Audit Logs</span>
                   <span className="text-xs font-bold text-white">SHA-256 Signed</span>
                 </div>
-                <div className="space-y-1 border-l-2 border-cyan-400 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
+                <div className="space-y-1 border-l-2 border-white/30 pl-3 bg-black/40 backdrop-blur-sm p-2 rounded-r-lg">
                   <span className="text-[11px] text-gray-300 font-medium block">SLA Guarantee</span>
                   <span className="text-xs font-bold text-white">99.99% Uptime</span>
                 </div>
@@ -646,7 +646,7 @@ const TrustTransparencyPage: React.FC = () => {
           <Link to="/privacy-center" className="group block border-t border-gray-200 dark:border-white/10 pt-6 pb-4 hover:border-gray-400 dark:hover:border-white/30 transition-all">
             <div className="space-y-3">
               <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Compliance Report</span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                 SOC 2 Type II Security Report Summary ›
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
@@ -658,7 +658,7 @@ const TrustTransparencyPage: React.FC = () => {
           <Link to="/security" className="group block border-t border-gray-200 dark:border-white/10 pt-6 pb-4 hover:border-gray-400 dark:hover:border-white/30 transition-all">
             <div className="space-y-3">
               <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Architecture Whitepaper</span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                 Zero-Trust AI Agent Execution Specs ›
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">
@@ -670,7 +670,7 @@ const TrustTransparencyPage: React.FC = () => {
           <Link to="/data-protection" className="group block border-t border-gray-200 dark:border-white/10 pt-6 pb-4 hover:border-gray-400 dark:hover:border-white/30 transition-all">
             <div className="space-y-3">
               <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider">Legal Framework</span>
-              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-lg font-bold text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors">
                 Data Processing Addendum (DPA) ›
               </h3>
               <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed font-normal">

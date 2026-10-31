@@ -107,7 +107,7 @@ const FoundationDetailPage: React.FC = () => {
       <div className="min-h-screen flex flex-col justify-between bg-gray-50 dark:bg-black font-sans">
         <div className="py-24 text-center space-y-4">
           <h2 className="text-2xl font-bold text-gray-900 dark:text-white">Article not found</h2>
-          <Link to="/foundation" className="text-blue-600 dark:text-blue-400 underline mt-4 inline-block">
+          <Link to="/foundation" className="text-gray-900 dark:text-white underline mt-4 inline-block">
             Back to Foundation
           </Link>
         </div>
@@ -125,13 +125,13 @@ const FoundationDetailPage: React.FC = () => {
 
       {/* Hero Header */}
       <div className="relative py-24 md:py-32 overflow-hidden flex items-center justify-center text-center text-white bg-black">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-950/30 via-zinc-950/50 to-black z-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/[0.05] via-zinc-950/50 to-black z-0" />
         <div 
           className="absolute inset-0 bg-cover bg-center opacity-25 filter blur-sm scale-105"
           style={{ backgroundImage: `url(${article.image})` }}
         />
         <div className="relative z-10 max-w-4xl mx-auto px-6 space-y-6">
-          <span className="text-xs uppercase tracking-widest text-blue-300 font-bold bg-blue-950/50 border border-blue-800/30 px-3.5 py-1.5 rounded-full">
+          <span className="text-xs uppercase tracking-widest text-gray-300 font-bold bg-white/[0.06] border border-white/10 px-3.5 py-1.5 rounded-full">
             {article.category} &bull; {article.readTime}
           </span>
           <h1 className="text-4xl md:text-6xl font-black tracking-tight leading-inside text-white">
@@ -191,7 +191,7 @@ const FoundationDetailPage: React.FC = () => {
         <div className="pt-8 border-t border-gray-150 dark:border-white/[0.04] flex items-center justify-between">
           <Link
             to="/foundation"
-            className="text-sm font-bold text-blue-600 dark:text-blue-400 hover:underline flex items-center gap-2"
+            className="text-sm font-bold text-gray-900 dark:text-white hover:underline flex items-center gap-2"
           >
             <span>&larr;</span>
             <span>Back to Intelligence Hub</span>

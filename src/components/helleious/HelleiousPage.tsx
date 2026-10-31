@@ -230,7 +230,7 @@ const HelleiousPage: React.FC = () => {
                   </button>
 
                   <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-md bg-gray-100 text-gray-900 text-xs font-extrabold border border-gray-200">
-                    <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                    <span className="w-2 h-2 rounded-full bg-gray-900 animate-pulse" />
                     Enterprise Analytics MCP
                   </span>
 
@@ -290,7 +290,7 @@ const HelleiousPage: React.FC = () => {
 
                   <div className="grid grid-cols-12 text-xs sm:text-sm text-gray-800 font-medium pt-1 items-center">
                     <span className="col-span-5 font-semibold text-gray-900">ARR Pipeline</span>
-                    <span className="col-span-4 font-sans text-xs sm:text-sm text-blue-600 font-bold">$18.4M</span>
+                    <span className="col-span-4 font-sans text-xs sm:text-sm text-gray-900 font-bold">$18.4M</span>
                     <span className="col-span-3 text-right font-bold text-gray-900">On Track</span>
                   </div>
                 </div>
@@ -300,7 +300,7 @@ const HelleiousPage: React.FC = () => {
 
             {/* Title & Description below Card */}
             <div className="space-y-1.5 pt-1">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white tracking-tight group-hover:text-black dark:group-hover:text-white transition-colors">
                 Enterprise Data Protocol
               </h3>
               <p className="text-base text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
@@ -402,9 +402,9 @@ const HelleiousPage: React.FC = () => {
                   <motion.div 
                     whileHover={{ scale: 1.06, y: -5 }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                    className="bg-white rounded-lg p-3.5 shadow-xl border-2 border-blue-500 space-y-2 transform translate-x-1 cursor-pointer"
+                    className="bg-white rounded-lg p-3.5 shadow-xl border-2 border-gray-900 space-y-2 transform translate-x-1 cursor-pointer"
                   >
-                    <div className="flex items-center justify-between text-[10px] text-blue-600 font-bold uppercase tracking-wider">
+                    <div className="flex items-center justify-between text-[10px] text-gray-900 font-bold uppercase tracking-wider">
                       <span>FILE</span>
                     </div>
                     <p className="text-xs font-bold text-gray-800 truncate">
@@ -414,7 +414,7 @@ const HelleiousPage: React.FC = () => {
                       SOC2 Type II Audit
                     </h5>
                     <div className="pt-1">
-                      <span className="inline-block px-3 py-1 rounded-md bg-blue-50 text-blue-700 text-[10px] font-extrabold border border-blue-200">
+                      <span className="inline-block px-3 py-1 rounded-md bg-gray-50 text-gray-900 text-[10px] font-extrabold border border-gray-200">
                         Cited in response
                       </span>
                     </div>
@@ -684,11 +684,11 @@ const HelleiousPage: React.FC = () => {
               transition={{ duration: 0.4, delay: idx * 0.02 }}
               className="flex items-start gap-4 group"
             >
-              <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors pt-0.5">
+              <div className="w-7 h-7 sm:w-8 sm:h-8 flex items-center justify-center shrink-0 text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white transition-colors pt-0.5">
                 <item.icon className="w-5 h-5" />
               </div>
               <div className="space-y-1">
-                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-900 dark:text-white leading-snug group-hover:text-black dark:group-hover:text-white transition-colors">
                   {item.title}
                 </h3>
                 <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 font-normal leading-relaxed">
