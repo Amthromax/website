@@ -1808,7 +1808,9 @@ const HeroSection: React.FC = () => {
           <br />
           <span>for enterprise </span>
           <span className="relative inline-block text-black dark:text-white underline underline-offset-8 decoration-1 decoration-gray-400 dark:decoration-gray-600">
-            <span>intelligence</span>
+            <span className="amx-shimmer [--amx-shimmer-base:#1a1815] [--amx-shimmer-peak:#a1a1aa] dark:[--amx-shimmer-base:#ffffff] dark:[--amx-shimmer-peak:#7c7c84]">
+              intelligence
+            </span>
           </span>
           <motion.span
             animate={{ opacity: [1, 0, 1] }}

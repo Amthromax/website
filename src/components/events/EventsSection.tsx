@@ -176,9 +176,40 @@ const renderIcon = (iconName: string) => {
   }
 };
 
+
+/* Coverflow geometry, measured off the reference: the focused card is full
+   size, its neighbours step down to 0.78 and 0.55, and the gap between card
+   centres is 0.95 of a card width for the first step and 0.73 for each one
+   after. Anything past the second neighbour is faded out rather than laid
+   out, so the track never has to be wider than the section. */
+const CARD_W = 300;
+
+const WARM_MESH =
+  "radial-gradient(80% 40% at 97% 84%, #ff99d4 0%, rgba(255,153,212,0) 58%)," +
+  "radial-gradient(70% 34% at 4% 82%, #ff94a9 0%, rgba(255,148,169,0) 55%)," +
+  "linear-gradient(180deg," +
+  " rgba(244,240,236,0) 0%, rgba(244,240,236,0) 35%," +
+  " #f5afa6 47%, #fc8763 58%, #ffbd8f 69%, #ff7fa8 81%, #ff7fa8 100%)";
+const SCALE_BY_DISTANCE = [1, 0.78, 0.55];
+const OPACITY_BY_DISTANCE = [1, 0.85, 0.45];
+
+const offsetFor = (distance: number) => {
+  const d = Math.abs(distance);
+  if (d === 0) return 0;
+  return Math.sign(distance) * CARD_W * (0.95 + 0.73 * (d - 1));
+};
+
+const atDistance = <T,>(table: T[], distance: number): T =>
+  table[Math.min(Math.abs(distance), table.length - 1)];
+
 const EventsSection: React.FC = () => {
-  const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [selectedIdea, setSelectedIdea] = useState<ProductIdeaItem | null>(null);
+  const [active, setActive] = useState(Math.floor((productIdeasData.length - 1) / 2));
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  const total = productIdeasData.length;
+  const step = (delta: number) =>
+    setActive((i) => Math.min(total - 1, Math.max(0, i + delta)));
 
   /* The modal is portalled to <body>: an ancestor of this section carries a
      transform, which would otherwise make `position: fixed` resolve against
@@ -197,11 +228,27 @@ const EventsSection: React.FC = () => {
     };
   }, [selectedIdea]);
 
-  const scroll = (direction: "left" | "right") => {
-    if (scrollContainerRef.current) {
-      const scrollAmount = direction === "left" ? -360 : 360;
-      scrollContainerRef.current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+  /* Arrow keys move along the rail when it has focus, and a swipe does the
+     same on touch, since the cards no longer scroll natively. */
+  const onTrackKey = (e: React.KeyboardEvent) => {
+    if (e.key === "ArrowLeft") {
+      e.preventDefault();
+      step(-1);
+    } else if (e.key === "ArrowRight") {
+      e.preventDefault();
+      step(1);
     }
+  };
+
+  const touchX = useRef<number | null>(null);
+  const onTouchStart = (e: React.TouchEvent) => {
+    touchX.current = e.touches[0].clientX;
+  };
+  const onTouchEnd = (e: React.TouchEvent) => {
+    if (touchX.current === null) return;
+    const dx = e.changedTouches[0].clientX - touchX.current;
+    if (Math.abs(dx) > 40) step(dx < 0 ? 1 : -1);
+    touchX.current = null;
   };
 
   return (
@@ -214,48 +261,97 @@ const EventsSection: React.FC = () => {
           </h2>
         </div>
 
-        {/* Scrollable Product Ideas Carousel in Original Apple Box Styling */}
+        {/* Coverflow rail: cards sit absolutely around the focused one */}
         <div
-          ref={scrollContainerRef}
-          className="flex gap-5 overflow-x-auto overflow-y-hidden scrollbar-none pb-4 pt-2 -mx-6 px-6 sm:-mx-10 sm:px-10 lg:-mx-12 lg:px-12 scroll-smooth"
-          style={{ scrollbarWidth: "none", msOverflowStyle: "none" }}
+          ref={trackRef}
+          tabIndex={0}
+          role="group"
+          aria-roledescription="carousel"
+          aria-label="Product ideas"
+          onKeyDown={onTrackKey}
+          onTouchStart={onTouchStart}
+          onTouchEnd={onTouchEnd}
+          className="relative h-[320px] -mx-6 sm:-mx-10 lg:-mx-12 overflow-hidden focus:outline-none"
         >
-          {productIdeasData.map((idea) => (
+          {productIdeasData.map((idea, i) => {
+            const distance = i - active;
+            const isActive = distance === 0;
+            const hidden = Math.abs(distance) > 2;
+
+            return (
             <motion.button
               key={idea.id}
               type="button"
-              onClick={() => setSelectedIdea(idea)}
-              aria-label={`View details for ${idea.title}`}
-              whileHover={{ y: -3 }}
-              transition={{ duration: 0.2 }}
-              className="text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 w-[270px] sm:w-[300px] shrink-0 bg-white dark:bg-[#161617] rounded-2xl border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[250px] shadow-[0_2px_12px_rgba(0,0,0,0.03)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.07)] transition-all duration-300 cursor-pointer group"
+              onClick={() => (isActive ? setSelectedIdea(idea) : setActive(i))}
+              aria-label={
+                isActive ? `View details for ${idea.title}` : `Bring ${idea.title} into focus`
+              }
+              aria-hidden={hidden}
+              tabIndex={hidden ? -1 : 0}
+              animate={{
+                x: offsetFor(distance),
+                scale: atDistance(SCALE_BY_DISTANCE, distance),
+                opacity: hidden ? 0 : atDistance(OPACITY_BY_DISTANCE, distance),
+              }}
+              transition={{ type: "spring", stiffness: 210, damping: 28, mass: 0.9 }}
+              style={{
+                width: CARD_W,
+                zIndex: total - Math.abs(distance),
+                pointerEvents: hidden ? "none" : "auto",
+              }}
+              className={`absolute left-1/2 top-1/2 -ml-[150px] -mt-[135px] overflow-hidden transition-shadow duration-[450ms] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 bg-white dark:bg-[#161617] rounded-2xl border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[270px] cursor-pointer group ${
+                isActive
+                  ? "shadow-none hover:shadow-[0_26px_64px_-18px_rgba(214,95,110,0.42)] hover:border-[#ff8f6b]/35"
+                  : "shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_52px_-18px_rgba(214,95,110,0.36)] hover:border-[#ff8f6b]/30"
+              }`}
             >
+              {/* The warm paper ground, which simply fades. */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-2xl bg-[#f4f0ec] opacity-0 transition-opacity duration-[420ms] ease-out group-hover:opacity-100"
+              />
+
+              {/* The colour itself, rising from below. */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-x-0 top-0 h-[124%] translate-y-[18%] opacity-0 transition-[opacity,transform] duration-[620ms] ease-[cubic-bezier(0.22,0.61,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100"
+                style={{ backgroundImage: WARM_MESH }}
+              />
+
+              {/* Rim light and inner shadow, so the slab reads as lit from
+                  within rather than merely filled. */}
+              <span
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[550ms] ease-out group-hover:opacity-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-30px_60px_-34px_rgba(190,70,90,0.55)]"
+              />
+
               {/* Badge & Title Block */}
-              <div className="space-y-4">
-                <span className="inline-block px-2.5 py-1 rounded-md bg-[#e8e8ed] dark:bg-white/10 text-[11px] font-medium text-[#1d1d1f] dark:text-gray-200 group-hover:bg-[#1d1d1f] group-hover:text-white dark:group-hover:bg-white dark:group-hover:text-black transition-colors">
+              <div className="relative z-[1] space-y-4">
+                <span className="inline-block px-2.5 py-1 rounded-md bg-[#e8e8ed] dark:bg-white/10 text-[11px] font-medium text-[#1d1d1f] dark:text-gray-200 group-hover:bg-[#1d1d1f]/10 group-hover:text-[#43251e] dark:group-hover:bg-[#1d1d1f]/10 dark:group-hover:text-[#43251e] transition-colors duration-[450ms]">
                   {idea.badge}
                 </span>
 
-                <h3 className="text-base sm:text-lg font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-snug group-hover:text-black dark:group-hover:text-gray-200">
+                <h3 className="text-base sm:text-lg font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-snug transition-colors duration-[450ms] group-hover:text-[#2b1410] dark:group-hover:text-[#2b1410]">
                   {idea.title}
                 </h3>
               </div>
 
               {/* Product Metadata Footer */}
-              <div className="space-y-3 pt-6 border-t border-[#e5e5e7]/60 dark:border-white/10">
-                <p className="text-xs text-[#86868b] dark:text-gray-400 font-medium">
+              <div className="relative z-[1] space-y-3 pt-6 border-t border-[#e5e5e7]/60 group-hover:border-[#2b1410]/15 dark:border-white/10 dark:group-hover:border-[#2b1410]/15 transition-colors duration-[450ms]">
+                <p className="text-xs font-medium text-[#86868b] group-hover:text-[#6b4a42] dark:text-gray-400 dark:group-hover:text-[#6b4a42] transition-colors duration-[450ms]">
                   {idea.specs}
                 </p>
 
-                <div className="space-y-0.5 text-xs text-[#515154] dark:text-gray-300 font-medium">
+                <div className="space-y-0.5 text-xs font-medium text-[#515154] group-hover:text-[#43251e] dark:text-gray-300 dark:group-hover:text-[#43251e] transition-colors duration-[450ms]">
                   <p>{idea.location}</p>
-                  <p className="text-[#86868b] dark:text-gray-400">{idea.type}</p>
+                  <p className="text-[#86868b] group-hover:text-[#6b4a42] dark:text-gray-400 dark:group-hover:text-[#6b4a42] transition-colors duration-[450ms]">
+                    {idea.type}
+                  </p>
                 </div>
               </div>
             </motion.button>
-          ))}
-          {/* Trailing spacer so the last card displays completely without clipping */}
-          <div className="w-6 sm:w-10 lg:w-12 shrink-0" aria-hidden="true" />
+            );
+          })}
         </div>
 
         {/* Carousel Footer Navigation Bar */}
@@ -269,23 +365,39 @@ const EventsSection: React.FC = () => {
           </Link>
 
           {/* Right Navigation Arrows */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <button
               type="button"
-              onClick={() => scroll("left")}
-              aria-label="Scroll product ideas left"
-              className="w-9 h-9 rounded-full bg-[#e8e8ed]/80 hover:bg-[#e8e8ed] dark:bg-white/10 dark:hover:bg-white/20 text-[#1d1d1f] dark:text-white flex items-center justify-center transition-all duration-200 cursor-pointer"
+              onClick={() => step(-1)}
+              disabled={active === 0}
+              aria-label="Previous product idea"
+              className="w-9 h-9 rounded-full bg-[#e8e8ed]/80 hover:bg-[#e8e8ed] dark:bg-white/10 dark:hover:bg-white/20 text-[#1d1d1f] dark:text-white flex items-center justify-center transition-all duration-200 cursor-pointer disabled:opacity-35 disabled:cursor-default"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M15 19l-7-7 7-7" />
               </svg>
             </button>
 
+            <div
+              className="h-1 w-24 sm:w-32 rounded-full bg-[#d8d8dd] dark:bg-white/15 overflow-hidden"
+              role="progressbar"
+              aria-valuemin={1}
+              aria-valuemax={total}
+              aria-valuenow={active + 1}
+            >
+              <motion.span
+                className="block h-full rounded-full bg-[#1d1d1f] dark:bg-white"
+                animate={{ width: `${((active + 1) / total) * 100}%` }}
+                transition={{ type: "spring", stiffness: 210, damping: 28 }}
+              />
+            </div>
+
             <button
               type="button"
-              onClick={() => scroll("right")}
-              aria-label="Scroll product ideas right"
-              className="w-9 h-9 rounded-full bg-[#e8e8ed]/80 hover:bg-[#e8e8ed] dark:bg-white/10 dark:hover:bg-white/20 text-[#1d1d1f] dark:text-white flex items-center justify-center transition-all duration-200 cursor-pointer"
+              onClick={() => step(1)}
+              disabled={active === total - 1}
+              aria-label="Next product idea"
+              className="w-9 h-9 rounded-full bg-[#e8e8ed]/80 hover:bg-[#e8e8ed] dark:bg-white/10 dark:hover:bg-white/20 text-[#1d1d1f] dark:text-white flex items-center justify-center transition-all duration-200 cursor-pointer disabled:opacity-35 disabled:cursor-default"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2.5} d="M9 5l7 7-7 7" />
