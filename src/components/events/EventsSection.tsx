@@ -138,38 +138,38 @@ const renderIcon = (iconName: string) => {
   switch (iconName) {
     case "users":
       return (
-        <svg className="w-8 h-8 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
         </svg>
       );
     case "chart":
       return (
-        <svg className="w-8 h-8 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
         </svg>
       );
     case "zap":
       return (
-        <svg className="w-8 h-8 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M13 10V3L4 14h7v7l9-11h-7z" />
         </svg>
       );
     case "shield":
       return (
-        <svg className="w-8 h-8 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
         </svg>
       );
     case "code":
       return (
-        <svg className="w-8 h-8 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
         </svg>
       );
     case "mesh":
     default:
       return (
-        <svg className="w-8 h-8 text-white/90" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
         </svg>
       );
@@ -185,11 +185,12 @@ const renderIcon = (iconName: string) => {
 const CARD_W = 300;
 
 const WARM_MESH =
-  "radial-gradient(80% 40% at 97% 84%, #ff99d4 0%, rgba(255,153,212,0) 58%)," +
-  "radial-gradient(70% 34% at 4% 82%, #ff94a9 0%, rgba(255,148,169,0) 55%)," +
+  "radial-gradient(80% 34% at 97% 71%, #ff99d4 0%, rgba(255,153,212,0) 58%)," +
+  "radial-gradient(70% 29% at 4% 69%, #ff94a9 0%, rgba(255,148,169,0) 55%)," +
   "linear-gradient(180deg," +
-  " rgba(244,240,236,0) 0%, rgba(244,240,236,0) 35%," +
-  " #f5afa6 47%, #fc8763 58%, #ffbd8f 69%, #ff7fa8 81%, #ff7fa8 100%)";
+  " rgba(244,240,236,0) 0%, rgba(244,240,236,0) 30.3%," +
+  " #f5aea6 37.2%, #f88972 42.1%, #ff8d60 46.9%, #ffb478 52.4%," +
+  " #ffb7c6 57.9%, #ff6986 63.4%, #ff6986 100%)";
 const SCALE_BY_DISTANCE = [1, 0.78, 0.55];
 const OPACITY_BY_DISTANCE = [1, 0.85, 0.45];
 
@@ -301,20 +302,21 @@ const EventsSection: React.FC = () => {
               }}
               className={`absolute left-1/2 top-1/2 -ml-[150px] -mt-[135px] overflow-hidden transition-shadow duration-[450ms] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 bg-white dark:bg-[#161617] rounded-2xl border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[270px] cursor-pointer group ${
                 isActive
-                  ? "shadow-none hover:shadow-[0_26px_64px_-18px_rgba(214,95,110,0.42)] hover:border-[#ff8f6b]/35"
-                  : "shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_52px_-18px_rgba(214,95,110,0.36)] hover:border-[#ff8f6b]/30"
+                  ? "shadow-none hover:shadow-[0_26px_64px_-18px_rgba(214,95,110,0.42)] hover:border-transparent"
+                  : "shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_52px_-18px_rgba(214,95,110,0.36)] hover:border-transparent"
               }`}
             >
               {/* The warm paper ground, which simply fades. */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-2xl bg-[#f4f0ec] opacity-0 transition-opacity duration-[420ms] ease-out group-hover:opacity-100"
+                className="pointer-events-none absolute -inset-px rounded-2xl bg-[#f4f0ec] opacity-0 transition-opacity duration-[500ms] ease-out group-hover:opacity-100 group-hover:duration-[780ms]"
               />
 
-              {/* The colour itself, rising from below. */}
+              {/* The colour itself, rising from below. Slower and sharply
+                  eased on the way up, quicker and more even on the way down. */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-x-0 top-0 h-[124%] translate-y-[18%] opacity-0 transition-[opacity,transform] duration-[620ms] ease-[cubic-bezier(0.22,0.61,0.36,1)] group-hover:translate-y-0 group-hover:opacity-100"
+                className="pointer-events-none absolute -inset-x-px -top-px h-[145%] translate-y-[28%] opacity-0 transition-[opacity,translate] duration-[500ms] ease-[cubic-bezier(0.45,0,0.55,1)] group-hover:translate-y-0 group-hover:opacity-100 group-hover:duration-[780ms] group-hover:ease-[cubic-bezier(0.16,0.84,0.44,1)]"
                 style={{ backgroundImage: WARM_MESH }}
               />
 
@@ -322,32 +324,35 @@ const EventsSection: React.FC = () => {
                   within rather than merely filled. */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-[550ms] ease-out group-hover:opacity-100 shadow-[inset_0_1px_0_rgba(255,255,255,0.7),inset_0_-30px_60px_-34px_rgba(190,70,90,0.55)]"
+                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-[550ms] ease-out group-hover:opacity-100 shadow-[inset_0_-30px_60px_-34px_rgba(190,70,90,0.45)]"
               />
 
-              {/* Badge & Title Block */}
-              <div className="relative z-[1] space-y-4">
-                <span className="inline-block px-2.5 py-1 rounded-md bg-[#e8e8ed] dark:bg-white/10 text-[11px] font-medium text-[#1d1d1f] dark:text-gray-200 group-hover:bg-[#1d1d1f]/10 group-hover:text-[#43251e] dark:group-hover:bg-[#1d1d1f]/10 dark:group-hover:text-[#43251e] transition-colors duration-[450ms]">
+              {/* Mark and product number */}
+              <div className="relative z-[1] flex items-start justify-between">
+                <span className="text-[#1d1d1f] dark:text-white transition-colors duration-[450ms] group-hover:text-[#2b1410] dark:group-hover:text-[#2b1410] [&_svg]:w-7 [&_svg]:h-7">
+                  {renderIcon(idea.icon)}
+                </span>
+                <span className="font-mono text-[10px] tracking-wide text-[#a3a3a8] dark:text-gray-500 transition-colors duration-[450ms] group-hover:text-[#8a6057] dark:group-hover:text-[#8a6057]">
                   {idea.badge}
                 </span>
-
-                <h3 className="text-base sm:text-lg font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-snug transition-colors duration-[450ms] group-hover:text-[#2b1410] dark:group-hover:text-[#2b1410]">
-                  {idea.title}
-                </h3>
               </div>
 
-              {/* Product Metadata Footer */}
-              <div className="relative z-[1] space-y-3 pt-6 border-t border-[#e5e5e7]/60 group-hover:border-[#2b1410]/15 dark:border-white/10 dark:group-hover:border-[#2b1410]/15 transition-colors duration-[450ms]">
-                <p className="text-xs font-medium text-[#86868b] group-hover:text-[#6b4a42] dark:text-gray-400 dark:group-hover:text-[#6b4a42] transition-colors duration-[450ms]">
-                  {idea.specs}
-                </p>
+              {/* Title and specification lines */}
+              <div className="relative z-[1] space-y-3">
+                <h3 className="text-[19px] sm:text-[21px] font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-[1.2] transition-colors duration-[450ms] group-hover:text-[#2b1410] dark:group-hover:text-[#2b1410]">
+                  {idea.title}
+                </h3>
 
-                <div className="space-y-0.5 text-xs font-medium text-[#515154] group-hover:text-[#43251e] dark:text-gray-300 dark:group-hover:text-[#43251e] transition-colors duration-[450ms]">
-                  <p>{idea.location}</p>
-                  <p className="text-[#86868b] group-hover:text-[#6b4a42] dark:text-gray-400 dark:group-hover:text-[#6b4a42] transition-colors duration-[450ms]">
-                    {idea.type}
-                  </p>
-                </div>
+                <p className="font-mono text-[11px] leading-[1.6] text-[#86868b] transition-colors duration-[450ms] group-hover:text-[#6b4a42] dark:text-gray-400 dark:group-hover:text-[#6b4a42]">
+                  {idea.specs} &middot; {idea.location}
+                </p>
+              </div>
+
+              {/* Capability tag */}
+              <div className="relative z-[1]">
+                <span className="inline-block rounded-full border border-[#1d1d1f]/25 px-3.5 py-1.5 font-mono text-[11px] text-[#1d1d1f] transition-colors duration-[450ms] group-hover:border-[#2b1410]/45 group-hover:text-[#2b1410] dark:border-white/25 dark:text-white dark:group-hover:border-[#2b1410]/45 dark:group-hover:text-[#2b1410]">
+                  {idea.type}
+                </span>
               </div>
             </motion.button>
             );
@@ -442,7 +447,7 @@ const EventsSection: React.FC = () => {
               className="max-w-2xl w-full my-auto py-8 space-y-6 text-left relative"
             >
               {/* Category Icon */}
-              <div className="mb-2">
+              <div className="mb-2 text-white/90">
                 {renderIcon(selectedIdea.icon)}
               </div>
 
