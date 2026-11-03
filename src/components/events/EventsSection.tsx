@@ -254,7 +254,12 @@ const EventsSection: React.FC = () => {
 
   return (
     <section className="py-20 bg-[#f5f5f7] dark:bg-[#000000] transition-colors duration-300 antialiased overflow-hidden relative">
-      <div className="max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-12 space-y-8">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-x-0 top-0 h-24 bg-gradient-to-b from-white to-[#f5f5f7] dark:from-black dark:to-black"
+      />
+
+      <div className="relative max-w-[1500px] mx-auto px-6 sm:px-10 lg:px-12 space-y-8">
         {/* Section Heading */}
         <div className="space-y-2">
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-medium tracking-tight text-[#1d1d1f] dark:text-white">
