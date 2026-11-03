@@ -1,8 +1,62 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import { newsItems } from "../blog/blogData";
 import SEO from "../layout/SEO";
 import Footer from "../footer/Footer";
+
+/** Renders one content line: a sub-heading, bullet, quote or paragraph. */
+const Prose: React.FC<{ line: string }> = ({ line }) => {
+  const bold = (text: string) =>
+    text.split("**").map((part, i) =>
+      i % 2 === 1 ? (
+        <strong key={i} className="font-medium text-gray-900 dark:text-white">{part}</strong>
+      ) : (
+        part
+      )
+    );
+
+  if (line.startsWith("### ")) {
+    return (
+      <h3 className="text-lg font-normal text-gray-900 dark:text-white pt-2 font-sans">
+        {line.slice(4)}
+      </h3>
+    );
+  }
+
+  if (line.startsWith("> ")) {
+    return (
+      <blockquote className="border-l-2 border-gray-300 dark:border-white/20 pl-5 py-1 text-sm sm:text-base italic text-gray-500 dark:text-gray-400">
+        {bold(line.slice(2))}
+      </blockquote>
+    );
+  }
+
+  if (line.startsWith("\u2022 ") || /^\d+\.\s/.test(line) || line.includes("\n")) {
+    const items = line.split("\n");
+    return (
+      <ul className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 pl-2 font-normal">
+        {items.map((item, i) => {
+          const numbered = item.match(/^(\d+)\.\s(.*)/);
+          const text = numbered ? numbered[2] : item.replace(/^\u2022\s/, "");
+          return (
+            <li key={i} className="flex items-start gap-2">
+              <span className="text-gray-400 font-normal shrink-0">
+                {numbered ? `${numbered[1]}.` : "\u2022"}
+              </span>
+              <span>{bold(text)}</span>
+            </li>
+          );
+        })}
+      </ul>
+    );
+  }
+
+  return (
+    <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
+      {bold(line)}
+    </p>
+  );
+};
 
 const NewsDetailPage: React.FC = () => {
   const { articleId } = useParams<{ articleId: string }>();
@@ -10,40 +64,37 @@ const NewsDetailPage: React.FC = () => {
   const article = newsItems.find((item) => item.id === articleId) || newsItems[0];
   const recommendations = newsItems.filter((item) => item.id !== article.id).slice(0, 3);
 
-  // TOC items per article ID or fallback
-  const defaultTocMap: Record<string, { id: string; title: string }[]> = {
-    "what-is-a-sales-funnel": [
-      { id: "key-takeaways", title: "Key Takeaways" },
-      { id: "sales-funnel-2026", title: "What Is a Sales Funnel? The 2026 Definition" },
-      { id: "non-linear-funnels", title: "Why Modern Sales Funnels Are Non-Linear" },
-      { id: "stages-b2b-funnel", title: "The 6 Stages of an Effective B2B Sales Funnel" },
-      { id: "sales-marketing-alignment", title: "Sales and Marketing Alignment: The 208% Revenue Multiplier" },
-      { id: "funnel-metrics", title: "Data-Driven Funnel Optimization: Key Metrics" },
-      { id: "common-mistakes", title: "Common Sales Funnel Mistakes to Avoid" },
-      { id: "platform-consolidation", title: "The Case for Platform Consolidation" },
-      { id: "faq", title: "Frequently Asked Questions" },
-      { id: "start-building", title: "Start Building Your Data-Driven Sales Funnel" }
-    ],
-    "inbound-vs-outbound-marketing": [
-      { id: "key-takeaways", title: "Key Takeaways" },
-      { id: "inbound-marketing", title: "Inbound Marketing: Get Found, Not Ignored" },
-      { id: "outbound-marketing", title: "Outbound Marketing: Start the Conversation" },
-      { id: "dont-pick-stack", title: "Inbound vs Outbound: Don't Pick — Stack" },
-      { id: "tactics-work", title: "Tactics That Actually Work in 2026" },
-      { id: "real-relationships", title: "Marketing That Builds Real Relationships" },
-      { id: "amthromax-play", title: "The Amthromax Play: Turn Strategy Into Revenue" }
-    ]
-  };
+  /* Sections come from the article's own "## " headings. Everything before
+     the first one is the lead. */
+  const slugify = (t: string) =>
+    t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
 
-  const tocItems = defaultTocMap[article.id] || [
-    { id: "key-takeaways", title: "Key Takeaways" },
-    { id: "inbound-marketing", title: "Inbound Marketing: Get Found, Not Ignored" },
-    { id: "outbound-marketing", title: "Outbound Marketing: Start the Conversation" },
-    { id: "dont-pick-stack", title: "Inbound vs Outbound: Don't Pick — Stack" },
-    { id: "tactics-work", title: "Tactics That Actually Work in 2026" },
-    { id: "real-relationships", title: "Marketing That Builds Real Relationships" },
-    { id: "amthromax-play", title: "The Amthromax Play: Turn Strategy Into Revenue" }
-  ];
+  const { lead, sections, tocItems } = useMemo(() => {
+    const parsed = article.content.reduce<{ id: string; title: string; body: string[] }[]>(
+      (acc, line) => {
+        if (line.startsWith("## ")) {
+          const title = line.slice(3);
+          acc.push({ id: slugify(title), title, body: [] });
+        } else if (acc.length) {
+          acc[acc.length - 1].body.push(line);
+        }
+        return acc;
+      },
+      []
+    );
+
+    const firstHeading = article.content.findIndex((l) => l.startsWith("## "));
+    const intro = article.content.slice(0, firstHeading === -1 ? article.content.length : firstHeading);
+
+    return {
+      lead: intro,
+      sections: parsed,
+      tocItems: [
+        ...(intro.length ? [{ id: "overview", title: "Overview" }] : []),
+        ...parsed.map(({ id, title }) => ({ id, title })),
+      ],
+    };
+  }, [article]);
 
   const [activeSectionId, setActiveSectionId] = useState<string>(tocItems[1]?.id || tocItems[0]?.id);
 
@@ -181,129 +232,31 @@ const NewsDetailPage: React.FC = () => {
           {/* Right Main Article Content Body */}
           <article className="flex-1 max-w-3xl space-y-10 text-gray-800 dark:text-gray-200 leading-relaxed font-sans">
             
-            {/* Key Takeaways Section */}
-            <div id="key-takeaways" className="space-y-4">
-              {/* Lead Intro Paragraph */}
-              <p className="text-lg sm:text-xl font-normal text-gray-900 dark:text-gray-100 leading-relaxed border-l-2 border-gray-900 dark:border-white pl-4 py-1">
-                If you're still lumping all marketing into the same bucket — buckle up. The real power play in 2026 isn't inbound <em className="not-italic font-normal text-gray-900 dark:text-white">*or*</em> outbound. It's knowing how and when to use both like a sniper, not a shotgun.
-              </p>
-            </div>
-
-            {/* Section 1: Inbound Marketing / Definition */}
-            <div id={tocItems[1]?.id || "inbound-marketing"} className="space-y-4 pt-4 border-t border-gray-200 dark:border-white/10">
-              <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
-                {tocItems[1]?.title || "Inbound Marketing: Get Found, Not Ignored"}
-              </h2>
-              <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
-                Inbound isn't just content — it's a magnet for modern buyers who don't want to be sold to. It's showing up when they search, scroll, and skim. According to Amthromax data, companies using inbound generate 54% more leads than those stuck in cold-calling purgatory.
-              </p>
-              
-              <h3 className="text-lg font-normal text-gray-900 dark:text-white pt-2 font-sans">
-                Winning inbound looks like:
-              </h3>
-              <ul className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 pl-2 font-normal">
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">SEO that earns you page one</strong> — not purgatory</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Content that educates</strong>, not regurgitates</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Social media with purpose</strong>, not just posts</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Lead-nurturing emails</strong> that don't get deleted</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><a href="/products" className="text-gray-900 dark:text-white underline decoration-gray-400 underline-offset-4 font-normal hover:text-gray-600">AI-powered prospecting</a> that finds leads while you sleep</span>
-                </li>
-              </ul>
-              
-              <p className="text-sm sm:text-base text-gray-500 dark:text-gray-400 italic pt-2 font-normal">
-                Done right, it builds brand loyalty, community, and compounding reach — the stuff ad budgets can't buy.
-              </p>
-
-              <div className="pt-4 space-y-3">
-                <h3 className="text-lg font-normal text-gray-900 dark:text-white font-sans">
-                  Why Inbound Slaps
-                </h3>
-                <ul className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 pl-2 font-normal">
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 font-normal">•</span>
-                    <span><strong className="font-normal text-gray-900 dark:text-white">Cheap leads</strong> with long shelf life</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 font-normal">•</span>
-                    <span><strong className="font-normal text-gray-900 dark:text-white">Compounds over time</strong> — content keeps working</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-gray-400 font-normal">•</span>
-                    <span><strong className="font-normal text-gray-900 dark:text-white">Thought leadership</strong> becomes a traffic engine</span>
-                  </li>
-                </ul>
+            {lead.length > 0 && (
+              <div id="overview" className="space-y-4">
+                <p className="text-lg sm:text-xl font-normal text-gray-900 dark:text-gray-100 leading-relaxed border-l-2 border-gray-900 dark:border-white pl-5">
+                  {lead[0]}
+                </p>
+                {lead.slice(1).map((line, i) => (
+                  <Prose key={i} line={line} />
+                ))}
               </div>
-            </div>
+            )}
 
-            {/* Section 2: Outbound Marketing / Non-linear */}
-            <div id={tocItems[2]?.id || "outbound-marketing"} className="space-y-4 pt-8 border-t border-gray-200 dark:border-white/10">
-              <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
-                {tocItems[2]?.title || "Outbound Marketing: Start the Conversation"}
-              </h2>
-              <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
-                Outbound gets a bad rap — but it works. The catch? Only if it's done right. Think less billboard, more laser beam.
-              </p>
-              
-              <h3 className="text-lg font-normal text-gray-900 dark:text-white pt-2 font-sans">
-                Modern outbound means:
-              </h3>
-              <ul className="space-y-2 text-sm sm:text-base text-gray-600 dark:text-gray-300 pl-2 font-normal">
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Hyper-targeting</strong> the right ICPs</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Multichannel touches</strong> — LinkedIn, email, phone</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Message personalization</strong> at scale</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><a href="/platform" className="text-gray-900 dark:text-white underline decoration-gray-400 underline-offset-4 font-normal hover:text-gray-600">Sequenced outreach</a> with intent baked in</span>
-                </li>
-                <li className="flex items-start gap-2">
-                  <span className="text-gray-400 font-normal">•</span>
-                  <span><strong className="font-normal text-gray-900 dark:text-white">Clear tracking</strong> to double down on what works</span>
-                </li>
-              </ul>
-            </div>
-
-            {/* Section 3: Don't Pick — Stack */}
-            <div id={tocItems[3]?.id || "dont-pick-stack"} className="space-y-4 pt-8 border-t border-gray-200 dark:border-white/10">
-              <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
-                {tocItems[3]?.title || "Inbound vs Outbound: Don't Pick — Stack"}
-              </h2>
-              <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
-                The debate isn't inbound OR outbound. The smartest revenue teams run inbound and outbound simultaneously. Use inbound to create trust and evergreen organic demand, while running precision outbound to win targeted enterprise accounts.
-              </p>
-            </div>
-
-            {/* Section 4: Tactics */}
-            <div id={tocItems[4]?.id || "tactics-work"} className="space-y-4 pt-8 border-t border-gray-200 dark:border-white/10">
-              <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
-                {tocItems[4]?.title || "Tactics That Actually Work in 2026"}
-              </h2>
-              <p className="text-base text-gray-600 dark:text-gray-300 leading-relaxed font-normal">
-                Leverage buyer intent signals, automated enrichment, and real-time trigger events to engage prospects when buying intent is highest.
-              </p>
-            </div>
+            {sections.map((section, si) => (
+              <div
+                key={section.id}
+                id={section.id}
+                className={`space-y-4 ${si === 0 ? "pt-4" : "pt-8"} border-t border-gray-200 dark:border-white/10`}
+              >
+                <h2 className="text-2xl sm:text-3xl font-normal text-gray-900 dark:text-white tracking-tight font-sans">
+                  {section.title}
+                </h2>
+                {section.body.map((line, i) => (
+                  <Prose key={i} line={line} />
+                ))}
+              </div>
+            ))}
 
           </article>
         </div>

@@ -143,22 +143,6 @@ const BlogPage: React.FC = () => {
                 <div className="absolute top-4 left-4 bg-black/85 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase z-20">
                   Featured
                 </div>
-                <div 
-                  className="absolute inset-0 flex items-center justify-center p-4 text-center z-30"
-                  style={{ backgroundColor: 'rgba(0, 0, 0, 0.35)' }}
-                >
-                  <div 
-                    className="px-6 py-3 rounded-2xl border border-white/30 backdrop-blur-md shadow-2xl"
-                    style={{ backgroundColor: 'rgba(0, 0, 0, 0.5)' }}
-                  >
-                    <span 
-                      className="text-white font-black text-xl sm:text-2xl md:text-3xl tracking-widest uppercase block"
-                      style={{ color: '#ffffff', textShadow: '0 2px 12px rgba(0,0,0,0.9)', fontFamily: 'Inter, sans-serif' }}
-                    >
-                      Next AI Tool
-                    </span>
-                  </div>
-                </div>
               </div>
               <div className="md:col-span-6 p-6 md:p-7 flex flex-col justify-between space-y-4">
                 <div className="space-y-2.5">
