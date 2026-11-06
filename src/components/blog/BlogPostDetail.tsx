@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts, type BlogPost } from "./blogData";
 import SEO from "../layout/SEO";
 import { isHouseAuthor, HouseMark } from "./AuthorAvatar";
+import MermaidFigure from "./MermaidFigure";
 import Footer from "../footer/Footer";
 
 const BlogPostDetail: React.FC = () => {
@@ -284,6 +285,68 @@ const BlogPostDetail: React.FC = () => {
           {/* Main Article Content */}
           <div className="flex-1 min-w-0 space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
             {post.content.map((paragraph, index) => {
+              /* Diagram: "```mermaid\n<definition>```" optionally followed by
+                 a caption on its own line after the closing fence. */
+              if (paragraph.startsWith("```mermaid")) {
+                const body = paragraph.slice("```mermaid".length);
+                const close = body.lastIndexOf("```");
+                const chart = (close === -1 ? body : body.slice(0, close)).trim();
+                const caption = close === -1 ? "" : body.slice(close + 3).trim();
+                return <MermaidFigure key={index} chart={chart} caption={caption || undefined} />;
+              }
+
+              /* Table: pipe-delimited rows, the second being the separator. */
+              if (paragraph.startsWith("|") && paragraph.includes("\n")) {
+                const rows = paragraph
+                  .split("\n")
+                  .filter((r) => r.trim().startsWith("|"))
+                  .map((r) => r.trim().replace(/^\||\|$/g, "").split("|").map((c) => c.trim()));
+
+                if (rows.length >= 2 && /^[:\- ]+$/.test(rows[1].join(""))) {
+                  const [head, , ...body] = rows;
+                  const cell = (text: string) =>
+                    text.split("**").map((part, i) =>
+                      i % 2 === 1 ? (
+                        <strong key={i} className="font-semibold text-gray-900 dark:text-white">{part}</strong>
+                      ) : (
+                        part
+                      )
+                    );
+                  /* Some tables in long-form posts are unheaded two-column
+                     summaries, where an empty header row should not print. */
+                  const headed = head.some((h) => h.length > 0);
+
+                  return (
+                    <div key={index} className="my-8 overflow-x-auto rounded-2xl border border-gray-200 dark:border-white/10">
+                      <table className="w-full min-w-[520px] border-collapse text-left text-sm">
+                        {headed && (
+                          <thead>
+                            <tr className="bg-gray-50 dark:bg-white/[0.04]">
+                              {head.map((h, i) => (
+                                <th key={i} className="border-b border-gray-200 px-4 py-3 font-medium text-gray-900 dark:border-white/10 dark:text-white">
+                                  {cell(h)}
+                                </th>
+                              ))}
+                            </tr>
+                          </thead>
+                        )}
+                        <tbody>
+                          {body.map((row, ri) => (
+                            <tr key={ri} className="align-top">
+                              {row.map((c, ci) => (
+                                <td key={ci} className="border-b border-gray-100 px-4 py-3 leading-relaxed text-gray-600 last:border-r-0 dark:border-white/[0.06] dark:text-gray-300">
+                                  {cell(c)}
+                                </td>
+                              ))}
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  );
+                }
+              }
+
               // Image parsing
               if (paragraph.startsWith("![") && paragraph.endsWith(")")) {
                 const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
