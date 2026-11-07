@@ -2,8 +2,9 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
+import { COMPANY_CONFIG } from "../../config/company";
 import { Sun, Moon, Globe } from "lucide-react";
-import { FaLinkedin, FaXTwitter, FaYoutube, FaDiscord, FaReddit, FaGithub } from "react-icons/fa6";
+import { FaLinkedin, FaXTwitter, FaYoutube, FaDiscord, FaGithub } from "react-icons/fa6";
 import { useTheme } from "../../context/ThemeContext";
 import { useLanguage } from "../../context/LanguageContext";
 
@@ -131,11 +132,9 @@ const Footer: React.FC = () => {
               />
             </Link>
 
-            <div className="space-y-1">
-              <h3 className="text-base sm:text-lg lg:text-xl font-medium text-[#1a1815] dark:text-white tracking-tight">
-                Amthromax © {new Date().getFullYear()}
-              </h3>
-            </div>
+            <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-[#1a1815] dark:text-white [font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace]">
+              &copy; {new Date().getFullYear()} {COMPANY_CONFIG.legalName}
+            </p>
 
             {/* Vertical Legal Links */}
             <div className="flex flex-col items-center text-center space-y-2 sm:space-y-2.5 text-xs sm:text-sm lg:text-base font-medium text-[#5c5850] dark:text-gray-400">
@@ -268,18 +267,6 @@ const Footer: React.FC = () => {
               className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
             >
               <FaDiscord className="w-6 h-6" />
-            </a>
-
-            {/* Reddit */}
-            <a
-              href="https://www.reddit.com/user/Amthromax/"
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label="Amthromax on Reddit"
-              title="Reddit"
-              className="text-gray-600 hover:text-black dark:text-gray-400 dark:hover:text-white transition-all transform hover:scale-110"
-            >
-              <FaReddit className="w-6 h-6" />
             </a>
 
             {/* GitHub */}
