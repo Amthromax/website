@@ -259,9 +259,9 @@ const BlogPostDetail: React.FC = () => {
           </div>
 
           {/* Contents rail beside the article body */}
-          <div className="relative flex flex-col lg:block gap-10 pt-6">
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-8 pt-6">
           {tocItems.length > 1 && (
-            <aside className="hidden lg:block lg:absolute lg:left-0 lg:top-6 w-56">
+            <aside className="hidden lg:block w-56 shrink-0">
               <nav className="sticky top-28 space-y-3" aria-label="On this page">
                 {tocItems.map((item) => (
                   <a
@@ -280,7 +280,7 @@ const BlogPostDetail: React.FC = () => {
             </aside>
           )}
           {/* Main Article Content */}
-          <div className="min-w-0 w-full lg:mx-auto lg:max-w-3xl space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+          <div className="min-w-0 w-full lg:flex-1 lg:max-w-3xl lg:mx-auto space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
             {post.content.map((paragraph, index) => {
               /* Diagram: "```mermaid\n<definition>```" optionally followed by
                  a caption on its own line after the closing fence. */
@@ -643,6 +643,7 @@ const BlogPostDetail: React.FC = () => {
           )}
           </div>{/* end main article */}
 
+          {tocItems.length > 1 && <div aria-hidden="true" className="hidden lg:block w-56 shrink-0" />}
           </div>{/* end two-column flex */}
         </div>{/* end max-w container */}
       </article>
