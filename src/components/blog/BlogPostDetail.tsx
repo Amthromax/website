@@ -184,15 +184,6 @@ const BlogPostDetail: React.FC = () => {
 
       <article className="py-16 md:py-24 bg-white dark:bg-black transition-colors duration-300 min-h-[85vh] font-sans">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-10 xl:px-20 space-y-10">
-          {/* Back Navigation */}
-          <Link
-            to="/blog"
-            className="inline-flex items-center space-x-2 text-xs font-bold text-gray-400 dark:text-gray-500 hover:text-black dark:hover:text-white transition-colors group"
-          >
-            <span className="text-sm transform group-hover:-translate-x-1 transition-transform">←</span>
-            <span>Back to Insights</span>
-          </Link>
-
           {/* Post header, centred */}
           <header className="mx-auto max-w-3xl space-y-6 text-center">
             <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[13px] text-zinc-500 dark:text-zinc-400">
@@ -223,32 +214,31 @@ const BlogPostDetail: React.FC = () => {
             </div>
 
             <div className="flex items-center gap-2">
-              <span className="mr-1 text-[11px] uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Share</span>
               <button
                 onClick={handleShareLinkedIn}
                 title="Share to LinkedIn"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+                className="flex h-8 w-8 items-center justify-center text-zinc-500 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
               </button>
               <button
                 onClick={handleShareX}
                 title="Share to X"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+                className="flex h-8 w-8 items-center justify-center text-zinc-500 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
               </button>
               <button
                 onClick={handleShareGmail}
                 title="Share via email"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+                className="flex h-8 w-8 items-center justify-center text-zinc-500 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
               </button>
               <button
                 onClick={handleNativeShare}
                 title="Copy link"
-                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+                className="flex h-8 w-8 items-center justify-center text-zinc-500 transition-colors hover:text-black dark:text-zinc-400 dark:hover:text-white"
               >
                 <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><polyline points="16 6 12 2 8 6" /><line x1="12" y1="2" x2="12" y2="15" /></svg>
               </button>
