@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useParams, Link, useNavigate } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 import { blogPosts, type BlogPost } from "./blogData";
@@ -52,6 +52,39 @@ const BlogPostDetail: React.FC = () => {
     }, 2500);
   };
 
+  /* The contents rail is built from the article's own "## " headings, and
+     the same slug is put on each rendered heading so the links can reach
+     them. */
+  const slugify = (t: string) =>
+    t.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+
+  const tocItems = useMemo(
+    () =>
+      (post?.content ?? [])
+        .filter((line) => line.startsWith("## "))
+        .map((line) => ({ id: slugify(line.slice(3)), title: line.slice(3) })),
+    [post]
+  );
+
+  const [activeSection, setActiveSection] = useState<string>("");
+
+  useEffect(() => {
+    if (!tocItems.length) return;
+    const onScroll = () => {
+      /* The heading nearest the top of the viewport, but still above it, is
+         the one being read. */
+      let current = tocItems[0].id;
+      for (const item of tocItems) {
+        const el = document.getElementById(item.id);
+        if (el && el.getBoundingClientRect().top <= 140) current = item.id;
+      }
+      setActiveSection(current);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [tocItems]);
+
   if (!post) {
     return (
       <div className="py-32 text-center bg-white dark:bg-black min-h-[90vh] font-sans">
@@ -83,14 +116,6 @@ const BlogPostDetail: React.FC = () => {
 
   const handleShareGmail = () => {
     window.open(`https://mail.google.com/mail/?view=cm&fs=1&tf=1&su=${encodeURIComponent(shareTitle)}&body=${encodeURIComponent(shareUrl)}`, "_blank");
-  };
-
-  const handleShareInstagram = () => {
-    navigator.clipboard.writeText(shareUrl).then(() => {
-      showToast("Link copied! Share it on Instagram.");
-    }).catch(() => {
-      showToast("Failed to copy link.");
-    });
   };
 
   const handleNativeShare = () => {
@@ -140,6 +165,7 @@ const BlogPostDetail: React.FC = () => {
     }
   };
 
+
   return (
     <div>
       <SEO
@@ -167,103 +193,65 @@ const BlogPostDetail: React.FC = () => {
             <span>Back to Insights</span>
           </Link>
 
-          {/* Post Header info */}
-          <div className="space-y-6">
-            <div className="flex items-center space-x-3 text-xs font-semibold uppercase tracking-[0.15em] text-zinc-500 dark:text-zinc-400">
-              <span className="px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-black dark:text-white text-[11px] font-bold tracking-wider">{post.category}</span>
-              <span>•</span>
-              <span className="text-zinc-400 dark:text-zinc-500">{post.readTime}</span>
+          {/* Post header, centred */}
+          <header className="mx-auto max-w-3xl space-y-6 text-center">
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-[13px] text-zinc-500 dark:text-zinc-400">
+              <span className="text-zinc-700 dark:text-zinc-300">{post.date}</span>
+              <span>{post.category}</span>
+              <span>{post.readTime}</span>
             </div>
-            <h1 className="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tight text-black dark:text-white leading-[1.1]">
+
+            <h1 className="text-balance text-4xl md:text-5xl lg:text-[58px] font-medium tracking-tight text-black dark:text-white leading-[1.08]">
               {post.title}
             </h1>
-            <p className="text-xl md:text-2xl text-zinc-600 dark:text-zinc-300 font-normal leading-relaxed italic border-l-2 border-black dark:border-white pl-6 py-2">
+
+            <p className="text-pretty mx-auto max-w-2xl text-base md:text-lg leading-relaxed text-zinc-600 dark:text-zinc-300">
               {post.excerpt}
             </p>
-          </div>
+          </header>
 
-          {/* Author Block */}
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 py-6 border-y border-black/[0.06] dark:border-white/[0.08]">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 rounded-full bg-black text-white dark:bg-white dark:text-black font-black text-base flex items-center justify-center border border-black/10 dark:border-white/10 shadow-sm overflow-hidden">
+          {/* Byline and share, on one rule */}
+          <div className="mx-auto flex max-w-3xl flex-wrap items-center justify-between gap-4 border-y border-black/[0.07] py-4 dark:border-white/[0.08]">
+            <div className="flex items-center gap-3">
+              <div className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-full border border-black/10 bg-black text-sm font-semibold text-white dark:border-white/10 dark:bg-white dark:text-black">
                 {isHouseAuthor(post.author.name) ? <HouseMark /> : post.author.avatar}
               </div>
-              <div>
-                <h4 className="text-sm font-semibold text-black dark:text-white">{post.author.name}</h4>
-                <p className="text-xs text-zinc-400 dark:text-zinc-500">{post.author.role}</p>
+              <div className="text-left">
+                <p className="text-[13px] font-medium text-black dark:text-white">{post.author.name}</p>
+                <p className="text-[11px] text-zinc-500 dark:text-zinc-400">{post.author.role}</p>
               </div>
             </div>
-            
-            {/* Share and Date Block */}
-            <div className="flex flex-wrap items-center gap-6 sm:ml-auto">
-              <div className="flex items-center gap-2">
-                <span className="text-[10px] font-bold text-zinc-400 dark:text-zinc-500 uppercase tracking-[0.15em] mr-1">Share</span>
-                
-                {/* LinkedIn */}
-                <button
-                  onClick={handleShareLinkedIn}
-                  className="w-9 h-9 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-[#f5f5f7]/60 dark:bg-[#1c1c1e]/60 text-zinc-600 hover:text-black hover:bg-white dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 flex items-center justify-center transition-all duration-200 select-none cursor-pointer shadow-xs"
-                  title="Share to LinkedIn"
-                >
-                  <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                  </svg>
-                </button>
 
-                {/* X */}
-                <button
-                  onClick={handleShareX}
-                  className="w-9 h-9 rounded-full border border-black/[0.08] dark:border-white/[0.1] bg-[#f5f5f7]/60 dark:bg-[#1c1c1e]/60 text-zinc-600 hover:text-black hover:bg-white dark:text-zinc-400 dark:hover:text-white dark:hover:bg-zinc-800 flex items-center justify-center transition-all duration-200 select-none cursor-pointer shadow-xs"
-                  title="Share to X"
-                >
-                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24">
-                    <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
-                  </svg>
-                </button>
-
-                {/* Instagram */}
-                <button
-                  onClick={handleShareInstagram}
-                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#e1306c] hover:border-[#e1306c] dark:text-gray-400 dark:hover:text-[#e1306c] dark:hover:border-[#e1306c] flex items-center justify-center hover:bg-pink-50/10 transition-all select-none cursor-pointer"
-                  title="Copy link for Instagram"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
-                    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
-                  </svg>
-                </button>
-
-                {/* Gmail */}
-                <button
-                  onClick={handleShareGmail}
-                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-[#ea4335] hover:border-[#ea4335] dark:text-gray-450 dark:hover:text-[#ea4335] dark:hover:border-[#ea4335] flex items-center justify-center hover:bg-red-50/10 transition-all select-none cursor-pointer"
-                  title="Share via Email"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
-                    <polyline points="22,6 12,13 2,6"></polyline>
-                  </svg>
-                </button>
-
-                {/* Share/Notes */}
-                <button
-                  onClick={handleNativeShare}
-                  className="w-8 h-8 rounded-full border border-gray-200 dark:border-gray-800 text-gray-500 hover:text-black hover:border-gray-900 dark:text-gray-400 dark:hover:text-white dark:hover:border-white flex items-center justify-center hover:bg-gray-50 transition-all select-none cursor-pointer"
-                  title="Share / Save to Notes"
-                >
-                  <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24">
-                    <path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path>
-                    <polyline points="16 6 12 2 8 6"></polyline>
-                    <line x1="12" y1="2" x2="12" y2="15"></line>
-                  </svg>
-                </button>
-              </div>
-
-              <div className="text-left sm:text-right border-t sm:border-t-0 sm:border-l border-gray-100 dark:border-gray-900 pt-3 sm:pt-0 sm:pl-6">
-                <p className="text-xs text-gray-400 dark:text-gray-500">Published</p>
-                <p className="text-xs font-bold text-gray-800 dark:text-gray-200">{post.date}</p>
-              </div>
+            <div className="flex items-center gap-2">
+              <span className="mr-1 text-[11px] uppercase tracking-[0.15em] text-zinc-400 dark:text-zinc-500">Share</span>
+              <button
+                onClick={handleShareLinkedIn}
+                title="Share to LinkedIn"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" /></svg>
+              </button>
+              <button
+                onClick={handleShareX}
+                title="Share to X"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+              >
+                <svg className="h-3 w-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" /></svg>
+              </button>
+              <button
+                onClick={handleShareGmail}
+                title="Share via email"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" /><polyline points="22,6 12,13 2,6" /></svg>
+              </button>
+              <button
+                onClick={handleNativeShare}
+                title="Copy link"
+                className="flex h-8 w-8 items-center justify-center rounded-full border border-black/[0.08] text-zinc-600 transition-colors hover:border-black hover:text-black dark:border-white/[0.1] dark:text-zinc-400 dark:hover:border-white dark:hover:text-white"
+              >
+                <svg className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8" /><polyline points="16 6 12 2 8 6" /><line x1="12" y1="2" x2="12" y2="15" /></svg>
+              </button>
             </div>
           </div>
 
@@ -280,10 +268,29 @@ const BlogPostDetail: React.FC = () => {
             />
           </div>
 
-          {/* Article Body + Sidebar Two-Column Layout */}
-          <div className="flex flex-col xl:flex-row gap-12 xl:gap-16 pt-6">
+          {/* Contents rail beside the article body */}
+          <div className="flex flex-col lg:flex-row gap-10 lg:gap-14 pt-6">
+          {tocItems.length > 1 && (
+            <aside className="hidden lg:block w-56 shrink-0">
+              <nav className="sticky top-28 space-y-3" aria-label="On this page">
+                {tocItems.map((item) => (
+                  <a
+                    key={item.id}
+                    href={`#${item.id}`}
+                    className={`block text-[12.5px] leading-snug transition-colors ${
+                      activeSection === item.id
+                        ? "font-medium text-black dark:text-white"
+                        : "text-zinc-500 hover:text-black dark:text-zinc-500 dark:hover:text-white"
+                    }`}
+                  >
+                    {item.title}
+                  </a>
+                ))}
+              </nav>
+            </aside>
+          )}
           {/* Main Article Content */}
-          <div className="flex-1 min-w-0 space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
+          <div className="flex-1 min-w-0 max-w-3xl space-y-6 text-gray-750 dark:text-gray-300 text-base md:text-lg leading-relaxed">
             {post.content.map((paragraph, index) => {
               /* Diagram: "```mermaid\n<definition>```" optionally followed by
                  a caption on its own line after the closing fence. */
@@ -498,9 +505,14 @@ const BlogPostDetail: React.FC = () => {
 
               // Headers
               if (paragraph.startsWith("## ")) {
+                const text = paragraph.slice(3);
                 return (
-                  <h2 key={index} className="text-2xl md:text-3xl font-medium tracking-tight mt-10 mb-4 text-gray-900 dark:text-white">
-                    {paragraph.replace("## ", "")}
+                  <h2
+                    key={index}
+                    id={slugify(text)}
+                    className="scroll-mt-28 text-2xl md:text-3xl font-medium tracking-tight mt-12 mb-4 text-gray-900 dark:text-white"
+                  >
+                    {text}
                   </h2>
                 );
               }
@@ -641,65 +653,6 @@ const BlogPostDetail: React.FC = () => {
           )}
           </div>{/* end main article */}
 
-          {/* Sticky Right Sidebar */}
-          <aside className="hidden xl:block w-80 shrink-0">
-            <div className="sticky top-28 space-y-6">
-              {/* Author Card */}
-              <div className="relative group p-6 rounded-2xl bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-6">
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Written by</p>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black font-black text-base flex items-center justify-center shadow-lg border border-black/10 dark:border-white/10 shrink-0 relative">
-                    {isHouseAuthor(post.author.name) ? <HouseMark /> : post.author.avatar}
-                    <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-500 border-2 border-white dark:border-[#1c1c1e] rounded-full shadow-sm" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">{post.author.name}</h4>
-                    <p className="text-xs font-semibold text-zinc-500 dark:text-zinc-400">{post.author.role}</p>
-                  </div>
-                </div>
-                <div className="pt-5 border-t border-black/[0.04] dark:border-white/[0.06] flex justify-between items-center text-xs">
-                  <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide">Published</span>
-                  <span className="font-bold text-gray-900 dark:text-gray-100">{post.date}</span>
-                </div>
-                <div className="flex justify-between items-center text-xs">
-                  <span className="text-zinc-500 dark:text-zinc-400 font-semibold tracking-wide">Read time</span>
-                  <span className="font-bold text-gray-900 dark:text-gray-100">{post.readTime}</span>
-                </div>
-              </div>
-
-              {/* Share Card */}
-              <div className="relative group p-6 rounded-2xl bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-5">
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Share this post</p>
-                <div className="flex flex-wrap gap-3">
-                  <button onClick={handleShareLinkedIn} title="LinkedIn" className="flex-1 min-w-[80px] py-3 px-3 rounded-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
-                    <svg className="w-3.5 h-3.5" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
-                    LinkedIn
-                  </button>
-                  <button onClick={handleShareX} title="X / Twitter" className="flex-1 min-w-[80px] py-3 px-3 rounded-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
-                    <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-                    Twitter
-                  </button>
-                  <button onClick={handleNativeShare} title="Copy Link" className="w-full py-3 px-4 rounded-2xl border border-gray-200 dark:border-white/[0.08] bg-white dark:bg-[#1f1f22] text-zinc-700 dark:text-zinc-300 hover:border-black/20 dark:hover:border-white/20 hover:text-black dark:hover:text-white hover:-translate-y-0.5 hover:shadow-md transition-all duration-300 text-xs font-bold flex items-center justify-center gap-2 shadow-sm cursor-pointer">
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" viewBox="0 0 24 24"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"></path><polyline points="16 6 12 2 8 6"></polyline><line x1="12" y1="2" x2="12" y2="15"></line></svg>
-                    Copy Link
-                  </button>
-                </div>
-              </div>
-
-              {/* Category Tag */}
-              <div className="relative group p-6 rounded-2xl bg-gradient-to-b from-white/95 to-[#f8f8fb]/95 dark:from-[#1c1c1e]/90 dark:to-[#121214]/90 backdrop-blur-2xl border border-black/[0.03] dark:border-white/[0.05] shadow-[0_4px_24px_rgba(0,0,0,0.03)] dark:shadow-[0_4px_24px_rgba(0,0,0,0.2)] hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(0,0,0,0.06)] dark:hover:shadow-[0_12px_40px_rgba(0,0,0,0.3)] hover:border-black/[0.08] dark:hover:border-white/[0.12] transition-all duration-500 ease-out space-y-4">
-                <div className="absolute inset-0 rounded-2xl ring-1 ring-inset ring-white/60 dark:ring-white/5 pointer-events-none" />
-                <p className="text-[10px] font-extrabold uppercase tracking-[0.2em] text-zinc-400 dark:text-zinc-500">Category</p>
-                <div className="flex">
-                  <span className="inline-flex items-center px-5 py-2 rounded-xl bg-gradient-to-br from-gray-900 to-black text-white dark:from-white dark:to-gray-200 dark:text-black text-[13px] font-bold tracking-tight shadow-md hover:shadow-xl hover:scale-105 transition-all duration-300">
-                    {post.category}
-                  </span>
-                </div>
-              </div>
-            </div>
-          </aside>
           </div>{/* end two-column flex */}
         </div>{/* end max-w container */}
       </article>
