@@ -109,69 +109,49 @@ const BlogPage: React.FC = () => {
             )}
           </div>
 
-          {/* Categories Tab Bar */}
-          <div className="flex justify-center flex-wrap gap-2.5 pb-2 border-b border-[#e5e5e7]/80 dark:border-white/10">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setSelectedCategory(cat)}
-                className={`px-5 py-2.5 rounded-full text-xs font-medium transition-all duration-300 select-none cursor-pointer ${
-                  selectedCategory === cat
-                    ? "bg-[#1d1d1f] text-white dark:bg-white dark:text-black shadow-xs"
-                    : "bg-white text-[#6e6e73] hover:bg-[#e5e5e7] hover:text-[#1d1d1f] dark:bg-white/5 dark:text-gray-400 dark:hover:bg-white/10 dark:hover:text-white border border-[#e5e5e7] dark:border-white/10"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-
           {/* Featured Post (Only show when selectedCategory is "All") */}
           {selectedCategory === "All" && featuredPost && (
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="group overflow-hidden rounded-2xl sm:rounded-2xl bg-white dark:bg-[#161617] border border-[#e5e5e7] dark:border-white/[0.08] shadow-[0_4px_20px_rgba(0,0,0,0.03)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.08)] transition-all duration-300 grid md:grid-cols-12 gap-0 md:max-h-[340px]"
+              /* Warm panel with the artwork inset rather than bled to the
+                 edge, which is what gives the card its framed look. */
+              className="group rounded-2xl bg-[#f4f0ec] dark:bg-[#141416] p-5 sm:p-6 transition-shadow duration-300 hover:shadow-[0_18px_44px_-28px_rgba(15,23,42,0.35)] grid md:grid-cols-12 gap-5 sm:gap-6 items-stretch"
             >
-              <div className="md:col-span-6 min-h-[220px] md:h-full overflow-hidden relative">
+              <Link
+                to={`/blog/${featuredPost.id}`}
+                className="md:col-span-6 block overflow-hidden rounded-xl aspect-[16/10] md:aspect-auto md:min-h-[300px]"
+              >
                 <img
                   src={featuredPost.image}
                   alt={featuredPost.title}
-                  className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                  className="w-full h-full object-cover object-center transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                 />
-                <div className="absolute top-4 left-4 bg-black/85 text-white backdrop-blur-md px-3.5 py-1 rounded-full text-[10px] font-semibold tracking-wider uppercase z-20">
-                  Featured
-                </div>
-              </div>
-              <div className="md:col-span-6 p-6 md:p-7 flex flex-col justify-between space-y-4">
-                <div className="space-y-2.5">
-                  <div className="flex items-center space-x-2 text-xs font-semibold text-[#1a1815] dark:text-white uppercase tracking-wider">
-                    <span>{featuredPost.category}</span>
-                    <span>•</span>
-                    <span className="text-[#86868b] dark:text-gray-500">{featuredPost.readTime}</span>
-                  </div>
-                  <Link
-                    to={`/blog/${featuredPost.id}`}
-                    className="block group-hover:text-[#1a1815] dark:group-hover:text-white transition-colors"
-                  >
-                    <h2 className="text-xl md:text-2xl font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-tight">
-                      {featuredPost.title}
-                    </h2>
-                  </Link>
-                  <p className="text-[#515154] dark:text-gray-300 text-xs sm:text-sm leading-relaxed font-normal line-clamp-2 sm:line-clamp-3">
-                    {featuredPost.excerpt}
-                  </p>
+              </Link>
+
+              <div className="md:col-span-6 flex flex-col gap-4 py-2 sm:py-5 md:pr-4">
+                <div className="flex flex-wrap items-center gap-3">
+                  <span className="font-mono text-[11px] uppercase tracking-[0.12em] text-[#6e6e73] dark:text-gray-400">
+                    {featuredPost.date}
+                  </span>
+                  <span className="rounded-md bg-[#e6e1db] px-2.5 py-1 font-mono text-[11px] text-[#1d1d1f] dark:bg-white/10 dark:text-gray-200">
+                    {featuredPost.category}
+                  </span>
+                  <span className="font-mono text-[11px] text-[#86868b] dark:text-gray-500">
+                    {featuredPost.readTime}
+                  </span>
                 </div>
 
-                <div className="flex items-center space-x-3 pt-4 border-t border-[#e5e5e7]/80 dark:border-white/10">
-                  <AuthorAvatar name={featuredPost.author.name} initial={featuredPost.author.avatar} />
-                  <div>
-                    <h4 className="text-xs font-semibold text-[#1d1d1f] dark:text-white">{featuredPost.author.name}</h4>
-                    <p className="text-[10px] text-[#86868b] dark:text-gray-500">{featuredPost.author.role}</p>
-                  </div>
-                  <span className="text-xs text-[#86868b] dark:text-gray-500 ml-auto">{featuredPost.date}</span>
-                </div>
+                <Link to={`/blog/${featuredPost.id}`} className="block">
+                  <h2 className="text-2xl sm:text-3xl md:text-[34px] font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-[1.18] transition-colors group-hover:text-black dark:group-hover:text-white">
+                    {featuredPost.title}
+                  </h2>
+                </Link>
+
+                <p className="text-[#515154] dark:text-gray-300 text-sm sm:text-[15px] leading-relaxed font-normal line-clamp-4">
+                  {featuredPost.excerpt}
+                </p>
               </div>
             </motion.div>
           )}

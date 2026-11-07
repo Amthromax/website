@@ -347,6 +347,37 @@ const BlogPostDetail: React.FC = () => {
                 }
               }
 
+              /* Figure: "figure:<src>|<caption>". The image block below
+                 crops to a fixed height, which suits a photograph and ruins
+                 a chart, so figures get their own full-fit treatment. */
+              if (paragraph.startsWith("figure:")) {
+                const [src, ...rest] = paragraph.slice("figure:".length).split("|");
+                const caption = rest.join("|").trim();
+                return (
+                  <figure key={index} className="my-10">
+                    <button
+                      type="button"
+                      onClick={() => setLightboxImg(src.trim())}
+                      aria-label={caption ? `Enlarge: ${caption}` : "Enlarge figure"}
+                      className="block w-full cursor-zoom-in overflow-hidden rounded-2xl border border-gray-200 bg-white p-2 sm:p-3 transition-shadow duration-300 hover:shadow-[0_18px_44px_-24px_rgba(15,23,42,0.4)] dark:border-white/10 dark:bg-[#0b0b0c]"
+                    >
+                      <img
+                        src={src.trim()}
+                        alt={caption || "Figure"}
+                        loading="lazy"
+                        decoding="async"
+                        className="h-auto w-full rounded-xl object-contain"
+                      />
+                    </button>
+                    {caption && (
+                      <figcaption className="mt-3 text-center text-xs sm:text-[13px] leading-relaxed text-gray-500 dark:text-gray-400">
+                        {caption}
+                      </figcaption>
+                    )}
+                  </figure>
+                );
+              }
+
               // Image parsing
               if (paragraph.startsWith("![") && paragraph.endsWith(")")) {
                 const match = paragraph.match(/!\[(.*?)\]\((.*?)\)/);
