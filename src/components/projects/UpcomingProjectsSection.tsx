@@ -11,6 +11,13 @@ interface Project {
   logoText: string;
   title: string;
   centerTitle?: string;
+  /* "statement" shows centerTitle as a bold two-line line instead of the brand lockup. */
+  cardStyle?: "lockup" | "statement" | "quote" | "headline" | "monogram" | "brush" | "pill";
+  /* "monogram" cards: a solid initials tile beside a two-line serif name. */
+  monogram?: string;
+  /* "quote" cards: a light three-line line with a byline under it. */
+  quote?: string;
+  byline?: string;
   subtitle: string;
   date: string;
   category: "AI & Intelligence" | "Infrastructure" | "Security & Ledger";
@@ -36,6 +43,9 @@ const UpcomingProjectsSection: React.FC = () => {
       logoText: "Agentic AI",
       title: "Autonomous Workflow Swarms",
       centerTitle: "Autonomous\nWorkflow Swarms",
+      cardStyle: "pill",
+      quote: "Swarm-2.1",
+      monogram: "Autonomous",
       subtitle: "Executing multi-step enterprise business operations using self-correcting agent chains.",
       date: "Jul 28, 2026",
       category: "AI & Intelligence",
@@ -69,6 +79,7 @@ const UpcomingProjectsSection: React.FC = () => {
       logoText: "Risk Matrix",
       title: "Institutional Trade Engine",
       centerTitle: "Institutional\nTrade Engine",
+      cardStyle: "statement",
       subtitle: "Ultra-low latency portfolio analytics, predictive hedging, and real-time ledger settlement.",
       date: "Jul 18, 2026",
       category: "Security & Ledger",
@@ -99,6 +110,8 @@ const UpcomingProjectsSection: React.FC = () => {
       logoText: "Agent Studio",
       title: "Amthromax Agent Orchestrator",
       centerTitle: "Amthromax\nAgent Orchestrator",
+      cardStyle: "headline",
+      quote: "Ship agents faster:\nOne control plane for\nevery model and tool",
       subtitle: "Unified control plane to design, monitor, and scale enterprise-grade AI agents.",
       date: "Jul 05, 2026",
       category: "AI & Intelligence",
@@ -129,6 +142,9 @@ const UpcomingProjectsSection: React.FC = () => {
       logoText: "Cognitive AI",
       title: "Adaptive Knowledge Engine",
       centerTitle: "Adaptive\nKnowledge Engine",
+      cardStyle: "monogram",
+      monogram: "AK",
+      quote: "Adaptive\nKnowledge",
       subtitle: "Transforming unstructured multi-modal enterprise data into dynamic semantic knowledge bases.",
       date: "Jun 28, 2026",
       category: "AI & Intelligence",
@@ -159,6 +175,9 @@ const UpcomingProjectsSection: React.FC = () => {
       logoText: "Apex AI",
       title: "Apex Financial Engine",
       centerTitle: "Apex\nFinancial Engine",
+      cardStyle: "quote",
+      quote: "Capital that\nthinks before\nit ever moves",
+      byline: "Apex Financial Engine",
       subtitle: "Generative intelligence engine for institutional wealth allocation and predictive risk modeling.",
       date: "Jun 18, 2026",
       category: "AI & Intelligence",
@@ -189,6 +208,9 @@ const UpcomingProjectsSection: React.FC = () => {
       logoText: "Neural Grid",
       title: "Hyper-Scale Data Mesh",
       centerTitle: "Hyper-Scale\nData Mesh",
+      cardStyle: "brush",
+      quote: "Mes",
+      monogram: "h",
       subtitle: "Scaling high-fidelity real-time data ingestion and stream processing for enterprise analytics.",
       date: "Jun 05, 2026",
       category: "Infrastructure",
@@ -261,17 +283,64 @@ const UpcomingProjectsSection: React.FC = () => {
                 )}
 
                 {/* Center Overlay Content (Icon + Text) */}
-                <div className="absolute inset-0 flex flex-col items-center justify-center p-4 sm:p-5 text-center z-20 pointer-events-none">
-                  {project.icon && (
-                    <div className="mb-2">
-                      {project.icon}
-                    </div>
-                  )}
-
-                  <h3 className="text-xl sm:text-2xl font-normal text-white tracking-tight leading-tight drop-shadow-[0_4px_18px_rgba(0,0,0,0.6)] whitespace-pre-line">
+                {project.cardStyle === "pill" ? (
+                <div className="absolute inset-0 flex items-center justify-center p-5 z-20 pointer-events-none">
+                  <h3 aria-label={project.title} className="rounded-[18px] bg-white/90 backdrop-blur-md px-5 sm:px-6 py-3 sm:py-3.5 text-[22px] sm:text-[26px] font-medium tracking-[-0.01em] leading-none whitespace-nowrap shadow-[inset_0_1px_0_rgba(255,255,255,1),0_10px_30px_-10px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.04]">
+                    <span className="text-gray-900">{project.quote}</span>{" "}
+                    <span className="text-gray-500">{project.monogram}</span>
+                  </h3>
+                </div>
+                ) : project.cardStyle === "brush" ? (
+                <div className="absolute inset-0 flex items-center justify-center p-5 z-20 pointer-events-none drop-shadow-[0_6px_22px_rgba(0,0,0,0.45)]">
+                  <h3 aria-label={project.title} className="flex items-baseline text-white leading-none transition-transform duration-500 group-hover:scale-[1.05]">
+                    <span className="text-[64px] sm:text-[78px] font-medium tracking-[-0.05em]">{project.quote}</span>
+                    <span className="-ml-0.5 text-[84px] sm:text-[102px] -rotate-6 [font-family:'Permanent_Marker','Brush_Script_MT','Segoe_Script',cursive] [text-shadow:2px_2px_0_rgba(255,255,255,0.25)]">
+                      {project.monogram}
+                    </span>
+                  </h3>
+                </div>
+                ) : project.cardStyle === "monogram" ? (
+                <div className="absolute inset-0 flex items-center justify-center gap-2.5 sm:gap-3 p-5 z-20 pointer-events-none [font-family:Georgia,'Times_New_Roman',serif] transition-transform duration-500 group-hover:scale-[1.04]">
+                  <span className="flex size-14 sm:size-16 shrink-0 items-center justify-center bg-white text-[30px] sm:text-[34px] leading-none tracking-[-0.04em] text-[#3b1f4f] shadow-[0_8px_20px_-8px_rgba(0,0,0,0.6)]">
+                    {project.monogram}
+                  </span>
+                  <h3 className="text-left text-lg sm:text-[21px] font-medium uppercase text-white leading-[1.05] tracking-[0.01em] whitespace-pre-line drop-shadow-[0_2px_10px_rgba(0,0,0,0.45)]">
+                    {project.quote}
+                  </h3>
+                </div>
+                ) : project.cardStyle === "headline" ? (
+                <div className="absolute inset-0 flex items-center justify-end p-5 sm:p-6 text-right z-20 pointer-events-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)]">
+                  <h3 className="text-xl sm:text-[23px] font-medium text-white tracking-[-0.005em] leading-[1.15] whitespace-pre-line transition-transform duration-500 group-hover:-translate-x-1">
+                    {project.quote}
+                  </h3>
+                </div>
+                ) : project.cardStyle === "quote" ? (
+                <div className="absolute inset-0 flex flex-col items-center justify-center gap-4 p-5 sm:p-6 text-center z-20 pointer-events-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)]">
+                  <h3 className="text-2xl sm:text-[28px] font-light text-white tracking-[-0.01em] leading-[1.12] whitespace-pre-line transition-transform duration-500 group-hover:scale-[1.03]">
+                    {project.quote}
+                  </h3>
+                  <span className="text-sm sm:text-[15px] font-normal text-white/90">{project.byline}</span>
+                </div>
+                ) : project.cardStyle === "statement" ? (
+                <div className="absolute inset-0 flex items-center justify-center p-4 sm:p-5 text-center z-20 pointer-events-none">
+                  <h3 className="text-2xl sm:text-[28px] font-medium text-white tracking-[-0.01em] leading-[1.35] whitespace-pre-line drop-shadow-[0_4px_18px_rgba(0,0,0,0.5)] transition-transform duration-500 group-hover:scale-[1.03]">
                     {project.centerTitle || project.title}
                   </h3>
                 </div>
+                ) : (
+                <div className="absolute inset-0 flex items-center justify-center gap-3.5 sm:gap-4 px-3 sm:px-4 z-20 pointer-events-none text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.55)]">
+                  <span className="text-[22px] sm:text-[26px] font-semibold tracking-[-0.02em] leading-none transition-transform duration-500 group-hover:-translate-x-0.5">
+                    Amthromax
+                  </span>
+                  <span className="h-11 sm:h-14 w-px bg-white/50" />
+                  <h3 className="flex items-center gap-2 whitespace-nowrap text-sm sm:text-[15px] font-medium uppercase tracking-[0.1em] leading-none transition-transform duration-500 group-hover:translate-x-0.5">
+                    {project.icon && (
+                      <span className="flex shrink-0 [&_svg]:size-[18px] sm:[&_svg]:size-5">{project.icon}</span>
+                    )}
+                    {project.logoText}
+                  </h3>
+                </div>
+                )}
 
                 {/* Ambient Contrast Overlay */}
                 <div className="absolute inset-0 bg-black/25 group-hover:bg-black/15 transition-colors duration-500 z-10 pointer-events-none" />
