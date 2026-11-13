@@ -1725,7 +1725,7 @@ const DesignStudio: React.FC = () => {
                   </button>
 
                   {modelDropdownOpen && (
-                    <div className="absolute right-0 bottom-full mb-2 w-[260px] rounded-2xl border border-white/10 bg-[#18181b] p-2.5 shadow-2xl backdrop-blur-2xl z-[100] animate-in fade-in slide-in-from-bottom-2 duration-200 font-sans select-none text-left">
+                    <div className="absolute right-0 top-full mt-2 w-[260px] rounded-2xl border border-white/10 bg-[#18181b] p-2.5 shadow-2xl backdrop-blur-2xl z-[100] animate-in fade-in slide-in-from-top-2 duration-200 font-sans select-none text-left">
                       {/* Section 1: Header */}
                       <div className="px-2.5 py-1 text-[12px] font-medium text-zinc-400">
                         Models
