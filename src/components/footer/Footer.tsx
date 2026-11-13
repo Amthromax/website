@@ -138,9 +138,6 @@ const Footer: React.FC = () => {
 
             {/* Vertical Legal Links */}
             <div className="flex flex-col items-center text-center space-y-2 sm:space-y-2.5 text-xs sm:text-sm lg:text-base font-medium text-[#5c5850] dark:text-gray-400">
-              <Link to="/privacy-center" className="hover:text-black dark:hover:text-white transition-colors">
-                {t('footer.privacy_center')}
-              </Link>
               <Link to="/privacy" className="hover:text-black dark:hover:text-white transition-colors">
                 {t('footer.privacy_policy')}
               </Link>
