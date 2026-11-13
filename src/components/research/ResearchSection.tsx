@@ -364,7 +364,7 @@ const ResearchSection: React.FC = () => {
             transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
             className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-34px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-[#0f0f11]"
           >
-            <div className="relative overflow-hidden rounded-xl bg-[#0b0b0c] p-6 sm:p-7 antialiased">
+            <div className="relative overflow-hidden rounded-[6px] bg-[#0b0b0c] p-6 sm:p-7 antialiased">
               <div className="relative flex items-center justify-between">
                 <span className="[font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[11.5px] uppercase tracking-[0.16em] text-white/60">Benchmark index</span>
                 <span className="[font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[12px] text-white/80">34 suites</span>
@@ -415,7 +415,7 @@ const ResearchSection: React.FC = () => {
             transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
             className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-34px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-[#0f0f11]"
           >
-            <div className="relative overflow-hidden rounded-xl bg-[#0b0b0c] p-6 sm:p-7 antialiased">
+            <div className="relative overflow-hidden rounded-[6px] bg-[#0b0b0c] p-6 sm:p-7 antialiased">
               <div className="relative flex items-center justify-between">
                 <span className="[font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[11.5px] uppercase tracking-[0.16em] text-white/60">Run ledger</span>
                 <span className="flex items-center gap-1.5 [font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[12px] text-white/80">
