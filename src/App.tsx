@@ -863,7 +863,7 @@ const App: React.FC = () => {
                       </div>
                       <Link
                         to="/solutions"
-                        className="absolute bottom-2 left-7 sm:bottom-3 sm:left-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
+                        className="absolute bottom-0.5 left-7 sm:bottom-1 sm:left-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
                       >
                         Explore
                         <span className="transition-transform duration-300 group-hover:translate-x-0.5">&#8594;</span>
@@ -931,7 +931,7 @@ const App: React.FC = () => {
                       </div>
                       <Link
                         to="/solutions"
-                        className="absolute bottom-2 right-7 sm:bottom-3 sm:right-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
+                        className="absolute bottom-0.5 right-7 sm:bottom-1 sm:right-9 z-[2] inline-flex items-center gap-1.5 font-sans text-[11px] font-semibold text-black/80 transition-colors duration-300 hover:text-black"
                       >
                         Explore
                         <span className="transition-transform duration-300 group-hover:translate-x-0.5">&#8594;</span>
