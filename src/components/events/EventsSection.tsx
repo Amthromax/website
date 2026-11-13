@@ -185,12 +185,12 @@ const renderIcon = (iconName: string) => {
 const CARD_W = 300;
 
 const WARM_MESH =
-  "radial-gradient(80% 34% at 97% 71%, #ff99d4 0%, rgba(255,153,212,0) 58%)," +
-  "radial-gradient(70% 29% at 4% 69%, #ff94a9 0%, rgba(255,148,169,0) 55%)," +
+  "radial-gradient(80% 34% at 97% 71%, #a5b4fc 0%, rgba(165,180,252,0) 58%)," +
+  "radial-gradient(70% 29% at 4% 69%, #c4b5fd 0%, rgba(196,181,253,0) 55%)," +
   "linear-gradient(180deg," +
-  " rgba(244,240,236,0) 0%, rgba(244,240,236,0) 30.3%," +
-  " #f5aea6 37.2%, #f88972 42.1%, #ff8d60 46.9%, #ffb478 52.4%," +
-  " #ffb7c6 57.9%, #ff6986 63.4%, #ff6986 100%)";
+  " rgba(241,239,250,0) 0%, rgba(241,239,250,0) 30.3%," +
+  " #ddd6fe 37.2%, #c4b5fd 42.1%, #a78bfa 46.9%, #a5b4fc 52.4%," +
+  " #c7d2fe 57.9%, #818cf8 63.4%, #6366f1 100%)";
 const SCALE_BY_DISTANCE = [1, 0.78, 0.55];
 const OPACITY_BY_DISTANCE = [1, 0.85, 0.45];
 
@@ -307,14 +307,14 @@ const EventsSection: React.FC = () => {
               }}
               className={`absolute left-1/2 top-1/2 -ml-[150px] -mt-[135px] overflow-hidden transition-shadow duration-[450ms] text-left focus:outline-none focus-visible:ring-2 focus-visible:ring-[#1d1d1f] dark:focus-visible:ring-white focus-visible:ring-offset-2 bg-white dark:bg-[#161617] rounded-2xl border border-[#e5e5e7]/80 dark:border-white/[0.08] p-6 flex flex-col justify-between min-h-[270px] cursor-pointer group ${
                 isActive
-                  ? "shadow-none hover:shadow-[0_26px_64px_-18px_rgba(214,95,110,0.42)] hover:border-transparent"
-                  : "shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_52px_-18px_rgba(214,95,110,0.36)] hover:border-transparent"
+                  ? "shadow-none hover:shadow-[0_26px_64px_-18px_rgba(99,102,241,0.42)] hover:border-transparent"
+                  : "shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-[0_20px_52px_-18px_rgba(99,102,241,0.36)] hover:border-transparent"
               }`}
             >
               {/* The warm paper ground, which simply fades. */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -inset-px rounded-2xl bg-[#f4f0ec] opacity-0 transition-opacity duration-[500ms] ease-out group-hover:opacity-100 group-hover:duration-[780ms]"
+                className="pointer-events-none absolute -inset-px rounded-2xl bg-[#f1effa] opacity-0 transition-opacity duration-[500ms] ease-out group-hover:opacity-100 group-hover:duration-[780ms]"
               />
 
               {/* The colour itself, rising from below. Slower and sharply
@@ -329,33 +329,33 @@ const EventsSection: React.FC = () => {
                   within rather than merely filled. */}
               <span
                 aria-hidden="true"
-                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-[550ms] ease-out group-hover:opacity-100 shadow-[inset_0_-30px_60px_-34px_rgba(190,70,90,0.45)]"
+                className="pointer-events-none absolute -inset-px rounded-2xl opacity-0 transition-opacity duration-[550ms] ease-out group-hover:opacity-100 shadow-[inset_0_-30px_60px_-34px_rgba(79,70,229,0.45)]"
               />
 
               {/* Mark and product number */}
               <div className="relative z-[1] flex items-start justify-between">
-                <span className="text-[#1d1d1f] dark:text-white transition-colors duration-[450ms] group-hover:text-[#2b1410] dark:group-hover:text-[#2b1410] [&_svg]:w-7 [&_svg]:h-7">
+                <span className="text-[#1d1d1f] dark:text-white transition-colors duration-[450ms] group-hover:text-[#1e1b4b] dark:group-hover:text-[#1e1b4b] [&_svg]:w-7 [&_svg]:h-7">
                   {renderIcon(idea.icon)}
                 </span>
-                <span className="font-mono text-[10px] tracking-wide text-[#a3a3a8] dark:text-gray-500 transition-colors duration-[450ms] group-hover:text-[#8a6057] dark:group-hover:text-[#8a6057]">
+                <span className="font-mono text-[10px] tracking-wide text-[#a3a3a8] dark:text-gray-500 transition-colors duration-[450ms] group-hover:text-[#5b5794] dark:group-hover:text-[#5b5794]">
                   {idea.badge}
                 </span>
               </div>
 
               {/* Title and specification lines */}
               <div className="relative z-[1] space-y-3">
-                <h3 className="text-[19px] sm:text-[21px] font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-[1.2] transition-colors duration-[450ms] group-hover:text-[#2b1410] dark:group-hover:text-[#2b1410]">
+                <h3 className="text-[19px] sm:text-[21px] font-medium tracking-tight text-[#1d1d1f] dark:text-white leading-[1.2] transition-colors duration-[450ms] group-hover:text-[#1e1b4b] dark:group-hover:text-[#1e1b4b]">
                   {idea.title}
                 </h3>
 
-                <p className="font-mono text-[11px] leading-[1.6] text-[#86868b] transition-colors duration-[450ms] group-hover:text-[#6b4a42] dark:text-gray-400 dark:group-hover:text-[#6b4a42]">
+                <p className="font-mono text-[11px] leading-[1.6] text-[#86868b] transition-colors duration-[450ms] group-hover:text-[#4c4878] dark:text-gray-400 dark:group-hover:text-[#4c4878]">
                   {idea.specs} &middot; {idea.location}
                 </p>
               </div>
 
               {/* Capability tag */}
               <div className="relative z-[1]">
-                <span className="inline-block rounded-full border border-[#1d1d1f]/25 px-3.5 py-1.5 font-mono text-[11px] text-[#1d1d1f] transition-colors duration-[450ms] group-hover:border-[#2b1410]/45 group-hover:text-[#2b1410] dark:border-white/25 dark:text-white dark:group-hover:border-[#2b1410]/45 dark:group-hover:text-[#2b1410]">
+                <span className="inline-block rounded-full border border-[#1d1d1f]/25 px-3.5 py-1.5 font-mono text-[11px] text-[#1d1d1f] transition-colors duration-[450ms] group-hover:border-[#1e1b4b]/45 group-hover:text-[#1e1b4b] dark:border-white/25 dark:text-white dark:group-hover:border-[#1e1b4b]/45 dark:group-hover:text-[#1e1b4b]">
                   {idea.type}
                 </span>
               </div>
