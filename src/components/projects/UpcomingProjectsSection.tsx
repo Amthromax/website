@@ -310,7 +310,7 @@ const UpcomingProjectsSection: React.FC = () => {
                 </div>
                 ) : project.cardStyle === "headline" ? (
                 <div className="absolute inset-0 flex items-center justify-end p-5 sm:p-6 text-right z-20 pointer-events-none drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)]">
-                  <h3 className="text-xl sm:text-[23px] font-medium text-white tracking-[-0.005em] leading-[1.15] whitespace-pre-line transition-transform duration-500 group-hover:-translate-x-1">
+                  <h3 className="text-[22px] sm:text-[26px] font-medium text-white tracking-[-0.005em] leading-[1.15] whitespace-pre-line transition-transform duration-500 group-hover:-translate-x-1">
                     {project.quote}
                   </h3>
                 </div>
