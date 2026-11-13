@@ -802,10 +802,9 @@ const App: React.FC = () => {
                 <section className="py-16 bg-white dark:bg-black border-t border-gray-200/60 dark:border-white/10 transition-colors duration-300">
                   <div className="max-w-[1440px] mx-auto px-5 sm:px-7 grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-10 items-stretch">
                     <div
-                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
+                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(15,23,42,0.28)] hover:shadow-[0_34px_90px_-26px_rgba(15,23,42,0.36)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
                       style={{
-                        background:
-                          "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
+                        background: "#F4F3EE",
                       }}
                     >
                       {/* grain gradient */}
@@ -844,7 +843,7 @@ const App: React.FC = () => {
                         className="pointer-events-none absolute inset-0 rounded-2xl"
                         style={{
                           background:
-                            "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 45%, rgba(74,32,16,0.38) 100%)",
+                            "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 55%, rgba(15,23,42,0.06) 100%)",
                         }}
                       />
                       {/* inner bevel */}
@@ -871,10 +870,9 @@ const App: React.FC = () => {
                       </Link>
                     </div>
                     <div
-                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(120,56,32,0.6)] hover:shadow-[0_34px_90px_-26px_rgba(120,56,32,0.72)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
+                      className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(15,23,42,0.28)] hover:shadow-[0_34px_90px_-26px_rgba(15,23,42,0.36)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
                       style={{
-                        background:
-                          "radial-gradient(130% 100% at 0% 0%, #dd9070 0%, #c15f3c 32%, rgba(193,95,60,0.55) 58%, rgba(193,95,60,0) 78%), radial-gradient(110% 95% at 100% 100%, #d4825f 0%, #a94e2d 38%, rgba(169,78,45,0.5) 64%, rgba(169,78,45,0) 82%), linear-gradient(135deg, #d4825f 0%, #c15f3c 55%, #96482a 100%)",
+                        background: "#F4F3EE",
                       }}
                     >
                       {/* grain gradient */}
@@ -913,7 +911,7 @@ const App: React.FC = () => {
                         className="pointer-events-none absolute inset-0 rounded-2xl"
                         style={{
                           background:
-                            "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 45%, rgba(74,32,16,0.38) 100%)",
+                            "radial-gradient(100% 85% at 50% 18%, rgba(255,255,255,0.22) 0%, rgba(255,255,255,0) 55%), radial-gradient(130% 110% at 50% 50%, rgba(0,0,0,0) 55%, rgba(15,23,42,0.06) 100%)",
                         }}
                       />
                       {/* inner bevel */}
