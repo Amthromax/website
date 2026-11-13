@@ -387,17 +387,13 @@ const ResearchSection: React.FC = () => {
       {/* IN-BETWEEN HIGHLIGHT BOX SECTION WITH HIGH-DEFINITION METALLIC TEXTURE */}
       <section className="py-12 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto">
         <div className="relative rounded-3xl h-[240px] sm:h-[280px] w-full border border-gray-800/80 dark:border-white/20 shadow-2xl overflow-hidden group">
-          {/* Main HD Sharpened Image Background */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center transition-transform duration-700 scale-100 group-hover:scale-[1.01]"
-            style={{ 
-              backgroundImage: "url('/images/metallic_noise_texture.jpg')",
-              filter: "contrast(125%) brightness(108%) saturate(110%)",
-              WebkitFilter: "contrast(125%) brightness(108%) saturate(110%)",
-            }}
+          {/* Research and Technology banner */}
+          <div
+            role="img"
+            aria-label="Research and Technology"
+            className="absolute inset-0 bg-cover bg-[center_57%] transition-transform duration-700 scale-100 group-hover:scale-[1.01]"
+            style={{ backgroundImage: "url('/images/research_and_technology.jpg')" }}
           />
-          {/* Lighting Vignette Overlay for Depth & Contrast */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-white/10 pointer-events-none" />
           {/* Specular Inner Edge Highlight */}
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20 pointer-events-none" />
         </div>
@@ -664,8 +660,8 @@ const ResearchSection: React.FC = () => {
           <div className="lg:col-span-6 order-1 lg:order-2">
             <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/15 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-28px_rgba(15,23,42,0.45)]">
               <img
-                src="/images/cognitive_knowledge_mining.png"
-                alt="Visualisation of a neural knowledge graph drawing on indexed research documents"
+                src="/images/research_stack_glow.webp"
+                alt="Abstract violet light radiating from a dark centre"
                 loading="lazy"
                 decoding="async"
                 className="w-full h-[320px] sm:h-[460px] object-cover"
@@ -681,19 +677,19 @@ const ResearchSection: React.FC = () => {
       <section className="py-24 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6">
             <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/15 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-28px_rgba(15,23,42,0.4)]">
               <img
-                src="/images/agi_mission_team.png"
-                alt="Researchers discussing a model architecture at a whiteboard in the AI research hub"
+                src="/images/research_labs_burst.webp"
+                alt="Abstract burst of iridescent light streaks"
                 loading="lazy"
                 decoding="async"
-                className="w-full h-[300px] sm:h-[420px] object-cover"
+                className="w-full h-[320px] sm:h-[460px] object-cover"
               />
             </div>
           </div>
 
-          <div className="lg:col-span-7 space-y-8">
+          <div className="lg:col-span-6 space-y-8">
             <div className="space-y-4">
               <h2 className="text-3xl sm:text-5xl font-serif text-gray-900 dark:text-white tracking-tight leading-snug">
                 Work with Amthromax Labs
