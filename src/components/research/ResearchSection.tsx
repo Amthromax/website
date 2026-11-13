@@ -394,12 +394,12 @@ const ResearchSection: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-medium tracking-tight text-gray-900 dark:text-white">
                 The benchmark index
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+              <p className="mt-2.5 mb-6 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                 Results from 34 internal and peer-reviewed suites. Every figure links back to the run that produced it, so a number can be checked rather than taken on trust.
               </p>
               <Link
                 to="/research/publications"
-                className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+                className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
               >
                 Open the index
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
@@ -449,12 +449,12 @@ const ResearchSection: React.FC = () => {
               <h3 className="text-lg sm:text-xl font-medium tracking-tight text-gray-900 dark:text-white">
                 The run ledger
               </h3>
-              <p className="mt-2.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+              <p className="mt-2.5 mb-6 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
                 Each experiment ships with its manifest: dataset snapshot, pinned weights, seed and hardware. Runs that fail to reproduce stay in the record instead of disappearing from it.
               </p>
               <Link
                 to="/research/overview"
-                className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-gray-900 dark:border-white/20 dark:text-white dark:hover:border-white"
+                className="mt-auto inline-flex w-fit items-center gap-1.5 rounded-full border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-gray-900 dark:border-white/20 dark:text-white dark:hover:border-white"
               >
                 See how runs are recorded
                 <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
