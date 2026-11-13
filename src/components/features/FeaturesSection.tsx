@@ -10,6 +10,10 @@ export const features = [
     technology: ["React", "Node.js", "Python", "AWS"],
     bgImage: "/images/251b80f44a10171b3221c8e65f1c0edf.jpg",
     slug: "custom-software",
+    /* Cover drawn as a brand lockup: round icon badge + one-line name. */
+    cover: "logo",
+    logoText: "Custom Software",
+    logoSub: "Development",
   },
   {
     title: "Artificial Intelligence",
@@ -68,7 +72,7 @@ export const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature
             }
           }
         }}
-        className="relative rounded-2xl p-8 border border-gray-200/50 dark:border-gray-800/50 overflow-hidden min-h-[360px] flex flex-col justify-end shadow-lg hover:shadow-2xl transition-shadow duration-300"
+        className="relative rounded-2xl p-8 border border-gray-200/50 dark:border-gray-800/50 overflow-hidden min-h-[360px] flex flex-col items-center justify-center text-center group shadow-lg hover:shadow-2xl transition-shadow duration-300"
       >
         {/* Background Image */}
         <div 
@@ -77,34 +81,27 @@ export const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature
         />
         
         {/* Dark overlay for readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/10 z-10" />
+        <div className="absolute inset-0 bg-black/25 group-hover:bg-black/45 transition-colors duration-500 z-10" />
 
-        {/* Content */}
-        <div className="relative z-20 space-y-4 text-white">
-          <h3 className="text-3xl font-medium font-sans text-white tracking-tight leading-tight mb-2 drop-shadow-md">
+        {/* Content: one centred statement; the detail fades in on hover */}
+        <div className="relative z-20 flex flex-col items-center text-white">
+          {feature.cover === "logo" ? (
+          <h3 aria-label={feature.title} className="flex items-center gap-2.5 text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:-translate-y-2">
+            <span className="flex flex-col items-center text-center leading-none">
+              <span className="text-[24px] md:text-[26px] font-semibold tracking-[-0.02em] whitespace-nowrap">{feature.logoText}</span>
+              <span className="mt-2 pl-[0.42em] text-[13px] md:text-sm font-bold uppercase tracking-[0.42em] text-white/90">{feature.logoSub}</span>
+            </span>
+          </h3>
+          ) : (
+          <h3 className="text-3xl md:text-[34px] font-medium font-sans text-white tracking-[-0.01em] leading-[1.2] max-w-[14ch] drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:-translate-y-2">
             {feature.title}
           </h3>
-          <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2">
+          )}
+          <p className="mt-3 max-w-[30ch] text-sm leading-relaxed text-white/85 line-clamp-2">
             {feature.description}
           </p>
-          <div className="flex items-center justify-between pt-6 border-t border-white/10 mt-4">
-            <div className="flex flex-wrap gap-2">
-              {feature.technology?.slice(0, 3).map((tech: string) => (
-                <span
-                  key={tech}
-                  className="text-xs text-white/80 font-medium tracking-wide"
-                >
-                  {tech}
-                </span>
-              ))}
-            </div>
-            <div 
-              className="text-white/80 hover:text-white flex items-center justify-center flex-shrink-0 transition-colors"
-            >
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
-            </div>
-          </div>
         </div>
+        <svg aria-hidden="true" className="absolute bottom-6 right-6 z-20 size-5 text-white/80 transition-transform duration-300 group-hover:translate-x-1" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
       </motion.div>
     </Link>
   );
