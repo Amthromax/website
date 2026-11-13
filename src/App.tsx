@@ -804,7 +804,7 @@ const App: React.FC = () => {
                     <div
                       className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(15,23,42,0.28)] hover:shadow-[0_34px_90px_-26px_rgba(15,23,42,0.36)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
                       style={{
-                        background: "#DEDBD1",
+                        background: "#DCDCDC",
                       }}
                     >
                       {/* grain gradient */}
@@ -872,7 +872,7 @@ const App: React.FC = () => {
                     <div
                       className="relative isolate rounded-2xl p-7 sm:p-9 shadow-[0_24px_70px_-26px_rgba(15,23,42,0.28)] hover:shadow-[0_34px_90px_-26px_rgba(15,23,42,0.36)] ring-1 ring-black/[0.07] transition-[box-shadow] duration-700 ease-out group flex"
                       style={{
-                        background: "#DEDBD1",
+                        background: "#DCDCDC",
                       }}
                     >
                       {/* grain gradient */}

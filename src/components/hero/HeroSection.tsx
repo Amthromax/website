@@ -124,8 +124,8 @@ const DIFF_NUM: Record<Tone, string> = {
 };
 
 const DIFF_ROW: Record<Tone, string> = {
-  add: "bg-[#202916] text-[#e8e8e8] shadow-[inset_2px_0_0_rgba(74,222,128,0.55),inset_0_1px_0_rgba(255,255,255,0.05),0_1px_3px_rgba(0,0,0,0.45)]",
-  del: "bg-[#301719] text-[#fca5a5] shadow-[inset_2px_0_0_rgba(248,113,113,0.55),inset_0_1px_0_rgba(255,255,255,0.04),0_1px_3px_rgba(0,0,0,0.45)]",
+  add: "rounded-[4px] bg-gradient-to-b from-[#2a3a1c] to-[#1a2412] text-[#e8e8e8] shadow-[inset_2px_0_0_rgba(74,222,128,0.7),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.35),0_2px_4px_-1px_rgba(0,0,0,0.55),0_6px_12px_-6px_rgba(34,90,40,0.55)]",
+  del: "rounded-[4px] bg-gradient-to-b from-[#45202a] to-[#2a1214] text-[#fca5a5] shadow-[inset_2px_0_0_rgba(248,113,113,0.7),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.35),0_2px_4px_-1px_rgba(0,0,0,0.55),0_6px_12px_-6px_rgba(120,30,40,0.55)]",
   ctx: "text-[#d4d4d8]",
 };
 
@@ -136,7 +136,7 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
     case "prompt": {
       const typing = item.typed < item.text.length;
       return (
-        <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-gray-100 dark:bg-[#1f1f1f] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_-2px_rgba(15,23,42,0.25)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_2px_8px_-2px_rgba(0,0,0,0.7)] flex items-baseline gap-2 min-w-0">
+        <div className="my-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-b from-white to-[#ececec] dark:from-[#2a2a2e] dark:to-[#18181b] shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(15,23,42,0.06),0_1px_2px_rgba(15,23,42,0.12),0_8px_16px_-8px_rgba(15,23,42,0.35)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(0,0,0,0.5),0_1px_2px_rgba(0,0,0,0.6),0_10px_20px_-10px_rgba(0,0,0,0.9)] flex items-baseline gap-2 min-w-0">
           <span className="text-[#1a1815] dark:text-[#1a1815] shrink-0">&rsaquo;</span>
           <span className="text-gray-900 dark:text-white font-semibold truncate">
             {item.text.slice(0, item.typed)}
@@ -361,15 +361,15 @@ const AgentSession: React.FC = () => {
             <span className="w-[7px] h-[7px] rounded-full bg-[#febc30] inline-block" />
             <span className="w-[7px] h-[7px] rounded-full bg-[#28c840] inline-block" />
           </span>
-          <span className="rounded-md bg-gray-900/[0.05] dark:bg-white/[0.07] px-1.5 py-px text-gray-700 dark:text-[#d4d4d8] font-medium text-xs truncate ring-1 ring-black/[0.04] dark:ring-white/10">
+          <span className="rounded-md bg-gradient-to-b from-white to-[#e9e9e9] dark:from-[#2a2a2e] dark:to-[#1b1b1e] px-2 py-0.5 text-gray-700 dark:text-[#d4d4d8] font-medium text-xs truncate ring-1 ring-black/[0.07] dark:ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(15,23,42,0.14),0_3px_6px_-3px_rgba(15,23,42,0.3)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_1px_2px_rgba(0,0,0,0.6)]">
             Amthromax/Neural-Hoomer
           </span>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="text-gray-300 dark:text-[#4b4b52]">|</span>
-          <span className="w-12 h-[5px] rounded-full bg-gray-200 dark:bg-white/10 overflow-hidden inline-block ring-1 ring-black/[0.04] dark:ring-white/10">
+          <span className="w-12 h-[6px] rounded-full bg-gray-200 dark:bg-black/60 overflow-hidden inline-block shadow-[inset_0_1px_2px_rgba(15,23,42,0.28)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.9)] ring-1 ring-black/[0.05] dark:ring-white/10">
             <span
-              className="block h-full rounded-full bg-gradient-to-r from-purple-400 to-purple-600 shadow-[0_0_8px_rgba(168,85,247,0.6)] transition-[width] duration-500 ease-linear"
+              className="block h-full rounded-full bg-gradient-to-b from-[#c4a1ff] via-[#9b5cf6] to-[#7c3aed] shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_0_8px_rgba(168,85,247,0.6)] transition-[width] duration-500 ease-linear"
               style={{ width: `${pct}%` }}
             />
           </span>
@@ -704,7 +704,7 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
     case "user":
       return (
         <div className="amx-pop flex justify-end">
-          <span className="max-w-[86%] rounded-2xl rounded-br-md bg-gray-900 dark:bg-white px-3 py-1.5 text-white dark:text-gray-900 font-medium">
+          <span className="max-w-[86%] rounded-2xl rounded-br-md bg-gradient-to-b from-[#3a3a3e] to-[#111113] dark:from-white dark:to-[#e4e4e7] px-3 py-1.5 text-white dark:text-gray-900 font-medium shadow-[inset_0_1px_0_rgba(255,255,255,0.22),inset_0_-1px_0_rgba(0,0,0,0.4),0_2px_4px_rgba(15,23,42,0.25),0_10px_18px_-10px_rgba(15,23,42,0.6)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(15,23,42,0.12),0_2px_4px_rgba(0,0,0,0.5)]">
             {item.text}
           </span>
         </div>
@@ -713,7 +713,7 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
     case "bot":
       return (
         <div className="amx-pop flex justify-start">
-          <span className="max-w-[92%] rounded-2xl rounded-bl-md bg-gray-100 dark:bg-white/[0.06] px-3 py-1.5 text-gray-700 dark:text-gray-200 font-medium">
+          <span className="max-w-[92%] rounded-2xl rounded-bl-md bg-gradient-to-b from-white to-[#ececec] dark:from-[#26262a] dark:to-[#18181b] px-3 py-1.5 text-gray-700 dark:text-gray-200 font-medium shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(15,23,42,0.12),0_8px_16px_-8px_rgba(15,23,42,0.35)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_1px_2px_rgba(0,0,0,0.6),0_10px_20px_-10px_rgba(0,0,0,0.9)]">
             {item.text.slice(0, item.typed)}
             {item.typed < item.text.length && <i className="amx-tcaret" />}
           </span>
@@ -848,7 +848,7 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
 
     case "result":
       return (
-        <div className="amx-pop relative overflow-hidden rounded-xl border border-gray-200/80 dark:border-white/10 bg-gradient-to-br from-gray-50 via-white to-gray-100/70 dark:from-white/[0.07] dark:via-white/[0.02] dark:to-white/[0.05] px-3 py-1.5 space-y-1 shadow-[0_1px_0_rgba(255,255,255,0.7)_inset,0_8px_22px_-14px_rgba(15,23,42,0.5)]">
+        <div className="amx-pop relative overflow-hidden rounded-xl ring-1 ring-black/[0.06] dark:ring-white/10 bg-gradient-to-b from-white to-[#ececec] dark:from-[#26262a] dark:to-[#161618] px-3 py-1.5 space-y-1 shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(15,23,42,0.06),0_1px_2px_rgba(15,23,42,0.12),0_10px_22px_-10px_rgba(15,23,42,0.4)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(0,0,0,0.5),0_1px_2px_rgba(0,0,0,0.6),0_12px_24px_-12px_rgba(0,0,0,0.9)]">
           <span className="pointer-events-none absolute inset-y-0 left-0 w-[2px] bg-gradient-to-b from-purple-400/70 via-purple-500/40 to-transparent" />
           <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-purple-600/80 dark:text-purple-300/70">
             <span>{item.title}</span>
@@ -869,7 +869,7 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
                 <span className="text-gray-600 dark:text-gray-400 truncate">
                   {r.text}
                 </span>
-                <span className="ml-auto shrink-0 rounded-md bg-gray-900/[0.06] dark:bg-white/10 px-1.5 font-mono text-[10px] tabular-nums text-gray-700 dark:text-gray-200">
+                <span className="ml-auto shrink-0 rounded-md bg-gradient-to-b from-white to-[#e6e6e6] dark:from-[#333338] dark:to-[#1f1f22] ring-1 ring-black/[0.07] dark:ring-white/10 px-1.5 font-mono text-[10px] tabular-nums text-gray-700 dark:text-gray-200 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(15,23,42,0.15)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_1px_2px_rgba(0,0,0,0.6)]">
                   {r.tag}
                 </span>
               </div>
@@ -1869,7 +1869,7 @@ const HeroSection: React.FC = () => {
         {/* Top Row: 2 Equal-Sized Premium Bento Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Equal Box 1: Neural Reasoning & Agentic Build */}
-          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
+          <div className="bg-[#F3F3F3] dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <AgentSession />
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold amx-shimmer [--amx-shimmer-base:#4b5563] [--amx-shimmer-peak:#09090b] dark:[--amx-shimmer-base:#9ca3af] dark:[--amx-shimmer-peak:#ffffff]">Neural Reasoning &amp; Build</span>
@@ -1881,7 +1881,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Equal Box 2: Autonomous Swarm Mesh */}
-          <div className="bg-gradient-to-b from-white to-gray-50/80 dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
+          <div className="bg-[#F3F3F3] dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <SwarmChat />
 
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">
