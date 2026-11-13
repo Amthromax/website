@@ -89,7 +89,7 @@ export const FeatureCard: React.FC<{ feature: any; index: number }> = ({ feature
           <h3 aria-label={feature.title} className="flex items-center gap-2.5 text-white drop-shadow-[0_4px_18px_rgba(0,0,0,0.45)] transition-transform duration-500 group-hover:-translate-y-2">
             <span className="flex flex-col items-center text-center leading-none">
               <span className="text-[24px] md:text-[26px] font-semibold tracking-[-0.02em] whitespace-nowrap">{feature.logoText}</span>
-              <span className="mt-2 pl-[0.42em] text-[13px] md:text-sm font-bold uppercase tracking-[0.42em] text-white/90">{feature.logoSub}</span>
+              <span className="mt-1 text-[24px] md:text-[26px] font-semibold tracking-[-0.02em] whitespace-nowrap text-white">{feature.logoSub}</span>
             </span>
           </h3>
           ) : (
