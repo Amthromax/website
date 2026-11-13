@@ -884,7 +884,7 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
                 <span className="text-gray-600 dark:text-gray-400 truncate">
                   {r.text}
                 </span>
-                <span className="ml-auto shrink-0 rounded-md bg-gradient-to-b from-white to-[#e6e6e6] dark:from-[#333338] dark:to-[#1f1f22] ring-1 ring-black/[0.07] dark:ring-white/10 px-1.5 font-mono text-[10px] tabular-nums text-gray-700 dark:text-gray-200 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(15,23,42,0.15)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_1px_2px_rgba(0,0,0,0.6)]">
+                <span className="ml-auto shrink-0 rounded-md bg-gray-900/[0.06] dark:bg-white/10 px-1.5 font-mono text-[10px] tabular-nums text-gray-700 dark:text-gray-200">
                   {r.tag}
                 </span>
               </div>
