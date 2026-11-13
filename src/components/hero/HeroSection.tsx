@@ -124,8 +124,8 @@ const DIFF_NUM: Record<Tone, string> = {
 };
 
 const DIFF_ROW: Record<Tone, string> = {
-  add: "rounded-[4px] bg-gradient-to-b from-[#2a3a1c] to-[#1a2412] text-[#e8e8e8] shadow-[inset_2px_0_0_rgba(74,222,128,0.7),inset_0_1px_0_rgba(255,255,255,0.12),inset_0_-1px_0_rgba(0,0,0,0.35),0_2px_4px_-1px_rgba(0,0,0,0.55),0_6px_12px_-6px_rgba(34,90,40,0.55)]",
-  del: "rounded-[4px] bg-gradient-to-b from-[#45202a] to-[#2a1214] text-[#fca5a5] shadow-[inset_2px_0_0_rgba(248,113,113,0.7),inset_0_1px_0_rgba(255,255,255,0.1),inset_0_-1px_0_rgba(0,0,0,0.35),0_2px_4px_-1px_rgba(0,0,0,0.55),0_6px_12px_-6px_rgba(120,30,40,0.55)]",
+  add: "bg-[#202916] text-[#e8e8e8] shadow-[inset_2px_0_0_rgba(74,222,128,0.55),inset_0_1px_0_rgba(255,255,255,0.05),0_1px_3px_rgba(0,0,0,0.45)]",
+  del: "bg-[#301719] text-[#fca5a5] shadow-[inset_2px_0_0_rgba(248,113,113,0.55),inset_0_1px_0_rgba(255,255,255,0.04),0_1px_3px_rgba(0,0,0,0.45)]",
   ctx: "text-[#d4d4d8]",
 };
 
@@ -193,14 +193,14 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
         <div className="flex items-center gap-2 min-w-0">
           <span
             className={`w-[2px] h-[14px] shrink-0 ${
-              item.done ? "bg-purple-500 dark:bg-[#a855f7]" : "bg-purple-300 dark:bg-[#6d28d9] animate-pulse"
+              item.done ? "bg-[#059669] dark:bg-[#34d399]" : "bg-[#d97706] dark:bg-[#fbbf24] animate-pulse"
             }`}
           />
           <span className="text-gray-700 dark:text-[#d4d4d8] truncate">{item.title}</span>
           <span className="text-gray-400 dark:text-[#6b7280] truncate">{item.agent}</span>
           <span
             className={`ml-auto pl-2 shrink-0 ${
-              item.done ? "text-purple-600 dark:text-[#c4b5fd]" : "text-purple-400 dark:text-[#8b5cf6] animate-pulse"
+              item.done ? "text-[#059669] dark:text-[#34d399]" : "text-[#d97706] dark:text-[#fbbf24] animate-pulse"
             }`}
           >
             {item.done ? "[done]" : "[running]"}
@@ -663,6 +663,12 @@ const CHAT_CSS = `
   border: 1.5px solid rgba(168, 85, 247, 0.28); border-top-color: #a855f7;
   animation: amx-spin 680ms linear infinite;
 }
+.amx-em .amx-ring { border-color: rgba(107, 114, 128, 0.28); border-top-color: #4b5563; }
+.amx-em .amx-sheen {
+  background-image: linear-gradient(90deg,
+    currentColor 0%, currentColor 34%, #111827 50%,
+    currentColor 66%, currentColor 100%);
+}
 .amx-idle {
   display: inline-block; width: 7px; height: 7px; border-radius: 9999px;
   border: 1.5px solid currentColor; opacity: 0.3;
@@ -805,14 +811,14 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
     // task text catches a sheen; finished ones settle into a check.
     case "agents":
       return (
-        <div className="amx-pop relative overflow-hidden rounded-xl border border-purple-300/60 dark:border-purple-400/25 bg-gradient-to-br from-purple-50 via-white to-purple-50/40 dark:from-purple-500/[0.12] dark:via-white/[0.02] dark:to-purple-500/[0.05] px-3 py-2 space-y-1 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-10px_rgba(126,34,206,0.45)]">
-          <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-400/60 to-transparent" />
-          <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-purple-600/80 dark:text-purple-300/70">
+        <div className="amx-pop amx-em relative overflow-hidden rounded-xl border border-gray-300/60 dark:border-gray-400/25 bg-gradient-to-br from-gray-50 via-white to-gray-50/40 dark:from-gray-500/[0.12] dark:via-white/[0.02] dark:to-gray-500/[0.05] px-3 py-2 space-y-1 shadow-[0_1px_0_rgba(255,255,255,0.6)_inset,0_6px_18px_-10px_rgba(15,23,42,0.35)]">
+          <span className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-gray-400/60 to-transparent" />
+          <div className="flex items-center justify-between text-[10px] uppercase tracking-wider font-semibold text-gray-600/80 dark:text-gray-300/70">
             <span className="flex items-center gap-1.5">
               <i className="amx-ring" />
               Agents at work
             </span>
-            <span className="rounded-full bg-purple-500/10 px-1.5 py-px tabular-nums text-purple-600 dark:text-purple-300">
+            <span className="rounded-full bg-gray-500/10 px-1.5 py-px tabular-nums text-gray-600 dark:text-gray-300">
               {item.done}/{item.items.length}
             </span>
           </div>
@@ -825,18 +831,18 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
               nameCls = "text-gray-900 dark:text-white";
               taskCls = "text-gray-500 dark:text-gray-400";
             } else if (live) {
-              nameCls = "text-purple-600 dark:text-purple-300";
+              nameCls = "text-gray-600 dark:text-gray-300";
               taskCls = "amx-sheen text-gray-500 dark:text-gray-400";
             }
             return (
               <div
                 key={i}
                 className={`flex items-baseline gap-1.5 min-w-0 rounded-md px-1 -mx-1 transition-colors duration-300 ${
-                  live ? "bg-purple-500/[0.08]" : ""
+                  live ? "bg-gray-500/[0.08]" : ""
                 }`}
               >
                 <span className="w-3 shrink-0 text-center">
-                  {done && <span className="text-purple-500">&#10003;</span>}
+                  {done && <span className="text-gray-500">&#10003;</span>}
                   {!done && live && <i className="amx-ring" />}
                   {!done && !live && <i className="amx-idle" />}
                 </span>
@@ -847,9 +853,9 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
                 <span
                   className={`ml-auto shrink-0 font-mono text-[10px] tabular-nums ${
                     done
-                      ? "text-purple-500/80 dark:text-purple-300/70"
+                      ? "text-gray-500/80 dark:text-gray-300/70"
                       : live
-                        ? "text-purple-600 dark:text-purple-300"
+                        ? "text-gray-600 dark:text-gray-300"
                         : "text-gray-300 dark:text-gray-700"
                   }`}
                 >
@@ -1390,17 +1396,27 @@ const STUDIO_CSS = `
 .amx-slab {
   background:
     radial-gradient(120% 140% at 50% -20%, rgba(255,255,255,0.07) 0%, rgba(255,255,255,0) 55%),
-    linear-gradient(180deg, #121216 0%, #0a0a0d 60%, #08080a 100%);
+    linear-gradient(180deg, #1c1c22 0%, #111115 45%, #09090b 100%);
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.10) inset,
-    0 18px 48px rgba(0,0,0,0.85),
-    0 0 44px -22px rgba(255,255,255,0.22);
+    inset 0 -2px 0 rgba(0,0,0,0.6),
+    inset 0 -14px 24px -14px rgba(0,0,0,0.8),
+    0 2px 0 #1d1d22,
+    0 3px 0 #141418,
+    0 4px 0 #0e0e11,
+    0 6px 10px rgba(0,0,0,0.7),
+    0 22px 44px -10px rgba(0,0,0,0.9);
 }
 .amx-slab:hover {
   box-shadow:
-    0 0 0 1px rgba(255,255,255,0.18) inset,
-    0 20px 54px rgba(0,0,0,0.9),
-    0 0 60px -20px rgba(255,255,255,0.35);
+    inset 0 -2px 0 rgba(0,0,0,0.6),
+    inset 0 -14px 24px -14px rgba(0,0,0,0.8),
+    0 2px 0 #212126,
+    0 3px 0 #18181c,
+    0 4px 0 #111114,
+    0 5px 0 #0c0c0e,
+    0 6px 0 #09090b,
+    0 10px 16px rgba(0,0,0,0.7),
+    0 28px 54px -10px rgba(0,0,0,0.95);
 }
 
 .amx-slab-stars {
@@ -1884,7 +1900,7 @@ const HeroSection: React.FC = () => {
         {/* Top Row: 2 Equal-Sized Premium Bento Cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
           {/* Equal Box 1: Neural Reasoning & Agentic Build */}
-          <div className="bg-[#F3F3F3] dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
+          <div className="bg-[#F3F3F3] dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:to-black rounded-2xl px-5 pt-5 pb-2 md:px-6 md:pt-6 md:pb-2 flex flex-col justify-between border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] font-mono text-[11px] text-gray-800 dark:text-gray-300 overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <AgentSession />
             <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 border-t border-gray-200/50 dark:border-white/10 pt-2.5 font-sans font-medium">
               <span className="font-mono text-gray-600 dark:text-gray-300 font-semibold amx-shimmer [--amx-shimmer-base:#4b5563] [--amx-shimmer-peak:#09090b] dark:[--amx-shimmer-base:#9ca3af] dark:[--amx-shimmer-peak:#ffffff]">Neural Reasoning &amp; Build</span>
@@ -1896,7 +1912,7 @@ const HeroSection: React.FC = () => {
           </div>
 
           {/* Equal Box 2: Autonomous Swarm Mesh */}
-          <div className="bg-[#F3F3F3] dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:to-black rounded-2xl p-5 md:p-6 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
+          <div className="bg-[#F3F3F3] dark:bg-gradient-to-b dark:from-[#0a0a0c] dark:to-black rounded-2xl px-5 pt-5 pb-2 md:px-6 md:pt-6 md:pb-2 flex flex-col border border-gray-200/80 dark:border-white/10 shadow-[0_10px_30px_-18px_rgba(15,23,42,0.45)] hover:shadow-[0_18px_44px_-18px_rgba(126,34,206,0.35)] overflow-hidden h-[240px] relative group hover:border-purple-300/60 dark:hover:border-purple-400/25 transition-all duration-500">
             <SwarmChat />
 
             <div className="shrink-0 flex items-center justify-between text-xs font-semibold text-gray-500 dark:text-gray-400 pt-2.5 border-t border-gray-200/50 dark:border-white/10 font-sans">
