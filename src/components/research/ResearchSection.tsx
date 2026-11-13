@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
+import { ArrowUpRight } from "lucide-react";
 
 interface UseCaseData {
   id: string;
@@ -249,6 +250,24 @@ const TAB_ART: Record<string, string> = {
   experiments: "/images/research-tabs/release.jpg",
 };
 
+/* Figures for the "Explore the data" previews. The speedups are the same
+   ones the Research tab below reports; the ledger rows show the fields a run
+   manifest records, not live runs. */
+const indexPreview = [
+  { label: "Vector index lookup", value: 5.12 },
+  { label: "Agent tool execution", value: 4.4 },
+  { label: "Zero-copy state sync", value: 3.85 },
+  { label: "Context compression", value: 3.1 },
+  { label: "Baseline", value: 1 },
+];
+
+const ledgerPreview = [
+  { run: "run-0412", data: "ds@9f3c1a", seed: "seed 7", hw: "8\u00d7H100", ok: true },
+  { run: "run-0411", data: "ds@9f3c1a", seed: "seed 3", hw: "8\u00d7H100", ok: true },
+  { run: "run-0409", data: "ds@51be07", seed: "seed 7", hw: "4\u00d7A100", ok: true },
+  { run: "run-0406", data: "ds@51be07", seed: "seed 1", hw: "4\u00d7A100", ok: false },
+];
+
 const ResearchSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("synthesis");
   const activeUseCase = useCases.find((u) => u.id === activeTab) || useCases[0];
@@ -322,6 +341,126 @@ const ResearchSection: React.FC = () => {
               <p className="text-[11px] sm:text-xs text-gray-500 dark:text-gray-400 leading-relaxed">{stat.note}</p>
             </div>
           ))}
+        </div>
+      </section>
+
+      {/* SECTION 1.5: EXPLORE THE DATA */}
+      <section className="py-20 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto border-t border-gray-200 dark:border-white/10 space-y-12">
+        <div className="mx-auto max-w-2xl space-y-3 text-center">
+          <h2 className="text-3xl sm:text-4xl font-medium tracking-tight text-gray-900 dark:text-white">
+            Explore the data
+          </h2>
+          <p className="text-sm sm:text-base leading-relaxed text-gray-600 dark:text-gray-400">
+            Two ways into the work: the results themselves, and the record of how each one was produced.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Card 1: the benchmark index, previewed as a live bar chart */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-34px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-[#0f0f11]"
+          >
+            <div className="relative overflow-hidden rounded-xl bg-[#0b0b0c] p-6 sm:p-7 antialiased">
+              <div className="relative flex items-center justify-between">
+                <span className="[font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[11.5px] uppercase tracking-[0.16em] text-white/60">Benchmark index</span>
+                <span className="[font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[12px] text-white/80">34 suites</span>
+              </div>
+              <div className="relative mt-6 space-y-3.5">
+                {indexPreview.map((row, i) => (
+                  <div key={row.label} className="grid grid-cols-[minmax(0,10.5rem)_1fr_4rem] items-center gap-3">
+                    <span className="truncate text-[14px] text-white/85">{row.label}</span>
+                    <div className="h-1.5 rounded-full bg-white/10">
+                      <motion.div
+                        className={`h-full rounded-full ${row.value === 1 ? "bg-white/35" : "bg-gradient-to-r from-[#c15f3c] to-[#f0a37c]"}`}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${(row.value / 5.12) * 100}%` }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.9, delay: 0.15 + i * 0.08, ease: [0.22, 1, 0.36, 1] }}
+                      />
+                    </div>
+                    <span className="text-right [font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[14px] tabular-nums text-white">
+                      {row.value.toFixed(2)}&times;
+                    </span>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-1 flex-col p-5 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-medium tracking-tight text-gray-900 dark:text-white">
+                The benchmark index
+              </h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                Results from 34 internal and peer-reviewed suites. Every figure links back to the run that produced it, so a number can be checked rather than taken on trust.
+              </p>
+              <Link
+                to="/research/publications"
+                className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full bg-gray-900 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-black dark:bg-white dark:text-gray-900 dark:hover:bg-gray-100"
+              >
+                Open the index
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </motion.div>
+
+          {/* Card 2: the run ledger, previewed as manifest rows */}
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.55, delay: 0.08, ease: [0.22, 1, 0.36, 1] }}
+            className="group flex flex-col rounded-2xl border border-gray-200 bg-white p-2 shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-34px_rgba(15,23,42,0.35)] dark:border-white/10 dark:bg-[#0f0f11]"
+          >
+            <div className="relative overflow-hidden rounded-xl bg-[#0b0b0c] p-6 sm:p-7 antialiased">
+              <div className="relative flex items-center justify-between">
+                <span className="[font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[11.5px] uppercase tracking-[0.16em] text-white/60">Run ledger</span>
+                <span className="flex items-center gap-1.5 [font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[12px] text-white/80">
+                  <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#f0a37c]" />
+                  recording
+                </span>
+              </div>
+              <div className="relative mt-6 divide-y divide-white/[0.07]">
+                {ledgerPreview.map((row, i) => (
+                  <motion.div
+                    key={row.run}
+                    initial={{ opacity: 0, x: -8 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.45, delay: 0.2 + i * 0.1 }}
+                    className="grid grid-cols-[5.25rem_1fr_auto] items-center gap-3 py-3 [font-family:'JetBrains_Mono',ui-monospace,SFMono-Regular,Menlo,monospace] text-[13px]"
+                  >
+                    <span className="text-white">{row.run}</span>
+                    <span className="truncate text-white/65">
+                      {row.data} &middot; {row.seed} &middot; {row.hw}
+                    </span>
+                    <span className={row.ok ? "text-[#f0a37c]" : "text-white/50"}>
+                      {row.ok ? "reproduced" : "diverged"}
+                    </span>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-1 flex-col p-5 sm:p-6">
+              <h3 className="text-lg sm:text-xl font-medium tracking-tight text-gray-900 dark:text-white">
+                The run ledger
+              </h3>
+              <p className="mt-2.5 text-sm leading-relaxed text-gray-600 dark:text-gray-400">
+                Each experiment ships with its manifest: dataset snapshot, pinned weights, seed and hardware. Runs that fail to reproduce stay in the record instead of disappearing from it.
+              </p>
+              <Link
+                to="/research/overview"
+                className="mt-6 inline-flex w-fit items-center gap-1.5 rounded-full border border-gray-300 px-5 py-2.5 text-sm font-medium text-gray-900 transition-colors hover:border-gray-900 dark:border-white/20 dark:text-white dark:hover:border-white"
+              >
+                See how runs are recorded
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
