@@ -136,7 +136,7 @@ const FeedRow: React.FC<{ item: Row }> = ({ item }) => {
     case "prompt": {
       const typing = item.typed < item.text.length;
       return (
-        <div className="my-1.5 px-3 py-1.5 rounded-lg bg-gradient-to-b from-white to-[#ececec] dark:from-[#2a2a2e] dark:to-[#18181b] shadow-[inset_0_1px_0_rgba(255,255,255,1),inset_0_-1px_0_rgba(15,23,42,0.06),0_1px_2px_rgba(15,23,42,0.12),0_8px_16px_-8px_rgba(15,23,42,0.35)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),inset_0_-1px_0_rgba(0,0,0,0.5),0_1px_2px_rgba(0,0,0,0.6),0_10px_20px_-10px_rgba(0,0,0,0.9)] flex items-baseline gap-2 min-w-0">
+        <div className="-mx-5 md:-mx-6 px-5 md:px-6 my-1 py-1 bg-gray-100 dark:bg-[#1f1f1f] shadow-[inset_0_1px_0_rgba(255,255,255,0.6),0_2px_6px_-2px_rgba(15,23,42,0.25)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.05),0_2px_8px_-2px_rgba(0,0,0,0.7)] flex items-baseline gap-2 min-w-0">
           <span className="text-[#1a1815] dark:text-[#1a1815] shrink-0">&rsaquo;</span>
           <span className="text-gray-900 dark:text-white font-semibold truncate">
             {item.text.slice(0, item.typed)}
@@ -361,18 +361,33 @@ const AgentSession: React.FC = () => {
             <span className="w-[7px] h-[7px] rounded-full bg-[#febc30] inline-block" />
             <span className="w-[7px] h-[7px] rounded-full bg-[#28c840] inline-block" />
           </span>
-          <span className="rounded-md bg-gradient-to-b from-white to-[#e9e9e9] dark:from-[#2a2a2e] dark:to-[#1b1b1e] px-2 py-0.5 text-gray-700 dark:text-[#d4d4d8] font-medium text-xs truncate ring-1 ring-black/[0.07] dark:ring-white/10 shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(15,23,42,0.14),0_3px_6px_-3px_rgba(15,23,42,0.3)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_1px_2px_rgba(0,0,0,0.6)]">
+          <span className="rounded-md bg-gray-900/[0.05] dark:bg-white/[0.07] px-1.5 py-px text-gray-700 dark:text-[#d4d4d8] font-medium text-xs truncate ring-1 ring-black/[0.04] dark:ring-white/10">
             Amthromax/Neural-Hoomer
           </span>
         </div>
         <div className="flex items-center gap-1.5 shrink-0">
           <span className="text-gray-300 dark:text-[#4b4b52]">|</span>
-          <span className="w-12 h-[6px] rounded-full bg-gray-200 dark:bg-black/60 overflow-hidden inline-block shadow-[inset_0_1px_2px_rgba(15,23,42,0.28)] dark:shadow-[inset_0_1px_2px_rgba(0,0,0,0.9)] ring-1 ring-black/[0.05] dark:ring-white/10">
-            <span
-              className="block h-full rounded-full bg-gradient-to-b from-[#c4a1ff] via-[#9b5cf6] to-[#7c3aed] shadow-[inset_0_1px_0_rgba(255,255,255,0.55),0_0_8px_rgba(168,85,247,0.6)] transition-[width] duration-500 ease-linear"
-              style={{ width: `${pct}%` }}
+          <svg viewBox="0 0 16 16" className="h-3.5 w-3.5 -rotate-90 drop-shadow-[0_0_3px_rgba(168,85,247,0.45)]" aria-hidden>
+            <defs>
+              <linearGradient id="amx-ring" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0%" stopColor="#c4a1ff" />
+                <stop offset="100%" stopColor="#7c3aed" />
+              </linearGradient>
+            </defs>
+            <circle cx="8" cy="8" r="6" fill="none" strokeWidth="2.5" className="stroke-gray-200 dark:stroke-white/10" />
+            <circle
+              cx="8"
+              cy="8"
+              r="6"
+              fill="none"
+              stroke="url(#amx-ring)"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              pathLength={100}
+              strokeDasharray={`${pct} 100`}
+              className="transition-[stroke-dasharray] duration-500 ease-linear"
             />
-          </span>
+          </svg>
           <span className="text-[10px] text-gray-600 dark:text-[#d4d4d8] font-mono tabular-nums">
             {pct.toFixed(1)}%
           </span>
@@ -713,7 +728,7 @@ const ChatRowView: React.FC<{ item: ChatRow }> = ({ item }) => {
     case "bot":
       return (
         <div className="amx-pop flex justify-start">
-          <span className="max-w-[92%] rounded-2xl rounded-bl-md bg-gradient-to-b from-white to-[#ececec] dark:from-[#26262a] dark:to-[#18181b] px-3 py-1.5 text-gray-700 dark:text-gray-200 font-medium shadow-[inset_0_1px_0_rgba(255,255,255,1),0_1px_2px_rgba(15,23,42,0.12),0_8px_16px_-8px_rgba(15,23,42,0.35)] dark:shadow-[inset_0_1px_0_rgba(255,255,255,0.08),0_1px_2px_rgba(0,0,0,0.6),0_10px_20px_-10px_rgba(0,0,0,0.9)]">
+          <span className="max-w-[92%] rounded-2xl rounded-bl-md bg-gray-100 dark:bg-white/[0.06] px-3 py-1.5 text-gray-700 dark:text-gray-200 font-medium">
             {item.text.slice(0, item.typed)}
             {item.typed < item.text.length && <i className="amx-tcaret" />}
           </span>
