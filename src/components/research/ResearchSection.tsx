@@ -386,7 +386,7 @@ const ResearchSection: React.FC = () => {
 
       {/* IN-BETWEEN HIGHLIGHT BOX SECTION WITH HIGH-DEFINITION METALLIC TEXTURE */}
       <section className="py-12 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto">
-        <div className="relative rounded-3xl h-[240px] sm:h-[280px] w-full border border-gray-800/80 dark:border-white/20 shadow-2xl overflow-hidden group">
+        <div className="relative rounded-3xl h-[240px] sm:h-[280px] w-full shadow-2xl overflow-hidden group">
           {/* Research and Technology banner */}
           <div
             role="img"
