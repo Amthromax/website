@@ -19,6 +19,7 @@ import PublicationsPage from "./components/research/PublicationsPage";
 import SafetyArchitecturePage from "./components/research/SafetyArchitecturePage";
 import CookieConsent from "./components/layout/CookieConsent";
 import ScrollToTop from "./components/layout/ScrollToTop";
+import { setLenis } from "./lib/lenis";
 import SolutionsPage from "./components/solutions/SolutionsPage";
 import { EnterprisesPage, SmallBusinessesPage, DevelopersPage } from "./components/solutions/WhyPages";
 import SEO from "./components/layout/SEO";
@@ -131,6 +132,7 @@ const App: React.FC = () => {
       touchMultiplier: 1.6,
       syncTouch: false,
     });
+    setLenis(lenis);
 
     let rafId: number;
     function raf(time: number) {
@@ -142,6 +144,7 @@ const App: React.FC = () => {
 
     return () => {
       cancelAnimationFrame(rafId);
+      setLenis(null);
       lenis.destroy();
     };
   }, []);

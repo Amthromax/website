@@ -241,6 +241,14 @@ const COLLABORATIONS = [
   },
 ];
 
+/* Artwork shown under the prompt card, one per tab. */
+const TAB_ART: Record<string, string> = {
+  synthesis: "/images/research-tabs/overview.jpg",
+  code: "/images/research-tabs/publication.jpg",
+  analysis: "/images/research-tabs/research.jpg",
+  experiments: "/images/research-tabs/release.jpg",
+};
+
 const ResearchSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState("synthesis");
   const activeUseCase = useCases.find((u) => u.id === activeTab) || useCases[0];
@@ -249,10 +257,10 @@ const ResearchSection: React.FC = () => {
     <div className="bg-white dark:bg-black text-gray-900 dark:text-white font-sans min-h-screen transition-colors duration-300 antialiased">
       
       {/* SECTION 1: HERO HEADER */}
-      <section className="relative pt-20 sm:pt-28 pb-16 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto overflow-hidden">
+      <section className="relative pt-20 sm:pt-28 pb-16 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
 
-          <div className="lg:col-span-7 space-y-7 z-10">
+          <div className="lg:col-span-6 space-y-7 z-10">
             <span className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.2em] text-gray-500 dark:text-gray-400">
               <span className="h-1.5 w-1.5 rounded-full bg-gray-900 dark:bg-white" />
               Amthromax Research
@@ -289,14 +297,13 @@ const ResearchSection: React.FC = () => {
           </div>
 
           {/* Hero visual */}
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-6 lg:mr-[min(0px,calc((1550px-100vw)/2))]">
             <div className="relative overflow-hidden rounded-3xl border border-gray-200 dark:border-white/15 bg-gray-50 dark:bg-[#0d0d0f] shadow-[0_1px_1px_rgba(15,23,42,0.04),0_24px_60px_-28px_rgba(15,23,42,0.4)]">
               <img
-                src="/images/amthromax_lab_workspace.jpg"
-                alt="A researcher working in the Amthromax Lab workspace"
-                loading="lazy"
+                src="/images/intelligence_beyond_limits.jpg"
+                alt="Amthromax: Intelligence Beyond Limits. Engineering intelligent solutions that shape the future of technology."
                 decoding="async"
-                className="w-full h-[280px] sm:h-[360px] lg:h-[420px] object-cover"
+                className="w-full h-auto aspect-[16/9] object-cover object-top"
               />
               <div className="pointer-events-none absolute inset-0 ring-1 ring-inset ring-black/[0.04] dark:ring-white/10 rounded-3xl" />
             </div>
@@ -563,14 +570,27 @@ const ResearchSection: React.FC = () => {
 
               </div>
 
-              {/* Right Floating Prompt Card */}
-              <div className="lg:col-span-4 bg-gray-100 dark:bg-[#141416] border border-gray-200 dark:border-white/15 rounded-2xl p-6 sm:p-8 space-y-3 shadow-2xl text-gray-900 dark:text-white">
-                <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">
-                  Prompt
-                </span>
-                <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 font-normal leading-relaxed">
-                  "{activeUseCase.promptText}"
-                </p>
+              {/* Right column: prompt card with its tab's artwork beneath */}
+              <div className="lg:col-span-4 space-y-6">
+                <div className="bg-gray-100 dark:bg-[#141416] border border-gray-200 dark:border-white/15 rounded-2xl p-6 sm:p-8 space-y-3 shadow-2xl text-gray-900 dark:text-white">
+                  <span className="text-xs font-bold text-gray-500 dark:text-gray-400 uppercase tracking-wider block">
+                    Prompt
+                  </span>
+                  <p className="text-xs sm:text-sm text-gray-700 dark:text-gray-200 font-normal leading-relaxed">
+                    "{activeUseCase.promptText}"
+                  </p>
+                </div>
+
+                {TAB_ART[activeUseCase.id] && (
+                  <img
+                    src={TAB_ART[activeUseCase.id]}
+                    alt=""
+                    aria-hidden="true"
+                    loading="lazy"
+                    decoding="async"
+                    className="w-full aspect-square rounded-2xl object-cover shadow-2xl"
+                  />
+                )}
               </div>
 
             </motion.div>
