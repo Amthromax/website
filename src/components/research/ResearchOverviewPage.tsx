@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { createPortal } from "react-dom";
-import { motion, AnimatePresence } from "framer-motion";
+import React from "react";
+import { motion } from "framer-motion";
 import { useInView } from "react-intersection-observer";
 import { Link } from "react-router-dom";
 import Footer from "../footer/Footer";
@@ -18,18 +17,6 @@ interface ModelCard {
     textLogo: string;
   };
   metrics: { label: string; value: string }[];
-}
-
-interface Publication {
-  title: string;
-  category: string;
-  date: string;
-  authors: string;
-  abstract: string;
-  venue: string;
-  readTime: string;
-  summary: string;
-  findings: string[];
 }
 
 /* How a question moves through the lab, start to finish. */
@@ -109,25 +96,7 @@ const PRINCIPLES = [
 const ResearchOverviewPage: React.FC = () => {
   const { ref: heroRef, inView: heroInView } = useInView({ triggerOnce: true });
   const { ref: focusRef, inView: focusInView } = useInView({ triggerOnce: true, threshold: 0.1 });
-  const { ref: papersRef, inView: papersInView } = useInView({ triggerOnce: true, threshold: 0.1 });
 
-  const [activePaper, setActivePaper] = useState<Publication | null>(null);
-
-  /* The dialog is portalled to <body> and closes on Escape; the page behind
-     it is frozen while it is open. */
-  useEffect(() => {
-    if (!activePaper) return;
-    const onKey = (e: KeyboardEvent) => {
-      if (e.key === "Escape") setActivePaper(null);
-    };
-    const prev = document.body.style.overflow;
-    document.body.style.overflow = "hidden";
-    window.addEventListener("keydown", onKey);
-    return () => {
-      document.body.style.overflow = prev;
-      window.removeEventListener("keydown", onKey);
-    };
-  }, [activePaper]);
 
   const models: ModelCard[] = [
     {
@@ -200,76 +169,6 @@ const ResearchOverviewPage: React.FC = () => {
     },
   ];
 
-  const publications: Publication[] = [
-    {
-      title: "Self-Correcting Autonomous Agent Swarms in Non-Deterministic Environments",
-      category: "Agent Systems",
-      date: "August 2026",
-      authors: "Dr. Elena Rostova, Marcus Vance",
-      abstract: "We introduce a dynamic directed acyclic graph (DAG) topology enabling LLM agents to verify intermediate states and self-heal during multi-step executions.",
-      venue: "Amthromax Benchmark Index, Vol. 4",
-      readTime: "14 min read",
-      summary:
-        "Long-running agent workflows fail in a characteristic way: an early step produces a plausible but wrong intermediate result, and every later step compounds it. This paper replaces the usual linear execution chain with a directed acyclic graph in which each node carries an explicit verification contract. When a node fails its contract, only the subgraph that depends on it is re-executed rather than the entire run.",
-      findings: [
-        "Shard-level replay cut end-to-end retry cost by an order of magnitude compared with full-run restarts.",
-        "Verification contracts caught the majority of compounding errors at the step that introduced them, not downstream.",
-        "Swarms held a 3-of-5 consensus quorum while individual agents were drained and replaced mid-run.",
-        "The topology degrades gracefully: losing a region reduces throughput without invalidating in-flight results.",
-      ],
-    },
-    {
-      title: "Sub-50ms Hybrid Vector-Graph Memory for Enterprise AGI Applications",
-      category: "Memory & Context",
-      date: "July 2026",
-      authors: "Dr. Sarah Chen, Amthromax AI Lab",
-      abstract: "Demonstrating a federated memory indexing engine that combines graph database relationships with ultra-dense vector embeddings for instant retrieval.",
-      venue: "Amthromax Technical Report Series",
-      readTime: "11 min read",
-      summary:
-        "Pure vector search retrieves passages that look similar; pure graph traversal retrieves records that are formally related. Neither alone answers questions that depend on both semantics and structure. This work describes a federated index that resolves a query against a dense embedding space and a relationship graph in the same pass, then merges the two candidate sets before ranking.",
-      findings: [
-        "Hybrid resolution returned structurally relevant passages that dense-only retrieval ranked outside the top fifty.",
-        "Index compaction reduced the stored footprint substantially while improving query throughput.",
-        "Provenance is preserved end to end, so every retrieved span can be traced to its source document.",
-        "The index federates across tenants without sharing embeddings between them.",
-      ],
-    },
-    {
-      title: "Zero-Trust Cryptographic Lattice Verification for Multi-Region Compute Grids",
-      category: "Security & Safety",
-      date: "May 2026",
-      authors: "Prof. Marcus Vance",
-      abstract: "A post-quantum cryptographic protocol for verifying model parameter weights and tensor operations across untrusted distributed edge nodes.",
-      venue: "Amthromax Security Research",
-      readTime: "16 min read",
-      summary:
-        "When inference is distributed across nodes you do not physically control, the open question is not whether the result arrived but whether it was computed from the weights you shipped. This paper describes a lattice-based attestation protocol that lets a coordinator verify both the parameter set and the tensor operations a remote node performed, without trusting the node itself.",
-      findings: [
-        "Attestation uses NIST-standard lattice primitives, so the scheme is not broken by future quantum decryption.",
-        "Verification cost stays bounded as the node count grows, because proofs are checked independently.",
-        "Drift between a deployed node and the release build is detected rather than silently tolerated.",
-        "Private keys never leave hardware enclaves, so a compromised node cannot impersonate a healthy one.",
-      ],
-    },
-    {
-      title: "Scalable Alignment via Recursive AI Oversight and Deliberative Traces",
-      category: "AI Safety",
-      date: "March 2026",
-      authors: "Amthromax Safety Research Division",
-      abstract: "Methods for training oversight models that analyze hidden reasoning traces to ensure alignment with human constitutional principles.",
-      venue: "Amthromax Safety Research",
-      readTime: "18 min read",
-      summary:
-        "Human review does not scale to the volume of decisions an agent platform makes. This paper studies oversight models trained to read a system's deliberative trace rather than only its output, scoring whether the stated reasoning actually supports the conclusion and whether it respects a written constitution. The oversight model is itself held to review, which is where the recursion in the title comes from.",
-      findings: [
-        "Trace-level review caught answers that were correct for the wrong reasons, which output-only scoring accepts.",
-        "Scoring the reasoning rather than the result made the signal harder to game through surface rewording.",
-        "Constitutional violations were flagged before deployment in red-team evaluation rather than after incidents.",
-        "Oversight remains auditable: every judgement keeps the trace and the rule it was judged against.",
-      ],
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-white dark:bg-black text-gray-900 dark:text-white font-sans selection:bg-black selection:text-white dark:selection:bg-white dark:selection:text-black transition-colors duration-300 antialiased">
@@ -666,63 +565,6 @@ const ResearchOverviewPage: React.FC = () => {
         </div>
       </section>
 
-      {/* Scientific Publications Section */}
-      <section ref={papersRef} className="border-t border-gray-200/80 dark:border-white/10 bg-[#f8f8fa] dark:bg-black py-24 transition-colors duration-300">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 space-y-14">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-gray-200 dark:border-white/10 pb-8">
-            <div className="space-y-3">
-              <span className="text-xs uppercase tracking-[0.2em] text-gray-900 dark:text-white font-semibold block">
-                Publications Index
-              </span>
-              <h2 className="text-3xl sm:text-4xl font-normal tracking-[-0.02em] text-gray-900 dark:text-white">
-                Selected Scientific Papers
-              </h2>
-            </div>
-            <Link
-              to="/research/publications"
-              className="text-sm font-semibold text-gray-900 dark:text-white hover:text-black dark:hover:text-white flex items-center gap-1.5 cursor-pointer"
-            >
-              <span>View full archive (140+ papers)</span>
-              <span>→</span>
-            </Link>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {publications.map((paper, idx) => (
-              <motion.button
-                key={paper.title}
-                type="button"
-                onClick={() => setActivePaper(paper)}
-                aria-label={`Read more about ${paper.title}`}
-                initial={{ opacity: 0, y: 16 }}
-                animate={papersInView ? { opacity: 1, y: 0 } : {}}
-                transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="text-left cursor-pointer bg-white dark:bg-black border border-gray-200/80 dark:border-white/10 rounded-lg p-7 sm:p-8 space-y-4 shadow-sm hover:shadow-md hover:border-gray-300 dark:hover:border-white/20 transition-all group focus:outline-none focus-visible:ring-2 focus-visible:ring-gray-900 dark:focus-visible:ring-white focus-visible:ring-offset-2"
-              >
-                <div className="flex items-center justify-between text-xs text-gray-500 dark:text-gray-400 font-medium">
-                  <span className="px-3 py-1 rounded-full bg-gray-50 dark:bg-white/10 border border-gray-200 dark:border-white/15 text-gray-900 dark:text-gray-300 font-semibold">
-                    {paper.category}
-                  </span>
-                  <span>{paper.date}</span>
-                </div>
-                <h3 className="text-xl font-medium text-gray-900 dark:text-white group-hover:text-black dark:group-hover:text-white transition-colors leading-snug">
-                  {paper.title}
-                </h3>
-                <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
-                  {paper.abstract}
-                </p>
-                <div className="pt-2 flex items-center justify-between gap-4 text-xs font-medium text-gray-400 dark:text-gray-500">
-                  <span className="truncate">Authors: {paper.authors}</span>
-                  <span className="shrink-0 text-gray-900 dark:text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                    Read paper &rarr;
-                  </span>
-                </div>
-              </motion.button>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Safety & Governance Banner */}
       <section className="max-w-7xl mx-auto px-6 py-24 bg-white dark:bg-black transition-colors duration-300">
         <div className="rounded-lg bg-[#f5f5f7] dark:bg-black border border-gray-200 dark:border-white/10 p-8 sm:p-14 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 shadow-sm">
@@ -745,106 +587,6 @@ const ResearchOverviewPage: React.FC = () => {
           </Link>
         </div>
       </section>
-
-      {/* Paper detail dialog */}
-      {createPortal(
-        <AnimatePresence>
-          {activePaper && (
-            <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              transition={{ duration: 0.2 }}
-              onClick={() => setActivePaper(null)}
-              role="dialog"
-              aria-modal="true"
-              aria-label={activePaper.title}
-              className="fixed inset-0 z-[100] flex items-start justify-center overflow-y-auto bg-black/60 backdrop-blur-sm p-4 sm:p-8"
-            >
-              <motion.article
-                initial={{ opacity: 0, y: 16, scale: 0.98 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 12, scale: 0.98 }}
-                transition={{ duration: 0.22, ease: "easeOut" }}
-                onClick={(e) => e.stopPropagation()}
-                className="relative my-auto w-full max-w-3xl rounded-2xl bg-white dark:bg-[#0b0b0d] border border-gray-200 dark:border-white/10 shadow-2xl p-7 sm:p-10 space-y-7"
-              >
-                <button
-                  type="button"
-                  onClick={() => setActivePaper(null)}
-                  aria-label="Close"
-                  className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center rounded-full text-gray-400 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
-                >
-                  &#10005;
-                </button>
-
-                <header className="space-y-4 pr-10">
-                  <div className="flex flex-wrap items-center gap-3 text-xs">
-                    <span className="px-3 py-1 rounded-full bg-gray-100 dark:bg-white/10 border border-gray-200 dark:border-white/15 font-medium text-gray-700 dark:text-gray-200">
-                      {activePaper.category}
-                    </span>
-                    <span className="text-gray-500 dark:text-gray-400">{activePaper.date}</span>
-                    <span className="text-gray-300 dark:text-gray-700">&bull;</span>
-                    <span className="text-gray-500 dark:text-gray-400">{activePaper.readTime}</span>
-                  </div>
-
-                  <h2 className="text-balance text-2xl sm:text-3xl font-normal tracking-[-0.02em] leading-snug text-gray-900 dark:text-white">
-                    {activePaper.title}
-                  </h2>
-
-                  <p className="text-xs text-gray-500 dark:text-gray-400">
-                    {activePaper.authors} &nbsp;&bull;&nbsp; {activePaper.venue}
-                  </p>
-                </header>
-
-                <div className="space-y-3 border-t border-gray-200 dark:border-white/10 pt-6">
-                  <h3 className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
-                    Abstract
-                  </h3>
-                  <p className="text-sm sm:text-base leading-relaxed text-gray-700 dark:text-gray-300">
-                    {activePaper.abstract}
-                  </p>
-                  <p className="text-sm leading-relaxed text-gray-600 dark:text-gray-400">
-                    {activePaper.summary}
-                  </p>
-                </div>
-
-                <div className="space-y-4 border-t border-gray-200 dark:border-white/10 pt-6">
-                  <h3 className="text-[11px] font-medium uppercase tracking-[0.18em] text-gray-500 dark:text-gray-400">
-                    Key findings
-                  </h3>
-                  <ul className="space-y-3">
-                    {activePaper.findings.map((finding) => (
-                      <li key={finding} className="flex gap-3 text-sm leading-relaxed text-gray-700 dark:text-gray-300">
-                        <span aria-hidden="true" className="mt-[9px] h-1 w-1 shrink-0 rounded-full bg-gray-900 dark:bg-white" />
-                        <span>{finding}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-3 border-t border-gray-200 dark:border-white/10 pt-6">
-                  <Link
-                    to="/research/publications"
-                    onClick={() => setActivePaper(null)}
-                    className="px-5 py-2.5 rounded-full bg-black text-white hover:bg-gray-800 dark:bg-white dark:text-black dark:hover:bg-gray-200 text-sm font-medium transition-colors"
-                  >
-                    Browse the archive
-                  </Link>
-                  <button
-                    type="button"
-                    onClick={() => setActivePaper(null)}
-                    className="px-5 py-2.5 rounded-full border border-gray-300 dark:border-white/20 text-sm font-medium text-gray-700 dark:text-gray-200 hover:bg-gray-100 dark:hover:bg-white/10 transition-colors cursor-pointer"
-                  >
-                    Close
-                  </button>
-                </div>
-              </motion.article>
-            </motion.div>
-          )}
-        </AnimatePresence>,
-        document.body,
-      )}
 
       <Footer />
     </div>

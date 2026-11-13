@@ -525,13 +525,13 @@ const ResearchSection: React.FC = () => {
 
       {/* IN-BETWEEN HIGHLIGHT BOX SECTION WITH HIGH-DEFINITION METALLIC TEXTURE */}
       <section className="py-12 px-6 sm:px-12 md:px-16 lg:px-20 max-w-[1550px] mx-auto">
-        <div className="relative rounded-3xl h-[240px] sm:h-[280px] w-full shadow-2xl overflow-hidden group">
+        <div className="relative rounded-3xl aspect-[2000/540] w-full shadow-2xl overflow-hidden group">
           {/* Research and Technology banner */}
           <div
             role="img"
             aria-label="Research and Technology"
-            className="absolute inset-0 bg-cover bg-[center_57%] transition-transform duration-700 scale-100 group-hover:scale-[1.01]"
-            style={{ backgroundImage: "url('/images/research_and_technology.jpg')" }}
+            className="absolute inset-0 bg-cover bg-top transition-transform duration-700 scale-100 group-hover:scale-[1.01]"
+            style={{ backgroundImage: "url('/images/research_and_technology_wide.jpg')" }}
           />
           {/* Specular Inner Edge Highlight */}
           <div className="absolute inset-0 rounded-3xl ring-1 ring-inset ring-white/20 pointer-events-none" />
